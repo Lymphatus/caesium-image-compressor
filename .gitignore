@@ -32,3 +32,6 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+
+#Build dir
+build

@@ -1,0 +1,98 @@
+QMainWindow, QHeaderView::section, QProgressDialog, QDialog, QGraphicsView {
+    background-color: #FFFFFF;
+    color: #757575;
+    border: none;
+}
+
+QTreeWidget {
+    background-color: #FFFFFF;
+    color: #757575;
+    border-bottom: 1px solid #757575;
+    margin-right: 5px;
+}
+
+QTreeWidget::item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    font-size: 14pt;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+QTreeWidget::item:hover {
+    color: #934ab8;
+    background-color: #F5F5F5;
+}
+
+QTreeWidget::item:selected {
+    color: #934ab8;
+    background-color: #EEEEEE;
+}
+
+QHeaderView {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    background-color: #FFFFFF;
+    color: #CCCCCC;
+    border-bottom: 1px solid #757575;
+}
+
+QHeaderView::section {
+    height: 25px;
+    padding-left: 5px;
+    border-right: 1px solid #33757575;
+}
+
+QProgressBar::chunk {
+    background-color: #934ab8;
+    border-radius: 2px;
+}
+
+QProgressBar {
+    border: 1px solid #b5b5b5;
+    border-radius: 3px;
+    height: 5px;
+    color: transparent;
+}
+
+QDialog {
+    color: #FFFFFF;
+}
+
+QTextEdit#exifTextEdit {
+    background: #FFFFFF;
+    color: #757575;
+    font-family: Monaco, monospace;
+    font-size: 11px;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 5px;
+}
+
+QLabel#imagePreviewLabel {
+    padding-top:3px;
+}
+
+QToolButton {
+    background-color: transparent;
+    border: none;
+    color: #757575;
+}
+
+/* OSX specific look */
+
+QMainWindow::separator {
+    background: transparent;
+}
+
+QStatusBar {
+        font-size: 11pt;
+}
+
+QStatusBar QLabel {
+        font-size: 11pt;
+}
+
+QStatusBar QToolButton {
+        font-size: 11pt;
+}
