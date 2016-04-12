@@ -1,51 +1,11 @@
-QMainWindow, QHeaderView::section, QProgressDialog, QDialog, QGraphicsView {
+/* OSX specific look */
+
+QDialog {
     background-color: #FFFFFF;
-    color: #757575;
-    border: none;
-}
-
-QTreeWidget {
-    background-color: #FFFFFF;
-    color: #757575;
-    border-bottom: 1px solid #757575;
-    margin-right: 5px;
-}
-
-QTreeWidget::item {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    font-size: 14pt;
-    border-bottom: 1px solid #CFCFCF;
-}
-
-QTreeWidget::item:hover {
-    color: #934ab8;
-    background-color: #F5F5F5;
-}
-
-QTreeWidget::item:selected {
-    color: #934ab8;
-    background-color: #EEEEEE;
-}
-
-QHeaderView {
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    padding-left: 8px;
-    background-color: #FFFFFF;
-    color: #CCCCCC;
-    border-bottom: 1px solid #757575;
-}
-
-QHeaderView::section {
-    height: 25px;
-    padding-left: 5px;
-    border-right: 1px solid #33757575;
 }
 
 QProgressBar::chunk {
-    background-color: #934ab8;
+    background-color: #AB47BC;
     border-radius: 2px;
 }
 
@@ -56,33 +16,40 @@ QProgressBar {
     color: transparent;
 }
 
-QDialog {
-    color: #FFFFFF;
-}
-
-QTextEdit#exifTextEdit {
-    background: #FFFFFF;
-    color: #757575;
-    font-family: Monaco, monospace;
-    font-size: 11px;
-    border-bottom: 1px solid #CCCCCC;
-    padding-bottom: 5px;
-}
-
-QLabel#imagePreviewLabel {
-    padding-top:3px;
-}
-
-QToolButton {
-    background-color: transparent;
-    border: none;
-    color: #757575;
-}
-
-/* OSX specific look */
-
 QMainWindow::separator {
     background: transparent;
+}
+
+QDockWidget::title {
+    padding-top: 10px;
+    height: 32px;
+}
+
+QDockWidget {
+    titlebar-close-icon: url(:/icons/ui/dock_close.png);
+    titlebar-normal-icon: url(:/icons/ui/dock_float.png);;
+
+}
+QDockWidget::close-button, QDockWidget::float-button {
+    width: 32px;
+    height: 32px;
+    icon-size: 32px;
+}
+
+QDockWidget::close-button {
+
+}
+
+QDockWidget::float-button {
+
+}
+
+QDockWidget::close-button:hover {
+    background-color: red;
+}
+
+QDockWidget::float-button:hover {
+
 }
 
 QStatusBar {
@@ -95,4 +62,14 @@ QStatusBar QLabel {
 
 QStatusBar QToolButton {
         font-size: 11pt;
+}
+
+QComboBox QAbstractItemView {
+    selection-color: white;
+    selection-background-color: #AB47BC;
+    background: white;
+}
+
+QListWidget {
+    font-size: 15px;
 }

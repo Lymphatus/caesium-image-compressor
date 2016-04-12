@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-01-04T10:23:20
+# Project created by QtCreator 2015-07-12T17:46:21
 #
 #-------------------------------------------------
 
@@ -34,40 +34,39 @@ unix {
 
 CONFIG += warn_off c++11
 
-SOURCES += main.cpp\
-        caesium.cpp \
-    aboutdialog.cpp \
-    cimageinfo.cpp \
-    utils.cpp \
-    exif.cpp \
-    preferencedialog.cpp \
-    usageinfo.cpp \
-    networkoperations.cpp \
-    qdroptreewidget.cpp \
-    ctreewidgetitem.cpp \
-    clist.cpp \
-    jpeg.cpp \
-    lodepng.cpp \
-    png.cpp
+SOURCES += src/main.cpp\
+    src/aboutdialog.cpp \
+    src/cimageinfo.cpp \
+    src/utils.cpp \
+    src/exif.cpp \
+    src/preferencedialog.cpp \
+    src/networkoperations.cpp \
+    src/qdroptreewidget.cpp \
+    src/caesium.cpp \
+    src/clist.cpp \
+    src/jpeg.cpp \
+    src/png.cpp \
+    src/lodepng.cpp
 
-HEADERS  += caesium.h \
-    aboutdialog.h \
-    cimageinfo.h \
-    utils.h \
-    exif.h \
-    preferencedialog.h \
-    usageinfo.h \
-    networkoperations.h \
-    qdroptreewidget.h \
-    ctreewidgetitem.h \
-    clist.h \
-    jpeg.h \
-    lodepng.h \
-    png.h
+HEADERS  += \
+    src/aboutdialog.h \
+    src/cimageinfo.h \
+    src/utils.h \
+    src/exif.h \
+    src/preferencedialog.h \
+    src/networkoperations.h \
+    src/qdroptreewidget.h \
+    src/ctreewidgetitem.h \
+    src/caesium.h \
+    src/clist.h \
+    src/jpeg.h \
+    src/lodepng.h \
+    src/png.h
 
-FORMS    += caesium.ui \
-    aboutdialog.ui \
-    preferencedialog.ui
+FORMS    += \
+    src/aboutdialog.ui \
+    src/preferencedialog.ui \
+    src/caesium.ui
 
 RESOURCES += \
     icons.qrc \
@@ -80,5 +79,8 @@ DISTFILES += \
     README.md \
     CHANGELOG.md \
     LICENSE \
-    TODO.md
+    TODO.md \
+    qt.conf
 
+TRANSLATIONS = translations/caesium_en_US.ts \
+    translations/caesium_it_IT.ts

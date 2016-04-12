@@ -1,51 +1,11 @@
-QMainWindow, QHeaderView::section, QProgressDialog, QDialog, QGraphicsView {
-    background-color: #FFFFFF;
-    color: #757575;
-    border: none;
-}
+/* Windows specific look */
 
-QTreeWidget {
-    background-color: #FFFFFF;
-    color: #757575;
-    border-bottom: 1px solid #757575;
-    margin-right: 5px;
-}
-
-QTreeWidget::item {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    font-size: 14pt;
-    border-bottom: 1px solid #CFCFCF;
-}
-
-QTreeWidget::item:hover {
-    color: #934ab8;
-    background-color: #F5F5F5;
-}
-
-QTreeWidget::item:selected {
-    color: #934ab8;
-    background-color: #EEEEEE;
-}
-
-QHeaderView {
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    padding-left: 8px;
-    background-color: #FFFFFF;
-    color: #CCCCCC;
-    border-bottom: 1px solid #757575;
-}
-
-QHeaderView::section {
-    height: 25px;
-    padding-left: 5px;
-    border-right: 1px solid #33757575;
+QDialog {
+    color: #FFFFFF;
 }
 
 QProgressBar::chunk {
-    background-color: #934ab8;
+    background-color: #AB47BC;
     border-radius: 2px;
 }
 
@@ -56,34 +16,6 @@ QProgressBar {
     color: transparent;
 }
 
-QDialog {
-    color: #FFFFFF;
-}
-
-QDockWidget {
-    background: #FFFFFF;
-}
-
-QDockWidget::title {
-    background: #FFFFFF;
-}
-
-QTextEdit {
-    background: #FFFFFF;
-    color: #757575;
-    font-family: "Lucida Console", Monaco, monospace;
-    border-bottom: 1px solid #CCCCCC;
-    padding-bottom: 5px;
-}
-
-QToolButton {
-    background-color: transparent;
-    border: none;
-    color: #757575;
-}
-
-/* Windows specific look */
-
 QMenu, QMenuBar {
     background-color: #FFFFFF;
 }
@@ -93,7 +25,7 @@ QMenuBar::item, QMenu::item {
 }
 
 QMenu::item:selected, QMenuBar::item:selected {
-    background-color: #22934ab8;
+    background-color: #221cb495;
     color: #757575;
 }
 
@@ -103,21 +35,26 @@ QMenu:separator {
     margin: 0px 5px 0px 5px;
 }
 
+QDockWidget {
+    titlebar-close-icon: url(:/icons/ui/dock_close.png);
+    titlebar-normal-icon: url(:/icons/ui/dock_float.png);
+}
+
 QPushButton, QDialogButtonBox {
     background-color: #FFFFFF;
-    border: 1px solid #934ab8;
+    border: 1px solid #AB47BC;
     padding: 3px 10px 4px 10px;
     color: #757575;
 }
 
 QLineEdit {
-    border: 1px solid #934ab8;
+    border: 1px solid #AB47BC;
     padding: 2px 5px 2px 5px;
 }
 
 QComboBox {
     background: none;
-    border: 1px solid #934ab8;
+    border: 1px solid #AB47BC;
     padding: 2px 5px 2px 5px;
 }
 
@@ -131,11 +68,11 @@ QComboBox::drop-down {
 }
 
 QComboBox QAbstractItemView {
-    border: 1px solid #934ab8;
+    border: 1px solid #AB47BC;
 }
 
 QAction:active {
-    background-color: #934ab8;
+    background-color: #AB47BC;
 }
 
 QLabel {
@@ -149,4 +86,8 @@ QStatusBar QToolButton {
 
 QStatusBar QFrame {
     background: transparent;
+}
+
+#languageWarningLabel {
+    font-size: 9px;
 }

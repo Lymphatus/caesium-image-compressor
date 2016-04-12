@@ -1,6 +1,6 @@
 ## Caesium (Cs-133)
-##### v2.0.0-beta1 (build 20160104) - Copyright &copy; Matteo Paonessa, 2016. All Rights Reserved.
-###### This version is not completed yet. Please read TODO.md
+##### v2.0.0-beta1 (build 20160411) - Copyright &copy; Matteo Paonessa, 2016. All Rights Reserved.
+###### WARNING This version is not completed yet! Use at your own risk!
 
 ----------
 
@@ -17,7 +17,6 @@
 
 ##### TESTED PLATFORMS
 * MacOSX El Capitan (v. 10.11.1)
-* Windows 10 64 bit
 
 ----------
 
@@ -25,13 +24,6 @@
 Binaries will be available soon.
 
 Linux source code must be compiled using Qt5.5.
-
-----------
-
-##### KNOWN ISSUES
-- Some images don't show in preview
-- The combobox selection is not clearly visible on OSX
-- Sorting by ```NEW SIZE``` uses a rounded value and may not be 100% accurate
 
 ----------
 
