@@ -42,13 +42,6 @@
 #define KEY_PREF_GENERAL_LOCALE_STRING QString("localeString")
 #define KEY_PREF_GENERAL_PROMPT QString("promptExit")
 
-//Compression group keys
-#define KEY_PREF_COMPRESSION_EXIF QString("exif")
-#define KEY_PREF_COMPRESSION_EXIF_COPYRIGHT QString("exifCopyright")
-#define KEY_PREF_COMPRESSION_EXIF_DATE QString("exifDate")
-#define KEY_PREF_COMPRESSION_EXIF_COMMENT QString("exifComment")
-#define KEY_PREF_COMPRESSION_PROGRESSIVE QString("progressive")
-
 //Geometry group keys
 #define KEY_PREF_GEOMETRY_SIZE QString("size")
 #define KEY_PREF_GEOMETRY_POS QString("pos")
@@ -77,9 +70,9 @@ private slots:
 
     void on_outputFileMethodComboBox_currentIndexChanged(int index);
     void on_browseButton_clicked();
-    void on_keepCopyrightCheckBox_toggled(bool checked);
-    void on_keepDateCheckBox_toggled(bool checked);
-    void on_keepCommentsCheckBox_toggled(bool checked);
+    //void on_keepCopyrightCheckBox_toggled(bool checked);
+    //void on_keepDateCheckBox_toggled(bool checked);
+    //void on_keepCommentsCheckBox_toggled(bool checked);
     void on_languageComboBox_currentIndexChanged(int index);
 
     void on_menuListWidget_currentRowChanged(int currentRow);

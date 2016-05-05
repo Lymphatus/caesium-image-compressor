@@ -26,12 +26,12 @@
 
 #include <QString>
 
-class CImageInfo
+class CImage
 {
 public:
-    CImageInfo(QString path);
-    CImageInfo();
-    virtual ~CImageInfo();
+    explicit CImage(QString path);
+    explicit CImage();
+    virtual ~CImage();
 
     QString getFullPath() const;
     void setFullPath(const QString &value);
@@ -56,6 +56,7 @@ public:
     QString getFormattedResolution() const;
 
 private:
+    //Base params
     QString fullPath;
     QString baseName;
     int size;

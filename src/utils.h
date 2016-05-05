@@ -31,29 +31,50 @@
 #include <QElapsedTimer>
 #include <QTreeWidgetItem>
 
-#define MAX_COLUMNS 7
+#include <jpeglib.h>
+#include <turbojpeg.h>
 
-typedef struct cclt_compress_parameters {
-    int quality;
-    int width;
-    int height;
-    char* output_folder;
-    int color_space;
-    int dct_method;
-    int exif_copy;
-    int lossless;
-    char** input_files;
-    int input_files_count;
-    int subsample;
-    int recursive;
-    int structure;
-} cclt_compress_parameters;
+#define MAX_COLUMNS 7
 
 enum cexifs {
     EXIF_COPYRIGHT,
     EXIF_DATE,
     EXIF_COMMENTS
 };
+
+typedef struct c_jpeg_parameters {
+    int quality;
+    int width;
+    int height;
+    int color_space;
+    int dct_method;
+    bool exif;
+    QList<cexifs> importantExifs;
+    bool lossless;
+    enum TJSAMP subsample;
+    bool progressive;
+} cclt_jpeg_parameters;
+
+typedef struct c_png_parameters {
+    int iterations;
+    int iterations_large;
+    int block_split_strategy;
+    int lossy_8;
+    int transparent;
+    int auto_filter_strategy;
+} cclt_png_parameters;
+
+typedef struct c_parameters {
+    c_jpeg_parameters jpeg;
+    c_png_parameters png;
+
+    int new_width;
+    int new_height;
+
+    bool overwrite;
+    int outMethodIndex;
+    QString outMethodString;
+} c_parameters;
 
 enum list_columns {
     COLUMN_NAME = 0,
@@ -65,14 +86,13 @@ enum list_columns {
     COLUMN_PATH = 6
 };
 
-typedef struct var {
-    int exif;
-    QList<cexifs> importantExifs;
-    int progressive;
-    bool overwrite;
-    int outMethodIndex;
-    QString outMethodString;
-} cparams;
+enum png_levels {
+    VERY_LOW = 0,
+    LOW = 1,
+    MEDIUM = 2,
+    HIGH = 3,
+    VERY_HIGH = 4
+};
 
 enum image_type {
     JPEG,
@@ -88,7 +108,7 @@ extern QString updateVersionTag;
 extern int buildNumber;
 extern long originalsSize, compressedSize; //Before and after bytes count
 extern int compressedFiles; //Compressed files count
-extern cparams params; //Important parameters
+extern c_parameters params; //Important parameters
 extern QStringList osAndExtension;
 extern QTemporaryDir tempDir;
 extern QElapsedTimer timer;
@@ -108,5 +128,6 @@ bool haveSameRootFolder(QList<QTreeWidgetItem *> items);
 QString toCapitalCase(const QString);
 void loadLocales();
 enum image_type detect_image_type(char* path);
+c_parameters initialize_compression_parameters();
 
 #endif // UTILS_H

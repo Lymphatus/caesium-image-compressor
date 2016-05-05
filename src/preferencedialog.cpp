@@ -77,15 +77,6 @@ void PreferenceDialog::writePreferences() {
     settings.setValue(KEY_PREF_GENERAL_PROMPT, ui->promptExitCheckBox->isChecked());
     settings.setValue(KEY_PREF_GENERAL_LOCALE, ui->languageComboBox->currentIndex());
     settings.endGroup();
-
-    //Compression
-    settings.beginGroup(KEY_PREF_GROUP_COMPRESSION);
-    settings.setValue(KEY_PREF_COMPRESSION_EXIF, ui->exifCheckBox->checkState());
-    settings.setValue(KEY_PREF_COMPRESSION_EXIF_COPYRIGHT, ui->keepCopyrightCheckBox->isChecked());
-    settings.setValue(KEY_PREF_COMPRESSION_EXIF_DATE, ui->keepDateCheckBox->isChecked());
-    settings.setValue(KEY_PREF_COMPRESSION_EXIF_COMMENT, ui->keepCommentsCheckBox->isChecked());
-    settings.setValue(KEY_PREF_COMPRESSION_PROGRESSIVE, ui->progressiveCheckBox->isChecked());
-    settings.endGroup();
 }
 
 void PreferenceDialog::readPreferences() {
@@ -97,15 +88,6 @@ void PreferenceDialog::readPreferences() {
     ui->outputFileMethodLineEdit->setText(settings.value(KEY_PREF_GENERAL_OUTPUT_STRING).value<QString>());
     ui->promptExitCheckBox->setChecked(settings.value(KEY_PREF_GENERAL_PROMPT).value<bool>());
     ui->languageComboBox->setCurrentIndex(settings.value(KEY_PREF_GENERAL_LOCALE).value<int>());
-    settings.endGroup();
-
-    //Compression
-    settings.beginGroup(KEY_PREF_GROUP_COMPRESSION);
-    ui->exifCheckBox->setCheckState(settings.value(KEY_PREF_COMPRESSION_EXIF).value<Qt::CheckState>());
-    ui->keepCopyrightCheckBox->setChecked(settings.value(KEY_PREF_COMPRESSION_EXIF_COPYRIGHT).value<bool>());
-    ui->keepDateCheckBox->setChecked(settings.value(KEY_PREF_COMPRESSION_EXIF_DATE).value<bool>());
-    ui->keepCommentsCheckBox->setChecked(settings.value(KEY_PREF_COMPRESSION_EXIF_COMMENT).value<bool>());
-    ui->progressiveCheckBox->setChecked(settings.value(KEY_PREF_COMPRESSION_PROGRESSIVE).value<bool>());
     settings.endGroup();
 }
 
@@ -136,7 +118,7 @@ void PreferenceDialog::on_browseButton_clicked() {
                                                   QFileDialog::ShowDirsOnly));
 }
 
-void PreferenceDialog::on_keepCopyrightCheckBox_toggled(bool checked) {
+/*void PreferenceDialog::on_keepCopyrightCheckBox_toggled(bool checked) {
     ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
 }
 
@@ -163,7 +145,7 @@ enum Qt::CheckState PreferenceDialog::getExifsCheckBoxGroupState() {
         //None is selected
         return Qt::Unchecked;
     }
-}
+}*/
 
 void PreferenceDialog::loadTranslations() {
     for (int i = 1; i < locales.length(); i++) {

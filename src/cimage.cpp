@@ -21,13 +21,13 @@
  *
  */
 
-#include "cimageinfo.h"
+#include "cimage.h"
 #include "utils.h"
 
 #include <QFileInfo>
 #include <QImageReader>
 
-CImageInfo::CImageInfo(QString path) {
+CImage::CImage(QString path) {
     QFileInfo* fi = new QFileInfo(path);
     fullPath = path;
     baseName = fi->completeBaseName();
@@ -39,67 +39,67 @@ CImageInfo::CImageInfo(QString path) {
     height = s.height();
 }
 
-CImageInfo::CImageInfo() {
+CImage::CImage() {
 
 }
 
-CImageInfo::~CImageInfo() {
+CImage::~CImage() {
 
 }
 
-QString CImageInfo::getFullPath() const {
+QString CImage::getFullPath() const {
     return fullPath;
 }
 
-void CImageInfo::setFullPath(const QString &value) {
+void CImage::setFullPath(const QString &value) {
     fullPath = value;
 }
 
-QString CImageInfo::getBaseName() const {
+QString CImage::getBaseName() const {
     return baseName;
 }
 
-void CImageInfo::setBaseName(const QString &value) {
+void CImage::setBaseName(const QString &value) {
     baseName = value;
 }
 
-int CImageInfo::getSize() const {
+int CImage::getSize() const {
     return size;
 }
 
-void CImageInfo::setSize(int value) {
+void CImage::setSize(int value) {
     size = value;
 }
 
-QString CImageInfo::getFormattedSize() const {
+QString CImage::getFormattedSize() const {
     return formattedSize;
 }
 
-void CImageInfo::setFormattedSize(const QString &value) {
+void CImage::setFormattedSize(const QString &value) {
     formattedSize = value;
 }
 
-bool CImageInfo::isEqual(QString path) {
+bool CImage::isEqual(QString path) {
     return (QString::compare(fullPath, path) == 0);
 }
 
-int CImageInfo::getHeight() const {
+int CImage::getHeight() const {
     return height;
 }
 
-void CImageInfo::setHeight(int value) {
+void CImage::setHeight(int value) {
     height = value;
 }
 
-int CImageInfo::getWidth() const {
+int CImage::getWidth() const {
     return width;
 }
 
-void CImageInfo::setWidth(int value) {
+void CImage::setWidth(int value) {
     width = value;
 }
 
-QString CImageInfo::getFormattedResolution() const {
+QString CImage::getFormattedResolution() const {
     return QString::number(width) + "x" + QString::number(height);
 }
 

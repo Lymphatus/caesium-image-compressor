@@ -95,15 +95,6 @@ border-right: none;</string>
          <normaloff>:/icons/settings/general.png</normaloff>:/icons/settings/general.png</iconset>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>Compression</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../icons.qrc">
-         <normaloff>:/icons/settings/compression.png</normaloff>:/icons/settings/compression.png</iconset>
-       </property>
-      </item>
      </widget>
     </item>
     <item row="1" column="1">
@@ -367,134 +358,6 @@ QPushButton:hover {
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="compressionPage">
-         <layout class="QGridLayout" name="gridLayout_3">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout_2">
-            <property name="sizeConstraint">
-             <enum>QLayout::SetMaximumSize</enum>
-            </property>
-            <item row="1" column="1" colspan="2">
-             <widget class="QCheckBox" name="keepCopyrightCheckBox">
-              <property name="text">
-               <string>Keep copyright</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <spacer name="horizontalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>15</width>
-                <height>5</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="2" column="1" colspan="2">
-             <widget class="QCheckBox" name="keepDateCheckBox">
-              <property name="text">
-               <string>Keep date</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1" colspan="2">
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>15</width>
-                <height>5</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="4" column="0" colspan="3">
-             <widget class="QCheckBox" name="progressiveCheckBox">
-              <property name="text">
-               <string>Progressive</string>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1" colspan="2">
-             <widget class="QCheckBox" name="keepCommentsCheckBox">
-              <property name="text">
-               <string>Keep comments</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="3">
-             <widget class="QCheckBox" name="exifCheckBox">
-              <property name="text">
-               <string>Keep EXIF information</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-              <property name="tristate">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <spacer name="horizontalSpacer_3">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>15</width>
-                <height>5</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
        </widget>
       </item>
      </layout>
@@ -513,12 +376,12 @@ QPushButton:hover {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>94</y>
+     <x>316</x>
+     <y>35</y>
     </hint>
     <hint type="destinationlabel">
-     <x>103</x>
-     <y>121</y>
+     <x>313</x>
+     <y>61</y>
     </hint>
    </hints>
   </connection>
@@ -529,60 +392,12 @@ QPushButton:hover {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>228</x>
-     <y>95</y>
+     <x>439</x>
+     <y>35</y>
     </hint>
     <hint type="destinationlabel">
-     <x>241</x>
-     <y>112</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>exifCheckBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>keepCopyrightCheckBox</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>106</x>
-     <y>86</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>106</x>
-     <y>93</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>exifCheckBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>keepDateCheckBox</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>106</x>
-     <y>86</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>106</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>exifCheckBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>keepCommentsCheckBox</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>106</x>
-     <y>86</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>106</x>
-     <y>106</y>
+     <x>506</x>
+     <y>58</y>
     </hint>
    </hints>
   </connection>
@@ -593,8 +408,8 @@ QPushButton:hover {
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>401</x>
-     <y>295</y>
+     <x>567</x>
+     <y>294</y>
     </hint>
     <hint type="destinationlabel">
      <x>282</x>

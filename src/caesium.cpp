@@ -26,13 +26,16 @@
 #include "aboutdialog.h"
 #include "utils.h"
 #include "jpeg.h"
-#include "cimageinfo.h"
+#include "cimage.h"
 #include "exif.h"
 #include "preferencedialog.h"
 #include "networkoperations.h"
 #include "qdroptreewidget.h"
 #include "ctreewidgetitem.h"
 #include "clist.h"
+#include "png.h"
+#include "cjpeg.h"
+#include "cpng.h"
 
 #include <QProgressDialog>
 #include <QFileDialog>
@@ -169,21 +172,6 @@ void Caesium::readPreferences() {
     //Read important parameters from settings
     QSettings settings;
 
-    settings.beginGroup(KEY_PREF_GROUP_COMPRESSION);
-    params.exif = settings.value(KEY_PREF_COMPRESSION_EXIF).value<bool>();
-    params.progressive = settings.value(KEY_PREF_COMPRESSION_PROGRESSIVE).value<bool>();
-    params.importantExifs.clear();
-    if (settings.value(KEY_PREF_COMPRESSION_EXIF_COPYRIGHT).value<bool>()) {
-        params.importantExifs.append(EXIF_COPYRIGHT);
-    }
-    if (settings.value(KEY_PREF_COMPRESSION_EXIF_DATE).value<bool>()) {
-        params.importantExifs.append(EXIF_DATE);
-    }
-    if (settings.value(KEY_PREF_COMPRESSION_EXIF_COMMENT).value<bool>()) {
-        params.importantExifs.append(EXIF_COMMENTS);
-    }
-    settings.endGroup();
-
     settings.beginGroup(KEY_PREF_GROUP_GENERAL);
     params.overwrite = settings.value(KEY_PREF_GENERAL_OVERWRITE).value<bool>();
     params.outMethodIndex = settings.value(KEY_PREF_GENERAL_OUTPUT_METHOD).value<int>();
@@ -269,9 +257,9 @@ void Caesium::on_actionAbout_Caesium_triggered() {
 void Caesium::on_actionAdd_pictures_triggered() {
     //Generate file dialog for import and call the progress dialog indicator
     QStringList fileList = QFileDialog::getOpenFileNames(this,
-                                  tr("Import files..."),
-                                  QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
-                                  inputFilter);
+                                                         tr("Import files..."),
+                                                         QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+                                                         inputFilter);
     if (!fileList.isEmpty()) {
         showImportProgressDialog(fileList);
     }
@@ -309,8 +297,8 @@ void Caesium::showImportProgressDialog(QStringList list) {
             continue;
         }
 
-        //Generate new CImageInfo
-        CImageInfo* currentItemInfo = new CImageInfo(list.at(i));
+        //Generate new CImage
+        CImage* currentItemInfo = new CImage(list.at(i));
 
         //Check if it has a duplicate
         if (hasADuplicateInList(currentItemInfo)) {
@@ -342,16 +330,16 @@ void Caesium::showImportProgressDialog(QStringList list) {
     //Show import stats in the status bar
     ui->statusBar->showMessage(duplicate_count > 0 ?
                                    QString::number(item_count) + tr(" files added to the list") + ", " +
-                                                   QString::number(duplicate_count) + tr(" duplicates found")
+                                   QString::number(duplicate_count) + tr(" duplicates found")
                                  : QString::number(item_count) + tr(" files added to the list"));
     updateStatusBarCount();
 }
 
 void Caesium::on_actionAdd_folder_triggered() {
     QString path = QFileDialog::getExistingDirectory(this,
-                                      tr("Select a folder to import..."),
-                                      QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
-                                      QFileDialog::ShowDirsOnly);
+                                                     tr("Select a folder to import..."),
+                                                     QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+                                                     QFileDialog::ShowDirsOnly);
     if (!path.isEmpty()) {
         showImportProgressDialog(QStringList() << path);
     }
@@ -378,10 +366,10 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
     //TODO
     if (params.overwrite) {
         if (QMessageBox::warning(this,
-                             tr("Warning"),
-                             tr("All files will be overwritten. This cannot be undone.\n Continue?"),
-                             QMessageBox::Ok,
-                             QMessageBox::Cancel) == QMessageBox::Cancel) {
+                                 tr("Warning"),
+                                 tr("All files will be overwritten. This cannot be undone.\n Continue?"),
+                                 QMessageBox::Ok,
+                                 QMessageBox::Cancel) == QMessageBox::Cancel) {
             return;
         }
     }
@@ -394,8 +382,29 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
     if (!outputPath.isNull()) {
         qDebug() << item->text(COLUMN_PATH) << "into" << outputPath << " -- START";
 
+        char* input = QStringToChar(inputPath);
+        char* output = QStringToChar(outputPath);
+
         //Not really necessary if we copy the whole EXIF data
-        Exiv2::ExifData exifData = getExifFromPath(QStringToChar(inputPath));
+        Exiv2::ExifData exifData = getExifFromPath(input);
+
+        enum image_type type = detect_image_type(input);
+
+        if (type == JPEG) {
+            CJPEG* image = new CJPEG(inputPath);
+            //Lossy processing just uses the compression method before optimizing
+            if (image->getQuality() > 0) {
+                cclt_jpeg_compress(output, cclt_jpeg_decompress(input, image), image);
+                //TODO Check memory leaks
+                //If we are using lossy compression, the input file is the output of
+                //the previous function
+                input = output;
+            }
+            //Optimize
+            cclt_jpeg_optimize(input, output, image, input);
+        } else if (type == PNG) {
+            cclt_png_optimize(input, output, &params.png);
+        }
 
         //BUG Sometimes files are empty. Check it out.
         //TODO Change to the actual compression routine (compression helper from CCLT?)
@@ -414,8 +423,8 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
 
 
         //Write important metadata as user requested
-        if (params.exif != 2 && !params.importantExifs.isEmpty()) {
-            writeSpecificExifTags(exifData, outputPath, params.importantExifs);
+        if (params.jpeg.exif != 2 && !params.jpeg.importantExifs.isEmpty()) {
+            writeSpecificExifTags(exifData, outputPath, params.jpeg.importantExifs);
         }
 
         //Gets new file info
@@ -567,6 +576,7 @@ void Caesium::on_actionCompress_triggered() {
 }
 
 void Caesium::compressionStarted() {
+    //TODO Initialize parameters
     //Start monitoring time while compressing
     timer.start();
 }
@@ -658,16 +668,16 @@ void Caesium::closeEvent(QCloseEvent *event) {
                                        QMessageBox::Ok | QMessageBox::Cancel);
         //Exit if OK, go back if Cancel
         switch (res) {
-            case QMessageBox::Ok:
-                qInfo() << "----------------- Caesium session stopped at "
+        case QMessageBox::Ok:
+            qInfo() << "----------------- Caesium session stopped at "
                     << QDateTime::currentDateTime().toString("dd.MM.yyyy hh:mm:ss") << "-----------------";
-                QFile(logPath).close();
-                event->accept();
-                break;
-            case QMessageBox::Cancel:
-                event->ignore();
-            default:
-                break;
+            QFile(logPath).close();
+            event->accept();
+            break;
+        case QMessageBox::Cancel:
+            event->ignore();
+        default:
+            break;
         }
     } else {
         qInfo() << "----------------- Caesium session stopped at "
@@ -697,7 +707,7 @@ void Caesium::updateAvailable(int version, QString versionTag, QString checksum)
     }
 }
 
-bool Caesium::hasADuplicateInList(CImageInfo *c) {
+bool Caesium::hasADuplicateInList(CImage *c) {
     for (int i = 0; i < ui->listTreeWidget->topLevelItemCount(); i++) {
         if (c->isEqual(ui->listTreeWidget->topLevelItem(i)->text(COLUMN_PATH))) {
             qInfo() << "Duplicate detected. Skipping";
@@ -710,9 +720,9 @@ bool Caesium::hasADuplicateInList(CImageInfo *c) {
 void Caesium::on_updateButton_clicked() {
     //Show a confirmation dialog
     int ret = QMessageBox::warning(this,
-                         tr("Update available"),
-                         tr("This will close Caesium. Do you really want to update now?"),
-                         QMessageBox::Ok | QMessageBox::Cancel);
+                                   tr("Update available"),
+                                   tr("This will close Caesium. Do you really want to update now?"),
+                                   QMessageBox::Ok | QMessageBox::Cancel);
     if (ret == QMessageBox::Ok) {
         QDesktopServices::openUrl(QUrl::fromLocalFile(updatePath));
         this->close();
@@ -736,7 +746,7 @@ void Caesium::updateStatusBarCount() {
 
     //If the list is empty, we got a call from the clear SIGNAL, so handle the general message too
     if (ui->listTreeWidget->topLevelItemCount() == 0) {
-       ui->statusBar->showMessage(tr("List cleared"));
+        ui->statusBar->showMessage(tr("List cleared"));
     }
 
     //Emit the itemsChanged SIGNAL for the TreeWidget
@@ -746,8 +756,8 @@ void Caesium::updateStatusBarCount() {
 void Caesium::on_actionShow_input_folder_triggered() {
     //Open the input folder
     QDesktopServices::openUrl(QUrl("file:///" +
-                                  QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)).dir().absolutePath(),
-                                        QUrl::TolerantMode));
+                                   QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)).dir().absolutePath(),
+                                   QUrl::TolerantMode));
 }
 
 void Caesium::on_actionShow_output_folder_triggered() {
@@ -755,10 +765,10 @@ void Caesium::on_actionShow_output_folder_triggered() {
     readPreferences();
     //Open the output folder
     QDesktopServices::openUrl(QUrl("file:///" +
-                                  QFileInfo(
+                                   QFileInfo(
                                        Caesium::getOutputPath(
                                            new QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)))).dir().absolutePath(),
-                                                QUrl::TolerantMode));
+                                   QUrl::TolerantMode));
 }
 
 void Caesium::createMenuActions() {
@@ -849,9 +859,9 @@ void Caesium::on_actionOpen_list_triggered() {
     //TODO Run an integrity check for the imported data and edit eventually
     //Get the filepath
     QString filePath = QFileDialog::getOpenFileName(this,
-                                  tr("Import files..."),
-                                  QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation),
-                                  clfFilter);
+                                                    tr("Import files..."),
+                                                    QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation),
+                                                    clfFilter);
     //If it's valid and not empty
     if (!filePath.isEmpty()) {
         //Clear the list first
@@ -901,3 +911,4 @@ void Caesium::startPreviewLoading() {
     ui->imagePreviewLabel->setMovie(loader);
     loader->start();
 }
+

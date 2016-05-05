@@ -36,7 +36,6 @@ CONFIG += warn_off c++11
 
 SOURCES += src/main.cpp\
     src/aboutdialog.cpp \
-    src/cimageinfo.cpp \
     src/utils.cpp \
     src/exif.cpp \
     src/preferencedialog.cpp \
@@ -46,11 +45,13 @@ SOURCES += src/main.cpp\
     src/clist.cpp \
     src/jpeg.cpp \
     src/png.cpp \
-    src/lodepng.cpp
+    src/lodepng.cpp \
+    src/cimage.cpp \
+    src/cjpeg.cpp \
+    src/cpng.cpp
 
 HEADERS  += \
     src/aboutdialog.h \
-    src/cimageinfo.h \
     src/utils.h \
     src/exif.h \
     src/preferencedialog.h \
@@ -61,7 +62,10 @@ HEADERS  += \
     src/clist.h \
     src/jpeg.h \
     src/lodepng.h \
-    src/png.h
+    src/png.h \
+    src/cimage.h \
+    src/cjpeg.h \
+    src/cpng.h
 
 FORMS    += \
     src/aboutdialog.ui \

@@ -24,7 +24,7 @@
 #ifndef CAESIUM_H
 #define CAESIUM_H
 
-#include "cimageinfo.h"
+#include "cimage.h"
 #include "clist.h"
 #include "ctreewidgetitem.h"
 
@@ -128,7 +128,7 @@ private:
     void createMenus();
 
     //Check list duplicates
-    bool hasADuplicateInList(CImageInfo* c);
+    bool hasADuplicateInList(CImage* c);
 
     //CList save function
     void saveCListToFile(QString path);
