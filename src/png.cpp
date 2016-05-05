@@ -5,8 +5,9 @@
 #include "lodepng.h"
 #include <zopflipng/zopflipng_lib.h>
 #include "png.h"
+#include "cpng.h"
 
-void cclt_png_optimize(char* input, char* output, cclt_png_parameters* pars) {
+void cclt_png_optimize(char* input, char* output, CPNG* image) {
     //TODO Error handling
     CZopfliPNGOptions png_options;
 
@@ -18,14 +19,14 @@ void cclt_png_optimize(char* input, char* output, cclt_png_parameters* pars) {
     unsigned char* resultpng;
     size_t resultpng_size;
 
-    png_options.num_iterations = pars->iterations;
-    png_options.num_iterations_large = pars->iterations_large;
-    png_options.block_split_strategy = pars->block_split_strategy;
+    png_options.num_iterations = image->getIterations();
+    png_options.num_iterations_large = image->getIterationsLarge();
+    png_options.block_split_strategy = image->getBlockSplitStrategy();
 
-    png_options.lossy_8bit = pars->lossy_8;
-    png_options.lossy_transparent = pars->transparent;
+    png_options.lossy_8bit = image->getLossy8Bit();
+    png_options.lossy_transparent = image->getTransparent();
 
-    png_options.auto_filter_strategy = pars->auto_filter_strategy;
+    png_options.auto_filter_strategy = image->getAutoFilterStrategy();
 
     if (lodepng_load_file(&orig_buffer, &orig_buffer_size, input) != 0) {
         fprintf(stderr, "[ERROR] Error while loading PNG.\n");

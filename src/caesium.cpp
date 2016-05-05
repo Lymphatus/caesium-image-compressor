@@ -403,7 +403,8 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
             //Optimize
             cclt_jpeg_optimize(input, output, image, input);
         } else if (type == PNG) {
-            cclt_png_optimize(input, output, &params.png);
+            CPNG* image = new CPNG(inputPath);
+            cclt_png_optimize(input, output, image);
         }
 
         //BUG Sometimes files are empty. Check it out.
@@ -470,8 +471,8 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
                 }
             }
         }
-        item->setText(2, toHumanSize(outputSize));
-        item->setText(3, getRatio(originalSize, outputSize));
+        item->setText(COLUMN_NEW_SIZE, toHumanSize(outputSize));
+        item->setText(COLUMN_SAVED, getRatio(originalSize, outputSize));
 
         //Global compression counters for the entire compression process
         originalsSize += originalSize;
