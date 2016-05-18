@@ -36,7 +36,7 @@
 QString clfFilter = "Caesium List File (*.clf)";
 QStringList inputFilterList = QStringList() << "*.jpg" << "*.jpeg" << "*.png";
 QString versionString = "2.0.0-beta1";
-int versionNumber = 100;
+int versionNumber = 00;
 int buildNumber = QDateTime::currentDateTime().toString("yyyyMMdd").toInt();
 QString updateVersionTag = "";
 long originalsSize = 0;
@@ -234,30 +234,3 @@ void loadLocales() {
     qInfo() << "Found locales" << locales;
 }
 
-void initialize_jpeg_parameters(c_parameters* par) {
-    par->jpeg.quality = 0;
-    par->jpeg.width = 0;
-    par->jpeg.height = 0;
-    par->jpeg.color_space = TJCS_RGB;
-    par->jpeg.dct_method = TJFLAG_FASTDCT;
-    par->jpeg.exif = false;
-    par->jpeg.lossless = true;
-}
-
-void initialize_png_parameters(c_parameters* par) {
-    par->png.iterations = 15;
-    par->png.iterations_large = 5;
-    par->png.block_split_strategy = 4;
-    par->png.lossy_8 = 1;
-    par->png.transparent = 1;
-    par->png.auto_filter_strategy = 1;
-}
-
-c_parameters initialize_compression_parameters() {
-    c_parameters par;
-
-    initialize_jpeg_parameters(&par);
-    initialize_png_parameters(&par);
-
-    return par;
-}

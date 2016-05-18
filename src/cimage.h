@@ -25,9 +25,11 @@
 #define CIMAGEINFO_H
 
 #include <QString>
+#include <QObject>
 
 class CImage
 {
+
 public:
     explicit CImage(QString path);
     explicit CImage();

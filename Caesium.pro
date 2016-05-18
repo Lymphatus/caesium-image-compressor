@@ -84,7 +84,8 @@ DISTFILES += \
     CHANGELOG.md \
     LICENSE \
     TODO.md \
-    qt.conf
+    qt.conf \
+    AUTHORS
 
 TRANSLATIONS = translations/caesium_en_US.ts \
     translations/caesium_it_IT.ts

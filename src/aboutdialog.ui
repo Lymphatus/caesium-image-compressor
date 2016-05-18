@@ -285,6 +285,7 @@ QDialog {
       <widget class="QLabel" name="titleLabel">
        <property name="font">
         <font>
+         <pointsize>14</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -301,7 +302,11 @@ QDialog {
       <widget class="QLabel" name="subtitleLabel">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
         </font>
        </property>
        <property name="text">

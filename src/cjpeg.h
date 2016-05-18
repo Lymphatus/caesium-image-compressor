@@ -7,6 +7,7 @@
 
 class CJPEG : public CImage
 {
+
 public:
     using CImage::CImage;
 
@@ -30,12 +31,14 @@ public:
 
     bool getProgressive() const;
     void setProgressive(bool value);
+    
+    QString toString();
 
 private:
-    int quality = 0;
+    int quality = 65;
     int color_space = TJCS_RGB;
     int dct_method = TJFLAG_FASTDCT;
-    bool exif = false;
+    bool exif = true;
     QList<cexifs> importantExifs = {};
     enum TJSAMP subsample;
     bool progressive = true;

@@ -172,11 +172,7 @@ void Caesium::readPreferences() {
     //Read important parameters from settings
     QSettings settings;
 
-    settings.beginGroup(KEY_PREF_GROUP_GENERAL);
-    params.overwrite = settings.value(KEY_PREF_GENERAL_OVERWRITE).value<bool>();
-    params.outMethodIndex = settings.value(KEY_PREF_GENERAL_OUTPUT_METHOD).value<int>();
-    params.outMethodString = settings.value(KEY_PREF_GENERAL_OUTPUT_STRING).value<QString>();
-    settings.endGroup();
+
 }
 
 //Button hover functions
@@ -271,8 +267,9 @@ void Caesium::showImportProgressDialog(QStringList list) {
 
     QProgressDialog progress(tr("Importing..."), tr("Cancel"), 0, list.count(), this);
     progress.setWindowIcon(QIcon(":/icons/main/logo.png"));
-    progress.show();
+    progress.setWindowFlags(Qt::FramelessWindowHint);
     progress.setWindowModality(Qt::WindowModal);
+    progress.show();
 
     //Actual added item count and duplicate count
     int item_count = 0;
@@ -293,7 +290,9 @@ void Caesium::showImportProgressDialog(QStringList list) {
         progress.setValue(i);
 
         //Validate extension
-        if (detect_image_type(QStringToChar(list.at(i))) == UNKN) {
+        image_type img_type = detect_image_type(QStringToChar(list.at(i)));
+
+        if (img_type == UNKN) {
             continue;
         }
 
@@ -307,17 +306,15 @@ void Caesium::showImportProgressDialog(QStringList list) {
         }
 
         //Populate list
-        //TODO Change to a more maintainable way
-        QStringList itemContent = QStringList() << currentItemInfo->getBaseName()
-                                                << currentItemInfo->getFormattedSize()
-                                                << ""
-                                                << currentItemInfo->getFormattedResolution()
-                                                << ""
-                                                << ""
-                                                << currentItemInfo->getFullPath();
+        CTreeWidgetItem* item = new CTreeWidgetItem(ui->listTreeWidget);
+        item->setText(COLUMN_NAME, currentItemInfo->getBaseName());
+        item->setText(COLUMN_ORIGINAL_SIZE, currentItemInfo->getFormattedSize());
+        item->setText(COLUMN_ORIGINAL_RESOLUTION, currentItemInfo->getFormattedResolution());
+        item->setText(COLUMN_OPTIONS, tr("Default"));
+        item->setText(COLUMN_PATH, currentItemInfo->getFullPath());
 
-        ui->listTreeWidget->addTopLevelItem(new CTreeWidgetItem(ui->listTreeWidget,
-                                                                itemContent));
+
+        ui->listTreeWidget->addTopLevelItem(item);
 
         item_count++;
 
@@ -402,6 +399,12 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
             }
             //Optimize
             cclt_jpeg_optimize(input, output, image, input);
+
+            //Write important metadata as user requested
+            if (image->getExif() && !image->getImportantExifs().isEmpty()) {
+                writeSpecificExifTags(exifData, outputPath, image->getImportantExifs());
+            }
+
         } else if (type == PNG) {
             CPNG* image = new CPNG(inputPath);
             cclt_png_optimize(input, output, image);
@@ -414,19 +417,6 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
                       params.exif,
                       params.progressive,
                       QStringToChar(inputPath));*/
-        int result = 0;
-
-        if (result < 0) {
-            qCritical() << "An error as occurred while compressing" << item->text(COLUMN_PATH) << "into" << outputPath;
-        } else {
-            qInfo() << item->text(COLUMN_PATH) << "into" << outputPath << " -- OK";
-        }
-
-
-        //Write important metadata as user requested
-        if (params.jpeg.exif != 2 && !params.jpeg.importantExifs.isEmpty()) {
-            writeSpecificExifTags(exifData, outputPath, params.jpeg.importantExifs);
-        }
 
         //Gets new file info
         QFileInfo* fileInfo = new QFileInfo(outputPath);
@@ -534,6 +524,10 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
 }
 
 void Caesium::on_actionCompress_triggered() {
+    //Return if list is empty
+    if (ui->listTreeWidget->topLevelItemCount() < 1) {
+        return;
+    }
     //Read preferences again
     readPreferences();
     //Reset counters
@@ -545,6 +539,7 @@ void Caesium::on_actionCompress_triggered() {
     QProgressDialog progressDialog;
     progressDialog.setWindowTitle(tr("Caesium"));
     progressDialog.setLabelText(tr("Compressing..."));
+    progressDialog.setWindowFlags(Qt::FramelessWindowHint);
 
     //Holds the list
     QList<CTreeWidgetItem*> list;

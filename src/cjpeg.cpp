@@ -70,3 +70,27 @@ void CJPEG::setProgressive(bool value)
 {
     progressive = value;
 }
+
+QString CJPEG::toString() {
+    QString final = "[";
+    
+    if (quality == 0) {
+        final.append(QObject::tr("Lossless") + ", ");
+    } else {
+        final.append(QObject::tr("Quality: ") + QString::number(quality) + ", ");
+    }
+    
+    final.append(QObject::tr("progressive") + ", ");
+    if (exif && importantExifs.length() == 3) { //All exifs
+        final.append(QObject::tr("exif: all"));
+    } else if (exif && !importantExifs.isEmpty()) { //Some exifs
+        final.append(QObject::tr("exif: "));
+        for (int i = 0; i < importantExifs.length() - 1; i++) {
+            final.append(importantExifs.at(i));
+        }
+        final.append(importantExifs.last());
+    }
+    final.append("]");
+    
+    return final;
+}
