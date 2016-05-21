@@ -27,13 +27,64 @@
 #include <QString>
 #include <QObject>
 
+#include "src/utils.h"
+
+typedef struct png_params {
+    int iterations = 15;
+    int iterationsLarge = 5;
+    int blockSplitStrategy = 4;
+    int lossy8Bit = 1;
+    int transparent = 1;
+    int autoFilterStrategy = 1;
+
+public:
+    int getIterations() const;
+    void setIterations(int value);
+    int getIterationsLarge() const;
+    void setIterationsLarge(int value);
+    int getLossy8Bit() const;
+    void setLossy8Bit(int value);
+    int getBlockSplitStrategy() const;
+    int getTransparent() const;
+    int getAutoFilterStrategy() const;
+} png_params;
+
+typedef struct jpeg_params {
+    int quality = 65;
+    int color_space = TJCS_RGB;
+    int dct_method = TJFLAG_FASTDCT;
+    bool exif = true;
+    QList<cexifs> importantExifs = {};
+    enum TJSAMP subsample;
+    bool progressive = true;
+
+public:
+    bool getProgressive() const;
+    void setProgressive(bool value);
+    int getQuality() const;
+    void setQuality(int value);
+    bool getExif() const;
+    void setExif(bool value);
+    QList<cexifs> getImportantExifs() const;
+    void setImportantExifs(const QList<cexifs> &value);
+    void setDct_method(int value);
+    void setSubsample(const TJSAMP &value);
+    void setColor_space(int value);
+    int getColor_space() const;
+    int getDct_method() const;
+    TJSAMP getSubsample() const;
+} jpeg_params;
+
 class CImage
 {
-
+    
 public:
     explicit CImage(QString path);
     explicit CImage();
     virtual ~CImage();
+
+    jpeg_params jparams;
+    png_params pparams;
 
     QString getFullPath() const;
     void setFullPath(const QString &value);
@@ -57,6 +108,14 @@ public:
 
     QString getFormattedResolution() const;
 
+    image_type getType() const;
+    void setType(const image_type &value);
+
+    QString printPNGParams();
+    QString printJPEGParams();
+
+    void setParameters();
+
 private:
     //Base params
     QString fullPath;
@@ -65,6 +124,8 @@ private:
     QString formattedSize;
     int width;
     int height;
+
+    image_type type;
 };
 
 #endif // CIMAGEINFO_H

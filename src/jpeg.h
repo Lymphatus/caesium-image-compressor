@@ -27,12 +27,12 @@
 #include <jpeglib.h>
 
 #include "utils.h"
-#include "cjpeg.h"
+#include "src/cimage.h"
 
-int cclt_jpeg_optimize(char* input_file, char* output_file, CJPEG* image, char* exif_src);
+int cclt_jpeg_optimize(char* input_file, char* output_file, CImage *image, char* exif_src);
 struct jpeg_decompress_struct cclt_get_markers(char* input);
-void cclt_jpeg_compress(char* output_file, unsigned char* image_buffer, CJPEG *image);
-unsigned char* cclt_jpeg_decompress(char* fileName, CJPEG *image);
+void cclt_jpeg_compress(char* output_file, unsigned char* image_buffer, CImage *image);
+unsigned char* cclt_jpeg_decompress(char* fileName, CImage *image);
 void jcopy_markers_execute (j_decompress_ptr srcinfo, j_compress_ptr dstinfo);
 
 

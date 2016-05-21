@@ -97,6 +97,9 @@ private slots:
     void startPreviewLoading();
 
 
+    void on_applyButton_clicked();
+
+
 private:
     Ui::Caesium *ui;
     QFutureWatcher<QImage> imageWatcher; //Image preview loader

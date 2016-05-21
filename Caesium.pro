@@ -17,7 +17,7 @@ macx {
     QMAKE_CXXFLAGS_CXX11 = -std=gnu++1y
     CONFIG *= c++11
     QMAKE_CXXFLAGS += -stdlib=libc++
-    LIBS += -L/usr/local/lib -lexiv2.14 -L/opt/mozjpeg/lib -ljpeg.62 -lturbojpeg -lzopflipng -stdlib=libc++
+    LIBS +=  -L/opt/mozjpeg/lib -L/usr/local/lib -ljpeg.62 -lturbojpeg -lzopflipng -lexiv2.14 -stdlib=libc++
     INCLUDEPATH += /opt/mozjpeg/include /usr/local/include
     ICON = icons/icons/icon.icns
 }
@@ -46,9 +46,7 @@ SOURCES += src/main.cpp\
     src/jpeg.cpp \
     src/png.cpp \
     src/lodepng.cpp \
-    src/cimage.cpp \
-    src/cjpeg.cpp \
-    src/cpng.cpp
+    src/cimage.cpp
 
 HEADERS  += \
     src/aboutdialog.h \
@@ -63,9 +61,7 @@ HEADERS  += \
     src/jpeg.h \
     src/lodepng.h \
     src/png.h \
-    src/cimage.h \
-    src/cjpeg.h \
-    src/cpng.h
+    src/cimage.h
 
 FORMS    += \
     src/aboutdialog.ui \

@@ -34,6 +34,12 @@ class CTreeWidgetItem : public QTreeWidgetItem
 public:
     CTreeWidgetItem(QTreeWidget* parent) : QTreeWidgetItem(parent) {}
     CTreeWidgetItem(QTreeWidget* parent, QStringList list) : QTreeWidgetItem(parent, list) {}
+    CTreeWidgetItem(QTreeWidget* parent, QString path) : QTreeWidgetItem(parent) {
+        image = new CImage(path);
+    }
+
+    CImage* image = NULL;
+
 private:
 
     bool operator< (const QTreeWidgetItem &other) const {

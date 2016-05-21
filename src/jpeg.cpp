@@ -31,7 +31,6 @@
 #include <math.h>
 
 #include "src/jpeg.h"
-#include "src/cjpeg.h"
 
 //TODO Error handling
 
@@ -68,7 +67,7 @@ struct jpeg_decompress_struct cclt_get_markers(char* input) {
     return einfo;
 }
 
-int cclt_jpeg_optimize(char* input_file, char* output_file, CJPEG* image, char* exif_src) {
+int cclt_jpeg_optimize(char* input_file, char* output_file, CImage* image, char* exif_src) {
     //TODO Bug on normal compress: the input file is a bogus long string
     //Happened with a (bugged) server connection
     //File pointer for both input and output
@@ -106,7 +105,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CJPEG* image, char* 
     jpeg_stdio_src(&srcinfo, fp);
 
     //Save EXIF info
-    if (image->getExif()) {
+    if (image->jparams.getExif()) {
         for (int m = 0; m < 16; m++) {
             jpeg_save_markers(&srcinfo, JPEG_APP0 + m, 0xFFFF);
         }
@@ -141,7 +140,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CJPEG* image, char* 
     //CRITICAL - This is the optimization step
     dstinfo.optimize_coding = TRUE;
     //Progressive
-    if (image->getProgressive()) {
+    if (image->jparams.getProgressive()) {
         jpeg_simple_progression(&dstinfo);
     }
 
@@ -152,7 +151,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CJPEG* image, char* 
     jpeg_write_coefficients(&dstinfo, dst_coef_arrays);
 
     //Write EXIF
-    if (image->getExif()) {
+    if (image->jparams.getExif()) {
         if (strcmp(input_file, exif_src) == 0) {
             jcopy_markers_execute(&srcinfo, &dstinfo);
         } else {
@@ -175,7 +174,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CJPEG* image, char* 
     return 0;
 }
 
-void cclt_jpeg_compress(char* output_file, unsigned char* image_buffer, CJPEG* image) {
+void cclt_jpeg_compress(char* output_file, unsigned char* image_buffer, CImage* image) {
     FILE* fp;
     tjhandle tjCompressHandle;
     unsigned char* output_buffer;
@@ -199,12 +198,12 @@ void cclt_jpeg_compress(char* output_file, unsigned char* image_buffer, CJPEG* i
        image->getWidth(),
        0,
        image->getHeight(),
-       image->getColor_space(),
+       image->jparams.getColor_space(),
        &output_buffer,
        &output_size,
-       image->getSubsample(),
-       image->getQuality(),
-       image->getDct_method());
+       image->jparams.getSubsample(),
+       image->jparams.getQuality(),
+       image->jparams.getDct_method());
 
    fwrite(output_buffer, output_size, 1, fp);
 
@@ -214,7 +213,7 @@ void cclt_jpeg_compress(char* output_file, unsigned char* image_buffer, CJPEG* i
 
 }
 
-unsigned char* cclt_jpeg_decompress(char* fileName, CJPEG* image) {
+unsigned char* cclt_jpeg_decompress(char* fileName, CImage* image) {
 
     //TODO I/O Error handling
 
@@ -239,10 +238,10 @@ unsigned char* cclt_jpeg_decompress(char* fileName, CJPEG* image) {
     image->setWidth(fileWidth);
     image->setHeight(fileHeight);
 
-    image->setSubsample((TJSAMP) jpegSubsamp);
-    image->setColor_space(colorSpace);
+    image->jparams.setSubsample((TJSAMP) jpegSubsamp);
+    image->jparams.setColor_space(colorSpace);
 
-    unsigned char* temp = tjAlloc(image->getWidth() * image->getHeight() * tjPixelSize[image->getColor_space()]);
+    unsigned char* temp = tjAlloc(image->getWidth() * image->getHeight() * tjPixelSize[image->jparams.getColor_space()]);
 
     res = tjDecompress2(tjDecompressHandle,
         sourceJpegBuffer,
@@ -251,8 +250,8 @@ unsigned char* cclt_jpeg_decompress(char* fileName, CJPEG* image) {
         image->getWidth(),
         0,
         image->getHeight(),
-        image->getColor_space(),
-        image->getDct_method());
+        image->jparams.getColor_space(),
+        image->jparams.getDct_method());
 
     tjDestroy(tjDecompressHandle);
 

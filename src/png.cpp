@@ -1,13 +1,10 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "lodepng.h"
 #include <zopflipng/zopflipng_lib.h>
 #include "png.h"
-#include "cpng.h"
 
-void cclt_png_optimize(char* input, char* output, CPNG* image) {
+void cclt_png_optimize(char* input, char* output, png_params* image) {
     //TODO Error handling
     CZopfliPNGOptions png_options;
 

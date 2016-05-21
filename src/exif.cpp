@@ -45,9 +45,6 @@ Exiv2::ExifData getExifFromPath(char* filename) {
         if (exifData.empty()) {
             std::string error(filename);
             error += ": No Exif data found in the file";
-
-            //TODO Translate
-            //throw Exiv2::Error(1, error);
         }
         return exifData;
     } catch (Exiv2::Error& e) {
@@ -62,8 +59,7 @@ Exiv2::ExifData getExifFromPath(char* filename) {
 
 QString exifDataToString(Exiv2::ExifData exifData) {
     if (exifData.empty()) {
-        //TODO Translate
-        return QString("No EXIF found");
+        return QString(QObject::tr("No EXIF found"));
     }
     try {
         Exiv2::ExifData::const_iterator end = exifData.end();
@@ -90,8 +86,7 @@ QString exifDataToString(Exiv2::ExifData exifData) {
         return final;
     } catch(Exiv2::Error& e) {
         std::cout << "Caught Exiv2 exception '" << e.what() << "'\n";
-        //TODO Translate
-        return QString("Error while reading EXIF");
+        return QString(QObject::tr("Error while reading EXIF"));
     }
 }
 

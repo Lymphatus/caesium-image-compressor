@@ -147,6 +147,18 @@ QScrollBar::sub-line:horizontal  {
 
 QTabWidget::pane {
     border: none;
+}
+
+QPushButton {
+	background-color: #AB47BC;
+	color: #FFFFFF;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+QPushButton:hover {
+	background-color: #AB47BC;
+	color: #FFFFFF;
 }</string>
   </property>
   <property name="locale">
@@ -421,19 +433,6 @@ QTabWidget::pane {
                 <zorder>iterationsLargeSpinBox</zorder>
                </widget>
               </item>
-              <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
              </layout>
             </widget>
             <widget class="QWidget" name="resizeTab">
@@ -555,11 +554,62 @@ QTabWidget::pane {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="applyButton">
-            <property name="text">
-             <string>Apply</string>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>180</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="applyButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="text">
+               <string>Apply</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
-           </widget>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -1361,8 +1411,8 @@ font-size: 24pt;</string>
      <y>98</y>
     </hint>
     <hint type="destinationlabel">
-     <x>639</x>
-     <y>128</y>
+     <x>838</x>
+     <y>127</y>
     </hint>
    </hints>
   </connection>
@@ -1393,8 +1443,8 @@ font-size: 24pt;</string>
      <y>102</y>
     </hint>
     <hint type="destinationlabel">
-     <x>787</x>
-     <y>150</y>
+     <x>838</x>
+     <y>159</y>
     </hint>
    </hints>
   </connection>

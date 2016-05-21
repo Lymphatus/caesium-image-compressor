@@ -34,8 +34,6 @@
 #include "ctreewidgetitem.h"
 #include "clist.h"
 #include "png.h"
-#include "cjpeg.h"
-#include "cpng.h"
 
 #include <QProgressDialog>
 #include <QFileDialog>
@@ -287,7 +285,7 @@ void Caesium::showImportProgressDialog(QStringList list) {
             }
         }
 
-        progress.setValue(i);
+        progress.setValue(i);        
 
         //Validate extension
         image_type img_type = detect_image_type(QStringToChar(list.at(i)));
@@ -296,23 +294,21 @@ void Caesium::showImportProgressDialog(QStringList list) {
             continue;
         }
 
-        //Generate new CImage
-        CImage* currentItemInfo = new CImage(list.at(i));
+        CTreeWidgetItem* item = new CTreeWidgetItem(ui->listTreeWidget, list.at(i));
 
         //Check if it has a duplicate
-        if (hasADuplicateInList(currentItemInfo)) {
+        if (hasADuplicateInList(item->image)) {
             duplicate_count++;
             continue;
         }
 
         //Populate list
-        CTreeWidgetItem* item = new CTreeWidgetItem(ui->listTreeWidget);
-        item->setText(COLUMN_NAME, currentItemInfo->getBaseName());
-        item->setText(COLUMN_ORIGINAL_SIZE, currentItemInfo->getFormattedSize());
-        item->setText(COLUMN_ORIGINAL_RESOLUTION, currentItemInfo->getFormattedResolution());
+        item->setText(COLUMN_NAME, item->image->getBaseName());
+        item->setText(COLUMN_ORIGINAL_SIZE, item->image->getFormattedSize());
+        item->setText(COLUMN_ORIGINAL_RESOLUTION, item->image->getFormattedResolution());
         item->setText(COLUMN_OPTIONS, tr("Default"));
-        item->setText(COLUMN_PATH, currentItemInfo->getFullPath());
-
+        //item->setText(COLUMN_OPTIONS, item->image->getType() == PNG ? item->image->printPNGParams() : item->image->printJPEGParams());
+        item->setText(COLUMN_PATH, item->image->getFullPath());
 
         ui->listTreeWidget->addTopLevelItem(item);
 
@@ -385,29 +381,25 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
         //Not really necessary if we copy the whole EXIF data
         Exiv2::ExifData exifData = getExifFromPath(input);
 
-        enum image_type type = detect_image_type(input);
-
-        if (type == JPEG) {
-            CJPEG* image = new CJPEG(inputPath);
+        if (item->image->getType() == JPEG) {
             //Lossy processing just uses the compression method before optimizing
-            if (image->getQuality() > 0) {
-                cclt_jpeg_compress(output, cclt_jpeg_decompress(input, image), image);
+            if (item->image->jparams.getQuality() > 0) {
+                cclt_jpeg_compress(output, cclt_jpeg_decompress(input, item->image), item->image);
                 //TODO Check memory leaks
                 //If we are using lossy compression, the input file is the output of
                 //the previous function
                 input = output;
             }
             //Optimize
-            cclt_jpeg_optimize(input, output, image, input);
+            cclt_jpeg_optimize(input, output, item->image, input);
 
             //Write important metadata as user requested
-            if (image->getExif() && !image->getImportantExifs().isEmpty()) {
-                writeSpecificExifTags(exifData, outputPath, image->getImportantExifs());
+            if (item->image->jparams.getExif() && !item->image->jparams.getImportantExifs().isEmpty()) {
+                writeSpecificExifTags(exifData, outputPath, item->image->jparams.getImportantExifs());
             }
 
-        } else if (type == PNG) {
-            CPNG* image = new CPNG(inputPath);
-            cclt_png_optimize(input, output, image);
+        } else if (item->image->getType() == PNG) {
+            cclt_png_optimize(input, output, &item->image->pparams);
         }
 
         //BUG Sometimes files are empty. Check it out.
@@ -908,3 +900,38 @@ void Caesium::startPreviewLoading() {
     loader->start();
 }
 
+
+void Caesium::on_applyButton_clicked() {
+    if (ui->listTreeWidget->selectedItems().length() > 0) {
+        foreach (QTreeWidgetItem* qItem, ui->listTreeWidget->selectedItems()) {
+            CTreeWidgetItem* item = (CTreeWidgetItem*) qItem;
+            if (item->image->getType() == JPEG) {
+                if (ui->losslessCheckBox->isChecked()) {
+                    item->image->jparams.setQuality(0);
+                } else {
+                    item->image->jparams.setQuality(ui->qualitySlider->value());
+                }
+                item->image->jparams.setExif(ui->exifCheckBox->isChecked());
+                item->image->jparams.setProgressive(ui->progressiveCheckBox->isChecked());
+                QList<cexifs> exifs;
+                if (ui->copyrightCheckBox->isChecked()) {
+                    exifs.append(EXIF_COPYRIGHT);
+                }
+                if (ui->dateCheckBox->isChecked()) {
+                    exifs.append(EXIF_DATE);
+                }
+                if (ui->commentsCheckBox->isChecked()) {
+                    exifs.append(EXIF_COMMENTS);
+                }
+                item->image->jparams.setImportantExifs(exifs);
+                item->setText(COLUMN_OPTIONS, item->image->printJPEGParams());
+            } else if (item->image->getType() == PNG) {
+                item->image->pparams.setIterations(ui->iterationsSpinBox->value());
+                item->image->pparams.setIterationsLarge(ui->iterationsLargeSpinBox->value());
+                item->image->pparams.setLossy8Bit(ui->lossy8CheckBox->isChecked());
+                item->setText(COLUMN_OPTIONS, item->image->printPNGParams());
+            }
+
+        }
+    }
+}
