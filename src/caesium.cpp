@@ -170,7 +170,11 @@ void Caesium::readPreferences() {
     //Read important parameters from settings
     QSettings settings;
 
-
+    settings.beginGroup(KEY_PREF_GROUP_GENERAL);
+    params.overwrite = settings.value(KEY_PREF_GENERAL_OVERWRITE).value<bool>();
+    params.outMethodIndex = settings.value(KEY_PREF_GENERAL_OUTPUT_METHOD).value<int>();
+    params.outMethodString = settings.value(KEY_PREF_GENERAL_OUTPUT_STRING).value<QString>();
+    settings.endGroup();
 }
 
 //Button hover functions
@@ -384,6 +388,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
         if (item->image->getType() == JPEG) {
             //Lossy processing just uses the compression method before optimizing
             if (item->image->jparams.getQuality() > 0) {
+                qDebug() << "LOSSY";
                 cclt_jpeg_compress(output, cclt_jpeg_decompress(input, item->image), item->image);
                 //TODO Check memory leaks
                 //If we are using lossy compression, the input file is the output of
@@ -391,6 +396,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
                 input = output;
             }
             //Optimize
+            qDebug() << "LOSSLESS";
             cclt_jpeg_optimize(input, output, item->image, input);
 
             //Write important metadata as user requested
@@ -475,13 +481,13 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
         */
         if (tempDir.isValid()) {
             //Unique temporary directory
-            outputPath = tempDir.path() + QDir::separator() + originalInfo->fileName();
+            outputPath = tempDir.path() + "/" + originalInfo->fileName();
         } else {
             qFatal("Cannot create a temporary folder. Abort.");
             exit(-1);
         }
     } else {
-        QDir dir(originalInfo->path() + QDir::separator() + params.outMethodString + QDir::separator());
+        QDir dir(originalInfo->path() + "/" + params.outMethodString + "/");
         switch (params.outMethodIndex) {
         case 0:
             //Add a suffix
@@ -490,7 +496,7 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
             break;
         case 1:
             //Compress in a subfolder
-            outputPath = originalInfo->path() + QDir::separator() + params.outMethodString + QDir::separator() + originalInfo->fileName();
+            outputPath = originalInfo->path() + "/" + params.outMethodString + "/" + originalInfo->fileName();
             //Create it
             if (!dir.mkdir(dir.path()) && !dir.exists()) {
                 ui->statusBar->showMessage(tr("ERROR: could not create output folder. Check user permissions."));
@@ -500,7 +506,7 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
             break;
         case 2:
             //Compress in a custom directory
-            outputPath = params.outMethodString + QDir::separator() + originalInfo->fileName();
+            outputPath = params.outMethodString + "/" + originalInfo->fileName();
             if (!QDir().mkdir(params.outMethodString) && !QDir(params.outMethodString).exists()) {
                 ui->statusBar->showMessage(tr("ERROR: could not create output folder. Check user permissions."));
                 qCritical() << "Cannot create output directory. Abort current operation";

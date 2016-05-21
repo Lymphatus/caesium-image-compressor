@@ -23,8 +23,8 @@ macx {
 }
 
 win32 {
-    LIBS += -LC:\\mozjpeg\\lib -ljpeg -LC:\\exiv2\\src\\.libs -lexiv2 -lturbojpeg -lzopflipng
-    INCLUDEPATH += C:\\mozjpeg\\include C:\\exiv2\\include
+    LIBS += -LC:\\mozjpeg\\lib -LC:\\zopfli -ljpeg -LC:\\exiv2\\src\\.libs -lexiv2 -lturbojpeg -lzopflipng
+    INCLUDEPATH += C:\\mozjpeg\\include C:\\exiv2\\include C:\\zopfli\\src
     RC_ICONS = icons/main/icon.ico
 }
 

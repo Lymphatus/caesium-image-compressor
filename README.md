@@ -1,5 +1,5 @@
 ## Caesium (Cs-133)
-##### v2.0.0-beta1 (build 20160516) - Copyright &copy; Matteo Paonessa, 2016. All Rights Reserved.
+##### v2.0.0-beta1 (build 20160521) - Copyright &copy; Matteo Paonessa, 2016. All Rights Reserved.
 ###### WARNING This version is not completed yet! Use at your own risk!
 
 ----------
@@ -16,6 +16,7 @@
 ----------
 
 ##### TESTED PLATFORMS
+* Windows 10 64bit
 * MacOSX El Capitan (v. 10.11.4)
 
 ----------

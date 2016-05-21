@@ -30,6 +30,8 @@
 #include <turbojpeg.h>
 #include <math.h>
 
+#include <QDebug>
+
 #include "src/jpeg.h"
 
 //TODO Error handling
@@ -43,7 +45,7 @@ struct jpeg_decompress_struct cclt_get_markers(char* input) {
     jpeg_create_decompress(&einfo);
 
     //Open the input file
-    fp = fopen(input, "r");
+    fp = fopen(input, "rb");
 
     //Check for errors
     //TODO Use UNIX error messages
@@ -92,7 +94,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CImage* image, char*
 
 
     //Open the input file
-    fp = fopen(input_file, "r");
+    fp = fopen(input_file, "rb");
 
     //Check for errors
     //TODO Use UNIX error messages
@@ -110,7 +112,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CImage* image, char*
             jpeg_save_markers(&srcinfo, JPEG_APP0 + m, 0xFFFF);
         }
     }
-
+    qDebug() << input_file;
     //Read the input headers
     (void) jpeg_read_header(&srcinfo, TRUE);
 
@@ -129,7 +131,7 @@ int cclt_jpeg_optimize(char* input_file, char* output_file, CImage* image, char*
     fclose(fp);
 
     //Open the output one instead
-    fp = fopen(output_file, "w+");
+    fp = fopen(output_file, "wb");
     //Check for errors
     //TODO Use UNIX error messages
     if (fp == NULL) {
@@ -253,6 +255,7 @@ unsigned char* cclt_jpeg_decompress(char* fileName, CImage* image) {
         image->jparams.getColor_space(),
         image->jparams.getDct_method());
 
+    fclose(file);
     tjDestroy(tjDecompressHandle);
 
     return temp;

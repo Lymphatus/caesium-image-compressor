@@ -157,8 +157,8 @@ enum image_type detect_image_type(char* path) {
     fp = fopen(path, "r");
 
     if (fp == NULL) {
-        fprintf(stderr, "Cannot open input file for type detection. Aborting.\n");
-        exit(-14);
+        fprintf(stderr, "Cannot open input file for type detection. Skipping.\n");
+        return UNKN;
     }
     //Read enough bytes
     if (fread(type_buffer, 1, 2, fp) < 2) {
