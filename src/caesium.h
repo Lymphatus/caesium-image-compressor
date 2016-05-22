@@ -57,7 +57,7 @@ public:
     QString getOutputPath(QFileInfo *originalInfo);
 
     //Compress routine
-    void compressRoutine(CTreeWidgetItem* );
+    void compressRoutine(CTreeWidgetItem* , bool preview = false, QString previewPath = NULL);
 
 signals:
     void dropAccepted(QStringList);
@@ -74,7 +74,8 @@ private slots:
     void on_sidePanelDockWidget_visibilityChanged(bool visible);
     void on_showSidePanelButton_clicked(bool checked);
     void on_listTreeWidget_itemSelectionChanged();
-    QImage loadImagePreview(QString path);
+    QImage loadImage(QString path);
+    void finishImageLoading(int i);
     void finishPreviewLoading(int i);
     void closeEvent(QCloseEvent *event);
     void on_settingsButton_clicked();
@@ -95,14 +96,15 @@ private slots:
     void testSignal();
     void on_exifTextEdit_textChanged();
     void startPreviewLoading();
-
-
     void on_applyButton_clicked();
-
+    void on_previewButton_clicked();
+    void loadPreview(QString path);
+    QString calculatePreviewHashPath(CTreeWidgetItem* );
 
 private:
     Ui::Caesium *ui;
-    QFutureWatcher<QImage> imageWatcher; //Image preview loader
+    QFutureWatcher<QImage> imageWatcher; //Image loader
+    QFutureWatcher<QImage> imagePreviewWatcher; //Image preview loader
     //Status bar widgets
     QToolButton* updateButton = new QToolButton();
     QFrame* statusStatusBarLine = new QFrame();

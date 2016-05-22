@@ -143,6 +143,7 @@ void Caesium::initializeConnections() {
     //List clear
     connect(ui->actionClear_list, SIGNAL(triggered()), ui->listTreeWidget, SLOT(clear()));
     connect(ui->actionClear_list, SIGNAL(triggered()), this, SLOT(updateStatusBarCount()));
+    connect(ui->actionClear_list, SIGNAL(triggered()), this, SLOT(clearUI()));
     //List select all
     connect(ui->actionSelect_all, SIGNAL(triggered()), ui->listTreeWidget, SLOT(selectAll()));
     //UI buttons
@@ -152,6 +153,7 @@ void Caesium::initializeConnections() {
     connect(ui->removeItemButton, SIGNAL(released()), this, SLOT(on_actionRemove_items_triggered()));
     connect(ui->clearButton, SIGNAL(released()), ui->listTreeWidget, SLOT(clear()));
     connect(ui->clearButton, SIGNAL(released()), this, SLOT(updateStatusBarCount()));
+    connect(ui->clearButton, SIGNAL(released()), this, SLOT(clearUI()));
 
     //TreeWidget
     //Drop event
@@ -359,7 +361,7 @@ void Caesium::on_actionRemove_items_triggered() {
     ui->statusBar->showMessage(QString::number(count) + tr(" items removed"));
 }
 
-void Caesium::compressRoutine(CTreeWidgetItem* item) {
+void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview, QString previewPath) {
     //TODO
     if (params.overwrite) {
         if (QMessageBox::warning(this,
@@ -374,7 +376,12 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
     QString inputPath = item->text(COLUMN_PATH);
     QFileInfo* originalInfo = new QFileInfo(item->text(COLUMN_PATH));
     qint64 originalSize = originalInfo->size();
-    QString outputPath = Caesium::getOutputPath(originalInfo);
+    QString outputPath;
+    if (preview) {
+        outputPath = previewPath;
+    } else {
+        outputPath = Caesium::getOutputPath(originalInfo);
+    }
 
     if (!outputPath.isNull()) {
         qDebug() << item->text(COLUMN_PATH) << "into" << outputPath << " -- START";
@@ -388,7 +395,6 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
         if (item->image->getType() == JPEG) {
             //Lossy processing just uses the compression method before optimizing
             if (item->image->jparams.getQuality() > 0) {
-                qDebug() << "LOSSY";
                 cclt_jpeg_compress(output, cclt_jpeg_decompress(input, item->image), item->image);
                 //TODO Check memory leaks
                 //If we are using lossy compression, the input file is the output of
@@ -396,25 +402,15 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
                 input = output;
             }
             //Optimize
-            qDebug() << "LOSSLESS";
             cclt_jpeg_optimize(input, output, item->image, input);
 
             //Write important metadata as user requested
             if (item->image->jparams.getExif() && !item->image->jparams.getImportantExifs().isEmpty()) {
                 writeSpecificExifTags(exifData, outputPath, item->image->jparams.getImportantExifs());
             }
-
         } else if (item->image->getType() == PNG) {
             cclt_png_optimize(inputPath, outputPath, &item->image->pparams);
         }
-
-        //BUG Sometimes files are empty. Check it out.
-        //TODO Change to the actual compression routine (compression helper from CCLT?)
-        /*int result = cclt_jpeg_optimize(QStringToChar(inputPath),
-                      QStringToChar(outputPath),
-                      params.exif,
-                      params.progressive,
-                      QStringToChar(inputPath));*/
 
         //Gets new file info
         QFileInfo* fileInfo = new QFileInfo(outputPath);
@@ -605,18 +601,27 @@ void Caesium::on_showSidePanelButton_clicked(bool checked) {
 
 
 void Caesium::on_listTreeWidget_itemSelectionChanged() {
-    bool itemsSelected = (ui->listTreeWidget->selectedItems().length() > 0);
+    bool itemsSelected = ui->listTreeWidget->selectedItems().length() > 0;
     //Check if there's a selection
     if (itemsSelected) {
+        ui->imageCompressedPreviewLabel->clear();
         //Get the first item selected
         CTreeWidgetItem* currentItem = (CTreeWidgetItem*) ui->listTreeWidget->selectedItems().at(0);
 
-        //Connect the global watcher to the slot
-        connect(&imageWatcher, SIGNAL(started()), this, SLOT(startPreviewLoading()));
-        connect(&imageWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
-        //Run the image loader function
-        imageWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImagePreview, currentItem->text(COLUMN_PATH)));
+        //Try to load a preview
 
+        QString previewPath = calculatePreviewHashPath(currentItem);
+
+        if (QFile(previewPath).exists()) {
+            connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
+            imagePreviewWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, previewPath));
+        }
+
+        //Connect the global watcher to the slot
+        connect(&imageWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishImageLoading(int)));
+
+        //Run the image loader function
+        imageWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, currentItem->text(COLUMN_PATH)));
     } else {
         imageWatcher.cancel();
         clearUI();
@@ -627,16 +632,21 @@ void Caesium::on_listTreeWidget_itemSelectionChanged() {
     ui->removeItemButton->setEnabled(itemsSelected);
 }
 
-QImage Caesium::loadImagePreview(QString path) {
+QImage Caesium::loadImage(QString path) {
     //Load a scaled version of the image into memory
     QImageReader* imageReader = new QImageReader(path);
     imageReader->setScaledSize(getScaledSizeWithRatio(imageReader->size(), ui->imagePreviewLabel->size().width()));
     return imageReader->read();
 }
 
-void Caesium::finishPreviewLoading(int i) {
+void Caesium::finishImageLoading(int i) {
     //Set the image
     ui->imagePreviewLabel->setPixmap(QPixmap::fromImage(imageWatcher.resultAt(i)));
+}
+
+void Caesium::finishPreviewLoading(int i) {
+    //Set the image
+    ui->imageCompressedPreviewLabel->setPixmap(QPixmap::fromImage(imageWatcher.resultAt(i)));
 }
 
 void Caesium::on_settingsButton_clicked() {
@@ -730,7 +740,8 @@ void Caesium::updateDownloadFinished(QString path) {
 }
 
 void Caesium::clearUI() {
-    ui->imagePreviewLabel->setText(tr("preview"));
+    ui->imagePreviewLabel->setText(tr("original"));
+    ui->imageCompressedPreviewLabel->setText(tr("compressed"));
 }
 
 void Caesium::updateStatusBarCount() {
@@ -785,6 +796,7 @@ void Caesium::createMenuActions() {
     listClearAction = new QAction(tr("Clear list"), this);
     listClearAction->setStatusTip(tr("Clears the list"));
     connect(listClearAction, SIGNAL(triggered()), ui->listTreeWidget, SLOT(clear()));
+    connect(listClearAction, SIGNAL(triggered()), this, SLOT(clearUI()));
     connect(listClearAction, SIGNAL(triggered()), this, SLOT(updateStatusBarCount()));
 }
 
@@ -940,4 +952,43 @@ void Caesium::on_applyButton_clicked() {
 
         }
     }
+}
+
+void Caesium::on_previewButton_clicked() {
+    if (ui->listTreeWidget->selectedItems().length() > 0) {
+        //Get the first item selected
+        CTreeWidgetItem* currentItem = (CTreeWidgetItem*) ui->listTreeWidget->selectedItems().at(0);
+
+        QString previewPath = calculatePreviewHashPath(currentItem);
+        if (!QFile(previewPath).exists()) {
+            compressRoutine(currentItem, true, previewPath);
+        }
+        loadPreview(previewPath);
+    } else {
+        imagePreviewWatcher.cancel();
+        clearUI();
+    }
+}
+
+void Caesium::loadPreview(QString previewPath) {
+    connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
+    imagePreviewWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, previewPath));
+}
+
+QString Caesium::calculatePreviewHashPath(CTreeWidgetItem *currentItem) {
+    QByteArray hash;
+    QString previewPath, toBeHashed;
+
+    //We need to calculate if there's already a preview with same options
+    if (currentItem->image->getType() == PNG) {
+        //The string to be hashed is a combination of filename + options
+        //TODO Better looking string?
+        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printPNGParams();
+    } else if (currentItem->image->getType() == JPEG) {
+        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printPNGParams();
+    }
+    hash = QCryptographicHash::hash(toBeHashed.toUtf8(), QCryptographicHash::Sha256);
+    previewPath = tempDir.path() + "/" + QString(hash.toHex());
+
+    return previewPath;
 }

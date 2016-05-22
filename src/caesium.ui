@@ -387,7 +387,7 @@ QPushButton:hover {
                     <number>30</number>
                    </property>
                    <property name="value">
-                    <number>15</number>
+                    <number>5</number>
                    </property>
                   </widget>
                  </item>
@@ -407,7 +407,7 @@ QPushButton:hover {
                     <number>30</number>
                    </property>
                    <property name="value">
-                    <number>5</number>
+                    <number>1</number>
                    </property>
                   </widget>
                  </item>
@@ -556,6 +556,31 @@ QPushButton:hover {
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
+             <widget class="QPushButton" name="previewButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="text">
+               <string>Preview</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="horizontalSpacer_6">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -565,7 +590,7 @@ QPushButton:hover {
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>180</width>
+                <width>80</width>
                 <height>20</height>
                </size>
               </property>
@@ -1130,7 +1155,7 @@ font-family: monospace;
 font-size: 24pt;</string>
           </property>
           <property name="text">
-           <string/>
+           <string>original</string>
           </property>
           <property name="pixmap">
            <pixmap>:/icons/ui/picture.png</pixmap>
@@ -1151,7 +1176,7 @@ font-size: 24pt;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="imageCompressedPreviewLabel_">
+         <widget class="QLabel" name="imageCompressedPreviewLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1182,7 +1207,7 @@ font-family: monospace;
 font-size: 24pt;</string>
           </property>
           <property name="text">
-           <string/>
+           <string>preview</string>
           </property>
           <property name="pixmap">
            <pixmap>:/icons/ui/picture.png</pixmap>

@@ -30,8 +30,8 @@
 #include "src/utils.h"
 
 typedef struct png_params {
-    int iterations = 15;
-    int iterationsLarge = 5;
+    int iterations = 5;
+    int iterationsLarge = 1;
     int blockSplitStrategy = 4;
     bool lossy8Bit = true;
     bool transparent = true;
