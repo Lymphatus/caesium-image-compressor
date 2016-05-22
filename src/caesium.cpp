@@ -405,7 +405,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item) {
             }
 
         } else if (item->image->getType() == PNG) {
-            cclt_png_optimize(input, output, &item->image->pparams);
+            cclt_png_optimize(inputPath, outputPath, &item->image->pparams);
         }
 
         //BUG Sometimes files are empty. Check it out.

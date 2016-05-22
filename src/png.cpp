@@ -4,7 +4,10 @@
 #include <zopflipng/zopflipng_lib.h>
 #include "png.h"
 
-void cclt_png_optimize(char* input, char* output, png_params* image) {
+#include <QDebug>
+
+/* LEGACY! Here for reference
+ * void cclt_png_optimize(char* input, char* output, png_params* image) {
     //TODO Error handling
     CZopfliPNGOptions png_options;
 
@@ -47,4 +50,26 @@ void cclt_png_optimize(char* input, char* output, png_params* image) {
 
     free(orig_buffer);
     free(resultpng);
+}
+*/
+
+void cclt_png_optimize(QString input, QString output, png_params *image) {
+    std::string file = input.toStdString();
+    std::string out_filename = output.toStdString();
+    std::vector<unsigned char> origpng;
+    std::vector<unsigned char> resultpng;
+
+    ZopfliPNGOptions png_options;
+
+    png_options.auto_filter_strategy = image->getAutoFilterStrategy();
+    png_options.block_split_strategy = image->getBlockSplitStrategy();
+    png_options.num_iterations = image->getIterations();
+    png_options.num_iterations_large = image->getIterationsLarge();
+    png_options.lossy_8bit = image->getLossy8Bit();
+    png_options.lossy_transparent = image->getTransparent();
+
+    lodepng::load_file(origpng, file);
+    ZopfliPNGOptimize(origpng, png_options, false, &resultpng);
+    lodepng::save_file(resultpng, out_filename);
+
 }

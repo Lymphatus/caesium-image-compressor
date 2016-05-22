@@ -4,6 +4,6 @@
 #include "utils.h"
 #include "src/cimage.h"
 
-void cclt_png_optimize(char* input, char* output, png_params *image);
+void cclt_png_optimize(QString input, QString output, png_params* image);
 
 #endif

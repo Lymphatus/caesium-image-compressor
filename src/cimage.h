@@ -33,9 +33,9 @@ typedef struct png_params {
     int iterations = 15;
     int iterationsLarge = 5;
     int blockSplitStrategy = 4;
-    int lossy8Bit = 1;
-    int transparent = 1;
-    int autoFilterStrategy = 1;
+    bool lossy8Bit = true;
+    bool transparent = true;
+    bool autoFilterStrategy = true;
 
 public:
     int getIterations() const;
