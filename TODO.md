@@ -1,3 +1,7 @@
 ### TODO
-- Woooo a lot of stuff!
-- Basically converting from CaesiumPH to Caesium
+- Make preview async
+- Enable resizing
+- EXIF checkbox behaviour
+- Updater
+- Bugfix
+- Optimization

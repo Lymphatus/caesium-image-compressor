@@ -57,7 +57,7 @@ public:
     QString getOutputPath(QFileInfo *originalInfo);
 
     //Compress routine
-    void compressRoutine(CTreeWidgetItem* , bool preview = false, QString previewPath = NULL);
+    void compressRoutine(CTreeWidgetItem* , bool preview = false);
 
 signals:
     void dropAccepted(QStringList);
@@ -98,7 +98,7 @@ private slots:
     void startPreviewLoading();
     void on_applyButton_clicked();
     void on_previewButton_clicked();
-    void loadPreview(QString path);
+    void loadPreview();
     QString calculatePreviewHashPath(CTreeWidgetItem* );
 
 private:
@@ -112,6 +112,7 @@ private:
     QLabel* statusBarLabel = new QLabel();
     QString updatePath;
     QString inputFilter = QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png)";
+    QString previewPath;
 
     //List Menu
     QMenu* listMenu;
@@ -137,6 +138,8 @@ private:
 
     //CList save function
     void saveCListToFile(QString path);
+
+    void setParameters(CTreeWidgetItem*);
 
 };
 

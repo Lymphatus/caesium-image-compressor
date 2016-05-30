@@ -281,6 +281,9 @@ QPushButton:hover {
                    <property name="text">
                     <string>Progressive</string>
                    </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item row="0" column="0" colspan="2">
@@ -1155,7 +1158,7 @@ font-family: monospace;
 font-size: 24pt;</string>
           </property>
           <property name="text">
-           <string>original</string>
+           <string/>
           </property>
           <property name="pixmap">
            <pixmap>:/icons/ui/picture.png</pixmap>
@@ -1207,7 +1210,7 @@ font-family: monospace;
 font-size: 24pt;</string>
           </property>
           <property name="text">
-           <string>preview</string>
+           <string/>
           </property>
           <property name="pixmap">
            <pixmap>:/icons/ui/picture.png</pixmap>

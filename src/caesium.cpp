@@ -361,7 +361,7 @@ void Caesium::on_actionRemove_items_triggered() {
     ui->statusBar->showMessage(QString::number(count) + tr(" items removed"));
 }
 
-void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview, QString previewPath) {
+void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
     //TODO
     if (params.overwrite) {
         if (QMessageBox::warning(this,
@@ -389,20 +389,25 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview, QString previ
         char* input = QStringToChar(inputPath);
         char* output = QStringToChar(outputPath);
 
+        //Read parameters
+        setParameters(item);
+
         //Not really necessary if we copy the whole EXIF data
         Exiv2::ExifData exifData = getExifFromPath(input);
 
         if (item->image->getType() == JPEG) {
+            char* exif_orig = (char*) malloc(strlen(input) * sizeof(char));
             //Lossy processing just uses the compression method before optimizing
             if (item->image->jparams.getQuality() > 0) {
                 cclt_jpeg_compress(output, cclt_jpeg_decompress(input, item->image), item->image);
                 //TODO Check memory leaks
                 //If we are using lossy compression, the input file is the output of
                 //the previous function
+                strcpy(exif_orig, input);
                 input = output;
             }
             //Optimize
-            cclt_jpeg_optimize(input, output, item->image, input);
+            cclt_jpeg_optimize(input, output, item->image, exif_orig);
 
             //Write important metadata as user requested
             if (item->image->jparams.getExif() && !item->image->jparams.getImportantExifs().isEmpty()) {
@@ -573,7 +578,7 @@ void Caesium::compressionStarted() {
 
 void Caesium::compressionFinished() {
     //Get elapsed time of the compression
-    qInfo() << "Starting compression at " << QTime::currentTime();
+    qInfo() << "Finished compression at " << QTime::currentTime();
 
     //Display statistics in the status bar
     ui->statusBar->showMessage(tr("Compression completed! ") +
@@ -610,7 +615,7 @@ void Caesium::on_listTreeWidget_itemSelectionChanged() {
 
         //Try to load a preview
 
-        QString previewPath = calculatePreviewHashPath(currentItem);
+        previewPath = calculatePreviewHashPath(currentItem);
 
         if (QFile(previewPath).exists()) {
             connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
@@ -861,6 +866,34 @@ void Caesium::saveCListToFile(QString path) {
     }
 }
 
+void Caesium::setParameters(CTreeWidgetItem *item)
+{
+    if (item->image->getType() == JPEG) {
+        if (ui->losslessCheckBox->isChecked()) {
+            item->image->jparams.setQuality(0);
+        } else {
+            item->image->jparams.setQuality(ui->qualitySlider->value());
+        }
+        item->image->jparams.setExif(ui->exifCheckBox->isChecked());
+        item->image->jparams.setProgressive(ui->progressiveCheckBox->isChecked());
+        QList<cexifs> exifs;
+        if (ui->copyrightCheckBox->isChecked()) {
+            exifs.append(EXIF_COPYRIGHT);
+        }
+        if (ui->dateCheckBox->isChecked()) {
+            exifs.append(EXIF_DATE);
+        }
+        if (ui->commentsCheckBox->isChecked()) {
+            exifs.append(EXIF_COMMENTS);
+        }
+        item->image->jparams.setImportantExifs(exifs);
+    } else if (item->image->getType() == PNG) {
+        item->image->pparams.setIterations(ui->iterationsSpinBox->value());
+        item->image->pparams.setIterationsLarge(ui->iterationsLargeSpinBox->value());
+        item->image->pparams.setLossy8Bit(ui->lossy8CheckBox->isChecked());
+    }
+}
+
 void Caesium::on_actionOpen_list_triggered() {
     //TODO Run an integrity check for the imported data and edit eventually
     //Get the filepath
@@ -923,33 +956,12 @@ void Caesium::on_applyButton_clicked() {
     if (ui->listTreeWidget->selectedItems().length() > 0) {
         foreach (QTreeWidgetItem* qItem, ui->listTreeWidget->selectedItems()) {
             CTreeWidgetItem* item = (CTreeWidgetItem*) qItem;
+            setParameters(item);
             if (item->image->getType() == JPEG) {
-                if (ui->losslessCheckBox->isChecked()) {
-                    item->image->jparams.setQuality(0);
-                } else {
-                    item->image->jparams.setQuality(ui->qualitySlider->value());
-                }
-                item->image->jparams.setExif(ui->exifCheckBox->isChecked());
-                item->image->jparams.setProgressive(ui->progressiveCheckBox->isChecked());
-                QList<cexifs> exifs;
-                if (ui->copyrightCheckBox->isChecked()) {
-                    exifs.append(EXIF_COPYRIGHT);
-                }
-                if (ui->dateCheckBox->isChecked()) {
-                    exifs.append(EXIF_DATE);
-                }
-                if (ui->commentsCheckBox->isChecked()) {
-                    exifs.append(EXIF_COMMENTS);
-                }
-                item->image->jparams.setImportantExifs(exifs);
                 item->setText(COLUMN_OPTIONS, item->image->printJPEGParams());
             } else if (item->image->getType() == PNG) {
-                item->image->pparams.setIterations(ui->iterationsSpinBox->value());
-                item->image->pparams.setIterationsLarge(ui->iterationsLargeSpinBox->value());
-                item->image->pparams.setLossy8Bit(ui->lossy8CheckBox->isChecked());
                 item->setText(COLUMN_OPTIONS, item->image->printPNGParams());
             }
-
         }
     }
 }
@@ -959,18 +971,44 @@ void Caesium::on_previewButton_clicked() {
         //Get the first item selected
         CTreeWidgetItem* currentItem = (CTreeWidgetItem*) ui->listTreeWidget->selectedItems().at(0);
 
-        QString previewPath = calculatePreviewHashPath(currentItem);
+        //Setup watcher
+        QFutureWatcher<void> watcher;
+        //TODO Preview for all?
+        QList<CTreeWidgetItem*> list;
+        list.append(currentItem);
+        QFuture<void> future = QtConcurrent::map(list, [this] (CTreeWidgetItem*& data) {compressRoutine(data);});
+
+        previewPath = calculatePreviewHashPath(currentItem);
         if (!QFile(previewPath).exists()) {
-            compressRoutine(currentItem, true, previewPath);
+            //WARNING This code must be rewritten
+            qRegisterMetaType<QVector<int> >("QVector<int>");
+            //Setting up a progress dialog
+            QProgressDialog progressDialog;
+            //progressDialog.setWindowTitle(tr("Caesium"));
+            //progressDialog.setLabelText(tr("Preview..."));
+            //progressDialog.setWindowFlags(Qt::FramelessWindowHint);
+
+            //Setting up connections
+            //Progress dialog
+            //connect(&watcher, SIGNAL(progressValueChanged(int)), &progressDialog, SLOT(setValue(int)));
+            //connect(&watcher, SIGNAL(progressRangeChanged(int, int)), &progressDialog, SLOT(setRange(int,int)));
+            //connect(&watcher, SIGNAL(finished()), &progressDialog, SLOT(reset()));
+            //connect(&progressDialog, SIGNAL(canceled()), &watcher, SLOT(cancel()));
+            //TODO Connect to the right slot
+            connect(&watcher, SIGNAL(started()), this, SLOT(testSignal()));
+            connect(&watcher, SIGNAL(finished()), this, SLOT(loadPreview()));
+
+            //And start
+            watcher.setFuture(future);
         }
-        loadPreview(previewPath);
     } else {
         imagePreviewWatcher.cancel();
         clearUI();
     }
 }
 
-void Caesium::loadPreview(QString previewPath) {
+void Caesium::loadPreview() {
+    qDebug() << "qui";
     connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
     imagePreviewWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, previewPath));
 }
