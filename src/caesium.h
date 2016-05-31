@@ -105,6 +105,9 @@ private:
     Ui::Caesium *ui;
     QFutureWatcher<QImage> imageWatcher; //Image loader
     QFutureWatcher<QImage> imagePreviewWatcher; //Image preview loader
+    QFutureWatcher<void>* watcher; //General watcher
+    QList<CTreeWidgetItem*> previewList;
+    QList<CTreeWidgetItem*> compressionList;
     //Status bar widgets
     QToolButton* updateButton = new QToolButton();
     QFrame* statusStatusBarLine = new QFrame();

@@ -21,6 +21,7 @@
  *
  */
 
+
 #include "caesium.h"
 #include "ui_caesium.h"
 #include "aboutdialog.h"
@@ -65,6 +66,7 @@ Caesium::Caesium(QWidget *parent) :
     ui(new Ui::Caesium)
 {
     ui->setupUi(this);
+
     initializeConnections();
     initializeUI();
     readPreferences();
@@ -73,6 +75,8 @@ Caesium::Caesium(QWidget *parent) :
     checkUpdates();
 
     QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
+
+
 }
 
 Caesium::~Caesium() {
@@ -616,8 +620,10 @@ void Caesium::on_listTreeWidget_itemSelectionChanged() {
         //Try to load a preview
 
         previewPath = calculatePreviewHashPath(currentItem);
+        qDebug() << "Preview path is " << previewPath;
 
         if (QFile(previewPath).exists()) {
+            qDebug() << "Preview exists at " << previewPath;
             connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
             imagePreviewWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, previewPath));
         }
@@ -651,7 +657,8 @@ void Caesium::finishImageLoading(int i) {
 
 void Caesium::finishPreviewLoading(int i) {
     //Set the image
-    ui->imageCompressedPreviewLabel->setPixmap(QPixmap::fromImage(imageWatcher.resultAt(i)));
+    qDebug() << "PREVIEW FINISHED!";
+    ui->imageCompressedPreviewLabel->setPixmap(QPixmap::fromImage(imagePreviewWatcher.resultAt(i)));
 }
 
 void Caesium::on_settingsButton_clicked() {
@@ -971,35 +978,18 @@ void Caesium::on_previewButton_clicked() {
         //Get the first item selected
         CTreeWidgetItem* currentItem = (CTreeWidgetItem*) ui->listTreeWidget->selectedItems().at(0);
 
-        //Setup watcher
-        QFutureWatcher<void> watcher;
         //TODO Preview for all?
-        QList<CTreeWidgetItem*> list;
-        list.append(currentItem);
-        QFuture<void> future = QtConcurrent::map(list, [this] (CTreeWidgetItem*& data) {compressRoutine(data);});
+        previewList.append(currentItem);
+        QFuture<void> future = QtConcurrent::map(previewList, [this] (CTreeWidgetItem*& data) {compressRoutine(data, true);});
 
+        watcher = new QFutureWatcher<void>(this);
+        connect(watcher, SIGNAL(finished()), this, SLOT(loadPreview()));
         previewPath = calculatePreviewHashPath(currentItem);
         if (!QFile(previewPath).exists()) {
-            //WARNING This code must be rewritten
             qRegisterMetaType<QVector<int> >("QVector<int>");
-            //Setting up a progress dialog
-            QProgressDialog progressDialog;
-            //progressDialog.setWindowTitle(tr("Caesium"));
-            //progressDialog.setLabelText(tr("Preview..."));
-            //progressDialog.setWindowFlags(Qt::FramelessWindowHint);
-
-            //Setting up connections
-            //Progress dialog
-            //connect(&watcher, SIGNAL(progressValueChanged(int)), &progressDialog, SLOT(setValue(int)));
-            //connect(&watcher, SIGNAL(progressRangeChanged(int, int)), &progressDialog, SLOT(setRange(int,int)));
-            //connect(&watcher, SIGNAL(finished()), &progressDialog, SLOT(reset()));
-            //connect(&progressDialog, SIGNAL(canceled()), &watcher, SLOT(cancel()));
-            //TODO Connect to the right slot
-            connect(&watcher, SIGNAL(started()), this, SLOT(testSignal()));
-            connect(&watcher, SIGNAL(finished()), this, SLOT(loadPreview()));
 
             //And start
-            watcher.setFuture(future);
+            watcher->setFuture(future);
         }
     } else {
         imagePreviewWatcher.cancel();
@@ -1008,7 +998,7 @@ void Caesium::on_previewButton_clicked() {
 }
 
 void Caesium::loadPreview() {
-    qDebug() << "qui";
+    previewList.clear();
     connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
     imagePreviewWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, previewPath));
 }
@@ -1023,8 +1013,9 @@ QString Caesium::calculatePreviewHashPath(CTreeWidgetItem *currentItem) {
         //TODO Better looking string?
         toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printPNGParams();
     } else if (currentItem->image->getType() == JPEG) {
-        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printPNGParams();
+        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printJPEGParams();
     }
+    qDebug() << "To be hashed: " << toBeHashed;
     hash = QCryptographicHash::hash(toBeHashed.toUtf8(), QCryptographicHash::Sha256);
     previewPath = tempDir.path() + "/" + QString(hash.toHex());
 

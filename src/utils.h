@@ -30,6 +30,7 @@
 #include <QTemporaryDir>
 #include <QElapsedTimer>
 #include <QTreeWidgetItem>
+#include <QFutureWatcher>
 
 #include <jpeglib.h>
 #include <turbojpeg.h>
