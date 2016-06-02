@@ -70,9 +70,6 @@ private slots:
     void on_actionCompress_triggered();
     void compressionStarted();
     void compressionFinished();
-    void on_sidePanelDockWidget_topLevelChanged(bool topLevel);
-    void on_sidePanelDockWidget_visibilityChanged(bool visible);
-    void on_showSidePanelButton_clicked(bool checked);
     void on_listTreeWidget_itemSelectionChanged();
     QImage loadImage(QString path);
     void finishImageLoading(int i);
@@ -94,7 +91,6 @@ private slots:
     void listChanged();
     //TODO Remove, just test slot
     void testSignal();
-    void on_exifTextEdit_textChanged();
     void startPreviewLoading();
     void on_applyButton_clicked();
     void on_previewButton_clicked();

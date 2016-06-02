@@ -159,6 +159,10 @@ QPushButton {
 QPushButton:hover {
 	background-color: #AB47BC;
 	color: #FFFFFF;
+}
+
+QPushButton:disabled {
+	background-color: grey;
 }</string>
   </property>
   <property name="locale">
@@ -560,6 +564,9 @@ QPushButton:hover {
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
              <widget class="QPushButton" name="previewButton">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -601,6 +608,9 @@ QPushButton:hover {
             </item>
             <item>
              <widget class="QPushButton" name="applyButton">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -1398,7 +1408,7 @@ font-size: 24pt;</string>
   </connection>
   <connection>
    <sender>qualitySlider</sender>
-   <signal>sliderMoved(int)</signal>
+   <signal>valueChanged(int)</signal>
    <receiver>qualitySpinBox</receiver>
    <slot>setValue(int)</slot>
    <hints>

@@ -57,7 +57,7 @@ QString lastCListPath = "";
 QList<QLocale> locales;
 QString logPath = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) +
         "/" +
-        QDate::currentDate().toString("caesiumph_dd_MM_yyyy.log");
+        QDate::currentDate().toString("caesium_dd_MM_yyyy.log");
 
 
 QString toHumanSize(long size) {
@@ -232,6 +232,6 @@ void loadLocales() {
         it.next();
         locales.append(QLocale(it.fileInfo().baseName().replace("caesium_", "")));
     }
-    qInfo() << "Found locales" << locales;
+    //qInfo() << "Found locales" << locales;
 }
 
