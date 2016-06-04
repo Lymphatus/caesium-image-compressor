@@ -57,7 +57,7 @@ public:
     QString getOutputPath(QFileInfo *originalInfo);
 
     //Compress routine
-    void compressRoutine(CTreeWidgetItem* , bool preview = false);
+    void compressRoutine(CTreeWidgetItem*, bool preview = false);
 
 signals:
     void dropAccepted(QStringList);
@@ -96,6 +96,7 @@ private slots:
     void on_previewButton_clicked();
     void loadPreview();
     QString calculatePreviewHashPath(CTreeWidgetItem* );
+    void listItemStatusChanged(CTreeWidgetItem*, citem_status);
 
 private:
     Ui::Caesium *ui;

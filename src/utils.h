@@ -35,7 +35,7 @@
 #include <jpeglib.h>
 #include <turbojpeg.h>
 
-#define MAX_COLUMNS 8
+#define MAX_COLUMNS 9
 
 enum cexifs {
     EXIF_COPYRIGHT,
@@ -44,14 +44,15 @@ enum cexifs {
 };
 
 enum list_columns {
-    COLUMN_NAME = 0,
-    COLUMN_ORIGINAL_SIZE = 1,
-    COLUMN_NEW_SIZE = 2,
-    COLUMN_ORIGINAL_RESOLUTION = 3,
-    COLUMN_NEW_RESOLUTION = 4,
-    COLUMN_SAVED = 5,
-    COLUMN_OPTIONS = 6,
-    COLUMN_PATH = 7
+    COLUMN_STATUS = 0,
+    COLUMN_NAME = 1,
+    COLUMN_ORIGINAL_SIZE = 2,
+    COLUMN_NEW_SIZE = 3,
+    COLUMN_ORIGINAL_RESOLUTION = 4,
+    COLUMN_NEW_RESOLUTION = 5,
+    COLUMN_SAVED = 6,
+    COLUMN_OPTIONS = 7,
+    COLUMN_PATH = 8
 };
 
 typedef struct c_parameters {
@@ -64,6 +65,14 @@ enum image_type {
     JPEG,
     PNG,
     UNKN,
+};
+
+enum citem_status {
+    NEW = 0,
+    COMPRESSED_OK = 10,
+    COMPRESSED_ERROR = 11,
+    PREVIEWED = 1,
+    COMPRESSING = 2
 };
 
 extern QString clfFilter;

@@ -51,7 +51,7 @@ QHeaderView {
 	background-color: #FFFFFF;
     text-transform: uppercase;
     padding-bottom: 10px;
-    padding-left: 8px;
+    padding-left: 3px;
     color: #CCCCCC;
 }
 
@@ -174,7 +174,7 @@ QPushButton:disabled {
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
-     <number>12</number>
+     <number>4</number>
     </property>
     <property name="topMargin">
      <number>12</number>
@@ -653,6 +653,9 @@ QPushButton:disabled {
         </item>
         <item row="2" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>8</number>
+          </property>
           <property name="topMargin">
            <number>5</number>
           </property>
@@ -983,6 +986,9 @@ QToolButton:hover {
         </item>
         <item row="1" column="0">
          <widget class="Line" name="line_2">
+          <property name="styleSheet">
+           <string notr="true">margin-left: 8px;</string>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1051,6 +1057,12 @@ QTreeWidget::item:selected {
           <property name="selectionMode">
            <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
           <property name="indentation">
            <number>0</number>
           </property>
@@ -1063,15 +1075,26 @@ QTreeWidget::item:selected {
           <property name="animated">
            <bool>true</bool>
           </property>
+          <property name="expandsOnDoubleClick">
+           <bool>false</bool>
+          </property>
           <attribute name="headerCascadingSectionResizes">
            <bool>false</bool>
           </attribute>
           <attribute name="headerHighlightSections">
            <bool>false</bool>
           </attribute>
+          <attribute name="headerMinimumSectionSize">
+           <number>16</number>
+          </attribute>
           <attribute name="headerShowSortIndicator" stdset="0">
            <bool>true</bool>
           </attribute>
+          <column>
+           <property name="text">
+            <string>S</string>
+           </property>
+          </column>
           <column>
            <property name="text">
             <string>Name</string>
@@ -1169,9 +1192,6 @@ font-size: 24pt;</string>
           </property>
           <property name="text">
            <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>:/icons/ui/picture.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>false</bool>

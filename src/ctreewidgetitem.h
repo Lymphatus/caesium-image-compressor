@@ -28,33 +28,41 @@
 #include <QFileInfo>
 
 #include "src/utils.h"
+#include "src/cimage.h"
 
-class CTreeWidgetItem : public QTreeWidgetItem
+class CTreeWidgetItem : public QObject, public QTreeWidgetItem
 {
+    Q_OBJECT
+
 public:
     CTreeWidgetItem(QTreeWidget* parent) : QTreeWidgetItem(parent) {}
     CTreeWidgetItem(QTreeWidget* parent, QStringList list) : QTreeWidgetItem(parent, list) {}
     CTreeWidgetItem(QTreeWidget* parent, QString path) : QTreeWidgetItem(parent) {
         image = new CImage(path);
+        this->setStatus(NEW);
     }
 
     CImage* image = NULL;
 
+    citem_status getStatus() const;
+    void setStatus(const citem_status &value);
+
 private:
+    citem_status status;
 
     bool operator< (const QTreeWidgetItem &other) const {
         int column = treeWidget()->sortColumn();
         switch (column) {
-        case 1:
+        case COLUMN_ORIGINAL_SIZE:
             return QFileInfo(text(COLUMN_PATH)).size() < QFileInfo(other.text(COLUMN_PATH)).size();
-        case 2:
+        case COLUMN_NEW_SIZE:
             //Sort by compressed size
             /*
              * WARNING This methods ignores the less significant bytes of the size
              * and may lead to inaccurate sorting. Won't fix for now as not critical.
              */
             return humanToDouble(text(column)) < humanToDouble(other.text(column));
-        case 3:
+        case COLUMN_SAVED:
             //Sort by saved space
             return ratioToDouble(text(column)) < ratioToDouble(other.text(column));
         default:
@@ -62,6 +70,12 @@ private:
             return text(column).toLower() < other.text(column).toLower();
         }
     }
+
+signals:
+    void compressionStatusChanged(CTreeWidgetItem*, citem_status);
 };
+
+Q_DECLARE_METATYPE(CTreeWidgetItem*)
+
 
 #endif // CTREEWIDGETITEM_H

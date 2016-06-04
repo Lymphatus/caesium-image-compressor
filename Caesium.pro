@@ -46,7 +46,8 @@ SOURCES += src/main.cpp\
     src/jpeg.cpp \
     src/png.cpp \
     src/lodepng.cpp \
-    src/cimage.cpp
+    src/cimage.cpp \
+    src/ctreewidgetitem.cpp
 
 HEADERS  += \
     src/aboutdialog.h \

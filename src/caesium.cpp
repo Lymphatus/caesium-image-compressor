@@ -61,9 +61,7 @@
 //TODO GENERAL: handle plurals in counts
 //TODO GENERAL: create custom error boxes
 
-Caesium::Caesium(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::Caesium)
+Caesium::Caesium(QWidget *parent) : QMainWindow(parent), ui(new Ui::Caesium)
 {
     ui->setupUi(this);
 
@@ -97,11 +95,14 @@ void Caesium::initializeUI() {
     qInfo() << "Setting geometry for main window";
 
     //Set the headers size
-    ui->listTreeWidget->header()->resizeSection(0, 180);
-    ui->listTreeWidget->header()->resizeSection(1, 100);
-    ui->listTreeWidget->header()->resizeSection(2, 100);
-    ui->listTreeWidget->header()->resizeSection(3, 80);
-    ui->listTreeWidget->header()->resizeSection(4, 100);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_STATUS, 24);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_NAME, 180);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_ORIGINAL_SIZE, 100);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_NEW_SIZE, 100);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_ORIGINAL_RESOLUTION, 100);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_NEW_RESOLUTION, 100);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_SAVED, 80);
+    ui->listTreeWidget->header()->resizeSection(COLUMN_OPTIONS, 100);
 
     //Set side panel stretch
     ui->splitter->setStretchFactor(0, 2);
@@ -166,6 +167,7 @@ void Caesium::initializeConnections() {
     connect(ui->listTreeWidget, SIGNAL(dropFinished(QStringList)), this, SLOT(showImportProgressDialog(QStringList)));
     //Context menu
     connect(ui->listTreeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showListContextMenu(QPoint)));
+
 
     //Update button
     connect(updateButton, SIGNAL(released()), this, SLOT(on_updateButton_clicked()));
@@ -331,6 +333,8 @@ void Caesium::showImportProgressDialog(QStringList list) {
         item->setText(COLUMN_OPTIONS, tr("Default"));
         //item->setText(COLUMN_OPTIONS, item->image->getType() == PNG ? item->image->printPNGParams() : item->image->printJPEGParams());
         item->setText(COLUMN_PATH, item->image->getFullPath());
+        //Set the icon
+        item->setIcon(0, QIcon(":/icons/ui/list_new.png"));
 
         qInfo() << "Item added: " << item->image->getFullPath();
         ui->listTreeWidget->addTopLevelItem(item);
@@ -382,7 +386,10 @@ void Caesium::on_actionRemove_items_triggered() {
 }
 
 void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
-    //TODO
+    //Connect a signal for status changing
+    qRegisterMetaType<citem_status>("citem_status");
+    connect(item, SIGNAL(compressionStatusChanged(CTreeWidgetItem*, citem_status)), this, SLOT(listItemStatusChanged(CTreeWidgetItem*, citem_status)));
+    //TODO Error handling
     if (params.overwrite) {
         if (QMessageBox::warning(this,
                                  tr("Warning"),
@@ -416,6 +423,8 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
         Exiv2::ExifData exifData = getExifFromPath(input);
 
         qInfo() << "Compressing " << item->text(COLUMN_PATH) << " --> " << outputPath;
+        //Set state to COMPRESSING
+        item->setStatus(COMPRESSING);
 
         if (item->image->getType() == JPEG) {
             char* exif_orig = (char*) malloc(strlen(input) * sizeof(char));
@@ -466,6 +475,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
                 //TODO Better error handling please
                 if (!QFile(item->text(COLUMN_PATH)).copy(outputPath)) {
                     qCritical() << "Failed while moving " << item->text(COLUMN_PATH);
+                    item->setStatus(COMPRESSED_ERROR);
                 }
             }
             //Set the importat stats to point to the original file
@@ -480,6 +490,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
                 //TODO Better error handling please
                 if (!QFile(outputPath).rename(item->text(COLUMN_PATH))) {
                     qCritical() << "Failed while moving " << item->text(COLUMN_PATH);
+                    item->setStatus(COMPRESSED_ERROR);
                 }
             }
         }
@@ -490,6 +501,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
         originalsSize += originalSize;
         compressedSize += outputSize;
         compressedFiles++;
+        item->setStatus(COMPRESSED_OK);
     }
 }
 
@@ -1031,4 +1043,26 @@ QString Caesium::calculatePreviewHashPath(CTreeWidgetItem *currentItem) {
     previewPath = tempDir.path() + "/" + QString(hash.toHex());
 
     return previewPath;
+}
+
+void Caesium::listItemStatusChanged(CTreeWidgetItem* item, citem_status status) {
+    switch (status) {
+    case NEW:
+        item->setIcon(COLUMN_STATUS, QIcon(":/icons/ui/list_new.png"));
+        break;
+    case COMPRESSED_OK:
+        item->setIcon(COLUMN_STATUS, QIcon(":/icons/ui/list_ok.png"));
+        break;
+    case COMPRESSED_ERROR:
+        item->setIcon(COLUMN_STATUS, QIcon(":/icons/ui/list_error.png"));
+        break;
+    case COMPRESSING:
+        item->setIcon(COLUMN_STATUS, QIcon(":/icons/ui/list_processing.png"));
+        break;
+    case PREVIEWED:
+        //item->setIcon(0, QIcon(":/icons/ui/list_error.png"));
+        break;
+    default:
+        break;
+    }
 }

@@ -20,5 +20,9 @@
         <file>icons/ui/dropdown_arrow.png</file>
         <file>icons/main/logo_alpha.png</file>
         <file>icons/ui/loader.gif</file>
+        <file>icons/ui/list_error.png</file>
+        <file>icons/ui/list_new.png</file>
+        <file>icons/ui/list_ok.png</file>
+        <file>icons/ui/list_processing.png</file>
     </qresource>
 </RCC>
