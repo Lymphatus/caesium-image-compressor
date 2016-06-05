@@ -32,6 +32,6 @@ Linux source code must be compiled using Qt5.5.
 
 ##### RESOURCES
 * Caesium website - [http://saerasoft.com/caesium/](http://saerasoft.com/caesium/)
-* CaesiumPH Git Repository - [https://github.com/Lymphatus/caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
+* Caesium Git Repository - [https://github.com/Lymphatus/caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 * Author website - SaeraSoft - [http://saerasoft.com](http://saerasoft.com)
 * Author Twitter [http://twitter.com/MatteoPaonessa](http://twitter.com/MatteoPaonessa)
