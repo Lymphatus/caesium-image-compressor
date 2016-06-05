@@ -14,12 +14,15 @@
 * [mozjpeg](https://github.com/mozilla/mozjpeg)
 * [zopfli](https://github.com/google/zopfli)
 * [lodepng](https://github.com/lvandeve/lodepng)
+* [exiv2](http://www.exiv2.org/)
 
 ----------
 
 ##### TESTED PLATFORMS
 * Windows 10 64bit
 * MacOSX El Capitan (v. 10.11.4)
+* Arch Linux (Known issues)
+* Ubuntu 16.04 (Known issues)
 
 ----------
 
@@ -27,6 +30,11 @@
 Binaries will be available soon.
 
 Linux source code must be compiled using Qt5.5.
+
+----------
+
+##### KNOWN ISSUES
+* Lodepng fails on linux with error 68 and causes crash.
 
 ----------
 
