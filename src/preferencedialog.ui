@@ -223,7 +223,7 @@ QPushButton:hover {
             <item row="1" column="0">
              <widget class="QComboBox" name="outputFileMethodComboBox">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="styleSheet">
                <string notr="true"/>
@@ -251,7 +251,10 @@ QPushButton:hover {
             <item row="1" column="1">
              <widget class="QLineEdit" name="outputFileMethodLineEdit">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string>_compressed</string>
               </property>
               <property name="placeholderText">
                <string>Leaving empty will overwrite the file</string>
@@ -273,6 +276,9 @@ QPushButton:hover {
             </item>
             <item row="1" column="2">
              <widget class="QPushButton" name="browseButton">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="text">
                <string notr="true">...</string>
               </property>
@@ -309,7 +315,7 @@ QPushButton:hover {
                <string>Overwrite original files</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </item>

@@ -43,6 +43,7 @@ PreferenceDialog::PreferenceDialog(QWidget *parent) :
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     ui->setupUi(this);
     QSettings settings;
+    qInfo() << "Settings path is" << settings.fileName();
     loadTranslations();
     readPreferences();
 
