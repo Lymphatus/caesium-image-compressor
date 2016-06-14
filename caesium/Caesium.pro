@@ -76,13 +76,7 @@ RESOURCES += \
 DISTFILES += \
     qss/style_osx.qss \
     qss/style_win.qss \
-    qss/style_linux.qss \
-    README.md \
-    CHANGELOG.md \
-    LICENSE \
-    TODO.md \
-    qt.conf \
-    AUTHORS
+    qss/style_linux.qss
 
 TRANSLATIONS = translations/caesium_en_US.ts \
     translations/caesium_it_IT.ts
