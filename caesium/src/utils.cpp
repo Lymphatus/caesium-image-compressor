@@ -59,7 +59,6 @@ QString logPath = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataL
         "/" +
         QDate::currentDate().toString("caesium_dd_MM_yyyy.log");
 
-
 QString toHumanSize(long size) {
     //Check if size is 0 to avoid crashes
     if (size == 0) {

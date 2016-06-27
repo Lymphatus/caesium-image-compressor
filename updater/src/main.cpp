@@ -1,11 +1,17 @@
+#include "src/updater.h"
 #include <QCoreApplication>
-#include <iostream>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-    std::cout << "hello world" << std::endl;
+    QCoreApplication::setApplicationName("Caesium");
+    QCoreApplication::setOrganizationName("SaeraSoft");
+    QCoreApplication::setOrganizationDomain("saerasoft.com");
+
+    qDebug() << "------START------";
+
+    Updater* updater = new Updater();
+    updater->requestReleaseList();
 
     return a.exec();
 }

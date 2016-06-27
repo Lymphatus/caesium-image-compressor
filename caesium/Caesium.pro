@@ -17,7 +17,7 @@ macx {
     QMAKE_CXXFLAGS_CXX11 = -std=gnu++1y
     CONFIG *= c++11
     QMAKE_CXXFLAGS += -stdlib=libc++
-    LIBS +=  -L/opt/mozjpeg/lib -L/usr/local/lib -ljpeg.62 -lturbojpeg -lzopflipng -lexiv2.14 -stdlib=libc++
+    LIBS +=  -L/opt/mozjpeg/lib -L/usr/local/lib -ljpeg.62 -lturbojpeg -lzopflipng -lexiv2.14
     INCLUDEPATH += /opt/mozjpeg/include /usr/local/include
     ICON = icons/icons/icon.icns
 }
