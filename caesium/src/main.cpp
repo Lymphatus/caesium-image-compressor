@@ -31,6 +31,7 @@
 #include <QTranslator>
 #include <QSettings>
 #include <QStandardPaths>
+//TODO Remove old updater.old
 
 void logHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     //TODO Close the file?

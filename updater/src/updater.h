@@ -26,6 +26,9 @@ public:
     QString getDownloadPath(QUrl url);
     release_file parseReleaseFile(QStringList);
     int compareChecksums(QString checksum, QByteArray *file);
+    bool renameSelf();
+    bool overwriteOriginal(QString oldPath, QString newPath);
+    bool copyRecursively(const QString &srcFilePath, const QString &tgtFilePath);
 signals:
 
 public slots:

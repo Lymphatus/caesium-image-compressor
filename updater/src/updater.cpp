@@ -142,6 +142,13 @@ void Updater::downloadFinished(QNetworkReply *reply) {
         // all downloads finished
         qInfo() << "All download finished";
         releaseList.clear();
+        if (!renameSelf()) {
+            qCritical() << "Could not rename myself!";
+        }
+        //Copy the updated files
+        if (!overwriteOriginal(rootFolder, QCoreApplication::applicationDirPath())) {
+            qCritical() << "Could not overwrite old files";
+        }
         QCoreApplication::instance()->quit();
     }
 }
@@ -152,4 +159,60 @@ int Updater::compareChecksums(QString checksum, QByteArray* file) {
     QString downloadedChecksum = hash.result().toHex();
     qInfo() << "Comparing checksums. Original: " << checksum << "\nDownloaded: " << downloadedChecksum;
     return QString::compare(downloadedChecksum, checksum);
+}
+
+bool Updater::renameSelf() {
+    qInfo() << "Renaming myself...";
+    QFile self(QCoreApplication::applicationFilePath());
+    QFile selfNew(QCoreApplication::applicationFilePath() + ".old");
+    if (selfNew.exists()) {
+        if (!selfNew.remove()) {
+            qCritical() << "Cannot remove old updater";
+            return false;
+        }
+    }
+    return self.rename(selfNew.fileName());
+}
+
+bool Updater::overwriteOriginal(QString oldPath, QString newPath) {
+    qDebug() << "Old path is:" << oldPath;
+#ifdef __APPLE__
+    QDir temp(newPath);
+    temp.cd("../../..");
+    newPath = temp.absolutePath();
+#endif
+    qDebug() << "New path is:" << newPath;
+    return copyRecursively(oldPath, newPath);
+}
+
+bool Updater::copyRecursively(const QString &srcFilePath, const QString &tgtFilePath) {
+    QFileInfo srcFileInfo(srcFilePath);
+    if (srcFileInfo.isDir()) {
+        QDir targetDir(tgtFilePath);
+        if (!targetDir.cdUp()) {
+            return false;
+        }
+        if (!targetDir.exists()) {
+            if (!targetDir.mkdir(QFileInfo(tgtFilePath).fileName()))
+                return false;
+        }
+        QDir sourceDir(srcFilePath);
+        QStringList fileNames = sourceDir.entryList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden | QDir::System);
+        foreach (const QString &fileName, fileNames) {
+            const QString newSrcFilePath
+                    = srcFilePath + QLatin1Char('/') + fileName;
+            const QString newTgtFilePath
+                    = tgtFilePath + QLatin1Char('/') + fileName;
+            if (!copyRecursively(newSrcFilePath, newTgtFilePath))
+                return false;
+        }
+    } else {
+        if (QFile(tgtFilePath).exists()) {
+            //TODO Add check
+            QFile(tgtFilePath).remove();
+        }
+        if (!QFile::copy(srcFilePath, tgtFilePath))
+            return false;
+    }
+    return true;
 }
