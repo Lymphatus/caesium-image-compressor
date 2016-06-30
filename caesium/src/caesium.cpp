@@ -131,11 +131,14 @@ void Caesium::initializeUI() {
     //List info label
     statusBarLabel->setText(" v" + versionString);
     //Update Button
+    //TODO REMOVE as legacy design
     updateButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     updateButton->setAutoRaise(false);
     updateButton->setText(tr("A new version is available!"));
     updateButton->setIcon(QIcon(":/icons/ui/update.png"));
     updateButton->setVisible(false);
+    //Update label
+    ui->updateLabel->setHidden(true);
     //Add them to the status bar
     ui->statusBar->addPermanentWidget(statusStatusBarLine);
     ui->statusBar->addPermanentWidget(statusBarLabel);

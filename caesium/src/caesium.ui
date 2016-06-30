@@ -174,13 +174,13 @@ QPushButton:disabled {
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
-     <number>4</number>
+     <number>0</number>
     </property>
     <property name="topMargin">
-     <number>12</number>
+     <number>0</number>
     </property>
     <property name="rightMargin">
-     <number>12</number>
+     <number>0</number>
     </property>
     <property name="bottomMargin">
      <number>0</number>
@@ -192,8 +192,17 @@ QPushButton:disabled {
       </property>
       <widget class="QWidget" name="gridLayoutWidget">
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="1" rowspan="3">
+        <property name="verticalSpacing">
+         <number>-1</number>
+        </property>
+        <item row="2" column="1" rowspan="3">
          <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="topMargin">
+           <number>4</number>
+          </property>
+          <property name="rightMargin">
+           <number>8</number>
+          </property>
           <item>
            <widget class="QTabWidget" name="tabWidget">
             <property name="sizePolicy">
@@ -213,6 +222,9 @@ QPushButton:disabled {
               <width>300</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
             <property name="currentIndex">
              <number>0</number>
@@ -661,10 +673,20 @@ QPushButton:disabled {
           </item>
          </layout>
         </item>
-        <item row="2" column="0">
+        <item row="3" column="0">
+         <widget class="Line" name="line_2">
+          <property name="styleSheet">
+           <string notr="true">margin-left: 8px;</string>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <property name="leftMargin">
-           <number>8</number>
+           <number>12</number>
           </property>
           <property name="topMargin">
            <number>5</number>
@@ -994,17 +1016,23 @@ QToolButton:hover {
           </item>
          </layout>
         </item>
-        <item row="1" column="0">
-         <widget class="Line" name="line_2">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="updateLabel">
           <property name="styleSheet">
-           <string notr="true">margin-left: 8px;</string>
+           <string notr="true">QLabel {
+	padding: 0px 8px 0px 8px;
+	min-height: 25px;
+	background-color: rgb(102, 204, 255);
+	color: white;
+	font-weight: bold;
+}</string>
           </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+          <property name="text">
+           <string>A new update is available! Restart the application to apply it.</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="0">
+        <item row="2" column="0">
          <widget class="QDropTreeWidget" name="listTreeWidget">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1028,7 +1056,7 @@ QToolButton:hover {
            <bool>true</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">QTreeWidget#listTreeWidget {
+           <string notr="true">QTreeWidget {
 	background: url(:/icons/main/logo_alpha.png) no-repeat center;
 }
 
@@ -1153,18 +1181,34 @@ QTreeWidget::item:selected {
           </column>
          </widget>
         </item>
+        <item row="1" column="0" colspan="2">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>8</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="verticalLayoutWidget">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="leftMargin">
-         <number>4</number>
+         <number>8</number>
         </property>
         <property name="topMargin">
          <number>4</number>
         </property>
         <property name="rightMargin">
-         <number>4</number>
+         <number>8</number>
         </property>
         <property name="bottomMargin">
          <number>4</number>

@@ -1,5 +1,5 @@
 ## Caesium (Cs-133)
-##### v2.0.0-beta1 (build 20160604) - Copyright &copy; Matteo Paonessa, 2016. All Rights Reserved.
+##### v2.0.0-beta1 (build 20160630) - Copyright &copy; Matteo Paonessa, 2016. All Rights Reserved.
 ###### WARNING This version is not completed yet! Use at your own risk!
 
 <img width="1111" alt="screen" src="https://cloud.githubusercontent.com/assets/12133996/15804910/c59544d4-2b19-11e6-97d3-ac36d6373889.png">
