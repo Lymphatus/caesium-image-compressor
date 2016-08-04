@@ -283,12 +283,18 @@ QPushButton:disabled {
                    <property name="text">
                     <string>Copyright</string>
                    </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item row="8" column="1" colspan="2">
                   <widget class="QCheckBox" name="commentsCheckBox">
                    <property name="text">
                     <string>Comments</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -320,6 +326,9 @@ QPushButton:disabled {
                   <widget class="QCheckBox" name="dateCheckBox">
                    <property name="text">
                     <string>Date</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -382,6 +391,9 @@ QPushButton:disabled {
                   <widget class="QCheckBox" name="exifCheckBox">
                    <property name="text">
                     <string>Keep EXIF</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
                    <property name="tristate">
                     <bool>true</bool>
@@ -1487,12 +1499,12 @@ font-size: 24pt;</string>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>657</x>
-     <y>155</y>
+     <x>781</x>
+     <y>209</y>
     </hint>
     <hint type="destinationlabel">
-     <x>791</x>
-     <y>157</y>
+     <x>843</x>
+     <y>210</y>
     </hint>
    </hints>
   </connection>
@@ -1503,12 +1515,12 @@ font-size: 24pt;</string>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>792</x>
-     <y>149</y>
+     <x>843</x>
+     <y>210</y>
     </hint>
     <hint type="destinationlabel">
-     <x>675</x>
-     <y>158</y>
+     <x>781</x>
+     <y>209</y>
     </hint>
    </hints>
   </connection>
@@ -1519,12 +1531,12 @@ font-size: 24pt;</string>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>609</x>
-     <y>98</y>
+     <x>790</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>838</x>
-     <y>127</y>
+     <x>843</x>
+     <y>178</y>
     </hint>
    </hints>
   </connection>
@@ -1535,12 +1547,12 @@ font-size: 24pt;</string>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>669</x>
-     <y>105</y>
+     <x>790</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>641</x>
-     <y>149</y>
+     <x>781</x>
+     <y>209</y>
     </hint>
    </hints>
   </connection>
@@ -1551,12 +1563,60 @@ font-size: 24pt;</string>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>726</x>
-     <y>102</y>
+     <x>790</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>838</x>
-     <y>159</y>
+     <x>843</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exifCheckBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>copyrightCheckBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>645</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>655</x>
+     <y>286</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exifCheckBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>dateCheckBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>620</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>636</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exifCheckBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>commentsCheckBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>616</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>644</x>
+     <y>325</y>
     </hint>
    </hints>
   </connection>

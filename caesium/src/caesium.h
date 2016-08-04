@@ -98,6 +98,13 @@ private slots:
     QString calculatePreviewHashPath(CTreeWidgetItem* );
     void listItemStatusChanged(CTreeWidgetItem*, citem_status);
 
+    void on_copyrightCheckBox_toggled(bool checked);
+
+    void on_dateCheckBox_toggled(bool checked);
+
+    void on_commentsCheckBox_toggled(bool checked);
+
+
 private:
     Ui::Caesium *ui;
     QFutureWatcher<QImage> imageWatcher; //Image loader
@@ -140,6 +147,7 @@ private:
     void saveCListToFile(QString path);
 
     void setParameters(CTreeWidgetItem*);
+    enum Qt::CheckState getExifsCheckBoxGroupState();
 
 };
 

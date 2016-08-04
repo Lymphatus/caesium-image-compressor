@@ -1069,3 +1069,32 @@ void Caesium::listItemStatusChanged(CTreeWidgetItem* item, citem_status status) 
         break;
     }
 }
+
+void Caesium::on_copyrightCheckBox_toggled(bool checked) {
+    ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
+}
+
+void Caesium::on_dateCheckBox_toggled(bool checked) {
+    ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
+}
+
+void Caesium::on_commentsCheckBox_toggled(bool checked) {
+    ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
+}
+
+enum Qt::CheckState Caesium::getExifsCheckBoxGroupState() {
+    if (ui->dateCheckBox->isChecked() &&
+            ui->commentsCheckBox->isChecked() &&
+            ui->copyrightCheckBox->isChecked()) {
+        //All selected
+        return Qt::Checked;
+    } else if (ui->dateCheckBox->isChecked() ||
+               ui->commentsCheckBox->isChecked() ||
+               ui->copyrightCheckBox->isChecked()) {
+        //At least one is selected
+        return Qt::PartiallyChecked;
+    } else {
+        //None is selected
+        return Qt::Unchecked;
+    }
+}
