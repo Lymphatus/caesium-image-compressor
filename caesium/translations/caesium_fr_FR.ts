@@ -57,12 +57,12 @@
     <message>
         <location filename="../caesiumph.ui" line="634"/>
         <source>Original Size</source>
-        <translation>Taille d'origine</translation>
+        <translation>Taille d&apos;origine</translation>
     </message>
     <message>
         <location filename="../caesiumph.ui" line="639"/>
         <source>New Size</source>
-        <translation>Nouveau taille</translation>
+        <translation>Nouvelle taille</translation>
     </message>
     <message>
         <location filename="../caesiumph.ui" line="644"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../caesiumph.ui" line="649"/>
         <source>Full Path</source>
-        <translation>Lien complet</translation>
+        <translation>Chemin complet</translation>
     </message>
     <message>
         <location filename="../caesiumph.ui" line="267"/>
@@ -94,7 +94,7 @@
         <location filename="../caesiumph.ui" line="425"/>
         <location filename="../caesiumph.cpp" line="768"/>
         <source>Remove item</source>
-        <translation>Supprimer l'élément</translation>
+        <translation>Supprimer l&apos;élément</translation>
     </message>
     <message>
         <location filename="../caesiumph.ui" line="478"/>
@@ -133,7 +133,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;.SF NS Text&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;.Helvetica Neue DeskInterface&apos;;&quot;&gt;Nessun EXIF trovato&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;.Helvetica Neue DeskInterface&apos;;&quot;&gt;Pas d&apos;information EXIF disponible&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../caesiumph.ui" line="784"/>
@@ -203,7 +203,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>No EXIF info available</source>
-        <translation type="vanished">Pas d'information EXIF disponible</translation>
+        <translation type="vanished">Pas d&apos;information EXIF disponible</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="114"/>
@@ -241,7 +241,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../caesiumph.cpp" line="361"/>
         <source> duplicates found</source>
-        <translation> dupliqué trouvé</translation>
+        <translation> doublons trouvés</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="368"/>
@@ -296,47 +296,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../caesiumph.cpp" line="715"/>
         <source>This will close CaesiumPH. Do you really want to update now?</source>
-        <translation>Per aggiornare devi chiudere CaesiumPH. Vuoi farlo ora?</translation>
+        <translation>Ceci fermera CaesiumPH. Voulez-vous vraiment mettre à jour maintenant?</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="737"/>
         <source> files in list</source>
-        <translation> Fichiers dans la nouvelle liste</translation>
+        <translation> Fichiers dans la liste</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="741"/>
         <source>List cleared</source>
-        <translation>Lista svuotata</translation>
+        <translation>Liste effacée</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="769"/>
         <source>Remove the item from the list</source>
-        <translation>Rimuovi l&apos;elemento dalla lista</translation>
+        <translation>Supprimer l&apos;élément de la liste</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="773"/>
         <source>Show in folder</source>
-        <translation>Mostra nella cartella</translation>
+        <translation>Voir dans le dossier</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="774"/>
         <source>Opens the folder containing the file</source>
-        <translation>Apre la cartella che contiene il file</translation>
+        <translation>Ouvrir le dossier contenant le fichier</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="778"/>
         <source>Show destination folder</source>
-        <translation>Mostra destinazione</translation>
+        <translation>Voir le dossier de destination</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="779"/>
         <source>Opens the destination folder for the file</source>
-        <translation>Apre la cartella di destinazione del file</translation>
+        <translation>Ouvrir le fichier de destination du fichier</translation>
     </message>
     <message>
         <location filename="../caesiumph.cpp" line="784"/>
         <source>Clears the list</source>
-        <translation>Pulisce la lista</translation>
+        <translation>Efface la liste</translation>
     </message>
 </context>
 <context>
@@ -344,136 +344,136 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../preferencedialog.ui" line="17"/>
         <source>Preferences</source>
-        <translation>Impostazioni</translation>
+        <translation>Préférences</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="355"/>
         <source>Language</source>
-        <translation>Lingua</translation>
+        <translation>Langue</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="318"/>
         <source>Overwrite original files</source>
-        <translation>Sovrascrivi i file originali</translation>
+        <translation>Ecraser les fichiers originaux</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="266"/>
         <source>Leaving empty will overwrite the file</source>
-        <translation>Lasciare vuoto sovrascriverà i file</translation>
+        <translation>Laisser vide pour écraser les fichiers</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="245"/>
         <source>Custom suffix</source>
-        <translation>Suffisso</translation>
+        <translation>Suffixe personnalisé</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="250"/>
         <source>Subfolder</source>
-        <translation>Sottocartella</translation>
+        <translation>Sous Dossier</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="255"/>
         <source>Custom folder</source>
-        <translation>Cartella</translation>
+        <translation>Dossier personnalisé</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="297"/>
         <source>-- System language --</source>
-        <translation>-- Lingua di sistema --</translation>
+        <translation>-- Langue système --</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="308"/>
         <source>Prompt before exit</source>
-        <translation>Chiedi prima di uscire</translation>
+        <translation>Demander avant de quitter</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="276"/>
         <source>Walk through subfolders</source>
-        <translation>Apri anche le sottocartelle</translation>
+        <translation>Ouvrir également les sous-dossiers</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="163"/>
         <source>Done</source>
-        <translation>Fine</translation>
+        <translation>Terminé</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="333"/>
         <source>Language will change after restart</source>
-        <translation>La lingua cambierà dopo il riavvio</translation>
+        <translation>La langue sera changer après le redémarrage</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="392"/>
         <source>Keep copyright</source>
-        <translation>Mantieni copyright</translation>
+        <translation>Garder le copyright</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="415"/>
         <source>Keep date</source>
-        <translation>Mantieni la data</translation>
+        <translation>Garder la date</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="451"/>
         <source>Progressive</source>
-        <translation>Progressivo</translation>
+        <translation>Progressif</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="461"/>
         <source>Keep comments</source>
-        <translation>Mantieni commenti</translation>
+        <translation>Garder les commantaires</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="468"/>
         <source>Keep EXIF information</source>
-        <translation>Mantieni EXIF</translation>
+        <translation>Gardez les informations EXIF</translation>
     </message>
     <message>
         <source>Send anonymous usage information</source>
-        <translation type="vanished">Manda report anonimi sull&apos;uso</translation>
+        <translation type="vanished">Envoyer des informations d&apos;utilisation de façon anonyme</translation>
     </message>
     <message>
         <source>See info...</source>
-        <translation type="vanished">Vedi le informazioni...</translation>
+        <translation type="vanished">Voir les informations...</translation>
     </message>
     <message>
         <source>Not yet implemented</source>
-        <translation type="vanished">Non ancora implementato</translation>
+        <translation type="vanished">Pas encore implémenté</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="vanished">barraDegliStrumenti</translation>
+        <translation type="vanished">Bar d&apos;outils</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="91"/>
         <source>General</source>
-        <translation>Generale</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <location filename="../preferencedialog.ui" line="100"/>
         <source>Compression</source>
-        <translation>Compressione</translation>
+        <translation>Compression</translation>
     </message>
     <message>
         <source>Privacy</source>
-        <translation type="vanished">Privacy</translation>
+        <translation type="vanished">Confidentialité</translation>
     </message>
     <message>
         <source>This data will help improve this application and won&apos;t be shared with anyone.</source>
-        <translation type="vanished">Questi dati aiuteranno a migliorare l&apos;applicazione e non saranno condivisi con nessuno.</translation>
+        <translation type="vanished">Ces données aideront à améliorer cette application et ne sera pas partagé avec quiconque.</translation>
     </message>
     <message>
         <location filename="../preferencedialog.cpp" line="117"/>
         <source>_compressed</source>
-        <translation>_compressa</translation>
+        <translation>_compresser</translation>
     </message>
     <message>
         <location filename="../preferencedialog.cpp" line="120"/>
         <source>compressed</source>
-        <translation>compresse</translation>
+        <translation>compressé</translation>
     </message>
     <message>
         <location filename="../preferencedialog.cpp" line="134"/>
         <source>Select an output folder...</source>
-        <translation>Seleziona una cartella di destinazione...</translation>
+        <translation>Sélectionner un dossier de sortie...</translation>
     </message>
 </context>
 <context>
@@ -481,7 +481,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../caesiumph.h" line="105"/>
         <source>Image Files</source>
-        <translation>File immagine</translation>
+        <translation>Fichiers Images</translation>
     </message>
 </context>
 <context>
@@ -489,7 +489,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../utils.cpp" line="157"/>
         <source> minutes</source>
-        <translation> minuti</translation>
+        <translation> minutes</translation>
     </message>
 </context>
 </TS>
