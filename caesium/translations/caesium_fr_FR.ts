@@ -12,7 +12,7 @@
     <message>
         <location filename="../aboutdialog.ui" line="308"/>
         <source>Lossless JPEG compression</source>
-        <translation>Compressione JPEG senza perdita di qualità</translation>
+        <translation>Compression JPEG sans perte de qualité</translation>
     </message>
     <message>
         <location filename="../aboutdialog.ui" line="372"/>
