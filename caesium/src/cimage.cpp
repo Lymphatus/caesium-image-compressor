@@ -30,17 +30,17 @@
 #include <QDebug>
 
 CImage::CImage(QString path) {
-    QFileInfo* fi = new QFileInfo(path);
+    QFileInfo fi = QFileInfo(path);
     fullPath = path;
-    baseName = fi->completeBaseName();
-    size = fi->size();
+    baseName = fi.completeBaseName();
+    size = fi.size();
     formattedSize = toHumanSize(size);
-    QImageReader* ir = new QImageReader(path);
+    ir = new QImageReader(path);
     QSize s = ir->size();
     width = s.width();
     height = s.height();
 
-    type = detect_image_type(QStringToChar(path));
+    type = typeFormatToEnum(ir->format());
 }
 
 CImage::CImage() {

@@ -38,11 +38,11 @@ public:
     CTreeWidgetItem(QTreeWidget* parent) : QTreeWidgetItem(parent) {}
     CTreeWidgetItem(QTreeWidget* parent, QStringList list) : QTreeWidgetItem(parent, list) {}
     CTreeWidgetItem(QTreeWidget* parent, QString path) : QTreeWidgetItem(parent) {
-        image = new CImage(path);
+        image = CImage(path);
         this->setStatus(NEW);
     }
 
-    CImage* image = NULL;
+    CImage image;
 
     citem_status getStatus() const;
     void setStatus(const citem_status &value);

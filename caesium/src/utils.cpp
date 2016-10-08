@@ -35,9 +35,9 @@
 
 QString clfFilter = "Caesium List File (*.clf)";
 QStringList inputFilterList = QStringList() << "*.jpg" << "*.jpeg" << "*.png";
-QString versionString = "2.0.0-beta1";
+QString versionString = "2.0.0-beta";
 int versionNumber = 00;
-int buildNumber = 20160630;
+int buildNumber = 20161006;
 QString updateVersionTag = "";
 long originalsSize = 0;
 long compressedSize = 0;
@@ -52,7 +52,6 @@ QStringList osAndExtension = QStringList() <<
             "linux" << ".tar.gz";
         #endif
 QTemporaryDir tempDir;
-QElapsedTimer timer;
 QString lastCListPath = "";
 QList<QLocale> locales;
 QString logPath = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) +
@@ -149,39 +148,6 @@ bool isJPEG(char* path) {
     }
 }
 
-enum image_type detect_image_type(char* path) {
-    //Open the file
-    FILE* fp;
-    unsigned char* type_buffer = (unsigned char*) malloc(2);
-
-    fp = fopen(path, "r");
-
-    if (fp == NULL) {
-        fprintf(stderr, "Cannot open input file for type detection. Skipping.\n");
-        return UNKN;
-    }
-    //Read enough bytes
-    if (fread(type_buffer, 1, 2, fp) < 2) {
-        fprintf(stderr, "Cannot read file type. Skipping.\n");
-        free(type_buffer);
-        return UNKN;
-    }
-    //We don't need it anymore
-    fclose(fp);
-
-    //Check the bytes against the JPEG and PNG specs
-    if (((int) type_buffer[0] == 0xFF) && ((int) type_buffer[1] == 0xD8)) {
-        free(type_buffer);
-        return JPEG;
-    } else if (((int) type_buffer[0] == 0x89) && ((int) type_buffer[1] == 0x50)) {
-        free(type_buffer);
-        return PNG;
-    } else {
-        free(type_buffer);
-        return UNKN;
-    }
-}
-
 QString msToFormattedString(qint64 ms) {
     if (ms < 1000) {
         return QString::number(ms) + " ms";
@@ -234,3 +200,13 @@ void loadLocales() {
     //qInfo() << "Found locales" << locales;
 }
 
+image_type typeFormatToEnum(QByteArray format) {
+    image_type img_type = UNKN;
+    if (format == "jpg") {
+        img_type = JPEG;
+    } else if (format == "png") {
+        img_type = PNG;
+    }
+
+    return img_type;
+}

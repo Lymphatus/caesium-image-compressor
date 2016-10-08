@@ -35,6 +35,7 @@
 #include <QToolButton>
 #include <QLabel>
 #include <QFileInfo>
+#include <QSettings>
 
 namespace Ui {
 class Caesium;
@@ -103,7 +104,8 @@ private slots:
     void on_dateCheckBox_toggled(bool checked);
 
     void on_commentsCheckBox_toggled(bool checked);
-
+    void addItemToList(QString path);
+    void finishItemsImport();
 
 private:
     Ui::Caesium *ui;
@@ -113,13 +115,15 @@ private:
     QList<CTreeWidgetItem*> previewList;
     QList<CTreeWidgetItem*> compressionList;
     //Status bar widgets
-    QToolButton* updateButton = new QToolButton();
+    QLabel* listStatusBarLabel = new QLabel();
     QFrame* statusStatusBarLine = new QFrame();
-    QFrame* updateStatusBarLine = new QFrame();
+    QFrame* listStatusBarLine = new QFrame();
     QLabel* statusBarLabel = new QLabel();
     QString updatePath;
     QString inputFilter = QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png)";
     QString previewPath;
+    QElapsedTimer timer;
+    QSettings settings;
 
     //List Menu
     QMenu* listMenu;
@@ -129,7 +133,13 @@ private:
     QAction* listShowOutputFolderAction;
     QAction* listClearAction;
 
+    //Import stats
+    int item_count;
+    int duplicate_count;
+    //Total stats
+    int total_item_count;
 
+    void initializeParameters();
     void initializeConnections();
     void initializeUI();
     void readPreferences();

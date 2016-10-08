@@ -21,47 +21,53 @@
  *
  */
 
-
 #include "caesium.h"
-#include "ui_caesium.h"
 #include "aboutdialog.h"
-#include "utils.h"
-#include "jpeg.h"
 #include "cimage.h"
-#include "exif.h"
-#include "preferencedialog.h"
-#include "networkoperations.h"
-#include "qdroptreewidget.h"
-#include "ctreewidgetitem.h"
 #include "clist.h"
+#include "ctreewidgetitem.h"
+#include "exif.h"
+#include "jpeg.h"
+#include "networkoperations.h"
 #include "png.h"
+#include "preferencedialog.h"
+#include "qdroptreewidget.h"
+#include "ui_caesium.h"
+#include "utils.h"
 
-#include <QProgressDialog>
-#include <QFileDialog>
-#include <QStandardPaths>
-#include <QGraphicsPixmapItem>
-#include <QFileInfo>
-#include <QtConcurrent>
-#include <QFuture>
-#include <QElapsedTimer>
-#include <QMessageBox>
-#include <QImageReader>
-#include <QSettings>
 #include <QCloseEvent>
-#include <QMessageBox>
 #include <QDesktopServices>
 #include <QDirIterator>
-#include <QSizeGrip>
+#include <QElapsedTimer>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QFuture>
+#include <QGraphicsPixmapItem>
+#include <QImageReader>
+#include <QMessageBox>
+#include <QMessageBox>
 #include <QMovie>
+#include <QProgressDialog>
+#include <QSettings>
+#include <QSizeGrip>
+#include <QStandardPaths>
+#include <QtConcurrent>
 
 #include <exiv2/exiv2.hpp>
 
 #include <QDebug>
 
+//Status bar message lenght in ms
+#define MESSAGE_STATIC 0
+#define MESSAGE_SHORT 1000
+#define MESSAGE_LONG 2000
+
 //TODO GENERAL: handle plurals in counts
 //TODO GENERAL: create custom error boxes
 
-Caesium::Caesium(QWidget *parent) : QMainWindow(parent), ui(new Ui::Caesium)
+Caesium::Caesium(QWidget* parent)
+    : QMainWindow(parent)
+    , ui(new Ui::Caesium)
 {
     ui->setupUi(this);
 
@@ -70,18 +76,23 @@ Caesium::Caesium(QWidget *parent) : QMainWindow(parent), ui(new Ui::Caesium)
     readPreferences();
     createMenuActions();
     createMenus();
-    checkUpdates();
-
-    QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
+    //checkUpdates();
 }
 
-Caesium::~Caesium() {
+Caesium::~Caesium()
+{
     delete ui;
 }
 
-void Caesium::initializeUI() {
-    QSettings settings;
+void Caesium::initializeParameters()
+{
+    total_item_count = 0;
+    item_count = 0;
+    duplicate_count = 0;
+}
 
+void Caesium::initializeUI()
+{
     qInfo() << "Installing event filters";
 
     //Install event filter for buttons
@@ -95,6 +106,7 @@ void Caesium::initializeUI() {
     qInfo() << "Setting geometry for main window";
 
     //Set the headers size
+    //TODO This should be saved in preferences and retrived as user set
     ui->listTreeWidget->header()->resizeSection(COLUMN_STATUS, 24);
     ui->listTreeWidget->header()->resizeSection(COLUMN_NAME, 180);
     ui->listTreeWidget->header()->resizeSection(COLUMN_ORIGINAL_SIZE, 100);
@@ -115,7 +127,7 @@ void Caesium::initializeUI() {
     resize(settings.value(KEY_PREF_GEOMETRY_SIZE, QSize(880, 500)).toSize());
     move(settings.value(KEY_PREF_GEOMETRY_POS, QPoint(200, 200)).toPoint());
     ui->listTreeWidget->sortByColumn(settings.value(KEY_PREF_GEOMETRY_SORT_COLUMN).value<int>(),
-                                     settings.value(KEY_PREF_GEOMETRY_SORT_ORDER).value<Qt::SortOrder>());
+        settings.value(KEY_PREF_GEOMETRY_SORT_ORDER).value<Qt::SortOrder>());
     settings.endGroup();
 
     //No blue border on focus for Mac
@@ -125,37 +137,35 @@ void Caesium::initializeUI() {
     //Vertical lines
     statusStatusBarLine->setFrameShape(QFrame::VLine);
     statusStatusBarLine->setFrameShadow(QFrame::Raised);
-    updateStatusBarLine->setFrameShape(QFrame::VLine);
-    updateStatusBarLine->setFrameShadow(QFrame::Raised);
-    updateStatusBarLine->setVisible(false);
+    listStatusBarLine->setFrameShape(QFrame::VLine);
+    listStatusBarLine->setFrameShadow(QFrame::Raised);
     //List info label
-    statusBarLabel->setText(" v" + versionString);
+    statusBarLabel->setText(versionString + "." + QString::number(buildNumber));
     //Update Button
     //TODO REMOVE as legacy design
-    updateButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    updateButton->setAutoRaise(false);
-    updateButton->setText(tr("A new version is available!"));
-    updateButton->setIcon(QIcon(":/icons/ui/update.png"));
-    updateButton->setVisible(false);
+    listStatusBarLabel->setText(tr("0 files in list"));
     //Update label
     ui->updateLabel->setHidden(true);
     //Add them to the status bar
+    ui->statusBar->addPermanentWidget(listStatusBarLine);
+    ui->statusBar->addPermanentWidget(listStatusBarLabel);
     ui->statusBar->addPermanentWidget(statusStatusBarLine);
     ui->statusBar->addPermanentWidget(statusBarLabel);
-    ui->statusBar->addPermanentWidget(updateStatusBarLine);
-    ui->statusBar->addPermanentWidget(updateButton);
 
+    clearUI();
 }
 
-void Caesium::initializeConnections() {
+void Caesium::initializeConnections()
+{
     qInfo() << "Initializing connections";
-    //Edit menu
+    //Menus
     //List clear
     connect(ui->actionClear_list, SIGNAL(triggered()), ui->listTreeWidget, SLOT(clear()));
     connect(ui->actionClear_list, SIGNAL(triggered()), this, SLOT(updateStatusBarCount()));
     connect(ui->actionClear_list, SIGNAL(triggered()), this, SLOT(clearUI()));
-    //List select all
+    //Select all
     connect(ui->actionSelect_all, SIGNAL(triggered()), ui->listTreeWidget, SLOT(selectAll()));
+
     //UI buttons
     connect(ui->compressButton, SIGNAL(released()), this, SLOT(on_actionCompress_triggered()));
     connect(ui->addFilesButton, SIGNAL(released()), this, SLOT(on_actionAdd_pictures_triggered()));
@@ -171,18 +181,18 @@ void Caesium::initializeConnections() {
     //Context menu
     connect(ui->listTreeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showListContextMenu(QPoint)));
 
-
+    //TODO Activate again
     //Update button
-    connect(updateButton, SIGNAL(released()), this, SLOT(on_updateButton_clicked()));
+    //connect(listStatusBarlabel, SIGNAL(released()), this, SLOT(on_listStatusBarlabel_clicked()));
 
     //List changed signal
     connect(ui->listTreeWidget, SIGNAL(itemsChanged()), this, SLOT(listChanged()));
 }
 
-void Caesium::readPreferences() {
+void Caesium::readPreferences()
+{
     qInfo() << "Reading preferences";
     //Read important parameters from settings
-    QSettings settings;
 
     settings.beginGroup(KEY_PREF_GROUP_GENERAL);
     params.overwrite = settings.value(KEY_PREF_GENERAL_OVERWRITE).value<bool>();
@@ -192,62 +202,63 @@ void Caesium::readPreferences() {
 }
 
 //Button hover functions
-bool Caesium::eventFilter(QObject *obj, QEvent *event) {
-    if (obj == (QObject*) ui->addFilesButton) {
+bool Caesium::eventFilter(QObject* obj, QEvent* event)
+{
+    if (obj == (QObject*)ui->addFilesButton) {
         if (event->type() == QEvent::Enter && ui->addFilesButton->isEnabled()) {
             ui->addFilesButton->setIcon(QIcon(":/icons/ui/add_hover.png"));
             return true;
-        } else if (event->type() == QEvent::Leave){
+        } else if (event->type() == QEvent::Leave) {
             ui->addFilesButton->setIcon(QIcon(":/icons/ui/add.png"));
             return true;
         } else {
             return false;
         }
-    } else if (obj == (QObject*) ui->addFolderButton) {
+    } else if (obj == (QObject*)ui->addFolderButton) {
         if (event->type() == QEvent::Enter && ui->addFolderButton->isEnabled()) {
             ui->addFolderButton->setIcon(QIcon(":/icons/ui/folder_hover.png"));
             return true;
-        } else if (event->type() == QEvent::Leave){
+        } else if (event->type() == QEvent::Leave) {
             ui->addFolderButton->setIcon(QIcon(":/icons/ui/folder.png"));
             return true;
         } else {
             return false;
         }
-    } else if (obj == (QObject*) ui->compressButton) {
+    } else if (obj == (QObject*)ui->compressButton) {
         if (event->type() == QEvent::Enter && ui->compressButton->isEnabled()) {
             ui->compressButton->setIcon(QIcon(":/icons/ui/compress_hover.png"));
             return true;
-        } else if (event->type() == QEvent::Leave){
+        } else if (event->type() == QEvent::Leave) {
             ui->compressButton->setIcon(QIcon(":/icons/ui/compress.png"));
             return true;
         } else {
             return false;
         }
-    } else if (obj == (QObject*) ui->removeItemButton) {
+    } else if (obj == (QObject*)ui->removeItemButton) {
         if (event->type() == QEvent::Enter && ui->removeItemButton->isEnabled()) {
             ui->removeItemButton->setIcon(QIcon(":/icons/ui/remove_hover.png"));
             return true;
-        } else if (event->type() == QEvent::Leave){
+        } else if (event->type() == QEvent::Leave) {
             ui->removeItemButton->setIcon(QIcon(":/icons/ui/remove.png"));
             return true;
         } else {
             return false;
         }
-    } else if (obj == (QObject*) ui->clearButton) {
+    } else if (obj == (QObject*)ui->clearButton) {
         if (event->type() == QEvent::Enter && ui->clearButton->isEnabled()) {
             ui->clearButton->setIcon(QIcon(":/icons/ui/clear_hover.png"));
             return true;
-        } else if (event->type() == QEvent::Leave){
+        } else if (event->type() == QEvent::Leave) {
             ui->clearButton->setIcon(QIcon(":/icons/ui/clear.png"));
             return true;
         } else {
             return false;
         }
-    } else if (obj == (QObject*) ui->settingsButton) {
+    } else if (obj == (QObject*)ui->settingsButton) {
         if (event->type() == QEvent::Enter && ui->settingsButton->isEnabled()) {
             ui->settingsButton->setIcon(QIcon(":/icons/ui/settings_hover.png"));
             return true;
-        } else if (event->type() == QEvent::Leave){
+        } else if (event->type() == QEvent::Leave) {
             ui->settingsButton->setIcon(QIcon(":/icons/ui/settings.png"));
             return true;
         } else {
@@ -259,41 +270,47 @@ bool Caesium::eventFilter(QObject *obj, QEvent *event) {
     }
 }
 
-void Caesium::on_actionAbout_Caesium_triggered() {
+void Caesium::on_actionAbout_Caesium_triggered()
+{
     qInfo() << "Requested info about Caesium";
     //Start the about dialog
-    AboutDialog* ad = new AboutDialog(this);
+    AboutDialog *ad = new AboutDialog(this);
     ad->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     ad->show();
 }
 
-void Caesium::on_actionAdd_pictures_triggered() {
+void Caesium::on_actionAdd_pictures_triggered()
+{
     //Generate file dialog for import and call the progress dialog indicator
     QStringList fileList = QFileDialog::getOpenFileNames(this,
-                                                         tr("Import files..."),
-                                                         QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
-                                                         inputFilter);
+        tr("Import files..."),
+        QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+        inputFilter);
     if (!fileList.isEmpty()) {
         showImportProgressDialog(fileList);
     }
 }
 
-void Caesium::showImportProgressDialog(QStringList list) {
+void Caesium::showImportProgressDialog(QStringList list)
+{
+    //Register metatype for emitting changes
+    qRegisterMetaType<QVector<int> >("QVector<int>");
+
     qInfo() << "Importing files...";
-    QSettings settings;
+
+    //Progress dialog
+    QProgressDialog progress(tr("Importing..."), tr("Cancel"), 0, list.count(), this);
+    progress.setWindowIcon(QIcon(":/icons/main/logo.png"));
+    //progress.setWindowFlags(Qt::FramelessWindowHint);
+    progress.setWindowModality(Qt::WindowModal);
+
     bool scanSubdir = settings.value(KEY_PREF_GROUP_GENERAL + KEY_PREF_GENERAL_SUBFOLDER).value<bool>();
 
     qInfo() << "Subfolder scanning: " << scanSubdir;
 
-    QProgressDialog progress(tr("Importing..."), tr("Cancel"), 0, list.count(), this);
-    progress.setWindowIcon(QIcon(":/icons/main/logo.png"));
-    progress.setWindowFlags(Qt::FramelessWindowHint);
-    progress.setWindowModality(Qt::WindowModal);
-    progress.show();
-
     //Actual added item count and duplicate count
-    int item_count = 0;
-    int duplicate_count = 0;
+    item_count = 0;
+    duplicate_count = 0;
 
     for (int i = 0; i < list.size(); i++) {
         //Check if it's a folder
@@ -302,82 +319,103 @@ void Caesium::showImportProgressDialog(QStringList list) {
             //If so, add the whole content to the end of the list
             QDirIterator it(list[i], inputFilterList, QDir::AllEntries, scanSubdir ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags);
             qInfo() << "Adding folder files to the import list";
-            while(it.hasNext()) {
+            while (it.hasNext()) {
                 it.next();
                 list.append(it.filePath());
             }
         }
 
-        progress.setValue(i);        
-
         //Validate extension
-        image_type img_type = detect_image_type(QStringToChar(list.at(i)));
-
+        image_type img_type;
+        QByteArray format = QImageReader(list.at(i)).format();
+        img_type = typeFormatToEnum(format);
         if (img_type == UNKN) {
             qWarning() << "Unsupported file type: " << list.at(i);
-            continue;
-        }
-
-        CTreeWidgetItem* item = new CTreeWidgetItem(ui->listTreeWidget, list.at(i));
-
-        //Check if it has a duplicate
-        if (hasADuplicateInList(item->image)) {
-            qInfo() << "Found duplicate: " << item->image->getFullPath();
-            duplicate_count++;
-            continue;
-        }
-
-        setParameters(item);
-
-        //Populate list
-        item->setText(COLUMN_NAME, item->image->getBaseName());
-        item->setText(COLUMN_ORIGINAL_SIZE, item->image->getFormattedSize());
-        item->setText(COLUMN_ORIGINAL_RESOLUTION, item->image->getFormattedResolution());
-        item->setText(COLUMN_OPTIONS, tr("Default"));
-        //item->setText(COLUMN_OPTIONS, item->image->getType() == PNG ? item->image->printPNGParams() : item->image->printJPEGParams());
-        item->setText(COLUMN_PATH, item->image->getFullPath());
-        //Set the icon
-        item->setIcon(0, QIcon(":/icons/ui/list_new.png"));
-
-        qInfo() << "Item added: " << item->image->getFullPath();
-        ui->listTreeWidget->addTopLevelItem(item);
-
-        item_count++;
-
-        if (progress.wasCanceled()) {
-            break;
+            list.removeAt(i);
         }
     }
-    progress.setValue(list.count());
 
-    //Show import stats in the status bar
-    ui->statusBar->showMessage(duplicate_count > 0 ?
-                                   QString::number(item_count) + tr(" files added to the list") + ", " +
-                                   QString::number(duplicate_count) + tr(" duplicates found")
-                                 : QString::number(item_count) + tr(" files added to the list"));
-    updateStatusBarCount();
+    //Setup the seprate worker thread
+    QFutureWatcher<void> watcher;
+
+    //This seems to prevent crashes
+    QThreadPool::globalInstance()->setMaxThreadCount(1);
+
+    QFuture<void> future = QtConcurrent::map(list, [this](QString& data) { addItemToList(data); });
+
+    //TODO Add cancel capability
+    connect(&watcher, SIGNAL(progressValueChanged(int)), &progress, SLOT(setValue(int)));
+    connect(&watcher, SIGNAL(progressRangeChanged(int, int)), &progress, SLOT(setRange(int, int)));
+    connect(&watcher, SIGNAL(finished()), &progress, SLOT(reset()));
+    connect(&watcher, SIGNAL(finished()), this, SLOT(finishItemsImport()));
+
+    watcher.setFuture(future);
+    //Show the dialog
+    progress.exec();
 }
 
-void Caesium::on_actionAdd_folder_triggered() {
+void Caesium::addItemToList(QString path)
+{
+    CTreeWidgetItem* item = new CTreeWidgetItem(ui->listTreeWidget, path);
+
+    //Check if it has a duplicate
+    /*if (hasADuplicateInList(item->image)) {
+        qInfo() << "Found duplicate: " << item->image->getFullPath();
+        duplicate_count++;
+        return;
+    }*/
+
+    setParameters(item);
+
+    //Populate list
+    item->setText(COLUMN_NAME, item->image.getBaseName());
+    item->setText(COLUMN_ORIGINAL_SIZE, item->image.getFormattedSize());
+    item->setText(COLUMN_ORIGINAL_RESOLUTION, item->image.getFormattedResolution());
+    item->setText(COLUMN_OPTIONS, tr("Default"));
+    //item->setText(COLUMN_OPTIONS, item->image->getType() == PNG ? item->image->printPNGParams() : item->image->printJPEGParams());
+    item->setText(COLUMN_PATH, item->image.getFullPath());
+    //Set the icon
+    item->setIcon(0, QIcon(":/icons/ui/list_new.png"));
+
+    qInfo() << "Item added: " << item->image.getFullPath();
+
+    //ui->listTreeWidget->addTopLevelItem(item);
+
+    item_count++;
+}
+
+void Caesium::finishItemsImport()
+{
+    //Show import stats in the status bar
+    ui->statusBar->showMessage(duplicate_count > 0 ? QString::number(item_count) + tr(" files added to the list") + ", " + QString::number(duplicate_count) + tr(" duplicates found")
+                                                   : QString::number(item_count) + tr(" files added to the list"),
+                               MESSAGE_LONG);
+    updateStatusBarCount();
+    QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
+}
+
+void Caesium::on_actionAdd_folder_triggered()
+{
     qInfo() << "Importing folder...";
     QString path = QFileDialog::getExistingDirectory(this,
-                                                     tr("Select a folder to import..."),
-                                                     QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
-                                                     QFileDialog::ShowDirsOnly);
+        tr("Select a folder to import..."),
+        QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+        QFileDialog::ShowDirsOnly);
     if (!path.isEmpty()) {
         showImportProgressDialog(QStringList() << path);
     }
 }
 
-void Caesium::on_actionRemove_items_triggered() {
+void Caesium::on_actionRemove_items_triggered()
+{
     int count = ui->listTreeWidget->selectedItems().count();
     if (count == ui->listTreeWidget->topLevelItemCount()) {
         qInfo() << "Clearing list";
         ui->listTreeWidget->clear();
     } else {
         qInfo() << "Removing selected items";
-        for (int i = 0; i < count; i++) {
-            ui->listTreeWidget->takeTopLevelItem(ui->listTreeWidget->indexOfTopLevelItem(ui->listTreeWidget->selectedItems().at(0)));
+        foreach (QTreeWidgetItem *item, ui->listTreeWidget->selectedItems()) {
+            ui->listTreeWidget->takeTopLevelItem(ui->listTreeWidget->indexOfTopLevelItem(item));
         }
     }
     //Clear boxes
@@ -385,20 +423,22 @@ void Caesium::on_actionRemove_items_triggered() {
     //Update count
     updateStatusBarCount();
     //Show a message
-    ui->statusBar->showMessage(QString::number(count) + tr(" items removed"));
+    ui->statusBar->showMessage(QString::number(count) + tr(" items removed"), MESSAGE_LONG);
 }
 
-void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
+void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview)
+{
     //Connect a signal for status changing
     qRegisterMetaType<citem_status>("citem_status");
     connect(item, SIGNAL(compressionStatusChanged(CTreeWidgetItem*, citem_status)), this, SLOT(listItemStatusChanged(CTreeWidgetItem*, citem_status)));
     //TODO Error handling
     if (params.overwrite) {
         if (QMessageBox::warning(this,
-                                 tr("Warning"),
-                                 tr("All files will be overwritten. This cannot be undone.\n Continue?"),
-                                 QMessageBox::Ok,
-                                 QMessageBox::Cancel) == QMessageBox::Cancel) {
+                tr("Warning"),
+                tr("All files will be overwritten. This cannot be undone.\n Continue?"),
+                QMessageBox::Ok,
+                QMessageBox::Cancel)
+            == QMessageBox::Cancel) {
             return;
         }
     }
@@ -429,11 +469,11 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
         //Set state to COMPRESSING
         item->setStatus(COMPRESSING);
 
-        if (item->image->getType() == JPEG) {
-            char* exif_orig = (char*) malloc(strlen(input) * sizeof(char));
+        if (item->image.getType() == JPEG) {
+            char* exif_orig = (char*)malloc(strlen(input) * sizeof(char));
             //Lossy processing just uses the compression method before optimizing
-            if (item->image->jparams.getQuality() > 0) {
-                cclt_jpeg_compress(output, cclt_jpeg_decompress(input, item->image), item->image);
+            if (item->image.jparams.getQuality() > 0) {
+                cclt_jpeg_compress(output, cclt_jpeg_decompress(input, &item->image), &item->image);
                 //TODO Check memory leaks
                 //If we are using lossy compression, the input file is the output of
                 //the previous function
@@ -441,15 +481,15 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
                 input = output;
             }
             //Optimize
-            cclt_jpeg_optimize(input, output, item->image, exif_orig);
+            cclt_jpeg_optimize(input, output, &item->image, exif_orig);
 
             //Write important metadata as user requested
-            if (item->image->jparams.getExif() && !item->image->jparams.getImportantExifs().isEmpty()) {
+            if (item->image.jparams.getExif() && !item->image.jparams.getImportantExifs().isEmpty()) {
                 qInfo() << "Writing reuqested exif metadata";
-                writeSpecificExifTags(exifData, outputPath, item->image->jparams.getImportantExifs());
+                writeSpecificExifTags(exifData, outputPath, item->image.jparams.getImportantExifs());
             }
-        } else if (item->image->getType() == PNG) {
-            cclt_png_optimize(inputPath, outputPath, &item->image->pparams);
+        } else if (item->image.getType() == PNG) {
+            cclt_png_optimize(inputPath, outputPath, &item->image.pparams);
         }
 
         //Gets new file info
@@ -508,7 +548,8 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview) {
     }
 }
 
-QString Caesium::getOutputPath(QFileInfo* originalInfo) {
+QString Caesium::getOutputPath(QFileInfo* originalInfo)
+{
     QString outputPath;
     if (params.overwrite) {
         /*
@@ -526,19 +567,19 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
             exit(-1);
         }
     } else {
+        //TODO Show message boxes for errors
         QDir dir(originalInfo->path() + "/" + params.outMethodString + "/");
         switch (params.outMethodIndex) {
         case 0:
             //Add a suffix
             outputPath = originalInfo->filePath().replace(originalInfo->completeBaseName(),
-                                                          originalInfo->baseName() + params.outMethodString);
+                originalInfo->baseName() + params.outMethodString);
             break;
         case 1:
             //Compress in a subfolder
             outputPath = originalInfo->path() + "/" + params.outMethodString + "/" + originalInfo->fileName();
             //Create it
             if (!dir.mkdir(dir.path()) && !dir.exists()) {
-                ui->statusBar->showMessage(tr("ERROR: could not create output folder. Check user permissions."));
                 qCritical() << "Cannot create output directory. Abort current operation";
                 return NULL;
             }
@@ -547,7 +588,6 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
             //Compress in a custom directory
             outputPath = params.outMethodString + "/" + originalInfo->fileName();
             if (!QDir().mkdir(params.outMethodString) && !QDir(params.outMethodString).exists()) {
-                ui->statusBar->showMessage(tr("ERROR: could not create output folder. Check user permissions."));
                 qCritical() << "Cannot create output directory. Abort current operation";
                 return NULL;
             }
@@ -560,7 +600,8 @@ QString Caesium::getOutputPath(QFileInfo* originalInfo) {
     return outputPath;
 }
 
-void Caesium::on_actionCompress_triggered() {
+void Caesium::on_actionCompress_triggered()
+{
     //Return if list is empty
     if (ui->listTreeWidget->topLevelItemCount() < 1) {
         qWarning() << "Compression requested but list is empty";
@@ -587,15 +628,15 @@ void Caesium::on_actionCompress_triggered() {
 
     //Gets the list filled
     for (int i = 0; i < ui->listTreeWidget->topLevelItemCount(); i++) {
-        list.append((CTreeWidgetItem*) ui->listTreeWidget->topLevelItem(i));
+        list.append((CTreeWidgetItem*)ui->listTreeWidget->topLevelItem(i));
     }
 
-    QFuture<void> future = QtConcurrent::map(list, [this] (CTreeWidgetItem*& data) {compressRoutine(data);});
+    QFuture<void> future = QtConcurrent::map(list, [this](CTreeWidgetItem*& data) { compressRoutine(data); });
 
     //Setting up connections
     //Progress dialog
     connect(&watcher, SIGNAL(progressValueChanged(int)), &progressDialog, SLOT(setValue(int)));
-    connect(&watcher, SIGNAL(progressRangeChanged(int, int)), &progressDialog, SLOT(setRange(int,int)));
+    connect(&watcher, SIGNAL(progressRangeChanged(int, int)), &progressDialog, SLOT(setRange(int, int)));
     connect(&watcher, SIGNAL(finished()), &progressDialog, SLOT(reset()));
     connect(&progressDialog, SIGNAL(canceled()), &watcher, SLOT(cancel()));
     //Connect two slots for handling compression start/finish
@@ -609,37 +650,33 @@ void Caesium::on_actionCompress_triggered() {
     progressDialog.exec();
 }
 
-void Caesium::compressionStarted() {
+void Caesium::compressionStarted()
+{
     //TODO Initialize parameters
     //Start monitoring time while compressing
     timer.start();
     qInfo() << "---=== Compression started at" << QTime::currentTime() << "===---";
 }
 
-void Caesium::compressionFinished() {
+void Caesium::compressionFinished()
+{
     //Get elapsed time of the compression
     qInfo() << "---=== Compression finished at" << QTime::currentTime() << "===---";
 
     //Display statistics in the status bar
-    ui->statusBar->showMessage(tr("Compression completed! ") +
-                               QString::number(compressedFiles) + tr(" files compressed in ") +
-                               msToFormattedString(timer.elapsed()) + ", " +
-                               tr("from ") + toHumanSize(originalsSize) + tr(" to ") + toHumanSize(compressedSize) +
-                               ". " + tr("Saved ") + toHumanSize(originalsSize - compressedSize) +
-                               " (" + getRatio(originalsSize, compressedSize) + ")"
-                               );
+    ui->statusBar->showMessage(tr("Compression completed! ") + QString::number(compressedFiles) + tr(" files compressed in ") + msToFormattedString(timer.elapsed()) + ", " + tr("from ") + toHumanSize(originalsSize) + tr(" to ") + toHumanSize(compressedSize) + ". " + tr("Saved ") + toHumanSize(originalsSize - compressedSize) + " (" + getRatio(originalsSize, compressedSize) + ")", MESSAGE_STATIC);
     timer.invalidate();
 }
 
-
-void Caesium::on_listTreeWidget_itemSelectionChanged() {
+void Caesium::on_listTreeWidget_itemSelectionChanged()
+{
     bool itemsSelected = ui->listTreeWidget->selectedItems().length() > 0;
     ui->previewButton->setEnabled(itemsSelected);
     //Check if there's a selection
     if (itemsSelected) {
         ui->imageCompressedPreviewLabel->clear();
         //Get the first item selected
-        CTreeWidgetItem* currentItem = (CTreeWidgetItem*) ui->listTreeWidget->selectedItems().at(0);
+        CTreeWidgetItem* currentItem = (CTreeWidgetItem*)ui->listTreeWidget->selectedItems().at(0);
 
         //Try to load a preview
         previewPath = calculatePreviewHashPath(currentItem);
@@ -667,31 +704,35 @@ void Caesium::on_listTreeWidget_itemSelectionChanged() {
     ui->removeItemButton->setEnabled(itemsSelected);
 }
 
-QImage Caesium::loadImage(QString path) {
+QImage Caesium::loadImage(QString path)
+{
     //Load a scaled version of the image into memory
     QImageReader* imageReader = new QImageReader(path);
     imageReader->setScaledSize(getScaledSizeWithRatio(imageReader->size(), ui->imagePreviewLabel->size().width()));
     return imageReader->read();
 }
 
-void Caesium::finishImageLoading(int i) {
+void Caesium::finishImageLoading(int i)
+{
     //Set the image
     ui->imagePreviewLabel->setPixmap(QPixmap::fromImage(imageWatcher.resultAt(i)));
 }
 
-void Caesium::finishPreviewLoading(int i) {
+void Caesium::finishPreviewLoading(int i)
+{
     //Set the image
     ui->imageCompressedPreviewLabel->setPixmap(QPixmap::fromImage(imagePreviewWatcher.resultAt(i)));
 }
 
-void Caesium::on_settingsButton_clicked() {
+void Caesium::on_settingsButton_clicked()
+{
     qInfo() << "Settings requested";
     PreferenceDialog* pd = new PreferenceDialog(this);
     pd->show();
 }
 
-void Caesium::closeEvent(QCloseEvent *event) {
-    QSettings settings;
+void Caesium::closeEvent(QCloseEvent* event)
+{
 
     //Save window geometry
     settings.beginGroup(KEY_PREF_GROUP_GEOMETRY);
@@ -704,8 +745,8 @@ void Caesium::closeEvent(QCloseEvent *event) {
     if (settings.value(KEY_PREF_GROUP_GENERAL + KEY_PREF_GENERAL_PROMPT).value<bool>()) {
         //Display a prompt
         int res = QMessageBox::warning(this, tr("Caesium"),
-                                       tr("Do you really want to exit?"),
-                                       QMessageBox::Ok | QMessageBox::Cancel);
+            tr("Do you really want to exit?"),
+            QMessageBox::Ok | QMessageBox::Cancel);
         //Exit if OK, go back if Cancel
         switch (res) {
         case QMessageBox::Ok:
@@ -727,7 +768,8 @@ void Caesium::closeEvent(QCloseEvent *event) {
     }
 }
 
-void Caesium::checkUpdates() {
+void Caesium::checkUpdates()
+{
     qInfo() << "Checking for updates...";
     NetworkOperations* op = new NetworkOperations();
     op->checkForUpdates();
@@ -735,7 +777,8 @@ void Caesium::checkUpdates() {
     connect(op, SIGNAL(checkForUpdatesFinished(int, QString, QString)), this, SLOT(updateAvailable(int, QString, QString)));
 }
 
-void Caesium::updateAvailable(int version, QString versionTag, QString checksum) {
+void Caesium::updateAvailable(int version, QString versionTag, QString checksum)
+{
     qInfo() << "Connection to update server was succesful. Latest build is " << version;
     updateVersionTag = versionTag;
     if (version > versionNumber) {
@@ -747,7 +790,8 @@ void Caesium::updateAvailable(int version, QString versionTag, QString checksum)
     }
 }
 
-bool Caesium::hasADuplicateInList(CImage *c) {
+bool Caesium::hasADuplicateInList(CImage* c)
+{
     for (int i = 0; i < ui->listTreeWidget->topLevelItemCount(); i++) {
         if (c->isEqual(ui->listTreeWidget->topLevelItem(i)->text(COLUMN_PATH))) {
             return true;
@@ -756,62 +800,65 @@ bool Caesium::hasADuplicateInList(CImage *c) {
     return false;
 }
 
-void Caesium::on_updateButton_clicked() {
+void Caesium::on_updateButton_clicked()
+{
     //Show a confirmation dialog
     int ret = QMessageBox::warning(this,
-                                   tr("Update available"),
-                                   tr("This will close Caesium. Do you really want to update now?"),
-                                   QMessageBox::Ok | QMessageBox::Cancel);
+        tr("Update available"),
+        tr("This will close Caesium. Do you really want to update now?"),
+        QMessageBox::Ok | QMessageBox::Cancel);
     if (ret == QMessageBox::Ok) {
         QDesktopServices::openUrl(QUrl::fromLocalFile(updatePath));
         this->close();
     }
 }
 
-void Caesium::updateDownloadFinished(QString path) {
-    updateButton->setVisible(true);
-    updateStatusBarLine->setVisible(true);
+void Caesium::updateDownloadFinished(QString path)
+{
+    listStatusBarLabel->setVisible(true);
+    listStatusBarLine->setVisible(true);
     updatePath = path;
 }
 
-void Caesium::clearUI() {
+void Caesium::clearUI()
+{
+    //ui->listTreeWidget->clear();
     ui->imagePreviewLabel->setText(tr("original"));
     ui->imageCompressedPreviewLabel->setText(tr("compressed"));
 }
 
-void Caesium::updateStatusBarCount() {
-    statusBarLabel->setText(
-                QString::number(ui->listTreeWidget->topLevelItemCount()) +
-                tr(" files in list"));
+void Caesium::updateStatusBarCount()
+{
+    //Emit the itemsChanged SIGNAL for the TreeWidget
+    emit ui->listTreeWidget->itemsChanged();
+
+    listStatusBarLabel->setText(
+        QString::number(total_item_count) + tr(" files in list"));
 
     //If the list is empty, we got a call from the clear SIGNAL, so handle the general message too
     if (ui->listTreeWidget->topLevelItemCount() == 0) {
-        ui->statusBar->showMessage(tr("List cleared"));
+        ui->statusBar->showMessage(tr("List cleared"), MESSAGE_SHORT);
     }
-
-    //Emit the itemsChanged SIGNAL for the TreeWidget
-    emit ui->listTreeWidget->itemsChanged();
 }
 
-void Caesium::on_actionShow_input_folder_triggered() {
+void Caesium::on_actionShow_input_folder_triggered()
+{
     //Open the input folder
-    QDesktopServices::openUrl(QUrl("file:///" +
-                                   QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)).dir().absolutePath(),
-                                   QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("file:///" + QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)).dir().absolutePath(),
+        QUrl::TolerantMode));
 }
 
-void Caesium::on_actionShow_output_folder_triggered() {
+void Caesium::on_actionShow_output_folder_triggered()
+{
     //Read preferences first
     readPreferences();
     //Open the output folder
-    QDesktopServices::openUrl(QUrl("file:///" +
-                                   QFileInfo(
-                                       Caesium::getOutputPath(
-                                           new QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)))).dir().absolutePath(),
-                                   QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("file:///" + QFileInfo(Caesium::getOutputPath(new QFileInfo(ui->listTreeWidget->selectedItems().at(0)->text(COLUMN_PATH)))).dir().absolutePath(),
+        QUrl::TolerantMode));
 }
 
-void Caesium::createMenuActions() {
+void Caesium::createMenuActions()
+{
     //List Remove action
     listRemoveAction = new QAction(tr("Remove item"), this);
     listRemoveAction->setStatusTip(tr("Remove the item from the list"));
@@ -835,7 +882,8 @@ void Caesium::createMenuActions() {
     connect(listClearAction, SIGNAL(triggered()), this, SLOT(updateStatusBarCount()));
 }
 
-void Caesium::createMenus() {
+void Caesium::createMenus()
+{
     qInfo() << "Creating menus";
     //Creates the list context menu
     listMenu = new QMenu(this);
@@ -847,7 +895,8 @@ void Caesium::createMenus() {
     listMenu->addAction(listClearAction);
 }
 
-void Caesium::showListContextMenu(QPoint pos) {
+void Caesium::showListContextMenu(QPoint pos)
+{
     //No menu if the there're no items int he list
     if (ui->listTreeWidget->topLevelItemCount() > 0) {
         //Check if we have the same root folder in the selection
@@ -857,7 +906,8 @@ void Caesium::showListContextMenu(QPoint pos) {
     }
 }
 
-void Caesium::on_actionSave_list_triggered() {
+void Caesium::on_actionSave_list_triggered()
+{
     qInfo() << "Saving list...";
     //If the path is not set, we need to call the saveAs instead
     if (lastCListPath.isEmpty()) {
@@ -870,19 +920,21 @@ void Caesium::on_actionSave_list_triggered() {
     }
 }
 
-void Caesium::on_actionSave_list_as_triggered() {
+void Caesium::on_actionSave_list_as_triggered()
+{
     qInfo() << "Saving list as...";
     //Give a path if it's not passed
     QString path = QFileDialog::getSaveFileName(this,
-                                                tr("Save list as..."),
-                                                QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation),
-                                                clfFilter);
+        tr("Save list as..."),
+        QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation),
+        clfFilter);
     //Call the generic function
     saveCListToFile(path);
 }
 
-void Caesium::saveCListToFile(QString path) {
-    QList<QTreeWidgetItem* > list;
+void Caesium::saveCListToFile(QString path)
+{
+    QList<QTreeWidgetItem*> list;
     //Check if it's valid
     if (!path.isEmpty()) {
         //Get a list of items
@@ -899,16 +951,16 @@ void Caesium::saveCListToFile(QString path) {
     }
 }
 
-void Caesium::setParameters(CTreeWidgetItem *item)
+void Caesium::setParameters(CTreeWidgetItem* item)
 {
-    if (item->image->getType() == JPEG) {
+    if (item->image.getType() == JPEG) {
         if (ui->losslessCheckBox->isChecked()) {
-            item->image->jparams.setQuality(0);
+            item->image.jparams.setQuality(0);
         } else {
-            item->image->jparams.setQuality(ui->qualitySlider->value());
+            item->image.jparams.setQuality(ui->qualitySlider->value());
         }
-        item->image->jparams.setExif(ui->exifCheckBox->isChecked());
-        item->image->jparams.setProgressive(ui->progressiveCheckBox->isChecked());
+        item->image.jparams.setExif(ui->exifCheckBox->isChecked());
+        item->image.jparams.setProgressive(ui->progressiveCheckBox->isChecked());
         QList<cexifs> exifs;
         if (ui->copyrightCheckBox->isChecked()) {
             exifs.append(EXIF_COPYRIGHT);
@@ -919,22 +971,23 @@ void Caesium::setParameters(CTreeWidgetItem *item)
         if (ui->commentsCheckBox->isChecked()) {
             exifs.append(EXIF_COMMENTS);
         }
-        item->image->jparams.setImportantExifs(exifs);
-    } else if (item->image->getType() == PNG) {
-        item->image->pparams.setIterations(ui->iterationsSpinBox->value());
-        item->image->pparams.setIterationsLarge(ui->iterationsLargeSpinBox->value());
-        item->image->pparams.setLossy8Bit(ui->lossy8CheckBox->isChecked());
+        item->image.jparams.setImportantExifs(exifs);
+    } else if (item->image.getType() == PNG) {
+        item->image.pparams.setIterations(ui->iterationsSpinBox->value());
+        item->image.pparams.setIterationsLarge(ui->iterationsLargeSpinBox->value());
+        item->image.pparams.setLossy8Bit(ui->lossy8CheckBox->isChecked());
     }
 }
 
-void Caesium::on_actionOpen_list_triggered() {
+void Caesium::on_actionOpen_list_triggered()
+{
     qInfo() << "Opening list...";
     //TODO Run an integrity check for the imported data and edit eventually
     //Get the filepath
     QString filePath = QFileDialog::getOpenFileName(this,
-                                                    tr("Import files..."),
-                                                    QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation),
-                                                    clfFilter);
+        tr("Import files..."),
+        QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation),
+        clfFilter);
     //If it's valid and not empty
     if (!filePath.isEmpty()) {
         //Clear the list first
@@ -954,58 +1007,65 @@ void Caesium::on_actionOpen_list_triggered() {
     }
 }
 
-void Caesium::listChanged() {
+void Caesium::listChanged()
+{
+    total_item_count = ui->listTreeWidget->topLevelItemCount();
     //List changed, so we need to enable the save feature
     ui->actionSave_list->setEnabled(true);
     ui->actionSave_list_as->setEnabled(true);
 
     //If the list is empty, we don't need the clear button
-    ui->actionClear_list->setDisabled(ui->listTreeWidget->topLevelItemCount() == 0);
-    ui->clearButton->setDisabled(ui->listTreeWidget->topLevelItemCount() == 0);
+    ui->actionClear_list->setEnabled(total_item_count);
+    ui->clearButton->setEnabled(total_item_count);
     //Nor the apply button
-    ui->applyButton->setDisabled(ui->listTreeWidget->topLevelItemCount() == 0);
+    ui->applyButton->setEnabled(total_item_count);
+    //Nor the select all
+    ui->actionSelect_all->setEnabled(total_item_count);
 
     //Background image for the list
-    if (ui->listTreeWidget->topLevelItemCount() != 0) {
+    if (total_item_count != 0) {
         ui->listTreeWidget->setStyleSheet("QTreeWidget#listTreeWidget {background: #ffffff;}");
     } else {
         ui->listTreeWidget->setStyleSheet("QTreeWidget#listTreeWidget {background: url(:/icons/main/logo_alpha.png) no-repeat center;}");
     }
 }
 
-void Caesium::testSignal() {
+void Caesium::testSignal()
+{
     qDebug() << "TEST SLOT TRIGGERED";
 }
 
-void Caesium::startPreviewLoading() {
+void Caesium::startPreviewLoading()
+{
     QMovie* loader = new QMovie(":/icons/ui/loader.gif");
     ui->imagePreviewLabel->setMovie(loader);
     loader->start();
 }
 
-
-void Caesium::on_applyButton_clicked() {
+void Caesium::on_applyButton_clicked()
+{
     if (ui->listTreeWidget->selectedItems().length() > 0) {
         foreach (QTreeWidgetItem* qItem, ui->listTreeWidget->selectedItems()) {
-            CTreeWidgetItem* item = (CTreeWidgetItem*) qItem;
+            CTreeWidgetItem* item = (CTreeWidgetItem*)qItem;
             setParameters(item);
-            if (item->image->getType() == JPEG) {
-                item->setText(COLUMN_OPTIONS, item->image->printJPEGParams());
-            } else if (item->image->getType() == PNG) {
-                item->setText(COLUMN_OPTIONS, item->image->printPNGParams());
+            if (item->image.getType() == JPEG) {
+                item->setText(COLUMN_OPTIONS, item->image.printJPEGParams());
+            } else if (item->image.getType() == PNG) {
+                item->setText(COLUMN_OPTIONS, item->image.printPNGParams());
             }
         }
     }
 }
 
-void Caesium::on_previewButton_clicked() {
+void Caesium::on_previewButton_clicked()
+{
     if (ui->listTreeWidget->selectedItems().length() > 0) {
         //Get the first item selected
-        CTreeWidgetItem* currentItem = (CTreeWidgetItem*) ui->listTreeWidget->selectedItems().at(0);
+        CTreeWidgetItem* currentItem = (CTreeWidgetItem*)ui->listTreeWidget->selectedItems().at(0);
 
         //TODO Preview for all?
         previewList.append(currentItem);
-        QFuture<void> future = QtConcurrent::map(previewList, [this] (CTreeWidgetItem*& data) {compressRoutine(data, true);});
+        QFuture<void> future = QtConcurrent::map(previewList, [this](CTreeWidgetItem*& data) { compressRoutine(data, true); });
 
         watcher = new QFutureWatcher<void>(this);
         connect(watcher, SIGNAL(finished()), this, SLOT(loadPreview()));
@@ -1022,24 +1082,26 @@ void Caesium::on_previewButton_clicked() {
     }
 }
 
-void Caesium::loadPreview() {
+void Caesium::loadPreview()
+{
     previewList.clear();
     connect(&imagePreviewWatcher, SIGNAL(resultReadyAt(int)), this, SLOT(finishPreviewLoading(int)));
     imagePreviewWatcher.setFuture(QtConcurrent::run<QImage>(this, &Caesium::loadImage, previewPath));
 }
 
-QString Caesium::calculatePreviewHashPath(CTreeWidgetItem *currentItem) {
+QString Caesium::calculatePreviewHashPath(CTreeWidgetItem* currentItem)
+{
     QByteArray hash;
     QString previewPath, toBeHashed;
 
     //We need to calculate if there's already a preview with same options
     setParameters(currentItem);
-    if (currentItem->image->getType() == PNG) {
+    if (currentItem->image.getType() == PNG) {
         //The string to be hashed is a combination of filename + options
         //TODO Better looking string?
-        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printPNGParams();
-    } else if (currentItem->image->getType() == JPEG) {
-        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image->printJPEGParams();
+        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image.printPNGParams();
+    } else if (currentItem->image.getType() == JPEG) {
+        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image.printJPEGParams();
     }
     qDebug() << "To be hashed: " << toBeHashed;
     hash = QCryptographicHash::hash(toBeHashed.toUtf8(), QCryptographicHash::Sha256);
@@ -1048,7 +1110,8 @@ QString Caesium::calculatePreviewHashPath(CTreeWidgetItem *currentItem) {
     return previewPath;
 }
 
-void Caesium::listItemStatusChanged(CTreeWidgetItem* item, citem_status status) {
+void Caesium::listItemStatusChanged(CTreeWidgetItem* item, citem_status status)
+{
     switch (status) {
     case NEW:
         item->setIcon(COLUMN_STATUS, QIcon(":/icons/ui/list_new.png"));
@@ -1070,27 +1133,27 @@ void Caesium::listItemStatusChanged(CTreeWidgetItem* item, citem_status status) 
     }
 }
 
-void Caesium::on_copyrightCheckBox_toggled(bool checked) {
+void Caesium::on_copyrightCheckBox_toggled(bool checked)
+{
     ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
 }
 
-void Caesium::on_dateCheckBox_toggled(bool checked) {
+void Caesium::on_dateCheckBox_toggled(bool checked)
+{
     ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
 }
 
-void Caesium::on_commentsCheckBox_toggled(bool checked) {
+void Caesium::on_commentsCheckBox_toggled(bool checked)
+{
     ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
 }
 
-enum Qt::CheckState Caesium::getExifsCheckBoxGroupState() {
-    if (ui->dateCheckBox->isChecked() &&
-            ui->commentsCheckBox->isChecked() &&
-            ui->copyrightCheckBox->isChecked()) {
+enum Qt::CheckState Caesium::getExifsCheckBoxGroupState()
+{
+    if (ui->dateCheckBox->isChecked() && ui->commentsCheckBox->isChecked() && ui->copyrightCheckBox->isChecked()) {
         //All selected
         return Qt::Checked;
-    } else if (ui->dateCheckBox->isChecked() ||
-               ui->commentsCheckBox->isChecked() ||
-               ui->copyrightCheckBox->isChecked()) {
+    } else if (ui->dateCheckBox->isChecked() || ui->commentsCheckBox->isChecked() || ui->copyrightCheckBox->isChecked()) {
         //At least one is selected
         return Qt::PartiallyChecked;
     } else {

@@ -35,3 +35,5 @@ Makefile*
 
 #Build dir
 build
+
+.DS_Store

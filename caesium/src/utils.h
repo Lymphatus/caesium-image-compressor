@@ -86,7 +86,6 @@ extern int compressedFiles; //Compressed files count
 extern c_parameters params; //Important parameters
 extern QStringList osAndExtension;
 extern QTemporaryDir tempDir;
-extern QElapsedTimer timer;
 extern QString lastCListPath; //Path of the last list saved
 extern QList<QLocale> locales;
 extern QString logPath; //Log file path
@@ -102,7 +101,6 @@ QString msToFormattedString(qint64);
 bool haveSameRootFolder(QList<QTreeWidgetItem *> items);
 QString toCapitalCase(const QString);
 void loadLocales();
-enum image_type detect_image_type(char* path);
 c_parameters initialize_compression_parameters();
-
+image_type typeFormatToEnum(QByteArray format);
 #endif // UTILS_H

@@ -125,6 +125,8 @@ private:
     int width;
     int height;
 
+    QImageReader *ir;
+
     image_type type;
 };
 

@@ -1419,6 +1419,9 @@ font-size: 24pt;</string>
    </property>
   </action>
   <action name="actionSelect_all">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Select all</string>
    </property>
