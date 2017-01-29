@@ -27,9 +27,7 @@
 #include "clist.h"
 #include "ctreewidgetitem.h"
 #include "exif.h"
-#include "jpeg.h"
 #include "networkoperations.h"
-#include "png.h"
 #include "preferencedialog.h"
 #include "qdroptreewidget.h"
 #include "ui_caesium.h"
@@ -76,6 +74,7 @@ Caesium::Caesium(QWidget* parent)
     readPreferences();
     createMenuActions();
     createMenus();
+    initializeParameters();
     //checkUpdates();
 }
 
@@ -89,6 +88,8 @@ void Caesium::initializeParameters()
     total_item_count = 0;
     item_count = 0;
     duplicate_count = 0;
+
+    on_qualitySlider_valueChanged(ui->qualitySlider->value());
 }
 
 void Caesium::initializeUI()
@@ -114,7 +115,6 @@ void Caesium::initializeUI()
     ui->listTreeWidget->header()->resizeSection(COLUMN_ORIGINAL_RESOLUTION, 100);
     ui->listTreeWidget->header()->resizeSection(COLUMN_NEW_RESOLUTION, 100);
     ui->listTreeWidget->header()->resizeSection(COLUMN_SAVED, 80);
-    ui->listTreeWidget->header()->resizeSection(COLUMN_OPTIONS, 100);
 
     //Set side panel stretch
     ui->splitter->setStretchFactor(0, 2);
@@ -365,14 +365,10 @@ void Caesium::addItemToList(QString path)
         return;
     }*/
 
-    setParameters(item);
-
     //Populate list
     item->setText(COLUMN_NAME, item->image.getBaseName());
     item->setText(COLUMN_ORIGINAL_SIZE, item->image.getFormattedSize());
     item->setText(COLUMN_ORIGINAL_RESOLUTION, item->image.getFormattedResolution());
-    item->setText(COLUMN_OPTIONS, tr("Default"));
-    //item->setText(COLUMN_OPTIONS, item->image->getType() == PNG ? item->image->printPNGParams() : item->image->printJPEGParams());
     item->setText(COLUMN_PATH, item->image.getFullPath());
     //Set the icon
     item->setIcon(0, QIcon(":/icons/ui/list_new.png"));
@@ -459,9 +455,6 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview)
         char* input = QStringToChar(inputPath);
         char* output = QStringToChar(outputPath);
 
-        //Read parameters
-        setParameters(item);
-
         //Not really necessary if we copy the whole EXIF data
         Exiv2::ExifData exifData = getExifFromPath(input);
 
@@ -469,28 +462,7 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview)
         //Set state to COMPRESSING
         item->setStatus(COMPRESSING);
 
-        if (item->image.getType() == JPEG) {
-            char* exif_orig = (char*)malloc(strlen(input) * sizeof(char));
-            //Lossy processing just uses the compression method before optimizing
-            if (item->image.jparams.getQuality() > 0) {
-                cclt_jpeg_compress(output, cclt_jpeg_decompress(input, &item->image), &item->image);
-                //TODO Check memory leaks
-                //If we are using lossy compression, the input file is the output of
-                //the previous function
-                strcpy(exif_orig, input);
-                input = output;
-            }
-            //Optimize
-            cclt_jpeg_optimize(input, output, &item->image, exif_orig);
-
-            //Write important metadata as user requested
-            if (item->image.jparams.getExif() && !item->image.jparams.getImportantExifs().isEmpty()) {
-                qInfo() << "Writing reuqested exif metadata";
-                writeSpecificExifTags(exifData, outputPath, item->image.jparams.getImportantExifs());
-            }
-        } else if (item->image.getType() == PNG) {
-            cclt_png_optimize(inputPath, outputPath, &item->image.pparams);
-        }
+        bool compressionStatus = cs_compress(input, output, &compression_parameters);
 
         //Gets new file info
         QFileInfo* fileInfo = new QFileInfo(outputPath);
@@ -652,7 +624,6 @@ void Caesium::on_actionCompress_triggered()
 
 void Caesium::compressionStarted()
 {
-    //TODO Initialize parameters
     //Start monitoring time while compressing
     timer.start();
     qInfo() << "---=== Compression started at" << QTime::currentTime() << "===---";
@@ -951,34 +922,6 @@ void Caesium::saveCListToFile(QString path)
     }
 }
 
-void Caesium::setParameters(CTreeWidgetItem* item)
-{
-    if (item->image.getType() == JPEG) {
-        if (ui->losslessCheckBox->isChecked()) {
-            item->image.jparams.setQuality(0);
-        } else {
-            item->image.jparams.setQuality(ui->qualitySlider->value());
-        }
-        item->image.jparams.setExif(ui->exifCheckBox->isChecked());
-        item->image.jparams.setProgressive(ui->progressiveCheckBox->isChecked());
-        QList<cexifs> exifs;
-        if (ui->copyrightCheckBox->isChecked()) {
-            exifs.append(EXIF_COPYRIGHT);
-        }
-        if (ui->dateCheckBox->isChecked()) {
-            exifs.append(EXIF_DATE);
-        }
-        if (ui->commentsCheckBox->isChecked()) {
-            exifs.append(EXIF_COMMENTS);
-        }
-        item->image.jparams.setImportantExifs(exifs);
-    } else if (item->image.getType() == PNG) {
-        item->image.pparams.setIterations(ui->iterationsSpinBox->value());
-        item->image.pparams.setIterationsLarge(ui->iterationsLargeSpinBox->value());
-        item->image.pparams.setLossy8Bit(ui->lossy8CheckBox->isChecked());
-    }
-}
-
 void Caesium::on_actionOpen_list_triggered()
 {
     qInfo() << "Opening list...";
@@ -1017,8 +960,7 @@ void Caesium::listChanged()
     //If the list is empty, we don't need the clear button
     ui->actionClear_list->setEnabled(total_item_count);
     ui->clearButton->setEnabled(total_item_count);
-    //Nor the apply button
-    ui->applyButton->setEnabled(total_item_count);
+
     //Nor the select all
     ui->actionSelect_all->setEnabled(total_item_count);
 
@@ -1040,21 +982,6 @@ void Caesium::startPreviewLoading()
     QMovie* loader = new QMovie(":/icons/ui/loader.gif");
     ui->imagePreviewLabel->setMovie(loader);
     loader->start();
-}
-
-void Caesium::on_applyButton_clicked()
-{
-    if (ui->listTreeWidget->selectedItems().length() > 0) {
-        foreach (QTreeWidgetItem* qItem, ui->listTreeWidget->selectedItems()) {
-            CTreeWidgetItem* item = (CTreeWidgetItem*)qItem;
-            setParameters(item);
-            if (item->image.getType() == JPEG) {
-                item->setText(COLUMN_OPTIONS, item->image.printJPEGParams());
-            } else if (item->image.getType() == PNG) {
-                item->setText(COLUMN_OPTIONS, item->image.printPNGParams());
-            }
-        }
-    }
 }
 
 void Caesium::on_previewButton_clicked()
@@ -1095,14 +1022,7 @@ QString Caesium::calculatePreviewHashPath(CTreeWidgetItem* currentItem)
     QString previewPath, toBeHashed;
 
     //We need to calculate if there's already a preview with same options
-    setParameters(currentItem);
-    if (currentItem->image.getType() == PNG) {
-        //The string to be hashed is a combination of filename + options
-        //TODO Better looking string?
-        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image.printPNGParams();
-    } else if (currentItem->image.getType() == JPEG) {
-        toBeHashed = currentItem->text(COLUMN_PATH) + currentItem->image.printJPEGParams();
-    }
+    toBeHashed = currentItem->text(COLUMN_PATH) + "." + QString::number(ui->qualitySlider->value());
     qDebug() << "To be hashed: " << toBeHashed;
     hash = QCryptographicHash::hash(toBeHashed.toUtf8(), QCryptographicHash::Sha256);
     previewPath = tempDir.path() + "/" + QString(hash.toHex());
@@ -1133,31 +1053,45 @@ void Caesium::listItemStatusChanged(CTreeWidgetItem* item, citem_status status)
     }
 }
 
-void Caesium::on_copyrightCheckBox_toggled(bool checked)
+void Caesium::on_qualitySlider_valueChanged(int value)
 {
-    ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
-}
+    compression_parameters.jpeg.exif_copy = false;
+    compression_parameters.jpeg.dct_method = 2048;
+    compression_parameters.png.transparent = true;
+    compression_parameters.png.block_split_strategy = 4;
+    compression_parameters.png.auto_filter_strategy = 1;
+    switch (value) {
+    case 0:
+        compression_parameters.jpeg.quality = 30;
+        compression_parameters.png.iterations = 2;
+        compression_parameters.png.iterations_large = 1;
+        compression_parameters.png.lossy_8 = true;
+        break;
+    case 1:
+        compression_parameters.jpeg.quality = 40;
+        compression_parameters.png.iterations = 3;
+        compression_parameters.png.iterations_large = 1;
+        compression_parameters.png.lossy_8 = true;
+        break;
+    case 2:
+        compression_parameters.jpeg.quality = 50;
+        compression_parameters.png.iterations = 4;
+        compression_parameters.png.iterations_large = 2;
+        compression_parameters.png.lossy_8 = true;
+        break;
+    case 4:
+        compression_parameters.jpeg.quality = 0;
+        compression_parameters.png.iterations = 10;
+        compression_parameters.png.iterations_large = 5;
+        compression_parameters.png.lossy_8 = false;
+        break;
 
-void Caesium::on_dateCheckBox_toggled(bool checked)
-{
-    ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
-}
-
-void Caesium::on_commentsCheckBox_toggled(bool checked)
-{
-    ui->exifCheckBox->setCheckState(getExifsCheckBoxGroupState());
-}
-
-enum Qt::CheckState Caesium::getExifsCheckBoxGroupState()
-{
-    if (ui->dateCheckBox->isChecked() && ui->commentsCheckBox->isChecked() && ui->copyrightCheckBox->isChecked()) {
-        //All selected
-        return Qt::Checked;
-    } else if (ui->dateCheckBox->isChecked() || ui->commentsCheckBox->isChecked() || ui->copyrightCheckBox->isChecked()) {
-        //At least one is selected
-        return Qt::PartiallyChecked;
-    } else {
-        //None is selected
-        return Qt::Unchecked;
+    case 3:
+    default:
+        compression_parameters.jpeg.quality = 65;
+        compression_parameters.png.iterations = 5;
+        compression_parameters.png.iterations_large = 3;
+        compression_parameters.png.lossy_8 = true;
+        break;
     }
 }

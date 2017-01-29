@@ -32,10 +32,9 @@
 #include <QTreeWidgetItem>
 #include <QFutureWatcher>
 
-#include <jpeglib.h>
-#include <turbojpeg.h>
+#include <caesium.h>
 
-#define MAX_COLUMNS 9
+#define MAX_COLUMNS 8
 
 enum cexifs {
     EXIF_COPYRIGHT,
@@ -51,8 +50,7 @@ enum list_columns {
     COLUMN_ORIGINAL_RESOLUTION = 4,
     COLUMN_NEW_RESOLUTION = 5,
     COLUMN_SAVED = 6,
-    COLUMN_OPTIONS = 7,
-    COLUMN_PATH = 8
+    COLUMN_PATH = 7
 };
 
 typedef struct c_parameters {
@@ -60,12 +58,6 @@ typedef struct c_parameters {
     int outMethodIndex;
     QString outMethodString;
 } c_parameters;
-
-enum image_type {
-    JPEG,
-    PNG,
-    UNKN,
-};
 
 enum citem_status {
     NEW = 0,
@@ -96,7 +88,6 @@ QString getRatio(qint64, qint64);
 char* QStringToChar(QString s);
 QSize getScaledSizeWithRatio(QSize size, int square); //Image preview resize
 double ratioToDouble(QString ratio);
-bool isJPEG(char* path);
 QString msToFormattedString(qint64);
 bool haveSameRootFolder(QList<QTreeWidgetItem *> items);
 QString toCapitalCase(const QString);

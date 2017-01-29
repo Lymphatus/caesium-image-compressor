@@ -93,19 +93,14 @@ private slots:
     //TODO Remove, just test slot
     void testSignal();
     void startPreviewLoading();
-    void on_applyButton_clicked();
     void on_previewButton_clicked();
     void loadPreview();
     QString calculatePreviewHashPath(CTreeWidgetItem* );
     void listItemStatusChanged(CTreeWidgetItem*, citem_status);
-
-    void on_copyrightCheckBox_toggled(bool checked);
-
-    void on_dateCheckBox_toggled(bool checked);
-
-    void on_commentsCheckBox_toggled(bool checked);
     void addItemToList(QString path);
     void finishItemsImport();
+
+    void on_qualitySlider_valueChanged(int value);
 
 private:
     Ui::Caesium *ui;
@@ -124,6 +119,9 @@ private:
     QString previewPath;
     QElapsedTimer timer;
     QSettings settings;
+
+    //Compression parameters
+    cs_image_pars compression_parameters;
 
     //List Menu
     QMenu* listMenu;
@@ -155,9 +153,6 @@ private:
 
     //CList save function
     void saveCListToFile(QString path);
-
-    void setParameters(CTreeWidgetItem*);
-    enum Qt::CheckState getExifsCheckBoxGroupState();
 
 };
 
