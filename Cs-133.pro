@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 SUBDIRS = caesium updater
 
-DISTFILES += \
+OTHER_FILES += \
     README.md \
     CHANGELOG.md \
     LICENSE \

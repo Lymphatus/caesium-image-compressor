@@ -387,7 +387,7 @@ void Caesium::finishItemsImport()
                                                    : QString::number(item_count) + tr(" files added to the list"),
                                MESSAGE_LONG);
     updateStatusBarCount();
-    QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
+    QThreadPool::globalInstance()->setMaxThreadCount(1);
 }
 
 void Caesium::on_actionAdd_folder_triggered()
