@@ -11,7 +11,7 @@
 ----------
 
 ##### REQUIREMENTS
-* [licaesium](https://github.com/Lymphatus/libcaesium)
+* [libcaesium](https://github.com/Lymphatus/libcaesium)
 * [exiv2](http://www.exiv2.org/)
 
 ----------
