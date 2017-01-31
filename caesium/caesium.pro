@@ -11,19 +11,19 @@ macx {
     QMAKE_CXXFLAGS_CXX11 = -std=gnu++1y
     CONFIG *= c++11
     QMAKE_CXXFLAGS += -stdlib=libc++
-    LIBS +=  -L/opt/mozjpeg/lib -L/usr/local/lib -ljpeg.62 -lturbojpeg -lzopflipng -lexiv2.14
-    INCLUDEPATH += /opt/mozjpeg/include /usr/local/include
+    LIBS += -L/usr/local/lib -lexiv2 -lcaesium
+    INCLUDEPATH += /usr/local/include
     ICON = icons/icons/icon.icns
 }
 
 win32 {
-    LIBS += -LC:\\mozjpeg\\lib -LC:\\zopfli -ljpeg -LC:\\exiv2\\src\\.libs -lexiv2 -lturbojpeg -lzopflipng
-    INCLUDEPATH += C:\\mozjpeg\\include C:\\exiv2\\include C:\\zopfli\\src
+    LIBS +=  -LC:\\exiv2\\src\\.libs -lexiv2 -lcaesium
+    INCLUDEPATH += C:\\exiv2\\include
     RC_ICONS = icons/main/icon.ico
 }
 
 unix {
-    LIBS += -ljpeg -lexiv2 -lturbojpeg -lzopflipng
+    LIBS += -lcaesium -lexiv2
 }
 
 CONFIG += warn_off c++11
@@ -35,13 +35,10 @@ SOURCES += src/main.cpp\
     src/preferencedialog.cpp \
     src/networkoperations.cpp \
     src/qdroptreewidget.cpp \
-    src/caesium.cpp \
     src/clist.cpp \
-    src/jpeg.cpp \
-    src/png.cpp \
-    src/lodepng.cpp \
     src/cimage.cpp \
-    src/ctreewidgetitem.cpp
+    src/ctreewidgetitem.cpp \
+    src/caesium.cpp
 
 HEADERS  += \
     src/aboutdialog.h \
@@ -51,12 +48,9 @@ HEADERS  += \
     src/networkoperations.h \
     src/qdroptreewidget.h \
     src/ctreewidgetitem.h \
-    src/caesium.h \
     src/clist.h \
-    src/jpeg.h \
-    src/lodepng.h \
-    src/png.h \
-    src/cimage.h
+    src/cimage.h \
+    src/caesium.h
 
 FORMS    += \
     src/aboutdialog.ui \

@@ -41,7 +41,8 @@ AboutDialog::~AboutDialog()
     delete ui;
 }
 
-void AboutDialog::setupUI() {
+void AboutDialog::setupUI()
+{
     //Add logo
     QGraphicsScene* scene = new QGraphicsScene(0, 0, 100, 100, this);
     QGraphicsPixmapItem* gItem = new QGraphicsPixmapItem(QIcon(":/icons/main/logo.png").pixmap(96));

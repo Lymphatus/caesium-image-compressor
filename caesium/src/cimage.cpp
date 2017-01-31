@@ -119,169 +119,42 @@ void CImage::setType(const image_type &value)
 
 QString CImage::printPNGParams()
 {
-    QString final = "[";
-    final.append(QObject::tr("Iterations: ") + QString::number(pparams.getIterations()) + ", ");
-    final.append(QObject::tr("Iterations large: ") + QString::number(pparams.getIterationsLarge()) + ", ");
-    final.append(QObject::tr("8 bit: "));
-    final.append(pparams.getLossy8Bit() != 0 ? QObject::tr("yes") : QObject::tr("no"));
-    final.append("]");
+//    QString final = "[";
+//    final.append(QObject::tr("Iterations: ") + QString::number(pparams.getIterations()) + ", ");
+//    final.append(QObject::tr("Iterations large: ") + QString::number(pparams.getIterationsLarge()) + ", ");
+//    final.append(QObject::tr("8 bit: "));
+//    final.append(pparams.getLossy8Bit() != 0 ? QObject::tr("yes") : QObject::tr("no"));
+//    final.append("]");
 
-    return final;
+//    return final;
 }
 
 QString CImage::printJPEGParams()
 {
-    QString final = "[";
-    if (jparams.quality <= 0) {
-        final.append(QObject::tr("Lossless") + ", ");
-    } else {
-        final.append(QObject::tr("Quality: ") + QString::number(jparams.quality) + ", ");
-    }
-    final.append(QObject::tr("Exif: "));
-    if (!jparams.exif) {
-        final.append(QObject::tr("no") + ", ");
-    } else if (jparams.importantExifs.length() == 3) {
-        final.append(QObject::tr("all") + ", ");
-    } else {
-        if (jparams.importantExifs.contains(EXIF_COPYRIGHT)) {
-           final.append(QObject::tr("copyright") + ", ");
-        }
-        if (jparams.importantExifs.contains(EXIF_DATE)) {
-           final.append(QObject::tr("date") + ", ");
-        }
-        if (jparams.importantExifs.contains(EXIF_COMMENTS)) {
-           final.append(QObject::tr("comments") + ", ");
-        }
-    }
-    final.append(QObject::tr("Progressive: "));
-    final.append(jparams.getProgressive() != 0 ? QObject::tr("yes") : QObject::tr("no"));
-    final.append("]");
-    return final;
-}
-
-void CImage::setParameters()
-{
-    if (type == PNG) {
-        qDebug() << fullPath;
-    } else if (type == JPEG) {
-        qDebug() << jparams.quality;
-    }
-
-}
-
-
-
-int jpeg_params::getQuality() const
-{
-    return quality;
-}
-
-void jpeg_params::setQuality(int value)
-{
-    quality = value;
-}
-
-bool jpeg_params::getExif() const
-{
-    return exif;
-}
-
-void jpeg_params::setExif(bool value)
-{
-    exif = value;
-}
-
-QList<cexifs> jpeg_params::getImportantExifs() const
-{
-    return importantExifs;
-}
-
-void jpeg_params::setImportantExifs(const QList<cexifs> &value)
-{
-    importantExifs = value;
-}
-
-void jpeg_params::setDct_method(int value)
-{
-    dct_method = value;
-}
-
-void jpeg_params::setSubsample(const TJSAMP &value)
-{
-    subsample = value;
-}
-
-void jpeg_params::setColor_space(int value)
-{
-    color_space = value;
-}
-
-int jpeg_params::getColor_space() const
-{
-    return color_space;
-}
-
-int jpeg_params::getDct_method() const
-{
-    return dct_method;
-}
-
-TJSAMP jpeg_params::getSubsample() const
-{
-    return subsample;
-}
-
-bool jpeg_params::getProgressive() const
-{
-    return progressive;
-}
-
-void jpeg_params::setProgressive(bool value)
-{
-    progressive = value;
-}
-
-int png_params::getIterationsLarge() const
-{
-    return iterationsLarge;
-}
-
-void png_params::setIterationsLarge(int value)
-{
-    iterationsLarge = value;
-}
-
-int png_params::getLossy8Bit() const
-{
-    return lossy8Bit;
-}
-
-void png_params::setLossy8Bit(int value)
-{
-    lossy8Bit = value;
-}
-
-int png_params::getBlockSplitStrategy() const
-{
-    return blockSplitStrategy;
-}
-
-int png_params::getTransparent() const
-{
-    return transparent;
-}
-
-int png_params::getAutoFilterStrategy() const
-{
-    return autoFilterStrategy;
-}
-
-int png_params::getIterations() const
-{
-    return iterations;
-}
-
-void png_params::setIterations(int value)
-{
-    iterations = value;
+//    QString final = "[";
+//    if (jparams.quality <= 0) {
+//        final.append(QObject::tr("Lossless") + ", ");
+//    } else {
+//        final.append(QObject::tr("Quality: ") + QString::number(jparams.quality) + ", ");
+//    }
+//    final.append(QObject::tr("Exif: "));
+//    if (!jparams.exif) {
+//        final.append(QObject::tr("no") + ", ");
+//    } else if (jparams.importantExifs.length() == 3) {
+//        final.append(QObject::tr("all") + ", ");
+//    } else {
+//        if (jparams.importantExifs.contains(EXIF_COPYRIGHT)) {
+//           final.append(QObject::tr("copyright") + ", ");
+//        }
+//        if (jparams.importantExifs.contains(EXIF_DATE)) {
+//           final.append(QObject::tr("date") + ", ");
+//        }
+//        if (jparams.importantExifs.contains(EXIF_COMMENTS)) {
+//           final.append(QObject::tr("comments") + ", ");
+//        }
+//    }
+//    final.append(QObject::tr("Progressive: "));
+//    final.append(jparams.quality == 0 ? QObject::tr("yes") : QObject::tr("no"));
+//    final.append("]");
+//    return final;
 }

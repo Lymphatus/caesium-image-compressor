@@ -27,7 +27,7 @@ void Updater::requestReleaseList() {
     qInfo() << "Requesting" << rootUrl + "rules";
     fileListRequest.setRawHeader( "User-Agent" , "Mozilla Firefox" );
     fileListReply = networkManager->get(fileListRequest);
-    connect(fileListReply, SIGNAL(readyRead()), this, SLOT(getReleaseFiles()));
+    connect(fileListReply, SIGNAL(finished()), this, SLOT(getReleaseFiles()));
 }
 
 void Updater::requestFileDownload(release_file file) {
@@ -40,7 +40,7 @@ void Updater::requestFileDownload(release_file file) {
 }
 
 void Updater::getReleaseFiles() {
-    if (fileListReply->error() == QNetworkReply::NoError) {
+    if (fileListReply->error() == QNetworkReply::NoError && fileListReply->isReadable()) {
         qInfo() << "Rules OK. Parsing data...";
         QString line = fileListReply->readLine();
         while (!line.isEmpty()) {
@@ -50,6 +50,7 @@ void Updater::getReleaseFiles() {
         }
     } else {
         qCritical() << "Could not read rules file. Error: " << fileListReply->errorString();
+        exit(EXIT_FAILURE);
     }
     fileListReply->close();
     if (!releaseList.isEmpty()) {
@@ -59,6 +60,7 @@ void Updater::getReleaseFiles() {
         }
     } else {
         qCritical() << "Empty file list.";
+        exit(EXIT_FAILURE);
     }
 }
 

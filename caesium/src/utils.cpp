@@ -37,7 +37,7 @@ QString clfFilter = "Caesium List File (*.clf)";
 QStringList inputFilterList = QStringList() << "*.jpg" << "*.jpeg" << "*.png";
 QString versionString = "2.0.0-beta";
 int versionNumber = 00;
-int buildNumber = 20161006;
+int buildNumber = 20170131;
 QString updateVersionTag = "";
 long originalsSize = 0;
 long compressedSize = 0;
@@ -121,33 +121,6 @@ double ratioToDouble(QString ratio) {
     return ratio.toDouble();
 }
 
-bool isJPEG(char* path) {
-    FILE* fp;
-    unsigned char* type_buffer = (unsigned char*) malloc(2);
-
-    fp = fopen(path, "r");
-
-    if (fp == NULL) {
-        qWarning() << "Cannot open" <<  path << "for type detection. Skipping";
-        return false;
-    }
-
-    if (fread(type_buffer, 1, 2, fp) < 2) {
-        qWarning() << "Cannot read" <<  path << "type. Skipping";
-        return false;
-    }
-
-    fclose(fp);
-
-    if (((int) type_buffer[0] == 0xFF) && ((int) type_buffer[1] == 0xD8)) {
-        free(type_buffer);
-        return true;
-    } else {
-        fprintf(stderr, "Unsupported file type. Skipping.\n");
-        return false;
-    }
-}
-
 QString msToFormattedString(qint64 ms) {
     if (ms < 1000) {
         return QString::number(ms) + " ms";
@@ -202,7 +175,7 @@ void loadLocales() {
 
 image_type typeFormatToEnum(QByteArray format) {
     image_type img_type = UNKN;
-    if (format == "jpg") {
+    if (format == "jpg" || format == "jpeg") {
         img_type = JPEG;
     } else if (format == "png") {
         img_type = PNG;

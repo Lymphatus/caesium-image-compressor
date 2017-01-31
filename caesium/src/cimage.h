@@ -29,62 +29,19 @@
 
 #include "src/utils.h"
 
-typedef struct png_params {
-    int iterations = 5;
-    int iterationsLarge = 1;
-    int blockSplitStrategy = 4;
-    bool lossy8Bit = true;
-    bool transparent = true;
-    bool autoFilterStrategy = true;
+#include <caesium.h>
 
-public:
-    int getIterations() const;
-    void setIterations(int value);
-    int getIterationsLarge() const;
-    void setIterationsLarge(int value);
-    int getLossy8Bit() const;
-    void setLossy8Bit(int value);
-    int getBlockSplitStrategy() const;
-    int getTransparent() const;
-    int getAutoFilterStrategy() const;
-} png_params;
 
-typedef struct jpeg_params {
-    int quality = 65;
-    int color_space = TJCS_RGB;
-    int dct_method = TJFLAG_FASTDCT;
-    bool exif = true;
-    QList<cexifs> importantExifs = {};
-    enum TJSAMP subsample;
-    bool progressive = true;
+bool cs_compress(const char *input_path, const char *output_path, cs_image_pars *options);
 
-public:
-    bool getProgressive() const;
-    void setProgressive(bool value);
-    int getQuality() const;
-    void setQuality(int value);
-    bool getExif() const;
-    void setExif(bool value);
-    QList<cexifs> getImportantExifs() const;
-    void setImportantExifs(const QList<cexifs> &value);
-    void setDct_method(int value);
-    void setSubsample(const TJSAMP &value);
-    void setColor_space(int value);
-    int getColor_space() const;
-    int getDct_method() const;
-    TJSAMP getSubsample() const;
-} jpeg_params;
 
 class CImage
 {
-    
+
 public:
     explicit CImage(QString path);
     explicit CImage();
     virtual ~CImage();
-
-    jpeg_params jparams;
-    png_params pparams;
 
     QString getFullPath() const;
     void setFullPath(const QString &value);
