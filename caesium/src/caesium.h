@@ -106,6 +106,7 @@ private:
     Ui::Caesium *ui;
     QFutureWatcher<QImage> imageWatcher; //Image loader
     QFutureWatcher<QImage> imagePreviewWatcher; //Image preview loader
+    QFutureWatcher<void> compressionWatcher;
     QFutureWatcher<void>* watcher; //General watcher
     QList<CTreeWidgetItem*> previewList;
     QList<CTreeWidgetItem*> compressionList;

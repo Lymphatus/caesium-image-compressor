@@ -17,7 +17,7 @@ macx {
 }
 
 win32 {
-    LIBS +=  -LC:\\exiv2\\src\\.libs -lexiv2 -lcaesium
+    LIBS +=  -LC:\\exiv2\\src\\.libs -lexiv2 C:\\libcaesium\\caesium -lcaesium
     INCLUDEPATH += C:\\exiv2\\include
     RC_ICONS = icons/main/icon.ico
 }

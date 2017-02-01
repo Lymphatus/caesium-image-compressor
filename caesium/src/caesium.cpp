@@ -339,7 +339,7 @@ void Caesium::showImportProgressDialog(QStringList list)
     QFutureWatcher<void> watcher;
 
     //This seems to prevent crashes
-    QThreadPool::globalInstance()->setMaxThreadCount(1);
+    //QThreadPool::globalInstance()->setMaxThreadCount(1);
 
     QFuture<void> future = QtConcurrent::map(list, [this](QString& data) { addItemToList(data); });
 
@@ -387,7 +387,7 @@ void Caesium::finishItemsImport()
                                                    : QString::number(item_count) + tr(" files added to the list"),
                                MESSAGE_LONG);
     updateStatusBarCount();
-    QThreadPool::globalInstance()->setMaxThreadCount(1);
+    //QThreadPool::globalInstance()->setMaxThreadCount(1);
 }
 
 void Caesium::on_actionAdd_folder_triggered()
@@ -448,7 +448,6 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview)
         outputPath = previewPath;
     } else {
         outputPath = Caesium::getOutputPath(originalInfo);
-        qInfo() << "Compression requested: " << item->text(COLUMN_PATH);
     }
 
     if (!outputPath.isNull()) {
@@ -458,11 +457,13 @@ void Caesium::compressRoutine(CTreeWidgetItem* item, bool preview)
         //Not really necessary if we copy the whole EXIF data
         Exiv2::ExifData exifData = getExifFromPath(input);
 
-        qInfo() << "Compressing " << item->text(COLUMN_PATH) << " --> " << outputPath;
+
+        qInfo() << "["<< QThread::currentThreadId() << "] Compressing " << item->text(COLUMN_PATH) << " --> " << outputPath;
         //Set state to COMPRESSING
         item->setStatus(COMPRESSING);
 
         bool compressionStatus = cs_compress(input, output, &compression_parameters);
+        qInfo() << "["<< QThread::currentThreadId() << "] " << output << "..." << compressionStatus;
 
         //Gets new file info
         QFileInfo* fileInfo = new QFileInfo(outputPath);
@@ -595,28 +596,27 @@ void Caesium::on_actionCompress_triggered()
     //Holds the list
     QList<CTreeWidgetItem*> list;
 
-    //Setup watcher
-    QFutureWatcher<void> watcher;
-
     //Gets the list filled
     for (int i = 0; i < ui->listTreeWidget->topLevelItemCount(); i++) {
         list.append((CTreeWidgetItem*)ui->listTreeWidget->topLevelItem(i));
     }
+    QThreadPool::globalInstance()->setMaxThreadCount(4);
 
     QFuture<void> future = QtConcurrent::map(list, [this](CTreeWidgetItem*& data) { compressRoutine(data); });
 
     //Setting up connections
     //Progress dialog
-    connect(&watcher, SIGNAL(progressValueChanged(int)), &progressDialog, SLOT(setValue(int)));
-    connect(&watcher, SIGNAL(progressRangeChanged(int, int)), &progressDialog, SLOT(setRange(int, int)));
-    connect(&watcher, SIGNAL(finished()), &progressDialog, SLOT(reset()));
-    connect(&progressDialog, SIGNAL(canceled()), &watcher, SLOT(cancel()));
+    connect(&compressionWatcher, SIGNAL(progressValueChanged(int)), &progressDialog, SLOT(setValue(int)));
+    connect(&compressionWatcher, SIGNAL(progressRangeChanged(int, int)), &progressDialog, SLOT(setRange(int, int)));
+    connect(&compressionWatcher, SIGNAL(finished()), &progressDialog, SLOT(reset()));
+    connect(&progressDialog, SIGNAL(canceled()), &compressionWatcher, SLOT(cancel()));
     //Connect two slots for handling compression start/finish
-    connect(&watcher, SIGNAL(started()), this, SLOT(compressionStarted()));
-    connect(&watcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
+    connect(&compressionWatcher, SIGNAL(started()), this, SLOT(compressionStarted()));
+    connect(&compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
+    connect(&compressionWatcher, SIGNAL(canceled()), this, SLOT(compressionFinished()));
 
     //And start
-    watcher.setFuture(future);
+    compressionWatcher.setFuture(future);
 
     //Show the dialog
     progressDialog.exec();
@@ -633,6 +633,10 @@ void Caesium::compressionFinished()
 {
     //Get elapsed time of the compression
     qInfo() << "---=== Compression finished at" << QTime::currentTime() << "===---";
+
+    if (compressionWatcher.isCanceled()) {
+        compressionWatcher.waitForFinished();
+    }
 
     //Display statistics in the status bar
     ui->statusBar->showMessage(tr("Compression completed! ") + QString::number(compressedFiles) + tr(" files compressed in ") + msToFormattedString(timer.elapsed()) + ", " + tr("from ") + toHumanSize(originalsSize) + tr(" to ") + toHumanSize(compressedSize) + ". " + tr("Saved ") + toHumanSize(originalsSize - compressedSize) + " (" + getRatio(originalsSize, compressedSize) + ")", MESSAGE_STATIC);

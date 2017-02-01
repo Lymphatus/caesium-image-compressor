@@ -6,3 +6,4 @@
 - Updater
 - Bugfix
 - Optimization (it does not eat so much memory anymore thou)
+- Safe multithreading

@@ -35,7 +35,6 @@
 
 
 Exiv2::ExifData getExifFromPath(char* filename) {
-    qDebug() << "Trying to read EXIF for" << filename;
     try {
         Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(filename);
         assert(image.get() != 0);
