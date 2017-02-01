@@ -76,6 +76,8 @@ Caesium::Caesium(QWidget* parent)
     createMenus();
     initializeParameters();
     //checkUpdates();
+
+    QThreadPool::globalInstance()->setMaxThreadCount(1);
 }
 
 Caesium::~Caesium()
@@ -600,7 +602,6 @@ void Caesium::on_actionCompress_triggered()
     for (int i = 0; i < ui->listTreeWidget->topLevelItemCount(); i++) {
         list.append((CTreeWidgetItem*)ui->listTreeWidget->topLevelItem(i));
     }
-    QThreadPool::globalInstance()->setMaxThreadCount(4);
 
     QFuture<void> future = QtConcurrent::map(list, [this](CTreeWidgetItem*& data) { compressRoutine(data); });
 
