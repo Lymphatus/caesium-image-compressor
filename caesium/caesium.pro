@@ -1,70 +1,34 @@
-QT       += core gui concurrent network
+#-------------------------------------------------
+#
+# Project created by QtCreator 2017-11-18T13:40:47
+#
+#-------------------------------------------------
+
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Caesium
 TEMPLATE = app
 
-QMAKE_MAC_SDK = macosx10.11
+# The following define makes your compiler emit warnings if you use
+# any feature of Qt which has been marked as deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
 
-macx {
-    QMAKE_CXXFLAGS_CXX11 = -std=gnu++1y
-    CONFIG *= c++11
-    QMAKE_CXXFLAGS += -stdlib=libc++
-    LIBS += -L/usr/local/lib -lexiv2 -lcaesium
-    INCLUDEPATH += /usr/local/include
-    ICON = icons/icons/icon.icns
-}
+# You can also make your code fail to compile if you use deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-win32 {
-    LIBS +=  -LC:\\exiv2\\src\\.libs -lexiv2 -LC:\\libcaesium\\lib -lcaesium
-    INCLUDEPATH += C:\\exiv2\\include C:\\libcaesium\\caesium
-    RC_ICONS = icons/main/icon.ico
-}
 
-unix {
-    LIBS += -lcaesium -lexiv2
-}
+SOURCES += \
+        main.cpp \
+        caesium.cpp
 
-CONFIG += warn_off c++11
+HEADERS += \
+        caesium.h
 
-SOURCES += src/main.cpp\
-    src/aboutdialog.cpp \
-    src/utils.cpp \
-    src/exif.cpp \
-    src/preferencedialog.cpp \
-    src/networkoperations.cpp \
-    src/qdroptreewidget.cpp \
-    src/clist.cpp \
-    src/cimage.cpp \
-    src/ctreewidgetitem.cpp \
-    src/caesium.cpp
-
-HEADERS  += \
-    src/aboutdialog.h \
-    src/utils.h \
-    src/exif.h \
-    src/preferencedialog.h \
-    src/networkoperations.h \
-    src/qdroptreewidget.h \
-    src/ctreewidgetitem.h \
-    src/clist.h \
-    src/cimage.h \
-    src/caesium.h
-
-FORMS    += \
-    src/aboutdialog.ui \
-    src/preferencedialog.ui \
-    src/caesium.ui
-
-RESOURCES += \
-    icons.qrc \
-    style.qrc
-
-DISTFILES += \
-    qss/style_osx.qss \
-    qss/style_win.qss \
-    qss/style_linux.qss
-
-TRANSLATIONS = translations/caesium_en_US.ts \
-    translations/caesium_it_IT.ts
+FORMS += \
+        caesium.ui
