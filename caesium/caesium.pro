@@ -6,9 +6,9 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets concurrent
 
-TARGET = Caesium
+TARGET = caesium
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,11 +24,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        caesium.cpp
+        src/main.cpp \
+        src/caesium.cpp \
+    src/aboutdialog.cpp \
+    src/cimage.cpp \
+    src/utils.cpp \
+    src/preferencesdialog.cpp \
+    src/ctreewidgetitem.cpp \
+    src/qdroptreewidget.cpp
 
 HEADERS += \
-        caesium.h
+        src/caesium.h \
+    src/aboutdialog.h \
+    src/cimage.h \
+    src/utils.h \
+    src/preferencesdialog.h \
+    src/ctreewidgetitem.h \
+    src/qdroptreewidget.h
 
 FORMS += \
-        caesium.ui
+        src/caesium.ui \
+    src/aboutdialog.ui \
+    src/preferencesdialog.ui
+
+RESOURCES += \
+    resources/icons.qrc
