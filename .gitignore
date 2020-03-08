@@ -1,39 +1,73 @@
-# C++ objects and libs
+# This file is used to ignore files which are generated
+# ----------------------------------------------------------------------------
 
-*.slo
-*.lo
-*.o
+*~
+*.autosave
 *.a
-*.la
-*.lai
+*.core
+*.moc
+*.o
+*.obj
+*.orig
+*.rej
 *.so
-*.dll
-*.dylib
-
-# Qt-es
-
+*.so.*
+*_pch.h.cpp
+*_resource.rc
+*.qm
+.#*
+*.*#
+core
+!core/
+tags
+.DS_Store
+.directory
+*.debug
+Makefile*
+*.prl
+*.app
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+Thumbs.db
+*.res
+*.rc
 /.qmake.cache
 /.qmake.stash
-*.pro.user
-*.pro.user.*
-*.qbs.user
-*.qbs.user.*
-*.moc
-moc_*.cpp
-qrc_*.cpp
-ui_*.h
-Makefile*
-*-build-*
 
-# QtCreator
+# qtcreator generated files
+*.pro.user*
 
-*.autosave
+# xemacs temporary files
+*.flc
 
-#QtCtreator Qml
-*.qmlproject.user
-*.qmlproject.user.*
+# Vim temporary files
+.*.swp
 
-#Build dir
-build
+# Visual Studio generated files
+*.ib_pdb_index
+*.idb
+*.ilk
+*.pdb
+*.sln
+*.suo
+*.vcproj
+*vcproj.*.*.user
+*.ncb
+*.sdf
+*.opensdf
+*.vcxproj
+*vcxproj.*
 
-.DS_Store
+# MinGW generated files
+*.Debug
+*.Release
+
+# Python byte code
+*.pyc
+
+# Binaries
+# --------
+*.dll
+*.exe
+
