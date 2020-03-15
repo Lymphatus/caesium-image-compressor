@@ -3,8 +3,10 @@ QT       += core gui concurrent svg
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
-QMAKE_CFLAGS += -Wno-nullability-completeness
-QMAKE_CXXFLAGS += -Wno-nullability-completeness
+unix: {
+    QMAKE_CFLAGS += -Wno-nullability-completeness
+    QMAKE_CXXFLAGS += -Wno-nullability-completeness
+}
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -19,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 TARGET = "Caesium Image Compressor"
 ICON = resources/icons/icon.icns
+RC_ICONS = resources/icons/icon.ico
 
 SOURCES += \
     src/main.cpp \
@@ -54,7 +57,16 @@ TRANSLATIONS += \
 RESOURCES += \
     resources/resources.qrc
 
-LIBS += -L"/usr/local/lib/caesium" -lcaesium
+unix: {
+    LIBS += -L"/usr/local/lib/caesium" -lcaesium
+}
+
+win32: {
+    LIBS += -L"C:\\libcaesium\\lib" -lcaesium \
+            -L"C:\\zopfli\\lib" -lzopflipng \
+            -L"C:\\mozjpeg\\lib" -ljpeg \
+            -L"C:\\mozjpeg\\lib" -lturbojpeg \
+}
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
