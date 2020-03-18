@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
     //    ui->imageList_TreeView->setItemDelegate(listViewDelegate);
 
+    ui->main_Splitter->setSizes(QList<int>({500, 1}));
+
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex &, const QModelIndex &)), this, SLOT(imageList_selectionChanged(const QModelIndex &, const QModelIndex &)));
     this->readSettings();
 }
