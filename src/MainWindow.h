@@ -47,6 +47,12 @@ private slots:
     void imageList_selectionChanged(const QModelIndex &current, const QModelIndex &previous);
     void compressionFinished();
 
+    void on_keepStructure_Checkbox_stateChanged(int arg1);
+
+    void on_actionRemove_triggered();
+
+    void on_actionClear_triggered();
+
 private:
     Ui::MainWindow* ui;
 
@@ -54,14 +60,17 @@ private:
     QTreeViewItemDelegate* listViewDelegate;
     QFutureWatcher<void> compressionWatcher;
     QGraphicsScene* previewScene;
+    QMap<QString, int> folderMap;
 
-    void importFiles(const QStringList& fileList);
+    void importFiles(const QStringList& fileList, QString baseFolder);
+    void removeFiles(bool all = false);
     void triggerImportFiles();
     void triggerImportFolder();
     void writeSettings();
     void writeSetting(const QString& key, const QVariant& value);
     void readSettings();
     void previewImage(const QModelIndex &imageIndex);
+    void updateFolderMap(QString baseFolder, int count);
     QVariant readSetting(const QString& key);
 };
 

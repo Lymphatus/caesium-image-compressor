@@ -28,7 +28,7 @@ public:
     QVector<CImageTreeItem*> children();
 
     CImage *getCImage() const;
-    QFuture<void> compress();
+    QFuture<void> compress(CompressionOptions compressionOptions);
     void setData(int column, QString data);
     void setData(QStringList data);
 

@@ -1,6 +1,7 @@
 #ifndef CIMAGE_H
 #define CIMAGE_H
 
+#include <QFileInfo>
 #include <QString>
 
 #include <src/utils/Utils.h>
@@ -29,8 +30,8 @@ public:
     double getRatio() const;
     QString getFormattedSavedRatio();
 
-    bool compress();
-    void setCompressedInfo(QString outputPath);
+    bool compress(CompressionOptions compressionOptions);
+    void setCompressedInfo(QFileInfo fileInfo);
 
     QString getCompressedFullPath() const;
 

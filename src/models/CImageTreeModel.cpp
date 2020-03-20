@@ -96,7 +96,8 @@ void CImageTreeModel::setupModelData(const QList<CImage*> imageList, CImageTreeI
     QListIterator<CImage*> iterator(imageList);
     this->beginInsertRows(QModelIndex(), this->rowCount(), this->rowCount() + imageList.count() - 1);
     while (iterator.hasNext()) {
-        CImageTreeItem* cImageTreeItem = new CImageTreeItem(iterator.next(), parent);
+        CImage* nextImage = iterator.next();
+        CImageTreeItem* cImageTreeItem = new CImageTreeItem(nextImage, parent);
         parent->appendChild(cImageTreeItem);
     }
     endInsertRows();
@@ -106,7 +107,6 @@ void CImageTreeModel::emitDataChanged(int row)
 {
     QModelIndex modelIndexStart = this->index(row, 0);
     QModelIndex modelIndexEnd = this->index(row, this->columnCount() - 1);
-    qDebug() << modelIndexStart << modelIndexEnd;
     emit dataChanged(modelIndexStart, modelIndexEnd);
 }
 

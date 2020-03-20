@@ -31,16 +31,16 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
     //    ui->imageList_TreeView->setItemDelegate(listViewDelegate);
 
-    ui->main_Splitter->setSizes(QList<int>({500, 1}));
+    ui->main_Splitter->setSizes(QList<int>({ 500, 1 }));
 
-    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex &, const QModelIndex &)), this, SLOT(imageList_selectionChanged(const QModelIndex &, const QModelIndex &)));
+    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     this->readSettings();
 }
 
 MainWindow::~MainWindow()
 {
     delete cImageModel;
-//    delete listViewDelegate;
+    //    delete listViewDelegate;
     delete previewScene;
     delete ui;
 }
@@ -72,7 +72,13 @@ void MainWindow::triggerImportFiles()
         QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
         QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png)");
 
-    return MainWindow::importFiles(fileList);
+    if (fileList.isEmpty()) {
+        return;
+    }
+
+    QString baseFolder = QFileInfo(fileList.at(0)).absolutePath();
+
+    return MainWindow::importFiles(fileList, baseFolder);
 }
 
 void MainWindow::triggerImportFolder()
@@ -83,7 +89,11 @@ void MainWindow::triggerImportFolder()
 
     QStringList fileList = scanDirectory(directoryPath);
 
-    return MainWindow::importFiles(fileList);
+    if (fileList.isEmpty()) {
+        return;
+    }
+
+    return MainWindow::importFiles(fileList, directoryPath);
 }
 
 void MainWindow::writeSettings()
@@ -92,16 +102,16 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/size", this->size());
     settings.setValue("mainwindow/pos", this->pos());
 
-
     settings.setValue("compression_options/compression/level", this->ui->compression_Slider->value());
     settings.setValue("compression_options/compression/lossless", this->ui->lossless_Checkbox->isChecked());
-    settings.setValue("compression_options/compression/keep_metadata", this->ui->lossless_Checkbox->isChecked());
+    settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_Checkbox->isChecked());
+    settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_Checkbox->isChecked());
 
     settings.setValue("compression_options/output/output_folder", this->ui->outputFolder_LineEdit->text());
     settings.setValue("compression_options/output/output_suffix", this->ui->outputSuffix_LineEdit->text());
 }
 
-void MainWindow::writeSetting(const QString &key, const QVariant &value)
+void MainWindow::writeSetting(const QString& key, const QVariant& value)
 {
     QSettings settings;
     settings.setValue(key, value);
@@ -113,16 +123,16 @@ void MainWindow::readSettings()
     this->resize(settings.value("mainwindow/size").toSize());
     this->move(settings.value("mainwindow/pos").toPoint());
 
-
     this->ui->compression_Slider->setValue(settings.value("compression_options/compression/level", 4).toInt());
     this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless").toBool());
     this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata").toBool());
+    this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure").toBool());
 
     this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder").toString());
     this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix").toString());
 }
 
-void MainWindow::previewImage(const QModelIndex &imageIndex)
+void MainWindow::previewImage(const QModelIndex& imageIndex)
 {
     this->previewScene->clear();
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
@@ -134,13 +144,36 @@ void MainWindow::previewImage(const QModelIndex &imageIndex)
     ui->preview_graphicsView->show();
 }
 
-QVariant MainWindow::readSetting(const QString &key)
+void MainWindow::updateFolderMap(QString baseFolder, int count)
+{
+    QStringListIterator it(this->folderMap.keys());
+    bool isAlreadyInList = false;
+    while (it.hasNext() && !isAlreadyInList) {
+        QString folderInMap = it.next();
+        isAlreadyInList = baseFolder.startsWith(folderInMap);
+        if (isAlreadyInList) {
+            baseFolder = folderInMap;
+        }
+    }
+
+    if (!isAlreadyInList) {
+        folderMap.insert(baseFolder, count);
+    } else {
+        folderMap[baseFolder] += count;
+    }
+
+    if (folderMap[baseFolder] == 0) {
+        folderMap.remove(baseFolder);
+    }
+}
+
+QVariant MainWindow::readSetting(const QString& key)
 {
     QSettings settings;
     return settings.value(key);
 }
 
-void MainWindow::importFiles(const QStringList& fileList)
+void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 {
     int listLength = fileList.count();
     QProgressDialog progressDialog(tr("Importing files..."), tr("Cancel"), 0, listLength, this);
@@ -162,12 +195,36 @@ void MainWindow::importFiles(const QStringList& fileList)
         progressDialog.setValue(i);
     }
 
-    this->cImageModel->appendItems(list);
+    if (!list.isEmpty()) {
+        this->updateFolderMap(baseFolder, list.count());
+        this->cImageModel->appendItems(list);
+    }
+
     progressDialog.setValue(listLength);
+}
+
+void MainWindow::removeFiles(bool all)
+{
+    if (all) {
+        ui->imageList_TreeView->selectAll();
+    }
+    QModelIndexList indexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
+    std::sort(indexes.begin(), indexes.end(), [](const QModelIndex& a, const QModelIndex& b) {
+        return a.row() < b.row();
+    });
+
+    int columnCount = this->cImageModel->columnCount();
+
+    for (int i = indexes.count() / columnCount; i > 0; i--) {
+        this->updateFolderMap(this->cImageModel->getRootItem()->children().at(indexes.at(i).row())->getCImage()->getFullPath(), -1);
+        this->cImageModel->removeRows(indexes.at(i).row(), 1, indexes.at(i).parent());
+    }
+    this->previewScene->clear();
 }
 
 void MainWindow::on_compress_Button_clicked()
 {
+    QSettings settings;
     QProgressDialog* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
     progressDialog->setWindowModality(Qt::WindowModal);
     progressDialog->setCancelButton(nullptr);
@@ -181,7 +238,17 @@ void MainWindow::on_compress_Button_clicked()
     //TODO add future cleanup
     progressDialog->show();
 
-    QFuture<void> future = this->cImageModel->getRootItem()->compress();
+    CompressionOptions compressionOptions = {
+        settings.value("compression_options/output/output_folder").toString(),
+        getRootFolder(this->folderMap),
+        settings.value("compression_options/output/output_suffix").toString(),
+        settings.value("compression_options/compression/level", 4).toBool(),
+        settings.value("compression_options/compression/lossless", false).toBool(),
+        settings.value("compression_options/compression/keep_metadata", false).toBool(),
+        settings.value("compression_options/compression/keep_structure", false).toBool(),
+    };
+
+    QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
     this->compressionWatcher.setFuture(future);
 }
 
@@ -192,26 +259,16 @@ void MainWindow::on_actionAdd_folder_triggered()
 
 void MainWindow::on_removeFiles_Button_clicked()
 {
-    QModelIndexList indexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
-    std::sort(indexes.begin(), indexes.end(), [](const QModelIndex& a, const QModelIndex& b) {
-        return a.row() < b.row();
-    });
-
-    int columnCount = this->cImageModel->columnCount();
-
-    for (int i = indexes.count() / columnCount; i > 0; i--) {
-        this->cImageModel->removeRows(indexes.at(i).row(), 1, indexes.at(i).parent());
-    }
-    this->previewScene->clear();
+    this->removeFiles(false);
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent* event)
 {
     this->writeSettings();
     event->accept();
 }
 
-void MainWindow::resizeEvent(QResizeEvent *event)
+void MainWindow::resizeEvent(QResizeEvent* event)
 {
     ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }
@@ -229,7 +286,7 @@ void MainWindow::on_outputFolderBrowse_Button_clicked()
     }
 }
 
-void MainWindow::on_outputSuffix_LineEdit_textChanged(const QString &arg1)
+void MainWindow::on_outputSuffix_LineEdit_textChanged(const QString& arg1)
 {
     this->writeSetting("compression_options/output/output_suffix", arg1);
 }
@@ -241,7 +298,7 @@ void MainWindow::on_lossless_Checkbox_stateChanged(int arg1)
 
 void MainWindow::on_keepMetadata_Checkbox_stateChanged(int arg1)
 {
-     this->writeSetting("compression_options/compression/keep_metadata", arg1 != 0);
+    this->writeSetting("compression_options/compression/keep_metadata", arg1 != 0);
 }
 
 void MainWindow::on_compression_Slider_valueChanged(int value)
@@ -249,7 +306,7 @@ void MainWindow::on_compression_Slider_valueChanged(int value)
     this->writeSetting("compression_options/compression/level", value);
 }
 
-void MainWindow::imageList_selectionChanged(const QModelIndex &current, const QModelIndex &previous)
+void MainWindow::imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous)
 {
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 1 || current.row() == previous.row() || current.row() == -1) {
         return;
@@ -263,4 +320,19 @@ void MainWindow::compressionFinished()
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
     }
+}
+
+void MainWindow::on_keepStructure_Checkbox_stateChanged(int arg1)
+{
+    this->writeSetting("compression_options/compression/keep_structure", arg1 != 0);
+}
+
+void MainWindow::on_actionRemove_triggered()
+{
+    this->removeFiles(false);
+}
+
+void MainWindow::on_actionClear_triggered()
+{
+    this->removeFiles(true);
 }

@@ -5,6 +5,7 @@
 #include "CImageTreeItem.h"
 
 #include <QAbstractItemModel>
+#include <QDir>
 
 class CImageTreeModel : public QAbstractItemModel {
     Q_OBJECT

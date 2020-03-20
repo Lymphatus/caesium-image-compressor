@@ -96,11 +96,11 @@ CImage *CImageTreeItem::getCImage() const
     return cImage;
 }
 
-QFuture<void> CImageTreeItem::compress()
+QFuture<void> CImageTreeItem::compress(CompressionOptions compressionOptions)
 {
-    return QtConcurrent::map(m_childItems, [](CImageTreeItem* item) {
+    return QtConcurrent::map(m_childItems, [compressionOptions](CImageTreeItem* item) {
         item->getCImage()->setStatus(CImageStatus::COMPRESSING);
-        bool compressionResult = item->cImage->compress();
+        bool compressionResult = item->cImage->compress(compressionOptions);
         item->getCImage()->setStatus(compressionResult ? CImageStatus::COMPRESSED : CImageStatus::ERROR);
     });
 }
