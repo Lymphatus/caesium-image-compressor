@@ -20,8 +20,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 TARGET = "Caesium Image Compressor"
-ICON = resources/icons/icon.icns
-RC_ICONS = resources/icons/icon.ico
+macx: {
+    ICON = resources/icons/icon.icns
+    QMAKE_INFO_PLIST = Info.plist
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.14
+    QMAKE_RPATHDIR += @executable_path/../Frameworks
+
+}
+win32: {
+    RC_ICONS = resources/icons/icon.ico
+}
 
 SOURCES += \
     src/main.cpp \
@@ -74,5 +82,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    Info.plist \
     README.md \
     CHANGELOG.md

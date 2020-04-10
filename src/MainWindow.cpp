@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QFuture>
 #include <QList>
+#include <QMessageBox>
 #include <QProgressDialog>
 #include <QStandardPaths>
 #include <QThread>
@@ -225,6 +226,18 @@ void MainWindow::removeFiles(bool all)
 void MainWindow::on_compress_Button_clicked()
 {
     QSettings settings;
+
+    if (settings.value("compression_options/output/output_folder").toString().isEmpty()) {
+        QMessageBox msgBox;
+        msgBox.setText("Please select an output folder first");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.setDefaultButton(QMessageBox::Ok);
+        msgBox.exec();
+        return;
+    }
+    if (this->cImageModel->getRootItem()->childCount() == 0) {
+        return;
+    }
     QProgressDialog* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
     progressDialog->setWindowModality(Qt::WindowModal);
     progressDialog->setCancelButton(nullptr);
