@@ -26,7 +26,7 @@ Linux source code must be compiled using Qt5.
 ----------
 
 ##### BUILD FROM SOURCE
-1. You need the [Qt5 SDK](https://www.qt.io/download/) installed on you platform.
+1. You need the [Qt5 SDK](https://www.qt.io/download/) installed on your platform.
 2. Compile [libcaesium](https://github.com/Lymphatus/libcaesium). Please refer to its own documentation for detailed instructions for your platform.
 3. Clone the repository using ``` git clone https://github.com/Lymphatus/caesium-image-compressor.git ```. If it doesn't work somehow, you can download the latest snapshot [here](https://github.com/Lymphatus/caesium-image-compressor/archive/master.zip).
 4. Open *caesium-image-compressor.pro* on Qt Creator and compile it. It should compile both Caesium and its Updater.
