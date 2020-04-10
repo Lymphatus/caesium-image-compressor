@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AboutDialog</class>
+ <widget class="QDialog" name="AboutDialog">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>475</width>
+    <height>170</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>475</width>
+    <height>170</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>475</width>
+    <height>170</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>About Caesium - Image Compressor</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="main_GridLayout">
+     <property name="horizontalSpacing">
+      <number>20</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>6</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="logo_Label">
+       <property name="minimumSize">
+        <size>
+         <width>96</width>
+         <height>96</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>96</width>
+         <height>96</height>
+        </size>
+       </property>
+       <property name="locale">
+        <locale language="English" country="UnitedStates"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../resources/resources.qrc">:/icons/logo.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <spacer name="logo_VerticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="2" rowspan="3">
+      <layout class="QVBoxLayout" name="info_VLayout">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>12</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="aboutTitle_Label">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Caesium Image Compressor</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="version_Label">
+         <property name="text">
+          <string>v2.0.0-beta3</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="copyright_Label">
+         <property name="text">
+          <string>Copyright © 2020 Matteo Paonessa.
+All rights reserved.</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="about_VerticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="call_Label">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&amp;quot;If you’re gonna make it to the moon&lt;br/&gt;I’ll be right there by your side&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

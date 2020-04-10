@@ -1,8 +1,6 @@
-## Caesium (Cs-133)
-##### v2.0.0-beta2 (build 20170131) - Copyright &copy; Matteo Paonessa, 2017. All Rights Reserved.
-###### WARNING This version is not completed yet! Don't use on important files without a backup!
-
-<img width="1111" alt="screen" src="https://saerasoft.com/caesium/images/caesium2.png">
+## Caesium Image Compressor (Cs-133)
+##### v2.0.0-alpha1 (build 20200318) - Copyright &copy; Matteo Paonessa, 2020. All Rights Reserved.
+##### WARNING This version is a very early stage version! Don't use on important files without a backup and expect some major changes.
 
 ----------
 
@@ -12,13 +10,11 @@
 
 ##### REQUIREMENTS
 * [libcaesium](https://github.com/Lymphatus/libcaesium)
-* [exiv2](http://www.exiv2.org/)
-
 ----------
 
 ##### TESTED PLATFORMS
 * Windows 10 64bit
-* MacOS X Sierra (v. 10.12)
+* MacOS X Catalina (v. 10.15)
 
 ----------
 
@@ -31,9 +27,9 @@ Linux source code must be compiled using Qt5.
 
 ##### BUILD FROM SOURCE
 1. You need the [Qt5 SDK](https://www.qt.io/download/) installed on your platform.
-2. Compile [libcaesium](https://github.com/Lymphatus/libcaesium) and [exiv2](http://www.exiv2.org/). Please refer to their own documentation for detailed instructions for your platform.
+2. Compile [libcaesium](https://github.com/Lymphatus/libcaesium). Please refer to its own documentation for detailed instructions for your platform.
 3. Clone the repository using ``` git clone https://github.com/Lymphatus/caesium-image-compressor.git ```. If it doesn't work somehow, you can download the latest snapshot [here](https://github.com/Lymphatus/caesium-image-compressor/archive/master.zip).
-4. Open *Cs-133.pro* on Qt Creator and compile it. It should compile both Caesium and its Updater.
+4. Open *caesium-image-compressor.pro* on Qt Creator and compile it. It should compile both Caesium and its Updater.
 5. Should be done!
 
 ----------

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/logo.png</file>
+        <file>icons/logo_alpha.png</file>
+        <file>icons/compression_statuses/compressed.svg</file>
+        <file>icons/compression_statuses/uncompressed.svg</file>
+        <file>icons/compression_statuses/compressing.svg</file>
+        <file>icons/compression_statuses/error.svg</file>
+    </qresource>
+</RCC>
