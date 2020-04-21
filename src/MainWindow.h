@@ -1,3 +1,4 @@
+#include <climits>
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -6,11 +7,8 @@
 #include <QGraphicsScene>
 #include <QMainWindow>
 
-#include <src/models/CImageTreeModel.h>
-
-#include <src/widgets/QTreeViewItemDelegate.h>
-
-#include "src/models/CImage.h"
+#include "models/CImageTreeModel.h"
+#include "models/CImage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,7 +26,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* event) override;
-    void resizeEvent(QResizeEvent* event) override;
+    void resizeEvent(__unused QResizeEvent* event) override;
 
 private slots:
 
@@ -57,7 +55,6 @@ private:
     Ui::MainWindow* ui;
 
     CImageTreeModel* cImageModel;
-    QTreeViewItemDelegate* listViewDelegate;
     QFutureWatcher<void> compressionWatcher;
     QGraphicsScene* previewScene;
     QMap<QString, int> folderMap;

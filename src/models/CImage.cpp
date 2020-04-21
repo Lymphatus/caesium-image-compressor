@@ -1,11 +1,6 @@
 #include "CImage.h"
-#include "src/utils/Utils.h"
 
-#include <src/vendor/caesium.h>
-
-#include <QFileInfo>
 #include <QImageReader>
-#include <cmath>
 
 #include <QDebug>
 #include <QDir>

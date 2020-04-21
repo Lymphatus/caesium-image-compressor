@@ -1,6 +1,5 @@
 #include "CImageTreeModel.h"
 
-#include <QDebug>
 #include <QIcon>
 
 CImageTreeModel::CImageTreeModel()

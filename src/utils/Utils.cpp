@@ -3,8 +3,6 @@
 #include <QDebug>
 #include <QDir>
 #include <QDirIterator>
-#include <QStringList>
-#include <cmath>
 
 QString toHumanSize(size_t size)
 {
@@ -36,7 +34,7 @@ QSize getScaledSizeWithRatio(QSize size, int square)
     int w = size.width();
     int h = size.height();
 
-    double ratio = 0.0;
+    double ratio;
 
     //Check the biggest between the two and scale on that dimension
     if (w >= h) {
@@ -134,8 +132,9 @@ QString getRootFolder(QMap<QString, int> folderMap)
             if (QString::compare(splittedNewFolder.at(i), splittedRootFolder.at(i)) != 0) {
                 if (i == 0) {
                     rootFolderPath = QDir::rootPath();
+                } else {
+                    rootFolderPath = QDir(QDir::rootPath() + splittedCommonPath.join(QDir::separator())).absolutePath();
                 }
-                rootFolderPath = QDir(QDir::rootPath() + splittedCommonPath.join(QDir::separator())).absolutePath();
                 break;
             }
             splittedCommonPath.append(splittedNewFolder.at(i));

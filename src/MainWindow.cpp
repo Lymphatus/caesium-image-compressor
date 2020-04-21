@@ -1,21 +1,13 @@
 #include "MainWindow.h"
-#include "src/dialogs/AboutDialog.h"
-#include "src/utils/Utils.h"
+#include "./dialogs/AboutDialog.h"
 #include "ui_MainWindow.h"
+#include <climits>
 
-#include <QDebug>
-#include <QDir>
 #include <QFileDialog>
-#include <QFuture>
-#include <QList>
 #include <QMessageBox>
 #include <QProgressDialog>
 #include <QStandardPaths>
-#include <QThread>
-#include <QThreadPool>
 #include <QtConcurrent>
-
-#include <src/models/CImageTreeModel.h>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -26,11 +18,9 @@ MainWindow::MainWindow(QWidget* parent)
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
     ui->preview_graphicsView->setScene(this->previewScene);
-    //    this->listViewDelegate = new QTreeViewItemDelegate(ui->imageList_TreeView, this);
     ui->imageList_TreeView->setModel(this->cImageModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
     ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
-    //    ui->imageList_TreeView->setItemDelegate(listViewDelegate);
 
     ui->main_Splitter->setSizes(QList<int>({ 500, 1 }));
 
@@ -281,7 +271,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
     event->accept();
 }
 
-void MainWindow::resizeEvent(QResizeEvent* event)
+void MainWindow::resizeEvent(__unused QResizeEvent* event)
 {
     ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }

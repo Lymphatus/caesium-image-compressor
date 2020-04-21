@@ -1,3 +1,4 @@
+#include <climits>
 #ifndef QZOOMGRAPHICSVIEW_H
 #define QZOOMGRAPHICSVIEW_H
 
@@ -11,6 +12,6 @@ class QZoomGraphicsView : public QGraphicsView
 public:
     explicit QZoomGraphicsView(QWidget *parent = 0);
     void wheelEvent(QWheelEvent* event);
-};
+} __unused;
 
 #endif // QZOOMGRAPHICSVIEW_H

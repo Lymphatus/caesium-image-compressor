@@ -1,10 +1,10 @@
+#include <climits>
 #ifndef QDROPTREEWIDGET_H
 #define QDROPTREEWIDGET_H
 
 #include <QTreeView>
 
 class QMimeData;
-class Caesium;
 
 class QDropTreeView : public QTreeView
 {
@@ -21,6 +21,6 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
 
-};
+} __unused;
 
 #endif // QDROPTREEWIDGET_H

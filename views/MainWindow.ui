@@ -255,6 +255,18 @@
          </widget>
         </item>
         <item>
+         <widget class="QGroupBox" name="resize_groupBox">
+          <property name="title">
+           <string>Resize</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
          <widget class="QGroupBox" name="output_groupBox">
           <property name="title">
            <string>Output</string>
@@ -452,7 +464,7 @@
   <customwidget>
    <class>QZoomGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>src/widgets/QZoomGraphicsView.h</header>
+   <header>./widgets/QZoomGraphicsView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

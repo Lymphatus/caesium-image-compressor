@@ -4,8 +4,9 @@
 #include <QString>
 #include <QSize>
 #include <QStringList>
+#include <QMap>
 
-#include <src/vendor/caesium.h>
+#include "../vendor/caesium.h"
 
 enum class CImageStatus {
     UNCOMPRESSED,

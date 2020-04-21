@@ -1,9 +1,7 @@
 #include "QDropTreeView.h"
 
-#include <QStringList>
 #include <QDragEnterEvent>
 #include <QMimeData>
-#include <QMetaObject>
 
 #include <QDebug>
 

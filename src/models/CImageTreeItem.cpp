@@ -105,11 +105,6 @@ QFuture<void> CImageTreeItem::compress(CompressionOptions compressionOptions)
     });
 }
 
-void CImageTreeItem::setData(int column, QString data)
-{
-    this->m_itemData.replace(column, QVariant(data));
-}
-
 void CImageTreeItem::setData(QStringList data)
 {
     QVector<QVariant> columnData;

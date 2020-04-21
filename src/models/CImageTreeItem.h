@@ -5,7 +5,7 @@
 #include <QVector>
 #include <QFuture>
 
-#include "src/models/CImage.h"
+#include "CImage.h"
 
 class CImageTreeItem {
 public:
@@ -29,7 +29,6 @@ public:
 
     CImage *getCImage() const;
     QFuture<void> compress(CompressionOptions compressionOptions);
-    void setData(int column, QString data);
     void setData(QStringList data);
 
 private:
