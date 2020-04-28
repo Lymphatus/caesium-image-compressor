@@ -63,6 +63,9 @@ set(UI
     views/MainWindow.ui
     views/AboutDialog.ui)
 
-add_executable(caesium_image_compressor ${SOURCES} ${HEADERS} ${UI})
+set(RESOURCES resources/resources.qrc)
+
+add_executable(caesium_image_compressor ${SOURCES} ${HEADERS} ${UI} ${RESOURCES})
+set_target_properties(caesium_image_compressor PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
 
 target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg caesium)

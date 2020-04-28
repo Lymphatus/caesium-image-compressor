@@ -7,8 +7,8 @@
 #include <QGraphicsScene>
 #include <QMainWindow>
 
-#include "models/CImageTreeModel.h"
 #include "models/CImage.h"
+#include "models/CImageTreeModel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -41,16 +41,12 @@ private slots:
     void on_lossless_Checkbox_stateChanged(int arg1);
     void on_keepMetadata_Checkbox_stateChanged(int arg1);
     void on_compression_Slider_valueChanged(int value);
-
-    void imageList_selectionChanged(const QModelIndex &current, const QModelIndex &previous);
-    void compressionFinished();
-
     void on_keepStructure_Checkbox_stateChanged(int arg1);
-
     void on_actionRemove_triggered();
-
     void on_actionClear_triggered();
 
+    void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
+    void compressionFinished();
 private:
     Ui::MainWindow* ui;
 
@@ -66,7 +62,7 @@ private:
     void writeSettings();
     void writeSetting(const QString& key, const QVariant& value);
     void readSettings();
-    void previewImage(const QModelIndex &imageIndex);
+    void previewImage(const QModelIndex& imageIndex);
     void updateFolderMap(QString baseFolder, int count);
     QVariant readSetting(const QString& key);
 };

@@ -1,7 +1,6 @@
 #include "MainWindow.h"
 #include "./dialogs/AboutDialog.h"
 #include "ui_MainWindow.h"
-#include <climits>
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -22,7 +21,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
     ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
 
-    ui->main_Splitter->setSizes(QList<int>({ 500, 1 }));
+    ui->main_Splitter->setSizes(QList<int>({ 600, 1 }));
+    ui->left_Splitter->setSizes(QList<int>({ 100, 1 }));
 
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     this->readSettings();

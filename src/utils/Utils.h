@@ -37,7 +37,6 @@ typedef struct CompressionOptions
 
 //Utilities
 QString toHumanSize(size_t size);
-QSize getScaledSizeWithRatio(QSize size, int square);
 QStringList scanDirectory(QString directory);
 cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata);
 QString getRootFolder(QMap<QString, int> folderMap);

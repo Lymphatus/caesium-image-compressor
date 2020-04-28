@@ -29,23 +29,6 @@ QString toHumanSize(size_t size)
     return QString::number(size / (pow(1024, order)), 'f', 2) + ' ' + unit[(int)order];
 }
 
-QSize getScaledSizeWithRatio(QSize size, int square)
-{
-    int w = size.width();
-    int h = size.height();
-
-    double ratio;
-
-    //Check the biggest between the two and scale on that dimension
-    if (w >= h) {
-        ratio = w / (double)square;
-    } else {
-        ratio = h / (double)square;
-    }
-
-    return QSize((int)round(w / ratio), (int)h / ratio);
-}
-
 //TODO Another thread?
 QStringList scanDirectory(QString directory)
 {
