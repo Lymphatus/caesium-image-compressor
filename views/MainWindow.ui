@@ -27,10 +27,10 @@
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
-          <widget class="QTreeView" name="imageList_TreeView">
+          <widget class="QDropTreeView" name="imageList_TreeView">
            <property name="dragDropMode">
             <enum>QAbstractItemView::DropOnly</enum>
            </property>
@@ -571,6 +571,11 @@
    <class>QZoomGraphicsView</class>
    <extends>QGraphicsView</extends>
    <header>./widgets/QZoomGraphicsView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QDropTreeView</class>
+   <extends>QTreeView</extends>
+   <header>widgets/QDropTreeView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

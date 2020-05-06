@@ -47,6 +47,7 @@ private slots:
 
     void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
     void compressionFinished();
+    void dropFinished(QStringList filePaths);
 private:
     Ui::MainWindow* ui;
 

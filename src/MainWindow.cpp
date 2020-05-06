@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->left_Splitter->setSizes(QList<int>({ 100, 1 }));
 
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
+    connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     this->readSettings();
 }
 
@@ -338,4 +339,9 @@ void MainWindow::on_actionRemove_triggered()
 void MainWindow::on_actionClear_triggered()
 {
     this->removeFiles(true);
+}
+void MainWindow::dropFinished(QStringList filePaths)
+{
+    QString baseFolder = QFileInfo(filePaths.at(0)).absolutePath();
+    MainWindow::importFiles(filePaths, baseFolder);
 }
