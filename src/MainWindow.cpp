@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "./dialogs/AboutDialog.h"
 #include "ui_MainWindow.h"
+#include "./utils/Utils.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -13,6 +14,7 @@ MainWindow::MainWindow(QWidget* parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    qDebug() << "Starting application";
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
@@ -21,12 +23,15 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
     ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
 
-    ui->main_Splitter->setSizes(QList<int>({ 600, 1 }));
-    ui->left_Splitter->setSizes(QList<int>({ 100, 1 }));
-
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     this->readSettings();
+
+    this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
+    this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
+    this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
+    ui->main_Splitter->setSizes(QList<int>({ 700, 1 }));
+    ui->left_Splitter->setSizes(QList<int>({ 100, 1 }));
 }
 
 MainWindow::~MainWindow()
@@ -99,6 +104,14 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_Checkbox->isChecked());
     settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_Checkbox->isChecked());
 
+    settings.setValue("compression_options/resize/resize", this->ui->resize_groupBox->isChecked());
+    settings.setValue("compression_options/resize/fit_to", this->ui->fitTo_ComboBox->currentIndex());
+    settings.setValue("compression_options/resize/width", this->ui->width_SpinBox->value());
+    settings.setValue("compression_options/resize/height", this->ui->height_SpinBox->value());
+    settings.setValue("compression_options/resize/size", this->ui->edge_SpinBox->value());
+    settings.setValue("compression_options/resize/keep_aspect_ratio", this->ui->keepAspectRatio_CheckBox->isChecked());
+    settings.setValue("compression_options/resize/do_not_enlarge", this->ui->doNotEnlarge_CheckBox->isChecked());
+
     settings.setValue("compression_options/output/output_folder", this->ui->outputFolder_LineEdit->text());
     settings.setValue("compression_options/output/output_suffix", this->ui->outputSuffix_LineEdit->text());
 }
@@ -119,6 +132,14 @@ void MainWindow::readSettings()
     this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless").toBool());
     this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata").toBool());
     this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure").toBool());
+
+    this->ui->resize_groupBox->setChecked(settings.value("compression_options/resize/resize", false).toBool());
+    this->ui->fitTo_ComboBox->setCurrentIndex(settings.value("compression_options/resize/fit_to", 0).toInt());
+    this->ui->width_SpinBox->setValue(settings.value("compression_options/resize/width", 1000).toInt());
+    this->ui->height_SpinBox->setValue(settings.value("compression_options/resize/height", 1000).toInt());
+    this->ui->edge_SpinBox->setValue(settings.value("compression_options/resize/size", 1000).toInt());
+    this->ui->keepAspectRatio_CheckBox->setChecked(settings.value("compression_options/resize/keep_aspect_ratio", false).toBool());
+    this->ui->doNotEnlarge_CheckBox->setChecked(settings.value("compression_options/resize/do_not_enlarge", false).toBool());
 
     this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder").toString());
     this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix").toString());
@@ -243,13 +264,19 @@ void MainWindow::on_compress_Button_clicked()
     progressDialog->show();
 
     CompressionOptions compressionOptions = {
-        settings.value("compression_options/output/output_folder").toString(),
+        this->ui->outputFolder_LineEdit->text(),
         getRootFolder(this->folderMap),
-        settings.value("compression_options/output/output_suffix").toString(),
-        settings.value("compression_options/compression/level", 4).toBool(),
-        settings.value("compression_options/compression/lossless", false).toBool(),
-        settings.value("compression_options/compression/keep_metadata", false).toBool(),
-        settings.value("compression_options/compression/keep_structure", false).toBool(),
+        this->ui->outputSuffix_LineEdit->text(),
+        this->ui->compression_Slider->value(),
+        this->ui->lossless_Checkbox->isChecked(),
+        this->ui->keepMetadata_Checkbox->isChecked(),
+        this->ui->keepStructure_Checkbox->isChecked(),
+        this->ui->resize_groupBox->isChecked(),
+        this->ui->fitTo_ComboBox->currentIndex(),
+        this->ui->width_SpinBox->value(),
+        this->ui->height_SpinBox->value(),
+        this->ui->edge_SpinBox->value(),
+        this->ui->doNotEnlarge_CheckBox->isChecked(),
     };
 
     QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
@@ -269,6 +296,7 @@ void MainWindow::on_removeFiles_Button_clicked()
 void MainWindow::closeEvent(QCloseEvent* event)
 {
     this->writeSettings();
+    qInfo() << "---- Closing application ----";
     event->accept();
 }
 
@@ -344,4 +372,97 @@ void MainWindow::dropFinished(QStringList filePaths)
 {
     QString baseFolder = QFileInfo(filePaths.at(0)).absolutePath();
     MainWindow::importFiles(filePaths, baseFolder);
+}
+
+void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
+{
+    QSettings settings;
+    switch (index) {
+    default:
+    case ResizeMode::DIMENSIONS:
+        ui->edge_Label->hide();
+        ui->edge_SpinBox->hide();
+        ui->width_Label->show();
+        ui->width_SpinBox->show();
+        ui->width_SpinBox->setSuffix(tr("px"));
+        ui->width_SpinBox->setMaximum(99999);
+        ui->height_Label->show();
+        ui->height_SpinBox->show();
+        ui->height_SpinBox->setSuffix(tr("px"));
+        ui->height_SpinBox->setMaximum(99999);
+        ui->keepAspectRatio_CheckBox->setDisabled(true);
+        break;
+    case ResizeMode::PERCENTAGE:
+        ui->edge_Label->hide();
+        ui->edge_SpinBox->hide();
+        ui->width_Label->show();
+        ui->width_SpinBox->show();
+        ui->width_SpinBox->setSuffix(tr("%"));
+        ui->width_SpinBox->setMaximum(999);
+        ui->height_Label->show();
+        ui->height_SpinBox->show();
+        ui->height_SpinBox->setSuffix(tr("%"));
+        ui->height_SpinBox->setMaximum(999);
+        ui->keepAspectRatio_CheckBox->setEnabled(true);
+        break;
+    case ResizeMode::SHORT_EDGE:
+    case ResizeMode::LONG_EDGE:
+        ui->edge_Label->show();
+        ui->edge_SpinBox->show();
+        ui->width_Label->hide();
+        ui->width_SpinBox->hide();
+        ui->height_Label->hide();
+        ui->height_SpinBox->hide();
+        ui->keepAspectRatio_CheckBox->setDisabled(true);
+        break;
+    }
+
+    this->writeSetting("compression_options/resize/fit_to", index);
+}
+
+void MainWindow::on_resize_groupBox_toggled(bool checked)
+{
+    this->writeSetting("compression_options/resize/resize", checked);
+}
+
+void MainWindow::on_width_SpinBox_valueChanged(int value)
+{
+    if (this->ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE && this->ui->keepAspectRatio_CheckBox->isChecked()) {
+        this->ui->height_SpinBox->setValue(value);
+    }
+    this->writeSetting("compression_options/resize/width", value);
+}
+
+void MainWindow::on_height_SpinBox_valueChanged(int value)
+{
+    if (this->ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE && this->ui->keepAspectRatio_CheckBox->isChecked()) {
+        this->ui->width_SpinBox->setValue(value);
+    }
+    this->writeSetting("compression_options/resize/height", value);
+}
+
+void MainWindow::on_edge_SpinBox_valueChanged(int value)
+{
+    this->writeSetting("compression_options/resize/size", value);
+}
+
+void MainWindow::on_keepAspectRatio_CheckBox_toggled(bool checked)
+{
+    if (this->ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE && checked) {
+        this->ui->height_SpinBox->setValue(this->ui->width_SpinBox->value());
+    }
+    this->writeSetting("compression_options/resize/keep_aspect_ratio", checked);
+}
+
+void MainWindow::on_doNotEnlarge_CheckBox_toggled(bool checked)
+{
+    if (this->ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE && checked) {
+        this->ui->width_SpinBox->setMaximum(100);
+        this->ui->height_SpinBox->setMaximum(100);
+    } else {
+        int maximum = this->ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE ? 999 : 99999;
+        this->ui->width_SpinBox->setMaximum(maximum);
+        this->ui->height_SpinBox->setMaximum(maximum);
+    }
+    this->writeSetting("compression_options/resize/do_not_enlarge", checked);
 }

@@ -48,6 +48,20 @@ private slots:
     void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
     void compressionFinished();
     void dropFinished(QStringList filePaths);
+    void on_fitTo_ComboBox_currentIndexChanged(int index);
+
+    void on_resize_groupBox_toggled(bool arg1);
+
+    void on_width_SpinBox_valueChanged(int arg1);
+
+    void on_height_SpinBox_valueChanged(int arg1);
+
+    void on_edge_SpinBox_valueChanged(int arg1);
+
+    void on_keepAspectRatio_CheckBox_toggled(bool checked);
+
+    void on_doNotEnlarge_CheckBox_toggled(bool checked);
+
 private:
     Ui::MainWindow* ui;
 

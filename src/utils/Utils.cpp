@@ -36,7 +36,6 @@ QStringList scanDirectory(QString directory)
     QStringList fileList = {};
     //Collecting all files in folder
     if (QDir(directory).exists()) {
-        qInfo() << "Collecting files in" << directory;
         QDirIterator it(directory,
             inputFilterList,
             QDir::AllEntries,
@@ -92,7 +91,6 @@ cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool k
         pars.png.lossy_8 = false;
         pars.png.transparent = false;
         break;
-
     }
 
     if (lossless) {
@@ -126,5 +124,38 @@ QString getRootFolder(QMap<QString, int> folderMap)
     }
 
     return rootFolderPath;
+}
 
+QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge)
+{
+    int originalWidth = image.width();
+    int originalHeight = image.height();
+
+    if (fitTo == ResizeMode::DIMENSIONS) {
+        int outputWidth = width;
+        int outputHeight = height;
+        if (doNotEnlarge && (outputWidth >= originalWidth || outputHeight >= originalHeight)) {
+            return image;
+        }
+        image = image.scaled(outputWidth, outputHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    } else if (fitTo == ResizeMode::PERCENTAGE) {
+        int outputWidthPerc = width;
+        int outputHeightPerc = height;
+
+        if (doNotEnlarge && (outputWidthPerc >= 100 || outputHeightPerc >= 100)) {
+            return image;
+        }
+
+        int outputWidth = (int)round((float)originalWidth * (float)outputWidthPerc / 100);
+        int outputHeight = (int)round((float)originalHeight * (float)outputHeightPerc / 100);
+        image = image.scaled(outputWidth, outputHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    } else if (fitTo == ResizeMode::LONG_EDGE || fitTo == ResizeMode::SHORT_EDGE) {
+        if ((fitTo == ResizeMode::LONG_EDGE && originalWidth >= originalHeight) || (fitTo == ResizeMode::SHORT_EDGE && originalWidth <= originalHeight)) {
+            image = image.scaledToWidth(size, Qt::SmoothTransformation);
+        } else if ((fitTo == ResizeMode::LONG_EDGE && originalHeight >= originalWidth) || (fitTo == ResizeMode::SHORT_EDGE && originalHeight <= originalWidth)) {
+            image = image.scaledToHeight(size, Qt::SmoothTransformation);
+        }
+    }
+
+    return image;
 }
