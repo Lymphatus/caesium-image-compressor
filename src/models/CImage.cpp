@@ -7,6 +7,7 @@
 #include <QImageWriter>
 #include <QSettings>
 #include <QTemporaryFile>
+#include <math.h>
 
 CImage::CImage(const QString& path)
 {

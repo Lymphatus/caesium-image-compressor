@@ -13,6 +13,6 @@ public:
     explicit QZoomGraphicsView(QWidget *parent = 0);
     void wheelEvent(QWheelEvent* event);
     void resizeEvent(QResizeEvent* event);
-} __unused;
+};
 
 #endif // QZOOMGRAPHICSVIEW_H

@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QDirIterator>
+#include <math.h>
 
 QString toHumanSize(size_t size)
 {

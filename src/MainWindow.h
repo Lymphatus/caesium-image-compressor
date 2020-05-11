@@ -26,7 +26,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* event) override;
-    void resizeEvent(__unused QResizeEvent* event) override;
+    void resizeEvent(QResizeEvent* event) override;
 
 private slots:
 

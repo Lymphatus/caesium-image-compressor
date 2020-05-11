@@ -21,6 +21,6 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
 
-} __unused;
+};
 
 #endif // QDROPTREEWIDGET_H

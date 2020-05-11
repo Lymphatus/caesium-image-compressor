@@ -300,7 +300,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
     event->accept();
 }
 
-void MainWindow::resizeEvent(__unused QResizeEvent* event)
+void MainWindow::resizeEvent(QResizeEvent* event)
 {
     ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }
