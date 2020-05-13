@@ -32,12 +32,15 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     ui->main_Splitter->setSizes(QList<int>({ 700, 1 }));
     ui->left_Splitter->setSizes(QList<int>({ 100, 1 }));
+
+#ifdef Q_OS_WIN
+    QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount() / 2);
+#endif
 }
 
 MainWindow::~MainWindow()
 {
     delete cImageModel;
-    //    delete listViewDelegate;
     delete previewScene;
     delete ui;
 }

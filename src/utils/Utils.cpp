@@ -115,13 +115,13 @@ QString getRootFolder(QMap<QString, int> folderMap)
                 if (i == 0) {
                     rootFolderPath = QDir::rootPath();
                 } else {
-                    rootFolderPath = QDir(QDir::rootPath() + splittedCommonPath.join(QDir::separator())).absolutePath();
+                    rootFolderPath = QDir(splittedCommonPath.join(QDir::separator())).absolutePath();
                 }
                 break;
             }
             splittedCommonPath.append(splittedNewFolder.at(i));
         }
-        rootFolderPath = QDir(QDir::rootPath() + splittedCommonPath.join(QDir::separator())).absolutePath();
+        rootFolderPath = QDir(splittedCommonPath.join(QDir::separator())).absolutePath();
     }
 
     return rootFolderPath;

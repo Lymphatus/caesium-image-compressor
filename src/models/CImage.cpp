@@ -136,7 +136,6 @@ bool CImage::compress(CompressionOptions compressionOptions)
 
     }
 
-
     bool result = cs_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), &compress_pars, &res);
     if (result) {
         QFileInfo outputInfo(tempFileFullPath);
