@@ -117,6 +117,7 @@ bool CImage::compress(CompressionOptions compressionOptions)
     //Resize
     if (compressionOptions.resize) {
         QImage image(this->getFullPath());
+        QSize originalSize = image.size();
 
         image = cResize(image,
             compressionOptions.fitTo,
@@ -125,18 +126,21 @@ bool CImage::compress(CompressionOptions compressionOptions)
             compressionOptions.size,
             compressionOptions.doNotEnlarge);
 
-        bool saveResult = image.save(tempFileFullPath, inputFileInfo.completeSuffix().toLocal8Bit(), 100);
-        if (!saveResult) {
-            return false;
+        if (image.size() != originalSize) {
+            bool saveResult = image.save(tempFileFullPath, inputFileInfo.completeSuffix().toLocal8Bit(), 100);
+            if (!saveResult) {
+                return false;
+            }
+            inputFullPath = tempFileFullPath;
         }
-        inputFullPath = tempFileFullPath;
+
     }
 
 
     bool result = cs_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), &compress_pars, &res);
     if (result) {
         QFileInfo outputInfo(tempFileFullPath);
-        if (outputAlreadyExists && outputInfo.size() < inputFileInfo.size()) {
+        if ((outputAlreadyExists || compressionOptions.resize) && outputInfo.size() < inputFileInfo.size()) {
             QFile::remove(outputFullPath);
             bool copyResult = QFile::copy(tempFileFullPath, outputFullPath);
             if (!copyResult) {
