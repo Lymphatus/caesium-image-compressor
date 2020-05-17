@@ -4,7 +4,7 @@
 #include <QFileInfo>
 #include <QString>
 
-#include <src/utils/Utils.h>
+#include "../utils/Utils.h"
 
 class CImage
 {
@@ -43,8 +43,6 @@ private:
 
     size_t size;
     size_t compressedSize;
-    QString formattedSize;
-    QString compressedFormattedSize;
 
     int width;
     int height;

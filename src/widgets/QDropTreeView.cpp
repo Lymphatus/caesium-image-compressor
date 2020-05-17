@@ -1,11 +1,10 @@
 #include "QDropTreeView.h"
 
-#include <QStringList>
 #include <QDragEnterEvent>
 #include <QMimeData>
-#include <QMetaObject>
 
 #include <QDebug>
+#include <QFileInfo>
 
 QDropTreeView::QDropTreeView(QWidget *parent)
     : QTreeView(parent)
@@ -25,10 +24,13 @@ void QDropTreeView::dropEvent(QDropEvent *event) {
     QStringList fileList;
     if (mimeData->hasFormat("text/uri-list")) {
         foreach (QUrl url, urlList) {
-            fileList << url.toLocalFile();
+            QString absolutePath = url.toLocalFile();
+            //TODO This is limitation by now. We only accept drops for files. May be changed in the future.
+            if (QFileInfo(absolutePath).isFile()) {
+                fileList << url.toLocalFile();
+            }
         }
     }
     event->acceptProposedAction();
-    qDebug() << fileList;
     emit dropFinished(fileList);
 }

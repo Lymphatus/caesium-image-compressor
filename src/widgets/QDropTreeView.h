@@ -1,10 +1,10 @@
+#include <climits>
 #ifndef QDROPTREEWIDGET_H
 #define QDROPTREEWIDGET_H
 
 #include <QTreeView>
 
 class QMimeData;
-class Caesium;
 
 class QDropTreeView : public QTreeView
 {

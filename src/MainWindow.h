@@ -1,3 +1,4 @@
+#include <climits>
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -6,11 +7,8 @@
 #include <QGraphicsScene>
 #include <QMainWindow>
 
-#include <src/models/CImageTreeModel.h>
-
-#include <src/widgets/QTreeViewItemDelegate.h>
-
-#include "src/models/CImage.h"
+#include "models/CImage.h"
+#include "models/CImageTreeModel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -43,21 +41,33 @@ private slots:
     void on_lossless_Checkbox_stateChanged(int arg1);
     void on_keepMetadata_Checkbox_stateChanged(int arg1);
     void on_compression_Slider_valueChanged(int value);
-
-    void imageList_selectionChanged(const QModelIndex &current, const QModelIndex &previous);
-    void compressionFinished();
-
     void on_keepStructure_Checkbox_stateChanged(int arg1);
-
     void on_actionRemove_triggered();
-
     void on_actionClear_triggered();
+
+    void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
+    void compressionFinished();
+    void dropFinished(QStringList filePaths);
+    void on_fitTo_ComboBox_currentIndexChanged(int index);
+
+    void on_resize_groupBox_toggled(bool arg1);
+
+    void on_width_SpinBox_valueChanged(int arg1);
+
+    void on_height_SpinBox_valueChanged(int arg1);
+
+    void on_edge_SpinBox_valueChanged(int arg1);
+
+    void on_keepAspectRatio_CheckBox_toggled(bool checked);
+
+    void on_doNotEnlarge_CheckBox_toggled(bool checked);
+
+    void on_actionSelect_All_triggered();
 
 private:
     Ui::MainWindow* ui;
 
     CImageTreeModel* cImageModel;
-    QTreeViewItemDelegate* listViewDelegate;
     QFutureWatcher<void> compressionWatcher;
     QGraphicsScene* previewScene;
     QMap<QString, int> folderMap;
@@ -69,7 +79,7 @@ private:
     void writeSettings();
     void writeSetting(const QString& key, const QVariant& value);
     void readSettings();
-    void previewImage(const QModelIndex &imageIndex);
+    void previewImage(const QModelIndex& imageIndex);
     void updateFolderMap(QString baseFolder, int count);
     QVariant readSetting(const QString& key);
 };

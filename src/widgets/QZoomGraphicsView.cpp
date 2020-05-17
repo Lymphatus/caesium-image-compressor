@@ -24,3 +24,8 @@ void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
         QGraphicsView::wheelEvent(event);
     }
 }
+
+void QZoomGraphicsView::resizeEvent(QResizeEvent *event)
+{
+    this->fitInView(this->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
+}

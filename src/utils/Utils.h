@@ -1,11 +1,13 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <QString>
+#include <QImage>
+#include <QMap>
 #include <QSize>
+#include <QString>
 #include <QStringList>
 
-#include <src/vendor/caesium.h>
+#include "../vendor/caesium.h"
 
 enum class CImageStatus {
     UNCOMPRESSED,
@@ -22,6 +24,14 @@ enum CImageColumns
     RATIO = 3
 };
 
+enum ResizeMode
+{
+    DIMENSIONS = 0,
+    PERCENTAGE = 1,
+    SHORT_EDGE = 2,
+    LONG_EDGE = 3
+};
+
 typedef struct CompressionOptions
 {
     QString outputPath;
@@ -31,14 +41,19 @@ typedef struct CompressionOptions
     bool lossless;
     bool keepMetadata;
     bool keepStructure;
+    bool resize;
+    int fitTo;
+    int width;
+    int height;
+    int size;
+    bool doNotEnlarge;
 
 } CompressionOptions;
 
 //Utilities
 QString toHumanSize(size_t size);
-QSize getScaledSizeWithRatio(QSize size, int square);
 QStringList scanDirectory(QString directory);
 cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata);
 QString getRootFolder(QMap<QString, int> folderMap);
-
+QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);
 #endif // UTILS_H

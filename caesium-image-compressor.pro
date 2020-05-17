@@ -40,7 +40,6 @@ SOURCES += \
     src/utils/Utils.cpp \
     src/dialogs/AboutDialog.cpp \
     src/widgets/QDropTreeView.cpp \
-    src/widgets/QTreeViewItemDelegate.cpp \
     src/widgets/QZoomGraphicsView.cpp
 
 HEADERS += \
@@ -52,7 +51,6 @@ HEADERS += \
     src/utils/Utils.h \
     src/dialogs/AboutDialog.h \
     src/widgets/QDropTreeView.h \
-    src/widgets/QTreeViewItemDelegate.h \
     src/widgets/QZoomGraphicsView.h
 
 FORMS += \
