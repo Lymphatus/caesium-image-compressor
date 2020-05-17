@@ -557,7 +557,7 @@
      <x>0</x>
      <y>0</y>
      <width>943</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -637,12 +637,12 @@
   <customwidget>
    <class>QZoomGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>./widgets/QZoomGraphicsView.h</header>
+   <header>src/widgets/QZoomGraphicsView.h</header>
   </customwidget>
   <customwidget>
    <class>QDropTreeView</class>
    <extends>QTreeView</extends>
-   <header>widgets/QDropTreeView.h</header>
+   <header>src/widgets/QDropTreeView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
