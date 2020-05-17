@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     qDebug() << "Starting application";
 
+    qRegisterMetaTypeStreamOperators<QList<int>>();
+
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
     ui->preview_graphicsView->setScene(this->previewScene);
@@ -30,9 +32,6 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
-    ui->main_Splitter->setSizes(QList<int>({ 700, 1 }));
-    ui->left_Splitter->setSizes(QList<int>({ 100, 1 }));
-
 #ifdef Q_OS_WIN
     QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount() / 2);
 #endif
@@ -101,6 +100,8 @@ void MainWindow::writeSettings()
     QSettings settings;
     settings.setValue("mainwindow/size", this->size());
     settings.setValue("mainwindow/pos", this->pos());
+    settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->left_Splitter->sizes()));
+    settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_Splitter->sizes()));
 
     settings.setValue("compression_options/compression/level", this->ui->compression_Slider->value());
     settings.setValue("compression_options/compression/lossless", this->ui->lossless_Checkbox->isChecked());
@@ -130,6 +131,9 @@ void MainWindow::readSettings()
     QSettings settings;
     this->resize(settings.value("mainwindow/size").toSize());
     this->move(settings.value("mainwindow/pos").toPoint());
+
+    this->ui->left_Splitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 100, 1 })).value<QList<int>>());
+    this->ui->main_Splitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 700, 1 })).value<QList<int>>());
 
     this->ui->compression_Slider->setValue(settings.value("compression_options/compression/level", 4).toInt());
     this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless").toBool());
@@ -196,7 +200,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
     progressDialog.setWindowModality(Qt::WindowModal);
 
     QList<CImage*> list;
-    //TODO use an interator
+    //TODO use an iterator
     for (int i = 0; i < listLength; i++) {
         if (progressDialog.wasCanceled()) {
             break;
@@ -401,11 +405,11 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
         ui->width_Label->show();
         ui->width_SpinBox->show();
         ui->width_SpinBox->setSuffix(tr("%"));
-        ui->width_SpinBox->setMaximum(999);
+        ui->width_SpinBox->setMaximum(ui->keepAspectRatio_CheckBox->isChecked() ? 100 : 999);
         ui->height_Label->show();
         ui->height_SpinBox->show();
         ui->height_SpinBox->setSuffix(tr("%"));
-        ui->height_SpinBox->setMaximum(999);
+        ui->height_SpinBox->setMaximum(ui->keepAspectRatio_CheckBox->isChecked() ? 100 : 999);
         ui->keepAspectRatio_CheckBox->setEnabled(true);
         break;
     case ResizeMode::SHORT_EDGE:
@@ -434,6 +438,7 @@ void MainWindow::on_width_SpinBox_valueChanged(int value)
         this->ui->height_SpinBox->setValue(value);
     }
     this->writeSetting("compression_options/resize/width", value);
+    this->writeSetting("compression_options/resize/height", this->ui->height_SpinBox->value());
 }
 
 void MainWindow::on_height_SpinBox_valueChanged(int value)
@@ -442,6 +447,7 @@ void MainWindow::on_height_SpinBox_valueChanged(int value)
         this->ui->width_SpinBox->setValue(value);
     }
     this->writeSetting("compression_options/resize/height", value);
+    this->writeSetting("compression_options/resize/width", this->ui->width_SpinBox->value());
 }
 
 void MainWindow::on_edge_SpinBox_valueChanged(int value)
@@ -468,4 +474,9 @@ void MainWindow::on_doNotEnlarge_CheckBox_toggled(bool checked)
         this->ui->height_SpinBox->setMaximum(maximum);
     }
     this->writeSetting("compression_options/resize/do_not_enlarge", checked);
+}
+
+void MainWindow::on_actionSelect_All_triggered()
+{
+    this->ui->imageList_TreeView->selectAll();
 }

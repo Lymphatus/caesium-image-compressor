@@ -62,6 +62,8 @@ private slots:
 
     void on_doNotEnlarge_CheckBox_toggled(bool checked);
 
+    void on_actionSelect_All_triggered();
+
 private:
     Ui::MainWindow* ui;
 
