@@ -637,12 +637,12 @@
   <customwidget>
    <class>QZoomGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>src/widgets/QZoomGraphicsView.h</header>
+   <header>./widgets/QZoomGraphicsView.h</header>
   </customwidget>
   <customwidget>
    <class>QDropTreeView</class>
    <extends>QTreeView</extends>
-   <header>src/widgets/QDropTreeView.h</header>
+   <header>./widgets/QDropTreeView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

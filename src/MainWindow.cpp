@@ -2,6 +2,7 @@
 #include "./dialogs/AboutDialog.h"
 #include "ui_MainWindow.h"
 #include "./utils/Utils.h"
+#include "./delegates/HtmlDelegate.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -20,10 +21,12 @@ MainWindow::MainWindow(QWidget* parent)
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
+
     ui->preview_graphicsView->setScene(this->previewScene);
     ui->imageList_TreeView->setModel(this->cImageModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
     ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
@@ -33,7 +36,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
 #ifdef Q_OS_WIN
-    QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount() / 2);
+    //TODO Temporary workaround
+    QThreadPool::globalInstance()->setMaxThreadCount(1);
 #endif
 }
 

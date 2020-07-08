@@ -17,8 +17,10 @@ public:
     friend bool operator!= (const CImage &c1, const CImage &c2);
 
     QString getFormattedSize();
+    QString getRichFormattedSize();
 
     QString getResolution();
+    QString getRichResolution();
 
     QString getFileName() const;
 
@@ -29,6 +31,7 @@ public:
 
     double getRatio() const;
     QString getFormattedSavedRatio();
+    QString getRichFormattedSavedRatio();
 
     bool compress(CompressionOptions compressionOptions);
     void setCompressedInfo(QFileInfo fileInfo);
