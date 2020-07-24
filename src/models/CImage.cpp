@@ -48,7 +48,7 @@ QString CImage::getFormattedSize()
 QString CImage::getRichFormattedSize()
 {
     if (this->status == CImageStatus::COMPRESSED && this->size != this->compressedSize) {
-        return "<s>" + toHumanSize(this->size) + "</s> " + toHumanSize(this->compressedSize);
+        return "<small><s>" + toHumanSize(this->size) + "</s></small> " + toHumanSize(this->compressedSize);
     }
     return toHumanSize(this->size);
 }
@@ -64,7 +64,7 @@ QString CImage::getResolution()
 QString CImage::getRichResolution()
 {
     if (this->status == CImageStatus::COMPRESSED && (this->width != this->compressedWidth || this->height != this->compressedHeight)) {
-        return "<s>" + QString::number(this->width) + "x" + QString::number(this->height) + "</s> " + QString::number(this->compressedWidth) + "x" + QString::number(this->compressedHeight);
+        return "<small><s>" + QString::number(this->width) + "x" + QString::number(this->height) + "</s></small> " + QString::number(this->compressedWidth) + "x" + QString::number(this->compressedHeight);
     }
     return QString::number(this->width) + "x" + QString::number(this->height);
 }
@@ -82,13 +82,13 @@ QString CImage::getFullPath() const
 bool CImage::compress(CompressionOptions compressionOptions)
 {
     QSettings settings;
-    QString outputPath = compressionOptions.outputPath;
+    QString outputPath = compressionOptions.sameFolderAsInput ? QFileInfo(this->getFullPath()).absoluteDir().absolutePath() : compressionOptions.outputPath;
     QString inputFullPath = this->getFullPath();
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
     QString fullFileName = inputFileInfo.baseName() + suffix + "." + inputFileInfo.completeSuffix();
 
-    if (compressionOptions.keepStructure) {
+    if (compressionOptions.keepStructure && !compressionOptions.sameFolderAsInput) {
         outputPath = inputFileInfo.absolutePath().remove(0, compressionOptions.basePath.length());
         outputPath = QDir::cleanPath(compressionOptions.outputPath + QDir::separator() + outputPath);
     }
@@ -153,7 +153,7 @@ bool CImage::compress(CompressionOptions compressionOptions)
     if (result) {
         QFileInfo outputInfo(tempFileFullPath);
         if ((outputAlreadyExists && outputInfo.size() < inputFileInfo.size()) || compressionOptions.resize) {
-            QFile::remove(outputFullPath);
+            QFile::moveToTrash(outputFullPath);
             bool copyResult = QFile::copy(tempFileFullPath, outputFullPath);
             if (!copyResult) {
                 return false;

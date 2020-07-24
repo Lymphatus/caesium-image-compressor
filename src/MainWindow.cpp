@@ -25,7 +25,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->preview_graphicsView->setScene(this->previewScene);
     ui->imageList_TreeView->setModel(this->cImageModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
-    ui->imageList_TreeView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    ui->imageList_TreeView->header()->setSectionResizeMode(CImageColumns::NAME, QHeaderView::Stretch);
+    ui->imageList_TreeView->header()->setSectionResizeMode(CImageColumns::NAME, QHeaderView::Stretch);
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
@@ -35,6 +36,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
+    this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
+    this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
 #ifdef Q_OS_WIN
     //TODO Temporary workaround
     QThreadPool::globalInstance()->setMaxThreadCount(1);
@@ -122,6 +125,7 @@ void MainWindow::writeSettings()
 
     settings.setValue("compression_options/output/output_folder", this->ui->outputFolder_LineEdit->text());
     settings.setValue("compression_options/output/output_suffix", this->ui->outputSuffix_LineEdit->text());
+    settings.setValue("compression_options/output/same_folder_as_input", this->ui->sameOutputFolderAsInput_CheckBox->isChecked());
 }
 
 void MainWindow::writeSetting(const QString& key, const QVariant& value)
@@ -150,10 +154,11 @@ void MainWindow::readSettings()
     this->ui->height_SpinBox->setValue(settings.value("compression_options/resize/height", 1000).toInt());
     this->ui->edge_SpinBox->setValue(settings.value("compression_options/resize/size", 1000).toInt());
     this->ui->keepAspectRatio_CheckBox->setChecked(settings.value("compression_options/resize/keep_aspect_ratio", false).toBool());
-    this->ui->doNotEnlarge_CheckBox->setChecked(settings.value("compression_options/resize/do_not_enlarge", false).toBool());
+    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/resize/do_not_enlarge", false).toBool());
 
     this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder").toString());
     this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix").toString());
+    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/output/same_folder_as_input").toBool());
 }
 
 void MainWindow::previewImage(const QModelIndex& imageIndex)
@@ -288,6 +293,7 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->height_SpinBox->value(),
         this->ui->edge_SpinBox->value(),
         this->ui->doNotEnlarge_CheckBox->isChecked(),
+        this->ui->sameOutputFolderAsInput_CheckBox->isChecked()
     };
 
     QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
@@ -334,16 +340,6 @@ void MainWindow::on_outputSuffix_LineEdit_textChanged(const QString& arg1)
     this->writeSetting("compression_options/output/output_suffix", arg1);
 }
 
-void MainWindow::on_lossless_Checkbox_stateChanged(int arg1)
-{
-    this->writeSetting("compression_options/compression/lossless", arg1 != 0);
-}
-
-void MainWindow::on_keepMetadata_Checkbox_stateChanged(int arg1)
-{
-    this->writeSetting("compression_options/compression/keep_metadata", arg1 != 0);
-}
-
 void MainWindow::on_compression_Slider_valueChanged(int value)
 {
     this->writeSetting("compression_options/compression/level", value);
@@ -363,11 +359,6 @@ void MainWindow::compressionFinished()
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
     }
-}
-
-void MainWindow::on_keepStructure_Checkbox_stateChanged(int arg1)
-{
-    this->writeSetting("compression_options/compression/keep_structure", arg1 != 0);
 }
 
 void MainWindow::on_actionRemove_triggered()
@@ -483,4 +474,26 @@ void MainWindow::on_doNotEnlarge_CheckBox_toggled(bool checked)
 void MainWindow::on_actionSelect_All_triggered()
 {
     this->ui->imageList_TreeView->selectAll();
+}
+
+void MainWindow::on_sameOutputFolderAsInput_CheckBox_toggled(bool checked)
+{
+    this->ui->keepStructure_Checkbox->setDisabled(checked);
+    this->writeSetting("compression_options/output/same_folder_as_input", checked);
+}
+
+void MainWindow::on_keepStructure_Checkbox_toggled(bool checked)
+{
+    this->ui->sameOutputFolderAsInput_CheckBox->setDisabled(checked);
+    this->writeSetting("compression_options/compression/keep_structure", checked);
+}
+
+void MainWindow::on_lossless_Checkbox_toggled(bool checked)
+{
+    this->writeSetting("compression_options/compression/lossless", checked);
+}
+
+void MainWindow::on_keepMetadata_Checkbox_toggled(bool checked)
+{
+    this->writeSetting("compression_options/compression/keep_metadata", checked);
 }

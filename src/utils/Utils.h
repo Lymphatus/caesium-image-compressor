@@ -47,6 +47,7 @@ typedef struct CompressionOptions
     int height;
     int size;
     bool doNotEnlarge;
+    bool sameFolderAsInput;
 
 } CompressionOptions;
 

@@ -71,7 +71,7 @@
            <item>
             <widget class="QPushButton" name="addFiles_Button">
              <property name="text">
-              <string>Add</string>
+              <string>Add...</string>
              </property>
             </widget>
            </item>
@@ -499,6 +499,23 @@
             </layout>
            </item>
            <item>
+            <widget class="QCheckBox" name="sameOutputFolderAsInput_CheckBox">
+             <property name="text">
+              <string>Same folder as input</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="keepStructure_Checkbox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Keep folder structure</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="outputSuffix_Label">
              <property name="text">
               <string>Suffix</string>
@@ -515,16 +532,6 @@
              </property>
              <property name="clearButtonEnabled">
               <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="keepStructure_Checkbox">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="text">
-              <string>Keep folder structure</string>
              </property>
             </widget>
            </item>
@@ -637,12 +644,12 @@
   <customwidget>
    <class>QZoomGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>./widgets/QZoomGraphicsView.h</header>
+   <header>src/widgets/QZoomGraphicsView.h</header>
   </customwidget>
   <customwidget>
    <class>QDropTreeView</class>
    <extends>QTreeView</extends>
-   <header>./widgets/QDropTreeView.h</header>
+   <header>src/widgets/QDropTreeView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -660,6 +667,70 @@
     <hint type="destinationlabel">
      <x>439</x>
      <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameOutputFolderAsInput_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>outputFolder_LineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>463</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>596</x>
+     <y>441</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameOutputFolderAsInput_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>outputFolderBrowse_Button</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>654</x>
+     <y>461</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>885</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameOutputFolderAsInput_CheckBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>keepStructure_Checkbox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>719</x>
+     <y>461</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>484</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>keepStructure_Checkbox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>sameOutputFolderAsInput_CheckBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>784</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>781</x>
+     <y>468</y>
     </hint>
    </hints>
   </connection>
