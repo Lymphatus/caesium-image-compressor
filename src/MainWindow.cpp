@@ -29,6 +29,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->header()->setSectionResizeMode(CImageColumns::NAME, QHeaderView::Stretch);
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 
+    ui->JPEGOptions_GroupBox->setHidden(true);
+    ui->PNGOptions_GroupBox->setHidden(true);
+
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     this->readSettings();
@@ -38,6 +41,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
+
 #ifdef Q_OS_WIN
     //TODO Temporary workaround
     QThreadPool::globalInstance()->setMaxThreadCount(1);
@@ -114,6 +118,12 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/lossless", this->ui->lossless_Checkbox->isChecked());
     settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_Checkbox->isChecked());
     settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_Checkbox->isChecked());
+    settings.setValue("compression_options/compression/advanced_mode", this->ui->advancedMode_Button->isChecked());
+    settings.setValue("compression_options/compression/jpeg_quality", this->ui->JPEGQuality_Slider->value());
+    settings.setValue("compression_options/compression/png_iterations", this->ui->PNGIterations_SpinBox->value());
+    settings.setValue("compression_options/compression/png_iterations_large", this->ui->PNGIterationsLarge_SpinBox->value());
+    settings.setValue("compression_options/compression/png_lossy8", this->ui->PNGLossy8_CheckBox->isChecked());
+    settings.setValue("compression_options/compression/png_transparent", this->ui->PNGLossyTransparent_CheckBox->isChecked());
 
     settings.setValue("compression_options/resize/resize", this->ui->resize_groupBox->isChecked());
     settings.setValue("compression_options/resize/fit_to", this->ui->fitTo_ComboBox->currentIndex());
@@ -147,6 +157,13 @@ void MainWindow::readSettings()
     this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless").toBool());
     this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata").toBool());
     this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure").toBool());
+    this->ui->advancedMode_Button->setChecked(settings.value("compression_options/compression/advanced_mode", false).toBool());
+    this->ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
+    this->ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
+    this->ui->PNGIterations_SpinBox->setValue(settings.value("compression_options/compression/png_iterations", 5).toInt());
+    this->ui->PNGIterationsLarge_SpinBox->setValue(settings.value("compression_options/compression/png_iterations_large", 2).toInt());
+    this->ui->PNGLossy8_CheckBox->setChecked(settings.value("compression_options/compression/png_lossy8", false).toBool());
+    this->ui->PNGLossyTransparent_CheckBox->setChecked(settings.value("compression_options/compression/png_transparent", false).toInt());
 
     this->ui->resize_groupBox->setChecked(settings.value("compression_options/resize/resize", false).toBool());
     this->ui->fitTo_ComboBox->setCurrentIndex(settings.value("compression_options/resize/fit_to", 0).toInt());
@@ -275,9 +292,19 @@ void MainWindow::on_compress_Button_clicked()
     connect(&this->compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
     connect(&this->compressionWatcher, SIGNAL(progressValueChanged(int)), progressDialog, SLOT(setValue(int)));
     connect(&this->compressionWatcher, SIGNAL(progressValueChanged(int)), this->cImageModel, SLOT(emitDataChanged(int)));
-    //    connect(progressDialog, SIGNAL(canceled()), &this->compressionWatcher, SLOT(cancel())); //TODO Does not work like that
     //TODO add future cleanup
     progressDialog->show();
+
+    cs_jpeg_pars advancedJPEGPars;
+    cs_png_pars advancedPNGPars;
+
+    advancedJPEGPars.quality = qBound(this->ui->JPEGQuality_Slider->value(), 1, 100);
+    advancedJPEGPars.exif_copy = this->ui->keepMetadata_Checkbox->isChecked();
+
+    advancedPNGPars.iterations = this->ui->PNGIterations_SpinBox->value();
+    advancedPNGPars.iterations_large = this->ui->PNGIterationsLarge_SpinBox->value();
+    advancedPNGPars.lossy_8 = this->ui->PNGLossy8_CheckBox->isChecked();
+    advancedPNGPars.transparent = this->ui->PNGLossyTransparent_CheckBox->isChecked();
 
     CompressionOptions compressionOptions = {
         this->ui->outputFolder_LineEdit->text(),
@@ -293,7 +320,10 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->height_SpinBox->value(),
         this->ui->edge_SpinBox->value(),
         this->ui->doNotEnlarge_CheckBox->isChecked(),
-        this->ui->sameOutputFolderAsInput_CheckBox->isChecked()
+        this->ui->sameOutputFolderAsInput_CheckBox->isChecked(),
+        this->ui->advancedMode_Button->isChecked(),
+        advancedJPEGPars,
+        advancedPNGPars
     };
 
     QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
@@ -496,4 +526,57 @@ void MainWindow::on_lossless_Checkbox_toggled(bool checked)
 void MainWindow::on_keepMetadata_Checkbox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/keep_metadata", checked);
+}
+
+void MainWindow::on_advancedMode_Button_toggled(bool checked)
+{
+    QGridLayout* compressionLayout = (QGridLayout*)this->ui->compressionOptions_GroupBox->layout();
+    QGridLayout* jpegLayout = (QGridLayout*)this->ui->JPEGOptions_GroupBox->layout();
+    if (checked) {
+        compressionLayout->removeWidget(this->ui->lossless_Checkbox);
+        compressionLayout->removeWidget(this->ui->keepMetadata_Checkbox);
+
+        jpegLayout->addWidget(this->ui->lossless_Checkbox, 2, 0);
+        jpegLayout->addWidget(this->ui->keepMetadata_Checkbox, 3, 0);
+    } else {
+        jpegLayout->removeWidget(this->ui->lossless_Checkbox);
+        jpegLayout->removeWidget(this->ui->keepMetadata_Checkbox);
+        jpegLayout->removeWidget(this->ui->advancedMode_Button);
+
+        compressionLayout->addWidget(this->ui->lossless_Checkbox);
+        compressionLayout->addWidget(this->ui->keepMetadata_Checkbox);
+        compressionLayout->addWidget(this->ui->advancedMode_Button);
+    }
+
+    this->writeSetting("compression_options/compression/advanced_mode", checked);
+}
+
+void MainWindow::on_JPEGQuality_Slider_valueChanged(int value)
+{
+    this->writeSetting("compression_options/compression/jpeg_quality", value);
+}
+
+void MainWindow::on_JPEGQuality_SpinBox_valueChanged(int value)
+{
+    this->writeSetting("compression_options/compression/jpeg_quality", value);
+}
+
+void MainWindow::on_PNGIterations_SpinBox_valueChanged(int value)
+{
+    this->writeSetting("compression_options/compression/png_iterations", value);
+}
+
+void MainWindow::on_PNGIterationsLarge_SpinBox_valueChanged(int value)
+{
+    this->writeSetting("compression_options/compression/png_iterations_large", value);
+}
+
+void MainWindow::on_PNGLossy8_CheckBox_toggled(bool checked)
+{
+    this->writeSetting("compression_options/compression/png_lossy8", checked);
+}
+
+void MainWindow::on_PNGLossyTransparent_CheckBox_toggled(bool checked)
+{
+    this->writeSetting("compression_options/compression/png_transparent", checked);
 }

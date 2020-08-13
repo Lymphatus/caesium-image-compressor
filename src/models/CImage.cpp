@@ -126,7 +126,20 @@ bool CImage::compress(CompressionOptions compressionOptions)
     bool lossless = compressionOptions.lossless;
     bool keepMetadata = compressionOptions.keepMetadata;
     int res = 0;
-    cs_image_pars compress_pars = getCompressionParametersFromLevel(compressionLevel, lossless, keepMetadata);
+    cs_image_pars compress_pars;
+
+    if (compressionOptions.advancedMode) {
+        compress_pars = initialize_parameters();
+        compress_pars.jpeg.quality = compressionOptions.lossless ? 0 : compressionOptions.advancedJPEGPars.quality;
+        compress_pars.jpeg.exif_copy = compressionOptions.advancedJPEGPars.exif_copy;
+
+        compress_pars.png.iterations = compressionOptions.advancedPNGPars.iterations;
+        compress_pars.png.iterations_large = compressionOptions.advancedPNGPars.iterations_large;
+        compress_pars.png.lossy_8 = compressionOptions.advancedPNGPars.lossy_8;
+        compress_pars.png.transparent = compressionOptions.advancedPNGPars.transparent;
+    } else {
+        compress_pars = getCompressionParametersFromLevel(compressionLevel, lossless, keepMetadata);
+    }
 
     //Resize
     if (compressionOptions.resize) {
