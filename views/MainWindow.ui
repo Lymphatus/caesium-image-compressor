@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>986</width>
-    <height>880</height>
+    <height>882</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -907,38 +907,6 @@
     <hint type="destinationlabel">
      <x>928</x>
      <y>712</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sameOutputFolderAsInput_CheckBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>keepStructure_Checkbox</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>742</x>
-     <y>738</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>737</x>
-     <y>761</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>keepStructure_Checkbox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>sameOutputFolderAsInput_CheckBox</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>807</x>
-     <y>766</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>804</x>
-     <y>745</y>
     </hint>
    </hints>
   </connection>

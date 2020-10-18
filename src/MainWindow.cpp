@@ -508,13 +508,16 @@ void MainWindow::on_actionSelect_All_triggered()
 
 void MainWindow::on_sameOutputFolderAsInput_CheckBox_toggled(bool checked)
 {
-    this->ui->keepStructure_Checkbox->setDisabled(checked);
+    this->ui->keepStructure_Checkbox->setEnabled(checked);
+    if (!checked) {
+        this->ui->keepStructure_Checkbox->setChecked(false);
+    }
     this->writeSetting("compression_options/output/same_folder_as_input", checked);
 }
 
 void MainWindow::on_keepStructure_Checkbox_toggled(bool checked)
 {
-    this->ui->sameOutputFolderAsInput_CheckBox->setDisabled(checked);
+    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(checked);
     this->writeSetting("compression_options/compression/keep_structure", checked);
 }
 
