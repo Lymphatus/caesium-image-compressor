@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 #ifdef Q_OS_WIN
     //TODO Temporary workaround
-    QThreadPool::globalInstance()->setMaxThreadCount(1);
+    //QThreadPool::globalInstance()->setMaxThreadCount(1);
 #endif
 }
 
