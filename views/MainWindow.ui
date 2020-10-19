@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>943</width>
-    <height>641</height>
+    <width>986</width>
+    <height>882</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
            <item>
             <widget class="QPushButton" name="addFiles_Button">
              <property name="text">
-              <string>Add</string>
+              <string>Add...</string>
              </property>
             </widget>
            </item>
@@ -125,7 +125,7 @@
           <property name="checkable">
            <bool>false</bool>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
+          <layout class="QVBoxLayout" name="compressionOptions_Layout">
            <property name="spacing">
             <number>6</number>
            </property>
@@ -226,6 +226,186 @@
             </widget>
            </item>
            <item>
+            <widget class="QGroupBox" name="JPEGOptions_GroupBox">
+             <property name="title">
+              <string>JPEG</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <property name="leftMargin">
+               <number>6</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <item row="0" column="1">
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="JPEGQuality_Label">
+                <property name="text">
+                 <string>Quality</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QSpinBox" name="JPEGQuality_SpinBox">
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="value">
+                 <number>80</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="3">
+               <widget class="QSlider" name="JPEGQuality_Slider">
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="value">
+                 <number>80</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="tickPosition">
+                 <enum>QSlider::TicksBelow</enum>
+                </property>
+                <property name="tickInterval">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="PNGOptions_GroupBox">
+             <property name="title">
+              <string>PNG</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <property name="leftMargin">
+               <number>6</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item row="1" column="1" colspan="2">
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="3">
+               <widget class="QSpinBox" name="PNGIterations_SpinBox">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="value">
+                 <number>5</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QSpinBox" name="PNGIterationsLarge_SpinBox">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>10</number>
+                </property>
+                <property name="value">
+                 <number>2</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="PNGIterations_Label">
+                <property name="text">
+                 <string>Iterations</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="PNGIterationsLarge_Label">
+                <property name="text">
+                 <string>Iterations (Large)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="PNGLossy8_CheckBox">
+                <property name="text">
+                 <string>Lossy 8 bit</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QCheckBox" name="PNGLossyTransparent_CheckBox">
+                <property name="text">
+                 <string>Lossy Transparent</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="2">
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
             <widget class="QCheckBox" name="lossless_Checkbox">
              <property name="text">
               <string>Lossless</string>
@@ -236,6 +416,34 @@
             <widget class="QCheckBox" name="keepMetadata_Checkbox">
              <property name="text">
               <string>Keep Metadata</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="advancedMode_Button">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>Advanced Mode</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="autoRepeat">
+              <bool>false</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -499,6 +707,23 @@
             </layout>
            </item>
            <item>
+            <widget class="QCheckBox" name="sameOutputFolderAsInput_CheckBox">
+             <property name="text">
+              <string>Same folder as input</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="keepStructure_Checkbox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Keep folder structure</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="outputSuffix_Label">
              <property name="text">
               <string>Suffix</string>
@@ -515,16 +740,6 @@
              </property>
              <property name="clearButtonEnabled">
               <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="keepStructure_Checkbox">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="text">
-              <string>Keep folder structure</string>
              </property>
             </widget>
            </item>
@@ -556,7 +771,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>943</width>
+     <width>986</width>
      <height>22</height>
     </rect>
    </property>
@@ -660,6 +875,118 @@
     <hint type="destinationlabel">
      <x>439</x>
      <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameOutputFolderAsInput_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>outputFolder_LineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>616</x>
+     <y>740</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>619</x>
+     <y>713</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameOutputFolderAsInput_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>outputFolderBrowse_Button</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>738</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>928</x>
+     <y>712</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>JPEGQuality_Slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>JPEGQuality_SpinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>807</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>933</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>JPEGQuality_SpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>JPEGQuality_Slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>916</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>835</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>advancedMode_Button</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>compressionSlider_Frame</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>665</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>667</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>advancedMode_Button</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>JPEGOptions_GroupBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>820</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>551</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>advancedMode_Button</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PNGOptions_GroupBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>761</x>
+     <y>435</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>701</x>
+     <y>329</y>
     </hint>
    </hints>
   </connection>

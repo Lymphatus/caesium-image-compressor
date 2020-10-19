@@ -47,6 +47,10 @@ typedef struct CompressionOptions
     int height;
     int size;
     bool doNotEnlarge;
+    bool sameFolderAsInput;
+    bool advancedMode;
+    cs_jpeg_pars advancedJPEGPars;
+    cs_png_pars advancedPNGPars;
 
 } CompressionOptions;
 

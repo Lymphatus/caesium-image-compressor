@@ -150,15 +150,15 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::SIZE) {
-        return item->getCImage()->getFormattedSize();
+        return item->getCImage()->getRichFormattedSize();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RESOLUTION) {
-        return item->getCImage()->getResolution();
+        return item->getCImage()->getRichResolution();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RATIO) {
-        return item->getCImage()->getFormattedSavedRatio();
+        return item->getCImage()->getRichFormattedSavedRatio();
     }
 
     return item->data(index.column());

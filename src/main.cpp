@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDateTime>
 #include <QStandardPaths>
 
@@ -33,8 +34,14 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("com.saerasoft.caesium");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
+    QCoreApplication::setApplicationVersion("2.0.0-alpha.3");
+
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);
+
+    QCommandLineParser parser;
+    parser.addVersionOption();
+    parser.process(a);
 
     qInfo() << "---- Starting application ----";
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);

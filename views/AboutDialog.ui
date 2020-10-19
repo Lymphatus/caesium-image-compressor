@@ -131,7 +131,7 @@
        <item>
         <widget class="QLabel" name="version_Label">
          <property name="text">
-          <string>v2.0.0-alpha.2</string>
+          <string>v2.0.0-alpha.3</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

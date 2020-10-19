@@ -38,31 +38,33 @@ private slots:
     void on_removeFiles_Button_clicked();
     void on_outputFolderBrowse_Button_clicked();
     void on_outputSuffix_LineEdit_textChanged(const QString& arg1);
-    void on_lossless_Checkbox_stateChanged(int arg1);
-    void on_keepMetadata_Checkbox_stateChanged(int arg1);
     void on_compression_Slider_valueChanged(int value);
-    void on_keepStructure_Checkbox_stateChanged(int arg1);
     void on_actionRemove_triggered();
     void on_actionClear_triggered();
+    void on_resize_groupBox_toggled(bool checked);
+    void on_width_SpinBox_valueChanged(int arg1);
+    void on_height_SpinBox_valueChanged(int arg1);
+    void on_edge_SpinBox_valueChanged(int arg1);
+    void on_keepAspectRatio_CheckBox_toggled(bool checked);
+    void on_doNotEnlarge_CheckBox_toggled(bool checked);
+    void on_actionSelect_All_triggered();
+    void on_sameOutputFolderAsInput_CheckBox_toggled(bool checked);
+    void on_keepStructure_Checkbox_toggled(bool checked);
 
     void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
     void compressionFinished();
     void dropFinished(QStringList filePaths);
     void on_fitTo_ComboBox_currentIndexChanged(int index);
 
-    void on_resize_groupBox_toggled(bool arg1);
-
-    void on_width_SpinBox_valueChanged(int arg1);
-
-    void on_height_SpinBox_valueChanged(int arg1);
-
-    void on_edge_SpinBox_valueChanged(int arg1);
-
-    void on_keepAspectRatio_CheckBox_toggled(bool checked);
-
-    void on_doNotEnlarge_CheckBox_toggled(bool checked);
-
-    void on_actionSelect_All_triggered();
+    void on_lossless_Checkbox_toggled(bool checked);
+    void on_keepMetadata_Checkbox_toggled(bool checked);
+    void on_advancedMode_Button_toggled(bool checked);
+    void on_JPEGQuality_Slider_valueChanged(int value);
+    void on_JPEGQuality_SpinBox_valueChanged(int arg1);
+    void on_PNGIterations_SpinBox_valueChanged(int arg1);
+    void on_PNGIterationsLarge_SpinBox_valueChanged(int arg1);
+    void on_PNGLossy8_CheckBox_toggled(bool checked);
+    void on_PNGLossyTransparent_CheckBox_toggled(bool checked);
 
 private:
     Ui::MainWindow* ui;

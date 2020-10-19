@@ -40,7 +40,8 @@ SOURCES += \
     src/utils/Utils.cpp \
     src/dialogs/AboutDialog.cpp \
     src/widgets/QDropTreeView.cpp \
-    src/widgets/QZoomGraphicsView.cpp
+    src/widgets/QZoomGraphicsView.cpp \
+    src/delegates/HtmlDelegate.cpp
 
 HEADERS += \
     src/vendor/caesium.h \
@@ -51,7 +52,8 @@ HEADERS += \
     src/utils/Utils.h \
     src/dialogs/AboutDialog.h \
     src/widgets/QDropTreeView.h \
-    src/widgets/QZoomGraphicsView.h
+    src/widgets/QZoomGraphicsView.h \
+    src/delegates/HtmlDelegate.h
 
 FORMS += \
     views/MainWindow.ui \
