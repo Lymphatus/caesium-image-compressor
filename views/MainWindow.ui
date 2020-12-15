@@ -772,7 +772,7 @@
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -806,6 +806,9 @@
   <action name="actionAbout_Caesium_Image_Compressor">
    <property name="text">
     <string>About Caesium Image Compressor</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
    </property>
   </action>
   <action name="actionAdd_files">
@@ -852,12 +855,12 @@
   <customwidget>
    <class>QZoomGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>src/widgets/QZoomGraphicsView.h</header>
+   <header>widgets/QZoomGraphicsView.h</header>
   </customwidget>
   <customwidget>
    <class>QDropTreeView</class>
    <extends>QTreeView</extends>
-   <header>src/widgets/QDropTreeView.h</header>
+   <header>widgets/QDropTreeView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

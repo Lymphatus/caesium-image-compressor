@@ -2,30 +2,41 @@
 
 #include <QDebug>
 
-QZoomGraphicsView::QZoomGraphicsView(QWidget *parent) : QGraphicsView(parent)
-{}
+QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)
+    : QGraphicsView(parent)
+{
+}
 
 void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
 {
-    if (event->modifiers() & Qt::ControlModifier) {
-        // zoom
-        const ViewportAnchor anchor = transformationAnchor();
-        setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
-        int angle = event->angleDelta().y();
-        qreal factor;
-        if (angle > 0) {
-            factor = 1.1;
-        } else {
-            factor = 0.9;
-        }
-        scale(factor, factor);
-        setTransformationAnchor(anchor);
-    } else {
-        QGraphicsView::wheelEvent(event);
+    const ViewportAnchor anchor = transformationAnchor();
+    setTransformationAnchor(QGraphicsView::AnchorViewCenter);
+    int angle = event->angleDelta().y();
+
+    qreal factor = 1;
+    if (angle > WHEEL_TOLERANCE) {
+        factor = ZOOM_IN_RATIO;
+    } else if (angle < -WHEEL_TOLERANCE) {
+        factor = ZOOM_OUT_RATIO;
     }
+
+    float expectedScaleFactor = this->scaleFactor * factor;
+    if (expectedScaleFactor > MAX_ZOOM_IN || expectedScaleFactor < MAX_ZOOM_OUT) {
+        return;
+    }
+
+    setTransformationAnchor(anchor);
+    scale(factor, factor);
+
+    this->scaleFactor *= factor;
 }
 
-void QZoomGraphicsView::resizeEvent(QResizeEvent *event)
+void QZoomGraphicsView::resetScaleFactor()
 {
-    this->fitInView(this->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
+    this->scaleFactor = 1;
+}
+
+float QZoomGraphicsView::getScaleFactor() const
+{
+    return scaleFactor;
 }

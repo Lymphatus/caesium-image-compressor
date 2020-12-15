@@ -98,6 +98,12 @@
        <property name="spacing">
         <number>5</number>
        </property>
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>5</number>
+       </property>
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
@@ -131,7 +137,7 @@
        <item>
         <widget class="QLabel" name="version_Label">
          <property name="text">
-          <string>v2.0.0-alpha.3</string>
+          <string notr="true"/>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -171,7 +177,7 @@ All rights reserved.</string>
           </font>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&amp;quot;If you’re gonna make it to the moon&lt;br/&gt;I’ll be right there by your side&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot; style=&quot;font-size:11px&quot;&gt;&amp;quot;If you’re gonna make it to the moon&lt;br/&gt;I’ll be right there by your side&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

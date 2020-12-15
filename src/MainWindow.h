@@ -26,7 +26,6 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* event) override;
-    void resizeEvent(QResizeEvent* event) override;
 
 private slots:
 
@@ -50,12 +49,10 @@ private slots:
     void on_actionSelect_All_triggered();
     void on_sameOutputFolderAsInput_CheckBox_toggled(bool checked);
     void on_keepStructure_Checkbox_toggled(bool checked);
-
     void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
     void compressionFinished();
     void dropFinished(QStringList filePaths);
     void on_fitTo_ComboBox_currentIndexChanged(int index);
-
     void on_lossless_Checkbox_toggled(bool checked);
     void on_keepMetadata_Checkbox_toggled(bool checked);
     void on_advancedMode_Button_toggled(bool checked);
@@ -65,6 +62,7 @@ private slots:
     void on_PNGIterationsLarge_SpinBox_valueChanged(int arg1);
     void on_PNGLossy8_CheckBox_toggled(bool checked);
     void on_PNGLossyTransparent_CheckBox_toggled(bool checked);
+    void cModelItemsChanged();
 
 private:
     Ui::MainWindow* ui;

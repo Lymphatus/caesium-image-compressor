@@ -28,10 +28,16 @@ public:
     CImageTreeItem* getRootItem() const;
     bool contains(CImage* cImage);
 
+    size_t originalItemsSize() const;
+    size_t compressedItemsSize() const;
+
 private:
     void setupModelData(const QList<CImage*> imageList, CImageTreeItem* parent);
 
     CImageTreeItem* rootItem;
+
+signals:
+    void itemsChanged();
 
 public slots:
     void emitDataChanged(int row);

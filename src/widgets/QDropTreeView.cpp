@@ -6,20 +6,24 @@
 #include <QDebug>
 #include <QFileInfo>
 
-QDropTreeView::QDropTreeView(QWidget *parent)
+QDropTreeView::QDropTreeView(QWidget* parent)
     : QTreeView(parent)
-{}
+{
+}
 
-void QDropTreeView::dragEnterEvent(QDragEnterEvent *event) {
+void QDropTreeView::dragEnterEvent(QDragEnterEvent* event)
+{
     event->acceptProposedAction();
 }
 
-void QDropTreeView::dragMoveEvent(QDragMoveEvent *event) {
+void QDropTreeView::dragMoveEvent(QDragMoveEvent* event)
+{
     event->accept();
 }
 
-void QDropTreeView::dropEvent(QDropEvent *event) {
-    const QMimeData *mimeData = event->mimeData();
+void QDropTreeView::dropEvent(QDropEvent* event)
+{
+    const QMimeData* mimeData = event->mimeData();
     QList<QUrl> urlList = mimeData->urls();
     QStringList fileList;
     if (mimeData->hasFormat("text/uri-list")) {
@@ -28,9 +32,12 @@ void QDropTreeView::dropEvent(QDropEvent *event) {
             //TODO This is limitation by now. We only accept drops for files. May be changed in the future.
             if (QFileInfo(absolutePath).isFile()) {
                 fileList << url.toLocalFile();
+            } else if (QFileInfo(absolutePath).isDir()) {
+                return;
             }
         }
     }
+
     event->acceptProposedAction();
     emit dropFinished(fileList);
 }

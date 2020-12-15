@@ -52,10 +52,11 @@ QModelIndex CImageTreeModel::parent(const QModelIndex& index) const
 int CImageTreeModel::rowCount(const QModelIndex& parent) const
 {
     CImageTreeItem* parentItem;
-    if (parent.column() > 0) {
 
+    if (parent.column() > 0) {
         return 0;
     }
+
     if (!parent.isValid()) {
         parentItem = rootItem;
     } else {
@@ -82,6 +83,7 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     }
 
     endRemoveRows();
+    emit itemsChanged();
     return true;
 }
 
@@ -100,6 +102,7 @@ void CImageTreeModel::setupModelData(const QList<CImage*> imageList, CImageTreeI
         parent->appendChild(cImageTreeItem);
     }
     endInsertRows();
+    emit itemsChanged();
 }
 
 void CImageTreeModel::emitDataChanged(int row)
@@ -180,4 +183,29 @@ QVariant CImageTreeModel::headerData(int section, Qt::Orientation orientation, i
     }
 
     return QVariant();
+}
+
+//TODO We can maybe optimize these 2 functions to work together
+size_t CImageTreeModel::compressedItemsSize() const
+{
+    QVectorIterator<CImageTreeItem*> itemsIterator(rootItem->children());
+    size_t totalSize = 0;
+    while (itemsIterator.hasNext()) {
+        auto item = itemsIterator.next();
+        size_t size = item->getCImage()->getCompressedSize();
+        totalSize += size;
+    }
+    return totalSize;
+}
+
+size_t CImageTreeModel::originalItemsSize() const
+{
+    QVectorIterator<CImageTreeItem*> itemsIterator(rootItem->children());
+    size_t totalSize = 0;
+    while (itemsIterator.hasNext()) {
+        auto item = itemsIterator.next();
+        size_t size = item->getCImage()->getOriginalSize();
+        totalSize += size;
+    }
+    return totalSize;
 }

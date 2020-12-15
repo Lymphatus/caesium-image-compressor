@@ -1,8 +1,8 @@
 #include "MainWindow.h"
 #include "./dialogs/AboutDialog.h"
 #include "ui_MainWindow.h"
-#include "./utils/Utils.h"
 #include "./delegates/HtmlDelegate.h"
+#include "./exceptions/ImageNotSupportedException.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
+    connect(this->cImageModel, SIGNAL(itemsChanged()), this, SLOT(cModelItemsChanged()));
     this->readSettings();
 
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
@@ -187,6 +188,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex)
 
     this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
     ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+    ui->preview_graphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
     ui->preview_graphicsView->show();
 }
 
@@ -232,11 +234,15 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             break;
         }
 
-        CImage* cImage = new CImage(fileList.at(i));
-        if (this->cImageModel->contains(cImage)) {
-            break;
+        try {
+            auto* cImage = new CImage(fileList.at(i));
+            if (this->cImageModel->contains(cImage)) {
+                break;
+            }
+            list.append(cImage);
+        } catch (ImageNotSupportedException& e) {
+            qWarning() << fileList.at(i) << "is not supported";
         }
-        list.append(cImage);
 
         progressDialog.setValue(i);
     }
@@ -345,11 +351,6 @@ void MainWindow::closeEvent(QCloseEvent* event)
     this->writeSettings();
     qInfo() << "---- Closing application ----";
     event->accept();
-}
-
-void MainWindow::resizeEvent(QResizeEvent* event)
-{
-    ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }
 
 void MainWindow::on_outputFolderBrowse_Button_clicked()
@@ -517,7 +518,6 @@ void MainWindow::on_sameOutputFolderAsInput_CheckBox_toggled(bool checked)
 
 void MainWindow::on_keepStructure_Checkbox_toggled(bool checked)
 {
-    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(checked);
     this->writeSetting("compression_options/compression/keep_structure", checked);
 }
 
@@ -582,4 +582,11 @@ void MainWindow::on_PNGLossy8_CheckBox_toggled(bool checked)
 void MainWindow::on_PNGLossyTransparent_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/png_transparent", checked);
+}
+
+void MainWindow::cModelItemsChanged()
+{
+    QString itemsCount = QString::number(this->cImageModel->rowCount());
+    QString totalSize = toHumanSize(this->cImageModel->originalItemsSize());
+    ui->statusbar->showMessage(itemsCount + " " + tr("images in list") + " | " + totalSize);
 }

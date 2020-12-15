@@ -1,17 +1,23 @@
 #include "CImage.h"
 
+#include "./exceptions/ImageNotSupportedException.h"
 #include <QImageReader>
-
-#include <QDebug>
 #include <QDir>
 #include <QSettings>
 #include <QTemporaryFile>
 #include <cmath>
 
+
 CImage::CImage(const QString& path)
 {
     QFileInfo fileInfo = QFileInfo(path);
     auto* imageReader = new QImageReader(path);
+    auto format = imageReader->format().toLower();
+
+    if (!supportedFormats.contains(format)) {
+        throw ImageNotSupportedException();
+    }
+
     QSize imageSize = imageReader->size();
 
     this->fullPath = fileInfo.absoluteFilePath();
@@ -215,4 +221,14 @@ CImageStatus CImage::getStatus() const
 void CImage::setStatus(const CImageStatus& value)
 {
     status = value;
+}
+
+size_t CImage::getOriginalSize() const
+{
+    return this->size;
+}
+
+size_t CImage::getCompressedSize() const
+{
+    return this->compressedSize;
 }

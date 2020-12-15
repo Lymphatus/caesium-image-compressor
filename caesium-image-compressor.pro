@@ -41,7 +41,8 @@ SOURCES += \
     src/dialogs/AboutDialog.cpp \
     src/widgets/QDropTreeView.cpp \
     src/widgets/QZoomGraphicsView.cpp \
-    src/delegates/HtmlDelegate.cpp
+    src/delegates/HtmlDelegate.cpp \
+    src/exceptions/ImageNotSupportedException.cpp
 
 HEADERS += \
     src/vendor/caesium.h \
@@ -53,14 +54,16 @@ HEADERS += \
     src/dialogs/AboutDialog.h \
     src/widgets/QDropTreeView.h \
     src/widgets/QZoomGraphicsView.h \
-    src/delegates/HtmlDelegate.h
+    src/delegates/HtmlDelegate.h \
+    src/exceptions/ImageNotSupportedException.h
 
 FORMS += \
     views/MainWindow.ui \
     views/AboutDialog.ui
 
 TRANSLATIONS += \
-    locale/en_US.ts
+    locale/caesium_en_US.ts \
+    locale/caesium_it_IT.ts
 
 RESOURCES += \
     resources/resources.qrc
@@ -83,5 +86,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     Info.plist \
-    README.md \
-    CHANGELOG.md
+    README.md

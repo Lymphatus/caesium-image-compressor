@@ -8,6 +8,7 @@
 
 class CImage
 {
+    const QList<QByteArray> supportedFormats = {"png", "jpg", "jpeg"};
 
 public:
     explicit CImage(const QString& path);
@@ -25,6 +26,9 @@ public:
     QString getFileName() const;
 
     QString getFullPath() const;
+
+    size_t getOriginalSize() const;
+    size_t getCompressedSize() const;
 
     CImageStatus getStatus() const;
     void setStatus(const CImageStatus &value);

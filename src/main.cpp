@@ -4,6 +4,7 @@
 #include <QCommandLineParser>
 #include <QDateTime>
 #include <QStandardPaths>
+#include <QTranslator>
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
@@ -34,7 +35,7 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("com.saerasoft.caesium");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.0.0-alpha.3");
+    QCoreApplication::setApplicationVersion("2.0.0-alpha.4");
 
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);
@@ -42,6 +43,11 @@ int main(int argc, char* argv[])
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.process(a);
+
+    QTranslator translator;
+    if (translator.load(QLocale(), QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
+        QCoreApplication::installTranslator(&translator);
+    }
 
     qInfo() << "---- Starting application ----";
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
