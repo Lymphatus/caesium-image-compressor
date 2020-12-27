@@ -6,7 +6,7 @@
         <file>icons/compression_statuses/uncompressed.svg</file>
         <file>icons/compression_statuses/compressing.svg</file>
         <file>icons/compression_statuses/error.svg</file>
-        <file>i18n/caesium_en_US.qm</file>
-        <file>i18n/caesium_it_IT.qm</file>
+        <file>i18n/caesium_en_US.ts</file>
+        <file>i18n/caesium_it_IT.ts</file>
     </qresource>
 </RCC>

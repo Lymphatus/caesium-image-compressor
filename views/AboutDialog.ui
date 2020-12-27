@@ -124,7 +124,7 @@
         <widget class="QLabel" name="aboutTitle_Label">
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>12</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -177,7 +177,7 @@ All rights reserved.</string>
           </font>
          </property>
          <property name="text">
-          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot; style=&quot;font-size:11px&quot;&gt;&amp;quot;If you’re gonna make it to the moon&lt;br/&gt;I’ll be right there by your side&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot; style=&quot;font-size:11px;margin-right:2px;&quot;&gt;&amp;quot;If you’re gonna make it to the moon&lt;br/&gt;I’ll be right there by your side&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

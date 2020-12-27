@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>986</width>
-    <height>882</height>
+    <height>919</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,6 +31,9 @@
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
           <widget class="QDropTreeView" name="imageList_TreeView">
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
            <property name="dragDropMode">
             <enum>QAbstractItemView::DropOnly</enum>
            </property>
@@ -55,9 +58,15 @@
            <property name="animated">
             <bool>true</bool>
            </property>
+           <property name="allColumnsShowFocus">
+            <bool>false</bool>
+           </property>
            <property name="expandsOnDoubleClick">
             <bool>false</bool>
            </property>
+           <attribute name="headerDefaultSectionSize">
+            <number>145</number>
+           </attribute>
            <attribute name="headerShowSortIndicator" stdset="0">
             <bool>false</bool>
            </attribute>
@@ -107,6 +116,9 @@
         </layout>
        </widget>
        <widget class="QZoomGraphicsView" name="preview_graphicsView">
+        <property name="renderHints">
+         <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
+        </property>
         <property name="dragMode">
          <enum>QGraphicsView::ScrollHandDrag</enum>
         </property>
@@ -772,7 +784,7 @@
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
