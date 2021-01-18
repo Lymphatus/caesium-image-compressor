@@ -31,9 +31,6 @@
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
           <widget class="QDropTreeView" name="imageList_TreeView">
-           <property name="focusPolicy">
-            <enum>Qt::NoFocus</enum>
-           </property>
            <property name="dragDropMode">
             <enum>QAbstractItemView::DropOnly</enum>
            </property>
@@ -86,6 +83,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="removeFiles_Button">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="text">
               <string>Remove</string>
              </property>
@@ -771,6 +771,36 @@
           </property>
          </spacer>
         </item>
+        <item>
+         <widget class="QPushButton" name="updateAvailable_Button">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	color: #059669;
+	text-decoration:underline;
+	padding: 0;
+}
+
+QPushButton:pressed {
+    background-color: transparent;
+}</string>
+          </property>
+          <property name="text">
+           <string>Restart to update</string>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -784,7 +814,7 @@
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -858,6 +888,9 @@
    </property>
   </action>
   <action name="actionClear">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Clear</string>
    </property>
@@ -1002,6 +1035,22 @@
     <hint type="destinationlabel">
      <x>701</x>
      <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lossless_Checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>JPEGQuality_Slider</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>616</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>654</x>
+     <y>192</y>
     </hint>
    </hints>
   </connection>

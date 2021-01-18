@@ -3,12 +3,15 @@
 #define MAINWINDOW_H
 
 #include <QCloseEvent>
+#include <QDialog>
 #include <QFutureWatcher>
 #include <QGraphicsScene>
 #include <QMainWindow>
+#include <dialogs/AboutDialog.h>
 
 #include "models/CImage.h"
 #include "models/CImageTreeModel.h"
+#include "utils/Updater.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,7 +31,6 @@ protected:
     void closeEvent(QCloseEvent* event) override;
 
 private slots:
-
     void on_actionAbout_Caesium_Image_Compressor_triggered();
     void on_addFiles_Button_clicked();
     void on_actionAdd_files_triggered();
@@ -62,7 +64,11 @@ private slots:
     void on_PNGIterationsLarge_SpinBox_valueChanged(int arg1);
     void on_PNGLossy8_CheckBox_toggled(bool checked);
     void on_PNGLossyTransparent_CheckBox_toggled(bool checked);
+    void on_updateAvailable_Button_clicked();
     void cModelItemsChanged();
+public slots:
+    void updateAvailable(const QString &filePath);
+    void runUpdate();
 
 private:
     Ui::MainWindow* ui;
@@ -71,6 +77,13 @@ private:
     QFutureWatcher<void> compressionWatcher;
     QGraphicsScene* previewScene;
     QMap<QString, int> folderMap;
+    QThread updaterThread;
+    AboutDialog* aboutDialog = nullptr;
+    QVariant readSetting(const QString& key);
+    QString updateFilePath;
+
+    void initStatusBar();
+    void initUpdater();
 
     void importFiles(const QStringList& fileList, QString baseFolder);
     void removeFiles(bool all = false);
@@ -81,7 +94,6 @@ private:
     void readSettings();
     void previewImage(const QModelIndex& imageIndex);
     void updateFolderMap(QString baseFolder, int count);
-    QVariant readSetting(const QString& key);
 };
 
 #endif // MAINWINDOW_H

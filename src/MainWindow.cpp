@@ -1,8 +1,7 @@
 #include "MainWindow.h"
-#include "./dialogs/AboutDialog.h"
-#include "ui_MainWindow.h"
 #include "./delegates/HtmlDelegate.h"
 #include "./exceptions/ImageNotSupportedException.h"
+#include "ui_MainWindow.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -15,12 +14,13 @@ MainWindow::MainWindow(QWidget* parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    qDebug() << "Starting application";
+    qDebug() << "Starting UI";
 
     qRegisterMetaTypeStreamOperators<QList<int>>();
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
+    this->aboutDialog = new AboutDialog(this);
 
     ui->preview_graphicsView->setScene(this->previewScene);
     ui->imageList_TreeView->setModel(this->cImageModel);
@@ -32,9 +32,12 @@ MainWindow::MainWindow(QWidget* parent)
     ui->JPEGOptions_GroupBox->setHidden(true);
     ui->PNGOptions_GroupBox->setHidden(true);
 
+    this->initStatusBar();
+
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     connect(this->cImageModel, SIGNAL(itemsChanged()), this, SLOT(cModelItemsChanged()));
+
     this->readSettings();
 
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
@@ -43,25 +46,30 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
 
-#ifdef Q_OS_WIN
-    //TODO Temporary workaround
-    //QThreadPool::globalInstance()->setMaxThreadCount(1);
-#endif
+//    this->initUpdater();
 }
 
 MainWindow::~MainWindow()
 {
+    if (!this->updaterThread.isFinished()) {
+        //Try to exit cleanly
+        this->updaterThread.quit();
+        this->updaterThread.wait();
+    }
+
     delete cImageModel;
     delete previewScene;
     delete ui;
 }
 
+void MainWindow::initStatusBar()
+{
+    ui->updateAvailable_Button->setHidden(true);
+    ui->statusbar->addPermanentWidget(ui->updateAvailable_Button);
+}
+
 void MainWindow::on_actionAbout_Caesium_Image_Compressor_triggered()
 {
-    auto aboutDialog = new AboutDialog();
-    aboutDialog->setAttribute(Qt::WA_DeleteOnClose, true);
-    aboutDialog->setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
-    aboutDialog->setWindowModality(Qt::ApplicationModal);
     aboutDialog->show();
 }
 
@@ -155,9 +163,9 @@ void MainWindow::readSettings()
     this->ui->main_Splitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 700, 1 })).value<QList<int>>());
 
     this->ui->compression_Slider->setValue(settings.value("compression_options/compression/level", 4).toInt());
-    this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless").toBool());
-    this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata").toBool());
-    this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure").toBool());
+    this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
+    this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
+    this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
     this->ui->advancedMode_Button->setChecked(settings.value("compression_options/compression/advanced_mode", false).toBool());
     this->ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     this->ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
@@ -172,11 +180,11 @@ void MainWindow::readSettings()
     this->ui->height_SpinBox->setValue(settings.value("compression_options/resize/height", 1000).toInt());
     this->ui->edge_SpinBox->setValue(settings.value("compression_options/resize/size", 1000).toInt());
     this->ui->keepAspectRatio_CheckBox->setChecked(settings.value("compression_options/resize/keep_aspect_ratio", false).toBool());
-    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/resize/do_not_enlarge", false).toBool());
+    this->ui->doNotEnlarge_CheckBox->setChecked(settings.value("compression_options/resize/do_not_enlarge", false).toBool());
 
-    this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder").toString());
-    this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix").toString());
-    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/output/same_folder_as_input").toBool());
+    this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder", "").toString());
+    this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix", "").toString());
+    this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/output/same_folder_as_input", false).toBool());
 }
 
 void MainWindow::previewImage(const QModelIndex& imageIndex)
@@ -272,6 +280,8 @@ void MainWindow::removeFiles(bool all)
         this->cImageModel->removeRows(indexes.at(i).row(), 1, indexes.at(i).parent());
     }
     this->previewScene->clear();
+    this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
+    ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }
 
 void MainWindow::on_compress_Button_clicked()
@@ -586,7 +596,48 @@ void MainWindow::on_PNGLossyTransparent_CheckBox_toggled(bool checked)
 
 void MainWindow::cModelItemsChanged()
 {
-    QString itemsCount = QString::number(this->cImageModel->rowCount());
+    int itemsCount = this->cImageModel->rowCount();
+    QString humanItemsCount = QString::number(this->cImageModel->rowCount());
     QString totalSize = toHumanSize(this->cImageModel->originalItemsSize());
-    ui->statusbar->showMessage(itemsCount + " " + tr("images in list") + " | " + totalSize);
+    ui->statusbar->showMessage(humanItemsCount + " " + tr("images in list") + " | " + totalSize);
+
+    ui->removeFiles_Button->setDisabled(itemsCount == 0);
+    ui->actionRemove->setDisabled(itemsCount == 0);
+    ui->actionClear->setDisabled(itemsCount == 0);
+    ui->actionSelect_All->setDisabled(itemsCount == 0);
+}
+
+void MainWindow::on_updateAvailable_Button_clicked()
+{
+    this->runUpdate();
+}
+
+void MainWindow::updateAvailable(const QString &filePath)
+{
+    this->ui->updateAvailable_Button->setVisible(true);
+    this->aboutDialog->updateIsAvailable(filePath);
+    this->updateFilePath = filePath;
+}
+
+void MainWindow::initUpdater()
+{
+    auto *updater = new Updater();
+    updater->moveToThread(&updaterThread);
+
+    connect(updater, &Updater::finished, aboutDialog, &AboutDialog::checkForUpdatesFinished);
+    connect(&updaterThread, &QThread::started, aboutDialog, &AboutDialog::checkForUpdatesStarted);
+    connect(&updaterThread, &QThread::finished, updater, &QObject::deleteLater);
+    connect(updater, &Updater::resultReady, this, &MainWindow::updateAvailable);
+    connect(updater, &Updater::resultReady, aboutDialog, &AboutDialog::updateIsAvailable);
+
+    updaterThread.start();
+    updater->checkForUpdates();
+}
+
+void MainWindow::runUpdate()
+{
+    QString currentProcessPath = QCoreApplication::applicationFilePath();
+    Updater::replaceCurrentFiles(this->updateFilePath);
+    QProcess::startDetached(currentProcessPath, QCoreApplication::arguments());
+    QCoreApplication::quit();
 }

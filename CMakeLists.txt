@@ -26,12 +26,9 @@ endif ()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-nullability-completeness")
 
-if (NOT (DEFINED ENV{Qt5_DIR} OR DEFINED Qt5_DIR))
-    message(FATAL_ERROR "Qt5_DIR is not defined. Cannot find Qt5 dir.")
+if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
+    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
 endif ()
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 
 if (APPLE)
     link_directories(/usr/local/lib)
@@ -39,7 +36,13 @@ elseif (WIN32)
     link_directories("C:\\libcaesium\\lib")
 endif ()
 
-find_package(Qt5 COMPONENTS Widgets Core Gui Concurrent Svg REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network REQUIRED)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip/src)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip)
 
 set(SOURCES
         src/main.cpp
@@ -52,7 +55,8 @@ set(SOURCES
         src/widgets/QDropTreeView.cpp
         src/widgets/QZoomGraphicsView.cpp
         src/delegates/HtmlDelegate.cpp
-        src/exceptions/ImageNotSupportedException.cpp)
+        src/exceptions/ImageNotSupportedException.cpp
+        src/utils/Updater.cpp)
 
 set(HEADERS
         src/vendor/caesium.h
@@ -65,7 +69,8 @@ set(HEADERS
         src/widgets/QDropTreeView.h
         src/widgets/QZoomGraphicsView.h
         src/delegates/HtmlDelegate.h
-        src/exceptions/ImageNotSupportedException.h)
+        src/exceptions/ImageNotSupportedException.h
+        src/utils/Updater.h)
 
 set(UI
         views/MainWindow.ui
@@ -80,4 +85,4 @@ if (APPLE)
 endif ()
 
 set_target_properties(caesium_image_compressor PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
-target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg caesium)
+target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg Qt5::Network zip caesium)

@@ -1,6 +1,6 @@
 QT       += core gui concurrent svg
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 5): QT += widgets network
 
 CONFIG += c++11
 unix: {
@@ -42,7 +42,8 @@ SOURCES += \
     src/widgets/QDropTreeView.cpp \
     src/widgets/QZoomGraphicsView.cpp \
     src/delegates/HtmlDelegate.cpp \
-    src/exceptions/ImageNotSupportedException.cpp
+    src/exceptions/ImageNotSupportedException.cpp \
+    src/utils/Updater.cpp
 
 HEADERS += \
     src/vendor/caesium.h \
@@ -55,7 +56,8 @@ HEADERS += \
     src/widgets/QDropTreeView.h \
     src/widgets/QZoomGraphicsView.h \
     src/delegates/HtmlDelegate.h \
-    src/exceptions/ImageNotSupportedException.h
+    src/exceptions/ImageNotSupportedException.h \
+    src/utils/Updater.h
 
 FORMS += \
     views/MainWindow.ui \

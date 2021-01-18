@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>475</width>
-    <height>170</height>
+    <width>300</width>
+    <height>319</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,18 +18,6 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>475</width>
-    <height>170</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>475</width>
-    <height>170</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>About Caesium - Image Compressor</string>
@@ -41,24 +29,24 @@
    <bool>false</bool>
   </property>
   <property name="modal">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
-    <layout class="QGridLayout" name="main_GridLayout">
-     <property name="horizontalSpacing">
-      <number>20</number>
-     </property>
-     <property name="verticalSpacing">
-      <number>6</number>
-     </property>
-     <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="leftMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
       <widget class="QLabel" name="logo_Label">
-       <property name="minimumSize">
-        <size>
-         <width>96</width>
-         <height>96</height>
-        </size>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="maximumSize">
         <size>
@@ -78,112 +66,143 @@
        <property name="scaledContents">
         <bool>true</bool>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <spacer name="logo_VerticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>13</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="aboutTitle_Label">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Caesium Image Compressor</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="version_Label">
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="checkForUpdates_Button">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
-      </spacer>
-     </item>
-     <item row="0" column="2" rowspan="3">
-      <layout class="QVBoxLayout" name="info_VLayout">
-       <property name="spacing">
-        <number>5</number>
+       <property name="text">
+        <string>Check for updates</string>
        </property>
-       <property name="leftMargin">
-        <number>5</number>
+       <property name="autoDefault">
+        <bool>true</bool>
        </property>
-       <property name="rightMargin">
-        <number>5</number>
-       </property>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>12</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="aboutTitle_Label">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Caesium Image Compressor</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="version_Label">
-         <property name="text">
-          <string notr="true"/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="copyright_Label">
-         <property name="text">
-          <string>Copyright © 2020 Matteo Paonessa.
-All rights reserved.</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="about_VerticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="call_Label">
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-           <italic>true</italic>
-          </font>
-         </property>
-         <property name="text">
-          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot; style=&quot;font-size:11px;margin-right:2px;&quot;&gt;&amp;quot;If you’re gonna make it to the moon&lt;br/&gt;I’ll be right there by your side&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="updateStatus_Label">
+     <property name="text">
+      <string>No updates available</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="checkForUpdates_ProgressBar">
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="textVisible">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="copyright_Label">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Copyright © 2021 Matteo Paonessa.
+All rights reserved.</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

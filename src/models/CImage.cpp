@@ -178,7 +178,8 @@ bool CImage::compress(CompressionOptions compressionOptions)
                 return false;
             }
         }
-        this->setCompressedInfo(outputFullPath);
+        QFileInfo outputFileInfo = QFileInfo(outputFullPath);
+        this->setCompressedInfo(outputFileInfo);
     }
     return result;
 }
