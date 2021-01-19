@@ -151,9 +151,16 @@ QImage cResize(QImage image, int fitTo, int width, int height, int size, bool do
         int outputHeight = (int)round((float)originalHeight * (float)outputHeightPerc / 100);
         image = image.scaled(outputWidth, outputHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     } else if (fitTo == ResizeMode::LONG_EDGE || fitTo == ResizeMode::SHORT_EDGE) {
+        //TODO Refactor this section
         if ((fitTo == ResizeMode::LONG_EDGE && originalWidth >= originalHeight) || (fitTo == ResizeMode::SHORT_EDGE && originalWidth <= originalHeight)) {
+            if (doNotEnlarge && originalWidth <= size) {
+                return image;
+            }
             image = image.scaledToWidth(size, Qt::SmoothTransformation);
         } else if ((fitTo == ResizeMode::LONG_EDGE && originalHeight >= originalWidth) || (fitTo == ResizeMode::SHORT_EDGE && originalHeight <= originalWidth)) {
+            if (doNotEnlarge && originalHeight <= size) {
+                return image;
+            }
             image = image.scaledToHeight(size, Qt::SmoothTransformation);
         }
     }
