@@ -81,6 +81,7 @@ private:
     AboutDialog* aboutDialog = nullptr;
     QVariant readSetting(const QString& key);
     QString updateFilePath;
+    QString lastOpenedDirectory;
 
     void initStatusBar();
     void initUpdater();

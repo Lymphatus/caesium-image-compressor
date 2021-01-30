@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
 
-//    this->initUpdater();
+    //    this->initUpdater();
 }
 
 MainWindow::~MainWindow()
@@ -88,7 +88,7 @@ void MainWindow::triggerImportFiles()
     //Generate file dialog for import and call the progress dialog indicator
     QStringList fileList = QFileDialog::getOpenFileNames(this,
         tr("Import files..."),
-        QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+        this->lastOpenedDirectory,
         QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png)");
 
     if (fileList.isEmpty()) {
@@ -96,6 +96,7 @@ void MainWindow::triggerImportFiles()
     }
 
     QString baseFolder = QFileInfo(fileList.at(0)).absolutePath();
+    this->lastOpenedDirectory = baseFolder;
 
     return MainWindow::importFiles(fileList, baseFolder);
 }
@@ -103,7 +104,7 @@ void MainWindow::triggerImportFiles()
 void MainWindow::triggerImportFolder()
 {
     QString directoryPath = QFileDialog::getExistingDirectory(this, tr("Import folder..."),
-        QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+        this->lastOpenedDirectory,
         QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     QStringList fileList = scanDirectory(directoryPath);
@@ -112,6 +113,7 @@ void MainWindow::triggerImportFolder()
         return;
     }
 
+    this->lastOpenedDirectory = directoryPath;
     return MainWindow::importFiles(fileList, directoryPath);
 }
 
@@ -145,6 +147,8 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/output/output_folder", this->ui->outputFolder_LineEdit->text());
     settings.setValue("compression_options/output/output_suffix", this->ui->outputSuffix_LineEdit->text());
     settings.setValue("compression_options/output/same_folder_as_input", this->ui->sameOutputFolderAsInput_CheckBox->isChecked());
+
+    settings.setValue("extra/last_opened_directory", this->lastOpenedDirectory);
 }
 
 void MainWindow::writeSetting(const QString& key, const QVariant& value)
@@ -185,6 +189,8 @@ void MainWindow::readSettings()
     this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder", "").toString());
     this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix", "").toString());
     this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/output/same_folder_as_input", false).toBool());
+
+    this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
 
 void MainWindow::previewImage(const QModelIndex& imageIndex)
@@ -366,7 +372,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 void MainWindow::on_outputFolderBrowse_Button_clicked()
 {
     QString directoryPath = QFileDialog::getExistingDirectory(this, tr("Select output folder..."),
-        QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0),
+        this->ui->outputFolder_LineEdit->text(),
         QFileDialog::ShowDirsOnly);
 
     if (!directoryPath.isEmpty()) {
@@ -612,7 +618,7 @@ void MainWindow::on_updateAvailable_Button_clicked()
     this->runUpdate();
 }
 
-void MainWindow::updateAvailable(const QString &filePath)
+void MainWindow::updateAvailable(const QString& filePath)
 {
     this->ui->updateAvailable_Button->setVisible(true);
     this->aboutDialog->updateIsAvailable(filePath);
@@ -621,7 +627,7 @@ void MainWindow::updateAvailable(const QString &filePath)
 
 void MainWindow::initUpdater()
 {
-    auto *updater = new Updater();
+    auto* updater = new Updater();
     updater->moveToThread(&updaterThread);
 
     connect(updater, &Updater::finished, aboutDialog, &AboutDialog::checkForUpdatesFinished);
