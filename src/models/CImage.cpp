@@ -92,7 +92,7 @@ bool CImage::compress(CompressionOptions compressionOptions)
     QString inputFullPath = this->getFullPath();
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
-    QString fullFileName = inputFileInfo.baseName() + suffix + "." + inputFileInfo.completeSuffix();
+    QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + inputFileInfo.suffix();
 
     if (compressionOptions.keepStructure && !compressionOptions.sameFolderAsInput) {
         outputPath = inputFileInfo.absolutePath().remove(0, compressionOptions.basePath.length());
