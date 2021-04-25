@@ -82,6 +82,7 @@ private:
     QVariant readSetting(const QString& key);
     QString updateFilePath;
     QString lastOpenedDirectory;
+    QString importedFilesRootFolder;
 
     void initStatusBar();
     void initUpdater();

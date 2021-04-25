@@ -106,22 +106,22 @@ QString getRootFolder(QMap<QString, int> folderMap)
     QString rootFolderPath = folderMap.firstKey();
     while (it.hasNext()) {
         QString newFolderPath = it.next().key();
-        QStringList splittedNewFolder = newFolderPath.split(QDir::separator());
-        QStringList splittedRootFolder = rootFolderPath.split(QDir::separator());
-        QStringList splittedCommonPath;
+        QStringList splitNewFolder = QDir::toNativeSeparators(newFolderPath).split(QDir::separator());
+        QStringList splitRootFolder = QDir::toNativeSeparators(rootFolderPath).split(QDir::separator());
+        QStringList splitCommonPath;
 
-        for (int i = 0; i < std::min(splittedNewFolder.count(), splittedRootFolder.count()); i++) {
-            if (QString::compare(splittedNewFolder.at(i), splittedRootFolder.at(i)) != 0) {
+        for (int i = 0; i < std::min(splitNewFolder.count(), splitRootFolder.count()); i++) {
+            if (QString::compare(splitNewFolder.at(i), splitRootFolder.at(i)) != 0) {
                 if (i == 0) {
                     rootFolderPath = QDir::rootPath();
                 } else {
-                    rootFolderPath = QDir(splittedCommonPath.join(QDir::separator())).absolutePath();
+                    rootFolderPath = QDir(splitCommonPath.join(QDir::separator())).absolutePath();
                 }
                 break;
             }
-            splittedCommonPath.append(splittedNewFolder.at(i));
+            splitCommonPath.append(splitNewFolder.at(i));
         }
-        rootFolderPath = QDir(splittedCommonPath.join(QDir::separator())).absolutePath();
+        rootFolderPath = QDir(splitCommonPath.join(QDir::separator())).absolutePath();
     }
 
     return rootFolderPath;

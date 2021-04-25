@@ -814,7 +814,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -933,12 +933,12 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>616</x>
-     <y>740</y>
+     <x>961</x>
+     <y>734</y>
     </hint>
     <hint type="destinationlabel">
-     <x>619</x>
-     <y>713</y>
+     <x>861</x>
+     <y>703</y>
     </hint>
    </hints>
   </connection>
@@ -949,12 +949,12 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>677</x>
-     <y>738</y>
+     <x>961</x>
+     <y>734</y>
     </hint>
     <hint type="destinationlabel">
-     <x>928</x>
-     <y>712</y>
+     <x>960</x>
+     <y>706</y>
     </hint>
    </hints>
   </connection>
@@ -1017,8 +1017,8 @@ QPushButton:pressed {
      <y>440</y>
     </hint>
     <hint type="destinationlabel">
-     <x>551</x>
-     <y>131</y>
+     <x>961</x>
+     <y>218</y>
     </hint>
    </hints>
   </connection>
@@ -1051,6 +1051,22 @@ QPushButton:pressed {
     <hint type="destinationlabel">
      <x>654</x>
      <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lossless_Checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>compression_Slider</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>83</y>
     </hint>
    </hints>
   </connection>

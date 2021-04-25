@@ -235,8 +235,9 @@ void Updater::replaceCurrentFiles(const QString& filePath)
 
 }
 #else
-void Updater::replaceCurrentFiles()
+void Updater::replaceCurrentFiles(const QString& filePath)
 {
-
+    //TODO
+    return;
 }
 #endif

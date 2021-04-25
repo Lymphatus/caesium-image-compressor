@@ -219,13 +219,13 @@ void MainWindow::updateFolderMap(QString baseFolder, int count)
     }
 
     if (!isAlreadyInList) {
-        folderMap.insert(baseFolder, count);
+        this->folderMap.insert(baseFolder, count);
     } else {
-        folderMap[baseFolder] += count;
+        this->folderMap[baseFolder] += count;
     }
 
-    if (folderMap[baseFolder] == 0) {
-        folderMap.remove(baseFolder);
+    if (this->folderMap[baseFolder] == 0) {
+        this->folderMap.remove(baseFolder);
     }
 }
 
@@ -261,11 +261,13 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
         progressDialog.setValue(i);
     }
 
-    if (!list.isEmpty()) {
+    if (!list.isEmpty() && listLength > 0) {
         this->updateFolderMap(baseFolder, list.count());
         this->cImageModel->appendItems(list);
+        this->importedFilesRootFolder = getRootFolder(this->folderMap);
     }
 
+    qDebug() << this->importedFilesRootFolder;
     progressDialog.setValue(listLength);
 }
 
@@ -525,10 +527,6 @@ void MainWindow::on_actionSelect_All_triggered()
 
 void MainWindow::on_sameOutputFolderAsInput_CheckBox_toggled(bool checked)
 {
-    this->ui->keepStructure_Checkbox->setEnabled(checked);
-    if (!checked) {
-        this->ui->keepStructure_Checkbox->setChecked(false);
-    }
     this->writeSetting("compression_options/output/same_folder_as_input", checked);
 }
 
