@@ -78,8 +78,11 @@ set(UI
 
 set(RESOURCES resources/resources.qrc)
 
-add_executable(caesium_image_compressor MACOSX_BUNDLE ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON})
-
+if (WIN32)
+    add_executable(caesium_image_compressor WIN32 ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON})
+else()
+    add_executable(caesium_image_compressor MACOSX_BUNDLE ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON})
+endif()
 if (APPLE)
     set_target_properties(caesium_image_compressor PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/Info.plist")
 endif ()
