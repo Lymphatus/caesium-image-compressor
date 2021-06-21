@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     qDebug() << "Starting UI";
 
-    qRegisterMetaTypeStreamOperators<QList<int>>();
+//    qRegisterMetaTypeStreamOperators<QList<int>>();
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
@@ -122,21 +122,21 @@ void MainWindow::writeSettings()
     QSettings settings;
     settings.setValue("mainwindow/size", this->size());
     settings.setValue("mainwindow/pos", this->pos());
-    settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->left_Splitter->sizes()));
-    settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_Splitter->sizes()));
+    settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->sidebar_HSplitter->sizes()));
+    settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_VSplitter->sizes()));
 
     settings.setValue("compression_options/compression/level", this->ui->compression_Slider->value());
     settings.setValue("compression_options/compression/lossless", this->ui->lossless_Checkbox->isChecked());
     settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_Checkbox->isChecked());
     settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_Checkbox->isChecked());
-    settings.setValue("compression_options/compression/advanced_mode", this->ui->advancedMode_Button->isChecked());
+    settings.setValue("compression_options/compression/advanced_mode", this->ui->advancedMode_CheckBox->isChecked());
     settings.setValue("compression_options/compression/jpeg_quality", this->ui->JPEGQuality_Slider->value());
     settings.setValue("compression_options/compression/png_iterations", this->ui->PNGIterations_SpinBox->value());
     settings.setValue("compression_options/compression/png_iterations_large", this->ui->PNGIterationsLarge_SpinBox->value());
     settings.setValue("compression_options/compression/png_lossy8", this->ui->PNGLossy8_CheckBox->isChecked());
     settings.setValue("compression_options/compression/png_transparent", this->ui->PNGLossyTransparent_CheckBox->isChecked());
 
-    settings.setValue("compression_options/resize/resize", this->ui->resize_groupBox->isChecked());
+    settings.setValue("compression_options/resize/resize", this->ui->fitTo_ComboBox->currentIndex() == 0);
     settings.setValue("compression_options/resize/fit_to", this->ui->fitTo_ComboBox->currentIndex());
     settings.setValue("compression_options/resize/width", this->ui->width_SpinBox->value());
     settings.setValue("compression_options/resize/height", this->ui->height_SpinBox->value());
@@ -163,14 +163,14 @@ void MainWindow::readSettings()
     this->resize(settings.value("mainwindow/size").toSize());
     this->move(settings.value("mainwindow/pos").toPoint());
 
-    this->ui->left_Splitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 100, 1 })).value<QList<int>>());
-    this->ui->main_Splitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 700, 1 })).value<QList<int>>());
+    this->ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
+    this->ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
 
     this->ui->compression_Slider->setValue(settings.value("compression_options/compression/level", 4).toInt());
     this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
     this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
     this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
-    this->ui->advancedMode_Button->setChecked(settings.value("compression_options/compression/advanced_mode", false).toBool());
+    this->ui->advancedMode_CheckBox->setChecked(settings.value("compression_options/compression/advanced_mode", false).toBool());
     this->ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     this->ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     this->ui->PNGIterations_SpinBox->setValue(settings.value("compression_options/compression/png_iterations", 5).toInt());
@@ -178,7 +178,6 @@ void MainWindow::readSettings()
     this->ui->PNGLossy8_CheckBox->setChecked(settings.value("compression_options/compression/png_lossy8", false).toBool());
     this->ui->PNGLossyTransparent_CheckBox->setChecked(settings.value("compression_options/compression/png_transparent", false).toInt());
 
-    this->ui->resize_groupBox->setChecked(settings.value("compression_options/resize/resize", false).toBool());
     this->ui->fitTo_ComboBox->setCurrentIndex(settings.value("compression_options/resize/fit_to", 0).toInt());
     this->ui->width_SpinBox->setValue(settings.value("compression_options/resize/width", 1000).toInt());
     this->ui->height_SpinBox->setValue(settings.value("compression_options/resize/height", 1000).toInt());
@@ -338,14 +337,14 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->lossless_Checkbox->isChecked(),
         this->ui->keepMetadata_Checkbox->isChecked(),
         this->ui->keepStructure_Checkbox->isChecked(),
-        this->ui->resize_groupBox->isChecked(),
+        this->ui->fitTo_ComboBox->currentIndex() == 0,
         this->ui->fitTo_ComboBox->currentIndex(),
         this->ui->width_SpinBox->value(),
         this->ui->height_SpinBox->value(),
         this->ui->edge_SpinBox->value(),
         this->ui->doNotEnlarge_CheckBox->isChecked(),
         this->ui->sameOutputFolderAsInput_CheckBox->isChecked(),
-        this->ui->advancedMode_Button->isChecked(),
+        this->ui->advancedMode_CheckBox->isChecked(),
         advancedJPEGPars,
         advancedPNGPars
     };
@@ -545,29 +544,6 @@ void MainWindow::on_keepMetadata_Checkbox_toggled(bool checked)
     this->writeSetting("compression_options/compression/keep_metadata", checked);
 }
 
-void MainWindow::on_advancedMode_Button_toggled(bool checked)
-{
-    QGridLayout* compressionLayout = (QGridLayout*)this->ui->compressionOptions_GroupBox->layout();
-    QGridLayout* jpegLayout = (QGridLayout*)this->ui->JPEGOptions_GroupBox->layout();
-    if (checked) {
-        compressionLayout->removeWidget(this->ui->lossless_Checkbox);
-        compressionLayout->removeWidget(this->ui->keepMetadata_Checkbox);
-
-        jpegLayout->addWidget(this->ui->lossless_Checkbox, 2, 0);
-        jpegLayout->addWidget(this->ui->keepMetadata_Checkbox, 3, 0);
-    } else {
-        jpegLayout->removeWidget(this->ui->lossless_Checkbox);
-        jpegLayout->removeWidget(this->ui->keepMetadata_Checkbox);
-        jpegLayout->removeWidget(this->ui->advancedMode_Button);
-
-        compressionLayout->addWidget(this->ui->lossless_Checkbox);
-        compressionLayout->addWidget(this->ui->keepMetadata_Checkbox);
-        compressionLayout->addWidget(this->ui->advancedMode_Button);
-    }
-
-    this->writeSetting("compression_options/compression/advanced_mode", checked);
-}
-
 void MainWindow::on_JPEGQuality_Slider_valueChanged(int value)
 {
     this->writeSetting("compression_options/compression/jpeg_quality", value);
@@ -645,3 +621,10 @@ void MainWindow::runUpdate()
     QProcess::startDetached(currentProcessPath, QCoreApplication::arguments());
     QCoreApplication::quit();
 }
+
+void MainWindow::on_advancedMode_CheckBox_toggled(bool checked)
+{
+    this->ui->compressionSlider_Frame->setVisible(!checked);
+    this->writeSetting("compression_options/compression/advanced_mode", checked);
+}
+

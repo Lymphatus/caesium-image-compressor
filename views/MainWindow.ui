@@ -16,21 +16,30 @@
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QSplitter" name="main_Splitter">
+     <widget class="QSplitter" name="main_VSplitter">
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QSplitter" name="left_Splitter">
+      <widget class="QSplitter" name="sidebar_HSplitter">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Horizontal</enum>
        </property>
        <widget class="QWidget" name="layoutWidget">
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
           <widget class="QDropTreeView" name="imageList_TreeView">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
            <property name="dragDropMode">
             <enum>QAbstractItemView::DropOnly</enum>
            </property>
@@ -38,13 +47,16 @@
             <enum>Qt::MoveAction</enum>
            </property>
            <property name="alternatingRowColors">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::ExtendedSelection</enum>
            </property>
            <property name="indentation">
             <number>0</number>
+           </property>
+           <property name="uniformRowHeights">
+            <bool>true</bool>
            </property>
            <property name="itemsExpandable">
             <bool>false</bool>
@@ -63,6 +75,9 @@
            </property>
            <attribute name="headerDefaultSectionSize">
             <number>145</number>
+           </attribute>
+           <attribute name="headerHighlightSections">
+            <bool>false</bool>
            </attribute>
            <attribute name="headerShowSortIndicator" stdset="0">
             <bool>false</bool>
@@ -115,675 +130,762 @@
          </item>
         </layout>
        </widget>
-       <widget class="QZoomGraphicsView" name="preview_graphicsView">
-        <property name="renderHints">
-         <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
-        </property>
-        <property name="dragMode">
-         <enum>QGraphicsView::ScrollHandDrag</enum>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="verticalLayoutWidget_2">
-       <layout class="QVBoxLayout" name="sidebar_VerticalLayout">
-        <property name="spacing">
-         <number>6</number>
-        </property>
-        <item>
-         <widget class="QGroupBox" name="compressionOptions_GroupBox">
-          <property name="title">
-           <string>Compression</string>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <layout class="QVBoxLayout" name="compressionOptions_Layout">
-           <property name="spacing">
-            <number>6</number>
+       <widget class="QWidget" name="verticalLayoutWidget_2">
+        <layout class="QVBoxLayout" name="sidebar_VerticalLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QTabWidget" name="parameters_TabWidget">
+           <property name="currentIndex">
+            <number>0</number>
            </property>
-           <item>
-            <widget class="QFrame" name="compressionSlider_Frame">
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
+           <property name="usesScrollButtons">
+            <bool>false</bool>
+           </property>
+           <widget class="QWidget" name="compression_Tab">
+            <attribute name="title">
+             <string>Compression</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="leftMargin">
+              <number>6</number>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+             <property name="topMargin">
+              <number>6</number>
              </property>
-             <property name="lineWidth">
-              <number>0</number>
+             <property name="rightMargin">
+              <number>6</number>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_3">
-              <property name="spacing">
-               <number>3</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>9</number>
-              </property>
-              <item>
-               <widget class="QSlider" name="compression_Slider">
-                <property name="maximum">
-                 <number>4</number>
-                </property>
-                <property name="pageStep">
-                 <number>1</number>
-                </property>
-                <property name="value">
-                 <number>3</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="invertedControls">
-                 <bool>false</bool>
-                </property>
-                <property name="tickPosition">
-                 <enum>QSlider::TicksBelow</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="compressionSliderLabels_HorizontalLayout">
-                <property name="spacing">
-                 <number>0</number>
-                </property>
-                <item>
-                 <widget class="QLabel" name="compressionSliderSpeed_Label">
-                  <property name="font">
-                   <font>
-                    <pointsize>8</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Speed</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="compressionSliderLabels_Spacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>90</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QLabel" name="compressionSliderQuality_Label">
-                  <property name="font">
-                   <font>
-                    <pointsize>8</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Quality</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="JPEGOptions_GroupBox">
-             <property name="title">
-              <string>JPEG</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_2">
-              <property name="leftMargin">
-               <number>6</number>
-              </property>
-              <property name="topMargin">
-               <number>6</number>
-              </property>
-              <property name="rightMargin">
-               <number>6</number>
-              </property>
-              <property name="bottomMargin">
-               <number>6</number>
-              </property>
-              <item row="0" column="1">
-               <spacer name="horizontalSpacer_5">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="JPEGQuality_Label">
-                <property name="text">
-                 <string>Quality</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QSpinBox" name="JPEGQuality_SpinBox">
-                <property name="readOnly">
-                 <bool>false</bool>
-                </property>
-                <property name="maximum">
-                 <number>100</number>
-                </property>
-                <property name="value">
-                 <number>80</number>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="3">
-               <widget class="QSlider" name="JPEGQuality_Slider">
-                <property name="minimum">
-                 <number>0</number>
-                </property>
-                <property name="maximum">
-                 <number>100</number>
-                </property>
-                <property name="value">
-                 <number>80</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="tickPosition">
-                 <enum>QSlider::TicksBelow</enum>
-                </property>
-                <property name="tickInterval">
-                 <number>10</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="PNGOptions_GroupBox">
-             <property name="title">
-              <string>PNG</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout">
-              <property name="leftMargin">
-               <number>6</number>
-              </property>
-              <property name="topMargin">
-               <number>6</number>
-              </property>
-              <property name="rightMargin">
-               <number>6</number>
-              </property>
-              <property name="bottomMargin">
-               <number>6</number>
-              </property>
-              <property name="spacing">
-               <number>6</number>
-              </property>
-              <item row="1" column="1" colspan="2">
-               <spacer name="horizontalSpacer_7">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="0" column="3">
-               <widget class="QSpinBox" name="PNGIterations_SpinBox">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>10</number>
-                </property>
-                <property name="value">
-                 <number>5</number>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QSpinBox" name="PNGIterationsLarge_SpinBox">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>10</number>
-                </property>
-                <property name="value">
-                 <number>2</number>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="PNGIterations_Label">
-                <property name="text">
-                 <string>Iterations</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="PNGIterationsLarge_Label">
-                <property name="text">
-                 <string>Iterations (Large)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QCheckBox" name="PNGLossy8_CheckBox">
-                <property name="text">
-                 <string>Lossy 8 bit</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QCheckBox" name="PNGLossyTransparent_CheckBox">
-                <property name="text">
-                 <string>Lossy Transparent</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" colspan="2">
-               <spacer name="horizontalSpacer_6">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="lossless_Checkbox">
-             <property name="text">
-              <string>Lossless</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="keepMetadata_Checkbox">
-             <property name="text">
-              <string>Keep Metadata</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="advancedMode_Button">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>Advanced Mode</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <property name="autoRepeat">
-              <bool>false</bool>
-             </property>
-             <property name="autoExclusive">
-              <bool>false</bool>
-             </property>
-             <property name="default">
-              <bool>false</bool>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line">
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="resize_groupBox">
-          <property name="title">
-           <string>Resize</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_5">
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <widget class="QLabel" name="fitTo_Label">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>Resize to fit</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QComboBox" name="fitTo_ComboBox">
-                 <item>
-                  <property name="text">
-                   <string>Dimensions</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Percentage</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Short edge</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Long edge</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <item>
-                <widget class="QLabel" name="width_Label">
-                 <property name="text">
-                  <string>Width</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QSpinBox" name="width_SpinBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="suffix">
-                  <string>px</string>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>99999</number>
-                 </property>
-                 <property name="value">
-                  <number>1000</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="edge_Label">
-                 <property name="text">
-                  <string>Size</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QSpinBox" name="edge_SpinBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="suffix">
-                  <string>px</string>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>99999</number>
-                 </property>
-                 <property name="value">
-                  <number>1000</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QLabel" name="height_Label">
-                 <property name="text">
-                  <string>Height</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QSpinBox" name="height_SpinBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="suffix">
-                  <string>px</string>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>99999</number>
-                 </property>
-                 <property name="value">
-                  <number>1000</number>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="keepAspectRatio_CheckBox">
-               <property name="text">
-                <string>Keep aspect ratio</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="doNotEnlarge_CheckBox">
-               <property name="text">
-                <string>Do not enlarge</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="output_groupBox">
-          <property name="title">
-           <string>Output</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <widget class="QLabel" name="outputFolder_Label">
-             <property name="text">
-              <string>Folder</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <property name="spacing">
+             <property name="bottomMargin">
               <number>6</number>
              </property>
              <item>
-              <widget class="QLineEdit" name="outputFolder_LineEdit">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maxLength">
-                <number>1024</number>
-               </property>
-               <property name="frame">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="outputFolderBrowse_Button">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="text">
-                <string>...</string>
-               </property>
-               <property name="flat">
-                <bool>false</bool>
-               </property>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QFrame" name="compressionSlider_Frame">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>0</number>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                  <property name="spacing">
+                   <number>3</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>9</number>
+                  </property>
+                  <item>
+                   <widget class="QSlider" name="compression_Slider">
+                    <property name="maximum">
+                     <number>4</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
+                    <property name="value">
+                     <number>3</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="invertedControls">
+                     <bool>false</bool>
+                    </property>
+                    <property name="tickPosition">
+                     <enum>QSlider::TicksBelow</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="compressionSliderLabels_HorizontalLayout">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="compressionSliderSpeed_Label">
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Speed</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="compressionSliderLabels_Spacer">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>90</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="compressionSliderQuality_Label">
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Quality</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="JPEGOptions_GroupBox">
+                 <property name="title">
+                  <string>JPEG</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_2">
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="1">
+                   <spacer name="horizontalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="JPEGQuality_Label">
+                    <property name="text">
+                     <string>Quality</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QSpinBox" name="JPEGQuality_SpinBox">
+                    <property name="readOnly">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>80</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="3">
+                   <widget class="QSlider" name="JPEGQuality_Slider">
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>80</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="tickPosition">
+                     <enum>QSlider::TicksBelow</enum>
+                    </property>
+                    <property name="tickInterval">
+                     <number>10</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="PNGOptions_GroupBox">
+                 <property name="title">
+                  <string>PNG</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout">
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="PNGIterations_Label">
+                    <property name="text">
+                     <string>Iterations</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" colspan="2">
+                   <spacer name="horizontalSpacer_6">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QSpinBox" name="PNGIterationsLarge_SpinBox">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>2</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="2">
+                   <spacer name="horizontalSpacer_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QSpinBox" name="PNGIterations_SpinBox">
+                    <property name="wrapping">
+                     <bool>false</bool>
+                    </property>
+                    <property name="accelerated">
+                     <bool>false</bool>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>5</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QCheckBox" name="PNGLossyTransparent_CheckBox">
+                    <property name="text">
+                     <string>Lossy Transparent</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="PNGIterationsLarge_Label">
+                    <property name="text">
+                     <string>Iterations (Large)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QCheckBox" name="PNGLossy8_CheckBox">
+                    <property name="text">
+                     <string>Lossy 8 bit</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="lossless_Checkbox">
+                 <property name="text">
+                  <string>Lossless</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="keepMetadata_Checkbox">
+                 <property name="text">
+                  <string>Keep Metadata</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="advancedMode_HLayout">
+                 <item>
+                  <spacer name="horizontalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="advancedMode_CheckBox">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>Advanced Mode</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                   <property name="autoRepeat">
+                    <bool>false</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </item>
             </layout>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="sameOutputFolderAsInput_CheckBox">
-             <property name="text">
-              <string>Same folder as input</string>
+           </widget>
+           <widget class="QWidget" name="resize_Tab">
+            <attribute name="title">
+             <string>Resize</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_10">
+             <property name="leftMargin">
+              <number>6</number>
              </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="keepStructure_Checkbox">
-             <property name="enabled">
-              <bool>true</bool>
+             <property name="topMargin">
+              <number>6</number>
              </property>
-             <property name="text">
-              <string>Keep folder structure</string>
+             <property name="rightMargin">
+              <number>6</number>
              </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="outputSuffix_Label">
-             <property name="text">
-              <string>Suffix</string>
+             <property name="bottomMargin">
+              <number>6</number>
              </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="outputSuffix_LineEdit">
-             <property name="maxLength">
-              <number>128</number>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <item>
+                  <widget class="QLabel" name="fitTo_Label">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Resize to fit</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="fitTo_ComboBox">
+                   <item>
+                    <property name="text">
+                     <string>No resize</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Dimensions</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Percentage</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Short edge</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Long edge</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="width_Label">
+                   <property name="text">
+                    <string>Width</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="width_SpinBox">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="suffix">
+                    <string>px</string>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>99999</number>
+                   </property>
+                   <property name="value">
+                    <number>1000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="edge_Label">
+                   <property name="text">
+                    <string>Size</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="edge_SpinBox">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="suffix">
+                    <string>px</string>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>99999</number>
+                   </property>
+                   <property name="value">
+                    <number>1000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="height_Label">
+                   <property name="text">
+                    <string>Height</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="height_SpinBox">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="suffix">
+                    <string>px</string>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>99999</number>
+                   </property>
+                   <property name="value">
+                    <number>1000</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="doNotEnlarge_CheckBox">
+                 <property name="text">
+                  <string>Do not enlarge</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="keepAspectRatio_CheckBox">
+                 <property name="text">
+                  <string>Keep aspect ratio</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="output_Tab">
+            <attribute name="title">
+             <string>Output</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <property name="leftMargin">
+              <number>6</number>
              </property>
-             <property name="placeholderText">
-              <string>_compressed</string>
+             <property name="topMargin">
+              <number>6</number>
              </property>
-             <property name="clearButtonEnabled">
-              <bool>false</bool>
+             <property name="rightMargin">
+              <number>6</number>
              </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="updateAvailable_Button">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
+             <property name="bottomMargin">
+              <number>6</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <item>
+                <widget class="QLabel" name="outputFolder_Label">
+                 <property name="text">
+                  <string>Folder</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <property name="spacing">
+                  <number>6</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="outputFolder_LineEdit">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maxLength">
+                    <number>1024</number>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QPushButton" name="outputFolderBrowse_Button">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="sameOutputFolderAsInput_CheckBox">
+                 <property name="text">
+                  <string>Same folder as input</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="keepStructure_Checkbox">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="text">
+                  <string>Keep folder structure</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="Line" name="line">
+                 <property name="frameShadow">
+                  <enum>QFrame::Sunken</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>0</number>
+                 </property>
+                 <property name="midLineWidth">
+                  <number>1</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="outputSuffix_Label">
+                 <property name="text">
+                  <string>Suffix</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="outputSuffix_LineEdit">
+                 <property name="maxLength">
+                  <number>128</number>
+                 </property>
+                 <property name="frame">
+                  <bool>true</bool>
+                 </property>
+                 <property name="placeholderText">
+                  <string>_compressed</string>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="updateAvailable_Button">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
 	color: #059669;
 	text-decoration:underline;
 	padding: 0;
@@ -792,14 +894,32 @@
 QPushButton:pressed {
     background-color: transparent;
 }</string>
+           </property>
+           <property name="text">
+            <string>Restart to update</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QZoomGraphicsView" name="preview_graphicsView">
+          <property name="renderHints">
+           <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
           </property>
-          <property name="text">
-           <string>Restart to update</string>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
+          <property name="dragMode">
+           <enum>QGraphicsView::ScrollHandDrag</enum>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="graphicsView"/>
         </item>
        </layout>
       </widget>
@@ -814,7 +934,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -933,12 +1053,12 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>961</x>
-     <y>734</y>
+     <x>966</x>
+     <y>171</y>
     </hint>
     <hint type="destinationlabel">
-     <x>861</x>
-     <y>703</y>
+     <x>965</x>
+     <y>112</y>
     </hint>
    </hints>
   </connection>
@@ -949,108 +1069,28 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>961</x>
-     <y>734</y>
+     <x>966</x>
+     <y>171</y>
     </hint>
     <hint type="destinationlabel">
-     <x>960</x>
-     <y>706</y>
+     <x>613</x>
+     <y>143</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>JPEGQuality_Slider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>JPEGQuality_SpinBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>807</x>
-     <y>187</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>933</x>
-     <y>169</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>JPEGQuality_SpinBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>JPEGQuality_Slider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>916</x>
-     <y>156</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>835</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>advancedMode_Button</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>compressionSlider_Frame</receiver>
-   <slot>setHidden(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>665</x>
-     <y>440</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>667</x>
-     <y>100</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>advancedMode_Button</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>JPEGOptions_GroupBox</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>820</x>
-     <y>440</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>961</x>
-     <y>218</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>advancedMode_Button</sender>
+   <sender>advancedMode_CheckBox</sender>
    <signal>toggled(bool)</signal>
    <receiver>PNGOptions_GroupBox</receiver>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>761</x>
-     <y>435</y>
+     <x>965</x>
+     <y>444</y>
     </hint>
     <hint type="destinationlabel">
-     <x>701</x>
-     <y>329</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lossless_Checkbox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>JPEGQuality_Slider</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>616</x>
-     <y>379</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>654</x>
-     <y>192</y>
+     <x>966</x>
+     <y>302</y>
     </hint>
    </hints>
   </connection>
@@ -1061,12 +1101,76 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>603</x>
-     <y>372</y>
+     <x>966</x>
+     <y>396</y>
     </hint>
     <hint type="destinationlabel">
-     <x>755</x>
-     <y>83</y>
+     <x>963</x>
+     <y>81</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>JPEGQuality_SpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>JPEGQuality_Slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>957</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>957</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>advancedMode_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>JPEGOptions_GroupBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>965</x>
+     <y>444</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>966</x>
+     <y>213</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>JPEGQuality_Slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>JPEGQuality_SpinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>957</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>957</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lossless_Checkbox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>JPEGOptions_GroupBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>606</x>
+     <y>385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>537</x>
+     <y>186</y>
     </hint>
    </hints>
   </connection>

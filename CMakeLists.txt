@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 project(caesium_image_compressor LANGUAGES CXX)
+
+add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
 if (CMAKE_VERSION VERSION_LESS "3.7.0")
     set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -10,7 +12,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS views)
@@ -27,7 +29,7 @@ endif ()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-nullability-completeness")
 
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
-    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
+    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
 endif ()
 
 if (APPLE)
@@ -36,7 +38,7 @@ elseif (WIN32)
     link_directories("C:\\libcaesium\\lib")
 endif ()
 
-find_package(Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent Svg Network REQUIRED)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
@@ -88,4 +90,7 @@ if (APPLE)
 endif ()
 
 set_target_properties(caesium_image_compressor PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
-target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg Qt5::Network zip caesium)
+target_link_libraries(caesium_image_compressor PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip caesium)
+
+add_subdirectory(tests)
+add_test(NAME CsTests COMMAND CsTests)

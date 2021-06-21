@@ -57,7 +57,6 @@ private slots:
     void on_fitTo_ComboBox_currentIndexChanged(int index);
     void on_lossless_Checkbox_toggled(bool checked);
     void on_keepMetadata_Checkbox_toggled(bool checked);
-    void on_advancedMode_Button_toggled(bool checked);
     void on_JPEGQuality_Slider_valueChanged(int value);
     void on_JPEGQuality_SpinBox_valueChanged(int arg1);
     void on_PNGIterations_SpinBox_valueChanged(int arg1);
@@ -66,6 +65,8 @@ private slots:
     void on_PNGLossyTransparent_CheckBox_toggled(bool checked);
     void on_updateAvailable_Button_clicked();
     void cModelItemsChanged();
+    void on_advancedMode_CheckBox_toggled(bool checked);
+
 public slots:
     void updateAvailable(const QString &filePath);
     void runUpdate();
