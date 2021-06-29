@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     qDebug() << "Starting UI";
 
-//    qRegisterMetaTypeStreamOperators<QList<int>>();
+    qRegisterMetaTypeStreamOperators<QList<int>>();
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
@@ -29,8 +29,10 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->header()->setSectionResizeMode(CImageColumns::NAME, QHeaderView::Stretch);
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 
-    ui->JPEGOptions_GroupBox->setHidden(true);
-    ui->PNGOptions_GroupBox->setHidden(true);
+    ui->JPEGOptions_GroupBox->hide();
+    ui->PNGOptions_GroupBox->hide();
+    ui->edge_Label->hide();
+    ui->edge_SpinBox->hide();
 
     this->initStatusBar();
 
@@ -429,7 +431,11 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
     QSettings settings;
     switch (index) {
     default:
+    case ResizeMode::NO_RESIZE:
+        ui->resize_Frame->setDisabled(true);
+        break;
     case ResizeMode::DIMENSIONS:
+        ui->resize_Frame->setDisabled(false);
         ui->edge_Label->hide();
         ui->edge_SpinBox->hide();
         ui->width_Label->show();
@@ -443,6 +449,7 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
         ui->keepAspectRatio_CheckBox->setDisabled(true);
         break;
     case ResizeMode::PERCENTAGE:
+        ui->resize_Frame->setDisabled(false);
         ui->edge_Label->hide();
         ui->edge_SpinBox->hide();
         ui->width_Label->show();
@@ -457,6 +464,7 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
         break;
     case ResizeMode::SHORT_EDGE:
     case ResizeMode::LONG_EDGE:
+        ui->resize_Frame->setDisabled(false);
         ui->edge_Label->show();
         ui->edge_SpinBox->show();
         ui->width_Label->hide();
@@ -468,11 +476,6 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
     }
 
     this->writeSetting("compression_options/resize/fit_to", index);
-}
-
-void MainWindow::on_resize_groupBox_toggled(bool checked)
-{
-    this->writeSetting("compression_options/resize/resize", checked);
 }
 
 void MainWindow::on_width_SpinBox_valueChanged(int value)

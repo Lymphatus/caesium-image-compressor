@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>319</height>
+    <width>355</width>
+    <height>355</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -187,11 +187,6 @@
    </item>
    <item>
     <widget class="QLabel" name="copyright_Label">
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
      <property name="text">
       <string>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</string>
@@ -207,6 +202,7 @@ All rights reserved.</string>
   </layout>
  </widget>
  <resources>
+  <include location="../resources/resources.qrc"/>
   <include location="../resources/resources.qrc"/>
  </resources>
  <connections/>

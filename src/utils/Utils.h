@@ -26,10 +26,11 @@ enum CImageColumns
 
 enum ResizeMode
 {
-    DIMENSIONS = 0,
-    PERCENTAGE = 1,
-    SHORT_EDGE = 2,
-    LONG_EDGE = 3
+    NO_RESIZE = 0,
+    DIMENSIONS = 1,
+    PERCENTAGE = 2,
+    SHORT_EDGE = 3,
+    LONG_EDGE = 4
 };
 
 typedef struct CompressionOptions

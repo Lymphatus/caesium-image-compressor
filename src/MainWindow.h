@@ -42,7 +42,6 @@ private slots:
     void on_compression_Slider_valueChanged(int value);
     void on_actionRemove_triggered();
     void on_actionClear_triggered();
-    void on_resize_groupBox_toggled(bool checked);
     void on_width_SpinBox_valueChanged(int arg1);
     void on_height_SpinBox_valueChanged(int arg1);
     void on_edge_SpinBox_valueChanged(int arg1);
