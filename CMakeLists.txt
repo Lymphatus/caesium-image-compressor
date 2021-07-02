@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 project(caesium_image_compressor LANGUAGES CXX)
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
@@ -12,8 +15,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS views)
 
@@ -26,7 +28,8 @@ elseif(WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register")
 
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
@@ -40,11 +43,16 @@ endif ()
 
 find_package(Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network REQUIRED)
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip/src)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2/include)
+
+
 
 set(SOURCES
         src/main.cpp
@@ -90,7 +98,7 @@ if (APPLE)
 endif ()
 
 set_target_properties(caesium_image_compressor PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
-target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg Qt5::Network zip caesium)
+target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg Qt5::Network zip exiv2lib caesium)
 
 add_subdirectory(tests)
 add_test(NAME CsTests COMMAND CsTests)

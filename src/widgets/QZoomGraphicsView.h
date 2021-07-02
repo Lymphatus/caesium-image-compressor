@@ -4,6 +4,7 @@
 
 #include <QGraphicsView>
 #include <QWheelEvent>
+#include <QMouseEvent>
 
 class QZoomGraphicsView : public QGraphicsView
 {
@@ -11,9 +12,7 @@ class QZoomGraphicsView : public QGraphicsView
 
 public:
     explicit QZoomGraphicsView(QWidget *parent = 0);
-    void wheelEvent(QWheelEvent* event);
-    void resetScaleFactor();
-
+    void wheelEvent(QWheelEvent* event) override;
     float getScaleFactor() const;
 
 private:
@@ -24,6 +23,13 @@ private:
     const float MAX_ZOOM_OUT = 0.1;
 
     float scaleFactor = 1;
+
+public slots:
+    void setScaleFactor(QWheelEvent* event);
+
+signals:
+    void scaleFactorChanged(QWheelEvent* event);
+    void mouseMoved(QMouseEvent* event);
 };
 
 #endif // QZOOMGRAPHICSVIEW_H

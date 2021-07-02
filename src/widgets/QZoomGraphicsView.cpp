@@ -9,14 +9,25 @@ QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)
 
 void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
 {
+    this->setScaleFactor(event);
+    emit scaleFactorChanged(event);
+}
+
+float QZoomGraphicsView::getScaleFactor() const
+{
+    return scaleFactor;
+}
+
+void QZoomGraphicsView::setScaleFactor(QWheelEvent* event)
+{
     const ViewportAnchor anchor = transformationAnchor();
     setTransformationAnchor(QGraphicsView::AnchorViewCenter);
     int angle = event->angleDelta().y();
 
     qreal factor = 1;
-    if (angle > WHEEL_TOLERANCE) {
+    if ((float) angle > WHEEL_TOLERANCE) {
         factor = ZOOM_IN_RATIO;
-    } else if (angle < -WHEEL_TOLERANCE) {
+    } else if ((float) angle < -WHEEL_TOLERANCE) {
         factor = ZOOM_OUT_RATIO;
     }
 
@@ -29,14 +40,4 @@ void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
     scale(factor, factor);
 
     this->scaleFactor *= factor;
-}
-
-void QZoomGraphicsView::resetScaleFactor()
-{
-    this->scaleFactor = 1;
-}
-
-float QZoomGraphicsView::getScaleFactor() const
-{
-    return scaleFactor;
 }

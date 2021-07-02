@@ -6,7 +6,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QProgressDialog>
+#include <QScrollBar>
 #include <QStandardPaths>
+#include <QWheelEvent>
 #include <QtConcurrent>
 
 MainWindow::MainWindow(QWidget* parent)
@@ -20,9 +22,19 @@ MainWindow::MainWindow(QWidget* parent)
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
+    this->compressedPreviewScene = new QGraphicsScene();
     this->aboutDialog = new AboutDialog(this);
 
-    ui->preview_graphicsView->setScene(this->previewScene);
+    QScrollBar* graphicsViewHScrollBar = new QScrollBar(Qt::Horizontal);
+    QScrollBar* graphicsViewVScrollBar = new QScrollBar(Qt::Vertical);
+
+    ui->preview_GraphicsView->setHorizontalScrollBar(graphicsViewHScrollBar);
+    ui->previewCompressed_GraphicsView->setHorizontalScrollBar(graphicsViewHScrollBar);
+    ui->preview_GraphicsView->setVerticalScrollBar(graphicsViewVScrollBar);
+    ui->previewCompressed_GraphicsView->setVerticalScrollBar(graphicsViewVScrollBar);
+    ui->preview_GraphicsView->setScene(this->previewScene);
+    ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
+
     ui->imageList_TreeView->setModel(this->cImageModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
     ui->imageList_TreeView->header()->setSectionResizeMode(CImageColumns::NAME, QHeaderView::Stretch);
@@ -39,6 +51,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     connect(this->cImageModel, SIGNAL(itemsChanged()), this, SLOT(cModelItemsChanged()));
+    connect(ui->preview_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->previewCompressed_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
+    connect(ui->previewCompressed_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->preview_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
 
     this->readSettings();
 
@@ -125,7 +139,10 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/size", this->size());
     settings.setValue("mainwindow/pos", this->pos());
     settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->sidebar_HSplitter->sizes()));
-    settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_VSplitter->sizes()));
+    settings.setValue("mainwindow/previews_visible", ui->actionShow_previews->isChecked());
+    if (ui->actionShow_previews->isChecked()) {
+        settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_VSplitter->sizes()));
+    }
 
     settings.setValue("compression_options/compression/level", this->ui->compression_Slider->value());
     settings.setValue("compression_options/compression/lossless", this->ui->lossless_Checkbox->isChecked());
@@ -138,7 +155,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/png_lossy8", this->ui->PNGLossy8_CheckBox->isChecked());
     settings.setValue("compression_options/compression/png_transparent", this->ui->PNGLossyTransparent_CheckBox->isChecked());
 
-    settings.setValue("compression_options/resize/resize", this->ui->fitTo_ComboBox->currentIndex() == 0);
+    settings.setValue("compression_options/resize/resize", this->ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
     settings.setValue("compression_options/resize/fit_to", this->ui->fitTo_ComboBox->currentIndex());
     settings.setValue("compression_options/resize/width", this->ui->width_SpinBox->value());
     settings.setValue("compression_options/resize/height", this->ui->height_SpinBox->value());
@@ -167,6 +184,7 @@ void MainWindow::readSettings()
 
     this->ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
     this->ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
+    this->ui->actionShow_previews->setChecked(settings.value("mainwindow/previews_visible", true).toBool());
 
     this->ui->compression_Slider->setValue(settings.value("compression_options/compression/level", 4).toInt());
     this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
@@ -196,15 +214,31 @@ void MainWindow::readSettings()
 
 void MainWindow::previewImage(const QModelIndex& imageIndex)
 {
+    QSettings settings;
+    if (!settings.value("mainwindow/previews_visible", false).toBool()) {
+        return;
+    }
     this->previewScene->clear();
+    this->compressedPreviewScene->clear();
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
-    QPixmap pixmap(cImage->getCompressedFullPath().isEmpty() ? cImage->getFullPath() : cImage->getCompressedFullPath());
+    //    QPixmap pixmap(cImage->getCompressedFullPath().isEmpty() ? cImage->getFullPath() : cImage->getCompressedFullPath());
+    QPixmap pixmap(cImage->getFullPath());
     this->previewScene->addPixmap(pixmap);
 
     this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
-    ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
-    ui->preview_graphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
-    ui->preview_graphicsView->show();
+    ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+    ui->preview_GraphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
+    ui->preview_GraphicsView->show();
+
+    if (cImage->getStatus() == CImageStatus::COMPRESSED) {
+        QPixmap pixmapCompressed(cImage->getCompressedFullPath());
+        this->compressedPreviewScene->addPixmap(pixmapCompressed);
+
+        this->compressedPreviewScene->setSceneRect(this->previewScene->itemsBoundingRect());
+        ui->previewCompressed_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ui->previewCompressed_GraphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
+        ui->previewCompressed_GraphicsView->show();
+    }
 }
 
 void MainWindow::updateFolderMap(QString baseFolder, int count)
@@ -290,7 +324,7 @@ void MainWindow::removeFiles(bool all)
     }
     this->previewScene->clear();
     this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
-    ui->preview_graphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+    ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }
 
 void MainWindow::on_compress_Button_clicked()
@@ -339,7 +373,7 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->lossless_Checkbox->isChecked(),
         this->ui->keepMetadata_Checkbox->isChecked(),
         this->ui->keepStructure_Checkbox->isChecked(),
-        this->ui->fitTo_ComboBox->currentIndex() == 0,
+        this->ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE,
         this->ui->fitTo_ComboBox->currentIndex(),
         this->ui->width_SpinBox->value(),
         this->ui->height_SpinBox->value(),
@@ -631,3 +665,19 @@ void MainWindow::on_advancedMode_CheckBox_toggled(bool checked)
     this->writeSetting("compression_options/compression/advanced_mode", checked);
 }
 
+void MainWindow::on_actionShow_previews_toggled(bool toggled)
+{
+    this->writeSetting("mainwindow/previews_visible", toggled);
+
+    //TODO If manually collapsed, this is inconsistent
+    if (!toggled) {
+        this->writeSetting("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(ui->main_VSplitter->sizes()));
+        ui->main_VSplitter->setSizes(QList<int>({ 500, 0 }));
+    } else {
+        QSettings settings;
+        ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
+        if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
+            this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
+        }
+    }
+}

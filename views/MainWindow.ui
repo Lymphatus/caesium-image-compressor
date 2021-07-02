@@ -144,7 +144,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>1</number>
+            <number>2</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -158,7 +158,7 @@
               <number>6</number>
              </property>
              <property name="topMargin">
-              <number>6</number>
+              <number>9</number>
              </property>
              <property name="rightMargin">
               <number>6</number>
@@ -525,6 +525,18 @@
              <string>Resize</string>
             </attribute>
             <layout class="QVBoxLayout" name="verticalLayout_10">
+             <property name="leftMargin">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <property name="bottomMargin">
+              <number>6</number>
+             </property>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_3">
                <item>
@@ -762,7 +774,7 @@
               <number>6</number>
              </property>
              <property name="topMargin">
-              <number>6</number>
+              <number>9</number>
              </property>
              <property name="rightMargin">
               <number>6</number>
@@ -780,27 +792,20 @@
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout">
-                 <property name="spacing">
-                  <number>6</number>
+                <widget class="QLineEdit" name="outputFolder_LineEdit">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                 <item>
-                  <widget class="QLineEdit" name="outputFolder_LineEdit">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="maxLength">
-                    <number>1024</number>
-                   </property>
-                   <property name="frame">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                 <property name="maxLength">
+                  <number>1024</number>
+                 </property>
+                 <property name="frame">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -944,9 +949,9 @@ QPushButton:pressed {
        </widget>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget">
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QHBoxLayout" name="previews_HLayout">
         <item>
-         <widget class="QZoomGraphicsView" name="preview_graphicsView">
+         <widget class="QZoomGraphicsView" name="preview_GraphicsView">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
@@ -955,6 +960,12 @@ QPushButton:pressed {
           </property>
           <property name="lineWidth">
            <number>0</number>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
           </property>
           <property name="renderHints">
            <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
@@ -965,7 +976,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QGraphicsView" name="graphicsView">
+         <widget class="QZoomGraphicsView" name="previewCompressed_GraphicsView">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
@@ -974,6 +985,12 @@ QPushButton:pressed {
           </property>
           <property name="lineWidth">
            <number>0</number>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
           </property>
          </widget>
         </item>
@@ -990,7 +1007,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1017,8 +1034,15 @@ QPushButton:pressed {
     <addaction name="separator"/>
     <addaction name="actionSelect_All"/>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShow_previews"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionAbout_Caesium_Image_Compressor">
@@ -1069,6 +1093,17 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Clear</string>
+   </property>
+  </action>
+  <action name="actionShow_previews">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show previews</string>
    </property>
   </action>
  </widget>
@@ -1129,8 +1164,8 @@ QPushButton:pressed {
      <y>171</y>
     </hint>
     <hint type="destinationlabel">
-     <x>613</x>
-     <y>143</y>
+     <x>965</x>
+     <y>147</y>
     </hint>
    </hints>
   </connection>
@@ -1142,7 +1177,7 @@ QPushButton:pressed {
    <hints>
     <hint type="sourcelabel">
      <x>965</x>
-     <y>444</y>
+     <y>639</y>
     </hint>
     <hint type="destinationlabel">
      <x>966</x>
@@ -1190,7 +1225,7 @@ QPushButton:pressed {
    <hints>
     <hint type="sourcelabel">
      <x>965</x>
-     <y>444</y>
+     <y>639</y>
     </hint>
     <hint type="destinationlabel">
      <x>966</x>

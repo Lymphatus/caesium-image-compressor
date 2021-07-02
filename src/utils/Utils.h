@@ -61,4 +61,5 @@ QStringList scanDirectory(QString directory);
 cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata);
 QString getRootFolder(QMap<QString, int> folderMap);
 QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);
+bool copyMetadata(const char* input, const char* output);
 #endif // UTILS_H

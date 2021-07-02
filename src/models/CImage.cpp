@@ -111,7 +111,7 @@ bool CImage::compress(CompressionOptions compressionOptions)
     QString tempFileFullPath = "";
     bool outputAlreadyExists = QFile(outputFullPath).exists();
 
-    QTemporaryFile tempFile;
+    QTemporaryFile tempFile(outputPath + QDir::separator() + inputFileInfo.baseName() + ".XXXXXXXX." + inputFileInfo.completeSuffix());
     if (outputAlreadyExists || compressionOptions.resize) {
         if (tempFile.open()) {
             tempFileFullPath = tempFile.fileName();
@@ -170,9 +170,12 @@ bool CImage::compress(CompressionOptions compressionOptions)
 
     bool result = cs_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), &compress_pars, &res);
     if (result) {
+        if (keepMetadata) {
+            copyMetadata(this->getFullPath().toUtf8().constData(), tempFileFullPath.toUtf8().constData());
+        }
         QFileInfo outputInfo(tempFileFullPath);
         if ((outputAlreadyExists && outputInfo.size() < inputFileInfo.size()) || compressionOptions.resize) {
-            QFile::moveToTrash(outputFullPath);
+            QFile::remove(outputFullPath);
             bool copyResult = QFile::copy(tempFileFullPath, outputFullPath);
             if (!copyResult) {
                 return false;

@@ -66,6 +66,8 @@ private slots:
     void cModelItemsChanged();
     void on_advancedMode_CheckBox_toggled(bool checked);
 
+    void on_actionShow_previews_toggled(bool arg1);
+
 public slots:
     void updateAvailable(const QString &filePath);
     void runUpdate();
@@ -76,6 +78,7 @@ private:
     CImageTreeModel* cImageModel;
     QFutureWatcher<void> compressionWatcher;
     QGraphicsScene* previewScene;
+    QGraphicsScene* compressedPreviewScene;
     QMap<QString, int> folderMap;
     QThread updaterThread;
     AboutDialog* aboutDialog = nullptr;

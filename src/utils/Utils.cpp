@@ -3,7 +3,8 @@
 #include <QDebug>
 #include <QDir>
 #include <QDirIterator>
-#include <math.h>
+#include <cmath>
+#include <exiv2/exiv2.hpp>
 
 QString toHumanSize(size_t size)
 {
@@ -147,8 +148,8 @@ QImage cResize(QImage image, int fitTo, int width, int height, int size, bool do
             return image;
         }
 
-        int outputWidth = (int)round((float)originalWidth * (float)outputWidthPerc / 100);
-        int outputHeight = (int)round((float)originalHeight * (float)outputHeightPerc / 100);
+        int outputWidth = (int)round((double)originalWidth * (double)outputWidthPerc / 100);
+        int outputHeight = (int)round((double)originalHeight * (double)outputHeightPerc / 100);
         image = image.scaled(outputWidth, outputHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     } else if (fitTo == ResizeMode::LONG_EDGE || fitTo == ResizeMode::SHORT_EDGE) {
         //TODO Refactor this section
@@ -166,4 +167,35 @@ QImage cResize(QImage image, int fitTo, int width, int height, int size, bool do
     }
 
     return image;
+}
+
+bool copyMetadata(const char* input, const char* output)
+{
+    try {
+        Exiv2::XmpParser::initialize();
+        ::atexit(Exiv2::XmpParser::terminate);
+#ifdef EXV_ENABLE_BMFF
+        Exiv2::enableBMFF();
+#endif
+
+        Exiv2::Image::AutoPtr readImg = Exiv2::ImageFactory::open(input);
+        readImg->readMetadata();
+
+        Exiv2::Image::AutoPtr writeImg = Exiv2::ImageFactory::open(output);
+        writeImg->readMetadata();
+        writeImg->setIptcData(readImg->iptcData());
+        writeImg->setExifData(readImg->exifData());
+        writeImg->setComment(readImg->comment());
+        writeImg->setXmpData(readImg->xmpData());
+
+        try {
+            writeImg->writeMetadata();
+        } catch (const Exiv2::AnyError&) {
+            return false;
+        }
+
+        return true;
+    } catch (Exiv2::AnyError& e) {
+        return false;
+    }
 }
