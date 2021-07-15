@@ -15,8 +15,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-
-
 set(CMAKE_AUTOUIC_SEARCH_PATHS views)
 
 if (APPLE)
@@ -30,6 +28,9 @@ endif ()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register")
+
+set(EXIV2_BUILD_SAMPLES OFF)
+set(EXIV2_BUILD_EXIV2_COMMAND OFF)
 
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
@@ -66,10 +67,10 @@ set(SOURCES
         src/widgets/QZoomGraphicsView.cpp
         src/delegates/HtmlDelegate.cpp
         src/exceptions/ImageNotSupportedException.cpp
-        src/utils/Updater.cpp)
+        src/utils/Updater.cpp
+        src/dialogs/PreferencesDialog.cpp)
 
 set(HEADERS
-        src/vendor/caesium.h
         src/MainWindow.h
         src/models/CImage.h
         src/models/CImageTreeItem.h
@@ -80,11 +81,13 @@ set(HEADERS
         src/widgets/QZoomGraphicsView.h
         src/delegates/HtmlDelegate.h
         src/exceptions/ImageNotSupportedException.h
-        src/utils/Updater.h)
+        src/utils/Updater.h
+        src/dialogs/PreferencesDialog.h)
 
 set(UI
         views/MainWindow.ui
-        views/AboutDialog.ui)
+        views/AboutDialog.ui
+        views/PreferencesDialog.ui)
 
 set(RESOURCES resources/resources.qrc)
 

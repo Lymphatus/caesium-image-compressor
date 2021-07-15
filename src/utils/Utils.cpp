@@ -8,7 +8,6 @@
 
 QString toHumanSize(size_t size)
 {
-    //Check if size is 0 to avoid crashes
     if (size == 0) {
         return "0 bytes";
     }
@@ -19,10 +18,8 @@ QString toHumanSize(size_t size)
          << "Mb"
          << "Gb"
          << "Tb";
-    //Index of the array containing the correct unit
     double order = floor(log2(size) / 10);
 
-    //We should never handle files over 1k Tb, but...
     if (order > 4) {
         qWarning() << "Woah, that's huge!";
         order = 4;
@@ -52,54 +49,54 @@ QStringList scanDirectory(QString directory)
     return fileList;
 }
 
-cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata)
-{
-    cs_image_pars pars = initialize_parameters();
-    pars.jpeg.exif_copy = keepMetadata;
-    switch (level) {
-    case 0:
-        pars.jpeg.quality = 50;
-        pars.png.iterations = 1;
-        pars.png.iterations_large = 1;
-        pars.png.lossy_8 = true;
-        pars.png.transparent = true;
-        break;
-    case 2:
-        pars.jpeg.quality = 60;
-        pars.png.iterations = 2;
-        pars.png.iterations_large = 1;
-        pars.png.lossy_8 = true;
-        pars.png.transparent = true;
-        break;
-    case 3:
-        pars.jpeg.quality = 70;
-        pars.png.iterations = 3;
-        pars.png.iterations_large = 1;
-        pars.png.lossy_8 = true;
-        pars.png.transparent = true;
-        break;
-    default:
-    case 4:
-        pars.jpeg.quality = 80;
-        pars.png.iterations = 4;
-        pars.png.iterations_large = 2;
-        pars.png.lossy_8 = true;
-        pars.png.transparent = true;
-        break;
-    case 5:
-        pars.jpeg.quality = 100;
-        pars.png.iterations = 8;
-        pars.png.iterations_large = 4;
-        pars.png.lossy_8 = false;
-        pars.png.transparent = false;
-        break;
-    }
-
-    if (lossless) {
-        pars.jpeg.quality = 0;
-    }
-    return pars;
-}
+//cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata)
+//{
+//    cs_image_pars pars = initialize_parameters();
+//    pars.jpeg.exif_copy = keepMetadata;
+//    switch (level) {
+//    case 0:
+//        pars.jpeg.quality = 50;
+//        pars.png.iterations = 1;
+//        pars.png.iterations_large = 1;
+//        pars.png.lossy_8 = true;
+//        pars.png.transparent = true;
+//        break;
+//    case 2:
+//        pars.jpeg.quality = 60;
+//        pars.png.iterations = 2;
+//        pars.png.iterations_large = 1;
+//        pars.png.lossy_8 = true;
+//        pars.png.transparent = true;
+//        break;
+//    case 3:
+//        pars.jpeg.quality = 70;
+//        pars.png.iterations = 3;
+//        pars.png.iterations_large = 1;
+//        pars.png.lossy_8 = true;
+//        pars.png.transparent = true;
+//        break;
+//    default:
+//    case 4:
+//        pars.jpeg.quality = 80;
+//        pars.png.iterations = 4;
+//        pars.png.iterations_large = 2;
+//        pars.png.lossy_8 = true;
+//        pars.png.transparent = true;
+//        break;
+//    case 5:
+//        pars.jpeg.quality = 100;
+//        pars.png.iterations = 8;
+//        pars.png.iterations_large = 4;
+//        pars.png.lossy_8 = false;
+//        pars.png.transparent = false;
+//        break;
+//    }
+//
+//    if (lossless) {
+//        pars.jpeg.quality = 0;
+//    }
+//    return pars;
+//}
 
 QString getRootFolder(QMap<QString, int> folderMap)
 {
@@ -178,10 +175,10 @@ bool copyMetadata(const char* input, const char* output)
         Exiv2::enableBMFF();
 #endif
 
-        Exiv2::Image::AutoPtr readImg = Exiv2::ImageFactory::open(input);
+        auto readImg = Exiv2::ImageFactory::open(input);
         readImg->readMetadata();
 
-        Exiv2::Image::AutoPtr writeImg = Exiv2::ImageFactory::open(output);
+        auto writeImg = Exiv2::ImageFactory::open(output);
         writeImg->readMetadata();
         writeImg->setIptcData(readImg->iptcData());
         writeImg->setExifData(readImg->exifData());

@@ -6,6 +6,14 @@
 
 #include "../utils/Utils.h"
 
+struct C_CSParameters {
+    bool keep_metadata;
+    unsigned int jpeg_quality;
+    unsigned int png_level;
+    bool optimize;
+};
+extern "C" bool c_compress(const char *i, const char *o, C_CSParameters params);
+
 class CImage
 {
     const QList<QByteArray> supportedFormats = {"png", "jpg", "jpeg"};

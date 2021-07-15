@@ -128,24 +128,15 @@ bool CImage::compress(CompressionOptions compressionOptions)
         tempFileFullPath = outputFullPath;
     }
 
-    int compressionLevel = compressionOptions.compressionLevel;
     bool lossless = compressionOptions.lossless;
     bool keepMetadata = compressionOptions.keepMetadata;
-    int res = 0;
-    cs_image_pars compress_pars;
 
-    if (compressionOptions.advancedMode) {
-        compress_pars = initialize_parameters();
-        compress_pars.jpeg.quality = compressionOptions.lossless ? 0 : compressionOptions.advancedJPEGPars.quality;
-        compress_pars.jpeg.exif_copy = compressionOptions.advancedJPEGPars.exif_copy;
-
-        compress_pars.png.iterations = compressionOptions.advancedPNGPars.iterations;
-        compress_pars.png.iterations_large = compressionOptions.advancedPNGPars.iterations_large;
-        compress_pars.png.lossy_8 = compressionOptions.advancedPNGPars.lossy_8;
-        compress_pars.png.transparent = compressionOptions.advancedPNGPars.transparent;
-    } else {
-        compress_pars = getCompressionParametersFromLevel(compressionLevel, lossless, keepMetadata);
-    }
+    C_CSParameters r_parameters = {
+        keepMetadata,
+        static_cast<unsigned int>(compressionOptions.jpeg_quality),
+        static_cast<unsigned int>(compressionOptions.png_level),
+        lossless
+    };
 
     //Resize
     if (compressionOptions.resize) {
@@ -168,7 +159,7 @@ bool CImage::compress(CompressionOptions compressionOptions)
         }
     }
 
-    bool result = cs_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), &compress_pars, &res);
+    bool result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
     if (result) {
         if (keepMetadata) {
             copyMetadata(this->getFullPath().toUtf8().constData(), tempFileFullPath.toUtf8().constData());

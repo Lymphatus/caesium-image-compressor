@@ -10,6 +10,7 @@
 #include <QStandardPaths>
 #include <QWheelEvent>
 #include <QtConcurrent>
+#include <dialogs/PreferencesDialog.h>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -25,13 +26,6 @@ MainWindow::MainWindow(QWidget* parent)
     this->compressedPreviewScene = new QGraphicsScene();
     this->aboutDialog = new AboutDialog(this);
 
-    QScrollBar* graphicsViewHScrollBar = new QScrollBar(Qt::Horizontal);
-    QScrollBar* graphicsViewVScrollBar = new QScrollBar(Qt::Vertical);
-
-    ui->preview_GraphicsView->setHorizontalScrollBar(graphicsViewHScrollBar);
-    ui->previewCompressed_GraphicsView->setHorizontalScrollBar(graphicsViewHScrollBar);
-    ui->preview_GraphicsView->setVerticalScrollBar(graphicsViewVScrollBar);
-    ui->previewCompressed_GraphicsView->setVerticalScrollBar(graphicsViewVScrollBar);
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
 
@@ -41,18 +35,23 @@ MainWindow::MainWindow(QWidget* parent)
     ui->imageList_TreeView->header()->setSectionResizeMode(CImageColumns::NAME, QHeaderView::Stretch);
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 
-    ui->JPEGOptions_GroupBox->hide();
-    ui->PNGOptions_GroupBox->hide();
     ui->edge_Label->hide();
     ui->edge_SpinBox->hide();
 
     this->initStatusBar();
+    this->initListContextMenu();
 
-    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(imageList_selectionChanged(const QModelIndex&, const QModelIndex&)));
+    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)), this, SLOT(imageList_selectionChanged(QModelIndex,QModelIndex)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     connect(this->cImageModel, SIGNAL(itemsChanged()), this, SLOT(cModelItemsChanged()));
     connect(ui->preview_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->previewCompressed_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
     connect(ui->previewCompressed_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->preview_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
+    connect(ui->imageList_TreeView, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showListContextMenu(const QPoint &)));
+
+    connect(ui->preview_GraphicsView->horizontalScrollBar(), SIGNAL(valueChanged(int)), ui->previewCompressed_GraphicsView, SLOT(setHorizontalScrollBarValue(int)));
+    connect(ui->preview_GraphicsView->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->previewCompressed_GraphicsView, SLOT(setVerticalScrollBarValue(int)));
+    connect(ui->previewCompressed_GraphicsView->horizontalScrollBar(), SIGNAL(valueChanged(int)), ui->preview_GraphicsView, SLOT(setHorizontalScrollBarValue(int)));
+    connect(ui->previewCompressed_GraphicsView->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->preview_GraphicsView, SLOT(setVerticalScrollBarValue(int)));
 
     this->readSettings();
 
@@ -62,7 +61,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
 
-    //    this->initUpdater();
+    this->initUpdater();
 }
 
 MainWindow::~MainWindow()
@@ -82,6 +81,17 @@ void MainWindow::initStatusBar()
 {
     ui->updateAvailable_Button->setHidden(true);
     ui->statusbar->addPermanentWidget(ui->updateAvailable_Button);
+}
+
+void MainWindow::initListContextMenu()
+{
+    this->listContextMenu = new QMenu();
+
+    this->listContextMenu->addAction(ui->actionAdd_files);
+    this->listContextMenu->addAction(ui->actionAdd_folder);
+    this->listContextMenu->addSeparator();
+    this->listContextMenu->addAction(ui->actionRemove);
+    this->listContextMenu->addAction(ui->actionClear);
 }
 
 void MainWindow::on_actionAbout_Caesium_Image_Compressor_triggered()
@@ -136,6 +146,7 @@ void MainWindow::triggerImportFolder()
 void MainWindow::writeSettings()
 {
     QSettings settings;
+    settings.setValue("mainwindow/maximized", this->isMaximized());
     settings.setValue("mainwindow/size", this->size());
     settings.setValue("mainwindow/pos", this->pos());
     settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->sidebar_HSplitter->sizes()));
@@ -144,16 +155,11 @@ void MainWindow::writeSettings()
         settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_VSplitter->sizes()));
     }
 
-    settings.setValue("compression_options/compression/level", this->ui->compression_Slider->value());
-    settings.setValue("compression_options/compression/lossless", this->ui->lossless_Checkbox->isChecked());
-    settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_Checkbox->isChecked());
-    settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_Checkbox->isChecked());
-    settings.setValue("compression_options/compression/advanced_mode", this->ui->advancedMode_CheckBox->isChecked());
+    settings.setValue("compression_options/compression/lossless", this->ui->lossless_CheckBox->isChecked());
+    settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_CheckBox->isChecked());
+    settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_CheckBox->isChecked());
     settings.setValue("compression_options/compression/jpeg_quality", this->ui->JPEGQuality_Slider->value());
-    settings.setValue("compression_options/compression/png_iterations", this->ui->PNGIterations_SpinBox->value());
-    settings.setValue("compression_options/compression/png_iterations_large", this->ui->PNGIterationsLarge_SpinBox->value());
-    settings.setValue("compression_options/compression/png_lossy8", this->ui->PNGLossy8_CheckBox->isChecked());
-    settings.setValue("compression_options/compression/png_transparent", this->ui->PNGLossyTransparent_CheckBox->isChecked());
+    settings.setValue("compression_options/compression/png_level", this->ui->PNGLevel_Slider->value());
 
     settings.setValue("compression_options/resize/resize", this->ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
     settings.setValue("compression_options/resize/fit_to", this->ui->fitTo_ComboBox->currentIndex());
@@ -181,22 +187,20 @@ void MainWindow::readSettings()
     QSettings settings;
     this->resize(settings.value("mainwindow/size").toSize());
     this->move(settings.value("mainwindow/pos").toPoint());
+    if (settings.value("mainwindow/maximized", false).toBool()) {
+        this->showMaximized();
+    }
 
     this->ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
     this->ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
     this->ui->actionShow_previews->setChecked(settings.value("mainwindow/previews_visible", true).toBool());
 
-    this->ui->compression_Slider->setValue(settings.value("compression_options/compression/level", 4).toInt());
-    this->ui->lossless_Checkbox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
-    this->ui->keepMetadata_Checkbox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
-    this->ui->keepStructure_Checkbox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
-    this->ui->advancedMode_CheckBox->setChecked(settings.value("compression_options/compression/advanced_mode", false).toBool());
+    this->ui->lossless_CheckBox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
+    this->ui->keepMetadata_CheckBox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
+    this->ui->keepStructure_CheckBox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
     this->ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
+    this->ui->PNGLevel_Slider->setValue(settings.value("compression_options/compression/png_level", 3).toInt());
     this->ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
-    this->ui->PNGIterations_SpinBox->setValue(settings.value("compression_options/compression/png_iterations", 5).toInt());
-    this->ui->PNGIterationsLarge_SpinBox->setValue(settings.value("compression_options/compression/png_iterations_large", 2).toInt());
-    this->ui->PNGLossy8_CheckBox->setChecked(settings.value("compression_options/compression/png_lossy8", false).toBool());
-    this->ui->PNGLossyTransparent_CheckBox->setChecked(settings.value("compression_options/compression/png_transparent", false).toInt());
 
     this->ui->fitTo_ComboBox->setCurrentIndex(settings.value("compression_options/resize/fit_to", 0).toInt());
     this->ui->width_SpinBox->setValue(settings.value("compression_options/resize/width", 1000).toInt());
@@ -220,23 +224,28 @@ void MainWindow::previewImage(const QModelIndex& imageIndex)
     }
     this->previewScene->clear();
     this->compressedPreviewScene->clear();
+
+    ui->preview_GraphicsView->resetScaleFactor();
+    ui->previewCompressed_GraphicsView->resetScaleFactor();
+
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
-    //    QPixmap pixmap(cImage->getCompressedFullPath().isEmpty() ? cImage->getFullPath() : cImage->getCompressedFullPath());
     QPixmap pixmap(cImage->getFullPath());
     this->previewScene->addPixmap(pixmap);
 
     this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
     ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
-    ui->preview_GraphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
     ui->preview_GraphicsView->show();
 
     if (cImage->getStatus() == CImageStatus::COMPRESSED) {
         QPixmap pixmapCompressed(cImage->getCompressedFullPath());
         this->compressedPreviewScene->addPixmap(pixmapCompressed);
 
+        this->compressedPreviewScene->setSceneRect(this->compressedPreviewScene->itemsBoundingRect());
+        ui->previewCompressed_GraphicsView->fitInView(this->compressedPreviewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ui->previewCompressed_GraphicsView->show();
+    } else {
         this->compressedPreviewScene->setSceneRect(this->previewScene->itemsBoundingRect());
         ui->previewCompressed_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
-        ui->previewCompressed_GraphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
         ui->previewCompressed_GraphicsView->show();
     }
 }
@@ -323,7 +332,9 @@ void MainWindow::removeFiles(bool all)
         this->cImageModel->removeRows(indexes.at(i).row(), 1, indexes.at(i).parent());
     }
     this->previewScene->clear();
+    this->compressedPreviewScene->clear();
     this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
+    this->previewScene->setSceneRect(this->compressedPreviewScene->itemsBoundingRect());
     ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
 }
 
@@ -354,25 +365,13 @@ void MainWindow::on_compress_Button_clicked()
     //TODO add future cleanup
     progressDialog->show();
 
-    cs_jpeg_pars advancedJPEGPars;
-    cs_png_pars advancedPNGPars;
-
-    advancedJPEGPars.quality = qBound(this->ui->JPEGQuality_Slider->value(), 1, 100);
-    advancedJPEGPars.exif_copy = this->ui->keepMetadata_Checkbox->isChecked();
-
-    advancedPNGPars.iterations = this->ui->PNGIterations_SpinBox->value();
-    advancedPNGPars.iterations_large = this->ui->PNGIterationsLarge_SpinBox->value();
-    advancedPNGPars.lossy_8 = this->ui->PNGLossy8_CheckBox->isChecked();
-    advancedPNGPars.transparent = this->ui->PNGLossyTransparent_CheckBox->isChecked();
-
     CompressionOptions compressionOptions = {
         this->ui->outputFolder_LineEdit->text(),
         getRootFolder(this->folderMap),
         this->ui->outputSuffix_LineEdit->text(),
-        this->ui->compression_Slider->value(),
-        this->ui->lossless_Checkbox->isChecked(),
-        this->ui->keepMetadata_Checkbox->isChecked(),
-        this->ui->keepStructure_Checkbox->isChecked(),
+        this->ui->lossless_CheckBox->isChecked(),
+        this->ui->keepMetadata_CheckBox->isChecked(),
+        this->ui->keepStructure_CheckBox->isChecked(),
         this->ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE,
         this->ui->fitTo_ComboBox->currentIndex(),
         this->ui->width_SpinBox->value(),
@@ -380,9 +379,8 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->edge_SpinBox->value(),
         this->ui->doNotEnlarge_CheckBox->isChecked(),
         this->ui->sameOutputFolderAsInput_CheckBox->isChecked(),
-        this->ui->advancedMode_CheckBox->isChecked(),
-        advancedJPEGPars,
-        advancedPNGPars
+        qBound(this->ui->JPEGQuality_Slider->value(), 1, 100),
+        qBound(this->ui->PNGLevel_Slider->value(), 1, 7)
     };
 
     QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
@@ -401,6 +399,25 @@ void MainWindow::on_removeFiles_Button_clicked()
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
+    QSettings settings;
+    if (settings.value("preferences/general/prompt_before_exit", false).toBool()) {
+        QMessageBox messageBox(QMessageBox::NoIcon,
+                    tr("Are you sure?"),
+                    tr("Do you really want to quit?"),
+                    QMessageBox::Yes | QMessageBox::No,
+                    this);
+
+        messageBox.setButtonText(QMessageBox::Yes, tr("Yes"));
+        messageBox.setButtonText(QMessageBox::No, tr("Cancel"));
+
+        int answer = messageBox.exec();
+
+        if (answer == QMessageBox::No) {
+            event->ignore();
+            return;
+        }
+    }
+
     this->writeSettings();
     qInfo() << "---- Closing application ----";
     event->accept();
@@ -566,17 +583,17 @@ void MainWindow::on_sameOutputFolderAsInput_CheckBox_toggled(bool checked)
     this->writeSetting("compression_options/output/same_folder_as_input", checked);
 }
 
-void MainWindow::on_keepStructure_Checkbox_toggled(bool checked)
+void MainWindow::on_keepStructure_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/keep_structure", checked);
 }
 
-void MainWindow::on_lossless_Checkbox_toggled(bool checked)
+void MainWindow::on_lossless_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/lossless", checked);
 }
 
-void MainWindow::on_keepMetadata_Checkbox_toggled(bool checked)
+void MainWindow::on_keepMetadata_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/keep_metadata", checked);
 }
@@ -589,6 +606,16 @@ void MainWindow::on_JPEGQuality_Slider_valueChanged(int value)
 void MainWindow::on_JPEGQuality_SpinBox_valueChanged(int value)
 {
     this->writeSetting("compression_options/compression/jpeg_quality", value);
+}
+
+void MainWindow::on_PNGLevel_Slider_valueChanged(int value)
+{
+    this->writeSetting("compression_options/compression/png_level", value);
+}
+
+void MainWindow::on_PNGLevel_SpinBox_valueChanged(int value)
+{
+    this->writeSetting("compression_options/compression/png_level", value);
 }
 
 void MainWindow::on_PNGIterations_SpinBox_valueChanged(int value)
@@ -638,6 +665,10 @@ void MainWindow::updateAvailable(const QString& filePath)
 
 void MainWindow::initUpdater()
 {
+    QSettings settings;
+    if (!settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
+        return;
+    }
     auto* updater = new Updater();
     updater->moveToThread(&updaterThread);
 
@@ -659,12 +690,6 @@ void MainWindow::runUpdate()
     QCoreApplication::quit();
 }
 
-void MainWindow::on_advancedMode_CheckBox_toggled(bool checked)
-{
-    this->ui->compressionSlider_Frame->setVisible(!checked);
-    this->writeSetting("compression_options/compression/advanced_mode", checked);
-}
-
 void MainWindow::on_actionShow_previews_toggled(bool toggled)
 {
     this->writeSetting("mainwindow/previews_visible", toggled);
@@ -681,3 +706,17 @@ void MainWindow::on_actionShow_previews_toggled(bool toggled)
         }
     }
 }
+
+void MainWindow::showListContextMenu(const QPoint &pos)
+{
+    this->listContextMenu->exec(ui->imageList_TreeView->viewport()->mapToGlobal(pos));
+}
+
+void MainWindow::on_actionPreferences_triggered()
+{
+    PreferencesDialog* preferencesDialog = new PreferencesDialog(this);
+    preferencesDialog->setModal(true);
+
+    preferencesDialog->show();
+}
+

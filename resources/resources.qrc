@@ -8,5 +8,7 @@
         <file>icons/compression_statuses/error.svg</file>
         <file>i18n/caesium_en_US.qm</file>
         <file>i18n/caesium_it_IT.qm</file>
+        <file>icons/ui/language.svg</file>
+        <file>icons/ui/settings.svg</file>
     </qresource>
 </RCC>

@@ -1,6 +1,7 @@
 #include "QZoomGraphicsView.h"
 
 #include <QDebug>
+#include <QScrollBar>
 
 QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)
     : QGraphicsView(parent)
@@ -9,25 +10,25 @@ QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)
 
 void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
 {
+    this->zooming = true;
     this->setScaleFactor(event);
     emit scaleFactorChanged(event);
-}
-
-float QZoomGraphicsView::getScaleFactor() const
-{
-    return scaleFactor;
+    this->zooming = false;
+    emit this->horizontalScrollBar()->valueChanged(this->horizontalScrollBar()->value());
+    emit this->verticalScrollBar()->valueChanged(this->verticalScrollBar()->value());
 }
 
 void QZoomGraphicsView::setScaleFactor(QWheelEvent* event)
 {
+
     const ViewportAnchor anchor = transformationAnchor();
     setTransformationAnchor(QGraphicsView::AnchorViewCenter);
     int angle = event->angleDelta().y();
 
     qreal factor = 1;
-    if ((float) angle > WHEEL_TOLERANCE) {
+    if ((float)angle > WHEEL_TOLERANCE) {
         factor = ZOOM_IN_RATIO;
-    } else if ((float) angle < -WHEEL_TOLERANCE) {
+    } else if ((float)angle < -WHEEL_TOLERANCE) {
         factor = ZOOM_OUT_RATIO;
     }
 
@@ -40,4 +41,28 @@ void QZoomGraphicsView::setScaleFactor(QWheelEvent* event)
     scale(factor, factor);
 
     this->scaleFactor *= factor;
+}
+
+void QZoomGraphicsView::resetScaleFactor()
+{
+    this->scaleFactor = 1;
+}
+
+bool QZoomGraphicsView::isZooming() const
+{
+    return zooming;
+}
+
+void QZoomGraphicsView::setHorizontalScrollBarValue(int value)
+{
+    if (!this->zooming) {
+        this->horizontalScrollBar()->setValue(value);
+    }
+}
+
+void QZoomGraphicsView::setVerticalScrollBarValue(int value)
+{
+    if (!this->zooming) {
+        this->verticalScrollBar()->setValue(value);
+    }
 }

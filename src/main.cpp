@@ -5,6 +5,7 @@
 #include <QDateTime>
 #include <QStandardPaths>
 #include <QTranslator>
+#include <QSettings>
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
@@ -30,12 +31,29 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
     }
 }
 
+void loadLocale(QTranslator* translator)
+{
+    QSettings settings;
+
+    int localeIndex = settings.value("preferences/language/locale", 0).toInt();
+    QLocale locale = QLocale();
+    if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
+        localeIndex = 0;
+    }
+    if (localeIndex != 0) {
+        locale = QLocale(LANGUAGES[localeIndex].locale);
+    }
+    if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
+        QCoreApplication::installTranslator(translator);
+    }
+}
+
 int main(int argc, char* argv[])
 {
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("com.saerasoft.caesium");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.0.0-alpha.4");
+    QCoreApplication::setApplicationVersion("2.0.0-alpha.5");
 
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);
@@ -45,9 +63,7 @@ int main(int argc, char* argv[])
     parser.process(a);
 
     QTranslator translator;
-    if (translator.load(QLocale(), QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
-        QCoreApplication::installTranslator(&translator);
-    }
+    loadLocale(&translator);
 
     qInfo() << "---- Starting application ----";
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);

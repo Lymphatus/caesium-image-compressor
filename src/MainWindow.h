@@ -49,24 +49,26 @@ private slots:
     void on_doNotEnlarge_CheckBox_toggled(bool checked);
     void on_actionSelect_All_triggered();
     void on_sameOutputFolderAsInput_CheckBox_toggled(bool checked);
-    void on_keepStructure_Checkbox_toggled(bool checked);
+    void on_keepStructure_CheckBox_toggled(bool checked);
     void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
     void compressionFinished();
     void dropFinished(QStringList filePaths);
     void on_fitTo_ComboBox_currentIndexChanged(int index);
-    void on_lossless_Checkbox_toggled(bool checked);
-    void on_keepMetadata_Checkbox_toggled(bool checked);
+    void on_lossless_CheckBox_toggled(bool checked);
+    void on_keepMetadata_CheckBox_toggled(bool checked);
     void on_JPEGQuality_Slider_valueChanged(int value);
+    void on_PNGLevel_Slider_valueChanged(int value);
     void on_JPEGQuality_SpinBox_valueChanged(int arg1);
+    void on_PNGLevel_SpinBox_valueChanged(int arg1);
     void on_PNGIterations_SpinBox_valueChanged(int arg1);
     void on_PNGIterationsLarge_SpinBox_valueChanged(int arg1);
     void on_PNGLossy8_CheckBox_toggled(bool checked);
     void on_PNGLossyTransparent_CheckBox_toggled(bool checked);
     void on_updateAvailable_Button_clicked();
     void cModelItemsChanged();
-    void on_advancedMode_CheckBox_toggled(bool checked);
-
+    void showListContextMenu(const QPoint &pos);
     void on_actionShow_previews_toggled(bool arg1);
+    void on_actionPreferences_triggered();
 
 public slots:
     void updateAvailable(const QString &filePath);
@@ -86,9 +88,11 @@ private:
     QString updateFilePath;
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
+    QMenu* listContextMenu;
 
     void initStatusBar();
     void initUpdater();
+    void initListContextMenu();
 
     void importFiles(const QStringList& fileList, QString baseFolder);
     void removeFiles(bool all = false);

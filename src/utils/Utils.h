@@ -7,8 +7,6 @@
 #include <QString>
 #include <QStringList>
 
-#include "../vendor/caesium.h"
-
 enum class CImageStatus {
     UNCOMPRESSED,
     COMPRESSING,
@@ -33,12 +31,16 @@ enum ResizeMode
     LONG_EDGE = 4
 };
 
+typedef struct CsLocale {
+    QString locale;
+    QString label;
+} CsLocale;
+
 typedef struct CompressionOptions
 {
     QString outputPath;
     QString basePath;
     QString suffix;
-    int compressionLevel;
     bool lossless;
     bool keepMetadata;
     bool keepStructure;
@@ -49,16 +51,22 @@ typedef struct CompressionOptions
     int size;
     bool doNotEnlarge;
     bool sameFolderAsInput;
-    bool advancedMode;
-    cs_jpeg_pars advancedJPEGPars;
-    cs_png_pars advancedPNGPars;
-
+    int jpeg_quality;
+    int png_level;
 } CompressionOptions;
+
+const int LANGUAGES_COUNT = 3;
+
+const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
+    {QString("default"), QString("Default")},
+    {QString("en_US"), QString("English (US)")},
+    {QString("it_IT"), QString("Italiano")},
+};
 
 //Utilities
 QString toHumanSize(size_t size);
 QStringList scanDirectory(QString directory);
-cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata);
+//cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata);
 QString getRootFolder(QMap<QString, int> folderMap);
 QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);
 bool copyMetadata(const char* input, const char* output);
