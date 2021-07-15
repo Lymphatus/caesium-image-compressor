@@ -32,6 +32,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprec
 set(EXIV2_BUILD_SAMPLES OFF)
 set(EXIV2_BUILD_EXIV2_COMMAND OFF)
 
+set(ZLIB_INCLUDE_DIR "")
+set(EXIV2_ENABLE_XMP OFF)
+set(EXIV2_ENABLE_PNG OFF)
+
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
 endif ()
@@ -52,8 +56,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2/include)
-
-
 
 set(SOURCES
         src/main.cpp
