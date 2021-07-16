@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>i18n/caesium_en_US.qm</file>
+        <file>i18n/caesium_it_IT.qm</file>
+    </qresource>
+</RCC>

@@ -441,11 +441,6 @@ void MainWindow::on_outputSuffix_LineEdit_textChanged(const QString& arg1)
     this->writeSetting("compression_options/output/output_suffix", arg1);
 }
 
-void MainWindow::on_compression_Slider_valueChanged(int value)
-{
-    this->writeSetting("compression_options/compression/level", value);
-}
-
 void MainWindow::imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous)
 {
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 1 || current.row() == previous.row() || current.row() == -1) {
@@ -616,26 +611,6 @@ void MainWindow::on_PNGLevel_Slider_valueChanged(int value)
 void MainWindow::on_PNGLevel_SpinBox_valueChanged(int value)
 {
     this->writeSetting("compression_options/compression/png_level", value);
-}
-
-void MainWindow::on_PNGIterations_SpinBox_valueChanged(int value)
-{
-    this->writeSetting("compression_options/compression/png_iterations", value);
-}
-
-void MainWindow::on_PNGIterationsLarge_SpinBox_valueChanged(int value)
-{
-    this->writeSetting("compression_options/compression/png_iterations_large", value);
-}
-
-void MainWindow::on_PNGLossy8_CheckBox_toggled(bool checked)
-{
-    this->writeSetting("compression_options/compression/png_lossy8", checked);
-}
-
-void MainWindow::on_PNGLossyTransparent_CheckBox_toggled(bool checked)
-{
-    this->writeSetting("compression_options/compression/png_transparent", checked);
 }
 
 void MainWindow::cModelItemsChanged()

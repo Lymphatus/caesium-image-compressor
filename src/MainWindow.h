@@ -39,7 +39,6 @@ private slots:
     void on_removeFiles_Button_clicked();
     void on_outputFolderBrowse_Button_clicked();
     void on_outputSuffix_LineEdit_textChanged(const QString& arg1);
-    void on_compression_Slider_valueChanged(int value);
     void on_actionRemove_triggered();
     void on_actionClear_triggered();
     void on_width_SpinBox_valueChanged(int arg1);
@@ -60,10 +59,6 @@ private slots:
     void on_PNGLevel_Slider_valueChanged(int value);
     void on_JPEGQuality_SpinBox_valueChanged(int arg1);
     void on_PNGLevel_SpinBox_valueChanged(int arg1);
-    void on_PNGIterations_SpinBox_valueChanged(int arg1);
-    void on_PNGIterationsLarge_SpinBox_valueChanged(int arg1);
-    void on_PNGLossy8_CheckBox_toggled(bool checked);
-    void on_PNGLossyTransparent_CheckBox_toggled(bool checked);
     void on_updateAvailable_Button_clicked();
     void cModelItemsChanged();
     void showListContextMenu(const QPoint &pos);

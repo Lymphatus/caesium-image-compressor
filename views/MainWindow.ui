@@ -34,11 +34,11 @@
            <property name="contextMenuPolicy">
             <enum>Qt::CustomContextMenu</enum>
            </property>
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
+           <property name="lineWidth">
+            <number>0</number>
            </property>
-           <property name="frameShadow">
-            <enum>QFrame::Plain</enum>
+           <property name="midLineWidth">
+            <number>1</number>
            </property>
            <property name="dragDropMode">
             <enum>QAbstractItemView::DropOnly</enum>
