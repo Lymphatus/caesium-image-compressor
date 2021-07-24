@@ -2,7 +2,7 @@
 ##### v2.0.0-alpha.5 - Copyright &copy; Matteo Paonessa, 2021. All Rights Reserved.
 ##### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
 
-![caesium_screenshot](https://user-images.githubusercontent.com/12133996/126871225-bce66aa5-cf6f-4455-ac2c-19915944834e.png)
+![caesium_screenshot](https://user-images.githubusercontent.com/12133996/126871376-0816f6a8-eaa8-4ea8-a051-a7ddaf6c2e36.png)
 
 ----------
 
