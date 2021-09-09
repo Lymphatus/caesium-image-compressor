@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("com.saerasoft.caesium");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.0.0-alpha.5");
+    QCoreApplication::setApplicationVersion("2.0.0-beta.1");
 
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);
@@ -65,8 +65,10 @@ int main(int argc, char* argv[])
     QTranslator translator;
     loadLocale(&translator);
 
+    QSettings settings;
+    settings.setValue("application/build_number", "C21-200-20210804");
+
     qInfo() << "---- Starting application ----";
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     MainWindow w;
     w.show();
 

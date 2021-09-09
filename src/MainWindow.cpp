@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     qDebug() << "Starting UI";
 
-    qRegisterMetaTypeStreamOperators<QList<int>>();
-
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
     this->compressedPreviewScene = new QGraphicsScene();
@@ -81,6 +79,9 @@ void MainWindow::initStatusBar()
 {
     ui->updateAvailable_Button->setHidden(true);
     ui->statusbar->addPermanentWidget(ui->updateAvailable_Button);
+    ui->statusbar->addPermanentWidget(ui->version_Label);
+    ui->version_Label->setText(QCoreApplication::applicationVersion());
+
 }
 
 void MainWindow::initListContextMenu()
@@ -132,6 +133,10 @@ void MainWindow::triggerImportFolder()
     QString directoryPath = QFileDialog::getExistingDirectory(this, tr("Import folder..."),
         this->lastOpenedDirectory,
         QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+
+    if (directoryPath.isEmpty()) {
+        return;
+    }
 
     QStringList fileList = scanDirectory(directoryPath);
 
@@ -350,6 +355,7 @@ void MainWindow::on_compress_Button_clicked()
         msgBox.exec();
         return;
     }
+
     if (this->cImageModel->getRootItem()->childCount() == 0) {
         return;
     }
@@ -624,6 +630,7 @@ void MainWindow::cModelItemsChanged()
     ui->actionRemove->setDisabled(itemsCount == 0);
     ui->actionClear->setDisabled(itemsCount == 0);
     ui->actionSelect_All->setDisabled(itemsCount == 0);
+    ui->compress_Button->setDisabled(itemsCount == 0);
 }
 
 void MainWindow::on_updateAvailable_Button_clicked()

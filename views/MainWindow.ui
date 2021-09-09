@@ -124,6 +124,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="compress_Button">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="text">
               <string>Compress</string>
              </property>
@@ -141,7 +144,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>1</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -205,8 +208,17 @@
                   </item>
                   <item row="0" column="2">
                    <widget class="QSpinBox" name="JPEGQuality_SpinBox">
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>0</height>
+                     </size>
+                    </property>
                     <property name="readOnly">
                      <bool>false</bool>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
                     </property>
                     <property name="maximum">
                      <number>100</number>
@@ -302,6 +314,15 @@
                   </item>
                   <item row="0" column="2">
                    <widget class="QSpinBox" name="PNGLevel_SpinBox">
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
                     <property name="minimum">
                      <number>1</number>
                     </property>
@@ -471,6 +492,21 @@
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>50</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
+                    <property name="accelerated">
+                     <bool>false</bool>
+                    </property>
+                    <property name="showGroupSeparator" stdset="0">
+                     <bool>false</bool>
+                    </property>
                     <property name="suffix">
                      <string>px</string>
                     </property>
@@ -499,6 +535,21 @@
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>50</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
+                    <property name="accelerated">
+                     <bool>false</bool>
+                    </property>
+                    <property name="showGroupSeparator" stdset="0">
+                     <bool>false</bool>
                     </property>
                     <property name="suffix">
                      <string>px</string>
@@ -541,6 +592,21 @@
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>50</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
+                    <property name="accelerated">
+                     <bool>false</bool>
+                    </property>
+                    <property name="showGroupSeparator" stdset="0">
+                     <bool>false</bool>
                     </property>
                     <property name="suffix">
                      <string>px</string>
@@ -719,9 +785,6 @@
                  <property name="frame">
                   <bool>true</bool>
                  </property>
-                 <property name="placeholderText">
-                  <string>_compressed</string>
-                 </property>
                  <property name="clearButtonEnabled">
                   <bool>false</bool>
                  </property>
@@ -748,12 +811,6 @@
          </item>
          <item>
           <widget class="QPushButton" name="updateAvailable_Button">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
@@ -773,6 +830,16 @@ QPushButton:pressed {
            </property>
            <property name="flat">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="version_Label">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string/>
            </property>
           </widget>
          </item>
@@ -1000,12 +1067,12 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>171</y>
+     <x>633</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
-     <x>965</x>
-     <y>112</y>
+     <x>633</x>
+     <y>97</y>
     </hint>
    </hints>
   </connection>
@@ -1016,12 +1083,12 @@ QPushButton:pressed {
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>171</y>
+     <x>633</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
-     <x>965</x>
-     <y>145</y>
+     <x>633</x>
+     <y>97</y>
     </hint>
    </hints>
   </connection>

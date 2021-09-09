@@ -3,7 +3,6 @@
 
 #include "utils/Utils.h"
 #include <QSettings>
-#include <QComboBox>
 
 PreferencesDialog::PreferencesDialog(QWidget *parent) :
     QDialog(parent),

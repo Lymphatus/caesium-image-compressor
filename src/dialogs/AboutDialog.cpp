@@ -11,7 +11,13 @@ AboutDialog::AboutDialog(QWidget* parent)
     ui->setupUi(this);
 
     ui->version_Label->setText(QCoreApplication::applicationVersion());
+    auto pbSizePolicy = ui->checkForUpdates_ProgressBar->sizePolicy();
+    pbSizePolicy.setRetainSizeWhenHidden(true);
+    ui->checkForUpdates_ProgressBar->setSizePolicy(pbSizePolicy);
     ui->checkForUpdates_ProgressBar->setVisible(false);
+    auto slSizePolicy = ui->updateStatus_Label->sizePolicy();
+    slSizePolicy.setRetainSizeWhenHidden(true);
+    ui->updateStatus_Label->setSizePolicy(slSizePolicy);
     ui->updateStatus_Label->setVisible(false);
 
     this->setAttribute(Qt::WA_DeleteOnClose, true);

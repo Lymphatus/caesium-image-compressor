@@ -26,7 +26,7 @@ public slots:
 private:
     Ui::AboutDialog *ui;
     QThread updaterThread;
-    bool hasPendingUpdate;
+    bool hasPendingUpdate = false;
     QString updateFilePath;
 };
 

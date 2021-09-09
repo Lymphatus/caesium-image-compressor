@@ -7,13 +7,15 @@
 #include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QSettings>
 #include <QStandardPaths>
+#include <QtGlobal>
 
 Updater::Updater()
     : QObject()
 {
-    updateEndpoints << "https://saerasoft.com/repository/" + QCoreApplication::organizationDomain() + "/" + QSysInfo::productType() + "/"
-                    << "http://saerasoft.test/repository/" + QCoreApplication::organizationDomain() + "/" + QSysInfo::productType() + "/";
+    updateEndpoints << "http://saerasoft.test/repository/" + QCoreApplication::organizationDomain() + "/" + QSysInfo::productType() + "/"
+                    << "https://saerasoft.com/repository/" + QCoreApplication::organizationDomain() + "/" + QSysInfo::productType() + "/";
 
     updateFile = new QFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/com.saerasoft.caesium.zip");
     downloadUpdateReply = nullptr;
@@ -44,7 +46,7 @@ int on_extract_entry(const char* filename, void* arg)
 
 void Updater::checkForUpdates()
 {
-    return this->sendCheckForUpdateRequest(updateEndpoints[currentEndpointIndex]);
+    return this->sendCheckForUpdateRequest(updateEndpoints[(int)currentEndpointIndex]);
 }
 
 void Updater::checkForUpdates(const QString& endpoint)
@@ -88,11 +90,12 @@ void Updater::retryCheckForUpdates()
     }
 
     currentEndpointIndex++;
-    return this->checkForUpdates(updateEndpoints[currentEndpointIndex]);
+    return this->checkForUpdates(updateEndpoints[(int)currentEndpointIndex]);
 }
 
 void Updater::parseRemoteMetadata(const QJsonDocument& jsonDocument)
 {
+    QSettings settings;
     QJsonObject jsonObject = jsonDocument.object();
 
     if (!jsonObject.contains("version") || !jsonObject["version"].isString()) {
@@ -107,9 +110,11 @@ void Updater::parseRemoteMetadata(const QJsonDocument& jsonDocument)
         return;
     }
 
-    QString latestVersion = jsonObject.value("version").toString();
+    auto latestVersion = jsonObject.value("version").toString();
+    auto currentBuild = settings.value("application/build_number", "000").toString();
 
-    if (latestVersion.compare(QCoreApplication::applicationVersion()) <= 0) {
+    qInfo() << "[UPDATER] Current version:" << currentBuild << "| Remote version:" << latestVersion;
+    if (QString::compare(latestVersion, currentBuild, Qt::CaseSensitive) < 0) {
         qInfo() << "[UPDATER] Current version is latest.";
         emit finished();
         return;
@@ -117,7 +122,7 @@ void Updater::parseRemoteMetadata(const QJsonDocument& jsonDocument)
 
     remoteUpdateHash = jsonObject.value("hash").toString();
 
-    QString updatesEndpoint = updateEndpoints[currentEndpointIndex] + latestVersion + "/com.saerasoft.caesium.zip";
+    QString updatesEndpoint = updateEndpoints[(int)currentEndpointIndex] + latestVersion + "/com.saerasoft.caesium.zip";
     this->downloadUpdateData(updatesEndpoint);
 }
 

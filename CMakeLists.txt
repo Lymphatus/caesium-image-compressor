@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
@@ -34,7 +34,9 @@ set(EXIV2_BUILD_SAMPLES OFF)
 set(EXIV2_BUILD_EXIV2_COMMAND OFF)
 set(EXIV2_ENABLE_XMP OFF)
 set(EXIV2_ENABLE_PNG OFF)
-set(ZLIB_INCLUDE_DIR "")
+if(WIN32)
+ set(ZLIB_INCLUDE_DIR "")
+endif()
 
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
@@ -46,7 +48,7 @@ elseif (WIN32)
     link_directories("C:\\libcaesium\\lib")
 endif ()
 
-find_package(Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2)
@@ -96,7 +98,7 @@ SET(TS_FILES
         resources/i18n/caesium_it_IT.ts)
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
-qt5_create_translation(QM_FILES
+qt6_create_translation(QM_FILES
         ${CMAKE_SOURCE_DIR}
         ${TS_FILES})
 
@@ -115,7 +117,7 @@ if (APPLE)
 endif ()
 
 set_target_properties(caesium_image_compressor PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
-target_link_libraries(caesium_image_compressor PRIVATE Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Concurrent Qt5::Svg Qt5::Network zip exiv2lib caesium)
+target_link_libraries(caesium_image_compressor PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip exiv2lib caesium)
 
 add_subdirectory(tests)
 add_test(NAME CsTests COMMAND CsTests)
