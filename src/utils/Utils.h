@@ -1,5 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
+#define _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
 
 #include <QImage>
 #include <QMap>

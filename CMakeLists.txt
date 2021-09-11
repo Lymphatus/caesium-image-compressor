@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
-
-set(CMAKE_CXX_STANDARD 17)
+set(TARGET caesium_image_compressor)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
-project(caesium_image_compressor LANGUAGES CXX)
+project(${TARGET} LANGUAGES CXX)
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -24,15 +25,15 @@ elseif (WIN32)
 endif ()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
 
 set(EXIV2_BUILD_SAMPLES OFF)
 set(EXIV2_BUILD_EXIV2_COMMAND OFF)
 set(EXIV2_ENABLE_XMP OFF)
 set(EXIV2_ENABLE_PNG OFF)
-if(WIN32)
- set(ZLIB_INCLUDE_DIR "")
-endif()
+if (WIN32)
+    set(ZLIB_INCLUDE_DIR "")
+endif ()
 
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
@@ -104,17 +105,17 @@ set(RESOURCES
         resources/resources.qrc)
 
 if (WIN32)
-    add_executable(caesium_image_compressor WIN32 ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    add_executable(${TARGET} WIN32 ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 else ()
-    add_executable(caesium_image_compressor MACOSX_BUNDLE ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
 
 if (APPLE)
-    set_target_properties(caesium_image_compressor PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/Info.plist")
+    set_target_properties(${TARGET} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/Info.plist")
 endif ()
 
-set_target_properties(caesium_image_compressor PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
-target_link_libraries(caesium_image_compressor PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip exiv2lib caesium)
+set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
+target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip exiv2lib caesium)
 
 add_subdirectory(tests)
 add_test(NAME CsTests COMMAND CsTests)
