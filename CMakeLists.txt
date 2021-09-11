@@ -8,10 +8,6 @@ project(caesium_image_compressor LANGUAGES CXX)
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
-if (CMAKE_VERSION VERSION_LESS "3.7.0")
-    set(CMAKE_INCLUDE_CURRENT_DIR ON)
-endif ()
-
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -39,7 +35,7 @@ if(WIN32)
 endif()
 
 if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
-    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt5 dir.")
+    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
 endif ()
 
 if (APPLE)
@@ -112,6 +108,7 @@ if (WIN32)
 else ()
     add_executable(caesium_image_compressor MACOSX_BUNDLE ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
+
 if (APPLE)
     set_target_properties(caesium_image_compressor PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/Info.plist")
 endif ()
