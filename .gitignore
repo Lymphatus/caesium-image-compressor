@@ -156,3 +156,6 @@ _deps
 
 # Custom
 !resources/icons.rc
+
+package
+Output

@@ -146,6 +146,8 @@ void Updater::updateDataReadReady()
 {
     if (!updateFile->isOpen() && !updateFile->open(QIODevice::ReadWrite)) {
         qCritical() << "[UPDATER] Cannot open " << updateFile->fileName();
+        downloadUpdateReply->abort();
+        this->cleanup(true);
         return;
     }
 
