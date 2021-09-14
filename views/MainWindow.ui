@@ -144,7 +144,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -807,30 +807,6 @@
              </item>
             </layout>
            </widget>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="updateAvailable_Button">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton {
-	color: #059669;
-	text-decoration:underline;
-	padding: 0;
-}
-
-QPushButton:pressed {
-    background-color: transparent;
-}</string>
-           </property>
-           <property name="text">
-            <string>Restart to update</string>
-           </property>
-           <property name="flat">
-            <bool>true</bool>
-           </property>
           </widget>
          </item>
          <item>

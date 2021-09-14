@@ -18,16 +18,9 @@ public:
 
 private slots:
     void on_checkForUpdates_Button_clicked();
-public slots:
-    void checkForUpdatesStarted();
-    void updateIsAvailable(const QString &filePath);
-    void checkForUpdatesFinished();
 
 private:
     Ui::AboutDialog *ui;
-    QThread updaterThread;
-    bool hasPendingUpdate = false;
-    QString updateFilePath;
 };
 
 #endif // ABOUTDIALOG_H

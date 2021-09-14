@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>774</width>
-    <height>528</height>
+    <width>771</width>
+    <height>394</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -41,7 +41,7 @@
      <item row="1" column="2" colspan="2">
       <widget class="QStackedWidget" name="content_StackedWidget">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="general_Page">
         <layout class="QGridLayout" name="gridLayout_3">

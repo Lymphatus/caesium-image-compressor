@@ -12,6 +12,11 @@
 #include <QtConcurrent>
 #include <dialogs/PreferencesDialog.h>
 
+#ifdef Q_OS_MAC
+#include "./updater/CocoaInitializer.h"
+#include "./updater/SparkleAutoUpdater.h"
+#endif
+
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -39,12 +44,12 @@ MainWindow::MainWindow(QWidget* parent)
     this->initStatusBar();
     this->initListContextMenu();
 
-    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(QModelIndex,QModelIndex)), this, SLOT(imageList_selectionChanged(QModelIndex,QModelIndex)));
+    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(QModelIndex, QModelIndex)), this, SLOT(imageList_selectionChanged(QModelIndex, QModelIndex)));
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     connect(this->cImageModel, SIGNAL(itemsChanged()), this, SLOT(cModelItemsChanged()));
     connect(ui->preview_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->previewCompressed_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
     connect(ui->previewCompressed_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->preview_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
-    connect(ui->imageList_TreeView, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(showListContextMenu(const QPoint &)));
+    connect(ui->imageList_TreeView, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showListContextMenu(const QPoint&)));
 
     connect(ui->preview_GraphicsView->horizontalScrollBar(), SIGNAL(valueChanged(int)), ui->previewCompressed_GraphicsView, SLOT(setHorizontalScrollBarValue(int)));
     connect(ui->preview_GraphicsView->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->previewCompressed_GraphicsView, SLOT(setVerticalScrollBarValue(int)));
@@ -64,12 +69,6 @@ MainWindow::MainWindow(QWidget* parent)
 
 MainWindow::~MainWindow()
 {
-    if (!this->updaterThread.isFinished()) {
-        //Try to exit cleanly
-        this->updaterThread.quit();
-        this->updaterThread.wait();
-    }
-
     delete cImageModel;
     delete previewScene;
     delete ui;
@@ -77,11 +76,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::initStatusBar()
 {
-    ui->updateAvailable_Button->setHidden(true);
-    ui->statusbar->addPermanentWidget(ui->updateAvailable_Button);
     ui->statusbar->addPermanentWidget(ui->version_Label);
     ui->version_Label->setText(QCoreApplication::applicationVersion());
-
 }
 
 void MainWindow::initListContextMenu()
@@ -112,7 +108,7 @@ void MainWindow::on_actionAdd_files_triggered()
 
 void MainWindow::triggerImportFiles()
 {
-    //Generate file dialog for import and call the progress dialog indicator
+    // Generate file dialog for import and call the progress dialog indicator
     QStringList fileList = QFileDialog::getOpenFileNames(this,
         tr("Import files..."),
         this->lastOpenedDirectory,
@@ -291,7 +287,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
     progressDialog.setWindowModality(Qt::WindowModal);
 
     QList<CImage*> list;
-    //TODO use an iterator
+    // TODO use an iterator
     for (int i = 0; i < listLength; i++) {
         if (progressDialog.wasCanceled()) {
             break;
@@ -368,7 +364,7 @@ void MainWindow::on_compress_Button_clicked()
     connect(&this->compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
     connect(&this->compressionWatcher, SIGNAL(progressValueChanged(int)), progressDialog, SLOT(setValue(int)));
     connect(&this->compressionWatcher, SIGNAL(progressValueChanged(int)), this->cImageModel, SLOT(emitDataChanged(int)));
-    //TODO add future cleanup
+    // TODO add future cleanup
     progressDialog->show();
 
     CompressionOptions compressionOptions = {
@@ -408,10 +404,10 @@ void MainWindow::closeEvent(QCloseEvent* event)
     QSettings settings;
     if (settings.value("preferences/general/prompt_before_exit", false).toBool()) {
         QMessageBox messageBox(QMessageBox::NoIcon,
-                    tr("Are you sure?"),
-                    tr("Do you really want to quit?"),
-                    QMessageBox::Yes | QMessageBox::No,
-                    this);
+            tr("Are you sure?"),
+            tr("Do you really want to quit?"),
+            QMessageBox::Yes | QMessageBox::No,
+            this);
 
         messageBox.setButtonText(QMessageBox::Yes, tr("Yes"));
         messageBox.setButtonText(QMessageBox::No, tr("Cancel"));
@@ -633,50 +629,25 @@ void MainWindow::cModelItemsChanged()
     ui->compress_Button->setDisabled(itemsCount == 0);
 }
 
-void MainWindow::on_updateAvailable_Button_clicked()
-{
-    this->runUpdate();
-}
-
-void MainWindow::updateAvailable(const QString& filePath)
-{
-    this->ui->updateAvailable_Button->setVisible(true);
-    this->aboutDialog->updateIsAvailable(filePath);
-    this->updateFilePath = filePath;
-}
-
 void MainWindow::initUpdater()
 {
     QSettings settings;
     if (!settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
         return;
     }
-    auto* updater = new Updater();
-    updater->moveToThread(&updaterThread);
-
-    connect(updater, &Updater::finished, aboutDialog, &AboutDialog::checkForUpdatesFinished);
-    connect(&updaterThread, &QThread::started, aboutDialog, &AboutDialog::checkForUpdatesStarted);
-    connect(&updaterThread, &QThread::finished, updater, &QObject::deleteLater);
-    connect(updater, &Updater::resultReady, this, &MainWindow::updateAvailable);
-    connect(updater, &Updater::resultReady, aboutDialog, &AboutDialog::updateIsAvailable);
-
-    updaterThread.start();
+#ifdef Q_OS_MAC
+    CocoaInitializer initializer;
+    auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
+    updater->setCheckForUpdatesAutomatically(settings.value("preferences/general/check_updates_at_startup", false).toBool());
     updater->checkForUpdates();
-}
-
-void MainWindow::runUpdate()
-{
-    QString currentProcessPath = QCoreApplication::applicationFilePath();
-    Updater::replaceCurrentFiles(this->updateFilePath);
-    QProcess::startDetached(currentProcessPath, QCoreApplication::arguments());
-    QCoreApplication::quit();
+#endif
 }
 
 void MainWindow::on_actionShow_previews_toggled(bool toggled)
 {
     this->writeSetting("mainwindow/previews_visible", toggled);
 
-    //TODO If manually collapsed, this is inconsistent
+    // TODO If manually collapsed, this is inconsistent
     if (!toggled) {
         this->writeSetting("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(ui->main_VSplitter->sizes()));
         ui->main_VSplitter->setSizes(QList<int>({ 500, 0 }));
@@ -689,7 +660,7 @@ void MainWindow::on_actionShow_previews_toggled(bool toggled)
     }
 }
 
-void MainWindow::showListContextMenu(const QPoint &pos)
+void MainWindow::showListContextMenu(const QPoint& pos)
 {
     this->listContextMenu->exec(ui->imageList_TreeView->viewport()->mapToGlobal(pos));
 }
@@ -701,4 +672,3 @@ void MainWindow::on_actionPreferences_triggered()
 
     preferencesDialog->show();
 }
-

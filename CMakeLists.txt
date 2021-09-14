@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
-project(${TARGET} LANGUAGES CXX)
+project(${TARGET} LANGUAGES CXX OBJCXX)
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -20,6 +20,7 @@ if (APPLE)
     set(MACOSX_BUNDLE_ICON_FILE icon.icns)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons/icon.icns)
     set_source_files_properties(${CAESIUM_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+    set(CMAKE_FIND_FRAMEWORK ONLY)
 elseif (WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
@@ -47,14 +48,16 @@ endif ()
 
 find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/zip/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2/include)
+
+if (APPLE)
+    include_directories(/Library/Frameworks/Sparkle.framework/Headers)
+endif()
 
 set(SOURCES
         src/main.cpp
@@ -68,8 +71,8 @@ set(SOURCES
         src/widgets/QZoomGraphicsView.cpp
         src/delegates/HtmlDelegate.cpp
         src/exceptions/ImageNotSupportedException.cpp
-        src/utils/Updater.cpp
-        src/dialogs/PreferencesDialog.cpp)
+        src/dialogs/PreferencesDialog.cpp
+        )
 
 set(HEADERS
         src/MainWindow.h
@@ -82,8 +85,19 @@ set(HEADERS
         src/widgets/QZoomGraphicsView.h
         src/delegates/HtmlDelegate.h
         src/exceptions/ImageNotSupportedException.h
-        src/utils/Updater.h
-        src/dialogs/PreferencesDialog.h)
+        src/dialogs/PreferencesDialog.h
+        )
+
+if (APPLE)
+    set(OSX_SOURCES
+            src/updater/AutoUpdater.cpp
+            src/updater/CocoaInitializer.mm
+            src/updater/SparkleAutoUpdater.mm
+            )
+    set(OSX_HEADERS src/updater/AutoUpdater.h
+            src/updater/SparkleAutoUpdater.h
+            )
+endif ()
 
 set(UI
         views/MainWindow.ui
@@ -100,6 +114,7 @@ qt6_create_translation(QM_FILES
         ${TS_FILES})
 
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
+
 set(RESOURCES
         ${CMAKE_BINARY_DIR}/languages.qrc
         resources/resources.qrc)
@@ -107,15 +122,20 @@ set(RESOURCES
 if (WIN32)
     add_executable(${TARGET} WIN32 ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 else ()
-    add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${HEADERS} ${OSX_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
 
 if (APPLE)
-    set_target_properties(${TARGET} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/Info.plist")
+    set(OSX_FRAMEWORKS "-framework AppKit -framework Carbon -framework Foundation -framework ApplicationServices -framework Sparkle")
+    set_target_properties(${TARGET} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/Info.plist" LINK_FLAGS "-F/Library/Frameworks -Wl -rpath @loader_path/../Frameworks")
 endif ()
 
 set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
-target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip exiv2lib caesium)
+if (APPLE)
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network ${OSX_FRAMEWORKS} zip exiv2lib caesium)
+else ()
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip exiv2lib caesium)
+endif ()
 
 add_subdirectory(tests)
 add_test(NAME CsTests COMMAND CsTests)

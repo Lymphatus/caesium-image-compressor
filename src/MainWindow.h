@@ -11,7 +11,6 @@
 
 #include "models/CImage.h"
 #include "models/CImageTreeModel.h"
-#include "utils/Updater.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -59,15 +58,10 @@ private slots:
     void on_PNGLevel_Slider_valueChanged(int value);
     void on_JPEGQuality_SpinBox_valueChanged(int arg1);
     void on_PNGLevel_SpinBox_valueChanged(int arg1);
-    void on_updateAvailable_Button_clicked();
     void cModelItemsChanged();
     void showListContextMenu(const QPoint &pos);
     void on_actionShow_previews_toggled(bool arg1);
     void on_actionPreferences_triggered();
-
-public slots:
-    void updateAvailable(const QString &filePath);
-    void runUpdate();
 
 private:
     Ui::MainWindow* ui;
@@ -77,10 +71,8 @@ private:
     QGraphicsScene* previewScene;
     QGraphicsScene* compressedPreviewScene;
     QMap<QString, int> folderMap;
-    QThread updaterThread;
     AboutDialog* aboutDialog = nullptr;
     QVariant readSetting(const QString& key);
-    QString updateFilePath;
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
     QMenu* listContextMenu;

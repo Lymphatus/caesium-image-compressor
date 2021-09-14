@@ -2,15 +2,12 @@
 <ui version="4.0">
  <class>AboutDialog</class>
  <widget class="QDialog" name="AboutDialog">
-  <property name="windowModality">
-   <enum>Qt::NonModal</enum>
-  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>355</width>
-    <height>355</height>
+    <height>304</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,7 +26,7 @@
    <bool>false</bool>
   </property>
   <property name="modal">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="leftMargin">
@@ -153,26 +150,6 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="updateStatus_Label">
-     <property name="text">
-      <string>No updates available</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QProgressBar" name="checkForUpdates_ProgressBar">
-     <property name="value">
-      <number>0</number>
-     </property>
-     <property name="textVisible">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
     <spacer name="verticalSpacer_4">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -202,7 +179,6 @@ All rights reserved.</string>
   </layout>
  </widget>
  <resources>
-  <include location="../resources/resources.qrc"/>
   <include location="../resources/resources.qrc"/>
  </resources>
  <connections/>
