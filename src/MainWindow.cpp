@@ -13,8 +13,12 @@
 #include <dialogs/PreferencesDialog.h>
 
 #ifdef Q_OS_MAC
-#include "./updater/CocoaInitializer.h"
-#include "./updater/SparkleAutoUpdater.h"
+#include "./updater/osx/CocoaInitializer.h"
+#include "./updater/osx/SparkleAutoUpdater.h"
+#endif
+
+#ifdef Q_OS_WIN
+#include "./updater/win/winsparkle.h"
 #endif
 
 MainWindow::MainWindow(QWidget* parent)
@@ -69,6 +73,10 @@ MainWindow::MainWindow(QWidget* parent)
 
 MainWindow::~MainWindow()
 {
+#ifdef Q_OS_WIN
+    win_sparkle_cleanup();
+#endif
+
     delete cImageModel;
     delete previewScene;
     delete ui;
@@ -640,6 +648,9 @@ void MainWindow::initUpdater()
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
     updater->setCheckForUpdatesAutomatically(settings.value("preferences/general/check_updates_at_startup", false).toBool());
     updater->checkForUpdates();
+#elifdef Q_OS_WIN
+    win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
+    win_sparkle_init();
 #endif
 }
 

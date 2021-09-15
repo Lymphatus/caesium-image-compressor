@@ -5,7 +5,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
-project(${TARGET} LANGUAGES CXX OBJCXX)
+if (APPLE)
+    project(${TARGET} LANGUAGES CXX OBJCXX)
+else()
+    project(${TARGET} LANGUAGES CXX)
+endif()
+
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -44,6 +49,7 @@ if (APPLE)
     link_directories(/usr/local/lib)
 elseif (WIN32)
     link_directories("C:\\libcaesium\\lib")
+    link_directories("C:\\winsparkle\\x64\\Release")
 endif ()
 
 find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
@@ -90,12 +96,19 @@ set(HEADERS
 
 if (APPLE)
     set(OSX_SOURCES
-            src/updater/AutoUpdater.cpp
-            src/updater/CocoaInitializer.mm
-            src/updater/SparkleAutoUpdater.mm
+            src/updater/osx/AutoUpdater.cpp
+            src/updater/osx/CocoaInitializer.mm
+            src/updater/osx/SparkleAutoUpdater.mm
             )
-    set(OSX_HEADERS src/updater/AutoUpdater.h
-            src/updater/SparkleAutoUpdater.h
+    set(OSX_HEADERS
+            src/updater/osx/AutoUpdater.h
+            src/updater/osx/SparkleAutoUpdater.h
+            )
+
+else()
+    set(WIN_HEADERS
+            src/updater/win/winsparkle.h
+#            src/updater/win/winsparkle-version.h
             )
 endif ()
 
@@ -120,7 +133,7 @@ set(RESOURCES
         resources/resources.qrc)
 
 if (WIN32)
-    add_executable(${TARGET} WIN32 ${SOURCES} ${HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    add_executable(${TARGET} WIN32 ${SOURCES} ${HEADERS} ${WIN_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 else ()
     add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${HEADERS} ${OSX_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
@@ -132,9 +145,9 @@ endif ()
 
 set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
 if (APPLE)
-    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network ${OSX_FRAMEWORKS} zip exiv2lib caesium)
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network ${OSX_FRAMEWORKS} exiv2lib caesium)
 else ()
-    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network zip exiv2lib caesium)
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network exiv2lib winsparkle caesium)
 endif ()
 
 add_subdirectory(tests)
