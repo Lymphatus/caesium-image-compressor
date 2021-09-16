@@ -27,27 +27,18 @@ public:
 
     QString getFormattedSize();
     QString getRichFormattedSize();
-
     QString getResolution();
     QString getRichResolution();
-
     QString getFileName() const;
-
     QString getFullPath() const;
-
     size_t getOriginalSize() const;
     size_t getCompressedSize() const;
-
     CImageStatus getStatus() const;
     void setStatus(const CImageStatus &value);
-
     double getRatio() const;
     QString getFormattedSavedRatio();
     QString getRichFormattedSavedRatio();
-
     bool compress(CompressionOptions compressionOptions);
-    void setCompressedInfo(QFileInfo fileInfo);
-
     QString getCompressedFullPath() const;
 
 private:
@@ -63,6 +54,9 @@ private:
     int height;
     int compressedWidth;
     int compressedHeight;
+
+    void setCompressedInfo(QFileInfo fileInfo);
+    void setFileDates(QFileInfo fileInfo, CompressionOptions compressionOptions, FileDates inputFileDates);
 
 };
 

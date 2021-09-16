@@ -144,7 +144,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -755,6 +755,57 @@
                 </widget>
                </item>
                <item>
+                <widget class="Line" name="line_2">
+                 <property name="lineWidth">
+                  <number>0</number>
+                 </property>
+                 <property name="midLineWidth">
+                  <number>1</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QMainCheckBox" name="keepDates_CheckBox">
+                 <property name="text">
+                  <string>Keep file dates</string>
+                 </property>
+                 <property name="tristate">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <property name="leftMargin">
+                  <number>16</number>
+                 </property>
+                 <item>
+                  <widget class="QCheckBox" name="keepCreationDate_CheckBox">
+                   <property name="text">
+                    <string>Creation</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="keepLastModifiedDate_CheckBox">
+                   <property name="text">
+                    <string>Last modified</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="keepLastAccessDate_CheckBox">
+                   <property name="text">
+                    <string>Last access</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
                 <widget class="Line" name="line">
                  <property name="frameShadow">
                   <enum>QFrame::Sunken</enum>
@@ -1016,6 +1067,11 @@
    <class>QDropTreeView</class>
    <extends>QTreeView</extends>
    <header>widgets/QDropTreeView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QMainCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>widgets/QMainCheckBox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

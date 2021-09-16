@@ -7,6 +7,7 @@
 #include <QFutureWatcher>
 #include <QGraphicsScene>
 #include <QMainWindow>
+#include <QButtonGroup>
 #include <dialogs/AboutDialog.h>
 
 #include "models/CImage.h"
@@ -62,6 +63,11 @@ private slots:
     void showListContextMenu(const QPoint &pos);
     void on_actionShow_previews_toggled(bool arg1);
     void on_actionPreferences_triggered();
+    void keepDatesButtonGroupClicked();
+
+    void on_keepDates_CheckBox_clicked();
+
+    void on_keepDates_CheckBox_stateChanged(int arg1);
 
 private:
     Ui::MainWindow* ui;
@@ -76,6 +82,7 @@ private:
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
     QMenu* listContextMenu;
+    QButtonGroup* keepDatesButtonGroup;
 
     void initStatusBar();
     void initUpdater();

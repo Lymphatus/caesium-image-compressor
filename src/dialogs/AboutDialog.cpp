@@ -4,8 +4,8 @@
 #include <QProcess>
 
 #ifdef Q_OS_MAC
-#include "./updater/CocoaInitializer.h"
-#include "./updater/SparkleAutoUpdater.h"
+#include "./updater/osx/CocoaInitializer.h"
+#include "./updater/osx/SparkleAutoUpdater.h"
 #endif
 
 AboutDialog::AboutDialog(QWidget* parent)

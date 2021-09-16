@@ -5,6 +5,7 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QObject>
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QStandardPaths>
@@ -45,6 +46,12 @@ MainWindow::MainWindow(QWidget* parent)
     ui->edge_Label->hide();
     ui->edge_SpinBox->hide();
 
+    this->keepDatesButtonGroup = new QButtonGroup();
+    this->keepDatesButtonGroup->setExclusive(false);
+    this->keepDatesButtonGroup->addButton(ui->keepCreationDate_CheckBox);
+    this->keepDatesButtonGroup->addButton(ui->keepLastModifiedDate_CheckBox);
+    this->keepDatesButtonGroup->addButton(ui->keepLastAccessDate_CheckBox);
+
     this->initStatusBar();
     this->initListContextMenu();
 
@@ -59,6 +66,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->preview_GraphicsView->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->previewCompressed_GraphicsView, SLOT(setVerticalScrollBarValue(int)));
     connect(ui->previewCompressed_GraphicsView->horizontalScrollBar(), SIGNAL(valueChanged(int)), ui->preview_GraphicsView, SLOT(setHorizontalScrollBarValue(int)));
     connect(ui->previewCompressed_GraphicsView->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->preview_GraphicsView, SLOT(setVerticalScrollBarValue(int)));
+    QObject::connect(keepDatesButtonGroup, &QButtonGroup::buttonClicked, this, &MainWindow::keepDatesButtonGroupClicked);
 
     this->readSettings();
 
@@ -79,6 +87,9 @@ MainWindow::~MainWindow()
 
     delete cImageModel;
     delete previewScene;
+    delete compressedPreviewScene;
+    delete aboutDialog;
+    delete keepDatesButtonGroup;
     delete ui;
 }
 
@@ -181,6 +192,10 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/output/output_folder", this->ui->outputFolder_LineEdit->text());
     settings.setValue("compression_options/output/output_suffix", this->ui->outputSuffix_LineEdit->text());
     settings.setValue("compression_options/output/same_folder_as_input", this->ui->sameOutputFolderAsInput_CheckBox->isChecked());
+    settings.setValue("compression_options/output/keep_dates", this->ui->keepDates_CheckBox->checkState());
+    settings.setValue("compression_options/output/keep_creation_date", ui->keepCreationDate_CheckBox->isChecked());
+    settings.setValue("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
+    settings.setValue("compression_options/output/keep_last_access_date", ui->keepLastAccessDate_CheckBox->isChecked());
 
     settings.setValue("extra/last_opened_directory", this->lastOpenedDirectory);
 }
@@ -221,6 +236,10 @@ void MainWindow::readSettings()
     this->ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder", "").toString());
     this->ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix", "").toString());
     this->ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/output/same_folder_as_input", false).toBool());
+    this->ui->keepDates_CheckBox->setCheckState(settings.value("compression_options/output/keep_dates", Qt::Unchecked).value<Qt::CheckState>());
+    this->ui->keepCreationDate_CheckBox->setChecked(settings.value("compression_options/output/keep_creation_date", false).toBool());
+    this->ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
+    this->ui->keepLastAccessDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_access_date", false).toBool());
 
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
@@ -375,6 +394,12 @@ void MainWindow::on_compress_Button_clicked()
     // TODO add future cleanup
     progressDialog->show();
 
+    FileDatesOutputOption datesMap = {
+        ui->keepCreationDate_CheckBox->isChecked(),
+        ui->keepLastModifiedDate_CheckBox->isChecked(),
+        ui->keepLastAccessDate_CheckBox->isChecked()
+    };
+
     CompressionOptions compressionOptions = {
         this->ui->outputFolder_LineEdit->text(),
         getRootFolder(this->folderMap),
@@ -390,7 +415,9 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->doNotEnlarge_CheckBox->isChecked(),
         this->ui->sameOutputFolderAsInput_CheckBox->isChecked(),
         qBound(this->ui->JPEGQuality_Slider->value(), 1, 100),
-        qBound(this->ui->PNGLevel_Slider->value(), 1, 7)
+        qBound(this->ui->PNGLevel_Slider->value(), 1, 7),
+        ui->keepDates_CheckBox->checkState() != Qt::Unchecked,
+        datesMap
     };
 
     QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
@@ -648,7 +675,9 @@ void MainWindow::initUpdater()
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
     updater->setCheckForUpdatesAutomatically(settings.value("preferences/general/check_updates_at_startup", false).toBool());
     updater->checkForUpdates();
-#elifdef Q_OS_WIN
+#endif
+
+#ifdef Q_OS_WIN
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
     win_sparkle_init();
 #endif
@@ -678,8 +707,51 @@ void MainWindow::showListContextMenu(const QPoint& pos)
 
 void MainWindow::on_actionPreferences_triggered()
 {
-    PreferencesDialog* preferencesDialog = new PreferencesDialog(this);
+    auto* preferencesDialog = new PreferencesDialog(this);
     preferencesDialog->setModal(true);
 
     preferencesDialog->show();
+}
+
+void MainWindow::keepDatesButtonGroupClicked()
+{
+    int checkedCount = 0;
+    int totalButtons = (int)this->keepDatesButtonGroup->buttons().count();
+    Qt::CheckState mainCheckboxState = Qt::PartiallyChecked;
+    foreach (QAbstractButton* button, this->keepDatesButtonGroup->buttons()) {
+        checkedCount += button->isChecked() ? 1 : 0;
+    }
+
+    if (checkedCount == totalButtons) {
+        mainCheckboxState = Qt::Checked;
+    } else if (checkedCount == 0) {
+        mainCheckboxState = Qt::Unchecked;
+    }
+
+    ui->keepDates_CheckBox->setCheckState(mainCheckboxState);
+
+    this->writeSetting("compression_options/output/keep_creation_date", ui->keepCreationDate_CheckBox->isChecked());
+    this->writeSetting("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
+    this->writeSetting("compression_options/output/keep_last_access_date", ui->keepLastAccessDate_CheckBox->isChecked());
+}
+
+void MainWindow::on_keepDates_CheckBox_clicked()
+{
+    if (ui->keepDates_CheckBox->checkState() == Qt::PartiallyChecked) {
+        return;
+    }
+
+    bool mainChecked = ui->keepDates_CheckBox->checkState() == Qt::Checked;
+    foreach (QAbstractButton* button, this->keepDatesButtonGroup->buttons()) {
+        button->setChecked(mainChecked);
+    }
+
+    this->writeSetting("compression_options/output/keep_creation_date", ui->keepCreationDate_CheckBox->isChecked());
+    this->writeSetting("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
+    this->writeSetting("compression_options/output/keep_last_access_date", ui->keepLastAccessDate_CheckBox->isChecked());
+}
+
+void MainWindow::on_keepDates_CheckBox_stateChanged(int state)
+{
+    this->writeSetting("compression_options/output/keep_dates", state);
 }

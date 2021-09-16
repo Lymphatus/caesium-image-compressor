@@ -93,6 +93,11 @@ bool CImage::compress(CompressionOptions compressionOptions)
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
     QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + inputFileInfo.suffix();
+    FileDates inputFileDates = {
+        inputFileInfo.fileTime(QFile::FileBirthTime),
+        inputFileInfo.fileTime(QFile::FileModificationTime),
+        inputFileInfo.fileTime(QFile::FileAccessTime)
+    };
 
     if (compressionOptions.keepStructure && !compressionOptions.sameFolderAsInput) {
         outputPath = inputFileInfo.absolutePath().remove(0, compressionOptions.basePath.length());
@@ -173,6 +178,9 @@ bool CImage::compress(CompressionOptions compressionOptions)
             }
         }
         QFileInfo outputFileInfo = QFileInfo(outputFullPath);
+        if (compressionOptions.keepDates) {
+            this->setFileDates(outputFileInfo, compressionOptions, inputFileDates);
+        }
         this->setCompressedInfo(outputFileInfo);
     }
     return result;
@@ -185,6 +193,22 @@ void CImage::setCompressedInfo(QFileInfo fileInfo)
     this->compressedFullPath = fileInfo.absoluteFilePath();
     this->compressedWidth = compressedImage.width();
     this->compressedHeight = compressedImage.height();
+}
+
+void CImage::setFileDates(QFileInfo fileInfo, CompressionOptions compressionOptions, FileDates inputFileDates)
+{
+    QFile outputFile(fileInfo.absoluteFilePath());
+    outputFile.open(QIODevice::ReadWrite);
+    if (compressionOptions.datesMap.keepCreation) {
+        outputFile.setFileTime(inputFileDates.creation, QFileDevice::FileBirthTime);
+    }
+    if (compressionOptions.datesMap.keepLastModified) {
+        outputFile.setFileTime(inputFileDates.lastModified, QFileDevice::FileModificationTime);
+    }
+    if (compressionOptions.datesMap.keepLastAccess) {
+        outputFile.setFileTime(inputFileDates.lastAccess, QFileDevice::FileAccessTime);
+    }
+    outputFile.close();
 }
 
 QString CImage::getCompressedFullPath() const

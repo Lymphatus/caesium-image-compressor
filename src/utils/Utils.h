@@ -9,6 +9,7 @@
 #include <QSize>
 #include <QString>
 #include <QStringList>
+#include <QDateTime>
 
 enum class CImageStatus {
     UNCOMPRESSED,
@@ -37,6 +38,12 @@ typedef struct CsLocale {
     QString label;
 } CsLocale;
 
+typedef struct FileDatesOutputOption {
+    bool keepCreation;
+    bool keepLastModified;
+    bool keepLastAccess;
+} FileDatesOutputOption;
+
 typedef struct CompressionOptions {
     QString outputPath;
     QString basePath;
@@ -53,7 +60,15 @@ typedef struct CompressionOptions {
     bool sameFolderAsInput;
     int jpeg_quality;
     int png_level;
+    bool keepDates;
+    FileDatesOutputOption datesMap;
 } CompressionOptions;
+
+typedef struct FileDates {
+    QDateTime creation;
+    QDateTime lastModified;
+    QDateTime lastAccess;
+} FileDates;
 
 const int LANGUAGES_COUNT = 3;
 
