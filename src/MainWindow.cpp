@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->previewScene = new QGraphicsScene();
     this->compressedPreviewScene = new QGraphicsScene();
     this->aboutDialog = new AboutDialog(this);
+    this->compressionWatcher = new QFutureWatcher<void>();
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);

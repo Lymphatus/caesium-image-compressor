@@ -59,59 +59,59 @@ All rights reserved.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="133"/>
+        <location filename="../../src/MainWindow.cpp" line="134"/>
         <source>Import files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="149"/>
+        <location filename="../../src/MainWindow.cpp" line="150"/>
         <source>Import folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="314"/>
+        <location filename="../../src/MainWindow.cpp" line="315"/>
         <source>Importing files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="314"/>
-        <location filename="../../src/MainWindow.cpp" line="385"/>
-        <location filename="../../src/MainWindow.cpp" line="451"/>
+        <location filename="../../src/MainWindow.cpp" line="315"/>
+        <location filename="../../src/MainWindow.cpp" line="386"/>
+        <location filename="../../src/MainWindow.cpp" line="452"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="385"/>
+        <location filename="../../src/MainWindow.cpp" line="386"/>
         <source>Compressing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="445"/>
+        <location filename="../../src/MainWindow.cpp" line="446"/>
         <source>Are you sure?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="446"/>
+        <location filename="../../src/MainWindow.cpp" line="447"/>
         <source>Do you really want to quit?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="450"/>
+        <location filename="../../src/MainWindow.cpp" line="451"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="468"/>
+        <location filename="../../src/MainWindow.cpp" line="469"/>
         <source>Select output folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="505"/>
+        <location filename="../../src/MainWindow.cpp" line="506"/>
         <source>Compression finished!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="506"/>
+        <location filename="../../src/MainWindow.cpp" line="507"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -264,8 +264,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="739"/>
         <location filename="../../cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="741"/>
         <location filename="../../cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="743"/>
-        <location filename="../../src/MainWindow.cpp" line="545"/>
-        <location filename="../../src/MainWindow.cpp" line="549"/>
+        <location filename="../../src/MainWindow.cpp" line="546"/>
+        <location filename="../../src/MainWindow.cpp" line="550"/>
         <source>px</source>
         <translation type="unfinished"></translation>
     </message>
@@ -473,13 +473,13 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="559"/>
-        <location filename="../../src/MainWindow.cpp" line="563"/>
+        <location filename="../../src/MainWindow.cpp" line="560"/>
+        <location filename="../../src/MainWindow.cpp" line="564"/>
         <source>%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="678"/>
+        <location filename="../../src/MainWindow.cpp" line="679"/>
         <source>images in list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -552,7 +552,7 @@ Saved: %4 (%5%)</source>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="135"/>
+        <location filename="../../src/MainWindow.cpp" line="136"/>
         <source>Image Files</source>
         <translation type="unfinished"></translation>
     </message>

@@ -3,6 +3,8 @@ set(TARGET caesium_image_compressor)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
 if (APPLE)
@@ -11,7 +13,6 @@ else()
     project(${TARGET} LANGUAGES CXX)
 endif()
 
-
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
 set(CMAKE_AUTOUIC ON)
@@ -19,6 +20,10 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS views)
+
+if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
+    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
+endif ()
 
 if (APPLE)
     set(MACOSX_DEPLOYMENT_TARGET 10.14)
@@ -30,21 +35,6 @@ elseif (WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
-
-set(EXIV2_BUILD_SAMPLES OFF)
-set(EXIV2_BUILD_EXIV2_COMMAND OFF)
-set(EXIV2_ENABLE_XMP OFF)
-set(EXIV2_ENABLE_PNG OFF)
-if (WIN32)
-    set(ZLIB_INCLUDE_DIR "")
-endif ()
-
-if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
-    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
-endif ()
-
 if (APPLE)
     link_directories(/usr/local/lib)
 elseif (WIN32)
@@ -54,15 +44,13 @@ endif ()
 
 find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2)
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/exiv2/include)
-
 if (APPLE)
     include_directories(/Library/Frameworks/Sparkle.framework/Headers)
+    include_directories(/usr/local/opt/exiv2/include)
+    include_directories(/usr/local/opt/libssh/include)
 endif()
 
 set(SOURCES
@@ -147,9 +135,9 @@ endif ()
 
 set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
 if (APPLE)
-    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network ${OSX_FRAMEWORKS} exiv2lib caesium)
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network ${OSX_FRAMEWORKS} exiv2 caesium)
 else ()
-    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network exiv2lib winsparkle caesium)
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network exiv2 winsparkle caesium)
 endif ()
 
 add_subdirectory(tests)
