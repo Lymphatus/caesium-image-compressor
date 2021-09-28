@@ -140,6 +140,7 @@ bool CImage::compress(CompressionOptions compressionOptions)
         keepMetadata,
         static_cast<unsigned int>(compressionOptions.jpeg_quality),
         static_cast<unsigned int>(compressionOptions.png_level),
+        false,
         lossless
     };
 

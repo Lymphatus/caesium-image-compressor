@@ -73,7 +73,7 @@ private:
     Ui::MainWindow* ui;
 
     CImageTreeModel* cImageModel;
-    QFutureWatcher<void> compressionWatcher;
+    QFutureWatcher<void>* compressionWatcher;
     QGraphicsScene* previewScene;
     QGraphicsScene* compressedPreviewScene;
     QMap<QString, int> folderMap;
@@ -83,6 +83,7 @@ private:
     QString importedFilesRootFolder;
     QMenu* listContextMenu;
     QButtonGroup* keepDatesButtonGroup;
+    CompressionSummary compressionSummary;
 
     void initStatusBar();
     void initUpdater();

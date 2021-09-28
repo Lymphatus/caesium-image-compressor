@@ -68,24 +68,24 @@ Tutti i diritti riservati.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="132"/>
+        <location filename="../../src/MainWindow.cpp" line="133"/>
         <source>Import files...</source>
         <translation>Importa files...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="148"/>
+        <location filename="../../src/MainWindow.cpp" line="149"/>
         <source>Import folder...</source>
         <translation>Importa cartella...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="313"/>
+        <location filename="../../src/MainWindow.cpp" line="314"/>
         <source>Importing files...</source>
         <translation>Importazione...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="313"/>
+        <location filename="../../src/MainWindow.cpp" line="314"/>
         <location filename="../../src/MainWindow.cpp" line="385"/>
-        <location filename="../../src/MainWindow.cpp" line="448"/>
+        <location filename="../../src/MainWindow.cpp" line="451"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
@@ -95,24 +95,40 @@ Tutti i diritti riservati.</translation>
         <translation>Compressione...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="442"/>
+        <location filename="../../src/MainWindow.cpp" line="445"/>
         <source>Are you sure?</source>
         <translation>Sei sicuro?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="443"/>
+        <location filename="../../src/MainWindow.cpp" line="446"/>
         <source>Do you really want to quit?</source>
         <translation>Vuoi veramente uscire?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="447"/>
+        <location filename="../../src/MainWindow.cpp" line="450"/>
         <source>Yes</source>
         <translation>Sì</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="465"/>
+        <location filename="../../src/MainWindow.cpp" line="468"/>
         <source>Select output folder...</source>
         <translation>Selezione cartella di output...</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="505"/>
+        <source>Compression finished!</source>
+        <translation>Compressione terminata!</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="506"/>
+        <source>Total files: %1
+Original size: %2
+Compressed size: %3
+Saved: %4 (%5%)</source>
+        <translation>File totali: %1
+Dimensione originale: %2
+Dimensione compressa: %3
+Risparmiato: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="14"/>
@@ -260,8 +276,8 @@ Tutti i diritti riservati.</translation>
         <location filename="../../cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="739"/>
         <location filename="../../cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="741"/>
         <location filename="../../cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="743"/>
-        <location filename="../../src/MainWindow.cpp" line="526"/>
-        <location filename="../../src/MainWindow.cpp" line="530"/>
+        <location filename="../../src/MainWindow.cpp" line="545"/>
+        <location filename="../../src/MainWindow.cpp" line="549"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -477,13 +493,13 @@ Tutti i diritti riservati.</translation>
         <translation>Preferenze...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="540"/>
-        <location filename="../../src/MainWindow.cpp" line="544"/>
+        <location filename="../../src/MainWindow.cpp" line="559"/>
+        <location filename="../../src/MainWindow.cpp" line="563"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="658"/>
+        <location filename="../../src/MainWindow.cpp" line="678"/>
         <source>images in list</source>
         <translation>immagini in lista</translation>
     </message>
@@ -556,7 +572,7 @@ Tutti i diritti riservati.</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="134"/>
+        <location filename="../../src/MainWindow.cpp" line="135"/>
         <source>Image Files</source>
         <translation>File immagine</translation>
     </message>

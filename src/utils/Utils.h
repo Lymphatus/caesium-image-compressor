@@ -70,6 +70,12 @@ typedef struct FileDates {
     QDateTime lastAccess;
 } FileDates;
 
+typedef struct CompressionSummary {
+    unsigned int totalImages = 0;
+    size_t totalUncompressedSize = 0;
+    size_t totalCompressedSize = 0;
+} CompressionSummary;
+
 const int LANGUAGES_COUNT = 3;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {

@@ -90,6 +90,7 @@ MainWindow::~MainWindow()
     delete compressedPreviewScene;
     delete aboutDialog;
     delete keepDatesButtonGroup;
+    delete compressionWatcher;
     delete ui;
 }
 
@@ -339,7 +340,6 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
         this->importedFilesRootFolder = getRootFolder(this->folderMap);
     }
 
-    qDebug() << this->importedFilesRootFolder;
     progressDialog.setValue(listLength);
 }
 
@@ -382,15 +382,16 @@ void MainWindow::on_compress_Button_clicked()
     if (this->cImageModel->getRootItem()->childCount() == 0) {
         return;
     }
-    QProgressDialog* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
+    auto* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
     progressDialog->setWindowModality(Qt::WindowModal);
     progressDialog->setCancelButton(nullptr);
 
-    connect(&this->compressionWatcher, SIGNAL(finished()), progressDialog, SLOT(close()));
-    connect(&this->compressionWatcher, SIGNAL(finished()), progressDialog, SLOT(deleteLater()));
-    connect(&this->compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
-    connect(&this->compressionWatcher, SIGNAL(progressValueChanged(int)), progressDialog, SLOT(setValue(int)));
-    connect(&this->compressionWatcher, SIGNAL(progressValueChanged(int)), this->cImageModel, SLOT(emitDataChanged(int)));
+    this->compressionWatcher = new QFutureWatcher<void>();
+    connect(this->compressionWatcher, SIGNAL(finished()), progressDialog, SLOT(close()));
+    connect(this->compressionWatcher, SIGNAL(finished()), progressDialog, SLOT(deleteLater()));
+    connect(this->compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
+    connect(this->compressionWatcher, SIGNAL(progressValueChanged(int)), progressDialog, SLOT(setValue(int)));
+    connect(this->compressionWatcher, SIGNAL(progressValueChanged(int)), this->cImageModel, SLOT(emitDataChanged(int)));
     // TODO add future cleanup
     progressDialog->show();
 
@@ -420,8 +421,10 @@ void MainWindow::on_compress_Button_clicked()
         datesMap
     };
 
-    QFuture<void> future = this->cImageModel->getRootItem()->compress(compressionOptions);
-    this->compressionWatcher.setFuture(future);
+    this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compress(compressionOptions));
+    compressionSummary.totalImages = this->cImageModel->rowCount();
+    compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
+    compressionSummary.totalCompressedSize = 0;
 }
 
 void MainWindow::on_actionAdd_folder_triggered()
@@ -492,6 +495,22 @@ void MainWindow::compressionFinished()
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
     }
+
+    compressionSummary.totalCompressedSize = this->cImageModel->compressedItemsSize();
+
+    QMessageBox compressionSummaryDialog;
+    QPixmap icon = QPixmap(":/icons/logo.png").scaledToHeight(144, Qt::SmoothTransformation);
+    icon.setDevicePixelRatio(2);
+    compressionSummaryDialog.setIconPixmap(icon);
+    compressionSummaryDialog.setText(tr("Compression finished!"));
+    compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
+        .arg(compressionSummary.totalImages)
+        .arg(toHumanSize(compressionSummary.totalUncompressedSize))
+        .arg(toHumanSize(compressionSummary.totalCompressedSize))
+        .arg(toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize))
+        .arg(QString::number(round((double)(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100))));
+    compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
+    compressionSummaryDialog.exec();
 }
 
 void MainWindow::on_actionRemove_triggered()
@@ -653,8 +672,9 @@ void MainWindow::on_PNGLevel_SpinBox_valueChanged(int value)
 void MainWindow::cModelItemsChanged()
 {
     int itemsCount = this->cImageModel->rowCount();
-    QString humanItemsCount = QString::number(this->cImageModel->rowCount());
-    QString totalSize = toHumanSize(this->cImageModel->originalItemsSize());
+    size_t totalOriginalSizeCount = this->cImageModel->originalItemsSize();
+    QString humanItemsCount = QString::number(itemsCount);
+    QString totalSize = toHumanSize(totalOriginalSizeCount);
     ui->statusbar->showMessage(humanItemsCount + " " + tr("images in list") + " | " + totalSize);
 
     ui->removeFiles_Button->setDisabled(itemsCount == 0);
