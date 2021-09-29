@@ -114,6 +114,7 @@ void MainWindow::initListContextMenu()
 
 void MainWindow::on_actionAbout_Caesium_Image_Compressor_triggered()
 {
+    aboutDialog->setWindowModality(Qt::NonModal);
     aboutDialog->show();
 }
 
