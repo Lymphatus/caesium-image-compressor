@@ -3,6 +3,7 @@
 #define MAINWINDOW_H
 
 #include <QCloseEvent>
+#include <QShowEvent>
 #include <QDialog>
 #include <QFutureWatcher>
 #include <QGraphicsScene>
@@ -29,6 +30,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* event) override;
+    void showEvent(QShowEvent* event) override;
 
 private slots:
     void on_actionAbout_Caesium_Image_Compressor_triggered();

@@ -8,6 +8,10 @@
 #include "./updater/osx/SparkleAutoUpdater.h"
 #endif
 
+#ifdef Q_OS_WIN
+#include "./updater/win/winsparkle.h"
+#endif
+
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AboutDialog)
@@ -29,10 +33,14 @@ AboutDialog::~AboutDialog()
 
 void AboutDialog::on_checkForUpdates_Button_clicked()
 {
-    #ifdef Q_OS_MAC
+#ifdef Q_OS_MAC
     CocoaInitializer initializer;
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
     updater->checkForUpdates();
-    #endif
+#endif
+
+#ifdef Q_OS_WIN
+    win_sparkle_check_update_without_ui();
+#endif
 }
 

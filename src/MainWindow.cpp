@@ -76,8 +76,6 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
-
-    this->initUpdater();
 }
 
 MainWindow::~MainWindow()
@@ -93,6 +91,12 @@ MainWindow::~MainWindow()
     delete keepDatesButtonGroup;
     delete compressionWatcher;
     delete ui;
+}
+
+void MainWindow::showEvent(QShowEvent* event) {
+    QMainWindow::showEvent( event );
+
+    this->initUpdater();
 }
 
 void MainWindow::initStatusBar()
@@ -689,19 +693,24 @@ void MainWindow::cModelItemsChanged()
 void MainWindow::initUpdater()
 {
     QSettings settings;
-    if (!settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
-        return;
-    }
 #ifdef Q_OS_MAC
     CocoaInitializer initializer;
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
     updater->setCheckForUpdatesAutomatically(settings.value("preferences/general/check_updates_at_startup", false).toBool());
-    updater->checkForUpdates();
+    if (settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
+        updater->checkForUpdates();
+    }
 #endif
 
 #ifdef Q_OS_WIN
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
+    win_sparkle_set_langid(QLocale().name().toShort());
     win_sparkle_init();
+
+    if (settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
+       win_sparkle_check_update_without_ui();
+    }
+
 #endif
 }
 

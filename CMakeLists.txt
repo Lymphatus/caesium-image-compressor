@@ -39,6 +39,7 @@ if (APPLE)
     link_directories(/usr/local/lib)
 elseif (WIN32)
     link_directories("C:\\libcaesium\\lib")
+    link_directories("C:\\exiv2\\bin")
     link_directories("C:\\winsparkle\\x64\\Release")
 endif ()
 
@@ -51,6 +52,8 @@ if (APPLE)
     include_directories(/Library/Frameworks/Sparkle.framework/Headers)
     include_directories(/usr/local/opt/exiv2/include)
     include_directories(/usr/local/opt/libssh/include)
+elseif (WIN32)
+    include_directories("C:\\exiv2\\include")
 endif()
 
 set(SOURCES

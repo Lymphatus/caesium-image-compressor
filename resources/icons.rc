@@ -1,1 +1,26 @@
 IDI_ICON1               ICON    "icons/icon.ico"
+
+1 24  "style.manifest"
+
+1 VERSIONINFO
+ FILEVERSION     1,0,0,0
+ PRODUCTVERSION  1,99,0,0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "SaeraSoft\0"
+            VALUE "FileDescription", "Caesium Image Compressor\0"
+            VALUE "FileVersion", "1.0.0\0"
+            VALUE "InternalName", "Cs-133\0"
+            VALUE "ProductName", "Caesium Image Compressor\0"
+            VALUE "ProductVersion", "1.99.0\0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04B0
+    END
+END
