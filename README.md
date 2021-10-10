@@ -2,6 +2,7 @@
 ##### v2.0.0-beta.1 - Copyright &copy; Matteo Paonessa, 2021. All Rights Reserved.
 ##### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
 
+![Cattura](https://user-images.githubusercontent.com/12133996/136700618-e3b94328-e1c9-4bb0-9937-23e6e71e3ff1.PNG)
 ![caesium_screenshot](https://user-images.githubusercontent.com/12133996/126871376-0816f6a8-eaa8-4ea8-a051-a7ddaf6c2e36.png)
 
 ----------
