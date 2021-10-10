@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 set(TARGET caesium_image_compressor)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -9,9 +9,9 @@ set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
 if (APPLE)
     project(${TARGET} LANGUAGES CXX OBJCXX)
-else()
+else ()
     project(${TARGET} LANGUAGES CXX)
-endif()
+endif ()
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -30,7 +30,7 @@ if (APPLE)
     set(MACOSX_BUNDLE_ICON_FILE icon.icns)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons/icon.icns)
     set_source_files_properties(${CAESIUM_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-    set(CMAKE_FIND_FRAMEWORK ONLY)
+#    set(CMAKE_FIND_FRAMEWORK ONLY)
 elseif (WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
@@ -54,7 +54,7 @@ if (APPLE)
     include_directories(/usr/local/opt/libssh/include)
 elseif (WIN32)
     include_directories("C:\\exiv2\\include")
-endif()
+endif ()
 
 set(SOURCES
         src/main.cpp
@@ -98,10 +98,9 @@ if (APPLE)
             src/updater/osx/SparkleAutoUpdater.h
             )
 
-else()
+else ()
     set(WIN_HEADERS
             src/updater/win/winsparkle.h
-#            src/updater/win/winsparkle-version.h
             )
 endif ()
 
@@ -139,8 +138,10 @@ endif ()
 set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "Caesium Image Compressor")
 if (APPLE)
     target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network ${OSX_FRAMEWORKS} exiv2 caesium)
-else ()
+elseif (WIN32)
     target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network exiv2 winsparkle caesium)
+else ()
+    target_link_libraries(${TARGET} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui Qt6::Concurrent Qt6::Svg Qt6::Network exiv2 caesium)
 endif ()
 
 add_subdirectory(tests)

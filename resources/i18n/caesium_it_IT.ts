@@ -8,17 +8,17 @@
         <translation type="vanished">Riavvia per aggiornare</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="20"/>
+        <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
         <translation>Informazioni su Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="99"/>
+        <location filename="../../views/AboutDialog.ui" line="105"/>
         <source>Caesium Image Compressor</source>
         <translation>Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="143"/>
+        <location filename="../../views/AboutDialog.ui" line="149"/>
         <source>Check for updates</source>
         <translation>Controlla aggiornamenti</translation>
     </message>
@@ -27,7 +27,7 @@
         <translation type="vanished">Nessun aggiornamento disponibile</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="168"/>
+        <location filename="../../views/AboutDialog.ui" line="174"/>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
         <translation>Copyright © 2021 Matteo Paonessa.

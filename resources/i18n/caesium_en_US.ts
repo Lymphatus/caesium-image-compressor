@@ -4,22 +4,22 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="20"/>
+        <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="99"/>
+        <location filename="../../views/AboutDialog.ui" line="105"/>
         <source>Caesium Image Compressor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="143"/>
+        <location filename="../../views/AboutDialog.ui" line="149"/>
         <source>Check for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="168"/>
+        <location filename="../../views/AboutDialog.ui" line="174"/>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
         <translation type="unfinished"></translation>

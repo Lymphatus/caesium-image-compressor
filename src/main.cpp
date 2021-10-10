@@ -65,9 +65,6 @@ int main(int argc, char* argv[])
     QTranslator translator;
     loadLocale(&translator);
 
-    QSettings settings;
-    settings.setValue("application/build_number", "C21-200-20210804");
-
     qInfo() << "---- Starting application ----";
     MainWindow w;
     w.show();

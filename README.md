@@ -11,12 +11,14 @@
 ----------
 
 ##### REQUIREMENTS
-* [libcaesium](https://github.com/Lymphatus/libcaesium)
+* [libcaesium](https://github.com/Lymphatus/libcaesium-rust) - NOTE: this is the Rust port of libcaesium.
+* [exiv2](https://github.com/exiv2/exiv2) - NOTE: this is the Rust port of libcaesium.
 ----------
 
 ##### TESTED PLATFORMS
 * Windows 10 64bit
-* MacOS X Big Sur (v11.5)
+* MacOS X Big Sur
+* Ubuntu 20.04
 
 ----------
 
@@ -28,10 +30,9 @@ For linux you must compile the source by yourself.
 ----------
 
 ##### BUILD FROM SOURCE
-1. You need the [Qt5 SDK](https://www.qt.io/download/) installed on your platform.
-2. Compile [libcaesium](https://github.com/Lymphatus/libcaesium-rust). Please refer to its own documentation for detailed instructions for your platform. IMPORTANT: since alpha.5 this project uses a unreleased version of libcaesium, made in Rust. You can still find the binaries in the release files.
-3. Clone the repository using ``` git clone https://github.com/Lymphatus/caesium-image-compressor.git ```. Please also pull submodules. If it doesn't work somehow, you can download the latest snapshot [here](https://github.com/Lymphatus/caesium-image-compressor/archive/master.zip).
-4. Open *CMakeLists.txt* on your favorite editor and compile it. 
+1. You need the [Qt6 SDK](https://www.qt.io/download/) installed on your platform.
+2. Compile [libcaesium](https://github.com/Lymphatus/libcaesium-rust). Please refer to its own documentation for detailed instructions for your platform. IMPORTANT: since alpha.5 this project uses an unreleased version of libcaesium, made in Rust. You can still find the binaries in the release files.
+3. Open *CMakeLists.txt* on your favorite editor and compile it. 
 
 ----------
 
