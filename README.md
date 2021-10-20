@@ -13,7 +13,7 @@
 
 ##### REQUIREMENTS
 * [libcaesium](https://github.com/Lymphatus/libcaesium-rust) - NOTE: this is the Rust port of libcaesium.
-* [exiv2](https://github.com/exiv2/exiv2) - NOTE: this is the Rust port of libcaesium.
+* [exiv2](https://github.com/exiv2/exiv2)
 ----------
 
 ##### TESTED PLATFORMS
