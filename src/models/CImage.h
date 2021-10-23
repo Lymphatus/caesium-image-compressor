@@ -11,7 +11,7 @@ struct C_CSParameters {
     unsigned int jpeg_quality;
     unsigned int png_level;
     bool png_force_zopfli;
-    unsigned int gif_level;
+    unsigned int gif_quality;
     unsigned int webp_quality;
     bool optimize;
 };
