@@ -10,8 +10,10 @@
 #include <QScrollBar>
 #include <QStandardPaths>
 #include <QWheelEvent>
+#include <QWindow>
 #include <QtConcurrent>
 #include <dialogs/PreferencesDialog.h>
+#include <widgets/QCaesiumMessageBox.h>
 
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
@@ -34,6 +36,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->compressedPreviewScene = new QGraphicsScene();
     this->aboutDialog = new AboutDialog(this);
     this->compressionWatcher = new QFutureWatcher<void>();
+    this->listContextMenu = new QMenu();
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -56,7 +59,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->initStatusBar();
     this->initListContextMenu();
 
-    connect(ui->imageList_TreeView->selectionModel(), SIGNAL(currentRowChanged(QModelIndex, QModelIndex)), this, SLOT(imageList_selectionChanged(QModelIndex, QModelIndex)));
+    QObject::connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
     connect(ui->imageList_TreeView, SIGNAL(dropFinished(QStringList)), this, SLOT(dropFinished(QStringList)));
     connect(this->cImageModel, SIGNAL(itemsChanged()), this, SLOT(cModelItemsChanged()));
     connect(ui->preview_GraphicsView, SIGNAL(scaleFactorChanged(QWheelEvent*)), ui->previewCompressed_GraphicsView, SLOT(setScaleFactor(QWheelEvent*)));
@@ -93,8 +96,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::showEvent(QShowEvent* event) {
-    QMainWindow::showEvent( event );
+void MainWindow::showEvent(QShowEvent* event)
+{
+    QMainWindow::showEvent(event);
 
     this->initUpdater();
 }
@@ -107,8 +111,6 @@ void MainWindow::initStatusBar()
 
 void MainWindow::initListContextMenu()
 {
-    this->listContextMenu = new QMenu();
-
     this->listContextMenu->addAction(ui->actionAdd_files);
     this->listContextMenu->addAction(ui->actionAdd_folder);
     this->listContextMenu->addSeparator();
@@ -138,7 +140,7 @@ void MainWindow::triggerImportFiles()
     QStringList fileList = QFileDialog::getOpenFileNames(this,
         tr("Import files..."),
         this->lastOpenedDirectory,
-        QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png)");
+        QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png *.webp)");
 
     if (fileList.isEmpty()) {
         return;
@@ -187,6 +189,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/keep_structure", this->ui->keepStructure_CheckBox->isChecked());
     settings.setValue("compression_options/compression/jpeg_quality", this->ui->JPEGQuality_Slider->value());
     settings.setValue("compression_options/compression/png_level", this->ui->PNGLevel_Slider->value());
+    settings.setValue("compression_options/compression/webp_quality", this->ui->WebPQuality_Slider->value());
 
     settings.setValue("compression_options/resize/resize", this->ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
     settings.setValue("compression_options/resize/fit_to", this->ui->fitTo_ComboBox->currentIndex());
@@ -230,8 +233,9 @@ void MainWindow::readSettings()
     this->ui->keepMetadata_CheckBox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
     this->ui->keepStructure_CheckBox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
     this->ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
-    this->ui->PNGLevel_Slider->setValue(settings.value("compression_options/compression/png_level", 3).toInt());
+    this->ui->PNGLevel_SpinBox->setValue(settings.value("compression_options/compression/png_level", 3).toInt());
     this->ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
+    this->ui->WebPQuality_SpinBox->setValue(settings.value("compression_options/compression/webp_quality", 60).toInt());
 
     this->ui->fitTo_ComboBox->setCurrentIndex(settings.value("compression_options/resize/fit_to", 0).toInt());
     this->ui->width_SpinBox->setValue(settings.value("compression_options/resize/width", 1000).toInt());
@@ -376,13 +380,33 @@ void MainWindow::on_compress_Button_clicked()
 {
     QSettings settings;
 
-    if (settings.value("compression_options/output/output_folder").toString().isEmpty()) {
-        QMessageBox msgBox;
+    if (this->ui->outputFolder_LineEdit->text().isEmpty() && !this->ui->sameOutputFolderAsInput_CheckBox->isChecked()) {
+        QCaesiumMessageBox msgBox;
         msgBox.setText("Please select an output folder first");
         msgBox.setStandardButtons(QMessageBox::Ok);
         msgBox.setDefaultButton(QMessageBox::Ok);
         msgBox.exec();
         return;
+    }
+
+    QString rootFolder = getRootFolder(this->folderMap);
+
+    bool overwriteWarningFlag = (this->ui->sameOutputFolderAsInput_CheckBox->isChecked() && this->ui->outputSuffix_LineEdit->text().isEmpty())
+        || rootFolder == this->ui->outputFolder_LineEdit->text();
+
+    if (overwriteWarningFlag) {
+        QCaesiumMessageBox sameFolderPrompt;
+        sameFolderPrompt.setText(tr("You are about to overwrite your original images and this action can't be undone.\n\nDo you really want to continue?"));
+        sameFolderPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+
+        sameFolderPrompt.setButtonText(QMessageBox::Yes, tr("Yes"));
+        sameFolderPrompt.setButtonText(QMessageBox::No, tr("No"));
+
+        int answer = sameFolderPrompt.exec();
+
+        if (answer == QMessageBox::No) {
+            return;
+        }
     }
 
     if (this->cImageModel->getRootItem()->childCount() == 0) {
@@ -398,7 +422,6 @@ void MainWindow::on_compress_Button_clicked()
     connect(this->compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
     connect(this->compressionWatcher, SIGNAL(progressValueChanged(int)), progressDialog, SLOT(setValue(int)));
     connect(this->compressionWatcher, SIGNAL(progressValueChanged(int)), this->cImageModel, SLOT(emitDataChanged(int)));
-    // TODO add future cleanup
     progressDialog->show();
 
     FileDatesOutputOption datesMap = {
@@ -409,7 +432,7 @@ void MainWindow::on_compress_Button_clicked()
 
     CompressionOptions compressionOptions = {
         this->ui->outputFolder_LineEdit->text(),
-        getRootFolder(this->folderMap),
+        rootFolder,
         this->ui->outputSuffix_LineEdit->text(),
         this->ui->lossless_CheckBox->isChecked(),
         this->ui->keepMetadata_CheckBox->isChecked(),
@@ -423,6 +446,7 @@ void MainWindow::on_compress_Button_clicked()
         this->ui->sameOutputFolderAsInput_CheckBox->isChecked(),
         qBound(this->ui->JPEGQuality_Slider->value(), 1, 100),
         qBound(this->ui->PNGLevel_Slider->value(), 1, 7),
+        qBound(this->ui->WebPQuality_Slider->value(), 1, 100),
         ui->keepDates_CheckBox->checkState() != Qt::Unchecked,
         datesMap
     };
@@ -447,16 +471,15 @@ void MainWindow::closeEvent(QCloseEvent* event)
 {
     QSettings settings;
     if (settings.value("preferences/general/prompt_before_exit", false).toBool()) {
-        QMessageBox messageBox(QMessageBox::NoIcon,
-            tr("Are you sure?"),
-            tr("Do you really want to quit?"),
-            QMessageBox::Yes | QMessageBox::No,
-            this);
+        QCaesiumMessageBox exitPrompt;
+        exitPrompt.setText(tr("Do you really want to quit?"));
+        exitPrompt.setInformativeText("All current work will be lost.");
+        exitPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 
-        messageBox.setButtonText(QMessageBox::Yes, tr("Yes"));
-        messageBox.setButtonText(QMessageBox::No, tr("Cancel"));
+        exitPrompt.setButtonText(QMessageBox::Yes, tr("Yes"));
+        exitPrompt.setButtonText(QMessageBox::No, tr("Cancel"));
 
-        int answer = messageBox.exec();
+        int answer = exitPrompt.exec();
 
         if (answer == QMessageBox::No) {
             event->ignore();
@@ -487,13 +510,23 @@ void MainWindow::on_outputSuffix_LineEdit_textChanged(const QString& arg1)
     this->writeSetting("compression_options/output/output_suffix", arg1);
 }
 
-void MainWindow::imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous)
+void MainWindow::imageList_selectionChanged()
 {
-    if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 1 || current.row() == previous.row() || current.row() == -1) {
+    auto currentSelectedIndexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
+
+    if (currentSelectedIndexes.count() / 4 == 0) {
+        this->previewScene->clear();
+        this->compressedPreviewScene->clear();
         return;
     }
 
-    this->previewImage(current);
+    auto currentIndex = currentSelectedIndexes.at(0);
+
+    if (currentIndex.row() == -1) {
+        return;
+    }
+
+    this->previewImage(currentIndex);
 }
 
 void MainWindow::compressionFinished()
@@ -503,18 +536,14 @@ void MainWindow::compressionFinished()
     }
 
     compressionSummary.totalCompressedSize = this->cImageModel->compressedItemsSize();
-
-    QMessageBox compressionSummaryDialog;
-    QPixmap icon = QPixmap(":/icons/logo.png").scaledToHeight(144, Qt::SmoothTransformation);
-    icon.setDevicePixelRatio(2);
-    compressionSummaryDialog.setIconPixmap(icon);
+    QCaesiumMessageBox compressionSummaryDialog;
     compressionSummaryDialog.setText(tr("Compression finished!"));
     compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
-        .arg(compressionSummary.totalImages)
-        .arg(toHumanSize(compressionSummary.totalUncompressedSize))
-        .arg(toHumanSize(compressionSummary.totalCompressedSize))
-        .arg(toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize))
-        .arg(QString::number(round((double)(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100))));
+                                                    .arg(QString::number(compressionSummary.totalImages),
+                                                        toHumanSize(compressionSummary.totalUncompressedSize),
+                                                        toHumanSize(compressionSummary.totalCompressedSize),
+                                                        toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize),
+                                                        QString::number(round(((double)compressionSummary.totalUncompressedSize - (double)compressionSummary.totalCompressedSize) / (double)compressionSummary.totalUncompressedSize * 100))));
     compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
     compressionSummaryDialog.exec();
 }
@@ -708,7 +737,7 @@ void MainWindow::initUpdater()
     win_sparkle_init();
 
     if (settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
-       win_sparkle_check_update_without_ui();
+        win_sparkle_check_update_without_ui();
     }
 
 #endif

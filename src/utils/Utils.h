@@ -60,6 +60,7 @@ typedef struct CompressionOptions {
     bool sameFolderAsInput;
     int jpeg_quality;
     int png_level;
+    int webp_quality;
     bool keepDates;
     FileDatesOutputOption datesMap;
 } CompressionOptions;
@@ -85,9 +86,8 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
 };
 
 // Utilities
-QString toHumanSize(size_t size);
+QString toHumanSize(long int size);
 QStringList scanDirectory(QString directory);
-// cs_image_pars getCompressionParametersFromLevel(int level, bool lossless, bool keepMetadata);
 QString getRootFolder(QMap<QString, int> folderMap);
 QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);
 bool copyMetadata(const char* input, const char* output);

@@ -5,8 +5,12 @@
 #include <cmath>
 #include <exiv2/exiv2.hpp>
 
-QString toHumanSize(size_t size)
+QString toHumanSize(long int size)
 {
+    bool isNegative = size < 0;
+    if (isNegative) {
+        size = labs(size);
+    }
     if (size == 0) {
         return "0 bytes";
     }
@@ -17,14 +21,14 @@ QString toHumanSize(size_t size)
          << "Mb"
          << "Gb"
          << "Tb";
-    double order = floor(log2(size) / 10);
+    double order = floor(log2((double)size) / 10);
 
     if (order > 4) {
         qWarning() << "Woah, that's huge!";
         order = 4;
     }
 
-    return QString::number(size / (pow(1024, order)), 'f', 2) + ' ' + unit[(int)order];
+    return QString::number((double) size / (pow(1024, order)) * (isNegative ? -1 : 1), 'f', 2) + ' ' + unit[(int)order];
 }
 
 //TODO Another thread?

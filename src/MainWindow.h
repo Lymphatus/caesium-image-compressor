@@ -2,13 +2,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QButtonGroup>
 #include <QCloseEvent>
-#include <QShowEvent>
 #include <QDialog>
 #include <QFutureWatcher>
 #include <QGraphicsScene>
+#include <QItemSelection>
 #include <QMainWindow>
-#include <QButtonGroup>
+#include <QShowEvent>
 #include <dialogs/AboutDialog.h>
 
 #include "models/CImage.h"
@@ -51,7 +52,7 @@ private slots:
     void on_actionSelect_All_triggered();
     void on_sameOutputFolderAsInput_CheckBox_toggled(bool checked);
     void on_keepStructure_CheckBox_toggled(bool checked);
-    void imageList_selectionChanged(const QModelIndex& current, const QModelIndex& previous);
+    void imageList_selectionChanged();
     void compressionFinished();
     void dropFinished(QStringList filePaths);
     void on_fitTo_ComboBox_currentIndexChanged(int index);
@@ -83,7 +84,7 @@ private:
     QVariant readSetting(const QString& key);
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
-    QMenu* listContextMenu;
+    QMenu* listContextMenu{};
     QButtonGroup* keepDatesButtonGroup;
     CompressionSummary compressionSummary;
 

@@ -66,6 +66,7 @@ set(SOURCES
         src/dialogs/AboutDialog.cpp
         src/widgets/QDropTreeView.cpp
         src/widgets/QZoomGraphicsView.cpp
+        src/widgets/QCaesiumMessageBox.cpp
         src/widgets/QMainCheckBox.cpp
         src/delegates/HtmlDelegate.cpp
         src/exceptions/ImageNotSupportedException.cpp
@@ -81,6 +82,7 @@ set(HEADERS
         src/dialogs/AboutDialog.h
         src/widgets/QDropTreeView.h
         src/widgets/QZoomGraphicsView.h
+        src/widgets/QCaesiumMessageBox.h
         src/widgets/QMainCheckBox.h
         src/delegates/HtmlDelegate.h
         src/exceptions/ImageNotSupportedException.h

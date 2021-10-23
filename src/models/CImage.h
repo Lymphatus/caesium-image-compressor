@@ -11,13 +11,15 @@ struct C_CSParameters {
     unsigned int jpeg_quality;
     unsigned int png_level;
     bool png_force_zopfli;
+    unsigned int gif_level;
+    unsigned int webp_quality;
     bool optimize;
 };
 extern "C" bool c_compress(const char *i, const char *o, C_CSParameters params);
 
 class CImage
 {
-    const QList<QByteArray> supportedFormats = {"png", "jpg", "jpeg"};
+    const QList<QByteArray> supportedFormats = {"png", "jpg", "jpeg", "webp"};
 
 public:
     explicit CImage(const QString& path);
@@ -39,7 +41,7 @@ public:
     double getRatio() const;
     QString getFormattedSavedRatio();
     QString getRichFormattedSavedRatio();
-    bool compress(CompressionOptions compressionOptions);
+    bool compress(const CompressionOptions& compressionOptions);
     QString getCompressedFullPath() const;
 
 private:

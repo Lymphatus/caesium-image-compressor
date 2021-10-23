@@ -144,7 +144,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -335,6 +335,91 @@
                    <widget class="QLabel" name="PNGLevel_Label">
                     <property name="text">
                      <string>Level</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="WebPOptions_GroupBox">
+                 <property name="title">
+                  <string>WebP</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_3">
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="WebPQuality_Label">
+                    <property name="text">
+                     <string>Quality</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <spacer name="horizontalSpacer_6">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>288</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QSpinBox" name="WebPQuality_SpinBox">
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="readOnly">
+                     <bool>false</bool>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>60</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="3">
+                   <widget class="QSlider" name="WebPQuality_Slider">
+                    <property name="minimum">
+                     <number>0</number>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>60</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="tickPosition">
+                     <enum>QSlider::TicksBelow</enum>
+                    </property>
+                    <property name="tickInterval">
+                     <number>10</number>
                     </property>
                    </widget>
                   </item>
@@ -1099,8 +1184,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>633</x>
-     <y>97</y>
+     <x>966</x>
+     <y>174</y>
     </hint>
     <hint type="destinationlabel">
      <x>633</x>
@@ -1115,12 +1200,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>633</x>
-     <y>97</y>
+     <x>966</x>
+     <y>174</y>
     </hint>
     <hint type="destinationlabel">
-     <x>633</x>
-     <y>97</y>
+     <x>965</x>
+     <y>145</y>
     </hint>
    </hints>
   </connection>
@@ -1164,7 +1249,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>966</x>
-     <y>278</y>
+     <y>372</y>
     </hint>
     <hint type="destinationlabel">
      <x>966</x>
@@ -1211,12 +1296,60 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>602</x>
-     <y>266</y>
+     <x>966</x>
+     <y>372</y>
     </hint>
     <hint type="destinationlabel">
      <x>591</x>
      <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lossless_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WebPOptions_GroupBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>650</x>
+     <y>367</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>650</x>
+     <y>343</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>WebPQuality_Slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WebPQuality_SpinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>902</x>
+     <y>327</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>920</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>WebPQuality_SpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WebPQuality_Slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>921</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>826</x>
+     <y>328</y>
     </hint>
    </hints>
   </connection>
