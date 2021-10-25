@@ -49,7 +49,7 @@ cmake --build build_dir --config Release --target caesium_image_compressor
 ### Translate
 The first version of Caesium had a lot of community made translations, but this new release has a whole new set of strings and no old translations can be used anymore.   
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
-You can use (this pull request)[https://github.com/Lymphatus/caesium-image-compressor/pull/57] as an example.
+You can use [this pull request](https://github.com/Lymphatus/caesium-image-compressor/pull/57) as an example.
 
 ### Resources
 * Caesium website - [http://saerasoft.com/caesium/](http://saerasoft.com/caesium/)
