@@ -1,43 +1,57 @@
 ## Caesium - Image Compressor (Cs-133)
-##### v2.0.0-beta.1 - Copyright &copy; Matteo Paonessa, 2021. All Rights Reserved.
-##### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
+> v2.0.0-beta.2 - Copyright &copy; Matteo Paonessa, 2021. All Rights Reserved.
 
-![Cattura](https://user-images.githubusercontent.com/12133996/136700618-e3b94328-e1c9-4bb0-9937-23e6e71e3ff1.PNG)
-![caesium_screenshot](https://user-images.githubusercontent.com/12133996/126871376-0816f6a8-eaa8-4ea8-a051-a7ddaf6c2e36.png)
+###### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
 
-----------
-
-> Caesium is an image compression software aimed at helping photographers, bloggers, webmasters, businesses or casual users at storing, sending and sharing digital pictures.
+![Screenshot](https://user-images.githubusercontent.com/12133996/136700618-e3b94328-e1c9-4bb0-9937-23e6e71e3ff1.PNG)
 
 ----------
 
-##### REQUIREMENTS
-* [libcaesium](https://github.com/Lymphatus/libcaesium-rust) - NOTE: this is the Rust port of libcaesium.
-* [exiv2](https://github.com/exiv2/exiv2)
-----------
-
-##### TESTED PLATFORMS
-* Windows 10 64bit
-* MacOS X Big Sur
-* Ubuntu 20.04
+> Caesium is an image compression software aimed at helping photographers, bloggers, webmasters, businesses or casual users at storing, sending and sharing digital pictures. Available for Windows, MacOS and Linux.
 
 ----------
+#### Supported Platforms
+- **Windows** 7/10/11
+- **MacOS** >= 10.14
+- **Linux** (tested on Ubuntu 20.04)
 
-##### INSTALLATION
-You can find binaries for Windows and OS X in the [releases page](https://github.com/Lymphatus/caesium-image-compressor/releases)
+### Installation
+Head to the  [releases page](https://github.com/Lymphatus/caesium-image-compressor/releases) for the available downloads.
 
-For linux you must compile the source by yourself.
+No binaries for Linux are available.
 
-----------
 
-##### BUILD FROM SOURCE
-1. You need the [Qt6 SDK](https://www.qt.io/download/) installed on your platform.
-2. Compile [libcaesium](https://github.com/Lymphatus/libcaesium-rust). Please refer to its own documentation for detailed instructions for your platform. IMPORTANT: since alpha.5 this project uses an unreleased version of libcaesium, made in Rust. You can still find the binaries in the release files.
-3. Open *CMakeLists.txt* on your favorite editor and compile it. 
+### Build from source
+##### Requirements
+- [Qt6 SDK](https://www.qt.io/download/) - binaries are built on 6.2.0 (open source)
+- [libcaesium](https://github.com/Lymphatus/libcaesium) - version >= 0.6.0
+- [exiv2](https://github.com/exiv2/exiv2)
+- [Sparkle](https://sparkle-project.org/) for MacOS or [WinSparkle](https://winsparkle.org/) for Windows
+- [libssh](https://www.libssh.org/) - MacOS only
 
-----------
+#### Build
+##### Step 1
+Opening with QtCreator solves a few issues you may encounter (such as finding the Qt SDK). You need to configure CMake first and the command is different for all the platforms:
+###### Windows
+###### MacOS
+Change the path in variables with the correct directories of the requirements.
+```
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
+```
+###### Linux
 
-##### RESOURCES
+##### Step 2
+Then you can build with
+```
+cmake --build build_dir --config Release --target caesium_image_compressor
+```
+
+### Translate
+The first version of Caesium had a lot of community made translations, but this new release has a whole new set of strings and no old translations can be used anymore.   
+You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
+An example can be found at #57.
+
+### Resources
 * Caesium website - [http://saerasoft.com/caesium/](http://saerasoft.com/caesium/)
 * Caesium Git Repository - [https://github.com/Lymphatus/caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
 * Author website - SaeraSoft - [http://saerasoft.com](http://saerasoft.com)

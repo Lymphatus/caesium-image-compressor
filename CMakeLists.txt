@@ -21,40 +21,63 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS views)
 
-if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
-    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
-endif ()
-
 if (APPLE)
     set(MACOSX_DEPLOYMENT_TARGET 10.14)
     set(MACOSX_BUNDLE_ICON_FILE icon.icns)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons/icon.icns)
     set_source_files_properties(${CAESIUM_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-#    set(CMAKE_FIND_FRAMEWORK ONLY)
 elseif (WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
 
+if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
+    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt6 dir.")
+endif ()
+
+if (NOT DEFINED LIBCAESIUM_LIB_DIR)
+    message(FATAL_ERROR "LIBCAESIUM_LIB_DIR is not defined. Cannot find libcaesium lib dir.")
+else ()
+    link_directories(${LIBCAESIUM_LIB_DIR})
+endif ()
+
+if (NOT DEFINED EXIV2_LIB_DIR)
+    message(FATAL_ERROR "EXIV2_LIB_DIR is not defined. Cannot find exiv2 lib dir.")
+else ()
+    link_directories(${EXIV2_LIB_DIR})
+endif ()
+
+if (WIN32)
+    if (NOT DEFINED WINSPARKLE_LIB_DIR)
+        message(FATAL_ERROR "WINSPARKLE_LIB_DIR is not defined. Cannot find winsparkle lib dir.")
+    else ()
+        link_directories(${WINSPARKLE_LIB_DIR})
+    endif ()
+endif ()
+
+if (NOT DEFINED EXIV2_INCLUDE_DIR)
+    message(FATAL_ERROR "EXIV2_INCLUDE_DIR is not defined. Cannot find exiv2 include dir.")
+else ()
+    include_directories(${EXIV2_INCLUDE_DIR})
+endif ()
+
 if (APPLE)
-    link_directories(/usr/local/lib)
-elseif (WIN32)
-    link_directories("C:\\libcaesium\\lib")
-    link_directories("C:\\exiv2\\bin")
-    link_directories("C:\\winsparkle\\x64\\Release")
+    if (NOT DEFINED SPARKLE_INCLUDE_DIR)
+        message(FATAL_ERROR "SPARKLE_INCLUDE_DIR is not defined. Cannot find sparkle include dir.")
+    else ()
+        include_directories(${SPARKLE_INCLUDE_DIR})
+    endif ()
+
+    if (NOT DEFINED LIBSSH_INCLUDE_DIR)
+        message(FATAL_ERROR "LIBSSH_INCLUDE_DIR is not defined. Cannot find libssh include dir.")
+    else ()
+        include_directories(${LIBSSH_INCLUDE_DIR})
+    endif ()
 endif ()
 
 find_package(Qt6 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
-
-if (APPLE)
-    include_directories(/Library/Frameworks/Sparkle.framework/Headers)
-    include_directories(/usr/local/opt/exiv2/include)
-    include_directories(/usr/local/opt/libssh/include)
-elseif (WIN32)
-    include_directories("C:\\exiv2\\include")
-endif ()
 
 set(SOURCES
         src/main.cpp
