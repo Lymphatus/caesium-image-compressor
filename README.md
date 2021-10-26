@@ -43,7 +43,10 @@ Change the path in variables with the correct directories of the requirements.
 cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
 ```
 ###### Linux
-
+Make sure you have all the requirements installed by you own package manager
+```
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/gcc_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib
+```
 ##### Step 2
 Then you can build with
 ```
