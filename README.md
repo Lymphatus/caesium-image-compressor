@@ -33,6 +33,10 @@ No binaries for Linux are available.
 ##### Step 1
 You need to configure CMake first and the command is slightly different for all the platforms:
 ###### Windows
+Change the path in variables with the correct directories of the requirements.
+```
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/mingw81_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
+```
 ###### MacOS
 Change the path in variables with the correct directories of the requirements.
 ```
