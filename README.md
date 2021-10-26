@@ -31,7 +31,7 @@ No binaries for Linux are available.
 
 #### Build
 ##### Step 1
-Opening with QtCreator solves a few issues you may encounter (such as finding the Qt SDK). You need to configure CMake first and the command is different for all the platforms:
+You need to configure CMake first and the command is slightly different for all the platforms:
 ###### Windows
 ###### MacOS
 Change the path in variables with the correct directories of the requirements.
