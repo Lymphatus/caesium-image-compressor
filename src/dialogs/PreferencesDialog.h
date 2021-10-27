@@ -20,6 +20,8 @@ private slots:
     void languageComboBoxIndexChanged(int index);
     void on_checkUpdatesAtStartup_CheckBox_toggled(bool checked);
 
+    void on_importSubfolders_CheckBox_toggled(bool checked);
+
 private:
     Ui::PreferencesDialog *ui;
 

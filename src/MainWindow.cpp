@@ -162,7 +162,9 @@ void MainWindow::triggerImportFolder()
         return;
     }
 
-    QStringList fileList = scanDirectory(directoryPath);
+    QSettings settings;
+    bool scanSubfolders = settings.value("preferences/general/import_subfolders", true).toBool();
+    QStringList fileList = scanDirectory(directoryPath, scanSubfolders);
 
     if (fileList.isEmpty()) {
         return;

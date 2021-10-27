@@ -2,9 +2,11 @@
 
 #include <QDragEnterEvent>
 #include <QMimeData>
+#include <QSettings>
 
 #include <QDebug>
 #include <QFileInfo>
+#include <utils/Utils.h>
 
 QDropTreeView::QDropTreeView(QWidget* parent)
     : QTreeView(parent)
@@ -33,7 +35,9 @@ void QDropTreeView::dropEvent(QDropEvent* event)
             if (QFileInfo(absolutePath).isFile()) {
                 fileList << url.toLocalFile();
             } else if (QFileInfo(absolutePath).isDir()) {
-                return;
+                QSettings settings;
+                bool scanSubfolders = settings.value("preferences/general/import_subfolders", true).toBool();
+                fileList.append(scanDirectory(absolutePath, scanSubfolders));
             }
         }
     }

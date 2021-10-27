@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>771</width>
+    <width>693</width>
     <height>394</height>
    </rect>
   </property>
@@ -41,7 +41,7 @@
      <item row="1" column="2" colspan="2">
       <widget class="QStackedWidget" name="content_StackedWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="general_Page">
         <layout class="QGridLayout" name="gridLayout_3">
@@ -61,24 +61,14 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
+         <item row="4" column="1">
           <widget class="QCheckBox" name="promptExit_CheckBox">
            <property name="text">
             <string>Prompt before exit</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
-          <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Check updates at startup</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
+         <item row="6" column="1">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -90,6 +80,23 @@
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="5" column="1">
+          <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Check updates at startup</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="importSubfolders_CheckBox">
+           <property name="text">
+            <string>Import files in subfolders when opening a directory</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -167,15 +174,9 @@
      </item>
      <item row="1" column="0" rowspan="2">
       <widget class="QListWidget" name="menu_ListWidget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
        <property name="minimumSize">
         <size>
-         <width>256</width>
+         <width>150</width>
          <height>0</height>
         </size>
        </property>

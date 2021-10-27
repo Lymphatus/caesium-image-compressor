@@ -87,7 +87,7 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
 
 // Utilities
 QString toHumanSize(long int size);
-QStringList scanDirectory(QString directory);
+QStringList scanDirectory(QString directory, bool subfolders);
 QString getRootFolder(QMap<QString, int> folderMap);
 QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);
 bool copyMetadata(const char* input, const char* output);

@@ -32,16 +32,17 @@ QString toHumanSize(long int size)
 }
 
 //TODO Another thread?
-QStringList scanDirectory(QString directory)
+QStringList scanDirectory(QString directory, bool subfolders)
 {
-    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png" };
+    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp" };
     QStringList fileList = {};
+    auto iteratorFlags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
     //Collecting all files in folder
     if (QDir(directory).exists()) {
         QDirIterator it(directory,
             inputFilterList,
             QDir::AllEntries,
-            QDirIterator::Subdirectories);
+            iteratorFlags);
 
         while (it.hasNext()) {
             it.next();

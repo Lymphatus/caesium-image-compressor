@@ -35,6 +35,7 @@ void PreferencesDialog::loadPreferences()
     QSettings settings;
     ui->promptExit_CheckBox->setChecked(settings.value("preferences/general/prompt_before_exit", false).toBool());
     ui->checkUpdatesAtStartup_CheckBox->setChecked(settings.value("preferences/general/check_updates_at_startup", false).toBool());
+    ui->importSubfolders_CheckBox->setChecked(settings.value("preferences/general/import_subfolders", true).toBool());
     ui->language_ComboBox->setCurrentIndex(settings.value("preferences/language/locale", 0).toInt());
 }
 
@@ -62,5 +63,11 @@ void PreferencesDialog::languageComboBoxIndexChanged(int index)
 void PreferencesDialog::on_checkUpdatesAtStartup_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/check_updates_at_startup", checked);
+}
+
+
+void PreferencesDialog::on_importSubfolders_CheckBox_toggled(bool checked)
+{
+    this->writeSetting("preferences/general/import_subfolders", checked);
 }
 
