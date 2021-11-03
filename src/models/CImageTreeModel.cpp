@@ -1,6 +1,8 @@
 #include "CImageTreeModel.h"
 
+#include <QApplication>
 #include <QIcon>
+#include <QPalette>
 
 CImageTreeModel::CImageTreeModel()
 {
@@ -87,8 +89,9 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     return true;
 }
 
-void CImageTreeModel::appendItems(QList<CImage*> imageList)
+void CImageTreeModel::appendItems(QList<CImage*> imageList, QString baseFolder)
 {
+    this->baseFolder = baseFolder;
     this->setupModelData(imageList, rootItem);
 }
 
@@ -139,6 +142,15 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     }
 
     CImageTreeItem* item = static_cast<CImageTreeItem*>(index.internalPointer());
+
+    if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME) {
+        //Little hack to get the default application text color to apply transparency to the base folder text
+        QColor defaultColor =  QApplication::palette().text().color();
+        QString baseFolderWithoutName = item->getCImage()->getFullPath().remove(baseFolder + QDir::separator()).remove(item->getCImage()->getFileName());
+        QString rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
+        return "<span style=\"color:" + rgbaString + ";\">" + baseFolderWithoutName + "</span>" + item->getCImage()->getFileName();
+    }
+
     if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME) {
         CImageStatus status = item->getCImage()->getStatus();
         if (status == CImageStatus::COMPRESSED) {

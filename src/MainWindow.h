@@ -91,6 +91,7 @@ private:
     void initStatusBar();
     void initUpdater();
     void initListContextMenu();
+    void initListWidget();
 
     void importFiles(const QStringList& fileList, QString baseFolder);
     void removeFiles(bool all = false);

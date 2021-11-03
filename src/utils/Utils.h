@@ -18,6 +18,8 @@ enum class CImageStatus {
     ERROR
 };
 
+const int CIMAGE_COLUMNS_SIZE = 4;
+
 enum CImageColumns {
     NAME = 0,
     SIZE = 1,
