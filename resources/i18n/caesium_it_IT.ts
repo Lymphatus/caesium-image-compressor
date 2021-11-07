@@ -37,22 +37,22 @@ Tutti i diritti riservati.</translation>
 <context>
     <name>CImageTreeModel</name>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Name</source>
         <translation>Nome</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Size</source>
         <translation>Dimensione</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Saved</source>
         <translation>Risparmio</translation>
     </message>

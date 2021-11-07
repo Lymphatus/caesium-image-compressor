@@ -29,22 +29,22 @@ All rights reserved.</translation>
 <context>
     <name>CImageTreeModel</name>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Size</source>
         <translation>Size</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Resolution</source>
         <translation>Resolution</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImageTreeModel.cpp" line="9"/>
+        <location filename="../../src/models/CImageTreeModel.cpp" line="10"/>
         <source>Saved</source>
         <translation>Saved</translation>
     </message>

@@ -21,12 +21,6 @@ void HtmlDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     style->drawControl(QStyle::CE_ItemViewItem, &optionV, painter);
 
     QAbstractTextDocumentLayout::PaintContext ctx;
-
-    // Highlighting text if item is selected
-    if (optionV.state & QStyle::State_Selected) {
-        ctx.palette.setColor(QPalette::Text, optionV.palette.color(QPalette::Active, QPalette::HighlightedText));
-    }
-
     QRect textRect = style->subElementRect(QStyle::SE_ItemViewItemText, &optionV);
 
     painter->save();

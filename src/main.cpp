@@ -14,19 +14,19 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
     QByteArray localMsg = msg.toLocal8Bit();
     switch (type) {
     case QtDebugMsg:
-        fprintf(stderr, "[%s][D] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
+        fprintf(stdout, "[%s][D] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
         break;
     case QtInfoMsg:
-        fprintf(stderr, "[%s][I] %s\n", formattedTime.toLocal8Bit().constData(), localMsg.constData());
+        fprintf(stdout, "[%s][I] %s\n", formattedTime.toLocal8Bit().constData(), localMsg.constData());
         break;
     case QtWarningMsg:
-        fprintf(stderr, "[%s][W] %s\n", formattedTime.toLocal8Bit().constData(), localMsg.constData());
+        fprintf(stdout, "[%s][W] %s\n", formattedTime.toLocal8Bit().constData(), localMsg.constData());
         break;
     case QtCriticalMsg:
-        fprintf(stderr, "[%s][C] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
+        fprintf(stdout, "[%s][C] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
         break;
     case QtFatalMsg:
-        fprintf(stderr, "[%s][F] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
+        fprintf(stdout, "[%s][F] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
         abort();
     }
 }

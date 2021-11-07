@@ -10,6 +10,7 @@
 CImage::CImage(const QString& path)
 {
     QFileInfo fileInfo = QFileInfo(path);
+    qDebug() << QImageReader::supportedImageFormats();
     auto* imageReader = new QImageReader(path);
     auto format = imageReader->format().toLower();
 
@@ -19,7 +20,7 @@ CImage::CImage(const QString& path)
 
     QSize imageSize = imageReader->size();
 
-    this->fullPath = fileInfo.absoluteFilePath();
+    this->fullPath = fileInfo.canonicalFilePath();
     this->fileName = fileInfo.fileName();
     this->size = fileInfo.size();
     this->compressedSize = this->size;

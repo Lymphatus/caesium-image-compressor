@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QIcon>
 #include <QPalette>
+#include <QStyle>
 
 CImageTreeModel::CImageTreeModel()
 {
@@ -146,7 +147,12 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME) {
         //Little hack to get the default application text color to apply transparency to the base folder text
         QColor defaultColor =  QApplication::palette().text().color();
-        QString baseFolderWithoutName = item->getCImage()->getFullPath().remove(baseFolder + QDir::separator()).remove(item->getCImage()->getFileName());
+        if (role & QStyle::State_Selected) {
+            defaultColor = QApplication::palette().highlightedText().color();
+        }
+        QString fullPath = item->getCImage()->getFullPath();
+        QString computedBaseFolder = fullPath.remove(baseFolder + "/");
+        QString baseFolderWithoutName = computedBaseFolder.remove(item->getCImage()->getFileName());
         QString rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
         return "<span style=\"color:" + rgbaString + ";\">" + baseFolderWithoutName + "</span>" + item->getCImage()->getFileName();
     }
