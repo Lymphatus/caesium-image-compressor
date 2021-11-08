@@ -4,6 +4,7 @@
 #include <QDirIterator>
 #include <cmath>
 #include <exiv2/exiv2.hpp>
+#include <QDebug>
 
 QString toHumanSize(long int size)
 {
