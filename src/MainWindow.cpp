@@ -120,10 +120,10 @@ void MainWindow::initListWidget()
     int defaultSectionSize = ui->imageList_TreeView->header()->defaultSectionSize();
     ui->imageList_TreeView->setModel(this->cImageModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
-    ui->imageList_TreeView->header()->resizeSection(CImageColumns::NAME, settings.value("mainwindow/list_view/header_column_size/name", 250).toInt());
-    ui->imageList_TreeView->header()->resizeSection(CImageColumns::SIZE, settings.value("mainwindow/list_view/header_column_size/size", defaultSectionSize).toInt());
-    ui->imageList_TreeView->header()->resizeSection(CImageColumns::RESOLUTION, settings.value("mainwindow/list_view/header_column_size/resolution", defaultSectionSize).toInt());
-    ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
+    ui->imageList_TreeView->header()->resizeSection(CImageColumns::NAME_COLUMN, settings.value("mainwindow/list_view/header_column_size/name", 250).toInt());
+    ui->imageList_TreeView->header()->resizeSection(CImageColumns::SIZE_COLUMN, settings.value("mainwindow/list_view/header_column_size/size", defaultSectionSize).toInt());
+    ui->imageList_TreeView->header()->resizeSection(CImageColumns::RESOLUTION_COLUMN, settings.value("mainwindow/list_view/header_column_size/resolution", defaultSectionSize).toInt());
+    ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO_COLUMN, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 }
 
@@ -194,10 +194,10 @@ void MainWindow::writeSettings()
     if (ui->actionShow_previews->isChecked()) {
         settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(this->ui->main_VSplitter->sizes()));
     }
-    settings.setValue("mainwindow/list_view/header_column_size/name", ui->imageList_TreeView->header()->sectionSize(CImageColumns::NAME));
-    settings.setValue("mainwindow/list_view/header_column_size/size", ui->imageList_TreeView->header()->sectionSize(CImageColumns::SIZE));
-    settings.setValue("mainwindow/list_view/header_column_size/resolution", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RESOLUTION));
-    settings.setValue("mainwindow/list_view/header_column_size/ratio", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RATIO));
+    settings.setValue("mainwindow/list_view/header_column_size/name", ui->imageList_TreeView->header()->sectionSize(CImageColumns::NAME_COLUMN));
+    settings.setValue("mainwindow/list_view/header_column_size/size", ui->imageList_TreeView->header()->sectionSize(CImageColumns::SIZE_COLUMN));
+    settings.setValue("mainwindow/list_view/header_column_size/resolution", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RESOLUTION_COLUMN));
+    settings.setValue("mainwindow/list_view/header_column_size/ratio", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RATIO_COLUMN));
 
     settings.setValue("compression_options/compression/lossless", this->ui->lossless_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_metadata", this->ui->keepMetadata_CheckBox->isChecked());

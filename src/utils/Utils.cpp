@@ -4,7 +4,6 @@
 #include <QDirIterator>
 #include <cmath>
 #include <exiv2/exiv2.hpp>
-#include <QDebug>
 
 QString toHumanSize(long int size)
 {
@@ -64,7 +63,7 @@ QString getRootFolder(QMap<QString, int> folderMap)
         QStringList splitRootFolder = QDir::toNativeSeparators(rootFolderPath).split(QDir::separator());
         QStringList splitCommonPath;
 
-        for (int i = 0; i < std::min(splitNewFolder.count(), splitRootFolder.count()); i++) {
+        for (int i = 0; i < (std::min)(splitNewFolder.count(), splitRootFolder.count()); i++) {
             if (QString::compare(splitNewFolder.at(i), splitRootFolder.at(i)) != 0) {
                 if (i == 0) {
                     rootFolderPath = QDir::rootPath();

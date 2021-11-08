@@ -144,7 +144,7 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
 
     CImageTreeItem* item = static_cast<CImageTreeItem*>(index.internalPointer());
 
-    if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME) {
+    if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME_COLUMN) {
         //Little hack to get the default application text color to apply transparency to the base folder text
         QColor defaultColor =  QApplication::palette().text().color();
         if (role & QStyle::State_Selected) {
@@ -157,10 +157,10 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
         return "<span style=\"color:" + rgbaString + ";\">" + baseFolderWithoutName + "</span>" + item->getCImage()->getFileName();
     }
 
-    if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME) {
+    if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME_COLUMN) {
         CImageStatus status = item->getCImage()->getStatus();
         if (status == CImageStatus::COMPRESSED) {
-            return QIcon(":/icons/compression_statuses/compressed.svg");
+            return QIcon(":/icons/compression_statusFes/compressed.svg");
         } else if (status == CImageStatus::ERROR) {
             return QIcon(":/icons/compression_statuses/error.svg");
         } else if (status == CImageStatus::COMPRESSING) {
@@ -170,15 +170,15 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
         }
     }
 
-    if (role == Qt::DisplayRole && index.column() == CImageColumns::SIZE) {
+    if (role == Qt::DisplayRole && index.column() == CImageColumns::SIZE_COLUMN) {
         return item->getCImage()->getRichFormattedSize();
     }
 
-    if (role == Qt::DisplayRole && index.column() == CImageColumns::RESOLUTION) {
+    if (role == Qt::DisplayRole && index.column() == CImageColumns::RESOLUTION_COLUMN) {
         return item->getCImage()->getRichResolution();
     }
 
-    if (role == Qt::DisplayRole && index.column() == CImageColumns::RATIO) {
+    if (role == Qt::DisplayRole && index.column() == CImageColumns::RATIO_COLUMN) {
         return item->getCImage()->getRichFormattedSavedRatio();
     }
 

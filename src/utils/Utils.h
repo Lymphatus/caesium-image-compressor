@@ -1,6 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
-#ifdef __APPLE__
+#ifdef Q_OS_APPLE
 #define _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
 #endif
 
@@ -21,10 +21,10 @@ enum class CImageStatus {
 const int CIMAGE_COLUMNS_SIZE = 4;
 
 enum CImageColumns {
-    NAME = 0,
-    SIZE = 1,
-    RESOLUTION = 2,
-    RATIO = 3
+    NAME_COLUMN = 0,
+    SIZE_COLUMN = 1,
+    RESOLUTION_COLUMN = 2,
+    RATIO_COLUMN = 3
 };
 
 enum ResizeMode {

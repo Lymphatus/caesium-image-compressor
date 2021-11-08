@@ -1,7 +1,7 @@
-#include <climits>
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <climits>
 #include <QButtonGroup>
 #include <QCloseEvent>
 #include <QDialog>
