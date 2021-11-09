@@ -1,6 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
-#ifdef Q_OS_APPLE
+#ifdef __APPLE__
 #define _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
 #endif
 
