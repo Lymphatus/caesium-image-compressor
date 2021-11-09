@@ -23,7 +23,7 @@ No binaries for Linux are available.
 
 ### Build from source
 ##### Requirements
-- [Qt6 SDK](https://www.qt.io/download/) - binaries are built on 6.2.0 (open source)
+- [Qt6 SDK](https://www.qt.io/download/) - binaries are built on 6.2 (open source)
 - [libcaesium](https://github.com/Lymphatus/libcaesium) - version >= 0.6.0
 - [exiv2](https://github.com/exiv2/exiv2)
 - [Sparkle](https://sparkle-project.org/) for MacOS or [WinSparkle](https://winsparkle.org/) for Windows
@@ -35,17 +35,17 @@ You need to configure CMake first and the command is slightly different for all 
 ###### Windows
 Change the path in variables with the correct directories of the requirements.
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/mingw81_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/msvc2019_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
 ```
 ###### MacOS
 Change the path in variables with the correct directories of the requirements.
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
 ```
 ###### Linux
 Make sure you have all the requirements installed by you own package manager
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/gcc_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib
 ```
 ##### Step 2
 Then you can build with
@@ -59,6 +59,6 @@ You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtL
 You can use [this pull request](https://github.com/Lymphatus/caesium-image-compressor/pull/57) as an example.
 
 ### Resources
-* Caesium website - [http://saerasoft.com/caesium/](http://saerasoft.com/caesium/)
+* Caesium website - [http://saerasoft.com/caesium/](https://saerasoft.com/caesium/)
 * Caesium Git Repository - [https://github.com/Lymphatus/caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
-* Author website - SaeraSoft - [http://saerasoft.com](http://saerasoft.com)
+* Author website - SaeraSoft - [http://saerasoft.com](https://saerasoft.com)
