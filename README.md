@@ -3,7 +3,7 @@
 
 ###### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
 
-![Screenshot](https://user-images.githubusercontent.com/12133996/136700618-e3b94328-e1c9-4bb0-9937-23e6e71e3ff1.PNG)
+![Cattura_beta2](https://user-images.githubusercontent.com/12133996/141089441-b7589314-3a5d-48ff-8854-c3d32bd8dd5e.PNG)
 
 ----------
 
