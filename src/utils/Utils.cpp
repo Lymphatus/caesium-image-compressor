@@ -17,10 +17,10 @@ QString toHumanSize(long int size)
 
     QStringList unit;
     unit << "bytes"
-         << "Kb"
-         << "Mb"
-         << "Gb"
-         << "Tb";
+         << "KB"
+         << "MB"
+         << "GB"
+         << "TB";
     double order = floor(log2((double)size) / 10);
 
     if (order > 4) {

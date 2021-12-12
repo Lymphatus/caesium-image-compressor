@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("com.saerasoft.caesium");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.0.0-beta.2");
+    QCoreApplication::setApplicationVersion("2.0.0-beta.3");
 
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);

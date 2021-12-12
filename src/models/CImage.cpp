@@ -91,6 +91,9 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QString inputFullPath = this->getFullPath();
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
+    if (!inputFileInfo.exists()) {
+        return false;
+    }
     QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + inputFileInfo.suffix();
     FileDates inputFileDates = {
         inputFileInfo.fileTime(QFile::FileBirthTime),

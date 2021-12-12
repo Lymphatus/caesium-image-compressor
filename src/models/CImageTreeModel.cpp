@@ -160,7 +160,7 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME_COLUMN) {
         CImageStatus status = item->getCImage()->getStatus();
         if (status == CImageStatus::COMPRESSED) {
-            return QIcon(":/icons/compression_statusFes/compressed.svg");
+            return QIcon(":/icons/compression_statuses/compressed.svg");
         } else if (status == CImageStatus::ERROR) {
             return QIcon(":/icons/compression_statuses/error.svg");
         } else if (status == CImageStatus::COMPRESSING) {
