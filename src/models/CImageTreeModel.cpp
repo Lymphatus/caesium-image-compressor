@@ -204,25 +204,25 @@ QVariant CImageTreeModel::headerData(int section, Qt::Orientation orientation, i
 }
 
 //TODO We can maybe optimize these 2 functions to work together
-size_t CImageTreeModel::compressedItemsSize() const
+double CImageTreeModel::compressedItemsSize() const
 {
     QVectorIterator<CImageTreeItem*> itemsIterator(rootItem->children());
-    size_t totalSize = 0;
+    double totalSize = 0;
     while (itemsIterator.hasNext()) {
         auto item = itemsIterator.next();
-        size_t size = item->getCImage()->getCompressedSize();
+        auto size = (double) item->getCImage()->getCompressedSize();
         totalSize += size;
     }
     return totalSize;
 }
 
-size_t CImageTreeModel::originalItemsSize() const
+double CImageTreeModel::originalItemsSize() const
 {
     QVectorIterator<CImageTreeItem*> itemsIterator(rootItem->children());
-    size_t totalSize = 0;
+    double totalSize = 0;
     while (itemsIterator.hasNext()) {
         auto item = itemsIterator.next();
-        size_t size = item->getCImage()->getOriginalSize();
+        auto size = (double) item->getCImage()->getOriginalSize();
         totalSize += size;
     }
     return totalSize;

@@ -387,7 +387,7 @@ Saved: %4 (%5%)</translation>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="729"/>
+        <location filename="../../src/MainWindow.cpp" line="728"/>
         <source>images in list</source>
         <translation>images in list</translation>
     </message>

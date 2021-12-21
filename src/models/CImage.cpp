@@ -1,6 +1,7 @@
 #include "CImage.h"
 
 #include "./exceptions/ImageNotSupportedException.h"
+#include "exceptions/ImageTooBigException.h"
 #include <QDir>
 #include <QImageReader>
 #include <QSettings>
@@ -17,13 +18,17 @@ CImage::CImage(const QString& path)
         throw ImageNotSupportedException();
     }
 
-    QSize imageSize = imageReader->size();
+    this->size = fileInfo.size();
+
+    if (this->size > 104857600) {
+        throw ImageTooBigException();
+    }
 
     this->fullPath = fileInfo.canonicalFilePath();
     this->fileName = fileInfo.fileName();
-    this->size = fileInfo.size();
     this->compressedSize = this->size;
 
+    QSize imageSize = imageReader->size();
     this->width = imageSize.width();
     this->height = imageSize.height();
     this->compressedWidth = this->width;
@@ -46,16 +51,16 @@ bool operator!=(const CImage& c1, const CImage& c2)
 
 QString CImage::getFormattedSize()
 {
-    size_t size = this->status == CImageStatus::COMPRESSED ? this->compressedSize : this->size;
-    return toHumanSize(size);
+    size_t s = this->status == CImageStatus::COMPRESSED ? this->compressedSize : this->size;
+    return toHumanSize((double)s);
 }
 
 QString CImage::getRichFormattedSize()
 {
     if (this->status == CImageStatus::COMPRESSED && this->size != this->compressedSize) {
-        return "<small><s>" + toHumanSize(this->size) + "</s></small> " + toHumanSize(this->compressedSize);
+        return "<small><s>" + toHumanSize((double)this->size) + "</s></small> " + toHumanSize((double)this->compressedSize);
     }
-    return toHumanSize(this->size);
+    return toHumanSize((double)this->size);
 }
 
 QString CImage::getResolution()

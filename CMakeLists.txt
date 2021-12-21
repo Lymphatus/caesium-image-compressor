@@ -101,6 +101,7 @@ set(SOURCES
         src/widgets/QMainCheckBox.cpp
         src/delegates/HtmlDelegate.cpp
         src/exceptions/ImageNotSupportedException.cpp
+        src/exceptions/ImageTooBigException.cpp
         src/dialogs/PreferencesDialog.cpp
         )
 
@@ -117,6 +118,7 @@ set(HEADERS
         src/widgets/QMainCheckBox.h
         src/delegates/HtmlDelegate.h
         src/exceptions/ImageNotSupportedException.h
+        src/exceptions/ImageTooBigException.h
         src/dialogs/PreferencesDialog.h
         )
 

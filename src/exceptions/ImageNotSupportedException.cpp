@@ -2,7 +2,7 @@
 
 ImageNotSupportedException::ImageNotSupportedException()
 {
-    message = "Image not supported";
+    message = "Image format is not supported.";
 }
 
 const char* ImageNotSupportedException::what() const noexcept

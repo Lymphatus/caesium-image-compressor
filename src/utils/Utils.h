@@ -74,9 +74,9 @@ typedef struct FileDates {
 } FileDates;
 
 typedef struct CompressionSummary {
-    unsigned int totalImages = 0;
-    size_t totalUncompressedSize = 0;
-    size_t totalCompressedSize = 0;
+    unsigned long int totalImages = 0;
+    double totalUncompressedSize = 0;
+    double totalCompressedSize = 0;
 } CompressionSummary;
 
 const int LANGUAGES_COUNT = 3;
@@ -88,7 +88,7 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
 };
 
 // Utilities
-QString toHumanSize(long int size);
+QString toHumanSize(double size);
 QStringList scanDirectory(QString directory, bool subfolders);
 QString getRootFolder(QMap<QString, int> folderMap);
 QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);

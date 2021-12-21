@@ -559,7 +559,7 @@ void MainWindow::compressionFinished()
                                                         toHumanSize(compressionSummary.totalUncompressedSize),
                                                         toHumanSize(compressionSummary.totalCompressedSize),
                                                         toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize),
-                                                        QString::number(round(((double)compressionSummary.totalUncompressedSize - (double)compressionSummary.totalCompressedSize) / (double)compressionSummary.totalUncompressedSize * 100))));
+                                                        QString::number(round((compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100))));
     compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
     compressionSummaryDialog.exec();
 }
@@ -723,9 +723,8 @@ void MainWindow::on_PNGLevel_SpinBox_valueChanged(int value)
 void MainWindow::cModelItemsChanged()
 {
     int itemsCount = this->cImageModel->rowCount();
-    size_t totalOriginalSizeCount = this->cImageModel->originalItemsSize();
     QString humanItemsCount = QString::number(itemsCount);
-    QString totalSize = toHumanSize(totalOriginalSizeCount);
+    QString totalSize = toHumanSize(this->cImageModel->originalItemsSize());
     ui->statusbar->showMessage(humanItemsCount + " " + tr("images in list") + " | " + totalSize);
 
     ui->removeFiles_Button->setDisabled(itemsCount == 0);
