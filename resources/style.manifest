@@ -3,10 +3,10 @@
 <assemblyIdentity
     version="1.0.0.0"
     processorArchitecture="*"
-    name="CompanyName.ProductName.YourApplication"
+    name="saerasoft.com.caesium"
     type="win32"
 />
-<description>Your application description here.</description>
+<description>Caesium Image Compressor</description>
 <dependency>
     <dependentAssembly>
         <assemblyIdentity
