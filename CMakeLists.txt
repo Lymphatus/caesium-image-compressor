@@ -103,6 +103,7 @@ set(SOURCES
         src/exceptions/ImageNotSupportedException.cpp
         src/exceptions/ImageTooBigException.cpp
         src/dialogs/PreferencesDialog.cpp
+        src/network/NetworkOperations.cpp
         )
 
 set(HEADERS
@@ -120,6 +121,7 @@ set(HEADERS
         src/exceptions/ImageNotSupportedException.h
         src/exceptions/ImageTooBigException.h
         src/dialogs/PreferencesDialog.h
+        src/network/NetworkOperations.h
         )
 
 if (APPLE)

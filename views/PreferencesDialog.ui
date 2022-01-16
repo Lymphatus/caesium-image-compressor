@@ -48,38 +48,12 @@
          <property name="topMargin">
           <number>0</number>
          </property>
-         <item row="2" column="1">
-          <widget class="QLabel" name="generalPageTitle_Label">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>General</string>
-           </property>
-          </widget>
-         </item>
          <item row="4" column="1">
           <widget class="QCheckBox" name="promptExit_CheckBox">
            <property name="text">
             <string>Prompt before exit</string>
            </property>
           </widget>
-         </item>
-         <item row="6" column="1">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
          </item>
          <item row="5" column="1">
           <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
@@ -95,6 +69,39 @@
           <widget class="QCheckBox" name="importSubfolders_CheckBox">
            <property name="text">
             <string>Import files in subfolders when opening a directory</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="generalPageTitle_Label">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>General</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
+           <property name="text">
+            <string>Send anonymous usage reports</string>
            </property>
           </widget>
          </item>

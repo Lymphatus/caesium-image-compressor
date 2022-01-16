@@ -22,6 +22,8 @@ private slots:
 
     void on_importSubfolders_CheckBox_toggled(bool checked);
 
+    void on_sendUsageReport_CheckBox_toggled(bool checked);
+
 private:
     Ui::PreferencesDialog *ui;
 

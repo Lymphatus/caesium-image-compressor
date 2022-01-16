@@ -10,10 +10,12 @@
 #include <QItemSelection>
 #include <QMainWindow>
 #include <QShowEvent>
+#include <QNetworkAccessManager>
 #include <dialogs/AboutDialog.h>
 
 #include "models/CImage.h"
 #include "models/CImageTreeModel.h"
+#include "network/NetworkOperations.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -81,12 +83,13 @@ private:
     QGraphicsScene* compressedPreviewScene;
     QMap<QString, int> folderMap;
     AboutDialog* aboutDialog = nullptr;
-    QVariant readSetting(const QString& key);
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
     QMenu* listContextMenu{};
     QButtonGroup* keepDatesButtonGroup;
     CompressionSummary compressionSummary;
+    NetworkOperations* networkOperations;
+    QElapsedTimer compressionTimer;
 
     void initStatusBar();
     void initUpdater();

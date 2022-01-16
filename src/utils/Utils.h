@@ -10,6 +10,7 @@
 #include <QString>
 #include <QStringList>
 #include <QDateTime>
+#include <QJsonObject>
 
 enum class CImageStatus {
     UNCOMPRESSED,
@@ -77,6 +78,7 @@ typedef struct CompressionSummary {
     unsigned long int totalImages = 0;
     double totalUncompressedSize = 0;
     double totalCompressedSize = 0;
+    qint64 elapsedTime = 0;
 } CompressionSummary;
 
 const int LANGUAGES_COUNT = 3;

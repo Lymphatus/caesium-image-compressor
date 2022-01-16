@@ -9,6 +9,7 @@
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QStandardPaths>
+#include <QTime>
 #include <QWheelEvent>
 #include <QWindow>
 #include <QtConcurrent>
@@ -37,6 +38,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->aboutDialog = new AboutDialog(this);
     this->compressionWatcher = new QFutureWatcher<void>();
     this->listContextMenu = new QMenu();
+    this->networkOperations = new NetworkOperations();
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -75,6 +77,15 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
+
+    QSettings settings;
+    if (settings.value("preferences/general/send_usage_reports", false).toBool()) {
+        if (!settings.contains("access_token")) {
+            this->networkOperations->requestToken();
+        } else {
+            this->networkOperations->updateSystemInfo();
+        }
+    }
 }
 
 MainWindow::~MainWindow()
@@ -89,6 +100,7 @@ MainWindow::~MainWindow()
     delete aboutDialog;
     delete keepDatesButtonGroup;
     delete compressionWatcher;
+    delete networkOperations;
     delete ui;
 }
 
@@ -327,12 +339,6 @@ void MainWindow::updateFolderMap(QString baseFolder, int count)
     }
 }
 
-QVariant MainWindow::readSetting(const QString& key)
-{
-    QSettings settings;
-    return settings.value(key);
-}
-
 void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 {
     int listLength = fileList.count();
@@ -471,6 +477,9 @@ void MainWindow::on_compress_Button_clicked()
     compressionSummary.totalImages = this->cImageModel->rowCount();
     compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
     compressionSummary.totalCompressedSize = 0;
+    compressionSummary.elapsedTime = 0;
+
+    compressionTimer.start();
 }
 
 void MainWindow::on_actionAdd_folder_triggered()
@@ -547,11 +556,23 @@ void MainWindow::imageList_selectionChanged()
 
 void MainWindow::compressionFinished()
 {
+    QSettings settings;
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
     }
 
     compressionSummary.totalCompressedSize = this->cImageModel->compressedItemsSize();
+    compressionSummary.elapsedTime = compressionTimer.isValid() ? compressionTimer.elapsed() : 0;
+
+    if (settings.value("preferences/general/send_usage_reports", true).toBool()) {
+        this->networkOperations->sendUsageReport(compressionSummary);
+    }
+
+    qInfo() << "Compression ended successfully.\nTotal images:" << compressionSummary.totalImages
+            << "\nUncompressed size:" << toHumanSize(compressionSummary.totalUncompressedSize)
+            << "\nCompressed size:" << toHumanSize(compressionSummary.totalCompressedSize)
+            << "\nElapsed time:" << compressionSummary.elapsedTime << "ms";
+
     QCaesiumMessageBox compressionSummaryDialog;
     compressionSummaryDialog.setText(tr("Compression finished!"));
     compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")

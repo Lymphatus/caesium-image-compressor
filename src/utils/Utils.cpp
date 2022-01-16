@@ -3,6 +3,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <cmath>
+#include <QJsonObject>
 #include <exiv2/exiv2.hpp>
 
 QString toHumanSize(double size)

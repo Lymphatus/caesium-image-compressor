@@ -6,6 +6,7 @@
 #include <QStandardPaths>
 #include <QTranslator>
 #include <QSettings>
+#include <QUuid>
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
@@ -48,10 +49,19 @@ void loadLocale(QTranslator* translator)
     }
 }
 
+void loadInstallationId()
+{
+    QSettings settings;
+
+    if (!settings.contains("uuid")) {
+        settings.setValue("uuid", QUuid::createUuid().toString(QUuid::WithoutBraces));
+    }
+}
+
 int main(int argc, char* argv[])
 {
     QCoreApplication::setOrganizationName("SaeraSoft");
-    QCoreApplication::setOrganizationDomain("com.saerasoft.caesium");
+    QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
     QCoreApplication::setApplicationVersion("2.0.0-beta.3");
 
@@ -66,6 +76,7 @@ int main(int argc, char* argv[])
     loadLocale(&translator);
 
     qInfo() << "---- Starting application ----";
+    loadInstallationId();
     MainWindow w;
     w.show();
 
