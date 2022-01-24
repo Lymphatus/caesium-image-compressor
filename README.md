@@ -59,6 +59,6 @@ You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtL
 You can use [this pull request](https://github.com/Lymphatus/caesium-image-compressor/pull/57) as an example.
 
 ### Resources
-* Caesium website - [http://saerasoft.com/caesium/](https://saerasoft.com/caesium/)
+* Caesium website - [https://saerasoft.com/caesium/](https://saerasoft.com/caesium/)
 * Caesium Git Repository - [https://github.com/Lymphatus/caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
-* Author website - SaeraSoft - [http://saerasoft.com](https://saerasoft.com)
+* Author website - SaeraSoft - [https://saerasoft.com](https://saerasoft.com)
