@@ -11,7 +11,7 @@
 
 ----------
 #### Tested Platforms
-- **Windows** 10/11
+- **Windows** 10/11 64bit only
 - **MacOS** >= 10.15
 - **Linux** (tested on Ubuntu 20.04)
 
