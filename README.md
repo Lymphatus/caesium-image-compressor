@@ -10,9 +10,9 @@
 > Caesium is an image compression software aimed at helping photographers, bloggers, webmasters, businesses or casual users at storing, sending and sharing digital pictures. Available for Windows, MacOS and Linux.
 
 ----------
-#### Supported Platforms
-- **Windows** 7/10/11
-- **MacOS** >= 10.14
+#### Tested Platforms
+- **Windows** 10/11
+- **MacOS** >= 10.15
 - **Linux** (tested on Ubuntu 20.04)
 
 ### Installation
