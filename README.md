@@ -1,5 +1,5 @@
 ## Caesium - Image Compressor (Cs-133)
-> v2.0.0-beta.3 - Copyright &copy; Matteo Paonessa, 2021. All Rights Reserved.
+> v2.0.0-beta.4 - Copyright &copy; Matteo Paonessa, 2022. All Rights Reserved.
 
 ###### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
 

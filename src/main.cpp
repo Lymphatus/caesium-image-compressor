@@ -13,21 +13,35 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
     QDateTime currentTime = QDateTime::currentDateTime();
     QString formattedTime = currentTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
     QByteArray localMsg = msg.toLocal8Bit();
+    QFile logFile(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator() + "caesium.log");
+    QString message;
     switch (type) {
     case QtDebugMsg:
-        fprintf(stdout, "[%s][D] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
+        message = QString("[%1][D] %2 (%3:%4, %5)\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, QString::number(context.line), context.function);
         break;
     case QtInfoMsg:
-        fprintf(stdout, "[%s][I] %s\n", formattedTime.toLocal8Bit().constData(), localMsg.constData());
+        message = QString("[%1][I] %2\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData());
         break;
     case QtWarningMsg:
-        fprintf(stdout, "[%s][W] %s\n", formattedTime.toLocal8Bit().constData(), localMsg.constData());
+        message = QString("[%1][W] %2\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData());
         break;
     case QtCriticalMsg:
-        fprintf(stdout, "[%s][C] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
+        message = QString("[%1][C] %2 (%3:%4, %5)\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, QString::number(context.line), context.function);
         break;
     case QtFatalMsg:
-        fprintf(stdout, "[%s][F] %s (%s:%u, %s)\n", formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, context.line, context.function);
+        message = QString("[%1][F] %2 (%3:%4, %5)\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, QString::number(context.line), context.function);
+        break;
+    }
+
+    if (logFile.open(QIODevice::WriteOnly | QIODevice::Append)) {
+        QTextStream log(&logFile);
+        log << message;
+        logFile.close();
+    } else {
+        fprintf(stdout, "%s", message.toLocal8Bit().constData());
+    }
+
+    if (type == QtFatalMsg) {
         abort();
     }
 }
@@ -63,8 +77,9 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.0.0-beta.3");
+    QCoreApplication::setApplicationVersion("2.0.0-beta.4");
 
+    qInfo() << "Writing logs to" << QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator() + "caesium.log";
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);
 
