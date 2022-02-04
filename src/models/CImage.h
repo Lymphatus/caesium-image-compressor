@@ -43,6 +43,7 @@ public:
     QString getRichFormattedSavedRatio();
     bool compress(const CompressionOptions& compressionOptions);
     QString getCompressedFullPath() const;
+    size_t getTotalPixels() const;
 
 private:
     CImageStatus status;

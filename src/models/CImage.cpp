@@ -172,7 +172,10 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     bool result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
     if (result) {
         if (keepMetadata) {
-            copyMetadata(this->getFullPath().toUtf8().constData(), tempFileFullPath.toUtf8().constData());
+            bool metadataCopyResult = copyMetadata(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData());
+            if (!metadataCopyResult) {
+                return false;
+            }
         }
         QFileInfo outputInfo(tempFileFullPath);
 
@@ -265,4 +268,9 @@ size_t CImage::getOriginalSize() const
 size_t CImage::getCompressedSize() const
 {
     return this->compressedSize;
+}
+
+size_t CImage::getTotalPixels() const
+{
+    return this->width * this->height;
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>986</width>
-    <height>919</height>
+    <width>1272</width>
+    <height>864</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,10 +61,10 @@
            <property name="indentation">
             <number>0</number>
            </property>
-           <property name="sortingEnabled">
+           <property name="itemsExpandable">
             <bool>false</bool>
            </property>
-           <property name="animated">
+           <property name="sortingEnabled">
             <bool>true</bool>
            </property>
            <property name="allColumnsShowFocus">
@@ -76,11 +76,8 @@
            <attribute name="headerDefaultSectionSize">
             <number>145</number>
            </attribute>
-           <attribute name="headerHighlightSections">
-            <bool>false</bool>
-           </attribute>
            <attribute name="headerShowSortIndicator" stdset="0">
-            <bool>false</bool>
+            <bool>true</bool>
            </attribute>
            <attribute name="headerStretchLastSection">
             <bool>false</bool>
@@ -1028,8 +1025,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>986</width>
-     <height>21</height>
+     <width>1272</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

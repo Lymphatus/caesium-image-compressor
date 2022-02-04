@@ -11,10 +11,12 @@
 #include <QMainWindow>
 #include <QShowEvent>
 #include <QNetworkAccessManager>
+#include <QSortFilterProxyModel>
 #include <dialogs/AboutDialog.h>
 
 #include "models/CImage.h"
 #include "models/CImageTreeModel.h"
+#include "models/CImageSortFilterProxyModel.h"
 #include "network/NetworkOperations.h"
 
 QT_BEGIN_NAMESPACE
@@ -69,9 +71,7 @@ private slots:
     void on_actionShow_previews_toggled(bool arg1);
     void on_actionPreferences_triggered();
     void keepDatesButtonGroupClicked();
-
     void on_keepDates_CheckBox_clicked();
-
     void on_keepDates_CheckBox_stateChanged(int arg1);
 
 private:
@@ -90,6 +90,7 @@ private:
     CompressionSummary compressionSummary;
     NetworkOperations* networkOperations;
     QElapsedTimer compressionTimer;
+    CImageSortFilterProxyModel* proxyModel;
 
     void initStatusBar();
     void initUpdater();

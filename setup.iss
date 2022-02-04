@@ -29,6 +29,7 @@ OutputBaseFilename=caesium-image-compressor-{#MyAppVersion}-win-setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+UninstallDisplayIcon="{app}\{#MyAppExeName}"
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

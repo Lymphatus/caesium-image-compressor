@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->compressionWatcher = new QFutureWatcher<void>();
     this->listContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
+    this->proxyModel = new CImageSortFilterProxyModel();
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -94,6 +95,7 @@ MainWindow::~MainWindow()
     win_sparkle_cleanup();
 #endif
 
+    delete proxyModel;
     delete cImageModel;
     delete previewScene;
     delete compressedPreviewScene;
@@ -130,7 +132,8 @@ void MainWindow::initListWidget()
 {
     QSettings settings;
     int defaultSectionSize = ui->imageList_TreeView->header()->defaultSectionSize();
-    ui->imageList_TreeView->setModel(this->cImageModel);
+    this->proxyModel->setSourceModel(this->cImageModel);
+    ui->imageList_TreeView->setModel(this->proxyModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::NAME_COLUMN, settings.value("mainwindow/list_view/header_column_size/name", 250).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::SIZE_COLUMN, settings.value("mainwindow/list_view/header_column_size/size", defaultSectionSize).toInt());
@@ -388,8 +391,11 @@ void MainWindow::removeFiles(bool all)
     int columnCount = this->cImageModel->columnCount();
 
     for (int i = indexes.count() / columnCount; i > 0; i--) {
-        this->updateFolderMap(this->cImageModel->getRootItem()->children().at(indexes.at(i).row())->getCImage()->getFullPath(), -1);
-        this->cImageModel->removeRows(indexes.at(i).row(), 1, indexes.at(i).parent());
+        auto currentIndex = this->proxyModel->mapToSource(indexes.at(i));
+        auto indexRow = currentIndex.row();
+        auto indexParent = currentIndex.parent();
+        this->updateFolderMap(this->cImageModel->getRootItem()->children().at(indexRow)->getCImage()->getFullPath(), -1);
+        this->cImageModel->removeRows(indexRow, 1, indexParent);
     }
     this->previewScene->clear();
     this->compressedPreviewScene->clear();
@@ -551,14 +557,14 @@ void MainWindow::imageList_selectionChanged()
         return;
     }
 
-    this->previewImage(currentIndex);
+    this->previewImage(this->proxyModel->mapToSource(currentIndex));
 }
 
 void MainWindow::compressionFinished()
 {
     QSettings settings;
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
-        this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
+        this->previewImage(this->proxyModel->mapToSource(ui->imageList_TreeView->selectionModel()->selectedRows().at(0)));
     }
 
     compressionSummary.totalCompressedSize = this->cImageModel->compressedItemsSize();
@@ -791,7 +797,7 @@ void MainWindow::on_actionShow_previews_toggled(bool toggled)
         QSettings settings;
         ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
         if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
-            this->previewImage(ui->imageList_TreeView->selectionModel()->selectedRows().at(0));
+            this->previewImage(this->proxyModel->mapToSource(ui->imageList_TreeView->selectionModel()->selectedRows().at(0)));
         }
     }
 }

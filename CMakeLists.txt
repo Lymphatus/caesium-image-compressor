@@ -93,6 +93,7 @@ set(SOURCES
         src/models/CImage.cpp
         src/models/CImageTreeItem.cpp
         src/models/CImageTreeModel.cpp
+        src/models/CImageSortFilterProxyModel.cpp
         src/utils/Utils.cpp
         src/dialogs/AboutDialog.cpp
         src/widgets/QDropTreeView.cpp
@@ -111,6 +112,7 @@ set(HEADERS
         src/models/CImage.h
         src/models/CImageTreeItem.h
         src/models/CImageTreeModel.h
+        src/models/CImageSortFilterProxyModel.h
         src/utils/Utils.h
         src/dialogs/AboutDialog.h
         src/widgets/QDropTreeView.h
@@ -148,7 +150,8 @@ set(UI
 
 SET(TS_FILES
         resources/i18n/caesium_en_US.ts
-        resources/i18n/caesium_it_IT.ts)
+        resources/i18n/caesium_it_IT.ts
+        resources/i18n/caesium_fr_FR.ts)
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
