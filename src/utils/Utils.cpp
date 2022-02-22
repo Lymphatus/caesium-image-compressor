@@ -4,7 +4,7 @@
 #include <QDirIterator>
 #include <cmath>
 #include <QJsonObject>
-#include <exiv2/exiv2.hpp>
+#include <QImageReader>
 
 QString toHumanSize(double size)
 {
@@ -81,74 +81,43 @@ QString getRootFolder(QMap<QString, int> folderMap)
     return rootFolderPath;
 }
 
-QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge)
+std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge)
 {
-    int originalWidth = image.width();
-    int originalHeight = image.height();
+    int originalWidth = originalSize.width();
+    int originalHeight = originalSize.height();
 
     if (fitTo == ResizeMode::DIMENSIONS) {
         int outputWidth = width;
         int outputHeight = height;
         if (doNotEnlarge && (outputWidth >= originalWidth || outputHeight >= originalHeight)) {
-            return image;
+            return {originalWidth, originalHeight};
         }
-        image = image.scaled(outputWidth, outputHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        return {outputWidth, outputHeight};
     } else if (fitTo == ResizeMode::PERCENTAGE) {
         int outputWidthPerc = width;
         int outputHeightPerc = height;
 
         if (doNotEnlarge && (outputWidthPerc >= 100 || outputHeightPerc >= 100)) {
-            return image;
+            return {originalWidth, originalHeight};
         }
 
         int outputWidth = (int)round((double)originalWidth * (double)outputWidthPerc / 100);
         int outputHeight = (int)round((double)originalHeight * (double)outputHeightPerc / 100);
-        image = image.scaled(outputWidth, outputHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        return {outputWidth, outputHeight};
     } else if (fitTo == ResizeMode::LONG_EDGE || fitTo == ResizeMode::SHORT_EDGE) {
         //TODO Refactor this section
         if ((fitTo == ResizeMode::LONG_EDGE && originalWidth >= originalHeight) || (fitTo == ResizeMode::SHORT_EDGE && originalWidth <= originalHeight)) {
             if (doNotEnlarge && originalWidth <= size) {
-                return image;
+                return {originalWidth, originalHeight};
             }
-            image = image.scaledToWidth(size, Qt::SmoothTransformation);
+            return {size, 0};
         } else if ((fitTo == ResizeMode::LONG_EDGE && originalHeight >= originalWidth) || (fitTo == ResizeMode::SHORT_EDGE && originalHeight <= originalWidth)) {
             if (doNotEnlarge && originalHeight <= size) {
-                return image;
+                return {originalWidth, originalHeight};
             }
-            image = image.scaledToHeight(size, Qt::SmoothTransformation);
+            return {0, size};
         }
     }
 
-    return image;
-}
-
-bool copyMetadata(const char* input, const char* output)
-{
-    try {
-        Exiv2::XmpParser::initialize();
-        ::atexit(Exiv2::XmpParser::terminate);
-#ifdef EXV_ENABLE_BMFF
-        Exiv2::enableBMFF();
-#endif
-
-        auto readImg = Exiv2::ImageFactory::open(input);
-        readImg->readMetadata();
-
-        auto writeImg = Exiv2::ImageFactory::open(output);
-        writeImg->readMetadata();
-        writeImg->setIptcData(readImg->iptcData());
-        writeImg->setExifData(readImg->exifData());
-        writeImg->setComment(readImg->comment());
-        writeImg->setXmpData(readImg->xmpData());
-
-        try {
-            writeImg->writeMetadata();
-        } catch (const Exiv2::AnyError&) {
-            return false;
-        }
-
-        return true;
-    } catch (Exiv2::AnyError& e) {
-        return false;
-    }
+    return {originalWidth, originalHeight};
 }

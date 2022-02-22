@@ -137,50 +137,43 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     bool lossless = compressionOptions.lossless;
     bool keepMetadata = compressionOptions.keepMetadata;
 
-    C_CSParameters r_parameters = {
+    CCSParameters r_parameters = {
         keepMetadata,
         static_cast<unsigned int>(compressionOptions.jpeg_quality),
         static_cast<unsigned int>(compressionOptions.png_level),
         false,
         20,
         static_cast<unsigned int>(compressionOptions.webp_quality),
-        lossless
+        lossless,
+        0,
+        0
     };
 
     QImageReader::setAllocationLimit(512);
     // Resize
     if (compressionOptions.resize) {
-        QImage image(this->getFullPath());
-        QSize originalSize = image.size();
+        QImageReader imageReader(this->getFullPath());
+        QSize originalSize = imageReader.size();
 
-        image = cResize(image,
+        std::tuple<unsigned int, unsigned int> dimensions = cResize(originalSize,
             compressionOptions.fitTo,
             compressionOptions.width,
             compressionOptions.height,
             compressionOptions.size,
             compressionOptions.doNotEnlarge);
 
-        if (image.size() != originalSize) {
-            bool saveResult = image.save(tempFileFullPath, inputFileInfo.suffix().toLocal8Bit(), 100);
-            if (!saveResult) {
-                return false;
-            }
-            inputFullPath = tempFileFullPath;
+        if (std::get<0>(dimensions) != originalSize.width() || std::get<1>(dimensions) != originalSize.height()) {
+            r_parameters.width = std::get<0>(dimensions);
+            r_parameters.height = std::get<1>(dimensions);
         }
     }
 
     bool result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
     if (result) {
-        if (keepMetadata) {
-            bool metadataCopyResult = copyMetadata(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData());
-            if (!metadataCopyResult) {
-                return false;
-            }
-        }
         QFileInfo outputInfo(tempFileFullPath);
 
         bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size();
-        bool copyResult;
+        bool copyResult = false;
 
         if (outputAlreadyExists) {
             QFile::remove(outputFullPath);

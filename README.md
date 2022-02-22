@@ -24,8 +24,7 @@ No binaries for Linux are available.
 ### Build from source
 ##### Requirements
 - [Qt6 SDK](https://www.qt.io/download/) - binaries are built on 6.2 (open source)
-- [libcaesium](https://github.com/Lymphatus/libcaesium) - version >= 0.6.0
-- [exiv2](https://github.com/exiv2/exiv2)
+- [libcaesium](https://github.com/Lymphatus/libcaesium) - version >= 0.7.0
 - [Sparkle](https://sparkle-project.org/) for MacOS or [WinSparkle](https://winsparkle.org/) for Windows
 - [libssh](https://www.libssh.org/) - MacOS only
 

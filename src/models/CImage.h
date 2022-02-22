@@ -6,7 +6,7 @@
 
 #include "../utils/Utils.h"
 
-struct C_CSParameters {
+struct CCSParameters {
     bool keep_metadata;
     unsigned int jpeg_quality;
     unsigned int png_level;
@@ -14,8 +14,10 @@ struct C_CSParameters {
     unsigned int gif_quality;
     unsigned int webp_quality;
     bool optimize;
+    unsigned int width;
+    unsigned int height;
 };
-extern "C" bool c_compress(const char *i, const char *o, C_CSParameters params);
+extern "C" bool c_compress(const char *i, const char *o, CCSParameters params);
 
 class CImage
 {

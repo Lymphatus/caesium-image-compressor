@@ -11,6 +11,7 @@
 #include <QStringList>
 #include <QDateTime>
 #include <QJsonObject>
+#include <QImageReader>
 
 enum class CImageStatus {
     UNCOMPRESSED,
@@ -94,6 +95,5 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
 QString toHumanSize(double size);
 QStringList scanDirectory(QString directory, bool subfolders);
 QString getRootFolder(QMap<QString, int> folderMap);
-QImage cResize(QImage image, int fitTo, int width, int height, int size, bool doNotEnlarge);
-bool copyMetadata(const char* input, const char* output);
+std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
 #endif // UTILS_H
