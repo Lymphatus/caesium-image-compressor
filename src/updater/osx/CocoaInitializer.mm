@@ -5,8 +5,6 @@
 #include "CocoaInitializer.h"
 
 #include <AppKit/AppKit.h>
-#include <Cocoa/Cocoa.h>
-#include <QtDebug>
 
 class CocoaInitializer::Private 
 {
