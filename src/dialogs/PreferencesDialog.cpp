@@ -37,6 +37,7 @@ void PreferencesDialog::loadPreferences()
     ui->checkUpdatesAtStartup_CheckBox->setChecked(settings.value("preferences/general/check_updates_at_startup", false).toBool());
     ui->importSubfolders_CheckBox->setChecked(settings.value("preferences/general/import_subfolders", true).toBool());
     ui->sendUsageReport_CheckBox->setChecked(settings.value("preferences/general/send_usage_reports", true).toBool());
+    ui->multithreading_CheckBox->setChecked(settings.value("preferences/general/multithreading", true).toBool());
     ui->language_ComboBox->setCurrentIndex(settings.value("preferences/language/locale", 0).toInt());
 }
 
@@ -76,5 +77,11 @@ void PreferencesDialog::on_importSubfolders_CheckBox_toggled(bool checked)
 void PreferencesDialog::on_sendUsageReport_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/send_usage_reports", checked);
+}
+
+
+void PreferencesDialog::on_multithreading_CheckBox_toggled(bool checked)
+{
+    this->writeSetting("preferences/general/multithreading", checked);
 }
 

@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget* parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    qDebug() << "Starting UI";
+    qInfo() << "Starting UI";
 
     this->cImageModel = new CImageTreeModel();
     this->previewScene = new QGraphicsScene();
@@ -440,6 +440,13 @@ void MainWindow::on_compress_Button_clicked()
     if (this->cImageModel->getRootItem()->childCount() == 0) {
         return;
     }
+
+    if (!settings.value("preferences/general/multithreading", true).toBool()) {
+        QThreadPool::globalInstance()->setMaxThreadCount(1);
+    } else {
+        QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
+    }
+
     auto* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
     progressDialog->setWindowModality(Qt::WindowModal);
     progressDialog->setCancelButton(nullptr);

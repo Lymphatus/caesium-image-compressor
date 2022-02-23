@@ -48,13 +48,6 @@
          <property name="topMargin">
           <number>0</number>
          </property>
-         <item row="4" column="1">
-          <widget class="QCheckBox" name="promptExit_CheckBox">
-           <property name="text">
-            <string>Prompt before exit</string>
-           </property>
-          </widget>
-         </item>
          <item row="5" column="1">
           <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
            <property name="enabled">
@@ -65,10 +58,10 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QCheckBox" name="importSubfolders_CheckBox">
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
            <property name="text">
-            <string>Import files in subfolders when opening a directory</string>
+            <string>Send anonymous usage reports</string>
            </property>
           </widget>
          </item>
@@ -76,7 +69,6 @@
           <widget class="QLabel" name="generalPageTitle_Label">
            <property name="font">
             <font>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -85,7 +77,21 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="4" column="1">
+          <widget class="QCheckBox" name="promptExit_CheckBox">
+           <property name="text">
+            <string>Prompt before exit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="importSubfolders_CheckBox">
+           <property name="text">
+            <string>Import files in subfolders when opening a directory</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -98,10 +104,25 @@
            </property>
           </spacer>
          </item>
-         <item row="6" column="1">
-          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
+         <item row="7" column="1">
+          <widget class="QLabel" name="advancedPageTitle_Label">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
-            <string>Send anonymous usage reports</string>
+            <string>Advanced</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QCheckBox" name="multithreading_CheckBox">
+           <property name="text">
+            <string>Multithreading</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -116,7 +137,6 @@
           <widget class="QLabel" name="languagePageTitle_Label">
            <property name="font">
             <font>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>

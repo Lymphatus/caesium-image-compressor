@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>355</width>
-    <height>300</height>
+    <height>355</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="maximumSize">
    <size>
     <width>355</width>
-    <height>300</height>
+    <height>355</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -97,7 +97,6 @@
      <property name="font">
       <font>
        <pointsize>14</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -113,6 +112,19 @@
     <widget class="QLabel" name="version_Label">
      <property name="text">
       <string notr="true"/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="uuid_Label">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -171,7 +183,7 @@
    <item>
     <widget class="QLabel" name="copyright_Label">
      <property name="text">
-      <string>Copyright © 2021 Matteo Paonessa.
+      <string>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</string>
      </property>
      <property name="textFormat">

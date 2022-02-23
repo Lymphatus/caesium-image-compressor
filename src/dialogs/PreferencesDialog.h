@@ -24,6 +24,8 @@ private slots:
 
     void on_sendUsageReport_CheckBox_toggled(bool checked);
 
+    void on_multithreading_CheckBox_toggled(bool checked);
+
 private:
     Ui::PreferencesDialog *ui;
 

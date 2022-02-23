@@ -2,6 +2,7 @@
 #include "../MainWindow.h"
 #include "ui_AboutDialog.h"
 #include <QProcess>
+#include <QSettings>
 
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
@@ -17,8 +18,10 @@ AboutDialog::AboutDialog(QWidget* parent)
     , ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
+    QSettings settings;
 
     ui->version_Label->setText(QCoreApplication::applicationVersion());
+    ui->uuid_Label->setText("<small>" + settings.value("uuid", "").toString() + "</small>");
 
     this->setAttribute(Qt::WA_DeleteOnClose, true);
     this->setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);

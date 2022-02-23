@@ -1,6 +1,5 @@
 #include "QZoomGraphicsView.h"
 
-#include <QDebug>
 #include <QScrollBar>
 
 QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)

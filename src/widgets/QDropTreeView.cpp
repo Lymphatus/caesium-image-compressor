@@ -4,7 +4,6 @@
 #include <QMimeData>
 #include <QSettings>
 
-#include <QDebug>
 #include <QFileInfo>
 #include <utils/Utils.h>
 

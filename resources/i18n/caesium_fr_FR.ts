@@ -9,20 +9,26 @@
         <translation>A propos de Caesium - Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="105"/>
+        <location filename="../../views/AboutDialog.ui" line="104"/>
         <source>Caesium Image Compressor</source>
         <translation>Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="149"/>
+        <location filename="../../views/AboutDialog.ui" line="161"/>
         <source>Check for updates</source>
         <translation>Vérifier les mises à jour</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="174"/>
+        <location filename="../../views/AboutDialog.ui" line="186"/>
+        <source>Copyright © 2022 Matteo Paonessa.
+All rights reserved.</source>
+        <translation>Copyright © 2022 Matteo Paonessa.
+All rights reserved.</translation>
+    </message>
+    <message>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Copyright © 2021 Matteo Paonessa.
+        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
 All rights reserved.</translation>
     </message>
 </context>
@@ -68,8 +74,8 @@ All rights reserved.</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="348"/>
-        <location filename="../../src/MainWindow.cpp" line="443"/>
-        <location filename="../../src/MainWindow.cpp" line="511"/>
+        <location filename="../../src/MainWindow.cpp" line="450"/>
+        <location filename="../../src/MainWindow.cpp" line="518"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -88,33 +94,33 @@ Voulez vous vraiment continuer?</translation>
         <translation>Non</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="443"/>
+        <location filename="../../src/MainWindow.cpp" line="450"/>
         <source>Compressing...</source>
         <translation>Compression...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="506"/>
+        <location filename="../../src/MainWindow.cpp" line="513"/>
         <source>Do you really want to quit?</source>
         <translation>Voulez vous vraiment quitter?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="430"/>
-        <location filename="../../src/MainWindow.cpp" line="510"/>
+        <location filename="../../src/MainWindow.cpp" line="517"/>
         <source>Yes</source>
         <translation>Oui</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="528"/>
+        <location filename="../../src/MainWindow.cpp" line="535"/>
         <source>Select output folder...</source>
         <translation>Selection le répertoire de destination...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="583"/>
+        <location filename="../../src/MainWindow.cpp" line="590"/>
         <source>Compression finished!</source>
         <translation>Compression fini!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="584"/>
+        <location filename="../../src/MainWindow.cpp" line="591"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -230,8 +236,8 @@ Saved: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="590"/>
         <location filename="../../views/MainWindow.ui" line="634"/>
         <location filename="../../views/MainWindow.ui" line="691"/>
-        <location filename="../../src/MainWindow.cpp" line="623"/>
-        <location filename="../../src/MainWindow.cpp" line="627"/>
+        <location filename="../../src/MainWindow.cpp" line="630"/>
+        <location filename="../../src/MainWindow.cpp" line="634"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -381,13 +387,13 @@ Saved: %4 (%5%)</translation>
         <translation>Options...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="637"/>
-        <location filename="../../src/MainWindow.cpp" line="641"/>
+        <location filename="../../src/MainWindow.cpp" line="644"/>
+        <location filename="../../src/MainWindow.cpp" line="648"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="755"/>
+        <location filename="../../src/MainWindow.cpp" line="762"/>
         <source>images in list</source>
         <translation>images in list</translation>
     </message>
@@ -405,44 +411,54 @@ Saved: %4 (%5%)</translation>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="84"/>
-        <location filename="../../views/PreferencesDialog.ui" line="210"/>
+        <location filename="../../views/PreferencesDialog.ui" line="76"/>
+        <location filename="../../views/PreferencesDialog.ui" line="230"/>
         <source>General</source>
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="54"/>
+        <location filename="../../views/PreferencesDialog.ui" line="83"/>
         <source>Prompt before exit</source>
         <translation>Demander avant de quitter</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="64"/>
+        <location filename="../../views/PreferencesDialog.ui" line="57"/>
         <source>Check updates at startup</source>
         <translation>Vérifier les mises à jour au démarrage</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="71"/>
+        <location filename="../../views/PreferencesDialog.ui" line="90"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Importer les fichiers dans les sous-répertoires lorsque vous ouvrez un dossier</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="104"/>
+        <location filename="../../views/PreferencesDialog.ui" line="64"/>
         <source>Send anonymous usage reports</source>
         <translation>Envoyer des rapports anonymes d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="124"/>
-        <location filename="../../views/PreferencesDialog.ui" line="222"/>
+        <location filename="../../views/PreferencesDialog.ui" line="115"/>
+        <source>Advanced</source>
+        <translation>Avancé</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="122"/>
+        <source>Multithreading</source>
+        <translation>Multithreading</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="144"/>
+        <location filename="../../views/PreferencesDialog.ui" line="242"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="131"/>
+        <location filename="../../views/PreferencesDialog.ui" line="151"/>
         <source>Preferred language</source>
         <translation>Langue préférée</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="145"/>
+        <location filename="../../views/PreferencesDialog.ui" line="165"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Les changements s&apos;appliqueront au redémarrage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>

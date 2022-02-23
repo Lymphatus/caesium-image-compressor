@@ -97,6 +97,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
     if (!inputFileInfo.exists()) {
+        qCritical() << "File" << inputFullPath << "does not exist.";
         return false;
     }
     QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + inputFileInfo.suffix();
@@ -114,6 +115,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QDir outputDir(outputPath);
     if (!outputDir.exists()) {
         if (!outputDir.mkpath(outputPath)) {
+            qCritical() << "Cannot make path" << outputPath;
             return false;
         }
     }
@@ -129,6 +131,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     }
 
     if (tempFileFullPath.isEmpty()) {
+        qCritical() << "Temporary file" << tempFileFullPath << "is empty.";
         return false;
     }
 
@@ -193,7 +196,10 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             this->setFileDates(outputFileInfo, compressionOptions, inputFileDates);
         }
         this->setCompressedInfo(outputFileInfo);
+    } else {
+        qCritical() << "Compression result for i:" << inputFullPath << "and o: "<< tempFileFullPath << "is false.";
     }
+
     return result;
 }
 
