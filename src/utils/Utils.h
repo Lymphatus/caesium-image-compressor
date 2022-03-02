@@ -91,9 +91,14 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("fr_FR"), QString("Français") },
 };
 
+const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
+   0x0409, 0x0409, 0x0410, 0x040C
+};
+
 // Utilities
 QString toHumanSize(double size);
 QStringList scanDirectory(QString directory, bool subfolders);
 QString getRootFolder(QMap<QString, int> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
+unsigned short getWinLanguageId(int caesiumLanguageIndex);
 #endif // UTILS_H

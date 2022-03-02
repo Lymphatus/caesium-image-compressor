@@ -43,7 +43,7 @@ void AboutDialog::on_checkForUpdates_Button_clicked()
 #endif
 
 #ifdef Q_OS_WIN
-    win_sparkle_check_update_without_ui();
+    win_sparkle_check_update_with_ui();
 #endif
 }
 

@@ -781,8 +781,14 @@ void MainWindow::initUpdater()
 #endif
 
 #ifdef Q_OS_WIN
+    int localeIndex = settings.value("preferences/language/locale", 0).toInt();
+    if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
+        localeIndex = 0;
+    }
+    if (localeIndex != 0){
+        win_sparkle_set_langid(WIN32_LANGUAGES[localeIndex]);
+    }
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
-    win_sparkle_set_langid(QLocale().name().toShort());
     win_sparkle_init();
 
     if (settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
