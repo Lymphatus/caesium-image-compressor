@@ -82,17 +82,18 @@ typedef struct CompressionSummary {
     qint64 elapsedTime = 0;
 } CompressionSummary;
 
-const int LANGUAGES_COUNT = 4;
+const int LANGUAGES_COUNT = 5;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("default"), QString("Default") },
     { QString("en_US"), QString("English (US)") },
     { QString("it_IT"), QString("Italiano") },
     { QString("fr_FR"), QString("Français") },
+    { QString("ja_JP"), QString("日本語") },
 };
 
 const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
-   0x0409, 0x0409, 0x0410, 0x040C
+   0x0409, 0x0409, 0x0410, 0x040C, 0x0411
 };
 
 // Utilities
@@ -100,5 +101,4 @@ QString toHumanSize(double size);
 QStringList scanDirectory(QString directory, bool subfolders);
 QString getRootFolder(QMap<QString, int> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
-unsigned short getWinLanguageId(int caesiumLanguageIndex);
 #endif // UTILS_H

@@ -1,7 +1,5 @@
 ## Caesium - Image Compressor (Cs-133)
-> v2.0.0-beta.4 - Copyright &copy; Matteo Paonessa, 2022. All Rights Reserved.
-
-###### ⚠️ WARNING This is a very early stage version! Don't use on important files without a backup and expect some major changes. ⚠️ 
+> v2.0.0 - Copyright &copy; Matteo Paonessa, 2022. All Rights Reserved.
 
 ![Cattura_beta2](https://user-images.githubusercontent.com/12133996/141089441-b7589314-3a5d-48ff-8854-c3d32bd8dd5e.PNG)
 
@@ -13,7 +11,7 @@
 #### Tested Platforms
 - **Windows** 10/11 64bit only
 - **MacOS** >= 10.15
-- **Linux** (tested on Ubuntu 20.04)
+- **Linux** (tested on Ubuntu 20.04 and Manjaro)
 
 ### Installation
 Head to the  [releases page](https://github.com/Lymphatus/caesium-image-compressor/releases) for the available downloads.
