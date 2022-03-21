@@ -62,8 +62,8 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "package\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "package\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

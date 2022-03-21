@@ -159,4 +159,4 @@ _deps
 
 package
 Output
-deploy.*
+deploy.py
