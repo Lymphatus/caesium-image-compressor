@@ -82,7 +82,7 @@ typedef struct CompressionSummary {
     qint64 elapsedTime = 0;
 } CompressionSummary;
 
-const int LANGUAGES_COUNT = 5;
+const int LANGUAGES_COUNT = 6;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("default"), QString("Default") },
@@ -94,7 +94,7 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
 };
 
 const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
-   0x0409, 0x0409, 0x0410, 0x040C, 0x0411
+   0x0409, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804
 };
 
 // Utilities
