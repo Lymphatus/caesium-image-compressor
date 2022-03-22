@@ -89,8 +89,8 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("en_US"), QString("English (US)") },
     { QString("it_IT"), QString("Italiano") },
     { QString("fr_FR"), QString("Français") },
-    { QString("zh_CN"), QString("简体中文") },
     { QString("ja_JP"), QString("日本語") },
+    { QString("zh_CN"), QString("简体中文") },
 };
 
 const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
