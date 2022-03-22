@@ -3,6 +3,7 @@
         <file>i18n/caesium_en_US.qm</file>
         <file>i18n/caesium_it_IT.qm</file>
         <file>i18n/caesium_fr_FR.qm</file>
+        <file>i18n/caesium_zh_CN.qm</file>
         <file>i18n/caesium_ja_JP.qm</file>
     </qresource>
 </RCC>
