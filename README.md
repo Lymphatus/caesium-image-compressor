@@ -1,43 +1,49 @@
-## Caesium - Image Compressor (Cs-133)
-> v2.0.0 - Copyright &copy; Matteo Paonessa, 2022. All Rights Reserved.
+## Caesium Image Compressor
 
-![Cattura_beta2](https://user-images.githubusercontent.com/12133996/141089441-b7589314-3a5d-48ff-8854-c3d32bd8dd5e.PNG)
-
-----------
-
-> Caesium is an image compression software aimed at helping photographers, bloggers, webmasters, businesses or casual users at storing, sending and sharing digital pictures. Available for Windows, MacOS and Linux.
+![x](https://user-images.githubusercontent.com/12133996/141089441-b7589314-3a5d-48ff-8854-c3d32bd8dd5e.PNG)
 
 ----------
-#### Tested Platforms
-- **Windows** 10/11 64bit only
-- **MacOS** >= 10.15
-- **Linux** (tested on Ubuntu 20.04 and Manjaro)
+### What is it for
+Caesium is an image compression software that helps you store, send and share digital pictures, supporting JPG, PNG and WebP formats.  
+You can quickly reduce the file size (and resolution, if you want) by preserving the overall quality of the image.
+
+### Supported Platforms
+- **Windows**: 7+
+- **MacOS**: 10.15+
+- **Linux**: tested on Ubuntu 20.04 and Manjaro
+
+Note: only 64 bit versions are supported
 
 ### Installation
 Head to the  [releases page](https://github.com/Lymphatus/caesium-image-compressor/releases) for the available downloads.
+- **Windows**: installer and portable versions are available
+- **MacOS**: DMG package
+- **Linux**: no binaries are available right now, you must compile the source code yourself
 
-No binaries for Linux are available.
-
+### Troubleshooting and/or feature request
+Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/issues).
 
 ### Build from source
 ##### Requirements
-- [Qt6 SDK](https://www.qt.io/download/) - binaries are built on 6.2 (open source)
-- [libcaesium](https://github.com/Lymphatus/libcaesium) - version >= 0.7.0
-- [Sparkle](https://sparkle-project.org/) for MacOS or [WinSparkle](https://winsparkle.org/) for Windows
-- [libssh](https://www.libssh.org/) - MacOS only
+- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.2 (open source)
+- [libcaesium](https://github.com/Lymphatus/libcaesium): version 0.7.0+
+- [Sparkle](https://sparkle-project.org/): macOS only
+- [WinSparkle](https://winsparkle.org/): Windows only
+- [libssh](https://www.libssh.org/): macOS only
 
 #### Build
+##### Step 0
+Be sure to compile [libcaesium](https://github.com/Lymphatus/libcaesium) following the instructions in its own repository
 ##### Step 1
 You need to configure CMake first and the command is slightly different for all the platforms:
-###### Windows
 Change the path in variables with the correct directories of the requirements.
+###### Windows
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/msvc2019_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
 ```
 ###### MacOS
-Change the path in variables with the correct directories of the requirements.
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DEXIV2_LIB_DIR=/exiv2/dir/lib -DEXIV2_INCLUDE_DIR=/exiv2/dir/exiv2/include -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
 ```
 ###### Linux
 Make sure you have all the requirements installed by you own package manager
@@ -50,12 +56,16 @@ Then you can build with
 cmake --build build_dir --config Release --target caesium_image_compressor
 ```
 
-### Translate
-The first version of Caesium had a lot of community made translations, but this new release has a whole new set of strings and no old translations can be used anymore.   
-You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
-You can use [this pull request](https://github.com/Lymphatus/caesium-image-compressor/pull/57) as an example.
+### Languages and translations
+The 1.0 version of Caesium had a lot of community made translations, but this 2.0 release has a whole new set of strings and no old translations can be used anymore.   
+Caesium 2.0 is currently available in:
+- English 🇺🇸
+- Italian 🇮🇹
+- French 🇫🇷
+- Japanese 🇯🇵
+- Simplified Chinese 🇨🇳
 
-### Resources
-* Caesium website - [https://saerasoft.com/caesium/](https://saerasoft.com/caesium/)
-* Caesium Git Repository - [https://github.com/Lymphatus/caesium-image-compressor](https://github.com/Lymphatus/caesium-image-compressor)
-* Author website - SaeraSoft - [https://saerasoft.com](https://saerasoft.com)
+#### How to contribute with your translation
+You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
+You can use [this pull request](https://github.com/Lymphatus/caesium-image-compressor/pull/106) as an example.
+Thanks to all the people who contributed.

@@ -20,8 +20,8 @@ The version of Caesium Image Compressor [e.g. 2.0.0-beta.1]
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
+2. Click on '...'
+3. Scroll down to '...'
 4. See error
 
 **Expected behavior**
@@ -29,6 +29,11 @@ A clear and concise description of what you expected to happen.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
+
+**Application Log**
+If you can, please provide your application log. The location of the file depends on your platform, but they usually are:
+- Windows:
+- macOS: /Users/your_username/Library/Application Support/SaeraSoft/Caesium Image Compressor/caesium.log
 
 **Additional context**
 Add any other context about the problem here.
