@@ -37,9 +37,11 @@ AboutDialog::~AboutDialog()
 void AboutDialog::on_checkForUpdates_Button_clicked()
 {
 #ifdef Q_OS_MAC
+    ui->checkForUpdates_Button->setEnabled(false);
     CocoaInitializer initializer;
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
     updater->checkForUpdates();
+    ui->checkForUpdates_Button->setEnabled(true);
 #endif
 
 #ifdef Q_OS_WIN

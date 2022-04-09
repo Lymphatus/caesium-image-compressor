@@ -5,6 +5,8 @@
 #include <cmath>
 #include <QJsonObject>
 #include <QImageReader>
+#include <QProcess>
+#include <QDesktopServices>
 
 QString toHumanSize(double size)
 {
@@ -120,4 +122,17 @@ std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, in
     }
 
     return {originalWidth, originalHeight};
+}
+
+void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory)
+{
+    //TODO warning if not found
+#if defined(Q_OS_WIN)
+    if (QProcess::startDetached("explorer", QStringList() << filePath << "/select"))
+        return;
+#elif defined(Q_OS_MAC)
+    if (QProcess::startDetached("open", QStringList() << filePath << "-R"))
+        return;
+#endif
+    QDesktopServices::openUrl(QUrl::fromLocalFile(fallbackDirectory));
 }

@@ -9,5 +9,6 @@
         <file>icons/ui/language.svg</file>
         <file>icons/ui/settings.svg</file>
         <file>ssl/win_dsa_pub.pem</file>
+        <file>icons/compression_statuses/warning.svg</file>
     </qresource>
 </RCC>

@@ -17,7 +17,13 @@ struct CCSParameters {
     unsigned int width;
     unsigned int height;
 };
-extern "C" bool c_compress(const char *i, const char *o, CCSParameters params);
+
+struct CCSResult {
+    bool success;
+    char* error_message;
+};
+
+extern "C" CCSResult c_compress(const char *i, const char *o, CCSParameters params);
 
 class CImage
 {
@@ -46,13 +52,20 @@ public:
     bool compress(const CompressionOptions& compressionOptions);
     QString getCompressedFullPath() const;
     size_t getTotalPixels() const;
+    QString getFormattedStatus() const;
+    QString getDirectory() const;
+    QString getCompressedDirectory() const;
 
 private:
     CImageStatus status;
     QString fullPath;
     QString fileName;
     QString compressedFullPath;
+    QString directory;
+    QString compressedDirectory;
+    QString additionalInfo;
 
+private:
     size_t size;
     size_t compressedSize;
 

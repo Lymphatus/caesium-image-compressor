@@ -13,6 +13,7 @@ class QZoomGraphicsView : public QGraphicsView
 public:
     explicit QZoomGraphicsView(QWidget *parent = 0);
     void wheelEvent(QWheelEvent* event) override;
+    void drawForeground(QPainter *painter, const QRectF &rect) override;
     void resetScaleFactor();
 
 private:
@@ -22,6 +23,10 @@ private:
     const float MAX_ZOOM_IN = 10;
     const float MAX_ZOOM_OUT = 0.1;
     bool zooming = false;
+    bool loading = false;
+
+public:
+    void setLoading(bool loading);
 
 public:
     bool isZooming() const;

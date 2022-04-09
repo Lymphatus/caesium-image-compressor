@@ -1,8 +1,5 @@
 #ifndef UTILS_H
 #define UTILS_H
-#ifdef __APPLE__
-#define _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
-#endif
 
 #include <QImage>
 #include <QMap>
@@ -17,16 +14,18 @@ enum class CImageStatus {
     UNCOMPRESSED,
     COMPRESSING,
     COMPRESSED,
-    ERROR
+    ERROR,
+    WARNING
 };
 
-const int CIMAGE_COLUMNS_SIZE = 4;
+const int CIMAGE_COLUMNS_SIZE = 5;
 
 enum CImageColumns {
     NAME_COLUMN = 0,
     SIZE_COLUMN = 1,
     RESOLUTION_COLUMN = 2,
-    RATIO_COLUMN = 3
+    RATIO_COLUMN = 3,
+    INFO_COLUMN = 4
 };
 
 enum ResizeMode {
@@ -102,4 +101,5 @@ QString toHumanSize(double size);
 QStringList scanDirectory(QString directory, bool subfolders);
 QString getRootFolder(QMap<QString, int> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
+void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
 #endif // UTILS_H

@@ -28,17 +28,27 @@
         <enum>Qt::Horizontal</enum>
        </property>
        <widget class="QWidget" name="layoutWidget">
-        <layout class="QVBoxLayout" name="verticalLayout_6">
-         <item>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <property name="spacing">
+          <number>-1</number>
+         </property>
+         <item row="1" column="2">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>247</width>
+             <height>17</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0" colspan="4">
           <widget class="QDropTreeView" name="imageList_TreeView">
            <property name="contextMenuPolicy">
             <enum>Qt::CustomContextMenu</enum>
-           </property>
-           <property name="lineWidth">
-            <number>0</number>
-           </property>
-           <property name="midLineWidth">
-            <number>1</number>
            </property>
            <property name="dragDropMode">
             <enum>QAbstractItemView::DropOnly</enum>
@@ -51,12 +61,6 @@
            </property>
            <property name="selectionMode">
             <enum>QAbstractItemView::ExtendedSelection</enum>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>16</width>
-             <height>16</height>
-            </size>
            </property>
            <property name="indentation">
             <number>0</number>
@@ -84,49 +88,32 @@
            </attribute>
           </widget>
          </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QPushButton" name="addFiles_Button">
-             <property name="text">
-              <string>Add...</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="removeFiles_Button">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Remove</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>247</width>
-               <height>17</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="compress_Button">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Compress</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="addFiles_Button">
+           <property name="text">
+            <string>Add...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="compress_Button">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Compress</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="removeFiles_Button">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Remove</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -1026,7 +1013,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1139,6 +1126,16 @@
    </property>
    <property name="menuRole">
     <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionShow_original_in_file_manager">
+   <property name="text">
+    <string>Show original in file manager</string>
+   </property>
+  </action>
+  <action name="actionShow_compressed_in_file_manager">
+   <property name="text">
+    <string>Show compressed in file manager</string>
    </property>
   </action>
  </widget>

@@ -99,9 +99,14 @@ CImage *CImageTreeItem::getCImage() const
 QFuture<void> CImageTreeItem::compress(CompressionOptions compressionOptions)
 {
     return QtConcurrent::map(m_childItems, [compressionOptions](CImageTreeItem* item) {
-        item->getCImage()->setStatus(CImageStatus::COMPRESSING);
-        bool compressionResult = item->cImage->compress(compressionOptions);
-        item->getCImage()->setStatus(compressionResult ? CImageStatus::COMPRESSED : CImageStatus::ERROR);
+        CImage* cImage = item->getCImage();
+        cImage->setStatus(CImageStatus::COMPRESSING);
+        bool compressionResult = cImage->compress(compressionOptions);
+        if (!compressionResult) {
+            cImage->setStatus(CImageStatus::ERROR);
+        } else if (cImage->getStatus() == CImageStatus::COMPRESSING) {
+            cImage->setStatus(CImageStatus::COMPRESSED);
+        }
     });
 }
 

@@ -65,3 +65,22 @@ void QZoomGraphicsView::setVerticalScrollBarValue(int value)
         this->verticalScrollBar()->setValue(value);
     }
 }
+void QZoomGraphicsView::drawForeground(QPainter* painter, const QRectF& rect)
+{
+    painter->resetTransform();
+
+    if (this->loading) {
+        painter->setOpacity(.3);
+        QString loadingText = tr("Loading...");
+        auto fontRect = painter->fontMetrics().boundingRect(loadingText);
+        painter->drawText(this->rect().right() - fontRect.width() - 5, this->rect().bottom() - painter->fontMetrics().leading() - 5, loadingText);
+    } else {
+        painter->restore();
+    }
+    QGraphicsView::drawForeground(painter, rect);
+}
+
+void QZoomGraphicsView::setLoading(bool loading)
+{
+    QZoomGraphicsView::loading = loading;
+}

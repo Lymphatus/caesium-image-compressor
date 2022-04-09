@@ -73,12 +73,17 @@ private slots:
     void keepDatesButtonGroupClicked();
     void on_keepDates_CheckBox_clicked();
     void on_keepDates_CheckBox_stateChanged(int arg1);
+    void on_actionShow_original_in_file_manager_triggered();
+    void on_actionShow_compressed_in_file_manager_triggered();
+    void listContextMenuAboutToShow();
+    void showPreview(int index);
 
 private:
     Ui::MainWindow* ui;
 
     CImageTreeModel* cImageModel;
     QFutureWatcher<void>* compressionWatcher;
+    QFutureWatcher<QPixmap>* previewWatcher;
     QGraphicsScene* previewScene;
     QGraphicsScene* compressedPreviewScene;
     QMap<QString, int> folderMap;
@@ -91,6 +96,8 @@ private:
     NetworkOperations* networkOperations;
     QElapsedTimer compressionTimer;
     CImageSortFilterProxyModel* proxyModel;
+    long long selectedCount = 0;
+    QList<QModelIndex> selectedIndexes;
 
     void initStatusBar();
     void initUpdater();

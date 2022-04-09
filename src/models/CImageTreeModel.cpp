@@ -2,12 +2,13 @@
 
 #include <QApplication>
 #include <QIcon>
-#include <QPalette>
 #include <QStyle>
+#include <QPropertyAnimation>
+#include <QLabel>
 
 CImageTreeModel::CImageTreeModel()
 {
-    rootItem = new CImageTreeItem({ tr("Name"), tr("Size"), tr("Resolution"), tr("Saved") });
+    rootItem = new CImageTreeItem({ tr("Name"), tr("Size"), tr("Resolution"), tr("Saved"), tr("Info") });
 }
 
 CImageTreeModel::~CImageTreeModel()
@@ -160,13 +161,15 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME_COLUMN) {
         CImageStatus status = item->getCImage()->getStatus();
         if (status == CImageStatus::COMPRESSED) {
-            return QIcon(":/icons/compression_statuses/compressed.svg");
+            return QIcon(":/icons/compression_statuses/compressed.svg").pixmap(16, 16);
         } else if (status == CImageStatus::ERROR) {
-            return QIcon(":/icons/compression_statuses/error.svg");
+            return QIcon(":/icons/compression_statuses/error.svg").pixmap(16, 16);
+        } else if (status == CImageStatus::WARNING) {
+            return QIcon(":/icons/compression_statuses/warning.svg").pixmap(16, 16);
         } else if (status == CImageStatus::COMPRESSING) {
-            return QIcon(":/icons/compression_statuses/compressing.svg");
+            return QIcon(":/icons/compression_statuses/compressing.svg").pixmap(16, 16);
         } else {
-            return QIcon(":/icons/compression_statuses/uncompressed.svg");
+            return QIcon(":/icons/compression_statuses/uncompressed.svg").pixmap(16, 16);
         }
     }
 
@@ -180,6 +183,10 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RATIO_COLUMN) {
         return item->getCImage()->getRichFormattedSavedRatio();
+    }
+
+    if (role == Qt::DisplayRole && index.column() == CImageColumns::INFO_COLUMN) {
+        return item->getCImage()->getFormattedStatus();
     }
 
     return item->data(index.column());
