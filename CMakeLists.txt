@@ -4,11 +4,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-if(WIN32)
+if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-else()
+else ()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
-endif()
+endif ()
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
 if (APPLE)
@@ -17,6 +17,8 @@ if (APPLE)
 else ()
     project(${TARGET} LANGUAGES CXX)
 endif ()
+
+find_program(CARGO "cargo" REQUIRED)
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -38,13 +40,7 @@ if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt dir.")
 endif ()
 
-if (NOT DEFINED LIBCAESIUM_LIB_DIR)
-    message(FATAL_ERROR "LIBCAESIUM_LIB_DIR is not defined. Cannot find libcaesium lib dir.")
-else ()
-    link_directories(${LIBCAESIUM_LIB_DIR})
-endif ()
-
-if(APPLE OR WIN32)
+if (APPLE OR WIN32)
 
     if (WIN32)
         if (NOT DEFINED WINSPARKLE_LIB_DIR)
@@ -67,7 +63,14 @@ if(APPLE OR WIN32)
             include_directories(${LIBSSH_INCLUDE_DIR})
         endif ()
     endif ()
-endif()
+endif ()
+
+set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+    link_directories(${LIBCAESIUM_SOURCE_DIR}/target/debug)
+else ()
+    link_directories(${LIBCAESIUM_SOURCE_DIR}/target/release)
+endif ()
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
@@ -145,14 +148,14 @@ SET(TS_FILES
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
-qt6_create_translation(QM_FILES
-        ${CMAKE_SOURCE_DIR}
-        ${TS_FILES})
-else()
+    qt6_create_translation(QM_FILES
+            ${CMAKE_SOURCE_DIR}
+            ${TS_FILES})
+else ()
     qt5_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES})
-endif()
+endif ()
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
 set(RESOURCES
@@ -164,6 +167,26 @@ if (WIN32)
 else ()
     add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${HEADERS} ${OSX_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
+
+include(ExternalProject)
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+    set(CARGO_BUILD_FLAGS "")
+else ()
+    set(CARGO_BUILD_FLAGS "--release")
+endif ()
+
+ExternalProject_Add(
+        libcaesium
+        GIT_REPOSITORY    https://github.com/Lymphatus/libcaesium
+        GIT_TAG           0.8.0
+        CONFIGURE_COMMAND ""
+        BUILD_COMMAND cargo build ${CARGO_BUILD_FLAGS}
+        INSTALL_COMMAND ""
+        BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
+        LOG_BUILD ON
+        )
+
+add_dependencies(caesium_image_compressor libcaesium)
 
 if (APPLE)
     set(OSX_FRAMEWORKS "-framework AppKit -framework Carbon -framework Foundation -framework ApplicationServices -framework Sparkle")

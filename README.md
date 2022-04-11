@@ -27,30 +27,28 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 
 ### Build from source
 ##### Requirements
+- [Rust](https://www.rust-lang.org/it/tools/install): required to compile libcaesium. Make sure you have `cargo` executable on you `$PATH`
 - [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.2 (open source)
-- [libcaesium](https://github.com/Lymphatus/libcaesium): version 0.7.0+
 - [Sparkle](https://sparkle-project.org/): macOS only
-- [WinSparkle](https://winsparkle.org/): Windows only
 - [libssh](https://www.libssh.org/): macOS only
+- [WinSparkle](https://winsparkle.org/): Windows only
 
 #### Build
-##### Step 0
-Be sure to compile [libcaesium](https://github.com/Lymphatus/libcaesium) following the instructions in its own repository
 ##### Step 1
 You need to configure CMake first and the command is slightly different for all the platforms:
 Change the path in variables with the correct directories of the requirements.
 ###### Windows
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
 ```
 ###### MacOS
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
 ```
 ###### Linux
-Make sure you have all the requirements installed by you own package manager
+Make sure you have all the requirements installed with you own package manager
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64 -DLIBCAESIUM_LIB_DIR=/libcaesium/dir/lib
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64
 ```
 ##### Step 2
 Then you can build with
