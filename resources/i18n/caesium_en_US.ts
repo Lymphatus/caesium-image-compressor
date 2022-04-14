@@ -427,53 +427,64 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="182"/>
+        <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="206"/>
+        <location filename="../../views/PreferencesDialog.ui" line="256"/>
         <source>Prompt before exit</source>
         <translation>Prompt before exit</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="293"/>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>Changes will apply after restart</source>
         <translation>Changes will apply after restart</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="145"/>
+        <location filename="../../views/PreferencesDialog.ui" line="168"/>
+        <source>Theme (experimental)</source>
+        <translation>Theme (experimental)</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="176"/>
+        <source>Native</source>
+        <translation>Native</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="235"/>
         <source>Check updates at startup</source>
         <translation>Check updates at startup</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="189"/>
+        <location filename="../../views/PreferencesDialog.ui" line="242"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Import files in subfolders when opening a directory</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="135"/>
+        <location filename="../../views/PreferencesDialog.ui" line="249"/>
         <source>Send anonymous usage reports</source>
         <translation>Send anonymous usage reports</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="157"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>Advanced</source>
         <translation>Advanced</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="196"/>
+        <location filename="../../views/PreferencesDialog.ui" line="222"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="225"/>
+        <location filename="../../views/PreferencesDialog.ui" line="374"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="300"/>
         <source>Preferred language</source>
         <translation>Preferred language</translation>
     </message>
@@ -522,7 +533,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="294"/>
         <source>Error:</source>
-        <translation type="unfinished"></translation>
+        <translation>Error:</translation>
     </message>
 </context>
 <context>

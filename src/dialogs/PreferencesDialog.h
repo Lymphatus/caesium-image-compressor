@@ -26,6 +26,8 @@ private slots:
 
     void on_multithreading_CheckBox_toggled(bool checked);
 
+    void on_theme_ComboBox_currentIndexChanged(int index);
+
 private:
     Ui::PreferencesDialog *ui;
 

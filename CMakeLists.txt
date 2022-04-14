@@ -178,7 +178,7 @@ endif ()
 ExternalProject_Add(
         libcaesium
         GIT_REPOSITORY    https://github.com/Lymphatus/libcaesium
-        GIT_TAG           0.8.0
+        GIT_TAG           0.8.1
         CONFIGURE_COMMAND ""
         BUILD_COMMAND cargo build ${CARGO_BUILD_FLAGS}
         INSTALL_COMMAND ""

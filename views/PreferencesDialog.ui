@@ -122,17 +122,107 @@
      <item row="1" column="2" colspan="2">
       <widget class="QStackedWidget" name="content_StackedWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="general_Page">
         <layout class="QGridLayout" name="gridLayout_3">
          <property name="topMargin">
           <number>0</number>
          </property>
-         <item row="6" column="1">
-          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
+         <item row="2" column="1">
+          <widget class="QLabel" name="generalPageTitle_Label">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
-            <string>Send anonymous usage reports</string>
+            <string>General</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <layout class="QGridLayout" name="theme_GridLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="1" column="2">
+            <widget class="QLabel" name="changesAfterRestartTheme_Label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Changes will apply after restart</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="themeComboBox_Label">
+             <property name="text">
+              <string>Theme (experimental)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="QComboBox" name="theme_ComboBox">
+             <item>
+              <property name="text">
+               <string>Native</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Fusion</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="changesAfterRestartTheme_LabelIcon">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../resources/resources.qrc">:/icons/compression_statuses/warning.svg</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="9" column="1">
+          <widget class="QCheckBox" name="multithreading_CheckBox">
+           <property name="text">
+            <string>Multithreading</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -146,7 +236,28 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="importSubfolders_CheckBox">
+           <property name="text">
+            <string>Import files in subfolders when opening a directory</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
+           <property name="text">
+            <string>Send anonymous usage reports</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QCheckBox" name="promptExit_CheckBox">
+           <property name="text">
+            <string>Prompt before exit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
           <widget class="QLabel" name="advancedPageTitle_Label">
            <property name="font">
             <font>
@@ -158,7 +269,7 @@
            </property>
           </widget>
          </item>
-         <item row="9" column="1">
+         <item row="10" column="1">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -171,42 +282,6 @@
            </property>
           </spacer>
          </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="generalPageTitle_Label">
-           <property name="font">
-            <font>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>General</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QCheckBox" name="importSubfolders_CheckBox">
-           <property name="text">
-            <string>Import files in subfolders when opening a directory</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
-          <widget class="QCheckBox" name="multithreading_CheckBox">
-           <property name="text">
-            <string>Multithreading</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QCheckBox" name="promptExit_CheckBox">
-           <property name="text">
-            <string>Prompt before exit</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
        <widget class="QWidget" name="language_Page">
@@ -214,6 +289,80 @@
          <property name="topMargin">
           <number>0</number>
          </property>
+         <item row="2" column="0" colspan="2">
+          <layout class="QGridLayout" name="changesAfterRestart_GridLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="languageComboBox_Label">
+             <property name="text">
+              <string>Preferred language</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="changesAfterRestart_Label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Changes will apply after restart</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::PlainText</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="changesAfterRestart_LabelIcon">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../resources/resources.qrc">:/icons/compression_statuses/warning.svg</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" colspan="2">
+            <widget class="QComboBox" name="language_ComboBox">
+             <property name="focusPolicy">
+              <enum>Qt::TabFocus</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
          <item row="0" column="0" colspan="2">
           <widget class="QLabel" name="languagePageTitle_Label">
            <property name="font">
@@ -238,78 +387,6 @@
             </size>
            </property>
           </spacer>
-         </item>
-         <item row="2" column="0" colspan="2">
-          <layout class="QGridLayout" name="changesAfterRestart_GridLayout">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <item row="0" column="2">
-            <widget class="QComboBox" name="language_ComboBox">
-             <property name="focusPolicy">
-              <enum>Qt::TabFocus</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <layout class="QHBoxLayout" name="changesAfterRestart_HLayout">
-             <item>
-              <widget class="QLabel" name="changesAfterRestart_LabelIcon">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>16</width>
-                 <height>16</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16</width>
-                 <height>16</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="pixmap">
-                <pixmap resource="../resources/resources.qrc">:/icons/compression_statuses/warning.svg</pixmap>
-               </property>
-               <property name="scaledContents">
-                <bool>true</bool>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="changesAfterRestart_Label">
-               <property name="text">
-                <string>Changes will apply after restart</string>
-               </property>
-               <property name="textFormat">
-                <enum>Qt::PlainText</enum>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="languageComboBox_Label">
-             <property name="text">
-              <string>Preferred language</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
          </item>
         </layout>
        </widget>

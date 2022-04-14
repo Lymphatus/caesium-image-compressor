@@ -7,6 +7,7 @@
 #include <QTranslator>
 #include <QSettings>
 #include <QUuid>
+#include <QStyleFactory>
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
@@ -79,12 +80,23 @@ void loadInstallationId()
     }
 }
 
+void loadTheme()
+{
+    QSettings settings;
+
+    int themeIndex = settings.value("preferences/general/theme", 0).toInt();
+    if (themeIndex > 0 && themeIndex < THEMES_COUNT) {
+        QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex]));
+    }
+}
+
 int main(int argc, char* argv[])
 {
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
     QCoreApplication::setApplicationVersion("2.0.0");
+
 
     qInfo() << "Writing logs to" << QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/caesium.log";
     qInstallMessageHandler(messageHandler);
@@ -96,6 +108,7 @@ int main(int argc, char* argv[])
 
     QTranslator translator;
     loadLocale(&translator);
+    loadTheme();
 
     qInfo() << "---- Starting application ----";
     loadInstallationId();

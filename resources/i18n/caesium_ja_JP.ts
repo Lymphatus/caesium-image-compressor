@@ -427,53 +427,64 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="182"/>
+        <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="206"/>
+        <location filename="../../views/PreferencesDialog.ui" line="256"/>
         <source>Prompt before exit</source>
         <translation>終了前にプロンプ​​トを表示</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="293"/>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>Changes will apply after restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="145"/>
+        <location filename="../../views/PreferencesDialog.ui" line="168"/>
+        <source>Theme (experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="176"/>
+        <source>Native</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="235"/>
         <source>Check updates at startup</source>
         <translation>起動時にアップデートを確認する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="189"/>
+        <location filename="../../views/PreferencesDialog.ui" line="242"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>ディレクトリを開くときにサブフォルダ内のファイルをインポートする</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="135"/>
+        <location filename="../../views/PreferencesDialog.ui" line="249"/>
         <source>Send anonymous usage reports</source>
         <translation>匿名の使用状況レポートを送信する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="157"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>Advanced</source>
         <translation>高度</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="196"/>
+        <location filename="../../views/PreferencesDialog.ui" line="222"/>
         <source>Multithreading</source>
         <translation>マルチスレッド処理</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="225"/>
+        <location filename="../../views/PreferencesDialog.ui" line="374"/>
         <source>Language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="300"/>
         <source>Preferred language</source>
         <translation>使用言語</translation>
     </message>

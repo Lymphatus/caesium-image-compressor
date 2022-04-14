@@ -96,6 +96,12 @@ const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
    0x0409, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804
 };
 
+const int THEMES_COUNT = 2;
+const QString THEMES[THEMES_COUNT] = {
+    QString("Native"),
+    QString("Fusion")
+};
+
 // Utilities
 QString toHumanSize(double size);
 QStringList scanDirectory(QString directory, bool subfolders);

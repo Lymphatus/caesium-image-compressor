@@ -447,53 +447,64 @@ Risparmiato: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="182"/>
+        <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>General</source>
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="206"/>
+        <location filename="../../views/PreferencesDialog.ui" line="256"/>
         <source>Prompt before exit</source>
         <translation>Chiedi prima di uscire</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="293"/>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>Changes will apply after restart</source>
         <translation>Le modifiche verranno applicate al riavvio</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="145"/>
+        <location filename="../../views/PreferencesDialog.ui" line="168"/>
+        <source>Theme (experimental)</source>
+        <translation>Tema (sperimentale)</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="176"/>
+        <source>Native</source>
+        <translation>Nativo</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="235"/>
         <source>Check updates at startup</source>
         <translation>Controlla aggiornamenti all&apos;avvio</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="189"/>
+        <location filename="../../views/PreferencesDialog.ui" line="242"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Importa anche i file nelle sottocartelle quando apri una cartella</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="135"/>
+        <location filename="../../views/PreferencesDialog.ui" line="249"/>
         <source>Send anonymous usage reports</source>
         <translation>Invia statistiche anonime sull&apos;uso</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="157"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>Advanced</source>
         <translation>Avanzate</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="196"/>
+        <location filename="../../views/PreferencesDialog.ui" line="222"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="225"/>
+        <location filename="../../views/PreferencesDialog.ui" line="374"/>
         <source>Language</source>
         <translation>Lingua</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="300"/>
         <source>Preferred language</source>
         <translation>Lingua preferita</translation>
     </message>

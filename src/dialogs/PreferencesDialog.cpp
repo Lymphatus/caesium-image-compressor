@@ -39,6 +39,7 @@ void PreferencesDialog::loadPreferences()
     ui->sendUsageReport_CheckBox->setChecked(settings.value("preferences/general/send_usage_reports", true).toBool());
     ui->multithreading_CheckBox->setChecked(settings.value("preferences/general/multithreading", true).toBool());
     ui->language_ComboBox->setCurrentIndex(settings.value("preferences/language/locale", 0).toInt());
+    ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
 }
 
 void PreferencesDialog::writeSetting(const QString& key, const QVariant& value)
@@ -83,5 +84,11 @@ void PreferencesDialog::on_sendUsageReport_CheckBox_toggled(bool checked)
 void PreferencesDialog::on_multithreading_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/multithreading", checked);
+}
+
+
+void PreferencesDialog::on_theme_ComboBox_currentIndexChanged(int index)
+{
+    this->writeSetting("preferences/general/theme", index);
 }
 

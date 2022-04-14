@@ -427,53 +427,64 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="182"/>
+        <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="206"/>
+        <location filename="../../views/PreferencesDialog.ui" line="256"/>
         <source>Prompt before exit</source>
         <translation>退出前确认</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="293"/>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>Changes will apply after restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="145"/>
+        <location filename="../../views/PreferencesDialog.ui" line="168"/>
+        <source>Theme (experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="176"/>
+        <source>Native</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="235"/>
         <source>Check updates at startup</source>
         <translation>启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="189"/>
+        <location filename="../../views/PreferencesDialog.ui" line="242"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>打开文件夹时导入子目录中的文件</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="135"/>
+        <location filename="../../views/PreferencesDialog.ui" line="249"/>
         <source>Send anonymous usage reports</source>
         <translation>发送匿名统计信息</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="157"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="196"/>
+        <location filename="../../views/PreferencesDialog.ui" line="222"/>
         <source>Multithreading</source>
         <translation>多线程</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="225"/>
+        <location filename="../../views/PreferencesDialog.ui" line="374"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="300"/>
         <source>Preferred language</source>
         <translation>默认语言</translation>
     </message>
