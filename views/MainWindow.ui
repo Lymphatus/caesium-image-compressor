@@ -1138,6 +1138,11 @@
     <string>Show compressed in file manager</string>
    </property>
   </action>
+  <action name="actionDonate">
+   <property name="text">
+    <string>Donate</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

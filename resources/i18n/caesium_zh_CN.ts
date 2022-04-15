@@ -402,6 +402,11 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../views/MainWindow.ui" line="1143"/>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../src/MainWindow.cpp" line="661"/>
         <location filename="../../src/MainWindow.cpp" line="665"/>
         <source>%</source>

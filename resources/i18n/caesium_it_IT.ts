@@ -339,6 +339,11 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Mostra compresso nel file manager</translation>
     </message>
     <message>
+        <location filename="../../views/MainWindow.ui" line="1143"/>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>_compressed</source>
         <translation type="vanished">_compressa</translation>
     </message>
