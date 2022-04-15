@@ -28,6 +28,8 @@ private slots:
 
     void on_theme_ComboBox_currentIndexChanged(int index);
 
+    void on_showUsageData_Label_linkActivated(const QString &link);
+
 private:
     Ui::PreferencesDialog *ui;
 

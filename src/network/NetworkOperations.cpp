@@ -1,5 +1,4 @@
 #include "NetworkOperations.h"
-#include <QCoreApplication>
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -8,6 +7,7 @@
 #include <QObject>
 #include <QSettings>
 #include <QStandardPaths>
+#include "utils/Utils.h"
 
 NetworkOperations::NetworkOperations()
 {
@@ -111,19 +111,4 @@ void NetworkOperations::updateSystemInfo()
         }
         reply->deleteLater();
     });
-}
-
-QJsonObject NetworkOperations::getSystemData()
-{
-    QSettings settings;
-    QJsonObject systemData {
-        { "uuid", settings.value("uuid").toString() },
-        { "appVersion", QCoreApplication::applicationVersion() },
-        { "kernelType", QSysInfo::kernelType() },
-        { "kernelVersion", QSysInfo::kernelVersion() },
-        { "productType", QSysInfo::productType() },
-        { "productVersion", QSysInfo::productVersion() },
-        { "cpuArchitecture", QSysInfo::currentCpuArchitecture() },
-    };
-    return systemData;
 }

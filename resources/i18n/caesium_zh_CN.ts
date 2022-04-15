@@ -432,65 +432,90 @@ Saved: %4 (%5%)</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="256"/>
+        <location filename="../../views/PreferencesDialog.ui" line="295"/>
         <source>Prompt before exit</source>
         <translation>退出前确认</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="158"/>
-        <location filename="../../views/PreferencesDialog.ui" line="313"/>
+        <location filename="../../views/PreferencesDialog.ui" line="186"/>
+        <location filename="../../views/PreferencesDialog.ui" line="334"/>
         <source>Changes will apply after restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="168"/>
+        <location filename="../../views/PreferencesDialog.ui" line="196"/>
         <source>Theme (experimental)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="176"/>
+        <location filename="../../views/PreferencesDialog.ui" line="204"/>
         <source>Native</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="235"/>
+        <location filename="../../views/PreferencesDialog.ui" line="288"/>
         <source>Check updates at startup</source>
         <translation>启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="242"/>
+        <location filename="../../views/PreferencesDialog.ui" line="302"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>打开文件夹时导入子目录中的文件</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="249"/>
+        <location filename="../../views/PreferencesDialog.ui" line="147"/>
         <source>Send anonymous usage reports</source>
         <translation>发送匿名统计信息</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="268"/>
+        <location filename="../../views/PreferencesDialog.ui" line="255"/>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="222"/>
+        <location filename="../../views/PreferencesDialog.ui" line="262"/>
         <source>Multithreading</source>
         <translation>多线程</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="374"/>
+        <location filename="../../views/PreferencesDialog.ui" line="395"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="300"/>
+        <location filename="../../views/PreferencesDialog.ui" line="321"/>
         <source>Preferred language</source>
         <translation>默认语言</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 更改将在应用重启后生效&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="105"/>
+        <source>Usage data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="19"/>
+        <source>Show usage data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
+        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <source>System data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <source>Compression data</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

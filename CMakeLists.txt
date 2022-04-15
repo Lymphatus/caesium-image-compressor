@@ -180,7 +180,7 @@ ExternalProject_Add(
         GIT_REPOSITORY    https://github.com/Lymphatus/libcaesium
         GIT_TAG           0.8.1
         CONFIGURE_COMMAND ""
-        BUILD_COMMAND cargo build ${CARGO_BUILD_FLAGS}
+        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS}
         INSTALL_COMMAND ""
         BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
         LOG_BUILD ON

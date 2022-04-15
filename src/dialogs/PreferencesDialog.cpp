@@ -2,11 +2,13 @@
 #include "ui_PreferencesDialog.h"
 
 #include "utils/Utils.h"
+#include <QJsonDocument>
+#include <QMessageBox>
 #include <QSettings>
 
-PreferencesDialog::PreferencesDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::PreferencesDialog)
+PreferencesDialog::PreferencesDialog(QWidget* parent)
+    : QDialog(parent)
+    , ui(new Ui::PreferencesDialog)
 {
     ui->setupUi(this);
 
@@ -14,6 +16,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     this->loadPreferences();
 
     ui->menu_ListWidget->setCurrentRow(0);
+    ui->showUsageData_Label->setText("<html><head/><body><p><a href=\"#\"><small style=\"text-decoration: underline; color:#007af4;\">" + tr("Show usage data") + "</small></a></p></body></html>");
 
     connect(ui->language_ComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(languageComboBoxIndexChanged(int)));
 }
@@ -25,7 +28,7 @@ PreferencesDialog::~PreferencesDialog()
 
 void PreferencesDialog::loadLanguages()
 {
-    for (const CsLocale locale: LANGUAGES) {
+    for (const CsLocale &locale : LANGUAGES) {
         ui->language_ComboBox->addItem(locale.label);
     }
 }
@@ -57,38 +60,52 @@ void PreferencesDialog::languageComboBoxIndexChanged(int index)
 {
     int localeIndex = index;
     if (index < 0 || index > LANGUAGES_COUNT - 1) {
-       localeIndex = 0;
+        localeIndex = 0;
     }
     this->writeSetting("preferences/language/locale", localeIndex);
 }
-
 
 void PreferencesDialog::on_checkUpdatesAtStartup_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/check_updates_at_startup", checked);
 }
 
-
 void PreferencesDialog::on_importSubfolders_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/import_subfolders", checked);
 }
-
 
 void PreferencesDialog::on_sendUsageReport_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/send_usage_reports", checked);
 }
 
-
 void PreferencesDialog::on_multithreading_CheckBox_toggled(bool checked)
 {
     this->writeSetting("preferences/general/multithreading", checked);
 }
-
 
 void PreferencesDialog::on_theme_ComboBox_currentIndexChanged(int index)
 {
     this->writeSetting("preferences/general/theme", index);
 }
 
+void PreferencesDialog::on_showUsageData_Label_linkActivated(const QString& link)
+{
+    QSettings settings;
+    QJsonObject compressionData {
+        { "uuid", settings.value("uuid").toString() },
+        { "totalFiles", "..." },
+        { "uncompressedSize", "..." },
+        { "compressedSize", "..." },
+        { "elapsedTime", "..." },
+    };
+    QMessageBox messageBox;
+    messageBox.setStyleSheet("QLabel{min-width: 500px;}");
+    messageBox.setText(tr("Usage data"));
+    messageBox.setInformativeText(tr("This data is collected to provide the best long term support for the application. No data is sent to third parties."));
+    messageBox.setDetailedText(tr("System data") + "\n" + QJsonDocument(getSystemData()).toJson(QJsonDocument::Indented) + "\n" + tr("Compression data") + "\n" + QJsonDocument(compressionData).toJson(QJsonDocument::Indented));
+    messageBox.setStandardButtons(QMessageBox::Ok);
+    messageBox.setDefaultButton(QMessageBox::Ok);
+    messageBox.exec();
+}

@@ -18,7 +18,6 @@ public:
     void requestToken();
     void updateSystemInfo();
     void sendUsageReport(CompressionSummary compressionSummary);
-    static QJsonObject getSystemData();
     virtual ~NetworkOperations();
 };
 

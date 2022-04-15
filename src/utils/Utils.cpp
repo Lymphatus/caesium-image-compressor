@@ -7,6 +7,7 @@
 #include <QImageReader>
 #include <QProcess>
 #include <QDesktopServices>
+#include <QSettings>
 
 QString toHumanSize(double size)
 {
@@ -135,4 +136,19 @@ void showFileInNativeFileManager(const QString& filePath, const QString& fallbac
         return;
 #endif
     QDesktopServices::openUrl(QUrl::fromLocalFile(fallbackDirectory));
+}
+
+QJsonObject getSystemData()
+{
+    QSettings settings;
+    QJsonObject systemData {
+        { "uuid", settings.value("uuid").toString() },
+        { "appVersion", QCoreApplication::applicationVersion() },
+        { "kernelType", QSysInfo::kernelType() },
+        { "kernelVersion", QSysInfo::kernelVersion() },
+        { "productType", QSysInfo::productType() },
+        { "productVersion", QSysInfo::productVersion() },
+        { "cpuArchitecture", QSysInfo::currentCpuArchitecture() },
+    };
+    return systemData;
 }

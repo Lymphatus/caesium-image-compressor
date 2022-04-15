@@ -452,65 +452,90 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="256"/>
+        <location filename="../../views/PreferencesDialog.ui" line="295"/>
         <source>Prompt before exit</source>
         <translation>Chiedi prima di uscire</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="158"/>
-        <location filename="../../views/PreferencesDialog.ui" line="313"/>
+        <location filename="../../views/PreferencesDialog.ui" line="186"/>
+        <location filename="../../views/PreferencesDialog.ui" line="334"/>
         <source>Changes will apply after restart</source>
         <translation>Le modifiche verranno applicate al riavvio</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="168"/>
+        <location filename="../../views/PreferencesDialog.ui" line="196"/>
         <source>Theme (experimental)</source>
         <translation>Tema (sperimentale)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="176"/>
+        <location filename="../../views/PreferencesDialog.ui" line="204"/>
         <source>Native</source>
         <translation>Nativo</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="235"/>
+        <location filename="../../views/PreferencesDialog.ui" line="288"/>
         <source>Check updates at startup</source>
         <translation>Controlla aggiornamenti all&apos;avvio</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="242"/>
+        <location filename="../../views/PreferencesDialog.ui" line="302"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Importa anche i file nelle sottocartelle quando apri una cartella</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="249"/>
+        <location filename="../../views/PreferencesDialog.ui" line="147"/>
         <source>Send anonymous usage reports</source>
         <translation>Invia statistiche anonime sull&apos;uso</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="268"/>
+        <location filename="../../views/PreferencesDialog.ui" line="255"/>
         <source>Advanced</source>
         <translation>Avanzate</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="222"/>
+        <location filename="../../views/PreferencesDialog.ui" line="262"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="374"/>
+        <location filename="../../views/PreferencesDialog.ui" line="395"/>
         <source>Language</source>
         <translation>Lingua</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="300"/>
+        <location filename="../../views/PreferencesDialog.ui" line="321"/>
         <source>Preferred language</source>
         <translation>Lingua preferita</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Le modifiche verranno applicate dopo il riavvio&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="105"/>
+        <source>Usage data</source>
+        <translation>Dati sull&apos;uso</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="19"/>
+        <source>Show usage data</source>
+        <translation>Mostra dati sull&apos;uso</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
+        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
+        <translation>Questi dati sono raccolti per fornire il miglior support a lungo termine per l&apos;applicazione. Nessun dato è condiviso con terzi.</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <source>System data</source>
+        <translation>Dati di sistema</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <source>Compression data</source>
+        <translation>Dati di compressione</translation>
     </message>
 </context>
 <context>

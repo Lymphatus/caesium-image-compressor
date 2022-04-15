@@ -90,6 +90,19 @@
        </item>
       </widget>
      </item>
+     <item row="2" column="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="1" column="1" rowspan="2">
       <widget class="Line" name="line">
        <property name="frameShadow">
@@ -105,19 +118,6 @@
         <enum>Qt::Vertical</enum>
        </property>
       </widget>
-     </item>
-     <item row="2" column="2">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
      <item row="1" column="2" colspan="2">
       <widget class="QStackedWidget" name="content_StackedWidget">
@@ -141,7 +141,35 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
+           <property name="text">
+            <string>Send anonymous usage reports</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="showUsageData_Label">
+           <property name="font">
+            <font>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::RichText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="openExternalLinks">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1" colspan="2">
           <layout class="QGridLayout" name="theme_GridLayout">
            <property name="spacing">
             <number>0</number>
@@ -216,48 +244,7 @@
            </item>
           </layout>
          </item>
-         <item row="9" column="1">
-          <widget class="QCheckBox" name="multithreading_CheckBox">
-           <property name="text">
-            <string>Multithreading</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Check updates at startup</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QCheckBox" name="importSubfolders_CheckBox">
-           <property name="text">
-            <string>Import files in subfolders when opening a directory</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
-           <property name="text">
-            <string>Send anonymous usage reports</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QCheckBox" name="promptExit_CheckBox">
-           <property name="text">
-            <string>Prompt before exit</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
+         <item row="8" column="1" colspan="2">
           <widget class="QLabel" name="advancedPageTitle_Label">
            <property name="font">
             <font>
@@ -269,7 +256,17 @@
            </property>
           </widget>
          </item>
-         <item row="10" column="1">
+         <item row="9" column="1" colspan="2">
+          <widget class="QCheckBox" name="multithreading_CheckBox">
+           <property name="text">
+            <string>Multithreading</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1" colspan="2">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -281,6 +278,30 @@
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="5" column="1" colspan="2">
+          <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Check updates at startup</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="2">
+          <widget class="QCheckBox" name="promptExit_CheckBox">
+           <property name="text">
+            <string>Prompt before exit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="QCheckBox" name="importSubfolders_CheckBox">
+           <property name="text">
+            <string>Import files in subfolders when opening a directory</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
