@@ -57,7 +57,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>信息</translation>
     </message>
 </context>
 <context>
@@ -394,17 +394,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1133"/>
         <source>Show original in file manager</source>
-        <translation type="unfinished"></translation>
+        <translation>在文件管理器中查看原图</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1138"/>
         <source>Show compressed in file manager</source>
-        <translation type="unfinished"></translation>
+        <translation>在文件管理器中查看压缩图</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1143"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>捐赠</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="661"/>
@@ -445,17 +445,17 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="186"/>
         <location filename="../../views/PreferencesDialog.ui" line="334"/>
         <source>Changes will apply after restart</source>
-        <translation type="unfinished"></translation>
+        <translation>更改将在重启后生效</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="196"/>
         <source>Theme (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>主题（实验性）</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="204"/>
         <source>Native</source>
-        <translation type="unfinished"></translation>
+        <translation>原生</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="288"/>
@@ -500,27 +500,27 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="105"/>
         <source>Usage data</source>
-        <translation type="unfinished"></translation>
+        <translation>使用数据</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="19"/>
         <source>Show usage data</source>
-        <translation type="unfinished"></translation>
+        <translation>展示使用数据</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="unfinished"></translation>
+        <translation>我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
         <source>System data</source>
-        <translation type="unfinished"></translation>
+        <translation>系统数据</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
         <source>Compression data</source>
-        <translation type="unfinished"></translation>
+        <translation>压缩数据</translation>
     </message>
 </context>
 <context>
@@ -533,37 +533,37 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="103"/>
         <source>Input file does not exist</source>
-        <translation type="unfinished"></translation>
+        <translation>输入文件不存在</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="122"/>
         <source>Cannot make output path, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建输出路径，请检查访问权限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="139"/>
         <source>Temporary file creation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建临时文件</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="194"/>
         <source>Skipped: compressed file is bigger than original</source>
-        <translation type="unfinished"></translation>
+        <translation>跳过：压缩后的文件尺寸大于原始文件</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="200"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>无法复制输出文件到输出路径，请检查访问权限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="292"/>
         <source>Compressing...</source>
-        <translation type="unfinished">正在压缩...</translation>
+        <translation>正在压缩...</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="294"/>
         <source>Error:</source>
-        <translation type="unfinished"></translation>
+        <translation>错误：</translation>
     </message>
 </context>
 <context>
@@ -571,7 +571,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/widgets/QZoomGraphicsView.cpp" line="74"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在加载...</translation>
     </message>
 </context>
 </TS>
