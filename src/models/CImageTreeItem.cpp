@@ -98,7 +98,10 @@ CImage *CImageTreeItem::getCImage() const
 
 QFuture<void> CImageTreeItem::compress(CompressionOptions compressionOptions)
 {
-    return QtConcurrent::map(m_childItems, [compressionOptions](CImageTreeItem* item) {
+    return QtConcurrent::map(m_childItems, [compressionOptions, this](CImageTreeItem* item) {
+        if (item->compressionCanceled || this->compressionCanceled) {
+            return;
+        }
         CImage* cImage = item->getCImage();
         cImage->setStatus(CImageStatus::COMPRESSING);
         bool compressionResult = cImage->compress(compressionOptions);
@@ -118,4 +121,9 @@ void CImageTreeItem::setData(QStringList data)
         columnData << columnString;
     }
     this->m_itemData = columnData;
+}
+
+void CImageTreeItem::setCompressionCanceled(bool canceled)
+{
+    this->compressionCanceled = canceled;
 }

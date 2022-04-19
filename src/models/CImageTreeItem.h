@@ -36,6 +36,10 @@ private:
     QVector<QVariant> m_itemData;
     CImage* cImage;
     CImageTreeItem* m_parentItem;
+    bool compressionCanceled = false;
+
+public:
+    void setCompressionCanceled(bool canceled);
 };
 
 #endif // CIMAGETREEITEM_H

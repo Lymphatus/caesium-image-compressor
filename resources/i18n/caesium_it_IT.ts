@@ -87,13 +87,13 @@ Tutti i diritti riservati.</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="362"/>
-        <location filename="../../src/MainWindow.cpp" line="464"/>
-        <location filename="../../src/MainWindow.cpp" line="532"/>
+        <location filename="../../src/MainWindow.cpp" line="466"/>
+        <location filename="../../src/MainWindow.cpp" line="535"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="441"/>
+        <location filename="../../src/MainWindow.cpp" line="443"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -102,12 +102,12 @@ Do you really want to continue?</source>
 Vuoi veramente continuare?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="445"/>
+        <location filename="../../src/MainWindow.cpp" line="447"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="464"/>
+        <location filename="../../src/MainWindow.cpp" line="466"/>
         <source>Compressing...</source>
         <translation>Compressione...</translation>
     </message>
@@ -116,28 +116,28 @@ Vuoi veramente continuare?</translation>
         <translation type="vanished">Sei sicuro?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="527"/>
+        <location filename="../../src/MainWindow.cpp" line="530"/>
         <source>Do you really want to quit?</source>
         <translation>Vuoi veramente uscire?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="444"/>
-        <location filename="../../src/MainWindow.cpp" line="531"/>
+        <location filename="../../src/MainWindow.cpp" line="446"/>
+        <location filename="../../src/MainWindow.cpp" line="534"/>
         <source>Yes</source>
         <translation>Sì</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="549"/>
+        <location filename="../../src/MainWindow.cpp" line="552"/>
         <source>Select output folder...</source>
         <translation>Selezione cartella di output...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="607"/>
+        <location filename="../../src/MainWindow.cpp" line="611"/>
         <source>Compression finished!</source>
         <translation>Compressione terminata!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="608"/>
+        <location filename="../../src/MainWindow.cpp" line="612"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -253,8 +253,8 @@ Risparmiato: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="577"/>
         <location filename="../../views/MainWindow.ui" line="621"/>
         <location filename="../../views/MainWindow.ui" line="678"/>
-        <location filename="../../src/MainWindow.cpp" line="647"/>
         <location filename="../../src/MainWindow.cpp" line="651"/>
+        <location filename="../../src/MainWindow.cpp" line="655"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -427,13 +427,13 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Preferenze...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="661"/>
         <location filename="../../src/MainWindow.cpp" line="665"/>
+        <location filename="../../src/MainWindow.cpp" line="669"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="779"/>
+        <location filename="../../src/MainWindow.cpp" line="783"/>
         <source>images in list</source>
         <translation>immagini in lista</translation>
     </message>
