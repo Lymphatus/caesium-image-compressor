@@ -8,6 +8,9 @@ jobs:
   Build:
     runs-on: windows-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Cache Qt
         id: cache-qt
         uses: actions/cache@v1
@@ -25,12 +28,10 @@ jobs:
           dir: ${{ github.workspace }}/qt/
           archives: "qtimageformats"
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
-      - name: Checkout code
-        uses: actions/checkout@v2
+          setup-python: 'false'
 
       - name: Configure CMake
-        run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DWINSPARKLE_INCLUDE_DIR='${{github.workspace}}'/winsparkle -G "CodeBlocks - MinGW Makefiles" -B '${{github.workspace}}'/build
+        run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -G "CodeBlocks - MinGW Makefiles" -B '${{github.workspace}}'/build
 
       - name: Build
         run: cmake --build '${{github.workspace}}'/build --config Release --target caesium_image_compressor
