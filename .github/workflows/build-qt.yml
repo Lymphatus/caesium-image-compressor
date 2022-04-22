@@ -24,7 +24,7 @@ jobs:
           version: '6.2.3'
           host: 'windows'
           target: 'desktop'
-          arch: 'win64_mingw90'
+          arch: 'win64_mingw'
           dir: ${{ github.workspace }}/qt/
           archives: "qtimageformats"
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
