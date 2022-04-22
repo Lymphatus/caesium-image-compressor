@@ -30,6 +30,9 @@ jobs:
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
           setup-python: 'false'
 
+      - name: Install Rust target
+        run: rustup target add x86_64-pc-windows-gnu
+
       - name: Configure CMake
         run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -G "CodeBlocks - MinGW Makefiles" -B ${{github.workspace}}/build
 
