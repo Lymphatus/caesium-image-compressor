@@ -31,7 +31,6 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 - [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.2 (open source)
 - [Sparkle](https://sparkle-project.org/): macOS only
 - [libssh](https://www.libssh.org/): macOS only
-- [WinSparkle](https://winsparkle.org/): Windows only
 
 #### Build
 ##### Step 1
@@ -39,7 +38,7 @@ You need to configure CMake first and the command is slightly different for all 
 Change the path in variables with the correct directories of the requirements.
 ###### Windows
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DWINSPARKLE_INCLUDE_DIR=/winsparke/release/dir
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version
 ```
 ###### MacOS
 ```

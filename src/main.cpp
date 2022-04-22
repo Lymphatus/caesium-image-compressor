@@ -3,11 +3,11 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QDateTime>
-#include <QStandardPaths>
-#include <QTranslator>
 #include <QSettings>
-#include <QUuid>
+#include <QStandardPaths>
 #include <QStyleFactory>
+#include <QTranslator>
+#include <QUuid>
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
@@ -87,6 +87,38 @@ void loadTheme()
     int themeIndex = settings.value("preferences/general/theme", 0).toInt();
     if (themeIndex > 0 && themeIndex < THEMES_COUNT) {
         QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex]));
+
+#ifdef Q_OS_WIN
+        if (themeIndex == 1) {
+            QSettings s(R"(HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize)", QSettings::NativeFormat);
+            if (s.value("AppsUseLightTheme") == 0) {
+                QPalette darkPalette;
+                QColor darkColor = QColor(45, 45, 45);
+                QColor disabledColor = QColor(127, 127, 127);
+                darkPalette.setColor(QPalette::Window, darkColor);
+                darkPalette.setColor(QPalette::WindowText, Qt::white);
+                darkPalette.setColor(QPalette::Base, QColor(18, 18, 18));
+                darkPalette.setColor(QPalette::AlternateBase, darkColor);
+                darkPalette.setColor(QPalette::ToolTipBase, Qt::white);
+                darkPalette.setColor(QPalette::ToolTipText, Qt::white);
+                darkPalette.setColor(QPalette::Text, Qt::white);
+                darkPalette.setColor(QPalette::Disabled, QPalette::Text, disabledColor);
+                darkPalette.setColor(QPalette::Button, darkColor);
+                darkPalette.setColor(QPalette::ButtonText, Qt::white);
+                darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText, disabledColor);
+                darkPalette.setColor(QPalette::BrightText, Qt::red);
+                darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
+
+                darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+                darkPalette.setColor(QPalette::HighlightedText, Qt::black);
+                darkPalette.setColor(QPalette::Disabled, QPalette::HighlightedText, disabledColor);
+
+                QApplication::setPalette(darkPalette);
+
+                // a.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }");
+            }
+        }
+#endif
     }
 }
 
@@ -96,7 +128,6 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
     QCoreApplication::setApplicationVersion("2.0.0");
-
 
     qInfo() << "Writing logs to" << QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/caesium.log";
     qInstallMessageHandler(messageHandler);

@@ -89,6 +89,8 @@ MainWindow::MainWindow(QWidget* parent)
             this->networkOperations->updateSystemInfo();
         }
     }
+
+    QImageReader::setAllocationLimit(512);
 }
 
 MainWindow::~MainWindow()

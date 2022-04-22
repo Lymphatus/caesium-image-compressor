@@ -157,7 +157,6 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         0
     };
 
-    QImageReader::setAllocationLimit(512);
     // Resize
     if (compressionOptions.resize) {
         QImageReader imageReader(this->getFullPath());
