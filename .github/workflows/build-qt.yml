@@ -31,7 +31,7 @@ jobs:
           setup-python: 'false'
 
       - name: Configure CMake
-        run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -G "CodeBlocks - MinGW Makefiles" -B '${{github.workspace}}'/build
+        run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -G "CodeBlocks - MinGW Makefiles" -B ${{github.workspace}}/build
 
       - name: Build
-        run: cmake --build '${{github.workspace}}'/build --config Release --target caesium_image_compressor
+        run: cmake --build ${{github.workspace}}/build --config Release --target caesium_image_compressor
