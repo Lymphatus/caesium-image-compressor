@@ -25,7 +25,6 @@ jobs:
           dir: ${{ github.workspace }}/qt/
           archives: "qtimageformats"
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
-          setup-python: 'false'
 
       - name: Checkout code
         uses: actions/checkout@v2
