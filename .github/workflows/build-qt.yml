@@ -21,10 +21,10 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: '6.2.4'
+          version: '6.2.3'
           host: 'windows'
           target: 'desktop'
-          arch: 'win64_mingw81'
+          arch: 'win64_mingw90'
           dir: ${{ github.workspace }}/qt/
           archives: "qtimageformats"
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
