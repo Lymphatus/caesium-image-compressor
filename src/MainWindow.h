@@ -77,6 +77,7 @@ private slots:
     void on_actionShow_compressed_in_file_manager_triggered();
     void listContextMenuAboutToShow();
     void showPreview(int index);
+    void compressionCanceled();
 
 private:
     Ui::MainWindow* ui;
@@ -98,6 +99,7 @@ private:
     CImageSortFilterProxyModel* proxyModel;
     long long selectedCount = 0;
     QList<QModelIndex> selectedIndexes;
+    bool isItemRemovalRunning = false;
 
     void initStatusBar();
     void initUpdater();

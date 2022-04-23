@@ -89,6 +89,8 @@ MainWindow::MainWindow(QWidget* parent)
             this->networkOperations->updateSystemInfo();
         }
     }
+
+    QImageReader::setAllocationLimit(512);
 }
 
 MainWindow::~MainWindow()
@@ -394,6 +396,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 
 void MainWindow::removeFiles(bool all)
 {
+    this->isItemRemovalRunning = true;
     if (all) {
         ui->imageList_TreeView->selectAll();
     }
@@ -416,6 +419,7 @@ void MainWindow::removeFiles(bool all)
     this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
     this->previewScene->setSceneRect(this->compressedPreviewScene->itemsBoundingRect());
     ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+    this->isItemRemovalRunning = false;
 }
 
 void MainWindow::on_compress_Button_clicked()
@@ -463,7 +467,6 @@ void MainWindow::on_compress_Button_clicked()
 
     auto* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
     progressDialog->setWindowModality(Qt::WindowModal);
-    progressDialog->setCancelButton(nullptr);
 
     this->compressionWatcher = new QFutureWatcher<void>();
     connect(this->compressionWatcher, SIGNAL(finished()), progressDialog, SLOT(close()));
@@ -471,6 +474,8 @@ void MainWindow::on_compress_Button_clicked()
     connect(this->compressionWatcher, SIGNAL(finished()), this, SLOT(compressionFinished()));
     connect(this->compressionWatcher, SIGNAL(progressValueChanged(int)), progressDialog, SLOT(setValue(int)));
     connect(this->compressionWatcher, SIGNAL(progressValueChanged(int)), this->cImageModel, SLOT(emitDataChanged(int)));
+
+    connect(progressDialog, SIGNAL(canceled()), this, SLOT(compressionCanceled()));
     progressDialog->show();
 
     FileDatesOutputOption datesMap = {
@@ -586,6 +591,7 @@ void MainWindow::imageList_selectionChanged()
 
 void MainWindow::compressionFinished()
 {
+    this->cImageModel->getRootItem()->setCompressionCanceled(false);
     QSettings settings;
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(this->proxyModel->mapToSource(ui->imageList_TreeView->selectionModel()->selectedRows().at(0)));
@@ -942,4 +948,11 @@ void MainWindow::showPreview(int index)
         ui->previewCompressed_GraphicsView->fitInView(this->compressedPreviewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->previewCompressed_GraphicsView->show();
     }
+}
+void MainWindow::compressionCanceled()
+{
+    qInfo() << "Compression canceled by user.";
+    this->cImageModel->getRootItem()->setCompressionCanceled(true);
+    this->compressionWatcher->cancel();
+    this->compressionWatcher->waitForFinished();
 }

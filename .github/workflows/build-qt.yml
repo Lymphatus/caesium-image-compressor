@@ -1,0 +1,40 @@
+name: Build Caesium Image Compressor
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  Build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-QtCache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '6.2.3'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_mingw'
+          dir: ${{ github.workspace }}/qt/
+          archives: "qtimageformats"
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          setup-python: 'false'
+
+      - name: Install Rust target
+        run: rustup target add x86_64-pc-windows-gnu
+
+      - name: Configure CMake
+        run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -G "CodeBlocks - MinGW Makefiles" -B ${{github.workspace}}/build
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config Release --target caesium_image_compressor

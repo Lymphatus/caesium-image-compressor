@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
+include(ExternalProject)
 set(TARGET caesium_image_compressor)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -40,16 +41,12 @@ if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
     message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt dir.")
 endif ()
 
+if (WIN32)
+    set(WINSPARKLE_LIB_DIR ${CMAKE_BINARY_DIR}/libwinsparkle-prefix/src/libwinsparkle/x64/Release)
+    link_directories(${WINSPARKLE_LIB_DIR})
+endif ()
+
 if (APPLE OR WIN32)
-
-    if (WIN32)
-        if (NOT DEFINED WINSPARKLE_LIB_DIR)
-            message(FATAL_ERROR "WINSPARKLE_LIB_DIR is not defined. Cannot find winsparkle lib dir.")
-        else ()
-            link_directories(${WINSPARKLE_LIB_DIR})
-        endif ()
-    endif ()
-
     if (APPLE)
         if (NOT DEFINED SPARKLE_INCLUDE_DIR)
             message(FATAL_ERROR "SPARKLE_INCLUDE_DIR is not defined. Cannot find sparkle include dir.")
@@ -66,10 +63,11 @@ if (APPLE OR WIN32)
 endif ()
 
 set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
-if (CMAKE_BUILD_TYPE MATCHES Debug)
-    link_directories(${LIBCAESIUM_SOURCE_DIR}/target/debug)
+string(TOLOWER ${CMAKE_BUILD_TYPE} LIBCAESIUM_BUILD_TYPE)
+if (WIN32)
+    link_directories(${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE})
 else ()
-    link_directories(${LIBCAESIUM_SOURCE_DIR}/target/release)
+    link_directories(${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE})
 endif ()
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
@@ -168,25 +166,43 @@ else ()
     add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${HEADERS} ${OSX_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
 
-include(ExternalProject)
+# --- libcaesium ---
 if (CMAKE_BUILD_TYPE MATCHES Debug)
     set(CARGO_BUILD_FLAGS "")
 else ()
     set(CARGO_BUILD_FLAGS "--release")
 endif ()
 
+set(CARGO_TARGET "")
+if (WIN32)
+    set(CARGO_TARGET "--target=x86_64-pc-windows-gnu")
+endif ()
+
 ExternalProject_Add(
         libcaesium
-        GIT_REPOSITORY    https://github.com/Lymphatus/libcaesium
-        GIT_TAG           0.8.1
+        GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
+        GIT_TAG 0.8.1
         CONFIGURE_COMMAND ""
-        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS}
+        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
         INSTALL_COMMAND ""
         BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
         LOG_BUILD ON
-        )
+)
 
 add_dependencies(caesium_image_compressor libcaesium)
+
+# --- WinSparkle ---
+if (WIN32)
+    ExternalProject_Add(
+            libwinsparkle
+            URL https://github.com/vslavik/winsparkle/releases/download/v0.7.0/WinSparkle-0.7.0.zip
+            CONFIGURE_COMMAND ""
+            BUILD_COMMAND ""
+            INSTALL_COMMAND cmake -E echo "Skipping install step."
+            LOG_BUILD ON
+    )
+    add_dependencies(caesium_image_compressor libwinsparkle)
+endif ()
 
 if (APPLE)
     set(OSX_FRAMEWORKS "-framework AppKit -framework Carbon -framework Foundation -framework ApplicationServices -framework Sparkle")

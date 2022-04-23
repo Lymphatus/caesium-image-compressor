@@ -1,13 +1,15 @@
 #include "Utils.h"
+#include "widgets/QCaesiumMessageBox.h"
 
+#include <QDesktopServices>
 #include <QDir>
 #include <QDirIterator>
-#include <cmath>
-#include <QJsonObject>
 #include <QImageReader>
+#include <QJsonObject>
+#include <QMessageBox>
 #include <QProcess>
-#include <QDesktopServices>
 #include <QSettings>
+#include <cmath>
 
 QString toHumanSize(double size)
 {
@@ -35,13 +37,13 @@ QString toHumanSize(double size)
     return QString::number(size / (pow(1024, order)) * (isNegative ? -1 : 1), 'f', 2) + ' ' + unit[(int)order];
 }
 
-//TODO Another thread?
+// TODO Another thread?
 QStringList scanDirectory(QString directory, bool subfolders)
 {
     QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp" };
     QStringList fileList = {};
     auto iteratorFlags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
-    //Collecting all files in folder
+    // Collecting all files in folder
     if (QDir(directory).exists()) {
         QDirIterator it(directory,
             inputFilterList,
@@ -93,44 +95,56 @@ std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, in
         int outputWidth = width;
         int outputHeight = height;
         if (doNotEnlarge && (outputWidth >= originalWidth || outputHeight >= originalHeight)) {
-            return {originalWidth, originalHeight};
+            return { originalWidth, originalHeight };
         }
-        return {outputWidth, outputHeight};
+        return { outputWidth, outputHeight };
     } else if (fitTo == ResizeMode::PERCENTAGE) {
         int outputWidthPerc = width;
         int outputHeightPerc = height;
 
         if (doNotEnlarge && (outputWidthPerc >= 100 || outputHeightPerc >= 100)) {
-            return {originalWidth, originalHeight};
+            return { originalWidth, originalHeight };
         }
 
         int outputWidth = (int)round((double)originalWidth * (double)outputWidthPerc / 100);
         int outputHeight = (int)round((double)originalHeight * (double)outputHeightPerc / 100);
-        return {outputWidth, outputHeight};
+        return { outputWidth, outputHeight };
     } else if (fitTo == ResizeMode::LONG_EDGE || fitTo == ResizeMode::SHORT_EDGE) {
-        //TODO Refactor this section
+        // TODO Refactor this section
         if ((fitTo == ResizeMode::LONG_EDGE && originalWidth >= originalHeight) || (fitTo == ResizeMode::SHORT_EDGE && originalWidth <= originalHeight)) {
             if (doNotEnlarge && originalWidth <= size) {
-                return {originalWidth, originalHeight};
+                return { originalWidth, originalHeight };
             }
-            return {size, 0};
+            return { size, 0 };
         } else if ((fitTo == ResizeMode::LONG_EDGE && originalHeight >= originalWidth) || (fitTo == ResizeMode::SHORT_EDGE && originalHeight <= originalWidth)) {
             if (doNotEnlarge && originalHeight <= size) {
-                return {originalWidth, originalHeight};
+                return { originalWidth, originalHeight };
             }
-            return {0, size};
+            return { 0, size };
         }
     }
 
-    return {originalWidth, originalHeight};
+    return { originalWidth, originalHeight };
 }
 
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory)
 {
-    //TODO warning if not found
-#if defined(Q_OS_WIN)
-    if (QProcess::startDetached("explorer", QStringList() << filePath << "/select"))
+    if (!QFileInfo::exists(filePath)) {
+        QCaesiumMessageBox msgBox;
+        msgBox.setText(QIODevice::tr("File not found"));
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.setDefaultButton(QMessageBox::Ok);
+        msgBox.exec();
         return;
+    }
+
+#if defined(Q_OS_WIN)
+    QStringList param;
+    param += QLatin1String("/select,");
+    param += QDir::toNativeSeparators(filePath);
+    if (QProcess::startDetached("explorer.exe", param)) {
+        return;
+    }
 #elif defined(Q_OS_MAC)
     if (QProcess::startDetached("open", QStringList() << filePath << "-R"))
         return;
