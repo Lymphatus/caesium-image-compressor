@@ -5,5 +5,6 @@
         <file>i18n/caesium_fr_FR.qm</file>
         <file>i18n/caesium_zh_CN.qm</file>
         <file>i18n/caesium_ja_JP.qm</file>
+        <file>i18n/caesium_es_ES.qm</file>
     </qresource>
 </RCC>
