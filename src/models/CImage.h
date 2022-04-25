@@ -31,7 +31,6 @@ class CImage
 
 public:
     explicit CImage(const QString& path);
-    //TODO Destructor
 
     friend bool operator== (const CImage &c1, const CImage &c2);
     friend bool operator!= (const CImage &c1, const CImage &c2);

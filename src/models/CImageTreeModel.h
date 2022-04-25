@@ -23,7 +23,7 @@ public:
     int columnCount(const QModelIndex& parent = QModelIndex()) const override;
     bool removeRows(int row, int count, const QModelIndex& parent = QModelIndex()) override;
 
-    void appendItems(QList<CImage*> imageList, QString baseFolder = "");
+    void appendItems(QList<CImage*> imageList, QString folder = "");
 
     CImageTreeItem* getRootItem() const;
     bool contains(CImage* cImage);

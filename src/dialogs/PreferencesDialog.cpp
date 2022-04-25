@@ -18,7 +18,7 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
     ui->menu_ListWidget->setCurrentRow(0);
     ui->showUsageData_Label->setText("<html><head/><body><p><a href=\"#\"><small style=\"text-decoration: underline; color:#007af4;\">" + tr("Show usage data") + "</small></a></p></body></html>");
 
-    connect(ui->language_ComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(languageComboBoxIndexChanged(int)));
+    QObject::connect(ui->language_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::languageComboBoxIndexChanged);
 }
 
 PreferencesDialog::~PreferencesDialog()

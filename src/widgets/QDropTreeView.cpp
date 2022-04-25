@@ -30,7 +30,6 @@ void QDropTreeView::dropEvent(QDropEvent* event)
     if (mimeData->hasFormat("text/uri-list")) {
         foreach (QUrl url, urlList) {
             QString absolutePath = url.toLocalFile();
-            //TODO This is limitation by now. We only accept drops for files. May be changed in the future.
             if (QFileInfo(absolutePath).isFile()) {
                 fileList << url.toLocalFile();
             } else if (QFileInfo(absolutePath).isDir()) {

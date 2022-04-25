@@ -1,7 +1,6 @@
 #include "AboutDialog.h"
 #include "../MainWindow.h"
 #include "ui_AboutDialog.h"
-#include <QProcess>
 #include <QSettings>
 
 #ifdef Q_OS_MAC

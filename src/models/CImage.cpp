@@ -255,7 +255,6 @@ QString CImage::getFormattedSavedRatio()
 
 QString CImage::getRichFormattedSavedRatio()
 {
-    // TODO
     return this->getFormattedSavedRatio();
 }
 

@@ -18,7 +18,7 @@ bool CImageSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelI
     CImage* rightCImage = static_cast<CImageTreeItem*>(right.internalPointer())->getCImage();
 
     if (left.column() == CImageColumns::NAME_COLUMN && right.column() == CImageColumns::NAME_COLUMN) {
-        //TODO Needs a regex for the HTML field
+        //TODO Needs a regex for the HTML field?
         return QString::localeAwareCompare(leftData.toString(), rightData.toString()) < 0;
     } else if (left.column() == CImageColumns::SIZE_COLUMN && right.column() == CImageColumns::SIZE_COLUMN) {
         return leftCImage->getOriginalSize() < rightCImage->getOriginalSize();

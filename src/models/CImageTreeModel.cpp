@@ -91,9 +91,9 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     return true;
 }
 
-void CImageTreeModel::appendItems(QList<CImage*> imageList, QString baseFolder)
+void CImageTreeModel::appendItems(QList<CImage*> imageList, QString folder)
 {
-    this->baseFolder = baseFolder;
+    this->baseFolder = folder;
     this->setupModelData(imageList, rootItem);
 }
 
@@ -210,7 +210,6 @@ QVariant CImageTreeModel::headerData(int section, Qt::Orientation orientation, i
     return QVariant();
 }
 
-//TODO We can maybe optimize these 2 functions to work together
 double CImageTreeModel::compressedItemsSize() const
 {
     QVectorIterator<CImageTreeItem*> itemsIterator(rootItem->children());

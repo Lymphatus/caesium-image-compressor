@@ -102,13 +102,13 @@ QFuture<void> CImageTreeItem::compress(CompressionOptions compressionOptions)
         if (item->compressionCanceled || this->compressionCanceled) {
             return;
         }
-        CImage* cImage = item->getCImage();
-        cImage->setStatus(CImageStatus::COMPRESSING);
-        bool compressionResult = cImage->compress(compressionOptions);
+        CImage* image = item->getCImage();
+        image->setStatus(CImageStatus::COMPRESSING);
+        bool compressionResult = image->compress(compressionOptions);
         if (!compressionResult) {
-            cImage->setStatus(CImageStatus::ERROR);
-        } else if (cImage->getStatus() == CImageStatus::COMPRESSING) {
-            cImage->setStatus(CImageStatus::COMPRESSED);
+            image->setStatus(CImageStatus::ERROR);
+        } else if (image->getStatus() == CImageStatus::COMPRESSING) {
+            image->setStatus(CImageStatus::COMPRESSED);
         }
     });
 }
