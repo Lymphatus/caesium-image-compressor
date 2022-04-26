@@ -78,6 +78,7 @@ private slots:
     void listContextMenuAboutToShow();
     void showPreview(int index);
     void compressionCanceled();
+    void listSortChanged(int logicalIndex, Qt::SortOrder order);
 
 private:
     Ui::MainWindow* ui;

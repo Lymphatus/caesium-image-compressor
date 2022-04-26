@@ -66,6 +66,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->preview_GraphicsView, &QZoomGraphicsView::scaleFactorChanged, ui->previewCompressed_GraphicsView, &QZoomGraphicsView::setScaleFactor);
     connect(ui->previewCompressed_GraphicsView, &QZoomGraphicsView::scaleFactorChanged, ui->preview_GraphicsView, &QZoomGraphicsView::setScaleFactor);
     connect(ui->imageList_TreeView, &QWidget::customContextMenuRequested, this, &MainWindow::showListContextMenu);
+    connect(ui->imageList_TreeView->header(), &QHeaderView::sortIndicatorChanged, this, &MainWindow::listSortChanged);
 
     connect(ui->preview_GraphicsView->horizontalScrollBar(), &QAbstractSlider::valueChanged, ui->previewCompressed_GraphicsView, &QZoomGraphicsView::setHorizontalScrollBarValue);
     connect(ui->preview_GraphicsView->verticalScrollBar(), &QAbstractSlider::valueChanged, ui->previewCompressed_GraphicsView, &QZoomGraphicsView::setVerticalScrollBarValue);
@@ -150,6 +151,11 @@ void MainWindow::initListWidget()
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::SIZE_COLUMN, settings.value("mainwindow/list_view/header_column_size/size", defaultSectionSize).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::RESOLUTION_COLUMN, settings.value("mainwindow/list_view/header_column_size/resolution", defaultSectionSize).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO_COLUMN, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
+
+    ui->imageList_TreeView->header()->setSortIndicator(settings.value("mainwindow/list_view/sort_column_index", 0).toInt(), settings.value("mainwindow/list_view/sort_column_order", Qt::AscendingOrder).value<Qt::SortOrder>());
+
+    ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO_COLUMN, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
+    ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO_COLUMN, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
 }
 
@@ -224,6 +230,8 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/list_view/header_column_size/size", ui->imageList_TreeView->header()->sectionSize(CImageColumns::SIZE_COLUMN));
     settings.setValue("mainwindow/list_view/header_column_size/resolution", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RESOLUTION_COLUMN));
     settings.setValue("mainwindow/list_view/header_column_size/ratio", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RATIO_COLUMN));
+    settings.setValue("mainwindow/list_view/sort_column_index", ui->imageList_TreeView->header()->sortIndicatorSection());
+    settings.setValue("mainwindow/list_view/sort_column_order", ui->imageList_TreeView->header()->sortIndicatorOrder());
 
     settings.setValue("compression_options/compression/lossless", ui->lossless_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_metadata", ui->keepMetadata_CheckBox->isChecked());
@@ -959,4 +967,10 @@ void MainWindow::compressionCanceled()
     this->cImageModel->getRootItem()->setCompressionCanceled(true);
     this->compressionWatcher->cancel();
     this->compressionWatcher->waitForFinished();
+}
+
+void MainWindow::listSortChanged(int logicalIndex, Qt::SortOrder order)
+{
+    this->writeSetting("mainwindow/list_view/sort_column_index", logicalIndex);
+    this->writeSetting("mainwindow/list_view/sort_column_order", order);
 }
