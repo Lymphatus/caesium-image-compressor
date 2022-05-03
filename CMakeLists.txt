@@ -13,7 +13,7 @@ endif ()
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
 if (APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")
     project(${TARGET} LANGUAGES CXX OBJCXX)
 else ()
     project(${TARGET} LANGUAGES CXX)
