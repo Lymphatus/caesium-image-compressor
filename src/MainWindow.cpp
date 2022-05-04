@@ -577,14 +577,14 @@ void MainWindow::on_outputSuffix_LineEdit_textChanged(const QString& arg1)
 
 void MainWindow::imageList_selectionChanged()
 {
+    this->selectedIndexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
+    this->selectedCount = this->selectedIndexes.count() / CIMAGE_COLUMNS_SIZE;
     if (this->isItemRemovalRunning) {
         return;
     }
-    this->selectedIndexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
-    this->selectedCount = this->selectedIndexes.count() / CIMAGE_COLUMNS_SIZE;
     ui->actionRemove->setDisabled(this->selectedCount == 0);
-    ui->actionShow_original_in_file_manager->setDisabled(this->selectedCount != 1);
-    ui->actionShow_compressed_in_file_manager->setDisabled(this->selectedCount != 1);
+    ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
+    ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
     if (this->selectedCount == 0) {
         this->previewScene->clear();
         this->compressedPreviewScene->clear();
@@ -800,6 +800,9 @@ void MainWindow::cModelItemsChanged()
     ui->actionClear->setDisabled(itemsCount == 0);
     ui->actionSelect_All->setDisabled(itemsCount == 0);
     ui->compress_Button->setDisabled(itemsCount == 0);
+
+    ui->actionShow_original_in_file_manager->setDisabled(itemsCount == 0);
+    ui->actionShow_compressed_in_file_manager->setDisabled(itemsCount == 0);
 }
 
 void MainWindow::initUpdater()

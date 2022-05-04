@@ -530,7 +530,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>Questi dati sono raccolti per fornire il miglior support a lungo termine per l&apos;applicazione. Nessun dato è condiviso con terzi.</translation>
+        <translation>Questi dati sono raccolti per fornire il miglior supporto a lungo termine per l&apos;applicazione. Nessun dato è condiviso con terzi.</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
