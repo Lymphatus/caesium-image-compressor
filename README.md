@@ -61,7 +61,7 @@ Caesium 2.0 is currently available in:
 - 🇺🇸 English ![100%](https://progress-bar.dev/100)
 - 🇮🇹 Italian ![100%](https://progress-bar.dev/100)
 - 🇫🇷 French ![100%](https://progress-bar.dev/100)
-- 🇯🇵 Japanese ![80%](https://progress-bar.dev/80)
+- 🇯🇵 Japanese ![100%](https://progress-bar.dev/100)
 - 🇨🇳 Simplified Chinese ![100%](https://progress-bar.dev/100)
 - 🇪🇸 Spanish ![100%](https://progress-bar.dev/100)
 
