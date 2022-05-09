@@ -531,37 +531,37 @@ Saved: %4 (%5%)</source>
         <translation>图片文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="103"/>
+        <location filename="../../src/models/CImage.cpp" line="107"/>
         <source>Input file does not exist</source>
         <translation>输入文件不存在</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="122"/>
+        <location filename="../../src/models/CImage.cpp" line="126"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>无法创建输出路径，请检查访问权限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="139"/>
+        <location filename="../../src/models/CImage.cpp" line="143"/>
         <source>Temporary file creation failed</source>
         <translation>无法创建临时文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="193"/>
+        <location filename="../../src/models/CImage.cpp" line="197"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>跳过：压缩后的文件尺寸大于原始文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="199"/>
+        <location filename="../../src/models/CImage.cpp" line="206"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>无法复制输出文件到输出路径，请检查访问权限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="290"/>
+        <location filename="../../src/models/CImage.cpp" line="297"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="292"/>
+        <location filename="../../src/models/CImage.cpp" line="299"/>
         <source>Error:</source>
         <translation>错误：</translation>
     </message>

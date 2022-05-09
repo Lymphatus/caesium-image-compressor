@@ -52,13 +52,15 @@ bool operator!=(const CImage& c1, const CImage& c2)
 
 QString CImage::getFormattedSize()
 {
-    size_t s = this->status == CImageStatus::COMPRESSED ? this->compressedSize : this->size;
+    bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
+    size_t s = needsFormatting ? this->compressedSize : this->size;
     return toHumanSize((double)s);
 }
 
 QString CImage::getRichFormattedSize()
 {
-    if (this->status == CImageStatus::COMPRESSED && this->size != this->compressedSize) {
+    bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
+    if (needsFormatting && this->size != this->compressedSize) {
         return "<small><s>" + toHumanSize((double)this->size) + "</s></small> " + toHumanSize((double)this->compressedSize);
     }
     return toHumanSize((double)this->size);
@@ -66,7 +68,8 @@ QString CImage::getRichFormattedSize()
 
 QString CImage::getResolution()
 {
-    if (this->status == CImageStatus::COMPRESSED) {
+    bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
+    if (needsFormatting) {
         return QString::number(this->compressedWidth) + "x" + QString::number(this->compressedHeight);
     }
     return QString::number(this->width) + "x" + QString::number(this->height);
@@ -74,7 +77,8 @@ QString CImage::getResolution()
 
 QString CImage::getRichResolution()
 {
-    if (this->status == CImageStatus::COMPRESSED && (this->width != this->compressedWidth || this->height != this->compressedHeight)) {
+    bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
+    if (needsFormatting && (this->width != this->compressedWidth || this->height != this->compressedHeight)) {
         return "<small><s>" + QString::number(this->width) + "x" + QString::number(this->height) + "</s></small> " + QString::number(this->compressedWidth) + "x" + QString::number(this->compressedHeight);
     }
     return QString::number(this->width) + "x" + QString::number(this->height);
@@ -181,7 +185,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
         bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size();
 
-        if (outputAlreadyExists) {
+        if (outputAlreadyExists && !outputIsBiggerThanInput) {
             QFile::remove(outputFullPath);
         }
         QString inputCopyFile = inputFullPath;
@@ -191,6 +195,9 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         } else {
             this->status = CImageStatus::WARNING;
             this->additionalInfo = QIODevice::tr("Skipped: compressed file is bigger than original");
+            QFileInfo outputFileInfo = QFileInfo(inputFullPath);
+            this->setCompressedInfo(outputFileInfo);
+            return true;
         }
         bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
 
