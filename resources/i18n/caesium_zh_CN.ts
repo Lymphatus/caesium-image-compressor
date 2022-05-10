@@ -551,17 +551,17 @@ Saved: %4 (%5%)</source>
         <translation>跳过：压缩后的文件尺寸大于原始文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="206"/>
+        <location filename="../../src/models/CImage.cpp" line="208"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>无法复制输出文件到输出路径，请检查访问权限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="297"/>
+        <location filename="../../src/models/CImage.cpp" line="299"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="299"/>
+        <location filename="../../src/models/CImage.cpp" line="301"/>
         <source>Error:</source>
         <translation>错误：</translation>
     </message>

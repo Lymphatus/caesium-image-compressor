@@ -24,7 +24,7 @@ bool CImageSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelI
         return leftCImage->getOriginalSize() < rightCImage->getOriginalSize();
     } else if (left.column() == CImageColumns::RESOLUTION_COLUMN && right.column() == CImageColumns::RESOLUTION_COLUMN) {
         return leftCImage->getTotalPixels() < rightCImage->getTotalPixels();
-    } else if (left.column() == CImageColumns::RESOLUTION_COLUMN && right.column() == CImageColumns::RESOLUTION_COLUMN) {
+    } else if (left.column() == CImageColumns::RATIO_COLUMN && right.column() == CImageColumns::RATIO_COLUMN) {
         if (leftCImage->getCompressedSize() == 0 && rightCImage->getCompressedSize() == 0) {
             return QString::localeAwareCompare(leftData.toString(), rightData.toString()) < 0;
         }

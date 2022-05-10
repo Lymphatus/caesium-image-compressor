@@ -195,9 +195,11 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         } else {
             this->status = CImageStatus::WARNING;
             this->additionalInfo = QIODevice::tr("Skipped: compressed file is bigger than original");
-            QFileInfo outputFileInfo = QFileInfo(inputFullPath);
-            this->setCompressedInfo(outputFileInfo);
-            return true;
+            if (outputAlreadyExists) {
+                QFileInfo outputFileInfo = QFileInfo(outputFullPath);
+                this->setCompressedInfo(outputFileInfo);
+                return true;
+            }
         }
         bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
 

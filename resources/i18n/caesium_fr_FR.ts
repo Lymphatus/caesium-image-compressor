@@ -551,17 +551,17 @@ Saved: %4 (%5%)</translation>
         <translation>Ignoré: le fichier compressé est plus volumineux que l&apos;original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="206"/>
+        <location filename="../../src/models/CImage.cpp" line="208"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Impossible de copier le fichier de sortie, vérifiez vos autorisations</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="297"/>
+        <location filename="../../src/models/CImage.cpp" line="299"/>
         <source>Compressing...</source>
         <translation>Compression...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="299"/>
+        <location filename="../../src/models/CImage.cpp" line="301"/>
         <source>Error:</source>
         <translation>Erreur:</translation>
     </message>
