@@ -4,7 +4,7 @@ IDI_ICON1               ICON    "icons/icon.ico"
 
 1 VERSIONINFO
  FILEVERSION     1,0,0,0
- PRODUCTVERSION  2,0,0,0
+ PRODUCTVERSION  1,99,6,0
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
