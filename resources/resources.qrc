@@ -10,5 +10,11 @@
         <file>icons/ui/settings.svg</file>
         <file>ssl/win_dsa_pub.pem</file>
         <file>icons/compression_statuses/warning.svg</file>
+        <file>icons/ui/add_files.svg</file>
+        <file>icons/ui/add_folder.svg</file>
+        <file>icons/ui/donate.svg</file>
+        <file>icons/ui/preferences.svg</file>
+        <file>icons/ui/remove.svg</file>
+        <file>icons/ui/trash.svg</file>
     </qresource>
 </RCC>
