@@ -10,6 +10,9 @@
     <height>864</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>Caesium Image Compressor</string>
   </property>
@@ -39,7 +42,7 @@
        <widget class="QWidget" name="layoutWidget">
         <layout class="QGridLayout" name="gridLayout_4">
          <property name="spacing">
-          <number>-1</number>
+          <number>7</number>
          </property>
          <item row="1" column="2">
           <spacer name="horizontalSpacer">
@@ -97,13 +100,6 @@
            </attribute>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QPushButton" name="addFiles_Button">
-           <property name="text">
-            <string>Add...</string>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="3">
           <widget class="QPushButton" name="compress_Button">
            <property name="enabled">
@@ -111,6 +107,16 @@
            </property>
            <property name="text">
             <string>Compress</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../resources/resources.qrc">
+             <normaloff>:/icons/ui/compress.svg</normaloff>:/icons/ui/compress.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -121,6 +127,33 @@
            </property>
            <property name="text">
             <string>Remove</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../resources/resources.qrc">
+             <normaloff>:/icons/ui/remove.svg</normaloff>:/icons/ui/remove.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="addFiles_Button">
+           <property name="text">
+            <string>Add...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../resources/resources.qrc">
+             <normaloff>:/icons/ui/add_files.svg</normaloff>:/icons/ui/add_files.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -134,7 +167,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -831,12 +864,6 @@
                </item>
                <item>
                 <widget class="Line" name="line_2">
-                 <property name="lineWidth">
-                  <number>0</number>
-                 </property>
-                 <property name="midLineWidth">
-                  <number>1</number>
-                 </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
@@ -882,15 +909,6 @@
                </item>
                <item>
                 <widget class="Line" name="line">
-                 <property name="frameShadow">
-                  <enum>QFrame::Sunken</enum>
-                 </property>
-                 <property name="lineWidth">
-                  <number>0</number>
-                 </property>
-                 <property name="midLineWidth">
-                  <number>1</number>
-                 </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
@@ -1022,13 +1040,15 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionDonate"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout_Caesium_Image_Compressor"/>
    </widget>
    <widget class="QMenu" name="menuFile">
@@ -1055,7 +1075,16 @@
     <property name="title">
      <string>View</string>
     </property>
+    <widget class="QMenu" name="menuToolbar">
+     <property name="title">
+      <string>Toolbar</string>
+     </property>
+     <addaction name="actionToolbarIcons_only"/>
+     <addaction name="actionToolbarIcons_and_Text"/>
+     <addaction name="actionToolbarHide"/>
+    </widget>
     <addaction name="actionShow_previews"/>
+    <addaction name="menuToolbar"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -1070,10 +1099,7 @@
     <string>Toolbar</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: none;
-padding-right: 6px;
-padding-left: 6px;
-spacing: 1px;</string>
+    <string notr="true"/>
    </property>
    <property name="movable">
     <bool>false</bool>
@@ -1086,6 +1112,9 @@ spacing: 1px;</string>
      <width>24</width>
      <height>24</height>
     </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
    </property>
    <property name="floatable">
     <bool>false</bool>
@@ -1101,6 +1130,8 @@ spacing: 1px;</string>
    <addaction name="separator"/>
    <addaction name="actionRemove"/>
    <addaction name="actionClear"/>
+   <addaction name="separator"/>
+   <addaction name="actionCompress"/>
    <addaction name="separator"/>
    <addaction name="actionPreferences"/>
   </widget>
@@ -1216,6 +1247,48 @@ spacing: 1px;</string>
    </property>
    <property name="text">
     <string>Donate</string>
+   </property>
+  </action>
+  <action name="actionCompress">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/icons/ui/compress.svg</normaloff>:/icons/ui/compress.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Compress</string>
+   </property>
+   <property name="toolTip">
+    <string>Compress</string>
+   </property>
+  </action>
+  <action name="actionToolbarIcons_only">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Icons only</string>
+   </property>
+  </action>
+  <action name="actionToolbarIcons_and_Text">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Icons and Text</string>
+   </property>
+  </action>
+  <action name="actionToolbarHide">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hide</string>
    </property>
   </action>
  </widget>

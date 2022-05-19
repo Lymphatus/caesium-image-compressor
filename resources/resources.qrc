@@ -16,5 +16,6 @@
         <file>icons/ui/preferences.svg</file>
         <file>icons/ui/remove.svg</file>
         <file>icons/ui/trash.svg</file>
+        <file>icons/ui/compress.svg</file>
     </qresource>
 </RCC>

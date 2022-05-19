@@ -79,6 +79,9 @@ private slots:
     void showPreview(int index);
     void compressionCanceled();
     void listSortChanged(int logicalIndex, Qt::SortOrder order);
+    void on_actionCompress_triggered();
+    void on_actionDonate_triggered();
+    void startCompression();
 
 private:
     Ui::MainWindow* ui;

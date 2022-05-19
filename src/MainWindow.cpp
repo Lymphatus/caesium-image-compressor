@@ -3,6 +3,7 @@
 #include "./exceptions/ImageNotSupportedException.h"
 #include "ui_MainWindow.h"
 
+#include <QDesktopServices>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QObject>
@@ -432,6 +433,11 @@ void MainWindow::removeFiles(bool all)
 
 void MainWindow::on_compress_Button_clicked()
 {
+    this->startCompression();
+}
+
+void MainWindow::startCompression()
+{
     QSettings settings;
 
     if (ui->outputFolder_LineEdit->text().isEmpty() && !ui->sameOutputFolderAsInput_CheckBox->isChecked()) {
@@ -795,11 +801,12 @@ void MainWindow::cModelItemsChanged()
     QString totalSize = toHumanSize(this->cImageModel->originalItemsSize());
     ui->statusbar->showMessage(humanItemsCount + " " + tr("images in list") + " | " + totalSize);
 
-    ui->removeFiles_Button->setDisabled(itemsCount == 0);
-    ui->actionRemove->setDisabled(itemsCount == 0);
+    ui->removeFiles_Button->setEnabled(itemsCount > 0 && this->selectedCount > 0);
+    ui->actionRemove->setEnabled(itemsCount > 0 && this->selectedCount > 0);
     ui->actionClear->setDisabled(itemsCount == 0);
     ui->actionSelect_All->setDisabled(itemsCount == 0);
     ui->compress_Button->setDisabled(itemsCount == 0);
+    ui->actionCompress->setDisabled(itemsCount == 0);
 
     ui->actionShow_original_in_file_manager->setDisabled(itemsCount == 0);
     ui->actionShow_compressed_in_file_manager->setDisabled(itemsCount == 0);
@@ -977,3 +984,15 @@ void MainWindow::listSortChanged(int logicalIndex, Qt::SortOrder order)
     this->writeSetting("mainwindow/list_view/sort_column_index", logicalIndex);
     this->writeSetting("mainwindow/list_view/sort_column_order", order);
 }
+
+void MainWindow::on_actionCompress_triggered()
+{
+    this->startCompression();
+}
+
+
+void MainWindow::on_actionDonate_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://saerasoft.com/caesium/donate", QUrl::TolerantMode));
+}
+
