@@ -112,12 +112,6 @@
             <iconset resource="../resources/resources.qrc">
              <normaloff>:/icons/ui/compress.svg</normaloff>:/icons/ui/compress.svg</iconset>
            </property>
-           <property name="iconSize">
-            <size>
-             <width>16</width>
-             <height>16</height>
-            </size>
-           </property>
           </widget>
          </item>
          <item row="1" column="1">
@@ -1040,7 +1034,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1272,7 +1266,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Icons only</string>
+    <string>Icons</string>
    </property>
   </action>
   <action name="actionToolbarIcons_and_Text">

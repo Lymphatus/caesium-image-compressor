@@ -14,7 +14,7 @@ You can quickly reduce the file size (and resolution, if you want) by preserving
 - **MacOS**: 10.15+
 - **Linux**: tested on Ubuntu 20.04 and Manjaro
 
-Note: only 64 bit versions are supported
+Note: only 64bit versions are supported
 
 ### Installation
 Head to the [releases' page](https://github.com/Lymphatus/caesium-image-compressor/releases) for the available downloads.
@@ -60,10 +60,10 @@ The 1.0 version of Caesium had a lot of community made translations, but this 2.
 Caesium 2.0 is currently available in:
 - 🇺🇸 English ![100%](https://progress-bar.dev/100)
 - 🇮🇹 Italian ![100%](https://progress-bar.dev/100)
-- 🇫🇷 French ![100%](https://progress-bar.dev/100)
-- 🇯🇵 Japanese ![100%](https://progress-bar.dev/100)
-- 🇨🇳 Simplified Chinese ![100%](https://progress-bar.dev/100)
-- 🇪🇸 Spanish ![100%](https://progress-bar.dev/100)
+- 🇫🇷 French ![96%](https://progress-bar.dev/96)
+- 🇯🇵 Japanese ![96%](https://progress-bar.dev/96)
+- 🇨🇳 Simplified Chinese ![96%](https://progress-bar.dev/96)
+- 🇪🇸 Spanish ![96%](https://progress-bar.dev/96)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

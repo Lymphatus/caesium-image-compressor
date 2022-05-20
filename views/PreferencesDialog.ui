@@ -70,7 +70,7 @@
         </property>
         <property name="icon">
          <iconset resource="../resources/resources.qrc">
-          <normaloff>:/icons/ui/settings.svg</normaloff>:/icons/ui/settings.svg</iconset>
+          <normaloff>:/icons/ui/preferences.svg</normaloff>:/icons/ui/preferences.svg</iconset>
         </property>
         <property name="flags">
          <set>ItemIsSelectable|ItemIsEnabled</set>

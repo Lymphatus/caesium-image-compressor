@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <climits>
 #include <QButtonGroup>
 #include <QCloseEvent>
 #include <QDialog>
@@ -9,14 +8,15 @@
 #include <QGraphicsScene>
 #include <QItemSelection>
 #include <QMainWindow>
-#include <QShowEvent>
 #include <QNetworkAccessManager>
+#include <QShowEvent>
 #include <QSortFilterProxyModel>
+#include <climits>
 #include <dialogs/AboutDialog.h>
 
 #include "models/CImage.h"
-#include "models/CImageTreeModel.h"
 #include "models/CImageSortFilterProxyModel.h"
+#include "models/CImageTreeModel.h"
 #include "network/NetworkOperations.h"
 
 QT_BEGIN_NAMESPACE
@@ -67,7 +67,7 @@ private slots:
     void on_JPEGQuality_SpinBox_valueChanged(int arg1);
     void on_PNGLevel_SpinBox_valueChanged(int arg1);
     void cModelItemsChanged();
-    void showListContextMenu(const QPoint &pos);
+    void showListContextMenu(const QPoint& pos);
     void on_actionShow_previews_toggled(bool arg1);
     void on_actionPreferences_triggered();
     void keepDatesButtonGroupClicked();
@@ -82,6 +82,9 @@ private slots:
     void on_actionCompress_triggered();
     void on_actionDonate_triggered();
     void startCompression();
+    void on_actionToolbarIcons_only_triggered();
+    void on_actionToolbarIcons_and_Text_triggered();
+    void on_actionToolbarHide_triggered();
 
 private:
     Ui::MainWindow* ui;
@@ -95,7 +98,7 @@ private:
     AboutDialog* aboutDialog = nullptr;
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
-    QMenu* listContextMenu{};
+    QMenu* listContextMenu {};
     QButtonGroup* keepDatesButtonGroup;
     CompressionSummary compressionSummary;
     NetworkOperations* networkOperations;

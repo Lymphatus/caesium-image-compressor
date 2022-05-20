@@ -14,8 +14,8 @@
 #include <QWheelEvent>
 #include <QWindow>
 #include <QtConcurrent>
-#include <utility>
 #include <dialogs/PreferencesDialog.h>
+#include <utility>
 #include <widgets/QCaesiumMessageBox.h>
 
 #ifdef Q_OS_MAC
@@ -83,6 +83,10 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
+
+    ui->actionToolbarIcons_only->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonIconOnly && ui->toolBar->isVisible());
+    ui->actionToolbarIcons_and_Text->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonTextUnderIcon && ui->toolBar->isVisible());
+    ui->actionToolbarHide->setChecked(ui->toolBar->isHidden());
 
     QSettings settings;
     if (settings.value("preferences/general/send_usage_reports", false).toBool()) {
@@ -233,6 +237,8 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/list_view/header_column_size/ratio", ui->imageList_TreeView->header()->sectionSize(CImageColumns::RATIO_COLUMN));
     settings.setValue("mainwindow/list_view/sort_column_index", ui->imageList_TreeView->header()->sortIndicatorSection());
     settings.setValue("mainwindow/list_view/sort_column_order", ui->imageList_TreeView->header()->sortIndicatorOrder());
+    settings.setValue("mainwindow/toolbar/visible", ui->toolBar->isVisible());
+    settings.setValue("mainwindow/toolbar/button_style", ui->toolBar->toolButtonStyle());
 
     settings.setValue("compression_options/compression/lossless", ui->lossless_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_metadata", ui->keepMetadata_CheckBox->isChecked());
@@ -278,6 +284,8 @@ void MainWindow::readSettings()
     ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
     ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
     ui->actionShow_previews->setChecked(settings.value("mainwindow/previews_visible", true).toBool());
+    ui->toolBar->setVisible(settings.value("mainwindow/toolbar/visible", true).toBool());
+    ui->toolBar->setToolButtonStyle(settings.value("mainwindow/toolbar/button_style", Qt::ToolButtonIconOnly).value<Qt::ToolButtonStyle>());
 
     ui->lossless_CheckBox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
     ui->keepMetadata_CheckBox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
@@ -326,7 +334,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex)
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
     QStringList images = QStringList() << cImage->getFullPath();
 
-    std::function<QPixmap(const QString&)> loadPixmap = [](const QString &imageFileName) {
+    std::function<QPixmap(const QString&)> loadPixmap = [](const QString& imageFileName) {
         QPixmap image(imageFileName);
         return image;
     };
@@ -370,7 +378,7 @@ void MainWindow::updateFolderMap(QString baseFolder, int count)
 
 void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 {
-    int listLength = (int) fileList.count();
+    int listLength = (int)fileList.count();
     QProgressDialog progressDialog(tr("Importing files..."), tr("Cancel"), 0, listLength, this);
     progressDialog.setWindowModality(Qt::WindowModal);
 
@@ -394,7 +402,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
     }
 
     if (!list.isEmpty() && listLength > 0) {
-        this->updateFolderMap(std::move(baseFolder), (int) list.count());
+        this->updateFolderMap(std::move(baseFolder), (int)list.count());
         QString rootFolder = getRootFolder(this->folderMap);
         this->cImageModel->appendItems(list, rootFolder);
         this->importedFilesRootFolder = getRootFolder(this->folderMap);
@@ -589,6 +597,7 @@ void MainWindow::imageList_selectionChanged()
         return;
     }
     ui->actionRemove->setDisabled(this->selectedCount == 0);
+    ui->removeFiles_Button->setDisabled(this->selectedCount == 0);
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
     if (this->selectedCount == 0) {
@@ -829,7 +838,7 @@ void MainWindow::initUpdater()
     if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
         localeIndex = 0;
     }
-    if (localeIndex != 0){
+    if (localeIndex != 0) {
         win_sparkle_set_langid(WIN32_LANGUAGES[localeIndex]);
     }
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
@@ -918,15 +927,14 @@ void MainWindow::on_keepDates_CheckBox_stateChanged(int state)
 
 void MainWindow::on_actionShow_original_in_file_manager_triggered()
 {
-     if (this->selectedCount != 1) {
-         return;
-     }
+    if (this->selectedCount != 1) {
+        return;
+    }
 
     auto currentIndex = this->proxyModel->mapToSource(this->selectedIndexes.at(0));
     auto cImage = this->cImageModel->getRootItem()->children().at(currentIndex.row())->getCImage();
     showFileInNativeFileManager(cImage->getFullPath(), cImage->getDirectory());
 }
-
 
 void MainWindow::on_actionShow_compressed_in_file_manager_triggered()
 {
@@ -990,9 +998,39 @@ void MainWindow::on_actionCompress_triggered()
     this->startCompression();
 }
 
-
 void MainWindow::on_actionDonate_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://saerasoft.com/caesium/donate", QUrl::TolerantMode));
 }
 
+void MainWindow::on_actionToolbarIcons_only_triggered()
+{
+    ui->actionToolbarIcons_and_Text->setChecked(false);
+    ui->actionToolbarHide->setChecked(false);
+    ui->actionToolbarIcons_only->setChecked(true);
+    ui->toolBar->setVisible(true);
+    ui->toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+
+    this->writeSetting("mainwindow/toolbar/visible", true);
+    this->writeSetting("mainwindow/toolbar/button_style", Qt::ToolButtonIconOnly);
+}
+
+void MainWindow::on_actionToolbarIcons_and_Text_triggered()
+{
+    ui->actionToolbarIcons_only->setChecked(false);
+    ui->actionToolbarHide->setChecked(false);
+    ui->actionToolbarIcons_and_Text->setChecked(true);
+    ui->toolBar->setVisible(true);
+    ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    this->writeSetting("mainwindow/toolbar/visible", true);
+    this->writeSetting("mainwindow/toolbar/button_style", Qt::ToolButtonTextUnderIcon);
+}
+
+void MainWindow::on_actionToolbarHide_triggered()
+{
+    ui->actionToolbarIcons_only->setChecked(false);
+    ui->actionToolbarIcons_and_Text->setChecked(false);
+    ui->actionToolbarHide->setChecked(true);
+    ui->toolBar->setVisible(false);
+    this->writeSetting("mainwindow/toolbar/visible", false);
+}
