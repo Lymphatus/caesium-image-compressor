@@ -19,8 +19,8 @@ AboutDialog::AboutDialog(QWidget* parent)
     ui->setupUi(this);
     QSettings settings;
 
-    ui->version_Label->setText(QCoreApplication::applicationVersion());
-    ui->uuid_Label->setText("<small>" + settings.value("uuid", "").toString() + "</small>");
+    ui->version_Label->setText("v" + QCoreApplication::applicationVersion());
+    ui->uuid_Label->setText("<small>UUID: " + settings.value("uuid", "").toString() + "</small>");
 
     this->setAttribute(Qt::WA_DeleteOnClose, true);
     this->setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);

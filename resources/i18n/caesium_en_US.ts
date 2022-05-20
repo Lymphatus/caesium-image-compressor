@@ -14,12 +14,12 @@
         <translation>Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="161"/>
+        <location filename="../../views/AboutDialog.ui" line="148"/>
         <source>Check for updates</source>
         <translation>Check for updates</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="186"/>
+        <location filename="../../views/AboutDialog.ui" line="189"/>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
         <translation>Copyright © 2022 Matteo Paonessa.
