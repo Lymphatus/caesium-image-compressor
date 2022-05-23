@@ -42,6 +42,7 @@ void NetworkOperations::sendUsageReport(CompressionSummary compressionSummary)
         { "uncompressedSize", compressionSummary.totalUncompressedSize },
         { "compressedSize", compressionSummary.totalCompressedSize },
         { "elapsedTime", compressionSummary.elapsedTime },
+        {"compressionOptions", QString(QJsonDocument(getCompressionOptionsAsJSON()).toJson(QJsonDocument::Compact))}
     };
     QNetworkRequest request(QUrl(this->baseEndpoint + "/desktopInstallation/summary"));
     QString bearerToken = "Bearer " + settings.value("access_token").toString();

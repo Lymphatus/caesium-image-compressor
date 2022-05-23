@@ -521,7 +521,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 再起動後に変更が適用されます&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="105"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
         <source>Usage data</source>
         <translation>使用状況データ</translation>
     </message>
@@ -531,17 +531,17 @@ Saved: %4 (%5%)</source>
         <translation>使用状況データを表示</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>このデータは、アプリケーションに最適な長期サポートを提供するために収集されます。第三者にデータが送信されることはありません。</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="108"/>
         <source>System data</source>
         <translation>システム データ</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="108"/>
         <source>Compression data</source>
         <translation>圧縮データ</translation>
     </message>

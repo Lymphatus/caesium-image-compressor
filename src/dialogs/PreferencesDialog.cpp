@@ -99,6 +99,7 @@ void PreferencesDialog::on_showUsageData_Label_linkActivated(const QString& link
         { "uncompressedSize", "..." },
         { "compressedSize", "..." },
         { "elapsedTime", "..." },
+        {"compressionOptions", getCompressionOptionsAsJSON()}
     };
     QMessageBox messageBox;
     messageBox.setStyleSheet("QLabel{min-width: 500px;}");

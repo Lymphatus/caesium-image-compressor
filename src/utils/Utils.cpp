@@ -166,3 +166,17 @@ QJsonObject getSystemData()
     };
     return systemData;
 }
+
+QJsonObject getCompressionOptionsAsJSON()
+{
+    QSettings settings;
+    settings.beginGroup("compression_options");
+    QMap<QString, QVariant> settingsMap;
+    QStringList settingsKeys = settings.allKeys();
+    QStringListIterator it(settingsKeys);
+    while (it.hasNext()) {
+        QString currentKey = it.next();
+        settingsMap.insert(currentKey, settings.value(currentKey));
+    }
+    return QJsonObject::fromVariantMap(settingsMap);
+}

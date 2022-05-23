@@ -521,7 +521,7 @@ Saved: %4 (%5%)</translation>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="105"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
         <source>Usage data</source>
         <translation>Usage data</translation>
     </message>
@@ -531,17 +531,17 @@ Saved: %4 (%5%)</translation>
         <translation>Show usage data</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>This data is collected to provide the best long term support for the application. No data is sent to third parties.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="108"/>
         <source>System data</source>
         <translation>System data</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="108"/>
         <source>Compression data</source>
         <translation>Compression data</translation>
     </message>

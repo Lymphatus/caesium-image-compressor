@@ -110,4 +110,5 @@ QString getRootFolder(QMap<QString, int> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
 QJsonObject getSystemData();
+QJsonObject getCompressionOptionsAsJSON();
 #endif // UTILS_H
