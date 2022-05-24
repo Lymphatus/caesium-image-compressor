@@ -12,11 +12,13 @@
 #include <QStandardPaths>
 #include <QTime>
 #include <QWheelEvent>
+#include <QWidgetAction>
 #include <QWindow>
 #include <QtConcurrent>
 #include <dialogs/PreferencesDialog.h>
 #include <utility>
 #include <widgets/QCaesiumMessageBox.h>
+#include <QProgressBar>
 
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
@@ -43,6 +45,9 @@ MainWindow::MainWindow(QWidget* parent)
     this->listContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
     this->proxyModel = new CImageSortFilterProxyModel();
+    QIcon icon = QIcon(":/icons/logo_mono.png");
+    icon.setIsMask(true);
+    this->trayIcon = new QSystemTrayIcon(icon);
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -97,6 +102,11 @@ MainWindow::MainWindow(QWidget* parent)
         }
     }
 
+    // TODO Move to a function
+    this->trayIcon->setContextMenu(new QMenu());
+    this->trayIcon->show();
+//    this->trayIcon->showMessage("Hey!", "你好!👋", QSystemTrayIcon::NoIcon);
+
     QImageReader::setAllocationLimit(512);
 }
 
@@ -115,6 +125,7 @@ MainWindow::~MainWindow()
     delete compressionWatcher;
     delete networkOperations;
     delete previewWatcher;
+    delete trayIcon;
     delete ui;
 }
 
@@ -491,7 +502,6 @@ void MainWindow::startCompression()
     progressDialog->setWindowModality(Qt::WindowModal);
 
     this->compressionWatcher = new QFutureWatcher<void>();
-    connect(this->compressionWatcher, &QFutureWatcherBase::finished, progressDialog, &QWidget::close);
     connect(this->compressionWatcher, &QFutureWatcherBase::finished, progressDialog, &QObject::deleteLater);
     connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
     connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, progressDialog, &QProgressDialog::setValue);

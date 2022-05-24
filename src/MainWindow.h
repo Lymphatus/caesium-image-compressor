@@ -11,6 +11,7 @@
 #include <QNetworkAccessManager>
 #include <QShowEvent>
 #include <QSortFilterProxyModel>
+#include <QSystemTrayIcon>
 #include <climits>
 #include <dialogs/AboutDialog.h>
 
@@ -107,6 +108,7 @@ private:
     long long selectedCount = 0;
     QList<QModelIndex> selectedIndexes;
     bool isItemRemovalRunning = false;
+    QSystemTrayIcon* trayIcon;
 
     void initStatusBar();
     void initUpdater();
