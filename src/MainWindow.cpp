@@ -45,9 +45,17 @@ MainWindow::MainWindow(QWidget* parent)
     this->listContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
     this->proxyModel = new CImageSortFilterProxyModel();
+
+#ifdef Q_OS_MAC
     QIcon icon = QIcon(":/icons/logo_mono.png");
     icon.setIsMask(true);
     this->trayIcon = new QSystemTrayIcon(icon);
+#endif
+
+#ifdef Q_OS_WIN
+    QIcon icon = QIcon(":/icons/logo.png");
+    this->trayIcon = new QSystemTrayIcon(icon);
+#endif
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -89,8 +97,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
 
-    ui->actionToolbarIcons_only->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonIconOnly && ui->toolBar->isVisible());
-    ui->actionToolbarIcons_and_Text->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonTextUnderIcon && ui->toolBar->isVisible());
+    ui->actionToolbarIcons_only->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonIconOnly && !ui->toolBar->isHidden());
+    ui->actionToolbarIcons_and_Text->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonTextUnderIcon && !ui->toolBar->isHidden());
     ui->actionToolbarHide->setChecked(ui->toolBar->isHidden());
 
     QSettings settings;
@@ -105,7 +113,7 @@ MainWindow::MainWindow(QWidget* parent)
     // TODO Move to a function
     this->trayIcon->setContextMenu(new QMenu());
     this->trayIcon->show();
-//    this->trayIcon->showMessage("Hey!", "你好!👋", QSystemTrayIcon::NoIcon);
+    //this->trayIcon->showMessage("Hey!", "你好!👋", QSystemTrayIcon::NoIcon);
 
     QImageReader::setAllocationLimit(512);
 }
