@@ -63,29 +63,29 @@ Todos los derechos reservados.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="207"/>
+        <location filename="../../src/MainWindow.cpp" line="205"/>
         <source>Import files...</source>
         <translation>Importar archivos...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="223"/>
+        <location filename="../../src/MainWindow.cpp" line="221"/>
         <source>Import folder...</source>
         <translation>Importar carpeta...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="402"/>
+        <location filename="../../src/MainWindow.cpp" line="400"/>
         <source>Importing files...</source>
         <translation>Importando archivos...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="402"/>
-        <location filename="../../src/MainWindow.cpp" line="510"/>
-        <location filename="../../src/MainWindow.cpp" line="578"/>
+        <location filename="../../src/MainWindow.cpp" line="400"/>
+        <location filename="../../src/MainWindow.cpp" line="508"/>
+        <location filename="../../src/MainWindow.cpp" line="576"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="487"/>
+        <location filename="../../src/MainWindow.cpp" line="485"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -94,38 +94,43 @@ Do you really want to continue?</source>
 Desea continuar?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="491"/>
+        <location filename="../../src/MainWindow.cpp" line="489"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="510"/>
+        <location filename="../../src/MainWindow.cpp" line="508"/>
         <source>Compressing...</source>
         <translation>Comprimiendo...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="573"/>
+        <location filename="../../src/MainWindow.cpp" line="571"/>
         <source>Do you really want to quit?</source>
         <translation>Quiere salir?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="490"/>
-        <location filename="../../src/MainWindow.cpp" line="577"/>
+        <location filename="../../src/MainWindow.cpp" line="488"/>
+        <location filename="../../src/MainWindow.cpp" line="575"/>
         <source>Yes</source>
         <translation>Sí</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="595"/>
+        <location filename="../../src/MainWindow.cpp" line="593"/>
         <source>Select output folder...</source>
         <translation>Seleccione carpeta de salida...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="658"/>
+        <location filename="../../src/MainWindow.cpp" line="655"/>
         <source>Compression finished!</source>
         <translation>Compresión finalizada!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="659"/>
+        <location filename="../../src/MainWindow.cpp" line="658"/>
+        <source>You saved: %1 (%2%)!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="662"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -243,8 +248,8 @@ Ahorrado: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="613"/>
         <location filename="../../views/MainWindow.ui" line="657"/>
         <location filename="../../views/MainWindow.ui" line="714"/>
-        <location filename="../../src/MainWindow.cpp" line="698"/>
-        <location filename="../../src/MainWindow.cpp" line="702"/>
+        <location filename="../../src/MainWindow.cpp" line="701"/>
+        <location filename="../../src/MainWindow.cpp" line="705"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -430,13 +435,13 @@ Ahorrado: %4 (%5%)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="712"/>
-        <location filename="../../src/MainWindow.cpp" line="716"/>
+        <location filename="../../src/MainWindow.cpp" line="715"/>
+        <location filename="../../src/MainWindow.cpp" line="719"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="830"/>
+        <location filename="../../src/MainWindow.cpp" line="833"/>
         <source>images in list</source>
         <translation>imágenes en la lista</translation>
     </message>
@@ -549,7 +554,7 @@ Ahorrado: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="209"/>
+        <location filename="../../src/MainWindow.cpp" line="207"/>
         <source>Image Files</source>
         <translation>Archivos de Imagen</translation>
     </message>

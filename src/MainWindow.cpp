@@ -113,7 +113,6 @@ MainWindow::MainWindow(QWidget* parent)
     // TODO Move to a function
     this->trayIcon->setContextMenu(new QMenu());
     this->trayIcon->show();
-    //this->trayIcon->showMessage("Hey!", "你好!👋", QSystemTrayIcon::NoIcon);
 
     QImageReader::setAllocationLimit(512);
 }
@@ -653,14 +652,19 @@ void MainWindow::compressionFinished()
             << "\nCompressed size:" << toHumanSize(compressionSummary.totalCompressedSize)
             << "\nElapsed time:" << compressionSummary.elapsedTime << "ms";
 
+    QString title = tr("Compression finished!");
+    QString saved = toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize);
+    QString savedPerc = QString::number(round((compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100));
+    this->trayIcon->showMessage(title, tr("You just saved: %1!").arg(saved), QSystemTrayIcon::NoIcon);
+
     QCaesiumMessageBox compressionSummaryDialog;
-    compressionSummaryDialog.setText(tr("Compression finished!"));
+    compressionSummaryDialog.setText(title);
     compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
                                                     .arg(QString::number(compressionSummary.totalImages),
                                                         toHumanSize(compressionSummary.totalUncompressedSize),
                                                         toHumanSize(compressionSummary.totalCompressedSize),
-                                                        toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize),
-                                                        QString::number(round((compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100))));
+                                                        saved,
+                                                        savedPerc));
     compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
     compressionSummaryDialog.exec();
 }
