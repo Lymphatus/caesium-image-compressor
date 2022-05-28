@@ -43,19 +43,9 @@ MainWindow::MainWindow(QWidget* parent)
     this->compressionWatcher = new QFutureWatcher<void>();
     this->previewWatcher = new QFutureWatcher<QPixmap>();
     this->listContextMenu = new QMenu();
+    this->trayIconContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
     this->proxyModel = new CImageSortFilterProxyModel();
-
-#ifdef Q_OS_MAC
-    QIcon icon = QIcon(":/icons/logo_mono.png");
-    icon.setIsMask(true);
-    this->trayIcon = new QSystemTrayIcon(icon);
-#endif
-
-#ifdef Q_OS_WIN
-    QIcon icon = QIcon(":/icons/logo.png");
-    this->trayIcon = new QSystemTrayIcon(icon);
-#endif
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -73,6 +63,8 @@ MainWindow::MainWindow(QWidget* parent)
 
     this->initStatusBar();
     this->initListContextMenu();
+    this->initTrayIconContextMenu();
+    this->initTrayIcon();
 
     connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
     connect(ui->imageList_TreeView, &QDropTreeView::dropFinished, this, &MainWindow::dropFinished);
@@ -110,10 +102,6 @@ MainWindow::MainWindow(QWidget* parent)
         }
     }
 
-    // TODO Move to a function
-    this->trayIcon->setContextMenu(new QMenu());
-    this->trayIcon->show();
-
     QImageReader::setAllocationLimit(512);
 }
 
@@ -145,8 +133,15 @@ void MainWindow::showEvent(QShowEvent* event)
 
 void MainWindow::initStatusBar()
 {
-    ui->statusbar->addPermanentWidget(ui->version_Label);
-    ui->version_Label->setText(QCoreApplication::applicationVersion());
+    ui->statusbar->addPermanentWidget(ui->compressionProgress_Label);
+    ui->statusbar->addPermanentWidget(ui->compression_ProgressBar);
+    ui->statusbar->addPermanentWidget(ui->cancelCompression_Button);
+
+    ui->cancelCompression_Button->hide();
+    ui->compression_ProgressBar->hide();
+    ui->compressionProgress_Label->hide();
+
+    ui->compressionProgress_Label->setText(tr("Compressing..."));
 }
 
 void MainWindow::initListContextMenu()
@@ -161,6 +156,14 @@ void MainWindow::initListContextMenu()
     this->listContextMenu->addAction(ui->actionShow_compressed_in_file_manager);
 
     connect(this->listContextMenu, &QMenu::aboutToShow, this, &MainWindow::listContextMenuAboutToShow);
+}
+
+void MainWindow::initTrayIconContextMenu()
+{
+    QAction* exitAction = new QAction(tr("Exit"));
+    this->trayIconContextMenu->addAction(ui->actionShow);
+    this->trayIconContextMenu->addAction(exitAction);
+    connect(exitAction, &QAction::triggered, ui->actionExit, &QAction::triggered);
 }
 
 void MainWindow::initListWidget()
@@ -180,6 +183,22 @@ void MainWindow::initListWidget()
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO_COLUMN, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::RATIO_COLUMN, settings.value("mainwindow/list_view/header_column_size/ratio", defaultSectionSize).toInt());
     ui->imageList_TreeView->setItemDelegate(new HtmlDelegate());
+}
+
+void MainWindow::initTrayIcon()
+{
+#ifdef Q_OS_MAC
+    QIcon icon = QIcon(":/icons/logo_mono.png");
+    icon.setIsMask(true);
+#endif
+
+#ifdef Q_OS_WIN
+    QIcon icon = QIcon(":/icons/logo.png");
+#endif
+
+    this->trayIcon = new QSystemTrayIcon(icon);
+    this->trayIcon->setContextMenu(this->trayIconContextMenu);
+    this->trayIcon->show();
 }
 
 void MainWindow::on_actionAbout_Caesium_Image_Compressor_triggered()
@@ -494,8 +513,9 @@ void MainWindow::startCompression()
             return;
         }
     }
+    int totalImages = this->cImageModel->getRootItem()->childCount();
 
-    if (this->cImageModel->getRootItem()->childCount() == 0) {
+    if (totalImages == 0) {
         return;
     }
 
@@ -505,17 +525,21 @@ void MainWindow::startCompression()
         QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
     }
 
-    auto* progressDialog = new QProgressDialog(tr("Compressing..."), tr("Cancel"), 0, this->cImageModel->getRootItem()->childCount(), this);
-    progressDialog->setWindowModality(Qt::WindowModal);
-
     this->compressionWatcher = new QFutureWatcher<void>();
-    connect(this->compressionWatcher, &QFutureWatcherBase::finished, progressDialog, &QObject::deleteLater);
     connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, progressDialog, &QProgressDialog::setValue);
     connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this->cImageModel, &CImageTreeModel::emitDataChanged);
+    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this, &MainWindow::updateCompressionProgressLabel);
 
-    connect(progressDialog, &QProgressDialog::canceled, this, &MainWindow::compressionCanceled);
-    progressDialog->show();
+    ui->cancelCompression_Button->show();
+    ui->compression_ProgressBar->show();
+    ui->compressionProgress_Label->show();
+
+    ui->cancelCompression_Button->setEnabled(true);
+    ui->compressionProgress_Label->setText(tr("Compressing...") + QString(" (%1/%2)").arg("0", QString::number(totalImages)));
+    ui->compression_ProgressBar->setMinimum(0);
+    ui->compression_ProgressBar->setMaximum(totalImages);
+    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, ui->compression_ProgressBar, &QProgressBar::setValue);
+    connect(ui->cancelCompression_Button, &QPushButton::clicked, this, &MainWindow::compressionCanceled);
 
     FileDatesOutputOption datesMap = {
         ui->keepCreationDate_CheckBox->isChecked(),
@@ -549,6 +573,8 @@ void MainWindow::startCompression()
     compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
     compressionSummary.totalCompressedSize = 0;
     compressionSummary.elapsedTime = 0;
+
+    this->toggleUIEnabled(false);
 
     compressionTimer.start();
 }
@@ -655,7 +681,12 @@ void MainWindow::compressionFinished()
     QString title = tr("Compression finished!");
     QString saved = toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize);
     QString savedPerc = QString::number(round((compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100));
-    this->trayIcon->showMessage(title, tr("You just saved: %1!").arg(saved), QSystemTrayIcon::NoIcon);
+    this->trayIcon->showMessage(title, tr("You just saved %1!").arg(saved), QSystemTrayIcon::NoIcon);
+
+    ui->cancelCompression_Button->hide();
+    ui->compression_ProgressBar->hide();
+    ui->compressionProgress_Label->hide();
+    this->toggleUIEnabled(true);
 
     QCaesiumMessageBox compressionSummaryDialog;
     compressionSummaryDialog.setText(title);
@@ -1004,9 +1035,13 @@ void MainWindow::showPreview(int index)
 void MainWindow::compressionCanceled()
 {
     qInfo() << "Compression canceled by user.";
+    ui->cancelCompression_Button->setEnabled(false);
+    ui->compressionProgress_Label->setText(tr("Finishing..."));
+    ui->compression_ProgressBar->setMinimum(0);
+    ui->compression_ProgressBar->setMaximum(0);
+    ui->compression_ProgressBar->setValue(0);
     this->cImageModel->getRootItem()->setCompressionCanceled(true);
     this->compressionWatcher->cancel();
-    this->compressionWatcher->waitForFinished();
 }
 
 void MainWindow::listSortChanged(int logicalIndex, Qt::SortOrder order)
@@ -1055,4 +1090,16 @@ void MainWindow::on_actionToolbarHide_triggered()
     ui->actionToolbarHide->setChecked(true);
     ui->toolBar->setVisible(false);
     this->writeSetting("mainwindow/toolbar/visible", false);
+}
+
+void MainWindow::toggleUIEnabled(bool enabled)
+{
+    ui->toolBar->setEnabled(enabled);
+    ui->main_VSplitter->setEnabled(enabled);
+    ui->menuBar->setEnabled(enabled);
+}
+
+void MainWindow::updateCompressionProgressLabel(int value)
+{
+    ui->compressionProgress_Label->setText(tr("Compressing...") + QString(" (%1/%2)").arg(QString::number(value), QString::number(ui->compression_ProgressBar->maximum())));
 }

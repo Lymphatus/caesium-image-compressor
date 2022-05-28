@@ -27,8 +27,14 @@
     <property name="topMargin">
      <number>6</number>
     </property>
+    <property name="bottomMargin">
+     <number>2</number>
+    </property>
     <item>
      <widget class="QSplitter" name="main_VSplitter">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -40,7 +46,7 @@
         <enum>Qt::Horizontal</enum>
        </property>
        <widget class="QWidget" name="layoutWidget">
-        <layout class="QGridLayout" name="gridLayout_4">
+        <layout class="QGridLayout" name="listActions_GLayout">
          <property name="spacing">
           <number>7</number>
          </property>
@@ -948,12 +954,44 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="version_Label">
+          <widget class="QLabel" name="compressionProgress_Label">
            <property name="enabled">
             <bool>false</bool>
            </property>
            <property name="text">
             <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="compression_ProgressBar">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>24</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="cancelCompression_Button">
+           <property name="text">
+            <string>Cancel</string>
            </property>
           </widget>
          </item>
@@ -1285,6 +1323,11 @@
     <string>Hide</string>
    </property>
   </action>
+  <action name="actionShow">
+   <property name="text">
+    <string>Show</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1330,12 +1373,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>174</y>
+     <x>1249</x>
+     <y>215</y>
     </hint>
     <hint type="destinationlabel">
-     <x>633</x>
-     <y>97</y>
+     <x>1240</x>
+     <y>146</y>
     </hint>
    </hints>
   </connection>
@@ -1346,12 +1389,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>174</y>
+     <x>1249</x>
+     <y>215</y>
     </hint>
     <hint type="destinationlabel">
-     <x>965</x>
-     <y>145</y>
+     <x>1239</x>
+     <y>188</y>
     </hint>
    </hints>
   </connection>
@@ -1362,12 +1405,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>957</x>
-     <y>121</y>
+     <x>1231</x>
+     <y>148</y>
     </hint>
     <hint type="destinationlabel">
-     <x>957</x>
-     <y>147</y>
+     <x>1231</x>
+     <y>184</y>
     </hint>
    </hints>
   </connection>
@@ -1378,12 +1421,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>957</x>
-     <y>147</y>
+     <x>1231</x>
+     <y>184</y>
     </hint>
     <hint type="destinationlabel">
-     <x>957</x>
-     <y>121</y>
+     <x>1231</x>
+     <y>148</y>
     </hint>
    </hints>
   </connection>
@@ -1394,8 +1437,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>372</y>
+     <x>1249</x>
+     <y>408</y>
     </hint>
     <hint type="destinationlabel">
      <x>966</x>
@@ -1410,12 +1453,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>734</x>
-     <y>227</y>
+     <x>1231</x>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
-     <x>929</x>
-     <y>210</y>
+     <x>1231</x>
+     <y>242</y>
     </hint>
    </hints>
   </connection>
@@ -1426,12 +1469,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>928</x>
-     <y>201</y>
+     <x>1231</x>
+     <y>242</y>
     </hint>
     <hint type="destinationlabel">
-     <x>798</x>
-     <y>234</y>
+     <x>1231</x>
+     <y>272</y>
     </hint>
    </hints>
   </connection>
@@ -1442,12 +1485,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>372</y>
+     <x>1249</x>
+     <y>408</y>
     </hint>
     <hint type="destinationlabel">
-     <x>591</x>
-     <y>177</y>
+     <x>1240</x>
+     <y>282</y>
     </hint>
    </hints>
   </connection>
@@ -1458,12 +1501,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>650</x>
-     <y>367</y>
+     <x>1249</x>
+     <y>408</y>
     </hint>
     <hint type="destinationlabel">
-     <x>650</x>
-     <y>343</y>
+     <x>1240</x>
+     <y>376</y>
     </hint>
    </hints>
   </connection>
@@ -1474,12 +1517,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>902</x>
-     <y>327</y>
+     <x>1231</x>
+     <y>366</y>
     </hint>
     <hint type="destinationlabel">
-     <x>920</x>
-     <y>300</y>
+     <x>1231</x>
+     <y>330</y>
     </hint>
    </hints>
   </connection>
@@ -1490,12 +1533,28 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>289</y>
+     <x>1231</x>
+     <y>330</y>
     </hint>
     <hint type="destinationlabel">
-     <x>826</x>
-     <y>328</y>
+     <x>1231</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showNormal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>431</y>
     </hint>
    </hints>
   </connection>

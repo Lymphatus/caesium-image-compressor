@@ -86,6 +86,7 @@ private slots:
     void on_actionToolbarIcons_only_triggered();
     void on_actionToolbarIcons_and_Text_triggered();
     void on_actionToolbarHide_triggered();
+    void updateCompressionProgressLabel(int value);
 
 private:
     Ui::MainWindow* ui;
@@ -100,6 +101,7 @@ private:
     QString lastOpenedDirectory;
     QString importedFilesRootFolder;
     QMenu* listContextMenu {};
+    QMenu* trayIconContextMenu {};
     QButtonGroup* keepDatesButtonGroup;
     CompressionSummary compressionSummary;
     NetworkOperations* networkOperations;
@@ -113,8 +115,11 @@ private:
     void initStatusBar();
     void initUpdater();
     void initListContextMenu();
+    void initTrayIconContextMenu();
     void initListWidget();
+    void initTrayIcon();
 
+    void toggleUIEnabled(bool enabled);
     void importFiles(const QStringList& fileList, QString baseFolder);
     void removeFiles(bool all = false);
     void triggerImportFiles();
