@@ -1095,7 +1095,9 @@ void MainWindow::on_actionToolbarHide_triggered()
 void MainWindow::toggleUIEnabled(bool enabled)
 {
     ui->toolBar->setEnabled(enabled);
-    ui->main_VSplitter->setEnabled(enabled);
+    ui->parameters_TabWidget->setEnabled(enabled);
+    ui->listActions_Frame->setEnabled(enabled);
+    listContextMenu->setEnabled(enabled);
     ui->menuBar->setEnabled(enabled);
 }
 
