@@ -140,8 +140,6 @@ void MainWindow::initStatusBar()
     ui->cancelCompression_Button->hide();
     ui->compression_ProgressBar->hide();
     ui->compressionProgress_Label->hide();
-
-    ui->compressionProgress_Label->setText(tr("Compressing..."));
 }
 
 void MainWindow::initListContextMenu()

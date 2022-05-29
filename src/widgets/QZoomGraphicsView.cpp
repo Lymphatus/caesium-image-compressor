@@ -74,8 +74,6 @@ void QZoomGraphicsView::drawForeground(QPainter* painter, const QRectF& rect)
         QString loadingText = tr("Loading...");
         auto fontRect = painter->fontMetrics().boundingRect(loadingText);
         painter->drawText(this->rect().right() - fontRect.width() - 5, this->rect().bottom() - painter->fontMetrics().leading() - 5, loadingText);
-    } else {
-        painter->restore();
     }
     QGraphicsView::drawForeground(painter, rect);
 }
