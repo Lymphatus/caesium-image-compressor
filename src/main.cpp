@@ -13,14 +13,17 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
 {
     QDateTime currentTime = QDateTime::currentDateTime();
     QString formattedTime = currentTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
-    QByteArray localMsg = msg.toLocal8Bit();
+    QString currentDate = currentTime.toString("yyyy-MM-dd");
     QString logDirPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QString logPath = logDirPath + "/caesium-" + currentDate + ".log";
+
+    QByteArray localMsg = msg.toLocal8Bit();
     QDir logDir(logDirPath);
     bool logToFile = true;
     if (!logDir.exists()) {
         logToFile = logDir.mkpath(logDirPath);
     }
-    QFile logFile(logDirPath + "/caesium.log");
+    QFile logFile(logPath);
     QString message;
     switch (type) {
     case QtDebugMsg:
@@ -129,7 +132,6 @@ int main(int argc, char* argv[])
     QCoreApplication::setApplicationName("Caesium Image Compressor");
     QCoreApplication::setApplicationVersion("2.0.0");
 
-    qInfo() << "Writing logs to" << QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/caesium.log";
     qInstallMessageHandler(messageHandler);
     QApplication a(argc, argv);
 
