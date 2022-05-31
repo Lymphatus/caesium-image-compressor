@@ -143,7 +143,8 @@ SET(TS_FILES
         resources/i18n/caesium_fr_FR.ts
         resources/i18n/caesium_zh_CN.ts
         resources/i18n/caesium_ja_JP.ts
-        resources/i18n/caesium_es_ES.ts)
+        resources/i18n/caesium_es_ES.ts
+        resources/i18n/caesium_ar_EG.ts)
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")

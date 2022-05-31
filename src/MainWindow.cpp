@@ -6,7 +6,6 @@
 #include <QDesktopServices>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QObject>
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QStandardPaths>
@@ -46,6 +45,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->trayIconContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
     this->proxyModel = new CImageSortFilterProxyModel();
+    this->trayIcon = new QSystemTrayIcon();
 
     ui->preview_GraphicsView->setScene(this->previewScene);
     ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
@@ -158,7 +158,7 @@ void MainWindow::initListContextMenu()
 
 void MainWindow::initTrayIconContextMenu()
 {
-    QAction* exitAction = new QAction(tr("Exit"));
+    auto* exitAction = new QAction(tr("Exit"));
     this->trayIconContextMenu->addAction(ui->actionShow);
     this->trayIconContextMenu->addAction(exitAction);
     connect(exitAction, &QAction::triggered, ui->actionExit, &QAction::triggered);
@@ -194,7 +194,7 @@ void MainWindow::initTrayIcon()
     QIcon icon = QIcon(":/icons/logo.png");
 #endif
 
-    this->trayIcon = new QSystemTrayIcon(icon);
+    this->trayIcon->setIcon(icon);
     this->trayIcon->setContextMenu(this->trayIconContextMenu);
     connect(this->trayIcon, &QSystemTrayIcon::messageClicked, this, &MainWindow::showNormal);
     this->trayIcon->show();
@@ -460,7 +460,7 @@ void MainWindow::removeFiles(bool all)
 
     int columnCount = this->cImageModel->columnCount();
 
-    for (int i = indexes.count() / columnCount; i > 0; i--) {
+    for (long long i = indexes.count() / columnCount; i > 0; i--) {
         auto currentIndex = this->proxyModel->mapToSource(indexes.at(i));
         auto indexRow = currentIndex.row();
         auto indexParent = currentIndex.parent();
@@ -594,7 +594,6 @@ void MainWindow::closeEvent(QCloseEvent* event)
     if (settings.value("preferences/general/prompt_before_exit", false).toBool()) {
         QCaesiumMessageBox exitPrompt;
         exitPrompt.setText(tr("Do you really want to quit?"));
-        exitPrompt.setInformativeText("All current work will be lost.");
         exitPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 
         exitPrompt.setButtonText(QMessageBox::Yes, tr("Yes"));

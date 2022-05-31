@@ -1,14 +1,14 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <QDateTime>
 #include <QImage>
+#include <QImageReader>
+#include <QJsonObject>
 #include <QMap>
 #include <QSize>
 #include <QString>
 #include <QStringList>
-#include <QDateTime>
-#include <QJsonObject>
-#include <QImageReader>
 
 enum class CImageStatus {
     UNCOMPRESSED,
@@ -81,7 +81,7 @@ typedef struct CompressionSummary {
     qint64 elapsedTime = 0;
 } CompressionSummary;
 
-const int LANGUAGES_COUNT = 7;
+const int LANGUAGES_COUNT = 8;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("default"), QString("Default") },
@@ -91,10 +91,11 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("ja_JP"), QString("日本語") },
     { QString("zh_CN"), QString("简体中文") },
     { QString("es_ES"), QString("Español") },
+    { QString("ar_EG"), QString("العامية المصرية") },
 };
 
 const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
-   0x0409, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804
+    0x0409, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804, 0x0c0A, 0x0C01
 };
 
 const int THEMES_COUNT = 2;

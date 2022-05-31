@@ -63,29 +63,29 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="222"/>
+        <location filename="../../src/MainWindow.cpp" line="223"/>
         <source>Import files...</source>
         <translation>导入文件...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="238"/>
+        <location filename="../../src/MainWindow.cpp" line="239"/>
         <source>Import folder...</source>
         <translation>导入文件夹...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="417"/>
+        <location filename="../../src/MainWindow.cpp" line="418"/>
         <source>Importing files...</source>
         <translation>正在导入文件...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1024"/>
-        <location filename="../../src/MainWindow.cpp" line="417"/>
+        <location filename="../../src/MainWindow.cpp" line="418"/>
         <location filename="../../src/MainWindow.cpp" line="600"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="502"/>
+        <location filename="../../src/MainWindow.cpp" line="503"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -94,7 +94,7 @@ Do you really want to continue?</source>
 确定继续吗？</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="506"/>
+        <location filename="../../src/MainWindow.cpp" line="507"/>
         <source>No</source>
         <translation>取消</translation>
     </message>
@@ -104,18 +104,18 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="536"/>
+        <location filename="../../src/MainWindow.cpp" line="537"/>
         <location filename="../../src/MainWindow.cpp" line="1104"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="595"/>
+        <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Do you really want to quit?</source>
         <translation>确定退出吗？</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="505"/>
+        <location filename="../../src/MainWindow.cpp" line="506"/>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <source>Yes</source>
         <translation>确定</translation>
@@ -566,7 +566,7 @@ Saved: %4 (%5%)</source>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="224"/>
+        <location filename="../../src/MainWindow.cpp" line="225"/>
         <source>Image Files</source>
         <translation>图片文件</translation>
     </message>

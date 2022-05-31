@@ -57,7 +57,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
     }
 }
 
-void loadLocale(QTranslator* translator)
+QLocale loadLocale(QTranslator* translator)
 {
     QSettings settings;
 
@@ -72,6 +72,8 @@ void loadLocale(QTranslator* translator)
     if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
         QCoreApplication::installTranslator(translator);
     }
+
+    return locale;
 }
 
 void loadInstallationId()
@@ -140,13 +142,15 @@ int main(int argc, char* argv[])
     parser.process(a);
 
     QTranslator translator;
-    loadLocale(&translator);
+    QLocale currentLocale = loadLocale(&translator);
+    a.setLayoutDirection(currentLocale.textDirection());
     loadTheme();
 
     qInfo() << "---- Starting application ----";
     loadInstallationId();
     MainWindow w;
     w.show();
+
 
     return QApplication::exec();
 }
