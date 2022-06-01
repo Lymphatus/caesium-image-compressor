@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ar">
+<TS version="2.1" language="ar_EG">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
-        <translation>حول Caesium ضاغط الصور</translation>
+        <translation>حول Caesium - ضاغط الصور</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="104"/>
@@ -42,12 +42,12 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Size</source>
-        <translation>حجم</translation>
+        <translation>الحجم</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Resolution</source>
-        <translation>دقة</translation>
+        <translation>الدقة</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
@@ -75,7 +75,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="416"/>
         <source>Importing files...</source>
-        <translation>Importing files...</translation>
+        <translation>جاري استيراد ملفات...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1024"/>
@@ -91,14 +91,17 @@ All rights reserved.</translation>
 Do you really want to continue?</source>
         <translation>أنت على وشك استبدال صورك الأصلية ولا يمكن التراجع عن هذا الإجراء.
 
-هل تريد حقًا الاستمرار؟ أنت على وشك استبدال صورك الأصلية ولا يمكن التراجع عن هذا الإجراء.
-
-هل حقا تريد الاستمرار؟</translation>
+هل تريد حقًا الاستمرار؟</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="505"/>
         <source>No</source>
         <translation>لا</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="1035"/>
+        <source>Finishing...</source>
+        <translation>جاري الإنهاء...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="535"/>
@@ -130,7 +133,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="680"/>
         <source>You just saved %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>لقد وفرت  لتو %1!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="689"/>
@@ -142,11 +145,6 @@ Saved: %4 (%5%)</source>
 الحجم الأصلي: %2
 الحجم المضغوط: %3
 تم توفير: %4 (%5%)</translation>
-    </message>
-    <message>
-        <location filename="../../src/MainWindow.cpp" line="1035"/>
-        <source>Finishing...</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="17"/>
@@ -421,7 +419,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1306"/>
         <source>Show compressed in file manager</source>
-        <translation>Show compressed in file manager</translation>
+        <translation>إظهار مضغوط في مدير الملفات</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1315"/>
@@ -446,7 +444,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1362"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="742"/>

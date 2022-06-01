@@ -52,7 +52,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Saved</source>
-        <translation>Sauvegardé</translation>
+        <translation>Ratio</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
@@ -101,7 +101,7 @@ Voulez vous vraiment continuer?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1035"/>
         <source>Finishing...</source>
-        <translation type="unfinished"></translation>
+        <translation>Finalisation...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="535"/>
@@ -133,7 +133,7 @@ Voulez vous vraiment continuer?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="680"/>
         <source>You just saved %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous avez gagné %1!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="689"/>
@@ -444,7 +444,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1362"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="742"/>
