@@ -12,7 +12,7 @@ You can quickly reduce the file size (and resolution, if you want) by preserving
 ### Supported Platforms
 - **Windows**: 7+
 - **MacOS**: 10.15+
-- **Linux**: tested on Ubuntu 20.04 and Manjaro
+- **Linux**: tested on Ubuntu 22.04 and Manjaro
 
 Note: only 64bit versions are supported
 
