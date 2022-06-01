@@ -187,10 +187,8 @@ void MainWindow::initTrayIcon()
 {
 #ifdef Q_OS_MAC
     QIcon icon = QIcon(":/icons/logo_mono.png");
-    icon.setIsMask(true);
-#endif
-
-#ifdef Q_OS_WIN
+    icon.setIsMask(true); 
+#else
     QIcon icon = QIcon(":/icons/logo.png");
 #endif
 

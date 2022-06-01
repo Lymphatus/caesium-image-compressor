@@ -34,6 +34,7 @@ If applicable, add screenshots to help explain your problem.
 If you can, please provide your application log. The location of the file depends on your platform, but they usually are:
 - Windows: C:/Users/USERNAME/AppData/Roaming/SaeraSoft/Caesium Image Compressor/caesium-yyyy-mm-dd.log
 - macOS: /Users/USERNAME/Library/Application Support/SaeraSoft/Caesium Image Compressor/caesium-yyyy-mm-dd.log
+- Linux: /home/USERNAME/.local/share/SaeraSoft/Caesium Image Compressor/caesium-yyyy-mm-dd.log
 
 **Additional context**
 Add any other context about the problem here.

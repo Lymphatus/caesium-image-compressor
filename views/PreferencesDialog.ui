@@ -198,18 +198,7 @@
             </widget>
            </item>
            <item row="0" column="1" colspan="2">
-            <widget class="QComboBox" name="theme_ComboBox">
-             <item>
-              <property name="text">
-               <string>Native</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Fusion</string>
-              </property>
-             </item>
-            </widget>
+            <widget class="QComboBox" name="theme_ComboBox"/>
            </item>
            <item row="1" column="1">
             <widget class="QLabel" name="changesAfterRestartTheme_LabelIcon">

@@ -71,29 +71,29 @@ Tutti i diritti riservati.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="223"/>
+        <location filename="../../src/MainWindow.cpp" line="221"/>
         <source>Import files...</source>
         <translation>Importa files...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="239"/>
+        <location filename="../../src/MainWindow.cpp" line="237"/>
         <source>Import folder...</source>
         <translation>Importa cartella...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="418"/>
+        <location filename="../../src/MainWindow.cpp" line="416"/>
         <source>Importing files...</source>
         <translation>Importazione...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1024"/>
-        <location filename="../../src/MainWindow.cpp" line="418"/>
-        <location filename="../../src/MainWindow.cpp" line="600"/>
+        <location filename="../../src/MainWindow.cpp" line="416"/>
+        <location filename="../../src/MainWindow.cpp" line="598"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="503"/>
+        <location filename="../../src/MainWindow.cpp" line="501"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -102,18 +102,18 @@ Do you really want to continue?</source>
 Vuoi veramente continuare?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="507"/>
+        <location filename="../../src/MainWindow.cpp" line="505"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1037"/>
+        <location filename="../../src/MainWindow.cpp" line="1035"/>
         <source>Finishing...</source>
         <translation>Completamento...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="537"/>
-        <location filename="../../src/MainWindow.cpp" line="1104"/>
+        <location filename="../../src/MainWindow.cpp" line="535"/>
+        <location filename="../../src/MainWindow.cpp" line="1102"/>
         <source>Compressing...</source>
         <translation>Compressione...</translation>
     </message>
@@ -122,33 +122,33 @@ Vuoi veramente continuare?</translation>
         <translation type="vanished">Sei sicuro?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="596"/>
+        <location filename="../../src/MainWindow.cpp" line="594"/>
         <source>Do you really want to quit?</source>
         <translation>Vuoi veramente uscire?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="506"/>
-        <location filename="../../src/MainWindow.cpp" line="599"/>
+        <location filename="../../src/MainWindow.cpp" line="504"/>
+        <location filename="../../src/MainWindow.cpp" line="597"/>
         <source>Yes</source>
         <translation>Sì</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="617"/>
+        <location filename="../../src/MainWindow.cpp" line="615"/>
         <source>Select output folder...</source>
         <translation>Selezione cartella di output...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="679"/>
+        <location filename="../../src/MainWindow.cpp" line="677"/>
         <source>Compression finished!</source>
         <translation>Compressione terminata!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="682"/>
+        <location filename="../../src/MainWindow.cpp" line="680"/>
         <source>You just saved %1!</source>
         <translation>Hai appena risparmiato %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="691"/>
+        <location filename="../../src/MainWindow.cpp" line="689"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -266,8 +266,8 @@ Risparmiato: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="649"/>
         <location filename="../../views/MainWindow.ui" line="693"/>
         <location filename="../../views/MainWindow.ui" line="750"/>
-        <location filename="../../src/MainWindow.cpp" line="730"/>
-        <location filename="../../src/MainWindow.cpp" line="734"/>
+        <location filename="../../src/MainWindow.cpp" line="728"/>
+        <location filename="../../src/MainWindow.cpp" line="732"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -467,13 +467,13 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Preferenze...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="748"/>
+        <location filename="../../src/MainWindow.cpp" line="742"/>
+        <location filename="../../src/MainWindow.cpp" line="746"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="862"/>
+        <location filename="../../src/MainWindow.cpp" line="860"/>
         <source>images in list</source>
         <translation>immagini in lista</translation>
     </message>
@@ -497,13 +497,13 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="295"/>
+        <location filename="../../views/PreferencesDialog.ui" line="284"/>
         <source>Prompt before exit</source>
         <translation>Chiedi prima di uscire</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="186"/>
-        <location filename="../../views/PreferencesDialog.ui" line="334"/>
+        <location filename="../../views/PreferencesDialog.ui" line="323"/>
         <source>Changes will apply after restart</source>
         <translation>Le modifiche verranno applicate al riavvio</translation>
     </message>
@@ -513,17 +513,16 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Tema (sperimentale)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="204"/>
         <source>Native</source>
-        <translation>Nativo</translation>
+        <translation type="vanished">Nativo</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="288"/>
+        <location filename="../../views/PreferencesDialog.ui" line="277"/>
         <source>Check updates at startup</source>
         <translation>Controlla aggiornamenti all&apos;avvio</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="302"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Importa anche i file nelle sottocartelle quando apri una cartella</translation>
     </message>
@@ -533,23 +532,23 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Invia statistiche anonime sull&apos;uso</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="255"/>
+        <location filename="../../views/PreferencesDialog.ui" line="244"/>
         <source>Advanced</source>
         <translation>Avanzate</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="262"/>
+        <location filename="../../views/PreferencesDialog.ui" line="251"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="395"/>
+        <location filename="../../views/PreferencesDialog.ui" line="384"/>
         <source>Language</source>
         <translation>Lingua</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="321"/>
+        <location filename="../../views/PreferencesDialog.ui" line="310"/>
         <source>Preferred language</source>
         <translation>Lingua preferita</translation>
     </message>
@@ -558,27 +557,27 @@ Risparmiato: %4 (%5%)</translation>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Le modifiche verranno applicate dopo il riavvio&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="106"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="119"/>
         <source>Usage data</source>
         <translation>Dati sull&apos;uso</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="19"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="20"/>
         <source>Show usage data</source>
         <translation>Mostra dati sull&apos;uso</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="107"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="120"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>Questi dati sono raccolti per fornire il miglior supporto a lungo termine per l&apos;applicazione. Nessun dato è condiviso con terzi.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="108"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
         <source>System data</source>
         <translation>Dati di sistema</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="108"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
         <source>Compression data</source>
         <translation>Dati di compressione</translation>
     </message>
@@ -586,7 +585,7 @@ Risparmiato: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="225"/>
+        <location filename="../../src/MainWindow.cpp" line="223"/>
         <source>Image Files</source>
         <translation>File immagine</translation>
     </message>
