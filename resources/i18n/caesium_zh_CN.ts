@@ -101,7 +101,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1035"/>
         <source>Finishing...</source>
-        <translation type="unfinished"></translation>
+        <translation>正在取消...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="535"/>
@@ -133,7 +133,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="680"/>
         <source>You just saved %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>你节省了 %1 存储空间！</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="689"/>
@@ -353,7 +353,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1146"/>
         <location filename="../../views/MainWindow.ui" line="1165"/>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>工具栏</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1206"/>
@@ -429,22 +429,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1341"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>图标</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1349"/>
         <source>Icons and Text</source>
-        <translation type="unfinished"></translation>
+        <translation>图标和文本</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1357"/>
         <source>Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1362"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>显示</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="742"/>
