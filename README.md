@@ -27,9 +27,8 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 
 ### Build from source
 ##### Requirements
-- [Rust](https://www.rust-lang.org/it/tools/install): required to compile libcaesium. Make sure you have `cargo` executable on you `$PATH`
-- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.2 (open source)
-- [Sparkle](https://sparkle-project.org/): macOS only
+- [Rust](https://www.rust-lang.org/it/tools/install): required to compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
+- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.2.4 (open source)
 - [libssh](https://www.libssh.org/): macOS only
 
 #### Build
@@ -38,16 +37,16 @@ You need to configure CMake first and the command is slightly different for all 
 Change the path in variables with the correct directories of the requirements.
 ###### Windows
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DCMAKE_BUILD_TYPE=Release
 ```
 ###### MacOS
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DSPARKLE_INCLUDE_DIR=/Library/Frameworks/Sparkle.framework/Headers -DLIBSSH_INCLUDE_DIR=/libssh/dir/include
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBSSH_INCLUDE_DIR=/libssh/dir/include -DCMAKE_BUILD_TYPE=Release
 ```
 ###### Linux
 Make sure you have all the requirements installed with you own package manager
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64 -DCMAKE_BUILD_TYPE=Release
 ```
 ##### Step 2
 Then you can build with
@@ -62,7 +61,7 @@ Caesium 2.0 is currently available in:
 - 🇮🇹 Italian ![100%](https://progress-bar.dev/100)
 - 🇫🇷 French ![100%](https://progress-bar.dev/100)
 - 🇯🇵 Japanese ![94%](https://progress-bar.dev/94)
-- 🇨🇳 Simplified Chinese ![94%](https://progress-bar.dev/94)
+- 🇨🇳 Simplified Chinese ![100%](https://progress-bar.dev/100)
 - 🇪🇸 Spanish ![94%](https://progress-bar.dev/94)
 - 🇪🇬 Arabic (Egypt) ![100%](https://progress-bar.dev/100)
 

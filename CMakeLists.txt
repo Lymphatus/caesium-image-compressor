@@ -46,20 +46,14 @@ if (WIN32)
     link_directories(${WINSPARKLE_LIB_DIR})
 endif ()
 
-if (APPLE OR WIN32)
-    if (APPLE)
-        if (NOT DEFINED SPARKLE_INCLUDE_DIR)
-            message(FATAL_ERROR "SPARKLE_INCLUDE_DIR is not defined. Cannot find sparkle include dir.")
-        else ()
-            include_directories(${SPARKLE_INCLUDE_DIR})
-        endif ()
-
-        if (NOT DEFINED LIBSSH_INCLUDE_DIR)
-            message(FATAL_ERROR "LIBSSH_INCLUDE_DIR is not defined. Cannot find libssh include dir.")
-        else ()
-            include_directories(${LIBSSH_INCLUDE_DIR})
-        endif ()
+if (APPLE)
+    if (NOT DEFINED LIBSSH_INCLUDE_DIR)
+        message(FATAL_ERROR "LIBSSH_INCLUDE_DIR is not defined. Cannot find libssh include dir.")
+    else ()
+        include_directories(${LIBSSH_INCLUDE_DIR})
     endif ()
+
+    include_directories(${CMAKE_BINARY_DIR}/libsparkle-prefix/src/libsparkle/Sparkle.framework/Headers)
 endif ()
 
 set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
@@ -183,7 +177,7 @@ endif ()
 ExternalProject_Add(
         libcaesium
         GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG 0.8.1
+        GIT_TAG 0.8.2
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
         INSTALL_COMMAND ""
@@ -205,6 +199,21 @@ if (WIN32)
     )
     add_dependencies(caesium_image_compressor libwinsparkle)
 endif ()
+# --- WinSparkle ---
+
+# --- Sparkle ---
+if (APPLE)
+    ExternalProject_Add(
+            libsparkle
+            URL https://github.com/sparkle-project/Sparkle/releases/download/1.27.1/Sparkle-1.27.1.tar.xz
+            CONFIGURE_COMMAND ""
+            BUILD_COMMAND ""
+            INSTALL_COMMAND cmake -E echo "Skipping install step."
+            LOG_BUILD ON
+    )
+    add_dependencies(caesium_image_compressor libsparkle)
+endif ()
+# --- Sparkle ---
 
 if (APPLE)
     set(OSX_FRAMEWORKS "-framework AppKit -framework Carbon -framework Foundation -framework ApplicationServices -framework Sparkle")
