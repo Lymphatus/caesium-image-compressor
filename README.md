@@ -37,7 +37,7 @@ You need to configure CMake first and the command is slightly different for all 
 Change the path in variables with the correct directories of the requirements.
 ###### Windows
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DCMAKE_BUILD_TYPE=Release
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DCMAKE_BUILD_TYPE=Release -G "MinGW Makefiles"
 ```
 ###### MacOS
 ```

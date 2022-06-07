@@ -2,7 +2,7 @@
 <module classpath="CMake" type="CPP_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python facet">
-      <configuration sdkName="Python 3.9 (caesium-image-compressor)" />
+      <configuration sdkName="Python 3.10 (caesium-image-compressor)" />
     </facet>
   </component>
 </module>
