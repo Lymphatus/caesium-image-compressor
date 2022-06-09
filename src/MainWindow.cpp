@@ -6,6 +6,7 @@
 #include <QDesktopServices>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QProgressBar>
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QStandardPaths>
@@ -17,7 +18,6 @@
 #include <dialogs/PreferencesDialog.h>
 #include <utility>
 #include <widgets/QCaesiumMessageBox.h>
-#include <QProgressBar>
 
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
@@ -187,7 +187,7 @@ void MainWindow::initTrayIcon()
 {
 #ifdef Q_OS_MAC
     QIcon icon = QIcon(":/icons/logo_mono.png");
-    icon.setIsMask(true); 
+    icon.setIsMask(true);
 #else
     QIcon icon = QIcon(":/icons/logo.png");
 #endif

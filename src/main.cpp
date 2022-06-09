@@ -85,7 +85,7 @@ void loadInstallationId()
     }
 }
 
-void loadTheme()
+void loadTheme(QApplication* a)
 {
     QSettings settings;
 
@@ -94,30 +94,35 @@ void loadTheme()
         QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
 
         if (themeIndex == 1) {
+            QColor darkGray(40, 40, 40);
+            QColor gray(70, 70, 70);
+            QColor black(25, 25, 25);
+            QColor blue(99, 102, 241);
+            QColor purple(147, 51, 234);
+
             QPalette darkPalette;
-            QColor darkColor = QColor(45, 45, 45);
-            QColor disabledColor = QColor(127, 127, 127);
-            darkPalette.setColor(QPalette::Window, darkColor);
+            darkPalette.setColor(QPalette::Window, darkGray);
             darkPalette.setColor(QPalette::WindowText, Qt::white);
-            darkPalette.setColor(QPalette::Base, QColor(18, 18, 18));
-            darkPalette.setColor(QPalette::AlternateBase, darkColor);
-            darkPalette.setColor(QPalette::ToolTipBase, Qt::white);
+            darkPalette.setColor(QPalette::Base, black);
+            darkPalette.setColor(QPalette::AlternateBase, darkGray);
+            darkPalette.setColor(QPalette::ToolTipBase, blue);
             darkPalette.setColor(QPalette::ToolTipText, Qt::white);
             darkPalette.setColor(QPalette::Text, Qt::white);
-            darkPalette.setColor(QPalette::Disabled, QPalette::Text, disabledColor);
-            darkPalette.setColor(QPalette::Button, darkColor);
+            darkPalette.setColor(QPalette::Button, darkGray);
             darkPalette.setColor(QPalette::ButtonText, Qt::white);
-            darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText, disabledColor);
-            darkPalette.setColor(QPalette::BrightText, Qt::red);
-            darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
-
-            darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+            darkPalette.setColor(QPalette::Link, blue);
+            darkPalette.setColor(QPalette::Highlight, purple);
             darkPalette.setColor(QPalette::HighlightedText, Qt::black);
-            darkPalette.setColor(QPalette::Disabled, QPalette::HighlightedText, disabledColor);
+
+            darkPalette.setColor(QPalette::Active, QPalette::Button, gray.darker());
+            darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText, gray);
+            darkPalette.setColor(QPalette::Disabled, QPalette::WindowText, gray);
+            darkPalette.setColor(QPalette::Disabled, QPalette::Text, gray);
+            darkPalette.setColor(QPalette::Disabled, QPalette::Light, darkGray);
 
             QApplication::setPalette(darkPalette);
 
-            // a.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }");
+            a->setStyleSheet("QToolTip { color: #ffffff; background-color: #404040; border: 1px solid darkgray; }");
         }
     }
 }
@@ -138,14 +143,13 @@ int main(int argc, char* argv[])
 
     QTranslator translator;
     QLocale currentLocale = loadLocale(&translator);
-    a.setLayoutDirection(currentLocale.textDirection());
-    loadTheme();
+    QApplication::setLayoutDirection(currentLocale.textDirection());
+    loadTheme(&a);
 
     qInfo() << "---- Starting application ----";
     loadInstallationId();
     MainWindow w;
     w.show();
-
 
     return QApplication::exec();
 }

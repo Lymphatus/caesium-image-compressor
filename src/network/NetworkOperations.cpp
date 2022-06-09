@@ -1,4 +1,5 @@
 #include "NetworkOperations.h"
+#include "utils/Utils.h"
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -7,7 +8,6 @@
 #include <QObject>
 #include <QSettings>
 #include <QStandardPaths>
-#include "utils/Utils.h"
 
 NetworkOperations::NetworkOperations()
 {
@@ -42,7 +42,7 @@ void NetworkOperations::sendUsageReport(CompressionSummary compressionSummary)
         { "uncompressedSize", compressionSummary.totalUncompressedSize },
         { "compressedSize", compressionSummary.totalCompressedSize },
         { "elapsedTime", compressionSummary.elapsedTime },
-        {"compressionOptions", QString(QJsonDocument(getCompressionOptionsAsJSON()).toJson(QJsonDocument::Compact))}
+        { "compressionOptions", QString(QJsonDocument(getCompressionOptionsAsJSON()).toJson(QJsonDocument::Compact)) }
     };
     QNetworkRequest request(QUrl(this->baseEndpoint + "/desktopInstallation/summary"));
     QString bearerToken = "Bearer " + settings.value("access_token").toString();

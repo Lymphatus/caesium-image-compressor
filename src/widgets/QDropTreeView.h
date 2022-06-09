@@ -6,21 +6,19 @@
 
 class QMimeData;
 
-class QDropTreeView : public QTreeView
-{
+class QDropTreeView : public QTreeView {
     Q_OBJECT
 
 public:
-    explicit QDropTreeView(QWidget *parent = 0);
+    explicit QDropTreeView(QWidget* parent = 0);
 
 signals:
     void dropFinished(QStringList);
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event) override;
-    void dragMoveEvent(QDragMoveEvent *event) override;
-    void dropEvent(QDropEvent *event) override;
-
+    void dragEnterEvent(QDragEnterEvent* event) override;
+    void dragMoveEvent(QDragMoveEvent* event) override;
+    void dropEvent(QDropEvent* event) override;
 };
 
 #endif // QDROPTREEWIDGET_H

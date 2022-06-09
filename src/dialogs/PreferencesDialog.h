@@ -7,12 +7,11 @@ namespace Ui {
 class PreferencesDialog;
 }
 
-class PreferencesDialog : public QDialog
-{
+class PreferencesDialog : public QDialog {
     Q_OBJECT
 
 public:
-    explicit PreferencesDialog(QWidget *parent = nullptr);
+    explicit PreferencesDialog(QWidget* parent = nullptr);
     ~PreferencesDialog();
 
 private slots:
@@ -23,10 +22,10 @@ private slots:
     void on_importSubfolders_CheckBox_toggled(bool checked);
     void on_sendUsageReport_CheckBox_toggled(bool checked);
     void on_multithreading_CheckBox_toggled(bool checked);
-    void on_showUsageData_Label_linkActivated(const QString &link);
+    void on_showUsageData_Label_linkActivated(const QString& link);
 
 private:
-    Ui::PreferencesDialog *ui;
+    Ui::PreferencesDialog* ui;
 
     void loadPreferences();
     void loadLanguages();

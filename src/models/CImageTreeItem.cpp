@@ -29,12 +29,12 @@ CImageTreeItem::~CImageTreeItem()
     qDeleteAll(m_childItems);
 }
 
-bool operator== (const CImageTreeItem &c1, const CImageTreeItem &c2)
+bool operator==(const CImageTreeItem& c1, const CImageTreeItem& c2)
 {
     return (c1.cImage->getFullPath() == c2.cImage->getFullPath());
 }
 
-bool operator!= (const CImageTreeItem &c1, const CImageTreeItem &c2)
+bool operator!=(const CImageTreeItem& c1, const CImageTreeItem& c2)
 {
     return !(c1 == c2);
 }
@@ -91,7 +91,7 @@ QVector<CImageTreeItem*> CImageTreeItem::children()
     return m_childItems;
 }
 
-CImage *CImageTreeItem::getCImage() const
+CImage* CImageTreeItem::getCImage() const
 {
     return cImage;
 }

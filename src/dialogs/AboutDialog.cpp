@@ -47,4 +47,3 @@ void AboutDialog::on_checkForUpdates_Button_clicked()
     win_sparkle_check_update_with_ui();
 #endif
 }
-

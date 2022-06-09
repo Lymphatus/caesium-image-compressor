@@ -1,9 +1,9 @@
 #ifndef CAESIUM_IMAGE_COMPRESSOR_NETWORKOPERATIONS_H
 #define CAESIUM_IMAGE_COMPRESSOR_NETWORKOPERATIONS_H
 
-#include <QString>
-#include <QNetworkAccessManager>
 #include "utils/Utils.h"
+#include <QNetworkAccessManager>
+#include <QString>
 
 class NetworkOperations : public QObject {
     Q_OBJECT
@@ -12,6 +12,7 @@ private:
     QString baseEndpoint;
 
     static QString getBaseEndpoint();
+
 public:
     NetworkOperations();
 

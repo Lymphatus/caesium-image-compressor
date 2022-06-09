@@ -1,17 +1,17 @@
 #include "HtmlDelegate.h"
-#include <QTextDocument>
-#include <QApplication>
 #include <QAbstractTextDocumentLayout>
-#include <QStyleOptionViewItem>
+#include <QApplication>
 #include <QPainter>
 #include <QSize>
+#include <QStyleOptionViewItem>
+#include <QTextDocument>
 
-void HtmlDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void HtmlDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
     QStyleOptionViewItem optionV = option;
     initStyleOption(&optionV, index);
 
-    QStyle *style = optionV.widget? optionV.widget->style() : QApplication::style();
+    QStyle* style = optionV.widget ? optionV.widget->style() : QApplication::style();
 
     QTextDocument doc;
     doc.setHtml(optionV.text);
@@ -30,7 +30,7 @@ void HtmlDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     painter->restore();
 }
 
-QSize HtmlDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize HtmlDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
     QStyleOptionViewItem optionV = option;
     initStyleOption(&optionV, index);

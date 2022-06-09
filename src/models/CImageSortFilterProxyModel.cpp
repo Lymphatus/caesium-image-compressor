@@ -3,13 +3,12 @@
 #include "models/CImageTreeItem.h"
 #include "utils/Utils.h"
 
-CImageSortFilterProxyModel::CImageSortFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+CImageSortFilterProxyModel::CImageSortFilterProxyModel(QObject* parent)
+    : QSortFilterProxyModel { parent }
 {
-
 }
 
-bool CImageSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool CImageSortFilterProxyModel::lessThan(const QModelIndex& left, const QModelIndex& right) const
 {
     QVariant leftData = sourceModel()->data(left);
     QVariant rightData = sourceModel()->data(right);
@@ -18,7 +17,7 @@ bool CImageSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelI
     CImage* rightCImage = static_cast<CImageTreeItem*>(right.internalPointer())->getCImage();
 
     if (left.column() == CImageColumns::NAME_COLUMN && right.column() == CImageColumns::NAME_COLUMN) {
-        //TODO Needs a regex for the HTML field?
+        // TODO Needs a regex for the HTML field?
         return QString::localeAwareCompare(leftData.toString(), rightData.toString()) < 0;
     } else if (left.column() == CImageColumns::SIZE_COLUMN && right.column() == CImageColumns::SIZE_COLUMN) {
         return leftCImage->getOriginalSize() < rightCImage->getOriginalSize();
@@ -32,5 +31,4 @@ bool CImageSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelI
         return leftCImage->getRatio() < rightCImage->getRatio();
     }
     return QString::localeAwareCompare(leftData.toString(), rightData.toString()) < 0;
-
 }

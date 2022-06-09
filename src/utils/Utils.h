@@ -105,9 +105,9 @@ const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
 
 const int THEMES_COUNT = 3;
 const CsTheme THEMES[THEMES_COUNT] = {
-    {QString("Native"), QString("Native")},
-    {QString("Fusion"), QString("Fusion (Dark)")},
-    {QString("Fusion"), QString("Fusion (Light)")}
+    { QString("Native"), QString("Native") },
+    { QString("Fusion"), QString("Fusion (Dark)") },
+    { QString("Fusion"), QString("Fusion (Light)") }
 };
 
 // Utilities

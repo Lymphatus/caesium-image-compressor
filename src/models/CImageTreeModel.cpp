@@ -2,9 +2,9 @@
 
 #include <QApplication>
 #include <QIcon>
-#include <QStyle>
-#include <QPropertyAnimation>
 #include <QLabel>
+#include <QPropertyAnimation>
+#include <QStyle>
 
 CImageTreeModel::CImageTreeModel()
 {
@@ -146,8 +146,8 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     CImageTreeItem* item = static_cast<CImageTreeItem*>(index.internalPointer());
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME_COLUMN) {
-        //Little hack to get the default application text color to apply transparency to the base folder text
-        QColor defaultColor =  QApplication::palette().text().color();
+        // Little hack to get the default application text color to apply transparency to the base folder text
+        QColor defaultColor = QApplication::palette().text().color();
         if (role & QStyle::State_Selected) {
             defaultColor = QApplication::palette().highlightedText().color();
         }
@@ -216,7 +216,7 @@ double CImageTreeModel::compressedItemsSize() const
     double totalSize = 0;
     while (itemsIterator.hasNext()) {
         auto item = itemsIterator.next();
-        auto size = (double) item->getCImage()->getCompressedSize();
+        auto size = (double)item->getCImage()->getCompressedSize();
         totalSize += size;
     }
     return totalSize;
@@ -228,7 +228,7 @@ double CImageTreeModel::originalItemsSize() const
     double totalSize = 0;
     while (itemsIterator.hasNext()) {
         auto item = itemsIterator.next();
-        auto size = (double) item->getCImage()->getOriginalSize();
+        auto size = (double)item->getCImage()->getOriginalSize();
         totalSize += size;
     }
     return totalSize;

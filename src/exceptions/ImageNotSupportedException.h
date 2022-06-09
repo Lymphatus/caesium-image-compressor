@@ -13,4 +13,4 @@ public:
     const char* what() const noexcept override;
 };
 
-#endif //CAESIUM_IMAGE_COMPRESSOR_IMAGENOTSUPPORTEDEXCEPTION_H
+#endif // CAESIUM_IMAGE_COMPRESSOR_IMAGENOTSUPPORTEDEXCEPTION_H

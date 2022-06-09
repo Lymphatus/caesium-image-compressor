@@ -1,11 +1,11 @@
 #ifndef CAESIUM_IMAGE_COMPRESSOR_CIMAGELIST_H
 #define CAESIUM_IMAGE_COMPRESSOR_CIMAGELIST_H
 
+#include "CImage.h"
 #include <QList>
 #include <QStringList>
-#include "CImage.h"
 
-class CImageList{
+class CImageList {
 public:
     CImageList();
     ~CImageList();
@@ -19,8 +19,6 @@ public:
 
 private:
     QList<CImage>* cImageList;
-
 };
 
-
-#endif //CAESIUM_IMAGE_COMPRESSOR_CIMAGELIST_H
+#endif // CAESIUM_IMAGE_COMPRESSOR_CIMAGELIST_H

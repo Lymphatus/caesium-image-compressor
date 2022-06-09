@@ -3,21 +3,20 @@
 #define QZOOMGRAPHICSVIEW_H
 
 #include <QGraphicsView>
-#include <QWheelEvent>
 #include <QMouseEvent>
+#include <QWheelEvent>
 
-class QZoomGraphicsView : public QGraphicsView
-{
+class QZoomGraphicsView : public QGraphicsView {
     Q_OBJECT
 
 public:
-    explicit QZoomGraphicsView(QWidget *parent = 0);
+    explicit QZoomGraphicsView(QWidget* parent = 0);
     void wheelEvent(QWheelEvent* event) override;
-    void drawForeground(QPainter *painter, const QRectF &rect) override;
+    void drawForeground(QPainter* painter, const QRectF& rect) override;
     void resetScaleFactor();
 
 private:
-    const float WHEEL_TOLERANCE = 1; //Experimental for touchpads
+    const float WHEEL_TOLERANCE = 1; // Experimental for touchpads
     const float ZOOM_IN_RATIO = 1.05;
     const float ZOOM_OUT_RATIO = 0.95;
     const float MAX_ZOOM_IN = 10;

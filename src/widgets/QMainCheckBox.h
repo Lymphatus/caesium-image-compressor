@@ -3,15 +3,14 @@
 
 #include <QCheckBox>
 
-class QMainCheckBox : public QCheckBox
-{
+class QMainCheckBox : public QCheckBox {
     Q_OBJECT
 
 public:
-    explicit QMainCheckBox(QWidget *parent = nullptr);
+    explicit QMainCheckBox(QWidget* parent = nullptr);
+
 protected:
     void nextCheckState() override;
-
 };
 
 #endif // QMAINCHECKBOX_H

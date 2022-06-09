@@ -215,7 +215,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         this->setCompressedInfo(outputFileInfo);
     } else {
         this->additionalInfo = result.error_message;
-        qCritical() << "Compression result for i:" << inputFullPath << "and o: "<< tempFileFullPath << "is false. Error:" << result.error_message;
+        qCritical() << "Compression result for i:" << inputFullPath << "and o: " << tempFileFullPath << "is false. Error:" << result.error_message;
     }
 
     return result.success;

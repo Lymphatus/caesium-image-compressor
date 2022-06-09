@@ -30,14 +30,14 @@ PreferencesDialog::~PreferencesDialog()
 
 void PreferencesDialog::loadLanguages()
 {
-    for (const CsLocale &locale : LANGUAGES) {
+    for (const CsLocale& locale : LANGUAGES) {
         ui->language_ComboBox->addItem(locale.label);
     }
 }
 
 void PreferencesDialog::loadThemes()
 {
-    for (const CsTheme &theme : THEMES) {
+    for (const CsTheme& theme : THEMES) {
         ui->theme_ComboBox->addItem(theme.label);
     }
 }
@@ -112,7 +112,7 @@ void PreferencesDialog::on_showUsageData_Label_linkActivated(const QString& link
         { "uncompressedSize", "..." },
         { "compressedSize", "..." },
         { "elapsedTime", "..." },
-        {"compressionOptions", getCompressionOptionsAsJSON()}
+        { "compressionOptions", getCompressionOptionsAsJSON() }
     };
     QMessageBox messageBox;
     messageBox.setStyleSheet("QLabel{min-width: 500px;}");

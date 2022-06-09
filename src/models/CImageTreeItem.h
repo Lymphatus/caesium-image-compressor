@@ -1,9 +1,9 @@
 #ifndef CIMAGETREEITEM_H
 #define CIMAGETREEITEM_H
 
+#include <QFuture>
 #include <QVariant>
 #include <QVector>
-#include <QFuture>
 
 #include "CImage.h"
 
@@ -13,8 +13,8 @@ public:
     explicit CImageTreeItem(const QVector<QVariant>& data, CImageTreeItem* parentItem = nullptr);
     ~CImageTreeItem();
 
-    friend bool operator== (const CImageTreeItem &c1, const CImageTreeItem &c2);
-    friend bool operator!= (const CImageTreeItem &c1, const CImageTreeItem &c2);
+    friend bool operator==(const CImageTreeItem& c1, const CImageTreeItem& c2);
+    friend bool operator!=(const CImageTreeItem& c1, const CImageTreeItem& c2);
 
     void appendChild(CImageTreeItem* child);
     void removeChildAt(int position);
@@ -27,7 +27,7 @@ public:
     CImageTreeItem* parentItem();
     QVector<CImageTreeItem*> children();
 
-    CImage *getCImage() const;
+    CImage* getCImage() const;
     QFuture<void> compress(CompressionOptions compressionOptions);
     void setData(QStringList data);
 

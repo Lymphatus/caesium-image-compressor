@@ -23,17 +23,16 @@ struct CCSResult {
     char* error_message;
 };
 
-extern "C" CCSResult c_compress(const char *i, const char *o, CCSParameters params);
+extern "C" CCSResult c_compress(const char* i, const char* o, CCSParameters params);
 
-class CImage
-{
-    const QList<QByteArray> supportedFormats = {"png", "jpg", "jpeg", "webp"};
+class CImage {
+    const QList<QByteArray> supportedFormats = { "png", "jpg", "jpeg", "webp" };
 
 public:
     explicit CImage(const QString& path);
 
-    friend bool operator== (const CImage &c1, const CImage &c2);
-    friend bool operator!= (const CImage &c1, const CImage &c2);
+    friend bool operator==(const CImage& c1, const CImage& c2);
+    friend bool operator!=(const CImage& c1, const CImage& c2);
 
     QString getFormattedSize();
     QString getRichFormattedSize();
@@ -44,7 +43,7 @@ public:
     size_t getOriginalSize() const;
     size_t getCompressedSize() const;
     CImageStatus getStatus() const;
-    void setStatus(const CImageStatus &value);
+    void setStatus(const CImageStatus& value);
     double getRatio() const;
     QString getFormattedSavedRatio();
     QString getRichFormattedSavedRatio();
@@ -75,7 +74,6 @@ private:
 
     void setCompressedInfo(QFileInfo fileInfo);
     void setFileDates(QFileInfo fileInfo, CompressionOptions compressionOptions, FileDates inputFileDates);
-
 };
 
 #endif // CIMAGE_H
