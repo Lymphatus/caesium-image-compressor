@@ -1,7 +1,5 @@
 #include <QtTest>
 
-// add necessary includes here
-
 class CsTests : public QObject
 {
     Q_OBJECT
@@ -13,8 +11,6 @@ public:
 private slots:
     void initTestCase();
     void cleanupTestCase();
-    void test_case1();
-
 };
 
 CsTests::CsTests()
@@ -29,11 +25,6 @@ void CsTests::initTestCase()
 }
 
 void CsTests::cleanupTestCase()
-{
-
-}
-
-void CsTests::test_case1()
 {
 
 }

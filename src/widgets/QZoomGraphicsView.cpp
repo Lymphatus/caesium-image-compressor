@@ -78,7 +78,7 @@ void QZoomGraphicsView::drawForeground(QPainter* painter, const QRectF& rect)
     QGraphicsView::drawForeground(painter, rect);
 }
 
-void QZoomGraphicsView::setLoading(bool loading)
+void QZoomGraphicsView::setLoading(bool l)
 {
-    QZoomGraphicsView::loading = loading;
+    QZoomGraphicsView::loading = l;
 }

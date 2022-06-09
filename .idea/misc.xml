@@ -4,6 +4,7 @@
   <component name="CidrRootsConfiguration">
     <excludeRoots>
       <file path="$PROJECT_DIR$/package" />
+      <file path="$PROJECT_DIR$/src/updater" />
       <file path="$PROJECT_DIR$/src/updater/win" />
       <file path="$PROJECT_DIR$/src/vendor" />
       <file path="$PROJECT_DIR$/venv" />

@@ -25,7 +25,7 @@ private:
     bool loading = false;
 
 public:
-    void setLoading(bool loading);
+    void setLoading(bool l);
 
 public:
     bool isZooming() const;
