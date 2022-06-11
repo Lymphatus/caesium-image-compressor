@@ -23,7 +23,7 @@
         <translation>Controlla aggiornamenti</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="189"/>
+        <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
         <translation>Copyright © 2022 Matteo Paonessa.

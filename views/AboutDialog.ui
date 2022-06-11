@@ -184,6 +184,22 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="website_Label">
+     <property name="text">
+      <string notr="true">[saerasoft.com/caesium](https://saerasoft.com/caesium)</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::MarkdownText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QLabel" name="copyright_Label">
      <property name="text">
       <string>Copyright © 2022 Matteo Paonessa.

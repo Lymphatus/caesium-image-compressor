@@ -19,7 +19,7 @@
         <translation>البحث عن تحديثات</translation>
     </message>
     <message>
-        <location filename="../../views/AboutDialog.ui" line="189"/>
+        <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
         <translation>حقوق النشر © 2022 ماتيو باونيسا.
