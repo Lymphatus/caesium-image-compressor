@@ -27,7 +27,7 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 
 ### Build from source
 ##### Requirements
-- [Rust](https://www.rust-lang.org/it/tools/install): required to compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
+- [Rust](https://www.rust-lang.org/tools/install): required to compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
 - [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.2.4 (open source)
 - [libssh](https://www.libssh.org/): macOS only
 
