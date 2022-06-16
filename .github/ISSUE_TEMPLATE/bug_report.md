@@ -11,7 +11,7 @@ assignees: Lymphatus
 A clear and concise description of what the bug is.
 
 **Software version**
-The version of Caesium Image Compressor [e.g. 2.0.0-beta.1]
+The version of Caesium Image Compressor [e.g. 2.0.0]
 
 **Operating System information**
  - OS: [e.g. Windows]

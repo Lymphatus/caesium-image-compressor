@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Caesium Image Compressor"
-#define MyAppVersion "2.0.0"
+#define MyAppVersion "2.1.0"
 #define MyAppPublisher "SaeraSoft"
 #define MyAppURL "https://saerasoft.com/caesium"
 #define MyAppExeName "Caesium Image Compressor.exe"
@@ -62,6 +62,7 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\vc_redist.x64.exe"; DestDir: "{app}"; Flags: deleteafterinstall
 Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
@@ -71,5 +72,6 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall
+Filename: "{app}\vc_redist.x64.exe"; Parameters: "/quiet /install /norestart"; Flags: waituntilterminated
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
