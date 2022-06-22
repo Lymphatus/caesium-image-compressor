@@ -1,6 +1,6 @@
 ## Caesium Image Compressor
 
-###### v2.1.0
+###### v2.2.0
 
 ![x](https://user-images.githubusercontent.com/12133996/141089441-b7589314-3a5d-48ff-8854-c3d32bd8dd5e.PNG)
 
