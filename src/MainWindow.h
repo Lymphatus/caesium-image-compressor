@@ -87,6 +87,7 @@ private slots:
     void on_actionToolbarIcons_and_Text_triggered();
     void on_actionToolbarHide_triggered();
     void updateCompressionProgressLabel(int value);
+    void on_actionAuto_preview_toggled(bool toggled);
 
 private:
     Ui::MainWindow* ui;

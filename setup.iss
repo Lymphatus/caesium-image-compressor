@@ -31,6 +31,7 @@ SolidCompression=yes
 WizardStyle=modern
 UninstallDisplayIcon="{app}\{#MyAppExeName}"
 
+
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "armenian"; MessagesFile: "compiler:Languages\Armenian.isl"
@@ -62,7 +63,9 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\vc_redist.x64.exe"; DestDir: "{app}"; Flags: deleteafterinstall
+#ifndef NoVCRedist
+Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\vc_redist.x64.exe"; DestDir: "{app}"; Flags: deleteafterinstall;
+#endif
 Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
@@ -72,6 +75,8 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\vc_redist.x64.exe"; Parameters: "/quiet /install /norestart"; Flags: waituntilterminated
+#ifndef NoVCRedist
+Filename: "{app}\vc_redist.x64.exe"; Parameters: "/quiet /install /norestart"; Flags: waituntilterminated;
+#endif
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall
 

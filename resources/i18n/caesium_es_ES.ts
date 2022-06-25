@@ -99,13 +99,13 @@ Desea continuar?</translation>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1035"/>
+        <location filename="../../src/MainWindow.cpp" line="1062"/>
         <source>Finishing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="535"/>
-        <location filename="../../src/MainWindow.cpp" line="1102"/>
+        <location filename="../../src/MainWindow.cpp" line="1129"/>
         <source>Compressing...</source>
         <translation>Comprimiendo...</translation>
     </message>
@@ -164,8 +164,8 @@ Ahorrado: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="179"/>
-        <location filename="../../views/MainWindow.ui" line="1327"/>
         <location filename="../../views/MainWindow.ui" line="1330"/>
+        <location filename="../../views/MainWindow.ui" line="1333"/>
         <source>Compress</source>
         <translation>Comprimir</translation>
     </message>
@@ -387,62 +387,67 @@ Ahorrado: %4 (%5%)</translation>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1258"/>
+        <location filename="../../views/MainWindow.ui" line="1256"/>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/MainWindow.ui" line="1261"/>
         <source>Select All</source>
         <translation>Seleccionar todos</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1261"/>
+        <location filename="../../views/MainWindow.ui" line="1264"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1273"/>
+        <location filename="../../views/MainWindow.ui" line="1276"/>
         <source>Clear</source>
         <translation>Limpiar</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1284"/>
+        <location filename="../../views/MainWindow.ui" line="1287"/>
         <source>Show previews</source>
         <translation>Mostrar vista previa</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1293"/>
+        <location filename="../../views/MainWindow.ui" line="1296"/>
         <source>Preferences...</source>
         <translation>Preferencias...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1301"/>
+        <location filename="../../views/MainWindow.ui" line="1304"/>
         <source>Show original in file manager</source>
         <translation>Mostrar original en administrador de archivos</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1306"/>
+        <location filename="../../views/MainWindow.ui" line="1309"/>
         <source>Show compressed in file manager</source>
         <translation>Mostrar comprimido en administrador de archivos</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1315"/>
+        <location filename="../../views/MainWindow.ui" line="1318"/>
         <source>Donate</source>
         <translation>Donar</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1341"/>
+        <location filename="../../views/MainWindow.ui" line="1344"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1349"/>
+        <location filename="../../views/MainWindow.ui" line="1352"/>
         <source>Icons and Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1357"/>
+        <location filename="../../views/MainWindow.ui" line="1360"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1362"/>
+        <location filename="../../views/MainWindow.ui" line="1365"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>

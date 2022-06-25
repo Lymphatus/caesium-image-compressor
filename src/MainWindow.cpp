@@ -262,6 +262,8 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/pos", this->pos());
     settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(ui->sidebar_HSplitter->sizes()));
     settings.setValue("mainwindow/previews_visible", ui->actionShow_previews->isChecked());
+    settings.setValue("mainwindow/auto_preview", ui->actionAuto_preview->isChecked());
+
     if (ui->actionShow_previews->isChecked()) {
         settings.setValue("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>(ui->main_VSplitter->sizes()));
     }
@@ -318,6 +320,7 @@ void MainWindow::readSettings()
     ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
     ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
     ui->actionShow_previews->setChecked(settings.value("mainwindow/previews_visible", true).toBool());
+    ui->actionAuto_preview->setChecked(settings.value("mainwindow/auto_preview", false).toBool());
     ui->toolBar->setVisible(settings.value("mainwindow/toolbar/visible", true).toBool());
     ui->toolBar->setToolButtonStyle(settings.value("mainwindow/toolbar/button_style", Qt::ToolButtonIconOnly).value<Qt::ToolButtonStyle>());
 
@@ -883,6 +886,33 @@ void MainWindow::initUpdater()
 #endif
 
 #ifdef Q_OS_WIN
+    QStringList possibleKeys = {
+            R"(HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
+            R"(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
+            R"(HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall)",
+            R"(HKEY_CURRENT_USER\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall)",
+        };
+    QStringListIterator keysIterator(possibleKeys);
+    QString uninstallExecutable = "";
+    while (keysIterator.hasNext()) {
+        QSettings winRegistryUninstall(keysIterator.next(), QSettings::Registry64Format);
+        uninstallExecutable = winRegistryUninstall.value("{C457F5B2-65EB-48E9-9744-A3719FEABA4C}_is1/UninstallString", "").toString();
+        if (!uninstallExecutable.isEmpty()) {
+            break;
+        }
+    }
+
+    // Means nothing is installed
+    if (uninstallExecutable.isEmpty()) {
+        qInfo() << "Updater not initialized: no installed Caesium found.";
+        return;
+    }
+    QFileInfo uninstallExecutableInfo(uninstallExecutable);
+    //Something is installed, but we check if we are running from the same path as the uninstallation executable
+    if (!uninstallExecutableInfo.exists() || uninstallExecutableInfo.absolutePath().compare(QCoreApplication::applicationDirPath()) != 0) {
+        qInfo() << "Updater not initialized: probably running on a portable version.";
+        return;
+    }
     int localeIndex = settings.value("preferences/language/locale", 0).toInt();
     if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
         localeIndex = 0;
@@ -1101,3 +1131,9 @@ void MainWindow::updateCompressionProgressLabel(int value)
 {
     ui->compressionProgress_Label->setText(tr("Compressing...") + QString(" (%1/%2)").arg(QString::number(value), QString::number(ui->compression_ProgressBar->maximum())));
 }
+
+void MainWindow::on_actionAuto_preview_toggled(bool toggled)
+{
+    this->writeSetting("mainwindow/auto_preview", toggled);
+}
+

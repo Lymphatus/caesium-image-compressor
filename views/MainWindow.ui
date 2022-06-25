@@ -106,7 +106,7 @@
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <property name="spacing">
-             <number>-1</number>
+             <number>7</number>
             </property>
             <property name="leftMargin">
              <number>0</number>
@@ -1106,7 +1106,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1150,6 +1150,8 @@
      <addaction name="actionToolbarHide"/>
     </widget>
     <addaction name="actionShow_previews"/>
+    <addaction name="actionAuto_preview"/>
+    <addaction name="separator"/>
     <addaction name="menuToolbar"/>
    </widget>
    <addaction name="menuFile"/>
@@ -1251,6 +1253,9 @@
    </property>
    <property name="text">
     <string>Remove</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
    </property>
   </action>
   <action name="actionSelect_All">
@@ -1360,6 +1365,14 @@
   <action name="actionShow">
    <property name="text">
     <string>Show</string>
+   </property>
+  </action>
+  <action name="actionAuto_preview">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto preview</string>
    </property>
   </action>
  </widget>
