@@ -101,7 +101,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1062"/>
         <source>Finishing...</source>
-        <translation type="unfinished"></translation>
+        <translation>終了中···</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="535"/>
@@ -133,7 +133,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="680"/>
         <source>You just saved %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 を保存しました!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="689"/>
@@ -353,7 +353,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1146"/>
         <location filename="../../views/MainWindow.ui" line="1165"/>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>ツールバー</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1206"/>
@@ -389,7 +389,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1256"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation>Del</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1261"/>
@@ -434,22 +434,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1344"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンのみ</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1352"/>
         <source>Icons and Text</source>
-        <translation type="unfinished"></translation>
+        <translation>アイコンとテキスト</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1360"/>
         <source>Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>非表示</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1365"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>表示</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="742"/>
