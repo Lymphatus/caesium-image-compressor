@@ -1,14 +1,34 @@
 #include "QZoomGraphicsView.h"
 
+#include <QLabel>
+#include <QPainterPath>
 #include <QScrollBar>
+#include <QMovie>
 
 QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)
     : QGraphicsView(parent)
 {
+    this->graphicsScene = new QGraphicsScene();
+    this->setScene(this->graphicsScene);
+
+    this->loaderLabel = new QLabel();
+    this->loaderLabel->setAutoFillBackground(false);
+    this->loaderLabel->setAttribute(Qt::WA_NoSystemBackground);
+    this->loaderMovie = new QMovie(":/icons/ui/loader.webp");
+    this->loaderMovie->setScaledSize(QSize(40, 40));
+    this->loaderLabel->setMovie(this->loaderMovie);
+    this->loaderMovie->start();
+    this->loaderProxyWidget = this->graphicsScene->addWidget(this->loaderLabel);
+    this->loaderProxyWidget->hide();
+
+    this->pixmapItem = new QGraphicsPixmapItem();
 }
 
 void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
 {
+    if (!this->zoomEnabled) {
+        return;
+    }
     this->zooming = true;
     this->setScaleFactor(event);
     emit scaleFactorChanged(event);
@@ -19,7 +39,6 @@ void QZoomGraphicsView::wheelEvent(QWheelEvent* event)
 
 void QZoomGraphicsView::setScaleFactor(QWheelEvent* event)
 {
-
     const ViewportAnchor anchor = transformationAnchor();
     setTransformationAnchor(QGraphicsView::AnchorViewCenter);
     int angle = event->angleDelta().y();
@@ -47,11 +66,6 @@ void QZoomGraphicsView::resetScaleFactor()
     this->scaleFactor = 1;
 }
 
-bool QZoomGraphicsView::isZooming() const
-{
-    return zooming;
-}
-
 void QZoomGraphicsView::setHorizontalScrollBarValue(int value)
 {
     if (!this->zooming) {
@@ -65,20 +79,34 @@ void QZoomGraphicsView::setVerticalScrollBarValue(int value)
         this->verticalScrollBar()->setValue(value);
     }
 }
-void QZoomGraphicsView::drawForeground(QPainter* painter, const QRectF& rect)
-{
-    painter->resetTransform();
-
-    if (this->loading) {
-        painter->setOpacity(.3);
-        QString loadingText = tr("Loading...");
-        auto fontRect = painter->fontMetrics().boundingRect(loadingText);
-        painter->drawText(this->rect().right() - fontRect.width() - 5, this->rect().bottom() - painter->fontMetrics().leading() - 5, loadingText);
-    }
-    QGraphicsView::drawForeground(painter, rect);
-}
 
 void QZoomGraphicsView::setLoading(bool l)
 {
-    QZoomGraphicsView::loading = l;
+    this->loading = l;
+
+    if (l) {
+        this->graphicsScene->setSceneRect(0, 0, 40, 40);
+        this->fitInView(this->rect(), Qt::KeepAspectRatio);
+        this->loaderProxyWidget->show();
+    } else {
+        this->loaderProxyWidget->hide();
+    }
+}
+
+void QZoomGraphicsView::setZoomEnabled(bool l)
+{
+    this->zoomEnabled = l;
+}
+
+void QZoomGraphicsView::showPixmap(QPixmap pixmap)
+{
+    this->pixmapItem = this->graphicsScene->addPixmap(pixmap);
+    this->graphicsScene->setSceneRect(this->graphicsScene->itemsBoundingRect());
+}
+
+void QZoomGraphicsView::removePixmap()
+{
+    if (this->graphicsScene->items().contains(this->pixmapItem)) {
+        this->graphicsScene->removeItem(this->pixmapItem);
+    }
 }

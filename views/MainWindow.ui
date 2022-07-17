@@ -1029,8 +1029,45 @@
        </widget>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget">
-       <layout class="QHBoxLayout" name="previews_HLayout">
-        <item>
+       <layout class="QGridLayout" name="previews_GridLayout">
+        <property name="topMargin">
+         <number>2</number>
+        </property>
+        <property name="horizontalSpacing">
+         <number>-1</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>4</number>
+        </property>
+        <item row="1" column="2" colspan="2">
+         <widget class="QZoomGraphicsView" name="previewCompressed_GraphicsView">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWidth">
+           <number>0</number>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="dragMode">
+           <enum>QGraphicsView::ScrollHandDrag</enum>
+          </property>
+          <property name="transformationAnchor">
+           <enum>QGraphicsView::AnchorViewCenter</enum>
+          </property>
+          <property name="resizeAnchor">
+           <enum>QGraphicsView::AnchorViewCenter</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
          <widget class="QZoomGraphicsView" name="preview_GraphicsView">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -1061,31 +1098,50 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QZoomGraphicsView" name="previewCompressed_GraphicsView">
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+        <item row="0" column="2">
+         <widget class="QLabel" name="compressedImage_Label">
+          <property name="font">
+           <font>
+            <bold>true</bold>
+           </font>
           </property>
+          <property name="text">
+           <string>Compressed</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="originalImage_Label">
+          <property name="font">
+           <font>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Original</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLoadingLabel" name="compressedImageSize_Label">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLoadingLabel" name="originalImageSize_Label">
           <property name="frameShadow">
            <enum>QFrame::Plain</enum>
           </property>
-          <property name="lineWidth">
-           <number>0</number>
+          <property name="text">
+           <string/>
           </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="dragMode">
-           <enum>QGraphicsView::ScrollHandDrag</enum>
-          </property>
-          <property name="transformationAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
-          </property>
-          <property name="resizeAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -1106,7 +1162,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1391,6 +1447,11 @@
    <class>QMainCheckBox</class>
    <extends>QCheckBox</extends>
    <header>widgets/QMainCheckBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QLoadingLabel</class>
+   <extends>QLabel</extends>
+   <header>widgets/QLoadingLabel.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -178,5 +178,28 @@ QJsonObject getCompressionOptionsAsJSON()
         QString currentKey = it.next();
         settingsMap.insert(currentKey, settings.value(currentKey));
     }
+    settings.endGroup();
     return QJsonObject::fromVariantMap(settingsMap);
+}
+
+QString getCompressionOptionsHash()
+{
+    QSettings settings;
+    QString implodedSettings;
+    settings.beginGroup("compression_options");
+    QStringList settingsKeys = settings.allKeys();
+    QStringListIterator it(settingsKeys);
+    while (it.hasNext()) {
+        QString currentKey = it.next();
+        implodedSettings.append(currentKey + ":" + settings.value(currentKey).toString() + "||");
+    }
+    settings.endGroup();
+    return hashString(implodedSettings, QCryptographicHash::Sha256);
+}
+
+QString hashString(const QString& data, QCryptographicHash::Algorithm algorithm)
+{
+    QCryptographicHash hash = QCryptographicHash(algorithm);
+    hash.addData(data.toUtf8());
+    return QString::fromUtf8(hash.result().toHex());
 }

@@ -5,6 +5,7 @@
 #include <QDir>
 #include <QImageReader>
 #include <QSettings>
+#include <QStandardPaths>
 #include <QTemporaryFile>
 #include <cmath>
 
@@ -18,6 +19,7 @@ CImage::CImage(const QString& path)
         throw ImageNotSupportedException();
     }
 
+    this->extension = fileInfo.suffix();
     this->size = fileInfo.size();
 
     if (this->size > 104857600) {
@@ -34,6 +36,8 @@ CImage::CImage(const QString& path)
     this->height = imageSize.height();
     this->compressedWidth = this->width;
     this->compressedHeight = this->height;
+
+    this->hashedFullPath = hashString(this->fullPath, QCryptographicHash::Sha256);
 
     this->status = CImageStatus::UNCOMPRESSED;
 
@@ -94,6 +98,24 @@ QString CImage::getFullPath() const
     return this->fullPath;
 }
 
+bool CImage::preview(const CompressionOptions& compressionOptions)
+{
+    QString inputFullPath = this->fullPath;
+    QFileInfo inputFileInfo(inputFullPath);
+    QString outputFullPath = this->getTemporaryPreviewFullPath();
+    FileDates inputFileDates = {
+        inputFileInfo.fileTime(QFile::FileBirthTime),
+        inputFileInfo.fileTime(QFile::FileModificationTime),
+        inputFileInfo.fileTime(QFile::FileAccessTime)
+    };
+    CCSParameters r_parameters = this->getCSParameters(compressionOptions);
+    CCSResult result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+
+    QFileInfo outputFileInfo(outputFullPath);
+    this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
+    return result.success;
+}
+
 bool CImage::compress(const CompressionOptions& compressionOptions)
 {
     QSettings settings;
@@ -107,7 +129,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         this->additionalInfo = QIODevice::tr("Input file does not exist");
         return false;
     }
-    QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + inputFileInfo.suffix();
+    QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + this->extension;
     FileDates inputFileDates = {
         inputFileInfo.fileTime(QFile::FileBirthTime),
         inputFileInfo.fileTime(QFile::FileModificationTime),
@@ -146,38 +168,15 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
     tempFile.close();
 
-    bool lossless = compressionOptions.lossless;
-    bool keepMetadata = compressionOptions.keepMetadata;
-
-    CCSParameters r_parameters = {
-        keepMetadata,
-        static_cast<unsigned int>(compressionOptions.jpeg_quality),
-        static_cast<unsigned int>(compressionOptions.png_level),
-        false,
-        20,
-        static_cast<unsigned int>(compressionOptions.webp_quality),
-        lossless,
-        0,
-        0
-    };
-
-    // Resize
-    if (compressionOptions.resize) {
-        QImageReader imageReader(this->getFullPath());
-        QSize originalSize = imageReader.size();
-
-        std::tuple<unsigned int, unsigned int> dimensions = cResize(originalSize,
-            compressionOptions.fitTo,
-            compressionOptions.width,
-            compressionOptions.height,
-            compressionOptions.size,
-            compressionOptions.doNotEnlarge);
-
-        if (std::get<0>(dimensions) != originalSize.width() || std::get<1>(dimensions) != originalSize.height()) {
-            r_parameters.width = std::get<0>(dimensions);
-            r_parameters.height = std::get<1>(dimensions);
+    QString previewPath = this->getTemporaryPreviewFullPath();
+    if (QFile::exists(previewPath)) {
+        bool removeSuccess = QFile::remove(tempFileFullPath);
+        if (removeSuccess) {
+            QFile::copy(previewPath, tempFileFullPath);
         }
     }
+
+    CCSParameters r_parameters = this->getCSParameters(compressionOptions);
 
     CCSResult result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
     if (result.success) {
@@ -210,7 +209,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         }
         QFileInfo outputFileInfo = QFileInfo(outputFullPath);
         if (compressionOptions.keepDates) {
-            this->setFileDates(outputFileInfo, compressionOptions, inputFileDates);
+            this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
         }
         this->setCompressedInfo(outputFileInfo);
     } else {
@@ -219,6 +218,43 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     }
 
     return result.success;
+}
+
+CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptions)
+{
+    bool lossless = compressionOptions.lossless;
+    bool keepMetadata = compressionOptions.keepMetadata;
+
+    CCSParameters r_parameters = {
+        keepMetadata,
+        static_cast<unsigned int>(compressionOptions.jpeg_quality),
+        static_cast<unsigned int>(compressionOptions.png_level),
+        false,
+        20,
+        static_cast<unsigned int>(compressionOptions.webp_quality),
+        lossless,
+        0,
+        0
+    };
+
+    // Resize
+    if (compressionOptions.resize) {
+        QImageReader imageReader(this->getFullPath());
+        QSize originalSize = imageReader.size();
+
+        std::tuple<unsigned int, unsigned int> dimensions = cResize(originalSize,
+            compressionOptions.fitTo,
+            compressionOptions.width,
+            compressionOptions.height,
+            compressionOptions.size,
+            compressionOptions.doNotEnlarge);
+
+        if (std::get<0>(dimensions) != originalSize.width() || std::get<1>(dimensions) != originalSize.height()) {
+            r_parameters.width = std::get<0>(dimensions);
+            r_parameters.height = std::get<1>(dimensions);
+        }
+    }
+    return r_parameters;
 }
 
 void CImage::setCompressedInfo(QFileInfo fileInfo)
@@ -231,17 +267,17 @@ void CImage::setCompressedInfo(QFileInfo fileInfo)
     this->compressedHeight = compressedImage.height();
 }
 
-void CImage::setFileDates(QFileInfo fileInfo, CompressionOptions compressionOptions, FileDates inputFileDates)
+void CImage::setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates)
 {
     QFile outputFile(fileInfo.canonicalFilePath());
     outputFile.open(QIODevice::ReadWrite);
-    if (compressionOptions.datesMap.keepCreation) {
+    if (datesMap.keepCreation) {
         outputFile.setFileTime(inputFileDates.creation, QFileDevice::FileBirthTime);
     }
-    if (compressionOptions.datesMap.keepLastModified) {
+    if (datesMap.keepLastModified) {
         outputFile.setFileTime(inputFileDates.lastModified, QFileDevice::FileModificationTime);
     }
-    if (compressionOptions.datesMap.keepLastAccess) {
+    if (datesMap.keepLastAccess) {
         outputFile.setFileTime(inputFileDates.lastAccess, QFileDevice::FileAccessTime);
     }
     outputFile.close();
@@ -316,4 +352,28 @@ QString CImage::getDirectory() const
 QString CImage::getCompressedDirectory() const
 {
     return this->compressedDirectory;
+}
+
+QString CImage::getHashedFullPath() const
+{
+    return this->hashedFullPath;
+}
+
+QString CImage::getTemporaryPreviewFullPath() const
+{
+    QString tempFileName = hashString(this->hashedFullPath + "." + getCompressionOptionsHash(), QCryptographicHash::Sha256);
+    QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    QString temporaryPreviewFullPath = cacheDir + QDir::separator() + tempFileName;
+    QDir(cacheDir).mkpath(cacheDir);
+    qInfo() << "Preview in" << temporaryPreviewFullPath;
+    return temporaryPreviewFullPath;
+}
+
+QString CImage::getPreviewFullPath() const
+{
+    if (!this->compressedFullPath.isEmpty()) {
+        return this->compressedFullPath;
+    }
+
+    return this->getTemporaryPreviewFullPath();
 }

@@ -78,6 +78,8 @@ private slots:
     void on_actionShow_compressed_in_file_manager_triggered();
     void listContextMenuAboutToShow();
     void showPreview(int index);
+    void previewFinished();
+    void previewCanceled();
     void compressionCanceled();
     void listSortChanged(int logicalIndex, Qt::SortOrder order);
     void on_actionCompress_triggered();
@@ -94,9 +96,7 @@ private:
 
     CImageTreeModel* cImageModel;
     QFutureWatcher<void>* compressionWatcher;
-    QFutureWatcher<QPixmap>* previewWatcher;
-    QGraphicsScene* previewScene;
-    QGraphicsScene* compressedPreviewScene;
+    QFutureWatcher<ImagePreview>* previewWatcher;
     QMap<QString, int> folderMap;
     AboutDialog* aboutDialog = nullptr;
     QString lastOpenedDirectory;
@@ -130,6 +130,8 @@ private:
     void readSettings();
     void previewImage(const QModelIndex& imageIndex);
     void updateFolderMap(QString baseFolder, int count);
+    CompressionOptions getCompressionOptions(QString rootFolder);
+    void clearCache();
 };
 
 #endif // MAINWINDOW_H

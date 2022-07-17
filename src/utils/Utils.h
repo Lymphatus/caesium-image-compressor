@@ -1,11 +1,14 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <QCryptographicHash>
 #include <QDateTime>
+#include <QFileInfo>
 #include <QImage>
 #include <QImageReader>
 #include <QJsonObject>
 #include <QMap>
+#include <QPixmap>
 #include <QSize>
 #include <QString>
 #include <QStringList>
@@ -86,6 +89,11 @@ typedef struct CompressionSummary {
     qint64 elapsedTime = 0;
 } CompressionSummary;
 
+typedef struct ImagePreview {
+    QPixmap image;
+    QFileInfo fileInfo;
+} ImagePreview;
+
 const int LANGUAGES_COUNT = 8;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
@@ -118,4 +126,6 @@ std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, in
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
 QJsonObject getSystemData();
 QJsonObject getCompressionOptionsAsJSON();
+QString getCompressionOptionsHash();
+QString hashString(const QString& data, QCryptographicHash::Algorithm algorithm);
 #endif // UTILS_H

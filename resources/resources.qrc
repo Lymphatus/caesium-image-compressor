@@ -17,5 +17,6 @@
         <file>icons/ui/remove.svg</file>
         <file>icons/ui/trash.svg</file>
         <file>icons/ui/compress.svg</file>
+        <file>icons/ui/loader.webp</file>
     </qresource>
 </RCC>

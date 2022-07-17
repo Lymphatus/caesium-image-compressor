@@ -48,11 +48,16 @@ public:
     QString getFormattedSavedRatio();
     QString getRichFormattedSavedRatio();
     bool compress(const CompressionOptions& compressionOptions);
+    bool preview(const CompressionOptions& compressionOptions);
     QString getCompressedFullPath() const;
+    QString getTemporaryPreviewFullPath() const;
+    QString getPreviewFullPath() const;
     size_t getTotalPixels() const;
     QString getFormattedStatus() const;
     QString getDirectory() const;
     QString getCompressedDirectory() const;
+    QString getHashedFullPath() const;
+    CCSParameters getCSParameters(const CompressionOptions& compressionOptions);
 
 private:
     CImageStatus status;
@@ -62,6 +67,8 @@ private:
     QString directory;
     QString compressedDirectory;
     QString additionalInfo;
+    QString hashedFullPath;
+    QString extension;
 
 private:
     size_t size;
@@ -73,7 +80,7 @@ private:
     int compressedHeight;
 
     void setCompressedInfo(QFileInfo fileInfo);
-    void setFileDates(QFileInfo fileInfo, CompressionOptions compressionOptions, FileDates inputFileDates);
+    void setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates);
 };
 
 #endif // CIMAGE_H

@@ -83,6 +83,7 @@ set(SOURCES
         src/widgets/QZoomGraphicsView.cpp
         src/widgets/QCaesiumMessageBox.cpp
         src/widgets/QMainCheckBox.cpp
+        src/widgets/QLoadingLabel.cpp
         src/delegates/HtmlDelegate.cpp
         src/exceptions/ImageNotSupportedException.cpp
         src/exceptions/ImageTooBigException.cpp
@@ -102,6 +103,7 @@ set(HEADERS
         src/widgets/QZoomGraphicsView.h
         src/widgets/QCaesiumMessageBox.h
         src/widgets/QMainCheckBox.h
+        src/widgets/QLoadingLabel.h
         src/delegates/HtmlDelegate.h
         src/exceptions/ImageNotSupportedException.h
         src/exceptions/ImageTooBigException.h

@@ -6,6 +6,7 @@
 #include <QDesktopServices>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QMovie>
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QScrollBar>
@@ -36,19 +37,14 @@ MainWindow::MainWindow(QWidget* parent)
     qInfo() << "Starting UI";
 
     this->cImageModel = new CImageTreeModel();
-    this->previewScene = new QGraphicsScene();
-    this->compressedPreviewScene = new QGraphicsScene();
     this->aboutDialog = new AboutDialog(this);
     this->compressionWatcher = new QFutureWatcher<void>();
-    this->previewWatcher = new QFutureWatcher<QPixmap>();
+    this->previewWatcher = new QFutureWatcher<ImagePreview>();
     this->listContextMenu = new QMenu();
     this->trayIconContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
     this->proxyModel = new CImageSortFilterProxyModel();
     this->trayIcon = new QSystemTrayIcon();
-
-    ui->preview_GraphicsView->setScene(this->previewScene);
-    ui->previewCompressed_GraphicsView->setScene(this->compressedPreviewScene);
 
     this->initListWidget();
 
@@ -80,7 +76,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->previewCompressed_GraphicsView->verticalScrollBar(), &QAbstractSlider::valueChanged, ui->preview_GraphicsView, &QZoomGraphicsView::setVerticalScrollBarValue);
     connect(keepDatesButtonGroup, &QButtonGroup::buttonClicked, this, &MainWindow::keepDatesButtonGroupClicked);
 
-    connect(this->previewWatcher, &QFutureWatcher<QPixmap>::resultReadyAt, this, &MainWindow::showPreview);
+    connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::resultReadyAt, this, &MainWindow::showPreview);
+    connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::finished, this, &MainWindow::previewFinished);
+    connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::canceled, this, &MainWindow::previewCanceled);
     this->readSettings();
 
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
@@ -113,8 +111,6 @@ MainWindow::~MainWindow()
 
     delete proxyModel;
     delete cImageModel;
-    delete previewScene;
-    delete compressedPreviewScene;
     delete aboutDialog;
     delete keepDatesButtonGroup;
     delete compressionWatcher;
@@ -360,32 +356,49 @@ void MainWindow::previewImage(const QModelIndex& imageIndex)
     if (!settings.value("mainwindow/previews_visible", false).toBool()) {
         return;
     }
-    this->previewScene->clear();
-    this->compressedPreviewScene->clear();
+    ui->preview_GraphicsView->removePixmap();
+    ui->previewCompressed_GraphicsView->removePixmap();
 
     ui->preview_GraphicsView->resetScaleFactor();
     ui->preview_GraphicsView->setLoading(true);
-    this->previewScene->invalidate(QRect(), QGraphicsScene::ForegroundLayer);
+    ui->originalImageSize_Label->setLoading(true);
     ui->previewCompressed_GraphicsView->resetScaleFactor();
 
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
-    QStringList images = QStringList() << cImage->getFullPath();
+    bool autoPreview = QSettings().value("mainwindow/auto_preview", false).toBool();
+    QString imageToBePreviewed = autoPreview ? cImage->getTemporaryPreviewFullPath() : cImage->getCompressedFullPath();
+    QList<std::pair<QString, bool>> images;
+    images.append(std::pair<QString, bool>(cImage->getFullPath(), false));
 
-    std::function<QPixmap(const QString&)> loadPixmap = [](const QString& imageFileName) {
-        QPixmap image(imageFileName);
-        return image;
+    // TODO Manage failure better
+    std::function<ImagePreview(std::pair<QString, bool>)> loadPixmap = [this, autoPreview, cImage](std::pair<QString, bool> pair) {
+        QString previewFullPath = pair.first;
+        ImagePreview imagePreview;
+        if (pair.second && autoPreview && !QFileInfo::exists(previewFullPath)) {
+            bool result = cImage->preview(this->getCompressionOptions(this->importedFilesRootFolder));
+            if (!result) {
+                previewFullPath = cImage->getCompressedFullPath();
+            }
+        }
+        QPixmap image(previewFullPath);
+        imagePreview.image = image;
+        imagePreview.fileInfo = QFileInfo(previewFullPath);
+        return imagePreview;
     };
 
-    if (!cImage->getCompressedFullPath().isEmpty()) {
-        images.append(cImage->getCompressedFullPath());
+    if (!cImage->getCompressedFullPath().isEmpty() || autoPreview) {
+        images.append(std::pair<QString, bool>(imageToBePreviewed, true));
         ui->previewCompressed_GraphicsView->setLoading(true);
-        this->compressedPreviewScene->invalidate(QRect(), QGraphicsScene::ForegroundLayer);
+        ui->compressedImageSize_Label->setLoading(true);
     } else {
         ui->previewCompressed_GraphicsView->setLoading(false);
-        this->compressedPreviewScene->setSceneRect(this->previewScene->itemsBoundingRect());
-        ui->previewCompressed_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ui->compressedImageSize_Label->setLoading(false);
+        ui->previewCompressed_GraphicsView->scene()->setSceneRect(ui->previewCompressed_GraphicsView->scene()->itemsBoundingRect());
+        ui->previewCompressed_GraphicsView->fitInView(ui->previewCompressed_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->previewCompressed_GraphicsView->show();
     }
+    ui->preview_GraphicsView->setZoomEnabled(false);
+    ui->previewCompressed_GraphicsView->setZoomEnabled(false);
 
     this->previewWatcher->setFuture(QtConcurrent::mapped(images, loadPixmap));
 }
@@ -442,7 +455,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
         this->updateFolderMap(std::move(baseFolder), (int)list.count());
         QString rootFolder = getRootFolder(this->folderMap);
         this->cImageModel->appendItems(list, rootFolder);
-        this->importedFilesRootFolder = getRootFolder(this->folderMap);
+        this->importedFilesRootFolder = rootFolder;
     }
 
     progressDialog.setValue(listLength);
@@ -468,11 +481,11 @@ void MainWindow::removeFiles(bool all)
         this->updateFolderMap(this->cImageModel->getRootItem()->children().at(indexRow)->getCImage()->getFullPath(), -1);
         this->cImageModel->removeRows(indexRow, 1, indexParent);
     }
-    this->previewScene->clear();
-    this->compressedPreviewScene->clear();
-    this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
-    this->previewScene->setSceneRect(this->compressedPreviewScene->itemsBoundingRect());
-    ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+    this->previewWatcher->cancel();
+    ui->preview_GraphicsView->removePixmap();
+    ui->previewCompressed_GraphicsView->removePixmap();
+    ui->preview_GraphicsView->scene()->setSceneRect(ui->preview_GraphicsView->scene()->itemsBoundingRect());
+    ui->previewCompressed_GraphicsView->scene()->setSceneRect(ui->previewCompressed_GraphicsView->scene()->itemsBoundingRect());
     this->isItemRemovalRunning = false;
 }
 
@@ -541,6 +554,21 @@ void MainWindow::startCompression()
     connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, ui->compression_ProgressBar, &QProgressBar::setValue);
     connect(ui->cancelCompression_Button, &QPushButton::clicked, this, &MainWindow::compressionCanceled);
 
+    CompressionOptions compressionOptions = this->getCompressionOptions(rootFolder);
+
+    this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compress(compressionOptions));
+    compressionSummary.totalImages = this->cImageModel->rowCount();
+    compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
+    compressionSummary.totalCompressedSize = 0;
+    compressionSummary.elapsedTime = 0;
+
+    this->toggleUIEnabled(false);
+
+    compressionTimer.start();
+}
+
+CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
+{
     FileDatesOutputOption datesMap = {
         ui->keepCreationDate_CheckBox->isChecked(),
         ui->keepLastModifiedDate_CheckBox->isChecked(),
@@ -568,15 +596,7 @@ void MainWindow::startCompression()
         datesMap
     };
 
-    this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compress(compressionOptions));
-    compressionSummary.totalImages = this->cImageModel->rowCount();
-    compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
-    compressionSummary.totalCompressedSize = 0;
-    compressionSummary.elapsedTime = 0;
-
-    this->toggleUIEnabled(false);
-
-    compressionTimer.start();
+    return compressionOptions;
 }
 
 void MainWindow::on_actionAdd_folder_triggered()
@@ -609,6 +629,8 @@ void MainWindow::closeEvent(QCloseEvent* event)
     }
 
     this->writeSettings();
+    this->clearCache();
+    this->previewWatcher->waitForFinished();
     qInfo() << "---- Closing application ----";
     event->accept();
 }
@@ -643,8 +665,10 @@ void MainWindow::imageList_selectionChanged()
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
     if (this->selectedCount == 0) {
-        this->previewScene->clear();
-        this->compressedPreviewScene->clear();
+        ui->preview_GraphicsView->removePixmap();
+        ui->originalImageSize_Label->clear();
+        ui->previewCompressed_GraphicsView->removePixmap();
+        ui->compressedImageSize_Label->clear();
         return;
     }
 
@@ -887,11 +911,11 @@ void MainWindow::initUpdater()
 
 #ifdef Q_OS_WIN
     QStringList possibleKeys = {
-            R"(HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
-            R"(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
-            R"(HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall)",
-            R"(HKEY_CURRENT_USER\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall)",
-        };
+        R"(HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
+        R"(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
+        R"(HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall)",
+        R"(HKEY_CURRENT_USER\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall)",
+    };
     QStringListIterator keysIterator(possibleKeys);
     QString uninstallExecutable = "";
     while (keysIterator.hasNext()) {
@@ -908,7 +932,7 @@ void MainWindow::initUpdater()
         return;
     }
     QFileInfo uninstallExecutableInfo(uninstallExecutable);
-    //Something is installed, but we check if we are running from the same path as the uninstallation executable
+    // Something is installed, but we check if we are running from the same path as the uninstallation executable
     if (!uninstallExecutableInfo.exists() || uninstallExecutableInfo.absolutePath().compare(QCoreApplication::applicationDirPath()) != 0) {
         qInfo() << "Updater not initialized: probably running on a portable version.";
         return;
@@ -1042,19 +1066,22 @@ void MainWindow::listContextMenuAboutToShow()
 
 void MainWindow::showPreview(int index)
 {
+    ImagePreview imagePreview = previewWatcher->resultAt(index);
     if (index == 0) {
         ui->preview_GraphicsView->setLoading(false);
-        this->previewScene->addPixmap(previewWatcher->resultAt(index));
-        this->previewScene->setSceneRect(this->previewScene->itemsBoundingRect());
-        ui->preview_GraphicsView->fitInView(this->previewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ui->originalImageSize_Label->setLoading(false);
+        ui->preview_GraphicsView->showPixmap(imagePreview.image);
+        ui->originalImageSize_Label->setText(toHumanSize((double)imagePreview.fileInfo.size()));
+        ui->preview_GraphicsView->fitInView(ui->preview_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->preview_GraphicsView->show();
     }
 
     if (index == 1) {
         ui->previewCompressed_GraphicsView->setLoading(false);
-        this->compressedPreviewScene->addPixmap(previewWatcher->resultAt(index));
-        this->compressedPreviewScene->setSceneRect(this->compressedPreviewScene->itemsBoundingRect());
-        ui->previewCompressed_GraphicsView->fitInView(this->compressedPreviewScene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ui->compressedImageSize_Label->setLoading(false);
+        ui->previewCompressed_GraphicsView->showPixmap(imagePreview.image);
+        ui->compressedImageSize_Label->setText(toHumanSize((double)imagePreview.fileInfo.size()));
+        ui->previewCompressed_GraphicsView->fitInView(ui->previewCompressed_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->previewCompressed_GraphicsView->show();
     }
 }
@@ -1137,3 +1164,28 @@ void MainWindow::on_actionAuto_preview_toggled(bool toggled)
     this->writeSetting("mainwindow/auto_preview", toggled);
 }
 
+void MainWindow::previewFinished()
+{
+    ui->preview_GraphicsView->setZoomEnabled(true);
+    ui->previewCompressed_GraphicsView->setZoomEnabled(true);
+}
+
+void MainWindow::clearCache()
+{
+    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    if (!cacheDir.exists()) {
+        return;
+    }
+
+    foreach (QString cacheFile, cacheDir.entryList()) {
+        cacheDir.remove(cacheFile);
+    }
+}
+
+void MainWindow::previewCanceled()
+{
+    ui->preview_GraphicsView->setLoading(false);
+    ui->originalImageSize_Label->setLoading(false);
+    ui->previewCompressed_GraphicsView->setLoading(false);
+    ui->compressedImageSize_Label->setLoading(false);
+}
