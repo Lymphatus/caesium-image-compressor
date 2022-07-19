@@ -346,11 +346,11 @@ void MainWindow::readSettings()
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
 
-void MainWindow::previewImage(const QModelIndex& imageIndex)
+void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePreview)
 {
     if (this->previewWatcher->isRunning()) {
         this->previewWatcher->cancel();
-        this->previewWatcher->waitForFinished();
+//        this->previewWatcher->waitForFinished();
     }
     QSettings settings;
     if (!settings.value("mainwindow/previews_visible", false).toBool()) {
@@ -365,16 +365,15 @@ void MainWindow::previewImage(const QModelIndex& imageIndex)
     ui->previewCompressed_GraphicsView->resetScaleFactor();
 
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
-    bool autoPreview = QSettings().value("mainwindow/auto_preview", false).toBool();
-    QString imageToBePreviewed = autoPreview ? cImage->getTemporaryPreviewFullPath() : cImage->getCompressedFullPath();
+    QString imageToBePreviewed = forceRuntimePreview ? cImage->getTemporaryPreviewFullPath() : cImage->getCompressedFullPath();
     QList<std::pair<QString, bool>> images;
     images.append(std::pair<QString, bool>(cImage->getFullPath(), false));
 
     // TODO Manage failure better
-    std::function<ImagePreview(std::pair<QString, bool>)> loadPixmap = [this, autoPreview, cImage](std::pair<QString, bool> pair) {
+    std::function<ImagePreview(std::pair<QString, bool>)> loadPixmap = [this, forceRuntimePreview, cImage](std::pair<QString, bool> pair) {
         QString previewFullPath = pair.first;
         ImagePreview imagePreview;
-        if (pair.second && autoPreview && !QFileInfo::exists(previewFullPath)) {
+        if (pair.second && forceRuntimePreview && !QFileInfo::exists(previewFullPath)) {
             bool result = cImage->preview(this->getCompressionOptions(this->importedFilesRootFolder));
             if (!result) {
                 previewFullPath = cImage->getCompressedFullPath();
@@ -386,7 +385,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex)
         return imagePreview;
     };
 
-    if (!cImage->getCompressedFullPath().isEmpty() || autoPreview) {
+    if (!cImage->getCompressedFullPath().isEmpty() || forceRuntimePreview) {
         images.append(std::pair<QString, bool>(imageToBePreviewed, true));
         ui->previewCompressed_GraphicsView->setLoading(true);
         ui->compressedImageSize_Label->setLoading(true);
@@ -664,6 +663,7 @@ void MainWindow::imageList_selectionChanged()
     ui->removeFiles_Button->setDisabled(this->selectedCount == 0);
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
+    ui->actionPreview->setEnabled(this->selectedCount == 1);
     if (this->selectedCount == 0) {
         ui->preview_GraphicsView->removePixmap();
         ui->originalImageSize_Label->clear();
@@ -678,7 +678,8 @@ void MainWindow::imageList_selectionChanged()
         return;
     }
 
-    this->previewImage(this->proxyModel->mapToSource(currentIndex));
+    bool autoPreview = QSettings().value("mainwindow/auto_preview", false).toBool();
+    this->previewImage(this->proxyModel->mapToSource(currentIndex), autoPreview);
 }
 
 void MainWindow::compressionFinished()
@@ -966,8 +967,9 @@ void MainWindow::on_actionShow_previews_toggled(bool toggled)
     } else {
         QSettings settings;
         ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
-        if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
-            this->previewImage(this->proxyModel->mapToSource(ui->imageList_TreeView->selectionModel()->selectedRows().at(0)));
+        if (this->selectedCount == 1) {
+            bool autoPreview = QSettings().value("mainwindow/auto_preview", false).toBool();
+            this->previewImage(this->proxyModel->mapToSource(this->selectedIndexes.at(0)), autoPreview);
         }
     }
 }
@@ -1189,3 +1191,19 @@ void MainWindow::previewCanceled()
     ui->previewCompressed_GraphicsView->setLoading(false);
     ui->compressedImageSize_Label->setLoading(false);
 }
+
+void MainWindow::on_actionPreview_triggered()
+{
+    if (this->selectedCount != 1) {
+        return;
+    }
+
+    auto currentIndex = this->selectedIndexes.at(0);
+
+    if (currentIndex.row() == -1) {
+        return;
+    }
+
+    this->previewImage(this->proxyModel->mapToSource(currentIndex), true);
+}
+

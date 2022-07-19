@@ -91,6 +91,8 @@ private slots:
     void updateCompressionProgressLabel(int value);
     void on_actionAuto_preview_toggled(bool toggled);
 
+    void on_actionPreview_triggered();
+
 private:
     Ui::MainWindow* ui;
 
@@ -128,7 +130,7 @@ private:
     void writeSettings();
     void writeSetting(const QString& key, const QVariant& value);
     void readSettings();
-    void previewImage(const QModelIndex& imageIndex);
+    void previewImage(const QModelIndex& imageIndex, bool forceRuntimePreview = false);
     void updateFolderMap(QString baseFolder, int count);
     CompressionOptions getCompressionOptions(QString rootFolder);
     void clearCache();

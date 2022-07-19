@@ -1205,6 +1205,8 @@
      <addaction name="actionToolbarIcons_and_Text"/>
      <addaction name="actionToolbarHide"/>
     </widget>
+    <addaction name="actionPreview"/>
+    <addaction name="separator"/>
     <addaction name="actionShow_previews"/>
     <addaction name="actionAuto_preview"/>
     <addaction name="separator"/>
@@ -1255,6 +1257,7 @@
    <addaction name="actionRemove"/>
    <addaction name="actionClear"/>
    <addaction name="separator"/>
+   <addaction name="actionPreview"/>
    <addaction name="actionCompress"/>
    <addaction name="separator"/>
    <addaction name="actionPreferences"/>
@@ -1429,6 +1432,18 @@
    </property>
    <property name="text">
     <string>Auto preview</string>
+   </property>
+  </action>
+  <action name="actionPreview">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources/resources.qrc">
+     <normaloff>:/icons/ui/preview.svg</normaloff>:/icons/ui/preview.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Preview</string>
    </property>
   </action>
  </widget>
