@@ -350,7 +350,6 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
 {
     if (this->previewWatcher->isRunning()) {
         this->previewWatcher->cancel();
-//        this->previewWatcher->waitForFinished();
     }
     QSettings settings;
     if (!settings.value("mainwindow/previews_visible", false).toBool()) {
@@ -363,6 +362,8 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
     ui->preview_GraphicsView->setLoading(true);
     ui->originalImageSize_Label->setLoading(true);
     ui->previewCompressed_GraphicsView->resetScaleFactor();
+
+    ui->actionPreview->setEnabled(false);
 
     CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
     QString imageToBePreviewed = forceRuntimePreview ? cImage->getTemporaryPreviewFullPath() : cImage->getCompressedFullPath();
@@ -663,7 +664,7 @@ void MainWindow::imageList_selectionChanged()
     ui->removeFiles_Button->setDisabled(this->selectedCount == 0);
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
-    ui->actionPreview->setEnabled(this->selectedCount == 1);
+    ui->actionPreview->setEnabled(this->selectedCount == 1 && !this->previewWatcher->isRunning());
     if (this->selectedCount == 0) {
         ui->preview_GraphicsView->removePixmap();
         ui->originalImageSize_Label->clear();
@@ -1170,6 +1171,7 @@ void MainWindow::previewFinished()
 {
     ui->preview_GraphicsView->setZoomEnabled(true);
     ui->previewCompressed_GraphicsView->setZoomEnabled(true);
+    ui->actionPreview->setEnabled(this->selectedCount == 1);
 }
 
 void MainWindow::clearCache()
