@@ -64,9 +64,9 @@ private slots:
     void on_lossless_CheckBox_toggled(bool checked);
     void on_keepMetadata_CheckBox_toggled(bool checked);
     void on_JPEGQuality_Slider_valueChanged(int value);
-    void on_PNGLevel_Slider_valueChanged(int value);
+    void on_PNGQuality_Slider_valueChanged(int value);
     void on_JPEGQuality_SpinBox_valueChanged(int arg1);
-    void on_PNGLevel_SpinBox_valueChanged(int arg1);
+    void on_PNGQuality_SpinBox_valueChanged(int arg1);
     void cModelItemsChanged();
     void showListContextMenu(const QPoint& pos);
     void on_actionShow_previews_toggled(bool arg1);

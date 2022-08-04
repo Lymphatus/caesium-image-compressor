@@ -228,8 +228,8 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
     CCSParameters r_parameters = {
         keepMetadata,
         static_cast<unsigned int>(compressionOptions.jpeg_quality),
-        static_cast<unsigned int>(compressionOptions.png_level),
-        false,
+        static_cast<unsigned int>(compressionOptions.png_quality),
+        true,
         20,
         static_cast<unsigned int>(compressionOptions.webp_quality),
         lossless,

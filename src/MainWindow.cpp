@@ -276,7 +276,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/keep_metadata", ui->keepMetadata_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_structure", ui->keepStructure_CheckBox->isChecked());
     settings.setValue("compression_options/compression/jpeg_quality", ui->JPEGQuality_Slider->value());
-    settings.setValue("compression_options/compression/png_level", ui->PNGLevel_Slider->value());
+    settings.setValue("compression_options/compression/png_quality", ui->PNGQuality_Slider->value());
     settings.setValue("compression_options/compression/webp_quality", ui->WebPQuality_Slider->value());
 
     settings.setValue("compression_options/resize/resize", ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
@@ -300,8 +300,7 @@ void MainWindow::writeSettings()
 
 void MainWindow::writeSetting(const QString& key, const QVariant& value)
 {
-    QSettings settings;
-    settings.setValue(key, value);
+    QSettings().setValue(key, value);
 }
 
 void MainWindow::readSettings()
@@ -324,7 +323,7 @@ void MainWindow::readSettings()
     ui->keepMetadata_CheckBox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
     ui->keepStructure_CheckBox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
     ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
-    ui->PNGLevel_SpinBox->setValue(settings.value("compression_options/compression/png_level", 3).toInt());
+    ui->PNGQuality_SpinBox->setValue(settings.value("compression_options/compression/png_quality", 80).toInt());
     ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     ui->WebPQuality_SpinBox->setValue(settings.value("compression_options/compression/webp_quality", 60).toInt());
 
@@ -590,7 +589,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->doNotEnlarge_CheckBox->isChecked(),
         ui->sameOutputFolderAsInput_CheckBox->isChecked(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
-        qBound(ui->PNGLevel_Slider->value(), 1, 7),
+        qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
         ui->keepDates_CheckBox->checkState() != Qt::Unchecked,
         datesMap
@@ -871,14 +870,14 @@ void MainWindow::on_JPEGQuality_SpinBox_valueChanged(int value)
     this->writeSetting("compression_options/compression/jpeg_quality", value);
 }
 
-void MainWindow::on_PNGLevel_Slider_valueChanged(int value)
+void MainWindow::on_PNGQuality_Slider_valueChanged(int value)
 {
-    this->writeSetting("compression_options/compression/png_level", value);
+    this->writeSetting("compression_options/compression/png_quality", value);
 }
 
-void MainWindow::on_PNGLevel_SpinBox_valueChanged(int value)
+void MainWindow::on_PNGQuality_SpinBox_valueChanged(int value)
 {
-    this->writeSetting("compression_options/compression/png_level", value);
+    this->writeSetting("compression_options/compression/png_quality", value);
 }
 
 void MainWindow::cModelItemsChanged()

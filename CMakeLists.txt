@@ -179,11 +179,12 @@ endif ()
 ExternalProject_Add(
         libcaesium
         GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG 0.8.3
+        GIT_TAG 0.9.0
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
         INSTALL_COMMAND ""
         BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
+        LOG_OUTPUT_ON_FAILURE ON
         LOG_BUILD ON
         BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-msvc/${LIBCAESIUM_BUILD_TYPE}/caesium.dll.lib
 )
@@ -198,7 +199,8 @@ if (WIN32)
             CONFIGURE_COMMAND ""
             BUILD_COMMAND ""
             INSTALL_COMMAND cmake -E echo "Skipping install step."
-            LOG_BUILD ON
+            LOG_DOWNLOAD OFF
+            LOG_OUTPUT_ON_FAILURE ON
     )
     add_dependencies(caesium_image_compressor libwinsparkle)
 endif ()

@@ -9,7 +9,7 @@
 struct CCSParameters {
     bool keep_metadata;
     unsigned int jpeg_quality;
-    unsigned int png_level;
+    unsigned int png_quality;
     bool png_force_zopfli;
     unsigned int gif_quality;
     unsigned int webp_quality;

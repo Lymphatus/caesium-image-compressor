@@ -70,7 +70,7 @@ typedef struct CompressionOptions {
     bool doNotEnlarge;
     bool sameFolderAsInput;
     int jpeg_quality;
-    int png_level;
+    int png_quality;
     int webp_quality;
     bool keepDates;
     FileDatesOutputOption datesMap;

@@ -327,6 +327,25 @@
                   <property name="spacing">
                    <number>6</number>
                   </property>
+                  <item row="0" column="2">
+                   <widget class="QSpinBox" name="PNGQuality_SpinBox">
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="buttonSymbols">
+                     <enum>QAbstractSpinBox::NoButtons</enum>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>80</number>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="1">
                    <spacer name="horizontalSpacer_4">
                     <property name="orientation">
@@ -340,19 +359,20 @@
                     </property>
                    </spacer>
                   </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="PNGQuality_Label">
+                    <property name="text">
+                     <string>Quality</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="1" column="0" colspan="3">
-                   <widget class="QSlider" name="PNGLevel_Slider">
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
+                   <widget class="QSlider" name="PNGQuality_Slider">
                     <property name="maximum">
-                     <number>7</number>
-                    </property>
-                    <property name="pageStep">
-                     <number>1</number>
+                     <number>100</number>
                     </property>
                     <property name="value">
-                     <number>4</number>
+                     <number>80</number>
                     </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -361,33 +381,7 @@
                      <enum>QSlider::TicksBelow</enum>
                     </property>
                     <property name="tickInterval">
-                     <number>1</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QSpinBox" name="PNGLevel_SpinBox">
-                    <property name="minimumSize">
-                     <size>
-                      <width>40</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="buttonSymbols">
-                     <enum>QAbstractSpinBox::NoButtons</enum>
-                    </property>
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>7</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="PNGLevel_Label">
-                    <property name="text">
-                     <string>Level</string>
+                     <number>10</number>
                     </property>
                    </widget>
                   </item>
@@ -1570,38 +1564,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>PNGLevel_Slider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>PNGLevel_SpinBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1231</x>
-     <y>272</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1231</x>
-     <y>242</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>PNGLevel_SpinBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>PNGLevel_Slider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1231</x>
-     <y>242</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1231</x>
-     <y>272</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>lossless_CheckBox</sender>
    <signal>toggled(bool)</signal>
    <receiver>PNGOptions_GroupBox</receiver>
@@ -1678,6 +1640,38 @@
     <hint type="destinationlabel">
      <x>635</x>
      <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PNGQuality_Slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>PNGQuality_SpinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>882</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1204</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PNGQuality_SpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>PNGQuality_Slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1196</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1025</x>
+     <y>256</y>
     </hint>
    </hints>
   </connection>
