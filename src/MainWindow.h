@@ -93,6 +93,8 @@ private slots:
 
     void on_actionPreview_triggered();
 
+    void on_skipIfBigger_CheckBox_toggled(bool checked);
+
 private:
     Ui::MainWindow* ui;
 

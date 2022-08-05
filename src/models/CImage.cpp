@@ -182,7 +182,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     if (result.success) {
         QFileInfo outputInfo(tempFileFullPath);
 
-        bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size();
+        bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size() && compressionOptions.skipIfBigger;
 
         if (outputAlreadyExists && !outputIsBiggerThanInput) {
             QFile::remove(outputFullPath);

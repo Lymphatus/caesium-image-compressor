@@ -69,6 +69,7 @@ typedef struct CompressionOptions {
     int size;
     bool doNotEnlarge;
     bool sameFolderAsInput;
+    bool skipIfBigger;
     int jpeg_quality;
     int png_quality;
     int webp_quality;
@@ -94,7 +95,7 @@ typedef struct ImagePreview {
     QFileInfo fileInfo;
 } ImagePreview;
 
-const int LANGUAGES_COUNT = 8;
+const int LANGUAGES_COUNT = 9;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("default"), QString("Default") },
@@ -105,10 +106,11 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("zh_CN"), QString("简体中文") },
     { QString("es_ES"), QString("Español") },
     { QString("ar_EG"), QString("العَرَبِيَّة") },
+    { QString("de_DE"), QString("Deutsch") },
 };
 
 const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
-    0x0, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804, 0x0c0A, 0x0C01
+    0x0, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804, 0x0c0A, 0x0C01, 0x0407
 };
 
 const int THEMES_COUNT = 3;

@@ -197,7 +197,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -883,6 +883,16 @@
                  </property>
                  <property name="text">
                   <string>Keep folder structure</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="skipIfBigger_CheckBox">
+                 <property name="text">
+                  <string>Skip if output size is bigger than the original</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>

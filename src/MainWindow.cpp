@@ -290,6 +290,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/output/output_folder", ui->outputFolder_LineEdit->text());
     settings.setValue("compression_options/output/output_suffix", ui->outputSuffix_LineEdit->text());
     settings.setValue("compression_options/output/same_folder_as_input", ui->sameOutputFolderAsInput_CheckBox->isChecked());
+    settings.setValue("compression_options/output/skip_if_bigger", ui->skipIfBigger_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_dates", ui->keepDates_CheckBox->checkState());
     settings.setValue("compression_options/output/keep_creation_date", ui->keepCreationDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
@@ -337,6 +338,7 @@ void MainWindow::readSettings()
     ui->outputFolder_LineEdit->setText(settings.value("compression_options/output/output_folder", "").toString());
     ui->outputSuffix_LineEdit->setText(settings.value("compression_options/output/output_suffix", "").toString());
     ui->sameOutputFolderAsInput_CheckBox->setChecked(settings.value("compression_options/output/same_folder_as_input", false).toBool());
+    ui->skipIfBigger_CheckBox->setChecked(settings.value("compression_options/output/skip_if_bigger", true).toBool());
     ui->keepDates_CheckBox->setCheckState(settings.value("compression_options/output/keep_dates", Qt::Unchecked).value<Qt::CheckState>());
     ui->keepCreationDate_CheckBox->setChecked(settings.value("compression_options/output/keep_creation_date", false).toBool());
     ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
@@ -588,6 +590,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->edge_SpinBox->value(),
         ui->doNotEnlarge_CheckBox->isChecked(),
         ui->sameOutputFolderAsInput_CheckBox->isChecked(),
+        ui->skipIfBigger_CheckBox->isChecked(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
@@ -1208,3 +1211,7 @@ void MainWindow::on_actionPreview_triggered()
     this->previewImage(this->proxyModel->mapToSource(currentIndex), true);
 }
 
+void MainWindow::on_skipIfBigger_CheckBox_toggled(bool checked)
+{
+    this->writeSetting("compression_options/output/skip_if_bigger", checked);
+}
