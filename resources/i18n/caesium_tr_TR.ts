@@ -297,7 +297,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="875"/>
         <source>Same folder as input</source>
-        <translation>Giriş ile aynı klasör</translation>
+        <translation>Giriş klasörü ile aynı klasör</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="885"/>
