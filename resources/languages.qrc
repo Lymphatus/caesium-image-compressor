@@ -8,5 +8,7 @@
         <file>i18n/caesium_es_ES.qm</file>
         <file>i18n/caesium_ar_EG.qm</file>
         <file>i18n/caesium_de_DE.qm</file>
+        <file>i18n/caesium_ru_RU.qm</file>
+        <file>i18n/caesium_tr_TR.qm</file>
     </qresource>
 </RCC>

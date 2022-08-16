@@ -197,7 +197,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -1104,11 +1104,6 @@
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="compressedImage_Label">
-          <property name="font">
-           <font>
-            <bold>true</bold>
-           </font>
-          </property>
           <property name="text">
            <string>Compressed</string>
           </property>
@@ -1116,11 +1111,6 @@
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="originalImage_Label">
-          <property name="font">
-           <font>
-            <bold>true</bold>
-           </font>
-          </property>
           <property name="text">
            <string>Original</string>
           </property>

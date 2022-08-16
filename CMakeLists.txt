@@ -141,7 +141,9 @@ SET(TS_FILES
         resources/i18n/caesium_ja_JP.ts
         resources/i18n/caesium_es_ES.ts
         resources/i18n/caesium_ar_EG.ts
-        resources/i18n/caesium_de_DE.ts)
+        resources/i18n/caesium_de_DE.ts
+        resources/i18n/caesium_ru_RU.ts
+        resources/i18n/caesium_tr_TR.ts)
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
@@ -180,7 +182,7 @@ endif ()
 ExternalProject_Add(
         libcaesium
         GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG 0.9.0
+        GIT_TAG 0.9.1
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
         INSTALL_COMMAND ""

@@ -158,14 +158,14 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="146"/>
-        <location filename="../../views/MainWindow.ui" line="1318"/>
+        <location filename="../../views/MainWindow.ui" line="1308"/>
         <source>Remove</source>
         <translation>Remove</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="179"/>
-        <location filename="../../views/MainWindow.ui" line="1395"/>
-        <location filename="../../views/MainWindow.ui" line="1398"/>
+        <location filename="../../views/MainWindow.ui" line="1385"/>
+        <location filename="../../views/MainWindow.ui" line="1388"/>
         <source>Compress</source>
         <translation>Compress</translation>
     </message>
@@ -335,145 +335,145 @@ Saved: %4 (%5%)</translation>
         <translation>Suffix</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1125"/>
+        <location filename="../../views/MainWindow.ui" line="1115"/>
         <source>Original</source>
         <translation>Original</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1450"/>
+        <location filename="../../views/MainWindow.ui" line="1440"/>
         <source>Preview</source>
         <translation>Preview</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1113"/>
+        <location filename="../../views/MainWindow.ui" line="1108"/>
         <source>Compressed</source>
         <translation>Compressed</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1174"/>
+        <location filename="../../views/MainWindow.ui" line="1164"/>
         <source>Help</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1182"/>
+        <location filename="../../views/MainWindow.ui" line="1172"/>
         <source>File</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1191"/>
+        <location filename="../../views/MainWindow.ui" line="1181"/>
         <source>Edit</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1202"/>
+        <location filename="../../views/MainWindow.ui" line="1192"/>
         <source>View</source>
         <translation>View</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1206"/>
-        <location filename="../../views/MainWindow.ui" line="1229"/>
+        <location filename="../../views/MainWindow.ui" line="1196"/>
+        <location filename="../../views/MainWindow.ui" line="1219"/>
         <source>Toolbar</source>
         <translation>Toolbar</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1271"/>
+        <location filename="../../views/MainWindow.ui" line="1261"/>
         <source>About Caesium Image Compressor</source>
         <translation>About Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1283"/>
+        <location filename="../../views/MainWindow.ui" line="1273"/>
         <source>Add files...</source>
         <translation>Add files...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1286"/>
+        <location filename="../../views/MainWindow.ui" line="1276"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1295"/>
+        <location filename="../../views/MainWindow.ui" line="1285"/>
         <source>Add folder...</source>
         <translation>Add folder...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1298"/>
+        <location filename="../../views/MainWindow.ui" line="1288"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1303"/>
+        <location filename="../../views/MainWindow.ui" line="1293"/>
         <location filename="../../src/MainWindow.cpp" line="157"/>
         <source>Exit</source>
         <translation>Exit</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1321"/>
+        <location filename="../../views/MainWindow.ui" line="1311"/>
         <source>Del</source>
         <translatorcomment>Delete key on keyboard</translatorcomment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1326"/>
+        <location filename="../../views/MainWindow.ui" line="1316"/>
         <source>Select All</source>
         <translation>Select All</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1329"/>
+        <location filename="../../views/MainWindow.ui" line="1319"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1341"/>
+        <location filename="../../views/MainWindow.ui" line="1331"/>
         <source>Clear</source>
         <translation>Clear</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1352"/>
+        <location filename="../../views/MainWindow.ui" line="1342"/>
         <source>Show previews</source>
         <translation>Show previews</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1361"/>
+        <location filename="../../views/MainWindow.ui" line="1351"/>
         <source>Preferences...</source>
         <translation>Preferences...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1369"/>
+        <location filename="../../views/MainWindow.ui" line="1359"/>
         <source>Show original in file manager</source>
         <translation>Show original in file manager</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1374"/>
+        <location filename="../../views/MainWindow.ui" line="1364"/>
         <source>Show compressed in file manager</source>
         <translation>Show compressed in file manager</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1383"/>
+        <location filename="../../views/MainWindow.ui" line="1373"/>
         <source>Donate</source>
         <translation>Donate</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1409"/>
+        <location filename="../../views/MainWindow.ui" line="1399"/>
         <source>Icons</source>
         <translation>Icons</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1417"/>
+        <location filename="../../views/MainWindow.ui" line="1407"/>
         <source>Icons and Text</source>
         <translation>Icons and Text</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1425"/>
+        <location filename="../../views/MainWindow.ui" line="1415"/>
         <source>Hide</source>
         <translation>Hide</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1430"/>
+        <location filename="../../views/MainWindow.ui" line="1420"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1438"/>
+        <location filename="../../views/MainWindow.ui" line="1428"/>
         <source>Auto preview</source>
         <translation>Auto Preview</translation>
     </message>
