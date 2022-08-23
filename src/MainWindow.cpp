@@ -23,6 +23,7 @@
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
 #include "./updater/osx/SparkleAutoUpdater.h"
+#include "exceptions/ImageTooBigException.h"
 #endif
 
 #ifdef Q_OS_WIN
@@ -446,7 +447,9 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             }
             list.append(cImage);
         } catch (ImageNotSupportedException& e) {
-            qWarning() << fileList.at(i) << "is not supported";
+            qWarning() << fileList.at(i) << "is not supported. Error:" << e.what();
+        } catch (ImageTooBigException& e) {
+            qWarning() << fileList.at(i) << "is too big. Error:" << e.what();
         }
 
         progressDialog.setValue(i);
