@@ -1118,8 +1118,8 @@
         </item>
         <item row="0" column="3">
          <widget class="QLoadingLabel" name="compressedImageSize_Label">
-          <property name="text">
-           <string/>
+          <property name="textFormat">
+           <enum>Qt::RichText</enum>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

@@ -352,6 +352,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
 {
     if (this->previewWatcher->isRunning()) {
         this->previewWatcher->cancel();
+        this->previewWatcher->waitForFinished();
     }
     QSettings settings;
     if (!settings.value("mainwindow/previews_visible", false).toBool()) {
@@ -376,7 +377,9 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
     std::function<ImagePreview(std::pair<QString, bool>)> loadPixmap = [this, forceRuntimePreview, cImage](std::pair<QString, bool> pair) {
         QString previewFullPath = pair.first;
         ImagePreview imagePreview;
+        bool isOnFlyPreview = false;
         if (pair.second && forceRuntimePreview && !QFileInfo::exists(previewFullPath)) {
+            isOnFlyPreview = true;
             bool result = cImage->preview(this->getCompressionOptions(this->importedFilesRootFolder));
             if (!result) {
                 previewFullPath = cImage->getCompressedFullPath();
@@ -385,6 +388,8 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         QPixmap image(previewFullPath);
         imagePreview.image = image;
         imagePreview.fileInfo = QFileInfo(previewFullPath);
+        imagePreview.originalSize = cImage->getOriginalSize();
+        imagePreview.isOnFlyPreview = isOnFlyPreview;
         return imagePreview;
     };
 
@@ -670,6 +675,8 @@ void MainWindow::imageList_selectionChanged()
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionPreview->setEnabled(this->selectedCount == 1 && !this->previewWatcher->isRunning());
+    ui->originalImageSize_Label->setText("");
+    ui->compressedImageSize_Label->setText("");
     if (this->selectedCount == 0) {
         ui->preview_GraphicsView->removePixmap();
         ui->originalImageSize_Label->clear();
@@ -1085,10 +1092,26 @@ void MainWindow::showPreview(int index)
     }
 
     if (index == 1) {
+        auto originalSize = (double)imagePreview.originalSize;
+        auto currentSize = (double)imagePreview.fileInfo.size();
+        QString icon = "=";
+        QString color = "#14b8a6";
+        if (currentSize < originalSize) {
+            icon = "⬇";
+            color = "#22c55e";
+        } else if (currentSize > originalSize) {
+            icon = "⬆︎";
+            color = "#ef4444";
+        }
+        QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
+        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4)").arg(color, icon, toHumanSize(currentSize), ratio);
+        if (imagePreview.isOnFlyPreview) {
+            labelTextPrefix += " (" + tr("Preview") + ")";
+        }
         ui->previewCompressed_GraphicsView->setLoading(false);
         ui->compressedImageSize_Label->setLoading(false);
         ui->previewCompressed_GraphicsView->showPixmap(imagePreview.image);
-        ui->compressedImageSize_Label->setText(toHumanSize((double)imagePreview.fileInfo.size()));
+        ui->compressedImageSize_Label->setText(labelTextPrefix);
         ui->previewCompressed_GraphicsView->fitInView(ui->previewCompressed_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->previewCompressed_GraphicsView->show();
     }

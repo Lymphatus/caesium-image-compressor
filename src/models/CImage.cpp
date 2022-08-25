@@ -22,7 +22,7 @@ CImage::CImage(const QString& path)
     this->extension = fileInfo.suffix();
     this->size = fileInfo.size();
 
-    if (this->size > 104857600) {
+    if (this->size > 209715200) {
         throw ImageTooBigException();
     }
 

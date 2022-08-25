@@ -93,6 +93,8 @@ typedef struct CompressionSummary {
 typedef struct ImagePreview {
     QPixmap image;
     QFileInfo fileInfo;
+    size_t originalSize;
+    bool isOnFlyPreview;
 } ImagePreview;
 
 const int LANGUAGES_COUNT = 11;
