@@ -580,7 +580,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="120"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>Die Daten werden nur für Supportzwecke gesammelt. Keine Weitergabe an Dritte</translation>
+        <translation>Die Daten werden nur für Supportzwecke gesammelt. Keine Weitergabe an Dritte.</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
@@ -613,7 +613,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="165"/>
         <source>Temporary file creation failed</source>
-        <translation>Fehler beim Anlegen der Temporärdatei.</translation>
+        <translation>Fehler beim Anlegen der Temporärdatei</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="196"/>
