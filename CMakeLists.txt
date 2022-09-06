@@ -61,6 +61,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} LIBCAESIUM_BUILD_TYPE)
 if (WIN32)
     #link_directories(${LIBCAESIUM_SOURCE_DIR}\\target\\x86_64-pc-windows-msvc\\${LIBCAESIUM_BUILD_TYPE})
 else ()
+    
     link_directories(${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE})
 endif ()
 
@@ -176,7 +177,7 @@ endif ()
 
 set(CARGO_TARGET "")
 if (WIN32)
-    set(CARGO_TARGET "--target=x86_64-pc-windows-msvc")
+    set(CARGO_TARGET "--target=x86_64-pc-windows-gnu")
 endif ()
 
 ExternalProject_Add(
@@ -189,7 +190,7 @@ ExternalProject_Add(
         BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
         LOG_OUTPUT_ON_FAILURE ON
         LOG_BUILD ON
-        BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-msvc/${LIBCAESIUM_BUILD_TYPE}/caesium.dll.lib
+        BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll
 )
 
 add_dependencies(caesium_image_compressor libcaesium)
@@ -232,7 +233,7 @@ set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "Caesium Image Compressor
 if (APPLE)
     target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql ${OSX_FRAMEWORKS} caesium)
 elseif (WIN32)
-    target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql winsparkle ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-msvc/${LIBCAESIUM_BUILD_TYPE}/caesium.dll.lib)
+    target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql winsparkle ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll)
 else ()
     target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql caesium)
 endif ()

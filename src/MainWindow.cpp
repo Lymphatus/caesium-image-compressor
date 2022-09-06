@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "./delegates/HtmlDelegate.h"
 #include "./exceptions/ImageNotSupportedException.h"
+#include "exceptions/ImageTooBigException.h"
 #include "ui_MainWindow.h"
 
 #include <QDesktopServices>
@@ -23,7 +24,6 @@
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
 #include "./updater/osx/SparkleAutoUpdater.h"
-#include "exceptions/ImageTooBigException.h"
 #endif
 
 #ifdef Q_OS_WIN
