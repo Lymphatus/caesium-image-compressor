@@ -99,13 +99,13 @@ Do you really want to continue?</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1123"/>
+        <location filename="../../src/MainWindow.cpp" line="1121"/>
         <source>Finishing...</source>
         <translation>Завершение...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="560"/>
-        <location filename="../../src/MainWindow.cpp" line="1190"/>
+        <location filename="../../src/MainWindow.cpp" line="1188"/>
         <source>Compressing...</source>
         <translation>Сжатие...</translation>
     </message>
@@ -126,17 +126,17 @@ Do you really want to continue?</source>
         <translation>Выберите папку для сохранения изображений...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="718"/>
+        <location filename="../../src/MainWindow.cpp" line="716"/>
         <source>Compression finished!</source>
         <translation>Сжатие завершено!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="721"/>
+        <location filename="../../src/MainWindow.cpp" line="719"/>
         <source>You just saved %1!</source>
         <translation>Вы сохранили %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="730"/>
+        <location filename="../../src/MainWindow.cpp" line="728"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -254,8 +254,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="769"/>
-        <location filename="../../src/MainWindow.cpp" line="773"/>
+        <location filename="../../src/MainWindow.cpp" line="767"/>
+        <location filename="../../src/MainWindow.cpp" line="771"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -341,7 +341,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1440"/>
-        <location filename="../../src/MainWindow.cpp" line="1109"/>
+        <location filename="../../src/MainWindow.cpp" line="1107"/>
         <source>Preview</source>
         <translation>Предварительный просмотр</translation>
     </message>
@@ -479,13 +479,13 @@ Saved: %4 (%5%)</source>
         <translation>Авто превью</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="783"/>
-        <location filename="../../src/MainWindow.cpp" line="787"/>
+        <location filename="../../src/MainWindow.cpp" line="781"/>
+        <location filename="../../src/MainWindow.cpp" line="785"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="901"/>
+        <location filename="../../src/MainWindow.cpp" line="899"/>
         <source>images in list</source>
         <translation>Изображения в списке</translation>
     </message>

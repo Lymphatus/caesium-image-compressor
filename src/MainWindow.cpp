@@ -667,6 +667,8 @@ void MainWindow::imageList_selectionChanged()
 {
     this->selectedIndexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
     this->selectedCount = this->selectedIndexes.count() / CIMAGE_COLUMNS_SIZE;
+    ui->originalImageSize_Label->clear();
+    ui->compressedImageSize_Label->clear();
     if (this->isItemRemovalRunning) {
         return;
     }
@@ -675,13 +677,9 @@ void MainWindow::imageList_selectionChanged()
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionPreview->setEnabled(this->selectedCount == 1 && !this->previewWatcher->isRunning());
-    ui->originalImageSize_Label->setText("");
-    ui->compressedImageSize_Label->setText("");
     if (this->selectedCount == 0) {
         ui->preview_GraphicsView->removePixmap();
-        ui->originalImageSize_Label->clear();
         ui->previewCompressed_GraphicsView->removePixmap();
-        ui->compressedImageSize_Label->clear();
         return;
     }
 
@@ -1097,10 +1095,10 @@ void MainWindow::showPreview(int index)
         QString icon = "=";
         QString color = "#14b8a6";
         if (currentSize < originalSize) {
-            icon = "⬇";
+            icon = "↓";
             color = "#22c55e";
         } else if (currentSize > originalSize) {
-            icon = "⬆︎";
+            icon = "↑";
             color = "#ef4444";
         }
         QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
