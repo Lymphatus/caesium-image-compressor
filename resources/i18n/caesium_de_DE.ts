@@ -419,7 +419,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1331"/>
         <source>Clear</source>
-        <translation>Entfernen</translation>
+        <translation>Liste leeren</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1342"/>
