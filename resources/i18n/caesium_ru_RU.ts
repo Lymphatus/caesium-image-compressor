@@ -99,13 +99,13 @@ Do you really want to continue?</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1121"/>
+        <location filename="../../src/MainWindow.cpp" line="1103"/>
         <source>Finishing...</source>
         <translation>Завершение...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="560"/>
-        <location filename="../../src/MainWindow.cpp" line="1188"/>
+        <location filename="../../src/MainWindow.cpp" line="1170"/>
         <source>Compressing...</source>
         <translation>Сжатие...</translation>
     </message>
@@ -341,7 +341,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1440"/>
-        <location filename="../../src/MainWindow.cpp" line="1107"/>
+        <location filename="../../src/MainWindow.cpp" line="1089"/>
         <source>Preview</source>
         <translation>Предварительный просмотр</translation>
     </message>

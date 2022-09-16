@@ -912,6 +912,10 @@ void MainWindow::cModelItemsChanged()
 void MainWindow::initUpdater()
 {
     QSettings settings;
+    bool isPortable = false;
+#ifdef IS_PORTABLE
+    isPortable = true;
+#endif
 #ifdef Q_OS_MAC
     CocoaInitializer initializer;
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
@@ -922,39 +926,17 @@ void MainWindow::initUpdater()
 #endif
 
 #ifdef Q_OS_WIN
-    QStringList possibleKeys = {
-        R"(HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
-        R"(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall)",
-        R"(HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall)",
-        R"(HKEY_CURRENT_USER\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall)",
-    };
-    QStringListIterator keysIterator(possibleKeys);
-    QString uninstallExecutable = "";
-    while (keysIterator.hasNext()) {
-        QSettings winRegistryUninstall(keysIterator.next(), QSettings::Registry64Format);
-        uninstallExecutable = winRegistryUninstall.value("{C457F5B2-65EB-48E9-9744-A3719FEABA4C}_is1/UninstallString", "").toString();
-        if (!uninstallExecutable.isEmpty()) {
-            break;
-        }
+    if (isPortable) {
+        return;
     }
 
-    // Means nothing is installed
-    if (uninstallExecutable.isEmpty()) {
-        qInfo() << "Updater not initialized: no installed Caesium found.";
-        return;
-    }
-    QFileInfo uninstallExecutableInfo(uninstallExecutable);
-    // Something is installed, but we check if we are running from the same path as the uninstallation executable
-    if (!uninstallExecutableInfo.exists() || uninstallExecutableInfo.absolutePath().compare(QCoreApplication::applicationDirPath()) != 0) {
-        qInfo() << "Updater not initialized: probably running on a portable version.";
-        return;
-    }
     int localeIndex = settings.value("preferences/language/locale", 0).toInt();
     if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
         localeIndex = 0;
     }
     if (localeIndex != 0) {
-        win_sparkle_set_langid(WIN32_LANGUAGES[localeIndex]);
+        QString locale = LANGUAGES[localeIndex].locale;
+        win_sparkle_set_lang(locale.replace('_', '-').toUtf8().constData());
     }
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
     win_sparkle_init();

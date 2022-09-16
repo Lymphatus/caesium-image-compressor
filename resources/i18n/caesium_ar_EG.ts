@@ -99,13 +99,13 @@ Do you really want to continue?</source>
         <translation>لا</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1121"/>
+        <location filename="../../src/MainWindow.cpp" line="1103"/>
         <source>Finishing...</source>
         <translation>جاري الإنهاء...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="560"/>
-        <location filename="../../src/MainWindow.cpp" line="1188"/>
+        <location filename="../../src/MainWindow.cpp" line="1170"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
@@ -341,7 +341,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1440"/>
-        <location filename="../../src/MainWindow.cpp" line="1107"/>
+        <location filename="../../src/MainWindow.cpp" line="1089"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>

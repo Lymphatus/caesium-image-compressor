@@ -386,7 +386,7 @@ All rights reserved.</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1440"/>
-        <location filename="../../src/MainWindow.cpp" line="1107"/>
+        <location filename="../../src/MainWindow.cpp" line="1089"/>
         <source>Preview</source>
         <translation>Ön izleme</translation>
     </message>
@@ -425,7 +425,7 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="560"/>
-        <location filename="../../src/MainWindow.cpp" line="1188"/>
+        <location filename="../../src/MainWindow.cpp" line="1170"/>
         <source>Compressing...</source>
         <translation>Sıkıştırılıyor...</translation>
     </message>
@@ -472,7 +472,7 @@ Kaydedildi: %4 (%5%)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1121"/>
+        <location filename="../../src/MainWindow.cpp" line="1103"/>
         <source>Finishing...</source>
         <translation type="unfinished"></translation>
     </message>

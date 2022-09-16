@@ -113,10 +113,6 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("tr_TR"), QString("Türkçe") },
 };
 
-const unsigned short WIN32_LANGUAGES[LANGUAGES_COUNT] = {
-    0x0, 0x0409, 0x0410, 0x040C, 0x0411, 0x0804, 0x0c0A, 0x0C01, 0x0407, 0x0419, 0x041F
-};
-
 const int THEMES_COUNT = 3;
 const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Native"), QString("Native") },

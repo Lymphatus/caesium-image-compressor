@@ -99,13 +99,13 @@ Wollen Sie trotzdem fortfahren</translation>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1121"/>
+        <location filename="../../src/MainWindow.cpp" line="1103"/>
         <source>Finishing...</source>
         <translation>Beende...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="560"/>
-        <location filename="../../src/MainWindow.cpp" line="1188"/>
+        <location filename="../../src/MainWindow.cpp" line="1170"/>
         <source>Compressing...</source>
         <translation>Komprimiere...</translation>
     </message>
@@ -473,7 +473,7 @@ Ersparnis: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1440"/>
-        <location filename="../../src/MainWindow.cpp" line="1107"/>
+        <location filename="../../src/MainWindow.cpp" line="1089"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>

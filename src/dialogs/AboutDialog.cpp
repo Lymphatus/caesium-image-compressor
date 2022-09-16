@@ -22,6 +22,10 @@ AboutDialog::AboutDialog(QWidget* parent)
     ui->version_Label->setText("v" + QCoreApplication::applicationVersion());
     ui->uuid_Label->setText("<small>UUID: " + settings.value("uuid", "").toString() + "</small>");
 
+#ifdef IS_PORTABLE
+    ui->checkForUpdates_Button->hide();
+#endif
+
     this->setAttribute(Qt::WA_DeleteOnClose, true);
     this->setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     this->setWindowModality(Qt::ApplicationModal);

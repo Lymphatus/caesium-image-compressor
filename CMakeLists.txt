@@ -7,6 +7,10 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(TARGET caesium_image_compressor)
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+    if (DEFINED PORTABLE AND PORTABLE)
+        message("-- Configuring for portable")
+        add_compile_definitions(IS_PORTABLE)
+    endif ()
 else ()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
 endif ()
@@ -61,10 +65,9 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} LIBCAESIUM_BUILD_TYPE)
 if (WIN32)
     #link_directories(${LIBCAESIUM_SOURCE_DIR}\\target\\x86_64-pc-windows-msvc\\${LIBCAESIUM_BUILD_TYPE})
 else ()
-    
+
     link_directories(${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE})
 endif ()
-
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network Sql LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Core Gui Concurrent Svg Network Sql LinguistTools REQUIRED)
 
