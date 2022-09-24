@@ -82,7 +82,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="207"/>
         <source>Compression</source>
-        <translation>Sıkıştırmak</translation>
+        <translation>Sıkıştırma</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="227"/>
@@ -474,12 +474,12 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="906"/>
         <source>images in list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">listedeki resimler</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1110"/>
         <source>Finishing...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bitiriliyor...</translation>
     </message>
 </context>
 <context>
@@ -530,12 +530,12 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="251"/>
         <source>Multithreading</source>
-        <translation>Multithreading</translation>
+        <translation>Çoklu kullanım</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="277"/>
         <source>Check updates at startup</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Başlangıçta güncellemeleri kontrol et</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="284"/>
@@ -545,7 +545,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bir dizini açarken dosyaları alt klasörlere aktar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="310"/>
@@ -565,7 +565,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="120"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>Bu veriler, uygulama için en iyi uzun vadeli desteği sağlamak için toplanır. Üçüncü taraflara hiçbir veri gönderilmez.</translation>
+        <translation>Bu veriler, uygulama için uzun vadeli desteği sağlamak adına toplanır. Üçüncü taraflara hiçbir veri gönderilmez.</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
@@ -575,7 +575,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
         <source>Compression data</source>
-        <translation>Sıkıştırma verileri</translation>
+        <translation>Sıkıştırma verisi</translation>
     </message>
 </context>
 <context>

@@ -307,7 +307,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="929"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation>出力サイズが元よりも大きい場合はスキップ</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="946"/>
@@ -342,18 +342,18 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1152"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>圧縮前</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
         <location filename="../../src/MainWindow.cpp" line="1096"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>プレビュー</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1145"/>
         <source>Compressed</source>
-        <translation type="unfinished"></translation>
+        <translation>圧縮後</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1201"/>
@@ -480,7 +480,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1465"/>
         <source>Auto preview</source>
-        <translation type="unfinished"></translation>
+        <translation>自動プレビュー</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="788"/>
