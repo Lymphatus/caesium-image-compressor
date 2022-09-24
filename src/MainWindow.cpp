@@ -58,6 +58,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->keepDatesButtonGroup->addButton(ui->keepLastModifiedDate_CheckBox);
     this->keepDatesButtonGroup->addButton(ui->keepLastAccessDate_CheckBox);
 
+    ui->format_ComboBox->addItems(OUTPUT_SUPPORTED_FORMATS);
+
     this->initStatusBar();
     this->initListContextMenu();
     this->initTrayIconContextMenu();
@@ -81,6 +83,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::finished, this, &MainWindow::previewFinished);
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::canceled, this, &MainWindow::previewCanceled);
     this->readSettings();
+
+    connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
 
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
@@ -296,6 +300,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/output/keep_creation_date", ui->keepCreationDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_last_access_date", ui->keepLastAccessDate_CheckBox->isChecked());
+    settings.setValue("compression_options/output/format", ui->format_ComboBox->currentIndex());
 
     settings.setValue("extra/last_opened_directory", this->lastOpenedDirectory);
 }
@@ -344,6 +349,7 @@ void MainWindow::readSettings()
     ui->keepCreationDate_CheckBox->setChecked(settings.value("compression_options/output/keep_creation_date", false).toBool());
     ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
     ui->keepLastAccessDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_access_date", false).toBool());
+    ui->format_ComboBox->setCurrentIndex(settings.value("compression_options/output/format", 0).toInt());
 
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
@@ -588,6 +594,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->outputFolder_LineEdit->text(),
         rootFolder,
         ui->outputSuffix_LineEdit->text(),
+        ui->format_ComboBox->currentIndex(),
         ui->lossless_CheckBox->isChecked(),
         ui->keepMetadata_CheckBox->isChecked(),
         ui->keepStructure_CheckBox->isChecked(),
@@ -1221,3 +1228,9 @@ void MainWindow::on_skipIfBigger_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/output/skip_if_bigger", checked);
 }
+
+void MainWindow::outputFormatIndexChanged(int index)
+{
+    this->writeSetting("compression_options/output/format", index);
+}
+

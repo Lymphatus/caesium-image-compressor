@@ -59,6 +59,7 @@ typedef struct CompressionOptions {
     QString outputPath;
     QString basePath;
     QString suffix;
+    int format;
     bool lossless;
     bool keepMetadata;
     bool keepStructure;
@@ -118,6 +119,13 @@ const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Native"), QString("Native") },
     { QString("Fusion"), QString("Fusion (Dark)") },
     { QString("Fusion"), QString("Fusion (Light)") }
+};
+
+const QStringList OUTPUT_SUPPORTED_FORMATS = {
+    QIODevice::tr("Same as input"),
+    QIODevice::tr("JPG"),
+    QIODevice::tr("PNG"),
+    QIODevice::tr("WebP"),
 };
 
 // Utilities
