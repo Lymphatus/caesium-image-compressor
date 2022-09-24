@@ -106,6 +106,12 @@ MainWindow::MainWindow(QWidget* parent)
     }
 
     QImageReader::setAllocationLimit(512);
+
+    qInfo() << QApplication::arguments();
+
+    if (QApplication::arguments().length() > 1) {
+        this->importFromArgs();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -230,7 +236,7 @@ void MainWindow::triggerImportFiles()
     QString baseFolder = QFileInfo(fileList.at(0)).absolutePath();
     this->lastOpenedDirectory = baseFolder;
 
-    return MainWindow::importFiles(fileList, baseFolder);
+    return this->importFiles(fileList, baseFolder);
 }
 
 void MainWindow::triggerImportFolder()
@@ -252,7 +258,7 @@ void MainWindow::triggerImportFolder()
     }
 
     this->lastOpenedDirectory = directoryPath;
-    return MainWindow::importFiles(fileList, directoryPath);
+    return this->importFiles(fileList, directoryPath);
 }
 
 void MainWindow::writeSettings()
@@ -751,10 +757,12 @@ void MainWindow::on_actionClear_triggered()
 {
     this->removeFiles(true);
 }
+
 void MainWindow::dropFinished(QStringList filePaths)
 {
+    // TODO base folder might be buggy
     QString baseFolder = QFileInfo(filePaths.at(0)).absolutePath();
-    MainWindow::importFiles(filePaths, baseFolder);
+    this->importFiles(filePaths, baseFolder);
 }
 
 void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
@@ -1234,3 +1242,26 @@ void MainWindow::outputFormatIndexChanged(int index)
     this->writeSetting("compression_options/output/format", index);
 }
 
+void MainWindow::importFromArgs()
+{
+    QStringList args = QApplication::arguments().sliced(1);
+    QStringList filesList;
+
+    QStringListIterator it(args);
+    while (it.hasNext()) {
+        QString path = it.next();
+        QFileInfo info = QFileInfo(path);
+        bool isDir = info.isDir();
+        if (isDir) {
+            bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
+            filesList.append(scanDirectory(path, scanSubfolders));
+        } else {
+            filesList.append(path);
+        }
+    }
+    if (filesList.isEmpty()) {
+        return;
+    }
+    QString baseFolder = QFileInfo(filesList.at(0)).absolutePath();
+    this->importFiles(filesList, baseFolder);
+}
