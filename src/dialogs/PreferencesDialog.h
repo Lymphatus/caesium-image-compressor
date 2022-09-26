@@ -18,6 +18,7 @@ private slots:
     void on_promptExit_CheckBox_toggled(bool checked);
     void languageComboBoxIndexChanged(int index);
     void themeComboBoxIndexChanged(int index);
+    void argsBehaviourComboBoxIndexChanged(int index);
     void on_checkUpdatesAtStartup_CheckBox_toggled(bool checked);
     void on_importSubfolders_CheckBox_toggled(bool checked);
     void on_sendUsageReport_CheckBox_toggled(bool checked);

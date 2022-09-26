@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>693</width>
-    <height>394</height>
+    <height>453</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -129,22 +129,25 @@
          <property name="topMargin">
           <number>0</number>
          </property>
-         <item row="2" column="1">
-          <widget class="QLabel" name="generalPageTitle_Label">
+         <item row="9" column="1" colspan="2">
+          <widget class="QCheckBox" name="multithreading_CheckBox">
+           <property name="text">
+            <string>Multithreading</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1" colspan="2">
+          <widget class="QLabel" name="advancedPageTitle_Label">
            <property name="font">
             <font>
              <bold>true</bold>
             </font>
            </property>
            <property name="text">
-            <string>General</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
-           <property name="text">
-            <string>Send anonymous usage reports</string>
+            <string>Advanced</string>
            </property>
           </widget>
          </item>
@@ -166,6 +169,30 @@
            </property>
            <property name="openExternalLinks">
             <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="QCheckBox" name="importSubfolders_CheckBox">
+           <property name="text">
+            <string>Import files in subfolders when opening a directory</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1" colspan="2">
+          <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Check updates at startup</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="2">
+          <widget class="QCheckBox" name="promptExit_CheckBox">
+           <property name="text">
+            <string>Prompt before exit</string>
            </property>
           </widget>
          </item>
@@ -233,29 +260,7 @@
            </item>
           </layout>
          </item>
-         <item row="8" column="1" colspan="2">
-          <widget class="QLabel" name="advancedPageTitle_Label">
-           <property name="font">
-            <font>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Advanced</string>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="1" colspan="2">
-          <widget class="QCheckBox" name="multithreading_CheckBox">
-           <property name="text">
-            <string>Multithreading</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="10" column="1" colspan="2">
+         <item row="11" column="1" colspan="2">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -268,29 +273,87 @@
            </property>
           </spacer>
          </item>
-         <item row="5" column="1" colspan="2">
-          <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
-           <property name="enabled">
-            <bool>true</bool>
+         <item row="2" column="1">
+          <widget class="QLabel" name="generalPageTitle_Label">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
            </property>
            <property name="text">
-            <string>Check updates at startup</string>
+            <string>General</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="1" colspan="2">
-          <widget class="QCheckBox" name="promptExit_CheckBox">
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="sendUsageReport_CheckBox">
            <property name="text">
-            <string>Prompt before exit</string>
+            <string>Send anonymous usage reports</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1" colspan="2">
-          <widget class="QCheckBox" name="importSubfolders_CheckBox">
-           <property name="text">
-            <string>Import files in subfolders when opening a directory</string>
-           </property>
-          </widget>
+         <item row="10" column="1" colspan="2">
+          <layout class="QHBoxLayout" name="argsBehaviour_HorizontalLayout">
+           <item>
+            <widget class="QLabel" name="argsBehaviour_Label">
+             <property name="text">
+              <string>When importing files directly</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="argsBehaviourHelp_Label">
+             <property name="maximumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="cursor">
+              <cursorShape>WhatsThisCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string>This option applies when using command line or by dropping files to the application icon</string>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="../resources/resources.qrc">:/icons/ui/help.svg</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="argsBehaviour_HSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="argsBehaviour_ComboBox">
+             <item>
+              <property name="text">
+               <string>Import only</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Import and compress</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>

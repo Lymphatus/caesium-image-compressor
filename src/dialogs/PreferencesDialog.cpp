@@ -21,6 +21,7 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 
     connect(ui->language_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::languageComboBoxIndexChanged);
     connect(ui->theme_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::themeComboBoxIndexChanged);
+    connect(ui->argsBehaviour_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::argsBehaviourComboBoxIndexChanged);
 }
 
 PreferencesDialog::~PreferencesDialog()
@@ -101,6 +102,11 @@ void PreferencesDialog::themeComboBoxIndexChanged(int index)
         themeIndex = 0;
     }
     this->writeSetting("preferences/general/theme", themeIndex);
+}
+
+void PreferencesDialog::argsBehaviourComboBoxIndexChanged(int index)
+{
+    this->writeSetting("preferences/general/args_behaviour", index);
 }
 
 void PreferencesDialog::on_showUsageData_Label_linkActivated(const QString& link)

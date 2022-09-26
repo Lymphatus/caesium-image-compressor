@@ -63,29 +63,29 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="228"/>
+        <location filename="../../src/MainWindow.cpp" line="229"/>
         <source>Import files...</source>
         <translation>ファイルをインポート...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="244"/>
+        <location filename="../../src/MainWindow.cpp" line="245"/>
         <source>Import folder...</source>
         <translation>フォルダーをインポート...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="451"/>
+        <location filename="../../src/MainWindow.cpp" line="452"/>
         <source>Importing files...</source>
         <translation>ファイルをインポート中...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1065"/>
-        <location filename="../../src/MainWindow.cpp" line="451"/>
-        <location filename="../../src/MainWindow.cpp" line="644"/>
+        <location filename="../../src/MainWindow.cpp" line="452"/>
+        <location filename="../../src/MainWindow.cpp" line="645"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="538"/>
+        <location filename="../../src/MainWindow.cpp" line="539"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -94,49 +94,49 @@ Do you really want to continue?</source>
 本当に続行しますか?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="542"/>
+        <location filename="../../src/MainWindow.cpp" line="543"/>
         <source>No</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1118"/>
+        <location filename="../../src/MainWindow.cpp" line="1119"/>
         <source>Finishing...</source>
         <translation>終了中...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="572"/>
-        <location filename="../../src/MainWindow.cpp" line="1185"/>
+        <location filename="../../src/MainWindow.cpp" line="573"/>
+        <location filename="../../src/MainWindow.cpp" line="1186"/>
         <source>Compressing...</source>
         <translation>圧縮中...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="640"/>
+        <location filename="../../src/MainWindow.cpp" line="641"/>
         <source>Do you really want to quit?</source>
         <translation>終了してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="541"/>
-        <location filename="../../src/MainWindow.cpp" line="643"/>
+        <location filename="../../src/MainWindow.cpp" line="542"/>
+        <location filename="../../src/MainWindow.cpp" line="644"/>
         <source>Yes</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="663"/>
+        <location filename="../../src/MainWindow.cpp" line="664"/>
         <source>Select output folder...</source>
         <translation>出力先フォルダーを選択...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="729"/>
+        <location filename="../../src/MainWindow.cpp" line="730"/>
         <source>Compression finished!</source>
         <translation>圧縮が完了しました!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="732"/>
+        <location filename="../../src/MainWindow.cpp" line="733"/>
         <source>You just saved %1!</source>
         <translation>%1 を保存しました!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="741"/>
+        <location filename="../../src/MainWindow.cpp" line="742"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -254,8 +254,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="782"/>
-        <location filename="../../src/MainWindow.cpp" line="786"/>
+        <location filename="../../src/MainWindow.cpp" line="783"/>
+        <location filename="../../src/MainWindow.cpp" line="787"/>
         <source>px</source>
         <translation>ピクセル</translation>
     </message>
@@ -346,7 +346,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1104"/>
+        <location filename="../../src/MainWindow.cpp" line="1105"/>
         <source>Preview</source>
         <translation>プレビュー</translation>
     </message>
@@ -408,7 +408,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1330"/>
-        <location filename="../../src/MainWindow.cpp" line="168"/>
+        <location filename="../../src/MainWindow.cpp" line="169"/>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
@@ -483,13 +483,13 @@ Saved: %4 (%5%)</source>
         <translation>自動プレビュー</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="796"/>
-        <location filename="../../src/MainWindow.cpp" line="800"/>
+        <location filename="../../src/MainWindow.cpp" line="797"/>
+        <location filename="../../src/MainWindow.cpp" line="801"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="914"/>
+        <location filename="../../src/MainWindow.cpp" line="915"/>
         <source>images in list</source>
         <translation>リスト内のイメージ</translation>
     </message>
@@ -508,63 +508,83 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="140"/>
+        <location filename="../../views/PreferencesDialog.ui" line="284"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="284"/>
+        <location filename="../../views/PreferencesDialog.ui" line="195"/>
         <source>Prompt before exit</source>
         <translation>終了前に確認する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="186"/>
-        <location filename="../../views/PreferencesDialog.ui" line="323"/>
+        <location filename="../../views/PreferencesDialog.ui" line="213"/>
+        <location filename="../../views/PreferencesDialog.ui" line="386"/>
         <source>Changes will apply after restart</source>
         <translation>再起動後に変更が適用されます</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="196"/>
+        <location filename="../../views/PreferencesDialog.ui" line="223"/>
         <source>Theme (experimental)</source>
         <translation>テーマ (試験段階)</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="316"/>
+        <source>This option applies when using command line or by dropping files to the application icon</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Native</source>
         <translation type="vanished">ネイティブ</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="277"/>
+        <location filename="../../views/PreferencesDialog.ui" line="188"/>
         <source>Check updates at startup</source>
         <translation>起動時にアップデートを確認する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="178"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>ディレクトリを開くときにサブフォルダー内のファイルもインポートする</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="147"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Send anonymous usage reports</source>
         <translation>匿名の使用状況レポートを送信する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="244"/>
+        <location filename="../../views/PreferencesDialog.ui" line="150"/>
         <source>Advanced</source>
         <translation>詳細</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="251"/>
+        <location filename="../../views/PreferencesDialog.ui" line="135"/>
         <source>Multithreading</source>
         <translation>マルチスレッド処理を使用する</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="384"/>
+        <location filename="../../views/PreferencesDialog.ui" line="447"/>
         <source>Language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="310"/>
+        <location filename="../../views/PreferencesDialog.ui" line="346"/>
+        <source>Import only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="351"/>
+        <source>Import and compress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="300"/>
+        <source>When importing files directly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>Preferred language</source>
         <translation>使用言語</translation>
     </message>
@@ -573,7 +593,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 再起動後に変更が適用されます&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="119"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="125"/>
         <source>Usage data</source>
         <translation>使用状況データ</translation>
     </message>
@@ -583,17 +603,17 @@ Saved: %4 (%5%)</source>
         <translation>使用状況データを表示</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="120"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="126"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>このデータは、アプリケーションに最適な長期サポートを提供するために収集されます。第三者にデータが送信されることはありません。</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="127"/>
         <source>System data</source>
         <translation>システム データ</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="127"/>
         <source>Compression data</source>
         <translation>圧縮データ</translation>
     </message>
@@ -601,7 +621,7 @@ Saved: %4 (%5%)</source>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="230"/>
+        <location filename="../../src/MainWindow.cpp" line="231"/>
         <source>Image Files</source>
         <translation>イメージ ファイル</translation>
     </message>

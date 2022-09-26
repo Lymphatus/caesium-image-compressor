@@ -105,13 +105,14 @@ MainWindow::MainWindow(QWidget* parent)
         }
     }
 
-    QImageReader::setAllocationLimit(512);
-
-    qInfo() << QApplication::arguments();
-
-    if (QApplication::arguments().length() > 1) {
-        this->importFromArgs();
+    QCommandLineParser commandLineParser;
+    commandLineParser.process(QApplication::arguments());
+    const QStringList args = commandLineParser.positionalArguments();
+    if (!args.isEmpty()) {
+        this->importFromArgs(args);
     }
+
+    QImageReader::setAllocationLimit(512);
 }
 
 MainWindow::~MainWindow()
@@ -474,7 +475,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 
     if (!list.isEmpty() && listLength > 0) {
         this->updateFolderMap(std::move(baseFolder), (int)list.count());
-        QString rootFolder = getRootFolder(this->folderMap);
+        QString rootFolder = getRootFolder(this->folderMap.keys());
         this->cImageModel->appendItems(list, rootFolder);
         this->importedFilesRootFolder = rootFolder;
     }
@@ -528,7 +529,7 @@ void MainWindow::startCompression()
         return;
     }
 
-    QString rootFolder = getRootFolder(this->folderMap);
+    QString rootFolder = getRootFolder(this->folderMap.keys());
 
     bool overwriteWarningFlag = (ui->sameOutputFolderAsInput_CheckBox->isChecked() && ui->outputSuffix_LineEdit->text().isEmpty())
         || rootFolder == ui->outputFolder_LineEdit->text();
@@ -1242,26 +1243,28 @@ void MainWindow::outputFormatIndexChanged(int index)
     this->writeSetting("compression_options/output/format", index);
 }
 
-void MainWindow::importFromArgs()
+void MainWindow::importFromArgs(const QStringList args)
 {
-    QStringList args = QApplication::arguments().sliced(1);
     QStringList filesList;
-
     QStringListIterator it(args);
+    //TODO Make a ENUM?
+    int argsBehaviour = QSettings().value("preferences/general/args_behaviour", 0).toInt();
     while (it.hasNext()) {
         QString path = it.next();
         QFileInfo info = QFileInfo(path);
-        bool isDir = info.isDir();
-        if (isDir) {
+        if (info.isDir()) {
             bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
             filesList.append(scanDirectory(path, scanSubfolders));
-        } else {
+        } else if (info.isFile()) {
             filesList.append(path);
         }
     }
     if (filesList.isEmpty()) {
         return;
     }
-    QString baseFolder = QFileInfo(filesList.at(0)).absolutePath();
+    QString baseFolder = getRootFolder(args);
     this->importFiles(filesList, baseFolder);
+    if (argsBehaviour == 1) {
+        this->startCompression();
+    }
 }

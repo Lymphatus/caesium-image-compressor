@@ -93,7 +93,7 @@ private slots:
     void on_actionPreview_triggered();
     void on_skipIfBigger_CheckBox_toggled(bool checked);
     void outputFormatIndexChanged(int index);
-    void importFromArgs();
+    void importFromArgs(const QStringList);
 
 private:
     Ui::MainWindow* ui;
