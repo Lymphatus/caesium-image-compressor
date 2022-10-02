@@ -403,6 +403,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         imagePreview.fileInfo = QFileInfo(previewFullPath);
         imagePreview.originalSize = cImage->getOriginalSize();
         imagePreview.isOnFlyPreview = isOnFlyPreview;
+        imagePreview.format = QString(QImageReader(previewFullPath).format()).toUpper();
         return imagePreview;
     };
 
@@ -1082,7 +1083,7 @@ void MainWindow::showPreview(int index)
         ui->preview_GraphicsView->setLoading(false);
         ui->originalImageSize_Label->setLoading(false);
         ui->preview_GraphicsView->showPixmap(imagePreview.image);
-        ui->originalImageSize_Label->setText(toHumanSize((double)imagePreview.fileInfo.size()));
+        ui->originalImageSize_Label->setText(QString("%1 %2").arg(toHumanSize((double)imagePreview.fileInfo.size()), imagePreview.format));
         ui->preview_GraphicsView->fitInView(ui->preview_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->preview_GraphicsView->show();
     }
@@ -1100,7 +1101,7 @@ void MainWindow::showPreview(int index)
             color = "#ef4444";
         }
         QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
-        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4)").arg(color, icon, toHumanSize(currentSize), ratio);
+        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4) %5").arg(color, icon, toHumanSize(currentSize), ratio, imagePreview.format);
         if (imagePreview.isOnFlyPreview) {
             labelTextPrefix += " (" + tr("Preview") + ")";
         }

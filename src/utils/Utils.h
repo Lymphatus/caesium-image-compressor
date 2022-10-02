@@ -96,6 +96,7 @@ typedef struct ImagePreview {
     QFileInfo fileInfo;
     size_t originalSize;
     bool isOnFlyPreview;
+    QString format;
 } ImagePreview;
 
 const int LANGUAGES_COUNT = 11;
