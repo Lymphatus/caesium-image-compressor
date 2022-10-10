@@ -502,34 +502,68 @@ Saved: %4 (%5%)</source>
         <translation>الإعدادات</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="37"/>
+        <location filename="../../views/PreferencesDialog.ui" line="76"/>
         <source>Close</source>
         <translation>إغلاق</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="284"/>
+        <location filename="../../views/PreferencesDialog.ui" line="120"/>
+        <location filename="../../views/PreferencesDialog.ui" line="177"/>
         <source>General</source>
         <translation>عام</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="195"/>
+        <location filename="../../views/PreferencesDialog.ui" line="233"/>
         <source>Prompt before exit</source>
         <translation>حث قبل الإغلاق</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="213"/>
-        <location filename="../../views/PreferencesDialog.ui" line="386"/>
+        <location filename="../../views/PreferencesDialog.ui" line="348"/>
+        <source>Do not import if size is</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="361"/>
+        <source>grater than</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="366"/>
+        <source>equal to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="371"/>
+        <source>less than</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="406"/>
+        <source>bytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="411"/>
+        <source>Kb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="416"/>
+        <source>Mb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="671"/>
         <source>Changes will apply after restart</source>
         <translation>سيتم تطبيق التغييرات بعد إعادة التشغيل</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="223"/>
+        <location filename="../../views/PreferencesDialog.ui" line="245"/>
         <source>Theme (experimental)</source>
         <translation>القالب (التجريبي)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="316"/>
+        <location filename="../../views/PreferencesDialog.ui" line="514"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation type="unfinished"></translation>
     </message>
@@ -538,53 +572,58 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">القالب الأصلي</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="188"/>
+        <location filename="../../views/PreferencesDialog.ui" line="221"/>
         <source>Check updates at startup</source>
         <translation>تحقق من التحديثات عند بدء التشغيل</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="178"/>
+        <location filename="../../views/PreferencesDialog.ui" line="336"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>استيراد الملفات في مجلدات فرعية عند فتح دليل</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="257"/>
         <source>Send anonymous usage reports</source>
         <translation>ارسل تقارير استخدام مجهولة الاسم</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="150"/>
+        <location filename="../../views/PreferencesDialog.ui" line="445"/>
         <source>Advanced</source>
         <translation>الوضع المتقدم</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="135"/>
+        <location filename="../../views/PreferencesDialog.ui" line="548"/>
         <source>Multithreading</source>
         <translation>المتعدد</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="447"/>
+        <location filename="../../views/PreferencesDialog.ui" line="132"/>
+        <location filename="../../views/PreferencesDialog.ui" line="573"/>
         <source>Language</source>
         <translation>اللغة</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="346"/>
+        <location filename="../../views/PreferencesDialog.ui" line="307"/>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="487"/>
         <source>Import only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="351"/>
+        <location filename="../../views/PreferencesDialog.ui" line="492"/>
         <source>Import and compress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="300"/>
+        <location filename="../../views/PreferencesDialog.ui" line="474"/>
         <source>When importing files directly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="373"/>
+        <location filename="../../views/PreferencesDialog.ui" line="605"/>
         <source>Preferred language</source>
         <translation>اللغة المفضلة</translation>
     </message>
@@ -593,7 +632,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="125"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="132"/>
         <source>Usage data</source>
         <translation>بيانات المستخدمة</translation>
     </message>
@@ -603,17 +642,17 @@ Saved: %4 (%5%)</source>
         <translation>إظهار البيانات المستخدمة</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="126"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="133"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>يتم جمع هذه البيانات لتقديم أفضل دعم طويل المدى للتطبيق. لا يتم إرسال أي بيانات إلى جهات طرف ثالث.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="127"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="134"/>
         <source>System data</source>
         <translation>بيانات النظام</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="127"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="134"/>
         <source>Compression data</source>
         <translation>بيانات الضغط</translation>
     </message>

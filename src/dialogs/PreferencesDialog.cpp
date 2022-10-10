@@ -19,6 +19,9 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
     ui->menu_ListWidget->setCurrentRow(0);
     ui->showUsageData_Label->setText("<html><head/><body><p><a href=\"#\"><small style=\"text-decoration: underline; color:#007af4;\">" + tr("Show usage data") + "</small></a></p></body></html>");
 
+    ui->changesAfterRestartTheme_Label->setVisible(false);
+    ui->changesAfterRestartTheme_LabelIcon->setVisible(false);
+
     connect(ui->language_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::languageComboBoxIndexChanged);
     connect(ui->theme_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::themeComboBoxIndexChanged);
     connect(ui->argsBehaviour_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::argsBehaviourComboBoxIndexChanged);
@@ -72,6 +75,8 @@ void PreferencesDialog::languageComboBoxIndexChanged(int index)
     if (index < 0 || index > LANGUAGES_COUNT - 1) {
         localeIndex = 0;
     }
+    ui->changesAfterRestartTheme_Label->setVisible(true);
+    ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
     this->writeSetting("preferences/language/locale", localeIndex);
 }
 
@@ -101,6 +106,8 @@ void PreferencesDialog::themeComboBoxIndexChanged(int index)
     if (index < 0 || index > THEMES_COUNT - 1) {
         themeIndex = 0;
     }
+    ui->changesAfterRestartTheme_Label->setVisible(true);
+    ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
     this->writeSetting("preferences/general/theme", themeIndex);
 }
 
