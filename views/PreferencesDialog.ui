@@ -408,12 +408,12 @@
               </item>
               <item>
                <property name="text">
-                <string>Kb</string>
+                <string>KB</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Mb</string>
+                <string>MB</string>
                </property>
               </item>
              </widget>

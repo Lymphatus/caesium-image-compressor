@@ -131,7 +131,7 @@ const QStringList OUTPUT_SUPPORTED_FORMATS = {
 
 // Utilities
 QString toHumanSize(double size);
-QStringList scanDirectory(QString directory, bool subfolders);
+QStringList scanDirectory(const QString& directory, bool subfolders);
 QString getRootFolder(QList<QString> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);

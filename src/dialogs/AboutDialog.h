@@ -13,10 +13,10 @@ class AboutDialog : public QDialog {
 
 public:
     explicit AboutDialog(QWidget* parent = nullptr);
-    ~AboutDialog();
+    ~AboutDialog() override;
 
 private slots:
-    void on_checkForUpdates_Button_clicked();
+    void onCheckForUpdatesClicked();
 
 private:
     Ui::AboutDialog* ui;

@@ -160,8 +160,8 @@ All rights reserved.</translation>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="784"/>
-        <location filename="../../src/MainWindow.cpp" line="788"/>
+        <location filename="../../src/MainWindow.cpp" line="795"/>
+        <location filename="../../src/MainWindow.cpp" line="799"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -248,7 +248,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1058"/>
         <location filename="../../src/MainWindow.cpp" line="453"/>
-        <location filename="../../src/MainWindow.cpp" line="646"/>
+        <location filename="../../src/MainWindow.cpp" line="657"/>
         <source>Cancel</source>
         <translation>İptal Et</translation>
     </message>
@@ -391,7 +391,7 @@ All rights reserved.</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1470"/>
-        <location filename="../../src/MainWindow.cpp" line="1106"/>
+        <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>Preview</source>
         <translation>Ön izleme</translation>
     </message>
@@ -411,51 +411,51 @@ All rights reserved.</translation>
         <translation>Dosyalar içe aktarılıyor...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="540"/>
+        <location filename="../../src/MainWindow.cpp" line="551"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
         <translation>Gerçekten devam etmek istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="543"/>
-        <location filename="../../src/MainWindow.cpp" line="645"/>
+        <location filename="../../src/MainWindow.cpp" line="554"/>
+        <location filename="../../src/MainWindow.cpp" line="656"/>
         <source>Yes</source>
         <translation>Evet</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="544"/>
+        <location filename="../../src/MainWindow.cpp" line="555"/>
         <source>No</source>
         <translation>Hayır</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="574"/>
-        <location filename="../../src/MainWindow.cpp" line="1187"/>
+        <location filename="../../src/MainWindow.cpp" line="585"/>
+        <location filename="../../src/MainWindow.cpp" line="1198"/>
         <source>Compressing...</source>
         <translation>Sıkıştırılıyor...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="642"/>
+        <location filename="../../src/MainWindow.cpp" line="653"/>
         <source>Do you really want to quit?</source>
         <translation>Gerçekten çıkmak istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="665"/>
+        <location filename="../../src/MainWindow.cpp" line="676"/>
         <source>Select output folder...</source>
         <translation>Çıktı klasörünü seç...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="731"/>
+        <location filename="../../src/MainWindow.cpp" line="742"/>
         <source>Compression finished!</source>
         <translation>Sıkıştırma bitti!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="734"/>
+        <location filename="../../src/MainWindow.cpp" line="745"/>
         <source>You just saved %1!</source>
         <translation>Az önce kaydedilen %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="743"/>
+        <location filename="../../src/MainWindow.cpp" line="754"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -466,18 +466,18 @@ Sıkıştırılmış boyut: %3
 Kaydedildi: %4 (%5%)</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="798"/>
-        <location filename="../../src/MainWindow.cpp" line="802"/>
+        <location filename="../../src/MainWindow.cpp" line="809"/>
+        <location filename="../../src/MainWindow.cpp" line="813"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="916"/>
+        <location filename="../../src/MainWindow.cpp" line="927"/>
         <source>images in list</source>
         <translation type="unfinished">listedeki resimler</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1120"/>
+        <location filename="../../src/MainWindow.cpp" line="1131"/>
         <source>Finishing...</source>
         <translation type="unfinished">Bitiriliyor...</translation>
     </message>
@@ -514,6 +514,16 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="411"/>
+        <source>KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="416"/>
+        <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -577,16 +587,6 @@ Kaydedildi: %4 (%5%)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="411"/>
-        <source>Kb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="416"/>
-        <source>Mb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="336"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation type="unfinished">Bir dizini açarken dosyaları alt klasörlere aktar</translation>
@@ -617,22 +617,22 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Kullanım verisini göster</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="132"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="146"/>
         <source>Usage data</source>
         <translation>Kullanım verisi</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="133"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="147"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>Bu veriler, uygulama için uzun vadeli desteği sağlamak adına toplanır. Üçüncü taraflara hiçbir veri gönderilmez.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="134"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="148"/>
         <source>System data</source>
         <translation>Sistem verisi</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="134"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="148"/>
         <source>Compression data</source>
         <translation>Sıkıştırma verisi</translation>
     </message>

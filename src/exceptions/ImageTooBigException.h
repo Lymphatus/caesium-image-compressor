@@ -10,7 +10,7 @@ private:
 
 public:
     ImageTooBigException();
-    const char* what() const noexcept override;
+    [[nodiscard]] const char* what() const noexcept override;
 };
 
 #endif // CAESIUM_IMAGE_COMPRESSOR_IMAGETOOBIGEXCEPTION_H

@@ -464,6 +464,17 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             if (this->cImageModel->contains(cImage)) {
                 continue;
             }
+            bool skipBySizeEnabled = QSettings().value("preferences/general/skip_by_size/enabled", false).toBool();
+            if (skipBySizeEnabled) {
+                //TODO Make it an Enum
+                int unit = QSettings().value("preferences/general/skip_by_size/unit", 0).toInt();
+                int condition = QSettings().value("preferences/general/skip_by_size/condition", 0).toInt();
+                int size = QSettings().value("preferences/general/skip_by_size/value", 0).toInt() << (unit * 10);
+                size_t imageSize = cImage->getOriginalSize();
+                if ((condition == 0 && imageSize > size) || (condition == 1 && imageSize == size) || (condition == 2 && imageSize < size)) {
+                    continue;
+                }
+            }
             list.append(cImage);
         } catch (ImageNotSupportedException& e) {
             qWarning() << fileList.at(i) << "is not supported. Error:" << e.what();

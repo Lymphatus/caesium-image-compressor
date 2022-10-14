@@ -50,7 +50,7 @@ void NetworkOperations::sendUsageReport(CompressionSummary compressionSummary)
     request.setRawHeader("Authorization", bearerToken.toUtf8());
     request.setRawHeader("Accept", "application/json");
     QNetworkReply* reply = this->networkClient->post(request, QJsonDocument(requestData).toJson(QJsonDocument::Compact));
-    connect(reply, &QNetworkReply::finished, [this, reply]() {
+    connect(reply, &QNetworkReply::finished, [reply]() {
         if (reply->error() != QNetworkReply::NoError) {
             qWarning() << "Usage report request failed. Error:" << reply->errorString() << "- Reply:" << reply->readAll();
         } else {
@@ -75,7 +75,7 @@ void NetworkOperations::requestToken()
     QJsonObject requestData = getSystemData();
 
     QNetworkReply* reply = this->networkClient->post(request, QJsonDocument(requestData).toJson(QJsonDocument::Compact));
-    connect(reply, &QNetworkReply::finished, [this, reply]() {
+    connect(reply, &QNetworkReply::finished, [reply]() {
         if (reply->error() == QNetworkReply::NoError) {
             QJsonParseError parseError;
             QSettings sts;
@@ -104,7 +104,7 @@ void NetworkOperations::updateSystemInfo()
     request.setRawHeader("Accept", "application/json");
     request.setRawHeader("Authorization", bearerToken.toUtf8());
     QNetworkReply* reply = this->networkClient->post(request, QJsonDocument(requestData).toJson(QJsonDocument::Compact));
-    connect(reply, &QNetworkReply::finished, [this, reply]() {
+    connect(reply, &QNetworkReply::finished, [reply]() {
         if (reply->error() != QNetworkReply::NoError) {
             qWarning() << "Sys info update failed. Error:" << reply->errorString() << "- Reply:" << reply->readAll();
         } else {

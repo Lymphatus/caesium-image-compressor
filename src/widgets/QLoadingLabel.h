@@ -7,7 +7,7 @@ class QLoadingLabel : public QLabel {
     Q_OBJECT
 
 public:
-    explicit QLoadingLabel(QWidget* parent = 0);
+    explicit QLoadingLabel(QWidget* parent = nullptr);
     ~QLoadingLabel() override;
 
     void setLoading(bool l = true);

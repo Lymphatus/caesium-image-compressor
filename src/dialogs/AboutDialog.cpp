@@ -30,6 +30,8 @@ AboutDialog::AboutDialog(QWidget* parent)
     this->setWindowFlags(Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
     this->setWindowModality(Qt::ApplicationModal);
     this->setAttribute(Qt::WA_DeleteOnClose, false);
+
+    connect(ui->checkForUpdates_Button, &QPushButton::clicked, this, &AboutDialog::onCheckForUpdatesClicked);
 }
 
 AboutDialog::~AboutDialog()
@@ -37,7 +39,7 @@ AboutDialog::~AboutDialog()
     delete ui;
 }
 
-void AboutDialog::on_checkForUpdates_Button_clicked()
+void AboutDialog::onCheckForUpdatesClicked()
 {
 #ifdef Q_OS_MAC
     ui->checkForUpdates_Button->setEnabled(false);
