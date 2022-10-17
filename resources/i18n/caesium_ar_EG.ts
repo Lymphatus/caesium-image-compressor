@@ -523,27 +523,27 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="361"/>
+        <location filename="../../views/PreferencesDialog.ui" line="384"/>
         <source>grater than</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="366"/>
+        <location filename="../../views/PreferencesDialog.ui" line="389"/>
         <source>equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="371"/>
+        <location filename="../../views/PreferencesDialog.ui" line="394"/>
         <source>less than</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="406"/>
+        <location filename="../../views/PreferencesDialog.ui" line="411"/>
         <source>bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="671"/>
+        <location filename="../../views/PreferencesDialog.ui" line="678"/>
         <source>Changes will apply after restart</source>
         <translation>سيتم تطبيق التغييرات بعد إعادة التشغيل</translation>
     </message>
@@ -553,7 +553,7 @@ Saved: %4 (%5%)</source>
         <translation>القالب (التجريبي)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="514"/>
+        <location filename="../../views/PreferencesDialog.ui" line="521"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation type="unfinished"></translation>
     </message>
@@ -577,18 +577,18 @@ Saved: %4 (%5%)</source>
         <translation>ارسل تقارير استخدام مجهولة الاسم</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="445"/>
+        <location filename="../../views/PreferencesDialog.ui" line="452"/>
         <source>Advanced</source>
         <translation>الوضع المتقدم</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="548"/>
+        <location filename="../../views/PreferencesDialog.ui" line="555"/>
         <source>Multithreading</source>
         <translation>المتعدد</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="132"/>
-        <location filename="../../views/PreferencesDialog.ui" line="573"/>
+        <location filename="../../views/PreferencesDialog.ui" line="580"/>
         <source>Language</source>
         <translation>اللغة</translation>
     </message>
@@ -598,32 +598,32 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="411"/>
+        <location filename="../../views/PreferencesDialog.ui" line="416"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="416"/>
+        <location filename="../../views/PreferencesDialog.ui" line="421"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="487"/>
+        <location filename="../../views/PreferencesDialog.ui" line="494"/>
         <source>Import only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="492"/>
+        <location filename="../../views/PreferencesDialog.ui" line="499"/>
         <source>Import and compress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="474"/>
+        <location filename="../../views/PreferencesDialog.ui" line="481"/>
         <source>When importing files directly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="605"/>
+        <location filename="../../views/PreferencesDialog.ui" line="612"/>
         <source>Preferred language</source>
         <translation>اللغة المفضلة</translation>
     </message>
