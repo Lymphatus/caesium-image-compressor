@@ -20,7 +20,7 @@ Note: only 64bit versions are supported
 Head to the [releases' page](https://github.com/Lymphatus/caesium-image-compressor/releases) for the available downloads.
 - **Windows**: installer and portable versions are available
 - **MacOS**: DMG package
-- **Linux**: no binaries are available right now, you must compile the source code yourself
+- **Linux**: compile the source code yourself, or download binary from [third-party build](https://github.com/larygwil/caesium-image-compressor/releases)
 
 ### Troubleshooting and/or feature request
 Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/issues).
