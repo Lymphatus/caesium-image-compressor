@@ -524,17 +524,17 @@ Saved: %4 (%5%)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="384"/>
+        <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>grater than</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="389"/>
+        <location filename="../../views/PreferencesDialog.ui" line="371"/>
         <source>equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="394"/>
+        <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>less than</source>
         <translation type="unfinished"></translation>
     </message>
