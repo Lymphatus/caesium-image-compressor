@@ -10,7 +10,7 @@ class QDropTreeView : public QTreeView {
     Q_OBJECT
 
 public:
-    explicit QDropTreeView(QWidget* parent = 0);
+    explicit QDropTreeView(QWidget* parent = nullptr);
 
 signals:
     void dropFinished(QStringList);

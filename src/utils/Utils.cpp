@@ -38,7 +38,7 @@ QString toHumanSize(double size)
 }
 
 // TODO Another thread?
-QStringList scanDirectory(QString directory, bool subfolders)
+QStringList scanDirectory(const QString& directory, bool subfolders)
 {
     QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp" };
     QStringList fileList = {};
@@ -59,12 +59,12 @@ QStringList scanDirectory(QString directory, bool subfolders)
     return fileList;
 }
 
-QString getRootFolder(QMap<QString, int> folderMap)
+QString getRootFolder(QList<QString> folderMap)
 {
-    QMapIterator<QString, int> it = QMapIterator<QString, int>(folderMap);
-    QString rootFolderPath = folderMap.firstKey();
+    QStringListIterator it(folderMap);
+    QString rootFolderPath = folderMap.first();
     while (it.hasNext()) {
-        QString newFolderPath = it.next().key();
+        QString newFolderPath = it.next();
         QStringList splitNewFolder = QDir::toNativeSeparators(newFolderPath).split(QDir::separator());
         QStringList splitRootFolder = QDir::toNativeSeparators(rootFolderPath).split(QDir::separator());
         QStringList splitCommonPath;

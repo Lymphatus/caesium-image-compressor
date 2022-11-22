@@ -18,6 +18,7 @@
         <file>icons/ui/trash.svg</file>
         <file>icons/ui/compress.svg</file>
         <file>icons/ui/preview.svg</file>
+        <file>icons/ui/help.svg</file>
         <file>icons/ui/loader.webp</file>
     </qresource>
 </RCC>

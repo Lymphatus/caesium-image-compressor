@@ -19,7 +19,7 @@ public:
     void requestToken();
     void updateSystemInfo();
     void sendUsageReport(CompressionSummary compressionSummary);
-    virtual ~NetworkOperations();
+    ~NetworkOperations() override;
 };
 
 #endif // CAESIUM_IMAGE_COMPRESSOR_NETWORKOPERATIONS_H

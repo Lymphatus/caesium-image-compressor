@@ -8,10 +8,7 @@ class QCaesiumMessageBox : public QMessageBox {
     Q_OBJECT
 
 public:
-    explicit QCaesiumMessageBox(QWidget* parent = 0);
-    explicit QCaesiumMessageBox(Icon icon, const QString& title, const QString& text,
-        StandardButtons buttons = NoButton, QWidget* parent = nullptr,
-        Qt::WindowFlags flags = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+    explicit QCaesiumMessageBox(QWidget* parent = nullptr);
 };
 
 #endif // QCAESIUMMESSAGEBOX_H

@@ -59,6 +59,7 @@ typedef struct CompressionOptions {
     QString outputPath;
     QString basePath;
     QString suffix;
+    int format;
     bool lossless;
     bool keepMetadata;
     bool keepStructure;
@@ -95,9 +96,10 @@ typedef struct ImagePreview {
     QFileInfo fileInfo;
     size_t originalSize;
     bool isOnFlyPreview;
+    QString format;
 } ImagePreview;
 
-const int LANGUAGES_COUNT = 11;
+const int LANGUAGES_COUNT = 12;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("default"), QString("Default") },
@@ -111,6 +113,7 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("de_DE"), QString("Deutsch") },
     { QString("ru_RU"), QString("Русский") },
     { QString("tr_TR"), QString("Türkçe") },
+    { QString("pt_BR"), QString("Português Brasileiro") },
 };
 
 const int THEMES_COUNT = 3;
@@ -120,10 +123,17 @@ const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Fusion"), QString("Fusion (Light)") }
 };
 
+const QStringList OUTPUT_SUPPORTED_FORMATS = {
+    QIODevice::tr("Same as input"),
+    QIODevice::tr("JPG"),
+    QIODevice::tr("PNG"),
+    QIODevice::tr("WebP"),
+};
+
 // Utilities
 QString toHumanSize(double size);
-QStringList scanDirectory(QString directory, bool subfolders);
-QString getRootFolder(QMap<QString, int> folderMap);
+QStringList scanDirectory(const QString& directory, bool subfolders);
+QString getRootFolder(QList<QString> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
 QJsonObject getSystemData();

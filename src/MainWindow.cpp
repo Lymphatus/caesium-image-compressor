@@ -58,6 +58,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->keepDatesButtonGroup->addButton(ui->keepLastModifiedDate_CheckBox);
     this->keepDatesButtonGroup->addButton(ui->keepLastAccessDate_CheckBox);
 
+    ui->format_ComboBox->addItems(OUTPUT_SUPPORTED_FORMATS);
+
     this->initStatusBar();
     this->initListContextMenu();
     this->initTrayIconContextMenu();
@@ -82,6 +84,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::canceled, this, &MainWindow::previewCanceled);
     this->readSettings();
 
+    connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
+
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
@@ -99,6 +103,13 @@ MainWindow::MainWindow(QWidget* parent)
         } else {
             this->networkOperations->updateSystemInfo();
         }
+    }
+
+    QCommandLineParser commandLineParser;
+    commandLineParser.process(QApplication::arguments());
+    const QStringList args = commandLineParser.positionalArguments();
+    if (!args.isEmpty()) {
+        this->importFromArgs(args);
     }
 
     QImageReader::setAllocationLimit(512);
@@ -226,7 +237,7 @@ void MainWindow::triggerImportFiles()
     QString baseFolder = QFileInfo(fileList.at(0)).absolutePath();
     this->lastOpenedDirectory = baseFolder;
 
-    return MainWindow::importFiles(fileList, baseFolder);
+    return this->importFiles(fileList, baseFolder);
 }
 
 void MainWindow::triggerImportFolder()
@@ -248,7 +259,7 @@ void MainWindow::triggerImportFolder()
     }
 
     this->lastOpenedDirectory = directoryPath;
-    return MainWindow::importFiles(fileList, directoryPath);
+    return this->importFiles(fileList, directoryPath);
 }
 
 void MainWindow::writeSettings()
@@ -296,6 +307,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/output/keep_creation_date", ui->keepCreationDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_last_access_date", ui->keepLastAccessDate_CheckBox->isChecked());
+    settings.setValue("compression_options/output/format", ui->format_ComboBox->currentIndex());
 
     settings.setValue("extra/last_opened_directory", this->lastOpenedDirectory);
 }
@@ -344,6 +356,7 @@ void MainWindow::readSettings()
     ui->keepCreationDate_CheckBox->setChecked(settings.value("compression_options/output/keep_creation_date", false).toBool());
     ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
     ui->keepLastAccessDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_access_date", false).toBool());
+    ui->format_ComboBox->setCurrentIndex(settings.value("compression_options/output/format", 0).toInt());
 
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
@@ -390,6 +403,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         imagePreview.fileInfo = QFileInfo(previewFullPath);
         imagePreview.originalSize = cImage->getOriginalSize();
         imagePreview.isOnFlyPreview = isOnFlyPreview;
+        imagePreview.format = QString(QImageReader(previewFullPath).format()).toUpper();
         return imagePreview;
     };
 
@@ -450,6 +464,17 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             if (this->cImageModel->contains(cImage)) {
                 continue;
             }
+            bool skipBySizeEnabled = QSettings().value("preferences/general/skip_by_size/enabled", false).toBool();
+            if (skipBySizeEnabled) {
+                //TODO Make it an Enum
+                int unit = QSettings().value("preferences/general/skip_by_size/unit", 0).toInt();
+                int condition = QSettings().value("preferences/general/skip_by_size/condition", 0).toInt();
+                int size = QSettings().value("preferences/general/skip_by_size/value", 0).toInt() << (unit * 10);
+                size_t imageSize = cImage->getOriginalSize();
+                if ((condition == 0 && imageSize > size) || (condition == 1 && imageSize == size) || (condition == 2 && imageSize < size)) {
+                    continue;
+                }
+            }
             list.append(cImage);
         } catch (ImageNotSupportedException& e) {
             qWarning() << fileList.at(i) << "is not supported. Error:" << e.what();
@@ -462,7 +487,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 
     if (!list.isEmpty() && listLength > 0) {
         this->updateFolderMap(std::move(baseFolder), (int)list.count());
-        QString rootFolder = getRootFolder(this->folderMap);
+        QString rootFolder = getRootFolder(this->folderMap.keys());
         this->cImageModel->appendItems(list, rootFolder);
         this->importedFilesRootFolder = rootFolder;
     }
@@ -516,7 +541,7 @@ void MainWindow::startCompression()
         return;
     }
 
-    QString rootFolder = getRootFolder(this->folderMap);
+    QString rootFolder = getRootFolder(this->folderMap.keys());
 
     bool overwriteWarningFlag = (ui->sameOutputFolderAsInput_CheckBox->isChecked() && ui->outputSuffix_LineEdit->text().isEmpty())
         || rootFolder == ui->outputFolder_LineEdit->text();
@@ -588,6 +613,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->outputFolder_LineEdit->text(),
         rootFolder,
         ui->outputSuffix_LineEdit->text(),
+        ui->format_ComboBox->currentIndex(),
         ui->lossless_CheckBox->isChecked(),
         ui->keepMetadata_CheckBox->isChecked(),
         ui->keepStructure_CheckBox->isChecked(),
@@ -744,10 +770,12 @@ void MainWindow::on_actionClear_triggered()
 {
     this->removeFiles(true);
 }
+
 void MainWindow::dropFinished(QStringList filePaths)
 {
+    // TODO base folder might be buggy
     QString baseFolder = QFileInfo(filePaths.at(0)).absolutePath();
-    MainWindow::importFiles(filePaths, baseFolder);
+    this->importFiles(filePaths, baseFolder);
 }
 
 void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
@@ -1066,7 +1094,7 @@ void MainWindow::showPreview(int index)
         ui->preview_GraphicsView->setLoading(false);
         ui->originalImageSize_Label->setLoading(false);
         ui->preview_GraphicsView->showPixmap(imagePreview.image);
-        ui->originalImageSize_Label->setText(toHumanSize((double)imagePreview.fileInfo.size()));
+        ui->originalImageSize_Label->setText(QString("%1 %2").arg(toHumanSize((double)imagePreview.fileInfo.size()), imagePreview.format));
         ui->preview_GraphicsView->fitInView(ui->preview_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->preview_GraphicsView->show();
     }
@@ -1084,7 +1112,7 @@ void MainWindow::showPreview(int index)
             color = "#ef4444";
         }
         QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
-        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4)").arg(color, icon, toHumanSize(currentSize), ratio);
+        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4) %5").arg(color, icon, toHumanSize(currentSize), ratio, imagePreview.format);
         if (imagePreview.isOnFlyPreview) {
             labelTextPrefix += " (" + tr("Preview") + ")";
         }
@@ -1220,4 +1248,35 @@ void MainWindow::on_actionPreview_triggered()
 void MainWindow::on_skipIfBigger_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/output/skip_if_bigger", checked);
+}
+
+void MainWindow::outputFormatIndexChanged(int index)
+{
+    this->writeSetting("compression_options/output/format", index);
+}
+
+void MainWindow::importFromArgs(const QStringList args)
+{
+    QStringList filesList;
+    QStringListIterator it(args);
+    //TODO Make a ENUM?
+    int argsBehaviour = QSettings().value("preferences/general/args_behaviour", 0).toInt();
+    while (it.hasNext()) {
+        QString path = it.next();
+        QFileInfo info = QFileInfo(path);
+        if (info.isDir()) {
+            bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
+            filesList.append(scanDirectory(path, scanSubfolders));
+        } else if (info.isFile()) {
+            filesList.append(path);
+        }
+    }
+    if (filesList.isEmpty()) {
+        return;
+    }
+    QString baseFolder = getRootFolder(args);
+    this->importFiles(filesList, baseFolder);
+    if (argsBehaviour == 1) {
+        this->startCompression();
+    }
 }

@@ -63,29 +63,29 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="218"/>
+        <location filename="../../src/MainWindow.cpp" line="229"/>
         <source>Import files...</source>
         <translation>Import files...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="234"/>
+        <location filename="../../src/MainWindow.cpp" line="245"/>
         <source>Import folder...</source>
         <translation>Import folder...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="439"/>
+        <location filename="../../src/MainWindow.cpp" line="453"/>
         <source>Importing files...</source>
         <translation>Importing files...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1028"/>
-        <location filename="../../src/MainWindow.cpp" line="439"/>
-        <location filename="../../src/MainWindow.cpp" line="631"/>
+        <location filename="../../views/MainWindow.ui" line="1058"/>
+        <location filename="../../src/MainWindow.cpp" line="453"/>
+        <location filename="../../src/MainWindow.cpp" line="646"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="526"/>
+        <location filename="../../src/MainWindow.cpp" line="540"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -94,49 +94,49 @@ Do you really want to continue?</source>
 Do you really want to continue?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="530"/>
+        <location filename="../../src/MainWindow.cpp" line="544"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1103"/>
+        <location filename="../../src/MainWindow.cpp" line="1120"/>
         <source>Finishing...</source>
         <translation>Finishing...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="560"/>
-        <location filename="../../src/MainWindow.cpp" line="1170"/>
+        <location filename="../../src/MainWindow.cpp" line="574"/>
+        <location filename="../../src/MainWindow.cpp" line="1187"/>
         <source>Compressing...</source>
         <translation>Compressing...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="627"/>
+        <location filename="../../src/MainWindow.cpp" line="642"/>
         <source>Do you really want to quit?</source>
         <translation>Do you really want to quit?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="529"/>
-        <location filename="../../src/MainWindow.cpp" line="630"/>
+        <location filename="../../src/MainWindow.cpp" line="543"/>
+        <location filename="../../src/MainWindow.cpp" line="645"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="650"/>
+        <location filename="../../src/MainWindow.cpp" line="665"/>
         <source>Select output folder...</source>
         <translation>Select output folder...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="716"/>
+        <location filename="../../src/MainWindow.cpp" line="731"/>
         <source>Compression finished!</source>
         <translation>Compression finished!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="719"/>
+        <location filename="../../src/MainWindow.cpp" line="734"/>
         <source>You just saved %1!</source>
         <translation>You just saved %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="728"/>
+        <location filename="../../src/MainWindow.cpp" line="743"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -158,14 +158,14 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="146"/>
-        <location filename="../../views/MainWindow.ui" line="1308"/>
+        <location filename="../../views/MainWindow.ui" line="1338"/>
         <source>Remove</source>
         <translation>Remove</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="179"/>
-        <location filename="../../views/MainWindow.ui" line="1385"/>
-        <location filename="../../views/MainWindow.ui" line="1388"/>
+        <location filename="../../views/MainWindow.ui" line="1415"/>
+        <location filename="../../views/MainWindow.ui" line="1418"/>
         <source>Compress</source>
         <translation>Compress</translation>
     </message>
@@ -254,8 +254,8 @@ Saved: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="767"/>
-        <location filename="../../src/MainWindow.cpp" line="771"/>
+        <location filename="../../src/MainWindow.cpp" line="784"/>
+        <location filename="../../src/MainWindow.cpp" line="788"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -307,7 +307,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="892"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation>Skip if output size is bigger than the original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="909"/>
@@ -330,162 +330,167 @@ Saved: %4 (%5%)</translation>
         <translation>Last access</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="954"/>
+        <location filename="../../views/MainWindow.ui" line="959"/>
+        <source>Format</source>
+        <translation>Format</translation>
+    </message>
+    <message>
+        <location filename="../../views/MainWindow.ui" line="984"/>
         <source>Suffix</source>
         <translation>Suffix</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1115"/>
+        <location filename="../../views/MainWindow.ui" line="1145"/>
         <source>Original</source>
         <translation>Original</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1440"/>
-        <location filename="../../src/MainWindow.cpp" line="1089"/>
+        <location filename="../../views/MainWindow.ui" line="1470"/>
+        <location filename="../../src/MainWindow.cpp" line="1106"/>
         <source>Preview</source>
         <translation>Preview</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1108"/>
+        <location filename="../../views/MainWindow.ui" line="1138"/>
         <source>Compressed</source>
         <translation>Compressed</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1164"/>
+        <location filename="../../views/MainWindow.ui" line="1194"/>
         <source>Help</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1172"/>
+        <location filename="../../views/MainWindow.ui" line="1202"/>
         <source>File</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1181"/>
+        <location filename="../../views/MainWindow.ui" line="1211"/>
         <source>Edit</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1192"/>
+        <location filename="../../views/MainWindow.ui" line="1222"/>
         <source>View</source>
         <translation>View</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1196"/>
-        <location filename="../../views/MainWindow.ui" line="1219"/>
+        <location filename="../../views/MainWindow.ui" line="1226"/>
+        <location filename="../../views/MainWindow.ui" line="1249"/>
         <source>Toolbar</source>
         <translation>Toolbar</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1261"/>
+        <location filename="../../views/MainWindow.ui" line="1291"/>
         <source>About Caesium Image Compressor</source>
         <translation>About Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1273"/>
+        <location filename="../../views/MainWindow.ui" line="1303"/>
         <source>Add files...</source>
         <translation>Add files...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1276"/>
+        <location filename="../../views/MainWindow.ui" line="1306"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1285"/>
+        <location filename="../../views/MainWindow.ui" line="1315"/>
         <source>Add folder...</source>
         <translation>Add folder...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1288"/>
+        <location filename="../../views/MainWindow.ui" line="1318"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1293"/>
-        <location filename="../../src/MainWindow.cpp" line="158"/>
+        <location filename="../../views/MainWindow.ui" line="1323"/>
+        <location filename="../../src/MainWindow.cpp" line="169"/>
         <source>Exit</source>
         <translation>Exit</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1311"/>
+        <location filename="../../views/MainWindow.ui" line="1341"/>
         <source>Del</source>
         <translatorcomment>Delete key on keyboard</translatorcomment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1316"/>
+        <location filename="../../views/MainWindow.ui" line="1346"/>
         <source>Select All</source>
         <translation>Select All</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1319"/>
+        <location filename="../../views/MainWindow.ui" line="1349"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1331"/>
+        <location filename="../../views/MainWindow.ui" line="1361"/>
         <source>Clear</source>
         <translation>Clear</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1342"/>
+        <location filename="../../views/MainWindow.ui" line="1372"/>
         <source>Show previews</source>
         <translation>Show previews</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1351"/>
+        <location filename="../../views/MainWindow.ui" line="1381"/>
         <source>Preferences...</source>
         <translation>Preferences...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1359"/>
+        <location filename="../../views/MainWindow.ui" line="1389"/>
         <source>Show original in file manager</source>
         <translation>Show original in file manager</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1364"/>
+        <location filename="../../views/MainWindow.ui" line="1394"/>
         <source>Show compressed in file manager</source>
         <translation>Show compressed in file manager</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1373"/>
+        <location filename="../../views/MainWindow.ui" line="1403"/>
         <source>Donate</source>
         <translation>Donate</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1399"/>
+        <location filename="../../views/MainWindow.ui" line="1429"/>
         <source>Icons</source>
         <translation>Icons</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1407"/>
+        <location filename="../../views/MainWindow.ui" line="1437"/>
         <source>Icons and Text</source>
         <translation>Icons and Text</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1415"/>
+        <location filename="../../views/MainWindow.ui" line="1445"/>
         <source>Hide</source>
         <translation>Hide</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1420"/>
+        <location filename="../../views/MainWindow.ui" line="1450"/>
         <source>Show</source>
         <translation>Show</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1428"/>
+        <location filename="../../views/MainWindow.ui" line="1458"/>
         <source>Auto preview</source>
         <translation>Auto Preview</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="781"/>
-        <location filename="../../src/MainWindow.cpp" line="785"/>
+        <location filename="../../src/MainWindow.cpp" line="798"/>
+        <location filename="../../src/MainWindow.cpp" line="802"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="899"/>
+        <location filename="../../src/MainWindow.cpp" line="916"/>
         <source>images in list</source>
         <translation>images in list</translation>
     </message>
@@ -498,69 +503,128 @@ Saved: %4 (%5%)</translation>
         <translation>Preferences</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="37"/>
+        <location filename="../../views/PreferencesDialog.ui" line="76"/>
         <source>Close</source>
         <translation>Close</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="69"/>
-        <location filename="../../views/PreferencesDialog.ui" line="140"/>
+        <location filename="../../views/PreferencesDialog.ui" line="120"/>
+        <location filename="../../views/PreferencesDialog.ui" line="177"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="284"/>
+        <location filename="../../views/PreferencesDialog.ui" line="233"/>
         <source>Prompt before exit</source>
         <translation>Prompt before exit</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="186"/>
-        <location filename="../../views/PreferencesDialog.ui" line="323"/>
+        <location filename="../../views/PreferencesDialog.ui" line="348"/>
+        <source>Do not import if size is</source>
+        <translation>Do not import if size is</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="361"/>
+        <source>grater than</source>
+        <translation>grater than</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="366"/>
+        <source>equal to</source>
+        <translation>equal to</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="371"/>
+        <source>less than</source>
+        <translation>less than</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="406"/>
+        <source>bytes</source>
+        <translation>bytes</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="411"/>
+        <source>Kb</source>
+        <translation>Kb</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="416"/>
+        <source>Mb</source>
+        <translation>Mb</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="671"/>
         <source>Changes will apply after restart</source>
         <translation>Changes will apply after restart</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="196"/>
+        <location filename="../../views/PreferencesDialog.ui" line="245"/>
         <source>Theme (experimental)</source>
         <translation>Theme (experimental)</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="514"/>
+        <source>This option applies when using command line or by dropping files to the application icon</source>
+        <translation>This option applies when using command line or by dropping files to the application icon</translation>
     </message>
     <message>
         <source>Native</source>
         <translation type="vanished">Native</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="277"/>
+        <location filename="../../views/PreferencesDialog.ui" line="221"/>
         <source>Check updates at startup</source>
         <translation>Check updates at startup</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="336"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Import files in subfolders when opening a directory</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="147"/>
+        <location filename="../../views/PreferencesDialog.ui" line="257"/>
         <source>Send anonymous usage reports</source>
         <translation>Send anonymous usage reports</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="244"/>
+        <location filename="../../views/PreferencesDialog.ui" line="445"/>
         <source>Advanced</source>
         <translation>Advanced</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="251"/>
+        <location filename="../../views/PreferencesDialog.ui" line="548"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="81"/>
-        <location filename="../../views/PreferencesDialog.ui" line="384"/>
+        <location filename="../../views/PreferencesDialog.ui" line="132"/>
+        <location filename="../../views/PreferencesDialog.ui" line="573"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="310"/>
+        <location filename="../../views/PreferencesDialog.ui" line="307"/>
+        <source>Import</source>
+        <translation>Import</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="487"/>
+        <source>Import only</source>
+        <translation>Import only</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="492"/>
+        <source>Import and compress</source>
+        <translation>Import and compress</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="474"/>
+        <source>When importing files directly</source>
+        <translation>When importing files directly</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="605"/>
         <source>Preferred language</source>
         <translation>Preferred language</translation>
     </message>
@@ -569,7 +633,7 @@ Saved: %4 (%5%)</translation>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="119"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="132"/>
         <source>Usage data</source>
         <translation>Usage data</translation>
     </message>
@@ -579,17 +643,17 @@ Saved: %4 (%5%)</translation>
         <translation>Show usage data</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="120"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="133"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>This data is collected to provide the best long term support for the application. No data is sent to third parties.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="134"/>
         <source>System data</source>
         <translation>System data</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="121"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="134"/>
         <source>Compression data</source>
         <translation>Compression data</translation>
     </message>
@@ -597,42 +661,42 @@ Saved: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="220"/>
+        <location filename="../../src/MainWindow.cpp" line="231"/>
         <source>Image Files</source>
         <translation>Image Files</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="129"/>
+        <location filename="../../src/models/CImage.cpp" line="133"/>
         <source>Input file does not exist</source>
         <translation>Input file does not exist</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="148"/>
+        <location filename="../../src/models/CImage.cpp" line="157"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Cannot make output path, check your permissions</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="165"/>
+        <location filename="../../src/models/CImage.cpp" line="174"/>
         <source>Temporary file creation failed</source>
         <translation>Temporary file creation failed</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="196"/>
+        <location filename="../../src/models/CImage.cpp" line="211"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Skipped: compressed file is bigger than original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="207"/>
+        <location filename="../../src/models/CImage.cpp" line="222"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Cannot copy output file, check your permissions</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="335"/>
+        <location filename="../../src/models/CImage.cpp" line="350"/>
         <source>Compressing...</source>
         <translation>Compressing...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="337"/>
+        <location filename="../../src/models/CImage.cpp" line="352"/>
         <source>Error:</source>
         <translation>Error:</translation>
     </message>
@@ -640,6 +704,26 @@ Saved: %4 (%5%)</translation>
         <location filename="../../src/utils/Utils.cpp" line="134"/>
         <source>File not found</source>
         <translation>File not found</translation>
+    </message>
+    <message>
+        <location filename="../../src/utils/Utils.h" line="127"/>
+        <source>Same as input</source>
+        <translation>Same as input</translation>
+    </message>
+    <message>
+        <location filename="../../src/utils/Utils.h" line="128"/>
+        <source>JPG</source>
+        <translation>JPG</translation>
+    </message>
+    <message>
+        <location filename="../../src/utils/Utils.h" line="129"/>
+        <source>PNG</source>
+        <translation>PNG</translation>
+    </message>
+    <message>
+        <location filename="../../src/utils/Utils.h" line="130"/>
+        <source>WebP</source>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>

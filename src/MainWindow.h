@@ -90,10 +90,10 @@ private slots:
     void on_actionToolbarHide_triggered();
     void updateCompressionProgressLabel(int value);
     void on_actionAuto_preview_toggled(bool toggled);
-
     void on_actionPreview_triggered();
-
     void on_skipIfBigger_CheckBox_toggled(bool checked);
+    void outputFormatIndexChanged(int index);
+    void importFromArgs(const QStringList);
 
 private:
     Ui::MainWindow* ui;

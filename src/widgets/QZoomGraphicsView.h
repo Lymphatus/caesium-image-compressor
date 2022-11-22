@@ -19,16 +19,16 @@ public:
     void resetScaleFactor();
     void setLoading(bool l);
     void setZoomEnabled(bool l);
-    void showPixmap(QPixmap pixmap);
+    void showPixmap(const QPixmap& pixmap);
     void removePixmap();
 
 private:
-    const float WHEEL_TOLERANCE = 1; // Experimental for touchpads
-    const float ZOOM_IN_RATIO = 1.05;
-    const float ZOOM_OUT_RATIO = 0.95;
-    const float MAX_ZOOM_IN = 10;
-    const float MAX_ZOOM_OUT = 0.1;
-    float scaleFactor = 1;
+    const double WHEEL_TOLERANCE = 1; // Experimental for touchpads
+    const double ZOOM_IN_RATIO = 1.05;
+    const double ZOOM_OUT_RATIO = 0.95;
+    const double MAX_ZOOM_IN = 10;
+    const double MAX_ZOOM_OUT = 0.1;
+    double scaleFactor = 1;
     bool zooming = false;
     bool loading = false;
     bool zoomEnabled = true;
