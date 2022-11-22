@@ -12,26 +12,30 @@ class PreferencesDialog : public QDialog {
 
 public:
     explicit PreferencesDialog(QWidget* parent = nullptr);
-    ~PreferencesDialog();
+    ~PreferencesDialog() override;
 
 private slots:
-    void on_promptExit_CheckBox_toggled(bool checked);
-    void languageComboBoxIndexChanged(int index);
-    void themeComboBoxIndexChanged(int index);
-    void argsBehaviourComboBoxIndexChanged(int index);
-    void on_checkUpdatesAtStartup_CheckBox_toggled(bool checked);
-    void on_importSubfolders_CheckBox_toggled(bool checked);
-    void on_sendUsageReport_CheckBox_toggled(bool checked);
-    void on_multithreading_CheckBox_toggled(bool checked);
-    void on_showUsageData_Label_linkActivated(const QString& link);
+    void onLanguageChanged(int index);
+    void onThemeChanged(int index);
+    static void onArgsBehaviourChanged(int index);
+    static void onSkipBySizeToggled(bool checked);
+    static void onSkipBySizeConditionChanged(int index);
+    static void onSkipBySizeValueChanged(int value);
+    static void onSkipBySizeUnitChanged(int index);
+    static void onPromptExitToggled(bool checked);
+    static void onCheckUpdatesAtStartupToggled(bool checked);
+    static void onImportSubfoldersToggled(bool checked);
+    static void onSendUsageReportToggled(bool checked);
+    static void onMultithreadingToggled(bool checked);
+    static void onShowUsageDataLinkActivated(const QString& link);
 
 private:
     Ui::PreferencesDialog* ui;
 
+    void setupConnections();
     void loadPreferences();
     void loadLanguages();
     void loadThemes();
-    void writeSetting(const QString& key, const QVariant& value);
 };
 
 #endif // PREFERENCESDIALOG_H

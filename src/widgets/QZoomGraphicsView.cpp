@@ -50,7 +50,7 @@ void QZoomGraphicsView::setScaleFactor(QWheelEvent* event)
         factor = ZOOM_OUT_RATIO;
     }
 
-    float expectedScaleFactor = this->scaleFactor * factor;
+    double expectedScaleFactor = this->scaleFactor * factor;
     if (expectedScaleFactor > MAX_ZOOM_IN || expectedScaleFactor < MAX_ZOOM_OUT) {
         return;
     }
@@ -98,7 +98,7 @@ void QZoomGraphicsView::setZoomEnabled(bool l)
     this->zoomEnabled = l;
 }
 
-void QZoomGraphicsView::showPixmap(QPixmap pixmap)
+void QZoomGraphicsView::showPixmap(const QPixmap& pixmap)
 {
     this->pixmapItem = this->graphicsScene->addPixmap(pixmap);
     this->graphicsScene->setSceneRect(this->graphicsScene->itemsBoundingRect());

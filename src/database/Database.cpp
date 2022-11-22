@@ -1,5 +1,4 @@
 #include "Database.h"
-#include <QDebug>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QStandardPaths>

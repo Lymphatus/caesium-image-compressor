@@ -38,7 +38,7 @@ QString toHumanSize(double size)
 }
 
 // TODO Another thread?
-QStringList scanDirectory(QString directory, bool subfolders)
+QStringList scanDirectory(const QString& directory, bool subfolders)
 {
     QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp" };
     QStringList fileList = {};

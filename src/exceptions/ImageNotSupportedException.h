@@ -10,7 +10,7 @@ private:
 
 public:
     ImageNotSupportedException();
-    const char* what() const noexcept override;
+    [[nodiscard]] const char* what() const noexcept override;
 };
 
 #endif // CAESIUM_IMAGE_COMPRESSOR_IMAGENOTSUPPORTEDEXCEPTION_H
