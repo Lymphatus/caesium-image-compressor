@@ -307,7 +307,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="892"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation>Skip if output size is bigger than the original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="909"/>
@@ -332,7 +332,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="959"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Format</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="984"/>
@@ -521,37 +521,37 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="348"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Do not import if size is</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="361"/>
         <source>grater than</source>
-        <translation type="unfinished"></translation>
+        <translation>grater than</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation>equal to</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation>less than</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="406"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="411"/>
         <source>Kb</source>
-        <translation type="unfinished"></translation>
+        <translation>Kb</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="416"/>
         <source>Mb</source>
-        <translation type="unfinished"></translation>
+        <translation>Mb</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="671"/>
@@ -566,7 +566,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="514"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>This option applies when using command line or by dropping files to the application icon</translation>
     </message>
     <message>
         <source>Native</source>
@@ -606,22 +606,22 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Import</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="487"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Import only</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="492"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Import and compress</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="474"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>When importing files directly</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="605"/>
@@ -706,24 +706,24 @@ Saved: %4 (%5%)</translation>
         <translation>File not found</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="126"/>
-        <source>Same as input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.h" line="127"/>
-        <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <source>Same as input</source>
+        <translation>Same as input</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="128"/>
-        <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <source>JPG</source>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="129"/>
+        <source>PNG</source>
+        <translation>PNG</translation>
+    </message>
+    <message>
+        <location filename="../../src/utils/Utils.h" line="130"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>

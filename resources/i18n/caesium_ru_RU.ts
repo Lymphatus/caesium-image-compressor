@@ -706,22 +706,22 @@ Saved: %4 (%5%)</source>
         <translation>Файл не найден</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="126"/>
+        <location filename="../../src/utils/Utils.h" line="127"/>
         <source>Same as input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="127"/>
+        <location filename="../../src/utils/Utils.h" line="128"/>
         <source>JPG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="128"/>
+        <location filename="../../src/utils/Utils.h" line="129"/>
         <source>PNG</source>
         <translation type="unfinished">PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="129"/>
+        <location filename="../../src/utils/Utils.h" line="130"/>
         <source>WebP</source>
         <translation type="unfinished">WebP</translation>
     </message>

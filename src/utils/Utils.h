@@ -99,7 +99,7 @@ typedef struct ImagePreview {
     QString format;
 } ImagePreview;
 
-const int LANGUAGES_COUNT = 11;
+const int LANGUAGES_COUNT = 12;
 
 const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("default"), QString("Default") },
@@ -113,6 +113,7 @@ const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
     { QString("de_DE"), QString("Deutsch") },
     { QString("ru_RU"), QString("Русский") },
     { QString("tr_TR"), QString("Türkçe") },
+    { QString("pt_BR"), QString("Português Brasileiro") },
 };
 
 const int THEMES_COUNT = 3;

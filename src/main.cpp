@@ -149,6 +149,16 @@ int main(int argc, char* argv[])
     qInfo() << "---- Starting application ----";
     loadInstallationId();
     MainWindow w;
+
+    QScreen* spawnScreen = w.screen();
+    if (!QGuiApplication::screens().contains(spawnScreen)) {
+        QScreen* cursorScreen = QApplication::screenAt(QCursor::pos());
+        w.move(cursorScreen->availableGeometry().center() - w.rect().center());
+        w.setScreen(cursorScreen);
+    } else if (!spawnScreen->availableGeometry().contains(w.pos())) {
+        w.move(spawnScreen->availableGeometry().center() - w.rect().center());
+    }
+
     w.show();
 
     return QApplication::exec();
