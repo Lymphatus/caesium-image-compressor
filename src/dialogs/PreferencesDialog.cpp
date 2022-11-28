@@ -1,6 +1,7 @@
 #include "PreferencesDialog.h"
 #include "ui_PreferencesDialog.h"
 
+#include "utils/LanguageManager.h"
 #include "utils/Utils.h"
 #include <QJsonDocument>
 #include <QMessageBox>
@@ -49,8 +50,8 @@ void PreferencesDialog::setupConnections()
 
 void PreferencesDialog::loadLanguages()
 {
-    for (const CsLocale& locale : LANGUAGES) {
-        ui->language_ComboBox->addItem(locale.label);
+    for (const CsLocale& locale : LanguageManager::getSortedTranslations()) {
+        ui->language_ComboBox->addItem(locale.label, locale.locale);
     }
 }
 
@@ -69,13 +70,13 @@ void PreferencesDialog::loadPreferences()
     ui->importSubfolders_CheckBox->setChecked(settings.value("preferences/general/import_subfolders", true).toBool());
     ui->sendUsageReport_CheckBox->setChecked(settings.value("preferences/general/send_usage_reports", true).toBool());
     ui->multithreading_CheckBox->setChecked(settings.value("preferences/general/multithreading", true).toBool());
-    ui->language_ComboBox->setCurrentIndex(settings.value("preferences/language/locale", 0).toInt());
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
     ui->argsBehaviour_ComboBox->setCurrentIndex(settings.value("preferences/general/args_behaviour", 0).toInt());
     ui->skipBySize_CheckBox->setChecked(settings.value("preferences/general/skip_by_size/enabled", false).toBool());
     ui->skipBySizeCondition_ComboBox->setCurrentIndex(settings.value("preferences/general/skip_by_size/condition", 0).toInt());
     ui->skipBySizeSize_SpinBox->setValue(settings.value("preferences/general/skip_by_size/value", 0).toInt());
     ui->skipBySizeUnit_ComboBox->setCurrentIndex(settings.value("preferences/general/skip_by_size/unit", 0).toInt());
+    ui->language_ComboBox->setCurrentIndex(PreferencesDialog::getLocaleIndex());
 }
 
 void PreferencesDialog::onPromptExitToggled(bool checked)
@@ -85,13 +86,10 @@ void PreferencesDialog::onPromptExitToggled(bool checked)
 
 void PreferencesDialog::onLanguageChanged(int index)
 {
-    int localeIndex = index;
-    if (index < 0 || index > LANGUAGES_COUNT - 1) {
-        localeIndex = 0;
-    }
+    QString languageId = ui->language_ComboBox->itemData(index).toString();
     ui->changesAfterRestartTheme_Label->setVisible(true);
     ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
-    QSettings().setValue("preferences/language/locale", localeIndex);
+    QSettings().setValue("preferences/language/locale", languageId);
 }
 
 void PreferencesDialog::onCheckUpdatesAtStartupToggled(bool checked)
@@ -169,4 +167,20 @@ void PreferencesDialog::onSkipBySizeValueChanged(int value)
 void PreferencesDialog::onSkipBySizeUnitChanged(int index)
 {
     QSettings().setValue("preferences/general/skip_by_size/unit", index);
+}
+
+// Versions below 2.3.0 use an index on the unsorted list, we need to convert it to the new sorting
+int PreferencesDialog::getLocaleIndex()
+{
+    auto localeConf = QSettings().value("preferences/language/locale", "default");
+    int localeIndex = 0;
+    if (localeConf.type() == QVariant::Int || localeConf.type() == QVariant::LongLong) {
+        localeIndex = localeConf.toInt();
+        QString locale = LanguageManager::getTranslations().at(localeIndex).locale;
+        localeIndex = LanguageManager::findSortedIndex(locale);
+    } else if (localeConf.type() == QVariant::String) {
+        localeIndex = LanguageManager::findSortedIndex(localeConf.toString());
+    }
+
+    return localeIndex;
 }

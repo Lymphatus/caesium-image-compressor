@@ -82,6 +82,8 @@ set(SOURCES
         src/models/CImageTreeModel.cpp
         src/models/CImageSortFilterProxyModel.cpp
         src/utils/Utils.cpp
+        src/utils/LanguageManager.cpp
+        src/utils/Logger.cpp
         src/dialogs/AboutDialog.cpp
         src/widgets/QDropTreeView.cpp
         src/widgets/QZoomGraphicsView.cpp
@@ -95,40 +97,11 @@ set(SOURCES
         src/network/NetworkOperations.cpp
         src/database/Database.cpp)
 
-set(HEADERS
-        src/MainWindow.h
-        src/models/CImage.h
-        src/models/CImageTreeItem.h
-        src/models/CImageTreeModel.h
-        src/models/CImageSortFilterProxyModel.h
-        src/utils/Utils.h
-        src/dialogs/AboutDialog.h
-        src/widgets/QDropTreeView.h
-        src/widgets/QZoomGraphicsView.h
-        src/widgets/QCaesiumMessageBox.h
-        src/widgets/QMainCheckBox.h
-        src/widgets/QLoadingLabel.h
-        src/delegates/HtmlDelegate.h
-        src/exceptions/ImageNotSupportedException.h
-        src/exceptions/ImageTooBigException.h
-        src/dialogs/PreferencesDialog.h
-        src/network/NetworkOperations.h
-        src/database/Database.h)
-
 if (APPLE)
     set(OSX_SOURCES
             src/updater/osx/AutoUpdater.cpp
             src/updater/osx/CocoaInitializer.mm
             src/updater/osx/SparkleAutoUpdater.mm
-            )
-    set(OSX_HEADERS
-            src/updater/osx/AutoUpdater.h
-            src/updater/osx/SparkleAutoUpdater.h
-            )
-
-else ()
-    set(WIN_HEADERS
-            src/updater/win/winsparkle.h
             )
 endif ()
 
@@ -148,7 +121,8 @@ SET(TS_FILES
         resources/i18n/caesium_de_DE.ts
         resources/i18n/caesium_ru_RU.ts
         resources/i18n/caesium_tr_TR.ts
-        resources/i18n/caesium_pt_BR.ts)
+        resources/i18n/caesium_pt_BR.ts
+        resources/i18n/caesium_el_GR.ts)
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
@@ -167,9 +141,9 @@ set(RESOURCES
         resources/resources.qrc)
 
 if (WIN32)
-    add_executable(${TARGET} WIN32 ${SOURCES} ${HEADERS} ${WIN_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    add_executable(${TARGET} WIN32 ${SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 else ()
-    add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${HEADERS} ${OSX_HEADERS} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 endif ()
 
 # --- libcaesium ---

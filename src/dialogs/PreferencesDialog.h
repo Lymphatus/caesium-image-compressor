@@ -17,6 +17,7 @@ public:
 private slots:
     void onLanguageChanged(int index);
     void onThemeChanged(int index);
+    static int getLocaleIndex();
     static void onArgsBehaviourChanged(int index);
     static void onSkipBySizeToggled(bool checked);
     static void onSkipBySizeConditionChanged(int index);

@@ -24,6 +24,7 @@
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
 #include "./updater/osx/SparkleAutoUpdater.h"
+#include "utils/Logger.h"
 #endif
 
 #ifdef Q_OS_WIN
@@ -666,6 +667,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
     this->writeSettings();
     this->clearCache();
+    Logger::cleanOldLogs();
     this->previewWatcher->waitForFinished();
     qInfo() << "---- Closing application ----";
     event->accept();

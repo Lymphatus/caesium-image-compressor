@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.1" language="el_GR">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
-        <translation>About Caesium - Image Compressor</translation>
+        <translation>Σχετικά με το Caesium - Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="104"/>
         <source>Caesium Image Compressor</source>
-        <translation>Caesium Image Compressor</translation>
+        <translation>Συμπιεστής Εικόνας Caesium</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="148"/>
         <source>Check for updates</source>
-        <translation>Проверить наличие обновлений</translation>
+        <translation>Έλεγχος για ενημερώσεις</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation>Πνευματικά δικαιώματα © 2022 Matteo Paonessa.
+Όλα τα δικαιώματα διατηρούνται</translation>
     </message>
     <message>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation type="vanished">Πνευματικά δικαιώματα © 2021 Matteo Paonessa.
+Όλα τα δικαιώματα διατηρούνται.</translation>
     </message>
 </context>
 <context>
@@ -37,27 +37,27 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Name</source>
-        <translation>Имя</translation>
+        <translation>Όνομα</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Size</source>
-        <translation>Размер</translation>
+        <translation>Μέγεθος</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Resolution</source>
-        <translation>Разрешение</translation>
+        <translation>Ανάλυση</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Saved</source>
-        <translation>Удалось сжать</translation>
+        <translation>Αποθηκευμένο</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
-        <translation>Информация</translation>
+        <translation>Πληροφορίες</translation>
     </message>
 </context>
 <context>
@@ -65,75 +65,75 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="230"/>
         <source>Import files...</source>
-        <translation>Импортировать файлы...</translation>
+        <translation>Εισαγωγή αρχείων...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="246"/>
         <source>Import folder...</source>
-        <translation>Импортировать папку...</translation>
+        <translation>Εισαγωγή φακέλου...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="454"/>
         <source>Importing files...</source>
-        <translation>Импорт файлов...</translation>
+        <translation>Εισάγωνται αρχεία...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1058"/>
         <location filename="../../src/MainWindow.cpp" line="454"/>
         <location filename="../../src/MainWindow.cpp" line="658"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Ακύρωση</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="552"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
-        <translation>Вы собираетесь перезаписать исходные изображения. Это действие нельзя будет отменить.
+        <translation>YΠρόκειται να αντικαταστήσετε τις αρχικές σας εικόνες και αυτή η ενέργεια δεν μπορεί να αναιρεθεί.
 
-Вы действительно хотите продолжить?</translation>
+Θέλετε πραγματικά να συνεχίσετε;</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="556"/>
         <source>No</source>
-        <translation>Нет</translation>
+        <translation>Όχι</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1133"/>
         <source>Finishing...</source>
-        <translation>Завершение...</translation>
+        <translation>Ολοκληρώνεται...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="586"/>
         <location filename="../../src/MainWindow.cpp" line="1200"/>
         <source>Compressing...</source>
-        <translation>Сжатие...</translation>
+        <translation>Συμπίεση...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="654"/>
         <source>Do you really want to quit?</source>
-        <translation>Вы действительно хотите выйти?</translation>
+        <translation>Θέλετε πραγματικά να σταματήσετε;</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="555"/>
         <location filename="../../src/MainWindow.cpp" line="657"/>
         <source>Yes</source>
-        <translation>Да</translation>
+        <translation>Ναι</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="678"/>
         <source>Select output folder...</source>
-        <translation>Выберите папку для сохранения изображений...</translation>
+        <translation>Επιλέξτε φάκελο εξόδου...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="744"/>
         <source>Compression finished!</source>
-        <translation>Сжатие завершено!</translation>
+        <translation>Η συμπίεση ολοκληρώθηκε!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="747"/>
         <source>You just saved %1!</source>
-        <translation>Вы сохранили %1!</translation>
+        <translation>Μόλις έσωσες %1!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="756"/>
@@ -141,38 +141,38 @@ Do you really want to continue?</source>
 Original size: %2
 Compressed size: %3
 Saved: %4 (%5%)</source>
-        <translation>Всего файлов: %1
-Исходный размер: %2
-Размер со сжатием: %3
-Удалось сжать: %4 (%5%)</translation>
+        <translation>Συνολικά αρχεία: %1
+Αρχικό μέγεθος: %2
+Συμπιεσμένο μέγεθος: %3
+Σώθηκαν: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="17"/>
         <source>Caesium Image Compressor</source>
-        <translation>Caesium Image Compressor</translation>
+        <translation>Συμπιεστής Εικόνας Caesium</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="126"/>
         <source>Add...</source>
-        <translation>Добавить...</translation>
+        <translation>Προσθήκη...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="146"/>
         <location filename="../../views/MainWindow.ui" line="1338"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>Απομάκρυνση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="179"/>
         <location filename="../../views/MainWindow.ui" line="1415"/>
         <location filename="../../views/MainWindow.ui" line="1418"/>
         <source>Compress</source>
-        <translation>Сжать</translation>
+        <translation>Συμπίεση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="207"/>
         <source>Compression</source>
-        <translation>Сжатие</translation>
+        <translation>Συμπίεση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="227"/>
@@ -184,7 +184,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="365"/>
         <location filename="../../views/MainWindow.ui" line="412"/>
         <source>Quality</source>
-        <translation>Качество</translation>
+        <translation>Ποιότητα</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="312"/>
@@ -193,7 +193,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Level</source>
-        <translation type="vanished">Уровень</translation>
+        <translation type="vanished">Επίπεδο</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="394"/>
@@ -203,52 +203,52 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="479"/>
         <source>Lossless</source>
-        <translation>Без потерь</translation>
+        <translation>Χωρίς απώλειες</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="486"/>
         <source>Keep Metadata</source>
-        <translation>Сохранять метаданные</translation>
+        <translation>Διατήρηση Μεταδεδομένων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="509"/>
         <source>Resize</source>
-        <translation>Разрешение</translation>
+        <translation>Αλλαγή μεγέθους</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="535"/>
         <source>Resize to fit</source>
-        <translation>Изменить размер, чтобы соответствовать</translation>
+        <translation>Αλλαγή μεγέθους για να ταιριάζει</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="559"/>
         <source>No resize</source>
-        <translation>Не изменять</translation>
+        <translation>Χωρίς αλλαγή μεγέθους</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="564"/>
         <source>Dimensions</source>
-        <translation>Dimensions</translation>
+        <translation>Διαστάσεις</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="569"/>
         <source>Percentage</source>
-        <translation>Percentage</translation>
+        <translation>Ποσοστιαία</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="574"/>
         <source>Short edge</source>
-        <translation>Short edge</translation>
+        <translation>Οριζόντια</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="579"/>
         <source>Long edge</source>
-        <translation>Long edge</translation>
+        <translation>Κάθετα</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="615"/>
         <source>Width</source>
-        <translation>Ширина</translation>
+        <translation>Πλάτος</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="643"/>
@@ -262,134 +262,134 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="659"/>
         <source>Size</source>
-        <translation>Размер</translation>
+        <translation>Μέγεθος</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="716"/>
         <source>Height</source>
-        <translation>Высота</translation>
+        <translation>Ύψος</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="762"/>
         <source>Do not enlarge</source>
-        <translation>Не увеличивать</translation>
+        <translation>Χωρίς μεγένθυση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Keep aspect ratio</source>
-        <translation>Сохранять пропорции</translation>
+        <translation>Διατηρήστε την αναλογία απεικόνισης</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Output</source>
-        <translation>Экспорт</translation>
+        <translation>Εξαγωγή</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="819"/>
         <source>Folder</source>
-        <translation>Папка</translation>
+        <translation>Φάκελος</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="863"/>
         <source>Select...</source>
-        <translation>Выбрать...</translation>
+        <translation>Επιλογή...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="875"/>
         <source>Same folder as input</source>
-        <translation>Сохранять в исходную папку</translation>
+        <translation>Ίδιος φάκελος με την εισαγωγή</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="885"/>
         <source>Keep folder structure</source>
-        <translation>Сохранять структуру папок</translation>
+        <translation>Διατήρηση της δομής του φακέλου</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="892"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation>Пропускать, если сжатое изображение больше оригинала</translation>
+        <translation>Παράλειψη εάν το μέγεθος εξαγωγής είναι μεγαλύτερο από το πρωτότυπο</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="909"/>
         <source>Keep file dates</source>
-        <translation>Сохранять даты файлов</translation>
+        <translation>Διατήρηση ημερομηνιών αρχείων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="924"/>
         <source>Creation</source>
-        <translation>Создание</translation>
+        <translation>Δημιουργία</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="931"/>
         <source>Last modified</source>
-        <translation>Последнее изменение</translation>
+        <translation>Τελευταία τροποποίηση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="938"/>
         <source>Last access</source>
-        <translation>Последний доступ</translation>
+        <translation>Τελευταία πρόσβαση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="959"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Μορφή</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="984"/>
         <source>Suffix</source>
-        <translation>Префикс</translation>
+        <translation>Κατάληξη</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1145"/>
         <source>Original</source>
-        <translation>Оригинал</translation>
+        <translation>Πρωτότυπο</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1470"/>
         <location filename="../../src/MainWindow.cpp" line="1119"/>
         <source>Preview</source>
-        <translation>Предварительный просмотр</translation>
+        <translation>Προεπισκόπηση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1138"/>
         <source>Compressed</source>
-        <translation>Сжатый</translation>
+        <translation>Συμπιεσμένο</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1194"/>
         <source>Help</source>
-        <translation>Помощь</translation>
+        <translation>Βοήθεια</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1202"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>Αρχείο</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1211"/>
         <source>Edit</source>
-        <translation>Правка</translation>
+        <translation>Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1222"/>
         <source>View</source>
-        <translation>Вид</translation>
+        <translation>Επισκόπηση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1226"/>
         <location filename="../../views/MainWindow.ui" line="1249"/>
         <source>Toolbar</source>
-        <translation>Панель инструментов</translation>
+        <translation>Γραμμή εργαλείων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1291"/>
         <source>About Caesium Image Compressor</source>
-        <translation>About Caesium Image Compressor</translation>
+        <translation>Σχετικά με τον Συμπιεστή Εικόνας Caesium</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1303"/>
         <source>Add files...</source>
-        <translation>Добавить файлы...</translation>
+        <translation>Προσθήκη αρχείων...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1306"/>
@@ -399,7 +399,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1315"/>
         <source>Add folder...</source>
-        <translation>Добавить папку...</translation>
+        <translation>Προσθήκη φακέλου...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1318"/>
@@ -410,18 +410,18 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1323"/>
         <location filename="../../src/MainWindow.cpp" line="170"/>
         <source>Exit</source>
-        <translation>Выйти</translation>
+        <translation>Έξοδος</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1341"/>
         <source>Del</source>
-        <translatorcomment>Delete key on keyboard</translatorcomment>
+        <translatorcomment>Πλήκτρο Διαγραφής στο πληκτρολόγιο</translatorcomment>
         <translation>Del</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1346"/>
         <source>Select All</source>
-        <translation>Выбрать все</translation>
+        <translation>Επιλογή όλων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1349"/>
@@ -431,57 +431,57 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1361"/>
         <source>Clear</source>
-        <translation>Очистить</translation>
+        <translation>Εκκαθάριση</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1372"/>
         <source>Show previews</source>
-        <translation>Показать превью</translation>
+        <translation>Εμφάνιση προεπισκοπήσεων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1381"/>
         <source>Preferences...</source>
-        <translation>Настройки...</translation>
+        <translation>Προτιμήσεις...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1389"/>
         <source>Show original in file manager</source>
-        <translation>Показать оригинальное изображение в проводнике</translation>
+        <translation>Εμφάνιση πρωτοτύπου στη διαχείριση αρχείων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1394"/>
         <source>Show compressed in file manager</source>
-        <translation>Показать сжатое изображение в проводнике</translation>
+        <translation>Εμφάνιση συμπιεσμένων στη διαχείριση αρχείων</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1403"/>
         <source>Donate</source>
-        <translation>Поддержать разработчика</translation>
+        <translation>Δωρεά</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1429"/>
         <source>Icons</source>
-        <translation>Иконки</translation>
+        <translation>Εικονίδια</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1437"/>
         <source>Icons and Text</source>
-        <translation>Иконки и текст</translation>
+        <translation>Εικονίδια και Κείμενο</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1445"/>
         <source>Hide</source>
-        <translation>Скрыть</translation>
+        <translation>Απόκρυψη</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1450"/>
         <source>Show</source>
-        <translation>Показать</translation>
+        <translation>Προβολή</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1458"/>
         <source>Auto preview</source>
-        <translation>Авто превью</translation>
+        <translation>Αυτόματη Προεπισκόπηση</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="811"/>
@@ -492,7 +492,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="929"/>
         <source>images in list</source>
-        <translation>Изображения в списке</translation>
+        <translation>εικόνες στη λίστα</translation>
     </message>
 </context>
 <context>
@@ -500,63 +500,71 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="20"/>
         <source>Preferences</source>
-        <translation>Настройки</translation>
+        <translation>Προτιμήσεις</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="76"/>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation>Κλείσιμο</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="120"/>
         <location filename="../../views/PreferencesDialog.ui" line="177"/>
         <source>General</source>
-        <translation>Общее</translation>
+        <translation>Γενικά</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="233"/>
         <source>Prompt before exit</source>
-        <translation>Спрашивать перед закрытием</translation>
+        <translation>Προτροπή πριν την έξοδο</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="348"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Μην εισάγετε εάν το μέγεθος είναι</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>grater than</source>
-        <translation type="unfinished"></translation>
+        <translation>μεγαλύτερο από</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation>ίσο με</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation>λιγότερο από</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="411"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>bytes</translation>
+    </message>
+    <message>
+        <source>Kb</source>
+        <translation type="vanished">Kb</translation>
+    </message>
+    <message>
+        <source>Mb</source>
+        <translation type="vanished">Mb</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="678"/>
         <source>Changes will apply after restart</source>
-        <translation>Изменения вступят в силу после перезапуска</translation>
+        <translation>Οι αλλαγές θα εφαρμοστούν μετά την επανεκκίνηση</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="245"/>
         <source>Theme (experimental)</source>
-        <translation>Тема (экспериментально)</translation>
+        <translation>Θέμα (πειραματικό)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="521"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτή η επιλογή ισχύει κατά τη χρήση της γραμμής εντολών ή με την απόθεση αρχείων στο εικονίδιο της εφαρμογής</translation>
     </message>
     <message>
         <source>Native</source>
@@ -565,38 +573,38 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="221"/>
         <source>Check updates at startup</source>
-        <translation>Проверять наличие обновлений при запуске</translation>
+        <translation>Ελέγξτε για ενημερώσεις κατά την εκκίνηση</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="336"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation>Импортировать также файлы в подпапках при добавлении папки</translation>
+        <translation>Εισάγετε αρχεία σε υποφακέλους κατά το άνοιγμα ενός καταλόγου</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="257"/>
         <source>Send anonymous usage reports</source>
-        <translation>Отправка анонимных отчетов об использовании</translation>
+        <translation>Αποστολή ανώνυμων αναφορών χρήσης</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="452"/>
         <source>Advanced</source>
-        <translation>Расширенное</translation>
+        <translation>Προχωρημένο</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="555"/>
         <source>Multithreading</source>
-        <translation>Многопоточность</translation>
+        <translation>Πολυνηματική</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="132"/>
         <location filename="../../views/PreferencesDialog.ui" line="580"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation>Γλώσσα</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="416"/>
@@ -611,51 +619,51 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="494"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Μόνο εισαγωγή</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="499"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή και συμπίεση</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="481"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>Κατά την απευθείας εισαγωγή αρχείων</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="612"/>
         <source>Preferred language</source>
-        <translation>Выбранный язык</translation>
+        <translation>Προτιμώμενη γλώσσα</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Изменения вступят в силу после перезапуска&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Οι αλλαγές θα εφαρμοστούν μετά την επανεκκίνηση&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="144"/>
         <source>Usage data</source>
-        <translation>Данные об использовании</translation>
+        <translation>Δεδομένα χρήσης</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="21"/>
         <source>Show usage data</source>
-        <translation>Показать данные об использовании</translation>
+        <translation>Προβολή δεδομένων χρήσης</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="145"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>Эти данные собираются для улучшения качества программы. Никакие данные не передаются третьим лицам.</translation>
+        <translation>Αυτά τα δεδομένα συλλέγονται για να παρέχουν την καλύτερη μακροπρόθεσμη υποστήριξη για την εφαρμογή. Δεν αποστέλλονται δεδομένα σε τρίτους.</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="146"/>
         <source>System data</source>
-        <translation>Системные данные</translation>
+        <translation>Δεδομένα συστήματος</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="146"/>
         <source>Compression data</source>
-        <translation>Данные сжатия</translation>
+        <translation>Δεδομένα συμπίεσης</translation>
     </message>
 </context>
 <context>
@@ -663,74 +671,74 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="232"/>
         <source>Image Files</source>
-        <translation>Изображения</translation>
+        <translation>Αρχεία εικόνας</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="133"/>
         <source>Input file does not exist</source>
-        <translation>Исходный файл не существует</translation>
+        <translation>Το αρχείο εισαγωγής δεν υπάρχει</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="157"/>
         <source>Cannot make output path, check your permissions</source>
-        <translation>Не удается создать папку, предоставьте необходимые разрешения</translation>
+        <translation>Δεν είναι δυνατή η δημιουργία διαδρομής εξαγωγής, ελέγξτε τα δικαιώματά σας</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="174"/>
         <source>Temporary file creation failed</source>
-        <translation>Не удалось создать временный файл</translation>
+        <translation>Η δημιουργία προσωρινού αρχείου απέτυχε</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="211"/>
         <source>Skipped: compressed file is bigger than original</source>
-        <translation>Пропущено: сжатый файл больше исходного</translation>
+        <translation>Παράλειψη: το συμπιεσμένο αρχείο είναι μεγαλύτερο από το αρχικό</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="222"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation>Не удается скопировать сжатый файл, предоставьте необходимые разрешения</translation>
+        <translation>Δεν είναι δυνατή η αντιγραφή του αρχείου εξαγωγής, ελέγξτε τα δικαιώματά σας</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="350"/>
         <source>Compressing...</source>
-        <translation>Сжатие...</translation>
+        <translation>Συμπίεση...</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="352"/>
         <source>Error:</source>
-        <translation>Ошибка:</translation>
+        <translation>Σφάλμα:</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="134"/>
         <source>File not found</source>
-        <translation>Файл не найден</translation>
+        <translation>Το αρχείο δε βρέθηκε</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="110"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation>Ίδιο με το εισαγώμενο</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="111"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="112"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="113"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>
     <name>QZoomGraphicsView</name>
     <message>
         <source>Loading...</source>
-        <translation type="vanished">Загрузка...</translation>
+        <translation type="vanished">Φόρτωση...</translation>
     </message>
 </context>
 </TS>

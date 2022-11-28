@@ -99,23 +99,6 @@ typedef struct ImagePreview {
     QString format;
 } ImagePreview;
 
-const int LANGUAGES_COUNT = 12;
-
-const CsLocale LANGUAGES[LANGUAGES_COUNT] = {
-    { QString("default"), QString("Default") },
-    { QString("en_US"), QString("English (US)") },
-    { QString("it_IT"), QString("Italiano") },
-    { QString("fr_FR"), QString("Français") },
-    { QString("ja_JP"), QString("日本語") },
-    { QString("zh_CN"), QString("简体中文") },
-    { QString("es_ES"), QString("Español") },
-    { QString("ar_EG"), QString("العَرَبِيَّة") },
-    { QString("de_DE"), QString("Deutsch") },
-    { QString("ru_RU"), QString("Русский") },
-    { QString("tr_TR"), QString("Türkçe") },
-    { QString("pt_BR"), QString("Português Brasileiro") },
-};
-
 const int THEMES_COUNT = 3;
 const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Native"), QString("Native") },

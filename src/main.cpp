@@ -1,4 +1,6 @@
 #include "MainWindow.h"
+#include "utils/LanguageManager.h"
+#include "utils/Logger.h"
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -9,67 +11,11 @@
 #include <QTranslator>
 #include <QUuid>
 
-void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
-{
-    QDateTime currentTime = QDateTime::currentDateTime();
-    QString formattedTime = currentTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
-    QString currentDate = currentTime.toString("yyyy-MM-dd");
-    QString logDirPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QString logPath = logDirPath + "/caesium-" + currentDate + ".log";
-
-    QByteArray localMsg = msg.toLocal8Bit();
-    QDir logDir(logDirPath);
-    bool logToFile = true;
-    if (!logDir.exists()) {
-        logToFile = logDir.mkpath(logDirPath);
-    }
-    QFile logFile(logPath);
-    QString message;
-    switch (type) {
-    case QtDebugMsg:
-        message = QString("[%1][D] %2 (%3:%4, %5)\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, QString::number(context.line), context.function);
-        break;
-    case QtInfoMsg:
-        message = QString("[%1][I] %2\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData());
-        break;
-    case QtWarningMsg:
-        message = QString("[%1][W] %2\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData());
-        break;
-    case QtCriticalMsg:
-        message = QString("[%1][C] %2 (%3:%4, %5)\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, QString::number(context.line), context.function);
-        break;
-    case QtFatalMsg:
-        message = QString("[%1][F] %2 (%3:%4, %5)\n").arg(formattedTime.toLocal8Bit().constData(), localMsg.constData(), context.file, QString::number(context.line), context.function);
-        break;
-    }
-
-    logToFile = logFile.open(QIODevice::WriteOnly | QIODevice::Append) && logToFile;
-    if (logToFile) {
-        QTextStream log(&logFile);
-        log << message;
-        logFile.close();
-    } else {
-        fprintf(stdout, "%s", message.toLocal8Bit().constData());
-    }
-
-    if (type == QtFatalMsg) {
-        abort();
-    }
-}
-
 QLocale loadLocale(QTranslator* translator)
 {
-    QSettings settings;
-
-    int localeIndex = settings.value("preferences/language/locale", 0).toInt();
-    QLocale locale = QLocale();
-    if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
-        localeIndex = 0;
-    }
-    if (localeIndex != 0) {
-        locale = QLocale(LANGUAGES[localeIndex].locale);
-    }
-    if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
+    QString localeId = LanguageManager::getLocaleFromPreferences(QSettings().value("preferences/language/locale", "default"));
+    QLocale locale = QLocale(localeId);
+    if (localeId != "default" && translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
         QCoreApplication::installTranslator(translator);
     }
 
@@ -78,18 +24,14 @@ QLocale loadLocale(QTranslator* translator)
 
 void loadInstallationId()
 {
-    QSettings settings;
-
-    if (!settings.contains("uuid")) {
-        settings.setValue("uuid", QUuid::createUuid().toString(QUuid::WithoutBraces));
+    if (!QSettings().contains("uuid")) {
+        QSettings().setValue("uuid", QUuid::createUuid().toString(QUuid::WithoutBraces));
     }
 }
 
 void loadTheme(QApplication* a)
 {
-    QSettings settings;
-
-    int themeIndex = settings.value("preferences/general/theme", 0).toInt();
+    int themeIndex = QSettings().value("preferences/general/theme", 0).toInt();
     if (themeIndex > 0 && themeIndex < THEMES_COUNT) {
         QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
 
@@ -134,7 +76,7 @@ int main(int argc, char* argv[])
     QCoreApplication::setApplicationName("Caesium Image Compressor");
     QCoreApplication::setApplicationVersion("2.3.0");
 
-    qInstallMessageHandler(messageHandler);
+    qInstallMessageHandler(Logger::messageHandler);
     QApplication a(argc, argv);
 
     QCommandLineParser parser;
