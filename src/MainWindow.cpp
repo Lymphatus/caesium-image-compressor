@@ -667,6 +667,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
     this->writeSettings();
     this->clearCache();
+    Logger::closeLogFile();
     Logger::cleanOldLogs();
     this->previewWatcher->waitForFinished();
     qInfo() << "---- Closing application ----";

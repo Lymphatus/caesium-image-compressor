@@ -8,6 +8,9 @@ class Logger {
 public:
     static void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg);
     static void cleanOldLogs();
+    static QString getLogFilePath();
+    static QString getLogDir();
+    static void closeLogFile();
 };
 
 #endif // CAESIUM_IMAGE_COMPRESSOR_LOGGER_H

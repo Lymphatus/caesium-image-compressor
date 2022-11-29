@@ -99,13 +99,13 @@ Do you really want to continue?</source>
         <translation>لا</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1133"/>
+        <location filename="../../src/MainWindow.cpp" line="1134"/>
         <source>Finishing...</source>
         <translation>جاري الإنهاء...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="586"/>
-        <location filename="../../src/MainWindow.cpp" line="1200"/>
+        <location filename="../../src/MainWindow.cpp" line="1201"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
@@ -121,22 +121,22 @@ Do you really want to continue?</source>
         <translation>نعم</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="678"/>
+        <location filename="../../src/MainWindow.cpp" line="679"/>
         <source>Select output folder...</source>
         <translation>حدد مجلد المخرجات...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="744"/>
+        <location filename="../../src/MainWindow.cpp" line="745"/>
         <source>Compression finished!</source>
         <translation>انتهى الضغط!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="747"/>
+        <location filename="../../src/MainWindow.cpp" line="748"/>
         <source>You just saved %1!</source>
         <translation>لقد وفرت  لتو %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="756"/>
+        <location filename="../../src/MainWindow.cpp" line="757"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -254,8 +254,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="797"/>
-        <location filename="../../src/MainWindow.cpp" line="801"/>
+        <location filename="../../src/MainWindow.cpp" line="798"/>
+        <location filename="../../src/MainWindow.cpp" line="802"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -346,7 +346,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1470"/>
-        <location filename="../../src/MainWindow.cpp" line="1119"/>
+        <location filename="../../src/MainWindow.cpp" line="1120"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
@@ -483,13 +483,13 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="811"/>
-        <location filename="../../src/MainWindow.cpp" line="815"/>
+        <location filename="../../src/MainWindow.cpp" line="812"/>
+        <location filename="../../src/MainWindow.cpp" line="816"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="929"/>
+        <location filename="../../src/MainWindow.cpp" line="930"/>
         <source>images in list</source>
         <translation>الصور في القائمة</translation>
     </message>

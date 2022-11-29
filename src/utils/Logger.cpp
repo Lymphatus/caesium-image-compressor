@@ -7,9 +7,8 @@ void Logger::messageHandler(QtMsgType type, const QMessageLogContext& context, c
 {
     QDateTime currentTime = QDateTime::currentDateTime();
     QString formattedTime = currentTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
-    QString currentDate = currentTime.toString("yyyy-MM-dd");
-    QString logDirPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QString logPath = logDirPath + "/caesium-" + currentDate + ".log";
+    QString logPath = Logger::getLogFilePath();
+    QString logDirPath = Logger::getLogDir();
 
     QByteArray localMsg = msg.toLocal8Bit();
     QDir logDir(logDirPath);
@@ -62,5 +61,25 @@ void Logger::cleanOldLogs()
         if (abs(fileInfo.lastModified().daysTo(now)) > RETENTION_DAYS) {
             QFile::remove(fileInfo.canonicalFilePath());
         }
+    }
+}
+
+QString Logger::getLogFilePath()
+{
+    QString logDirPath = Logger::getLogDir();
+    QString currentDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
+    return logDirPath + "/caesium-" + currentDate + ".log";
+}
+
+QString Logger::getLogDir()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+}
+
+void Logger::closeLogFile()
+{
+    QFile logFile = QFile(Logger::getLogFilePath());
+    if (logFile.isOpen()) {
+        logFile.close();
     }
 }

@@ -6,7 +6,6 @@
 #include <QCommandLineParser>
 #include <QDateTime>
 #include <QSettings>
-#include <QStandardPaths>
 #include <QStyleFactory>
 #include <QTranslator>
 #include <QUuid>
@@ -71,12 +70,17 @@ void loadTheme(QApplication* a)
 
 int main(int argc, char* argv[])
 {
+
+
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
     QCoreApplication::setApplicationVersion("2.3.0");
 
+#ifdef NDEBUG
     qInstallMessageHandler(Logger::messageHandler);
+#endif
+
     QApplication a(argc, argv);
 
     QCommandLineParser parser;
