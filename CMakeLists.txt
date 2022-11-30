@@ -183,6 +183,7 @@ if (WIN32)
             INSTALL_COMMAND cmake -E echo "Skipping install step."
             LOG_DOWNLOAD OFF
             LOG_OUTPUT_ON_FAILURE ON
+            DOWNLOAD_EXTRACT_TIMESTAMP ON
     )
     add_dependencies(caesium_image_compressor libwinsparkle)
 endif ()

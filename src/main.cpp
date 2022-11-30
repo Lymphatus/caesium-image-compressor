@@ -70,8 +70,6 @@ void loadTheme(QApplication* a)
 
 int main(int argc, char* argv[])
 {
-
-
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");

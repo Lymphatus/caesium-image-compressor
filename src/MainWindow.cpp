@@ -3,6 +3,7 @@
 #include "./exceptions/ImageNotSupportedException.h"
 #include "exceptions/ImageTooBigException.h"
 #include "ui_MainWindow.h"
+#include "utils/Logger.h"
 
 #include <QDesktopServices>
 #include <QFileDialog>
@@ -24,11 +25,11 @@
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
 #include "./updater/osx/SparkleAutoUpdater.h"
-#include "utils/Logger.h"
 #endif
 
 #ifdef Q_OS_WIN
 #include "./updater/win/winsparkle.h"
+#include "utils/LanguageManager.h"
 #endif
 
 MainWindow::MainWindow(QWidget* parent)
@@ -667,10 +668,10 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
     this->writeSettings();
     this->clearCache();
-    Logger::closeLogFile();
-    Logger::cleanOldLogs();
     this->previewWatcher->waitForFinished();
     qInfo() << "---- Closing application ----";
+    Logger::closeLogFile();
+    Logger::cleanOldLogs();
     event->accept();
 }
 
@@ -961,12 +962,8 @@ void MainWindow::initUpdater()
         return;
     }
 
-    int localeIndex = settings.value("preferences/language/locale", 0).toInt();
-    if (localeIndex < 0 || localeIndex > LANGUAGES_COUNT - 1) {
-        localeIndex = 0;
-    }
-    if (localeIndex != 0) {
-        QString locale = LANGUAGES[localeIndex].locale;
+    QString locale = LanguageManager::getLocaleFromPreferences(settings.value("preferences/language/locale", "default"));
+    if (locale != "default") {
         win_sparkle_set_lang(locale.replace('_', '-').toUtf8().constData());
     }
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");

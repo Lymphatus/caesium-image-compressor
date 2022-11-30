@@ -59,14 +59,16 @@ The 1.0 version of Caesium had a lot of community made translations, but this 2.
 Caesium 2.0 is currently available in:
 - 🇺🇸 English ![100%](https://progress-bar.dev/100)
 - 🇮🇹 Italian ![100%](https://progress-bar.dev/100)
-- 🇫🇷 French ![95%](https://progress-bar.dev/95)
-- 🇯🇵 Japanese ![96%](https://progress-bar.dev/96)
-- 🇨🇳 Simplified Chinese ![95%](https://progress-bar.dev/95)
+- 🇫🇷 French ![83%](https://progress-bar.dev/83)
+- 🇯🇵 Japanese ![87%](https://progress-bar.dev/87)
+- 🇨🇳 Simplified Chinese ![82%](https://progress-bar.dev/82)
 - 🇪🇸 Spanish ![89%](https://progress-bar.dev/89)
-- 🇪🇬 Arabic (Egypt) ![95%](https://progress-bar.dev/95)
-- 🇩🇪 German ![95%](https://progress-bar.dev/95)
-- 🇷🇺 Russian ![100%](https://progress-bar.dev/100)
-- 🇹🇷 Turkish ![97%](https://progress-bar.dev/97)
+- 🇪🇬 Arabic (Egypt) ![83%](https://progress-bar.dev/83)
+- 🇩🇪 German ![83%](https://progress-bar.dev/83)
+- 🇷🇺 Russian ![87%](https://progress-bar.dev/87)
+- 🇹🇷 Turkish ![84%](https://progress-bar.dev/84)
+- 🇬🇷 Greek ![100%](https://progress-bar.dev/100)
+- 🇧🇷 Brazilian Portuguese ![86%](https://progress-bar.dev/86)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
