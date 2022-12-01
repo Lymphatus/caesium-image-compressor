@@ -4,7 +4,6 @@
 #include "exceptions/ImageTooBigException.h"
 #include <QDir>
 #include <QImageReader>
-#include <QSettings>
 #include <QStandardPaths>
 #include <QTemporaryFile>
 #include <cmath>
@@ -12,8 +11,14 @@
 CImage::CImage(const QString& path)
 {
     QFileInfo fileInfo = QFileInfo(path);
-    auto* imageReader = new QImageReader(path);
-    auto format = imageReader->format().toLower();
+    auto* imageReader = new QImageReader();
+    imageReader->setAutoDetectImageFormat(true);
+    imageReader->setAutoTransform(true);
+    imageReader->setFileName(path);
+    this->format = imageReader->format().toLower();
+    if (this->format == "jpeg") {
+        this->format = "jpg";
+    }
 
     if (!supportedFormats.contains(format)) {
         throw ImageNotSupportedException();
@@ -21,6 +26,7 @@ CImage::CImage(const QString& path)
 
     this->extension = fileInfo.suffix();
     this->size = fileInfo.size();
+    this->transformation = imageReader->transformation();
 
     if (this->size > 209715200) {
         throw ImageTooBigException();
@@ -32,8 +38,17 @@ CImage::CImage(const QString& path)
     this->compressedSize = this->size;
 
     QSize imageSize = imageReader->size();
-    this->width = imageSize.width();
-    this->height = imageSize.height();
+    // We need to check if the image is rotated by metadata and adjust the values accordingly
+    if (this->transformation == QImageIOHandler::TransformationRotate90
+        || this->transformation == QImageIOHandler::TransformationMirrorAndRotate90
+        || this->transformation == QImageIOHandler::TransformationFlipAndRotate90
+        || this->transformation == QImageIOHandler::TransformationRotate270) {
+        this->width = imageSize.height();
+        this->height = imageSize.width();
+    } else {
+        this->width = imageSize.width();
+        this->height = imageSize.height();
+    }
     this->compressedWidth = this->width;
     this->compressedHeight = this->height;
 
@@ -103,13 +118,17 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
     QString inputFullPath = this->fullPath;
     QFileInfo inputFileInfo(inputFullPath);
     QString outputFullPath = this->getTemporaryPreviewFullPath();
+    const QString& outputFormat = OUTPUT_SUPPORTED_FORMATS[compressionOptions.format];
+    qInfo() << this->getFormat();
+    bool convert = compressionOptions.format != 0 && this->getFormat().compare(outputFormat, Qt::CaseInsensitive) != 0;
+    qInfo() << convert;
     FileDates inputFileDates = {
         inputFileInfo.fileTime(QFile::FileBirthTime),
         inputFileInfo.fileTime(QFile::FileModificationTime),
         inputFileInfo.fileTime(QFile::FileAccessTime)
     };
     CCSParameters r_parameters = this->getCSParameters(compressionOptions);
-    if (compressionOptions.format != 0) {
+    if (convert) {
         QImage imageToBeConverted = QImage(inputFullPath);
         imageToBeConverted.save(outputFullPath, OUTPUT_SUPPORTED_FORMATS.at(compressionOptions.format).toLower().toUtf8().constData(), 100);
         inputFullPath = outputFullPath;
@@ -127,6 +146,8 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QString inputFullPath = this->getFullPath();
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
+    QString outputFormat = OUTPUT_SUPPORTED_FORMATS[compressionOptions.format];
+    bool convert = compressionOptions.format != 0 && this->format.compare(outputFormat, Qt::CaseInsensitive) != 0;
     this->additionalInfo = "";
     if (!inputFileInfo.exists()) {
         qCritical() << "File" << inputFullPath << "does not exist.";
@@ -178,7 +199,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     tempFile.close();
 
     QString inputCopyFile = inputFullPath;
-    if (compressionOptions.format != 0) {
+    if (convert) {
         QImage imageToBeConverted = QImage(inputFullPath);
         imageToBeConverted.save(tempFileFullPath, OUTPUT_SUPPORTED_FORMATS.at(compressionOptions.format).toLower().toUtf8().constData(), 100);
         inputFullPath = tempFileFullPath;
@@ -380,8 +401,7 @@ QString CImage::getTemporaryPreviewFullPath() const
     QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
     QString temporaryPreviewFullPath = cacheDir + QDir::separator() + tempFileName;
     QDir(cacheDir).mkpath(cacheDir);
-    qInfo() << "Preview in" << temporaryPreviewFullPath;
-    return temporaryPreviewFullPath;
+    return temporaryPreviewFullPath + ".jpg";
 }
 
 QString CImage::getPreviewFullPath() const
@@ -391,4 +411,14 @@ QString CImage::getPreviewFullPath() const
     }
 
     return this->getTemporaryPreviewFullPath();
+}
+
+const QFlags<QImageIOHandler::Transformation>& CImage::getTransformation() const
+{
+    return this->transformation;
+}
+
+QString CImage::getFormat() const
+{
+    return this->format;
 }

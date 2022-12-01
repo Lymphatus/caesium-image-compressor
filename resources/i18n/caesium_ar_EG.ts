@@ -73,19 +73,19 @@ All rights reserved.</translation>
         <translation>استيراد المجلد...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="455"/>
+        <location filename="../../src/MainWindow.cpp" line="457"/>
         <source>Importing files...</source>
         <translation>جاري استيراد ملفات...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1058"/>
-        <location filename="../../src/MainWindow.cpp" line="455"/>
-        <location filename="../../src/MainWindow.cpp" line="659"/>
+        <location filename="../../src/MainWindow.cpp" line="457"/>
+        <location filename="../../src/MainWindow.cpp" line="661"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="553"/>
+        <location filename="../../src/MainWindow.cpp" line="555"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -94,49 +94,49 @@ Do you really want to continue?</source>
 هل تريد حقًا الاستمرار؟</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="557"/>
+        <location filename="../../src/MainWindow.cpp" line="559"/>
         <source>No</source>
         <translation>لا</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1131"/>
+        <location filename="../../src/MainWindow.cpp" line="1133"/>
         <source>Finishing...</source>
         <translation>جاري الإنهاء...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="587"/>
-        <location filename="../../src/MainWindow.cpp" line="1198"/>
+        <location filename="../../src/MainWindow.cpp" line="589"/>
+        <location filename="../../src/MainWindow.cpp" line="1200"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="655"/>
+        <location filename="../../src/MainWindow.cpp" line="657"/>
         <source>Do you really want to quit?</source>
         <translation>هل حقا تريد الخروج؟</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="556"/>
-        <location filename="../../src/MainWindow.cpp" line="658"/>
+        <location filename="../../src/MainWindow.cpp" line="558"/>
+        <location filename="../../src/MainWindow.cpp" line="660"/>
         <source>Yes</source>
         <translation>نعم</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="680"/>
+        <location filename="../../src/MainWindow.cpp" line="682"/>
         <source>Select output folder...</source>
         <translation>حدد مجلد المخرجات...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="746"/>
+        <location filename="../../src/MainWindow.cpp" line="748"/>
         <source>Compression finished!</source>
         <translation>انتهى الضغط!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="749"/>
+        <location filename="../../src/MainWindow.cpp" line="751"/>
         <source>You just saved %1!</source>
         <translation>لقد وفرت  لتو %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="758"/>
+        <location filename="../../src/MainWindow.cpp" line="760"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -254,8 +254,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="799"/>
-        <location filename="../../src/MainWindow.cpp" line="803"/>
+        <location filename="../../src/MainWindow.cpp" line="801"/>
+        <location filename="../../src/MainWindow.cpp" line="805"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -346,7 +346,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1470"/>
-        <location filename="../../src/MainWindow.cpp" line="1117"/>
+        <location filename="../../src/MainWindow.cpp" line="1119"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
@@ -483,13 +483,13 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="813"/>
-        <location filename="../../src/MainWindow.cpp" line="817"/>
+        <location filename="../../src/MainWindow.cpp" line="815"/>
+        <location filename="../../src/MainWindow.cpp" line="819"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="931"/>
+        <location filename="../../src/MainWindow.cpp" line="933"/>
         <source>images in list</source>
         <translation>الصور في القائمة</translation>
     </message>
@@ -665,37 +665,37 @@ Saved: %4 (%5%)</source>
         <translation>ملفات الصور</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="133"/>
+        <location filename="../../src/models/CImage.cpp" line="154"/>
         <source>Input file does not exist</source>
         <translation>ملف الإدخال غير موجود</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="157"/>
+        <location filename="../../src/models/CImage.cpp" line="178"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>لا يمكن عمل مسار الإخراج ، تحقق من الأذونات الخاصة بك</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="174"/>
+        <location filename="../../src/models/CImage.cpp" line="195"/>
         <source>Temporary file creation failed</source>
         <translation>فشل إنشاء الملف المؤقت</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="211"/>
+        <location filename="../../src/models/CImage.cpp" line="232"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>تخطي: الملف المضغوط أكبر من الملف الأصلي</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="222"/>
+        <location filename="../../src/models/CImage.cpp" line="243"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>غير قادر على نسخ ملف المخرج، افحص الأذونات الخاصة بك</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="350"/>
+        <location filename="../../src/models/CImage.cpp" line="371"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="352"/>
+        <location filename="../../src/models/CImage.cpp" line="373"/>
         <source>Error:</source>
         <translation>خطأ:</translation>
     </message>

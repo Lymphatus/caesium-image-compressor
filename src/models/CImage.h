@@ -6,7 +6,7 @@
 
 #include "../utils/Utils.h"
 
-struct CCSParameters {
+typedef struct CCSParameters {
     bool keep_metadata;
     unsigned int jpeg_quality;
     unsigned int png_quality;
@@ -14,16 +14,16 @@ struct CCSParameters {
     unsigned int gif_quality;
     unsigned int webp_quality;
     bool optimize;
-    unsigned int width;
-    unsigned int height;
-};
+    int width;
+    int height;
+} CCSParameters;
 
 struct CCSResult {
     bool success;
     char* error_message;
 };
 
-extern "C" CCSResult c_compress(const char* i, const char* o, CCSParameters params);
+extern "C" CCSResult c_compress(const char* i, const char* o, struct CCSParameters params);
 
 class CImage {
     const QList<QByteArray> supportedFormats = { "png", "jpg", "jpeg", "webp" };
@@ -57,6 +57,8 @@ public:
     QString getDirectory() const;
     QString getCompressedDirectory() const;
     QString getHashedFullPath() const;
+    QString getFormat() const;
+    const QFlags<QImageIOHandler::Transformation>& getTransformation() const;
     CCSParameters getCSParameters(const CompressionOptions& compressionOptions);
 
 private:
@@ -69,6 +71,11 @@ private:
     QString additionalInfo;
     QString hashedFullPath;
     QString extension;
+    QString format;
+    QFlags<QImageIOHandler::Transformation> transformation;
+
+public:
+
 
 private:
     size_t size;

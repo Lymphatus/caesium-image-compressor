@@ -198,6 +198,7 @@ if (APPLE)
             BUILD_COMMAND ""
             INSTALL_COMMAND cmake -E echo "Skipping install step."
             LOG_BUILD ON
+            DOWNLOAD_EXTRACT_TIMESTAMP ON
     )
     add_dependencies(caesium_image_compressor libsparkle)
 endif ()

@@ -400,7 +400,9 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
                 previewFullPath = cImage->getCompressedFullPath();
             }
         }
-        QPixmap image(previewFullPath);
+        auto *imageReader = new QImageReader(previewFullPath);
+        imageReader->setAutoTransform(true);
+        QPixmap image = QPixmap::fromImageReader(imageReader);
         imagePreview.image = image;
         imagePreview.fileInfo = QFileInfo(previewFullPath);
         imagePreview.originalSize = cImage->getOriginalSize();
