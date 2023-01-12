@@ -666,37 +666,37 @@ Economizado: %4 (%5%)</translation>
         <translation>Arquivos de imagem</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="154"/>
+        <location filename="../../src/models/CImage.cpp" line="152"/>
         <source>Input file does not exist</source>
         <translation>Arquivo de origem não existe</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="178"/>
+        <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Não foi possível criar o caminho de destino. Verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="195"/>
+        <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
         <translation>Falha ao criar arquivo temporário</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="232"/>
+        <location filename="../../src/models/CImage.cpp" line="230"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Ignorado: arquivo comprimido é maior que o original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="243"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Não foi possível copiar o arquivo de destino. Verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="371"/>
+        <location filename="../../src/models/CImage.cpp" line="369"/>
         <source>Compressing...</source>
         <translation>Comprimindo...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="373"/>
+        <location filename="../../src/models/CImage.cpp" line="371"/>
         <source>Error:</source>
         <translation>Erro:</translation>
     </message>

@@ -645,37 +645,37 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Resim Dosyaları</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="154"/>
+        <location filename="../../src/models/CImage.cpp" line="152"/>
         <source>Input file does not exist</source>
         <translation>Giriş dosyası mevcut değil</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="178"/>
+        <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Çıktı yolu oluşturulamadı, izinlerinizi kontrol edin</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="195"/>
+        <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
         <translation>Geçici dosya oluşturulamadı</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="232"/>
+        <location filename="../../src/models/CImage.cpp" line="230"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Atlandı: sıkıştırılmış dosya orijinalden daha büyük</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="243"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Çıktı dosyası kopyalanamıyor, izinlerinizi kontrol edin</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="371"/>
+        <location filename="../../src/models/CImage.cpp" line="369"/>
         <source>Compressing...</source>
         <translation>Sıkıştırılıyor...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="373"/>
+        <location filename="../../src/models/CImage.cpp" line="371"/>
         <source>Error:</source>
         <translation>Hata:</translation>
     </message>

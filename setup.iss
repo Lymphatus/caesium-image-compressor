@@ -54,17 +54,6 @@ Source: "package\{#MyAppVersion}\caesium-image-compressor-{#MyAppVersion}-win-se
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
-[Registry]
-; Add menu item to the Shell menu for JPG files:
-Root: "HKCR"; Subkey: "SystemFileAssociations\.jpg\shell\Compress with Caesium"; ValueType: none; ValueName: ""; ValueData: ""; Flags: uninsdeletekey
-; Specify icon for the menu item:
-;Root: "HKCR"; Subkey: "SystemFileAssociations\.jpg\shell\Compress with Caesium"; ValueType: string; ValueName: "Icon"; ValueData: "{app}\images\shortcut.ico"; Flags: uninsdeletekey
-; Add separator before and after the menu item:
-Root: "HKCR"; Subkey: "SystemFileAssociations\.jpg\shell\Compress with Caesium"; ValueType: string; ValueName: "SeparatorBefore"; ValueData: ""; Flags: uninsdeletekey
-Root: "HKCR"; Subkey: "SystemFileAssociations\.jpg\shell\Compress with Caesium"; ValueType: string; ValueName: "SeparatorAfter"; ValueData: ""; Flags: uninsdeletekey
-; Define command for the menu item:
-Root: "HKCR"; Subkey: "SystemFileAssociations\.jpg\shell\Compress with Caesium\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}""  ""%1"""; Flags: uninsdeletekey
-
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall
 

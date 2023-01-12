@@ -119,9 +119,7 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
     QFileInfo inputFileInfo(inputFullPath);
     QString outputFullPath = this->getTemporaryPreviewFullPath();
     const QString& outputFormat = OUTPUT_SUPPORTED_FORMATS[compressionOptions.format];
-    qInfo() << this->getFormat();
     bool convert = compressionOptions.format != 0 && this->getFormat().compare(outputFormat, Qt::CaseInsensitive) != 0;
-    qInfo() << convert;
     FileDates inputFileDates = {
         inputFileInfo.fileTime(QFile::FileBirthTime),
         inputFileInfo.fileTime(QFile::FileModificationTime),
