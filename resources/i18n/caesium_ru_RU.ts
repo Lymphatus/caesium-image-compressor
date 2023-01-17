@@ -6,7 +6,7 @@
     <message>
         <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
-        <translation>About Caesium - Image Compressor</translation>
+        <translation>Caesium - Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="104"/>
@@ -22,8 +22,8 @@
         <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation>Авторское право © 2022 Matteo Paonessa.
+Все права защищены.</translation>
     </message>
     <message>
         <source>Copyright © 2021 Matteo Paonessa.
@@ -218,7 +218,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="535"/>
         <source>Resize to fit</source>
-        <translation>Изменить размер, чтобы соответствовать</translation>
+        <translation>Изменить размер, ориентируясь на</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="559"/>
@@ -228,22 +228,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="564"/>
         <source>Dimensions</source>
-        <translation>Dimensions</translation>
+        <translation>Размеры</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="569"/>
         <source>Percentage</source>
-        <translation>Percentage</translation>
+        <translation>Процент</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="574"/>
         <source>Short edge</source>
-        <translation>Short edge</translation>
+        <translation>Короткую сторону</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="579"/>
         <source>Long edge</source>
-        <translation>Long edge</translation>
+        <translation>Длинную сторону</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="615"/>
@@ -332,17 +332,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="959"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Формат</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="984"/>
         <source>Suffix</source>
-        <translation>Префикс</translation>
+        <translation>Суффикс</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1145"/>
         <source>Original</source>
-        <translation>Оригинал</translation>
+        <translation>Исходный</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1470"/>
@@ -384,7 +384,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1291"/>
         <source>About Caesium Image Compressor</source>
-        <translation>About Caesium Image Compressor</translation>
+        <translation>О Caesium Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1303"/>
@@ -446,7 +446,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1389"/>
         <source>Show original in file manager</source>
-        <translation>Показать оригинальное изображение в проводнике</translation>
+        <translation>Показать исходное изображение в проводнике</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1394"/>
@@ -492,7 +492,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="933"/>
         <source>images in list</source>
-        <translation>Изображения в списке</translation>
+        <translation>изображения в списке</translation>
     </message>
 </context>
 <context>
@@ -511,7 +511,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="120"/>
         <location filename="../../views/PreferencesDialog.ui" line="177"/>
         <source>General</source>
-        <translation>Общее</translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="233"/>
@@ -521,27 +521,27 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="348"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Не импортировать, если размер</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>grater than</source>
-        <translation type="unfinished"></translation>
+        <translation>больше, чем</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation>равен</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation>меньше, чем</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="411"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>байтов</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="678"/>
@@ -556,7 +556,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="521"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта настройка применяется при вызове программы из командной строки или при перетаскивании файлов на ярлык программы</translation>
     </message>
     <message>
         <source>Native</source>
@@ -570,7 +570,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="336"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation>Импортировать также файлы в подпапках при добавлении папки</translation>
+        <translation>При добавлении папки импортировать файлы из подпапок</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="257"/>
@@ -580,7 +580,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="452"/>
         <source>Advanced</source>
-        <translation>Расширенное</translation>
+        <translation>Расширенные</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="555"/>
@@ -596,32 +596,32 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="416"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>КБ</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="421"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>МБ</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="494"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только импортировать</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="499"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Импортировать и сжать</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="481"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>При импорте файлов</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="612"/>
@@ -708,22 +708,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.h" line="110"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation>Как у исходного</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="111"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="112"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="113"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>
