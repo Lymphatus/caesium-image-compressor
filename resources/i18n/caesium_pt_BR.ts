@@ -73,19 +73,19 @@ Todos os direitos reservados.</translation>
         <translation>Importar pasta...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="457"/>
+        <location filename="../../src/MainWindow.cpp" line="458"/>
         <source>Importing files...</source>
         <translation>Importando arquivos...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1058"/>
-        <location filename="../../src/MainWindow.cpp" line="457"/>
-        <location filename="../../src/MainWindow.cpp" line="661"/>
+        <location filename="../../src/MainWindow.cpp" line="458"/>
+        <location filename="../../src/MainWindow.cpp" line="662"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="555"/>
+        <location filename="../../src/MainWindow.cpp" line="556"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -94,49 +94,49 @@ Do you really want to continue?</source>
 Deseja realmente continuar?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="559"/>
+        <location filename="../../src/MainWindow.cpp" line="560"/>
         <source>No</source>
         <translation>Não</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1133"/>
+        <location filename="../../src/MainWindow.cpp" line="1134"/>
         <source>Finishing...</source>
         <translation>Finalizando...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="589"/>
-        <location filename="../../src/MainWindow.cpp" line="1200"/>
+        <location filename="../../src/MainWindow.cpp" line="590"/>
+        <location filename="../../src/MainWindow.cpp" line="1201"/>
         <source>Compressing...</source>
         <translation>Comprimindo...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="657"/>
+        <location filename="../../src/MainWindow.cpp" line="658"/>
         <source>Do you really want to quit?</source>
         <translation>Deseja realmente sair?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="558"/>
-        <location filename="../../src/MainWindow.cpp" line="660"/>
+        <location filename="../../src/MainWindow.cpp" line="559"/>
+        <location filename="../../src/MainWindow.cpp" line="661"/>
         <source>Yes</source>
         <translation>Sim</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="682"/>
+        <location filename="../../src/MainWindow.cpp" line="683"/>
         <source>Select output folder...</source>
         <translation>Selecione a pasta de saída...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="748"/>
+        <location filename="../../src/MainWindow.cpp" line="749"/>
         <source>Compression finished!</source>
         <translation>Compressão finalizada!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="751"/>
+        <location filename="../../src/MainWindow.cpp" line="752"/>
         <source>You just saved %1!</source>
         <translation>Você economizou %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="760"/>
+        <location filename="../../src/MainWindow.cpp" line="761"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -254,8 +254,8 @@ Economizado: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="801"/>
-        <location filename="../../src/MainWindow.cpp" line="805"/>
+        <location filename="../../src/MainWindow.cpp" line="802"/>
+        <location filename="../../src/MainWindow.cpp" line="806"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -346,7 +346,7 @@ Economizado: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1470"/>
-        <location filename="../../src/MainWindow.cpp" line="1119"/>
+        <location filename="../../src/MainWindow.cpp" line="1120"/>
         <source>Preview</source>
         <translation>Previsão</translation>
     </message>
@@ -484,13 +484,13 @@ Economizado: %4 (%5%)</translation>
         <translation>Previsão automática</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="815"/>
-        <location filename="../../src/MainWindow.cpp" line="819"/>
+        <location filename="../../src/MainWindow.cpp" line="816"/>
+        <location filename="../../src/MainWindow.cpp" line="820"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="933"/>
+        <location filename="../../src/MainWindow.cpp" line="934"/>
         <source>images in list</source>
         <translation>imagens na lista</translation>
     </message>
@@ -666,37 +666,37 @@ Economizado: %4 (%5%)</translation>
         <translation>Arquivos de imagem</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="152"/>
+        <location filename="../../src/models/CImage.cpp" line="143"/>
         <source>Input file does not exist</source>
         <translation>Arquivo de origem não existe</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="176"/>
+        <location filename="../../src/models/CImage.cpp" line="167"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Não foi possível criar o caminho de destino. Verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="193"/>
+        <location filename="../../src/models/CImage.cpp" line="184"/>
         <source>Temporary file creation failed</source>
         <translation>Falha ao criar arquivo temporário</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="230"/>
+        <location filename="../../src/models/CImage.cpp" line="221"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Ignorado: arquivo comprimido é maior que o original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="241"/>
+        <location filename="../../src/models/CImage.cpp" line="231"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Não foi possível copiar o arquivo de destino. Verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="369"/>
+        <location filename="../../src/models/CImage.cpp" line="360"/>
         <source>Compressing...</source>
         <translation>Comprimindo...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="371"/>
+        <location filename="../../src/models/CImage.cpp" line="362"/>
         <source>Error:</source>
         <translation>Erro:</translation>
     </message>

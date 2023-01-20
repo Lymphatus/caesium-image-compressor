@@ -407,7 +407,8 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         imagePreview.fileInfo = QFileInfo(previewFullPath);
         imagePreview.originalSize = cImage->getOriginalSize();
         imagePreview.isOnFlyPreview = isOnFlyPreview;
-        imagePreview.format = QString(QImageReader(previewFullPath).format()).toUpper();
+        imagePreview.format = QString(imageReader->format()).toUpper();
+        delete imageReader; //Or the file will be opened forever
         return imagePreview;
     };
 

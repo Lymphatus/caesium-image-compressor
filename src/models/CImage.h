@@ -58,7 +58,6 @@ public:
     QString getCompressedDirectory() const;
     QString getHashedFullPath() const;
     QString getFormat() const;
-    const QFlags<QImageIOHandler::Transformation>& getTransformation() const;
     CCSParameters getCSParameters(const CompressionOptions& compressionOptions);
 
 private:
@@ -72,8 +71,6 @@ private:
     QString hashedFullPath;
     QString extension;
     QString format;
-    QFlags<QImageIOHandler::Transformation> transformation;
-
 public:
 
 
@@ -88,6 +85,7 @@ private:
 
     void setCompressedInfo(QFileInfo fileInfo);
     void setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates);
+    QSize getSizeWithMetadata(QImageReader *reader);
 };
 
 #endif // CIMAGE_H

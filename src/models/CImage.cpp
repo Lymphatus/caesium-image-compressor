@@ -26,7 +26,6 @@ CImage::CImage(const QString& path)
 
     this->extension = fileInfo.suffix();
     this->size = fileInfo.size();
-    this->transformation = imageReader->transformation();
 
     if (this->size > 209715200) {
         throw ImageTooBigException();
@@ -37,18 +36,10 @@ CImage::CImage(const QString& path)
     this->fileName = fileInfo.fileName();
     this->compressedSize = this->size;
 
-    QSize imageSize = imageReader->size();
-    // We need to check if the image is rotated by metadata and adjust the values accordingly
-    if (this->transformation == QImageIOHandler::TransformationRotate90
-        || this->transformation == QImageIOHandler::TransformationMirrorAndRotate90
-        || this->transformation == QImageIOHandler::TransformationFlipAndRotate90
-        || this->transformation == QImageIOHandler::TransformationRotate270) {
-        this->width = imageSize.height();
-        this->height = imageSize.width();
-    } else {
-        this->width = imageSize.width();
-        this->height = imageSize.height();
-    }
+    QSize imageSize = getSizeWithMetadata(imageReader);
+    this->width = imageSize.width();
+    this->height = imageSize.height();
+
     this->compressedWidth = this->width;
     this->compressedHeight = this->height;
 
@@ -235,7 +226,6 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             }
         }
         bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
-
         if (!copyResult) {
             qCritical() << "Failed to copy from" << inputCopyFile << "to" << outputFullPath;
             this->additionalInfo = QIODevice::tr("Cannot copy output file, check your permissions");
@@ -293,12 +283,13 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
 
 void CImage::setCompressedInfo(QFileInfo fileInfo)
 {
-    QImage compressedImage(fileInfo.canonicalFilePath());
+    QImageReader imageReader(fileInfo.canonicalFilePath());
+    QSize imageSize = getSizeWithMetadata(&imageReader);
     this->compressedDirectory = fileInfo.canonicalPath();
     this->compressedSize = fileInfo.size();
     this->compressedFullPath = fileInfo.canonicalFilePath();
-    this->compressedWidth = compressedImage.width();
-    this->compressedHeight = compressedImage.height();
+    this->compressedWidth = imageSize.width();
+    this->compressedHeight = imageSize.height();
 }
 
 void CImage::setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates)
@@ -411,12 +402,24 @@ QString CImage::getPreviewFullPath() const
     return this->getTemporaryPreviewFullPath();
 }
 
-const QFlags<QImageIOHandler::Transformation>& CImage::getTransformation() const
-{
-    return this->transformation;
-}
-
 QString CImage::getFormat() const
 {
     return this->format;
+}
+
+QSize CImage::getSizeWithMetadata(QImageReader *reader)
+{
+    QSize imageSize = reader->size();
+    QSize actualSize(imageSize.width(), imageSize.height());
+    QFlags<QImageIOHandler::Transformation> transformation = reader->transformation();
+    // We need to check if the image is rotated by metadata and adjust the values accordingly
+    if (transformation == QImageIOHandler::TransformationRotate90
+        || transformation == QImageIOHandler::TransformationMirrorAndRotate90
+        || transformation == QImageIOHandler::TransformationFlipAndRotate90
+        || transformation == QImageIOHandler::TransformationRotate270) {
+        actualSize.setWidth(imageSize.height());
+        actualSize.setHeight(imageSize.width());
+    }
+
+    return actualSize;
 }
