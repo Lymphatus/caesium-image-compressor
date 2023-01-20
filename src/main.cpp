@@ -13,8 +13,11 @@
 QLocale loadLocale(QTranslator* translator)
 {
     QString localeId = LanguageManager::getLocaleFromPreferences(QSettings().value("preferences/language/locale", "default"));
-    QLocale locale = QLocale(localeId);
-    if (localeId != "default" && translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
+    QLocale locale = QLocale();
+    if (localeId != "default") {
+        locale = QLocale(localeId);
+    }
+    if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
         QCoreApplication::installTranslator(translator);
     }
 
