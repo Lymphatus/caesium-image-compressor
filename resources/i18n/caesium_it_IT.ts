@@ -544,7 +544,7 @@ Risparmiato: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
-        <source>grater than</source>
+        <source>greater than</source>
         <translation>più di</translation>
     </message>
     <message>

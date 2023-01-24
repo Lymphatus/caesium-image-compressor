@@ -525,8 +525,8 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
-        <source>grater than</source>
-        <translation>grater than</translation>
+        <source>greater than</source>
+        <translation>greater than</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
