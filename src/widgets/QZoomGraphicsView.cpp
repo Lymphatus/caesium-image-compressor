@@ -106,7 +106,9 @@ void QZoomGraphicsView::showPixmap(const QPixmap& pixmap)
 
 void QZoomGraphicsView::removePixmap()
 {
-    if (this->graphicsScene->items().contains(this->pixmapItem)) {
-        this->graphicsScene->removeItem(this->pixmapItem);
+    qsizetype indexOf = this->graphicsScene->items().indexOf(this->pixmapItem);
+    if (indexOf != -1) {
+        auto* item = this->graphicsScene->items().at(indexOf);
+        delete item;
     }
 }
