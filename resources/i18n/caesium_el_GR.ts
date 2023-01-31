@@ -126,17 +126,17 @@ Do you really want to continue?</source>
         <translation>Επιλέξτε φάκελο εξόδου...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="749"/>
+        <location filename="../../src/MainWindow.cpp" line="750"/>
         <source>Compression finished!</source>
         <translation>Η συμπίεση ολοκληρώθηκε!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="752"/>
+        <location filename="../../src/MainWindow.cpp" line="753"/>
         <source>You just saved %1!</source>
         <translation>Μόλις έσωσες %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="761"/>
+        <location filename="../../src/MainWindow.cpp" line="762"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3

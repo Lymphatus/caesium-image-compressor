@@ -38,30 +38,32 @@ void loadTheme(QApplication* a)
         QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
 
         if (themeIndex == 1) {
-            QColor darkGray(40, 40, 40);
-            QColor gray(70, 70, 70);
-            QColor black(25, 25, 25);
-            QColor blue(99, 102, 241);
-            QColor purple(147, 51, 234);
+            QColor darkGray(25, 25, 25);
+            QColor gray(32, 32, 32);
+            QColor lightGray(82, 82, 82);
+            QColor black(0, 0, 0);
+            QColor blue(37, 99, 235);
+            QColor purple(168, 85, 247);
+            QColor white(241, 245, 249);
 
             QPalette darkPalette;
             darkPalette.setColor(QPalette::Window, darkGray);
-            darkPalette.setColor(QPalette::WindowText, Qt::white);
+            darkPalette.setColor(QPalette::WindowText, white);
             darkPalette.setColor(QPalette::Base, black);
             darkPalette.setColor(QPalette::AlternateBase, darkGray);
             darkPalette.setColor(QPalette::ToolTipBase, blue);
-            darkPalette.setColor(QPalette::ToolTipText, Qt::white);
-            darkPalette.setColor(QPalette::Text, Qt::white);
+            darkPalette.setColor(QPalette::ToolTipText, white);
+            darkPalette.setColor(QPalette::Text, white);
             darkPalette.setColor(QPalette::Button, darkGray);
-            darkPalette.setColor(QPalette::ButtonText, Qt::white);
+            darkPalette.setColor(QPalette::ButtonText, white);
             darkPalette.setColor(QPalette::Link, blue);
             darkPalette.setColor(QPalette::Highlight, purple);
-            darkPalette.setColor(QPalette::HighlightedText, Qt::black);
+            darkPalette.setColor(QPalette::HighlightedText, black);
 
-            darkPalette.setColor(QPalette::Active, QPalette::Button, gray.darker());
-            darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText, gray);
-            darkPalette.setColor(QPalette::Disabled, QPalette::WindowText, gray);
-            darkPalette.setColor(QPalette::Disabled, QPalette::Text, gray);
+            darkPalette.setColor(QPalette::Active, QPalette::Button, darkGray);
+            darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText, lightGray);
+            darkPalette.setColor(QPalette::Disabled, QPalette::WindowText, lightGray);
+            darkPalette.setColor(QPalette::Disabled, QPalette::Text, lightGray);
             darkPalette.setColor(QPalette::Disabled, QPalette::Light, darkGray);
 
             QApplication::setPalette(darkPalette);
@@ -81,7 +83,9 @@ int main(int argc, char* argv[])
 #ifdef NDEBUG
     qInstallMessageHandler(Logger::messageHandler);
 #endif
-
+#ifdef Q_OS_WIN
+    qputenv("QT_QPA_PLATFORM", "windows:darkmode=1");
+#endif
     QApplication a(argc, argv);
 
     QCommandLineParser parser;

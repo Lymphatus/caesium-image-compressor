@@ -702,6 +702,7 @@ void MainWindow::imageList_selectionChanged()
     this->selectedCount = this->selectedIndexes.count() / CIMAGE_COLUMNS_SIZE;
     ui->originalImageSize_Label->clear();
     ui->compressedImageSize_Label->clear();
+    ui->actionPreview->setEnabled(this->selectedCount == 1 && !this->previewWatcher->isRunning());
     if (this->isItemRemovalRunning) {
         return;
     }
@@ -709,7 +710,7 @@ void MainWindow::imageList_selectionChanged()
     ui->removeFiles_Button->setDisabled(this->selectedCount == 0);
     ui->actionShow_original_in_file_manager->setEnabled(this->selectedCount == 1);
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
-    ui->actionPreview->setEnabled(this->selectedCount == 1 && !this->previewWatcher->isRunning());
+
     if (this->selectedCount == 0) {
         ui->preview_GraphicsView->removePixmap();
         ui->previewCompressed_GraphicsView->removePixmap();
@@ -780,8 +781,7 @@ void MainWindow::on_actionClear_triggered()
 
 void MainWindow::dropFinished(QStringList filePaths)
 {
-    // TODO base folder might be buggy
-    QString baseFolder = QFileInfo(filePaths.at(0)).absolutePath();
+    QString baseFolder = getRootFolder(filePaths);
     this->importFiles(filePaths, baseFolder);
 }
 
