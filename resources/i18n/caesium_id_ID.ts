@@ -609,12 +609,12 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="416"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="421"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="494"/>

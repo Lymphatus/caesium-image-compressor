@@ -69,6 +69,7 @@ Caesium 2.0 is currently available in:
 - 🇹🇷 Turkish ![84%](https://progress-bar.dev/84)
 - 🇬🇷 Greek ![100%](https://progress-bar.dev/100)
 - 🇧🇷 Brazilian Portuguese ![86%](https://progress-bar.dev/86)
+- 🇮🇩 Indonesian ![100%](https://progress-bar.dev/100)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

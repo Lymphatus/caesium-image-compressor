@@ -17,6 +17,7 @@ QList<CsLocale> LanguageManager::getTranslations()
         { QString("tr_TR"), QString("Türkçe") },
         { QString("pt_BR"), QString("Português Brasileiro") },
         { QString("el_GR"), QString("Ελληνικά") },
+        { QString("id_ID"), QString("Bahasa Indonesia") },
     };
 
     return translations;
