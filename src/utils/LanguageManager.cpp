@@ -27,7 +27,7 @@ QList<CsLocale> LanguageManager::getSortedTranslations()
 {
     QList<CsLocale> sortedList = getTranslations();
     std::sort(sortedList.begin(), sortedList.end(), [](const CsLocale& a, const CsLocale& b) {
-        if (a.label == "default") {
+        if (a.label == "Default" ) {
             return true;
         }
         return a.label < b.label;
