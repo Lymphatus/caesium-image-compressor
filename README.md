@@ -1,6 +1,6 @@
 ## Caesium Image Compressor
 
-###### v2.3.1
+###### v2.4.0
 
 ![caesium_screenshot_20220915](https://user-images.githubusercontent.com/12133996/190349051-6baebec3-9937-4047-8670-fb025c6c4869.PNG)
 
@@ -70,6 +70,8 @@ Caesium 2.0 is currently available in:
 - 🇬🇷 Greek ![100%](https://progress-bar.dev/100)
 - 🇧🇷 Brazilian Portuguese ![86%](https://progress-bar.dev/86)
 - 🇮🇩 Indonesian ![100%](https://progress-bar.dev/100)
+- 🇹🇼 Traditional Chinese (TW) ![100%](https://progress-bar.dev/100)
+- 🇸🇰 Slovak ![80%](https://progress-bar.dev/80)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

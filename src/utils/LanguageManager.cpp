@@ -9,7 +9,7 @@ QList<CsLocale> LanguageManager::getTranslations()
         { QString("it_IT"), QString("Italiano") },
         { QString("fr_FR"), QString("Français") },
         { QString("ja_JP"), QString("日本語") },
-        { QString("zh_CN"), QString("简体中文") },
+        { QString("zh_CN"), QString("中文（中国大陆）") },
         { QString("es_ES"), QString("Español") },
         { QString("ar_EG"), QString("العَرَبِيَّة") },
         { QString("de_DE"), QString("Deutsch") },
@@ -18,6 +18,8 @@ QList<CsLocale> LanguageManager::getTranslations()
         { QString("pt_BR"), QString("Português Brasileiro") },
         { QString("el_GR"), QString("Ελληνικά") },
         { QString("id_ID"), QString("Bahasa Indonesia") },
+        { QString("zh_TW"), QString("中文（台灣）") },
+        { QString("sk_SK"), QString("Slovenčina") },
     };
 
     return translations;
