@@ -571,7 +571,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>greater than</source>
-        <translation type="unfinished">daha büyük</translation>
+        <translation type="unfinished">'den daha büyük</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
@@ -581,7 +581,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>less than</source>
-        <translation type="unfinished">daha az</translation>
+        <translation type="unfinished">'den daha az</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="411"/>
@@ -606,7 +606,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="481"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dosyaları doğrudan içe aktarırken</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="612"/>
