@@ -1,9 +1,9 @@
 name: Build Caesium Image Compressor
 on:
   push:
-    branches: [ main ]
+    branches: [ actions ]
   pull_request:
-    branches: [ main ]
+    branches: [ actions ]
 jobs:
   Build:
     runs-on: windows-latest
