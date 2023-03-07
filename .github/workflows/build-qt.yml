@@ -32,4 +32,4 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config Release --target caesium_image_compressor
 
       - name: Run
-        run: "${{github.workspace}}\build\Caesium Image Compressor.exe" --version
+        run: "${{github.workspace}}\\build\\Caesium Image Compressor.exe" --version
