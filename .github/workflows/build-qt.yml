@@ -11,24 +11,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
-
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
-          version: '6.2.3'
+          aqtversion: '==3.1.*'
+          version: '6.4.2'
           host: 'windows'
           target: 'desktop'
           arch: 'win64_mingw'
-          dir: ${{ github.workspace }}/qt/
-          archives: "qtimageformats"
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-          setup-python: 'false'
+          modules: 'qtimageformats'
+          cache: true
 
       - name: Install Rust target
         run: rustup target add x86_64-pc-windows-gnu
