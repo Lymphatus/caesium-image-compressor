@@ -415,7 +415,9 @@ All rights reserved.</translation>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
-        <translation>Gerçekten devam etmek istiyor musun?</translation>
+        <translation>Orijinal resimlerinizin üzerine yazmak üzeresiniz ve bu işlem geri alınamaz.
+            
+Gerçekten devam etmek istiyor musun?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="559"/>
@@ -514,22 +516,22 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İçe aktar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="416"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="421"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="521"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bu seçenek, komut satırı kullanıldığında veya dosyalar uygulama simgesine bırakıldığında geçerlidir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="678"/>
@@ -549,7 +551,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="555"/>
         <source>Multithreading</source>
-        <translation>Çoklu kullanım</translation>
+        <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="221"/>
@@ -564,27 +566,27 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="348"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Boyut şu ise içe aktarma</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>greater than</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">'den daha büyük</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">eşittir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">'den daha az</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="411"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">bytes</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="336"/>
@@ -594,17 +596,17 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="494"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sadece aktar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="499"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İçe aktar ve sıkıştır</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="481"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dosyaları doğrudan içe aktarırken</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="612"/>
@@ -687,12 +689,12 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.h" line="110"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Giriş ile aynı</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="111"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="112"/>
