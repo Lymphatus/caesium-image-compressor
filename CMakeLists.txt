@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(TARGET caesium_image_compressor)
+file (STRINGS "libcaesium.conf" LIBCAESIUM_VERSION)
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     if (DEFINED PORTABLE AND PORTABLE)
@@ -165,7 +166,7 @@ endif ()
 ExternalProject_Add(
         libcaesium
         GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG 0.9.3
+        GIT_TAG ${LIBCAESIUM_VERSION}
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
         INSTALL_COMMAND ""
