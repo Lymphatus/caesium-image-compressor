@@ -20,9 +20,15 @@
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="205"/>
+        <source>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</source>
+        <translation>Πνευματικά δικαιώματα © 2023 Matteo Paonessa.
+Όλα τα δικαιώματα διατηρούνται.</translation>
+    </message>
+    <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Πνευματικά δικαιώματα © 2022 Matteo Paonessa.
+        <translation type="vanished">Πνευματικά δικαιώματα © 2022 Matteo Paonessa.
 Όλα τα δικαιώματα διατηρούνται.</translation>
     </message>
     <message>

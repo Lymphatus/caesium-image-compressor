@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -20,9 +20,15 @@
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="205"/>
+        <source>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</source>
+        <translation>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</translation>
+    </message>
+    <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Авторское право © 2022 Matteo Paonessa.
+        <translation type="vanished">Авторское право © 2022 Matteo Paonessa.
 Все права защищены.</translation>
     </message>
     <message>

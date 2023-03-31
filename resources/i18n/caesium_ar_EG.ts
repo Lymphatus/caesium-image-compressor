@@ -20,9 +20,15 @@
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="205"/>
+        <source>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</source>
+        <translation>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</translation>
+    </message>
+    <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>حقوق النشر © 2022 ماتيو باونيسا.
+        <translation type="vanished">حقوق النشر © 2022 ماتيو باونيسا.
 كافة الحقوق محفوظة.</translation>
     </message>
     <message>

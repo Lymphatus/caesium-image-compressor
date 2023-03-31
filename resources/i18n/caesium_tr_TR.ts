@@ -20,9 +20,15 @@
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="205"/>
+        <source>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</source>
+        <translation>Copyright © 2023 Matteo Paonessa.
+All rights reserved.</translation>
+    </message>
+    <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Copyright © 2022 Matteo Paonessa.
+        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
 All rights reserved.</translation>
     </message>
 </context>
@@ -571,7 +577,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="366"/>
         <source>greater than</source>
-        <translation type="unfinished">'den daha büyük</translation>
+        <translation type="unfinished">&apos;den daha büyük</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="371"/>
@@ -581,7 +587,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>less than</source>
-        <translation type="unfinished">'den daha az</translation>
+        <translation type="unfinished">&apos;den daha az</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="411"/>

@@ -202,7 +202,7 @@
    <item>
     <widget class="QLabel" name="copyright_Label">
      <property name="text">
-      <string>Copyright © 2022 Matteo Paonessa.
+      <string>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</string>
      </property>
      <property name="textFormat">
