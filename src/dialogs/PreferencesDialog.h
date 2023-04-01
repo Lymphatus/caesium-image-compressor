@@ -29,6 +29,7 @@ private slots:
     static void onSendUsageReportToggled(bool checked);
     static void onMultithreadingToggled(bool checked);
     static void onShowUsageDataLinkActivated(const QString& link);
+    static void onSkipCompressionDialogsToggled(bool checked);
 
 private:
     Ui::PreferencesDialog* ui;

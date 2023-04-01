@@ -36,6 +36,11 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    qRegisterMetaType<QList<int>>();
+    qRegisterMetaType<QWheelEvent*>();
+    qRegisterMetaType<Qt::CheckState>();
+    qRegisterMetaType<Qt::SortOrder>();
+    
     ui->setupUi(this);
     qInfo() << "Starting UI";
 
@@ -267,9 +272,8 @@ void MainWindow::triggerImportFolder()
 void MainWindow::writeSettings()
 {
     QSettings settings;
-    settings.setValue("mainwindow/maximized", this->isMaximized());
-    settings.setValue("mainwindow/size", this->size());
-    settings.setValue("mainwindow/pos", this->pos());
+    settings.setValue("mainwindow/geometry", this->saveGeometry());
+    settings.setValue("mainwindow/window_state", this->saveState());
     settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(ui->sidebar_HSplitter->sizes()));
     settings.setValue("mainwindow/previews_visible", ui->actionShow_previews->isChecked());
     settings.setValue("mainwindow/auto_preview", ui->actionAuto_preview->isChecked());
@@ -322,12 +326,8 @@ void MainWindow::writeSetting(const QString& key, const QVariant& value)
 void MainWindow::readSettings()
 {
     QSettings settings;
-    this->resize(settings.value("mainwindow/size").toSize());
-    this->move(settings.value("mainwindow/pos").toPoint());
-    if (settings.value("mainwindow/maximized", false).toBool()) {
-        this->showMaximized();
-    }
-
+    this->restoreGeometry(settings.value("mainwindow/geometry").toByteArray());
+    this->restoreState(settings.value("mainwindow/window_state").toByteArray());
     ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
     ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
     ui->actionShow_previews->setChecked(settings.value("mainwindow/previews_visible", true).toBool());
@@ -400,7 +400,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
                 previewFullPath = cImage->getCompressedFullPath();
             }
         }
-        auto *imageReader = new QImageReader(previewFullPath);
+        auto* imageReader = new QImageReader(previewFullPath);
         imageReader->setAutoTransform(true);
         QPixmap image = QPixmap::fromImageReader(imageReader);
         imagePreview.image = image;
@@ -408,7 +408,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         imagePreview.originalSize = cImage->getOriginalSize();
         imagePreview.isOnFlyPreview = isOnFlyPreview;
         imagePreview.format = QString(imageReader->format()).toUpper();
-        delete imageReader; //Or the file will be opened forever
+        delete imageReader; // Or the file will be opened forever
         return imagePreview;
     };
 
@@ -471,7 +471,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             }
             bool skipBySizeEnabled = QSettings().value("preferences/general/skip_by_size/enabled", false).toBool();
             if (skipBySizeEnabled) {
-                //TODO Make it an Enum
+                // TODO Make it an Enum
                 int unit = QSettings().value("preferences/general/skip_by_size/unit", 0).toInt();
                 int condition = QSettings().value("preferences/general/skip_by_size/condition", 0).toInt();
                 int size = QSettings().value("preferences/general/skip_by_size/value", 0).toInt() << (unit * 10);
@@ -548,10 +548,11 @@ void MainWindow::startCompression()
 
     QString rootFolder = getRootFolder(this->folderMap.keys());
 
+    bool skipDialogs = settings.value("preferences/general/skip_compression_dialogs").toBool();
     bool overwriteWarningFlag = (ui->sameOutputFolderAsInput_CheckBox->isChecked() && ui->outputSuffix_LineEdit->text().isEmpty())
         || rootFolder == ui->outputFolder_LineEdit->text();
 
-    if (overwriteWarningFlag) {
+    if (overwriteWarningFlag && !skipDialogs) {
         QCaesiumMessageBox sameFolderPrompt;
         sameFolderPrompt.setText(tr("You are about to overwrite your original images and this action can't be undone.\n\nDo you really want to continue?"));
         sameFolderPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
@@ -757,16 +758,18 @@ void MainWindow::compressionFinished()
     ui->compressionProgress_Label->hide();
     this->toggleUIEnabled(true);
 
-    QCaesiumMessageBox compressionSummaryDialog;
-    compressionSummaryDialog.setText(title);
-    compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
-                                                    .arg(QString::number(compressionSummary.totalImages),
-                                                        toHumanSize(compressionSummary.totalUncompressedSize),
-                                                        toHumanSize(compressionSummary.totalCompressedSize),
-                                                        saved,
-                                                        savedPerc));
-    compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
-    compressionSummaryDialog.exec();
+    if (!settings.value("preferences/general/skip_compression_dialogs").toBool()) {
+        QCaesiumMessageBox compressionSummaryDialog;
+        compressionSummaryDialog.setText(title);
+        compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
+                                                        .arg(QString::number(compressionSummary.totalImages),
+                                                            toHumanSize(compressionSummary.totalUncompressedSize),
+                                                            toHumanSize(compressionSummary.totalCompressedSize),
+                                                            saved,
+                                                            savedPerc));
+        compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
+        compressionSummaryDialog.exec();
+    }
 }
 
 void MainWindow::on_actionRemove_triggered()
@@ -1262,7 +1265,7 @@ void MainWindow::importFromArgs(const QStringList args)
 {
     QStringList filesList;
     QStringListIterator it(args);
-    //TODO Make a ENUM?
+    // TODO Make a ENUM?
     int argsBehaviour = QSettings().value("preferences/general/args_behaviour", 0).toInt();
     while (it.hasNext()) {
         QString path = it.next();
@@ -1282,4 +1285,11 @@ void MainWindow::importFromArgs(const QStringList args)
     if (argsBehaviour == 1) {
         this->startCompression();
     }
+}
+void MainWindow::resizeEvent(QResizeEvent* event)
+{
+    qDebug() << event;
+    qDebug() << this->isMaximized();
+    QWidget::resizeEvent(event);
+    qDebug() << this->isMaximized();
 }

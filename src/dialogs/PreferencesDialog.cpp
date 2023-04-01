@@ -46,6 +46,7 @@ void PreferencesDialog::setupConnections()
     connect(ui->skipBySizeCondition_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeConditionChanged);
     connect(ui->skipBySizeSize_SpinBox, &QSpinBox::valueChanged, this, &PreferencesDialog::onSkipBySizeValueChanged);
     connect(ui->skipBySizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeUnitChanged);
+    connect(ui->skipCompressionDialogs_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipCompressionDialogsToggled);
 }
 
 void PreferencesDialog::loadLanguages()
@@ -70,6 +71,7 @@ void PreferencesDialog::loadPreferences()
     ui->importSubfolders_CheckBox->setChecked(settings.value("preferences/general/import_subfolders", true).toBool());
     ui->sendUsageReport_CheckBox->setChecked(settings.value("preferences/general/send_usage_reports", true).toBool());
     ui->multithreading_CheckBox->setChecked(settings.value("preferences/general/multithreading", true).toBool());
+    ui->skipCompressionDialogs_CheckBox->setChecked(settings.value("preferences/general/skip_compression_dialogs", false).toBool());
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
     ui->argsBehaviour_ComboBox->setCurrentIndex(settings.value("preferences/general/args_behaviour", 0).toInt());
     ui->skipBySize_CheckBox->setChecked(settings.value("preferences/general/skip_by_size/enabled", false).toBool());
@@ -183,4 +185,8 @@ int PreferencesDialog::getLocaleIndex()
     }
 
     return localeIndex;
+}
+void PreferencesDialog::onSkipCompressionDialogsToggled(bool checked)
+{
+    QSettings().setValue("preferences/general/skip_compression_dialogs", checked);
 }

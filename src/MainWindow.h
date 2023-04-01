@@ -37,6 +37,7 @@ public:
 protected:
     void closeEvent(QCloseEvent* event) override;
     void showEvent(QShowEvent* event) override;
+    void resizeEvent(QResizeEvent* event) override;
 
 private slots:
     void on_actionAbout_Caesium_Image_Compressor_triggered();

@@ -39,7 +39,7 @@ void loadTheme(QApplication* a)
 
         if (themeIndex == 1) {
             QColor darkGray(25, 25, 25);
-            QColor gray(32, 32, 32);
+            //QColor gray(32, 32, 32);
             QColor lightGray(82, 82, 82);
             QColor black(0, 0, 0);
             QColor blue(37, 99, 235);
@@ -82,9 +82,6 @@ int main(int argc, char* argv[])
 
 #ifdef NDEBUG
     qInstallMessageHandler(Logger::messageHandler);
-#endif
-#ifdef Q_OS_WIN
-    qputenv("QT_QPA_PLATFORM", "windows:darkmode=1");
 #endif
     QApplication a(argc, argv);
 

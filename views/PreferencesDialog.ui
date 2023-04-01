@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>791</width>
-    <height>477</height>
+    <height>543</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -164,7 +164,7 @@
           <number>6</number>
          </property>
          <property name="spacing">
-          <number>-1</number>
+          <number>4</number>
          </property>
          <item row="2" column="1" colspan="2">
           <widget class="QGroupBox" name="general_GroupBox">
@@ -198,42 +198,6 @@
             <property name="verticalSpacing">
              <number>8</number>
             </property>
-            <item row="1" column="2">
-             <widget class="QComboBox" name="theme_ComboBox">
-              <property name="font">
-               <font>
-                <bold>false</bold>
-               </font>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0" colspan="3">
-             <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="font">
-               <font>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Check updates at startup</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0" colspan="3">
-             <widget class="QCheckBox" name="promptExit_CheckBox">
-              <property name="font">
-               <font>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Prompt before exit</string>
-              </property>
-             </widget>
-            </item>
             <item row="1" column="0">
              <widget class="QLabel" name="themeComboBox_Label">
               <property name="font">
@@ -258,6 +222,30 @@
               </property>
              </widget>
             </item>
+            <item row="1" column="2">
+             <widget class="QComboBox" name="theme_ComboBox">
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0" colspan="3">
+             <widget class="QCheckBox" name="checkUpdatesAtStartup_CheckBox">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Check updates at startup</string>
+              </property>
+             </widget>
+            </item>
             <item row="6" column="2">
              <widget class="QLabel" name="showUsageData_Label">
               <property name="font">
@@ -277,6 +265,30 @@
               </property>
               <property name="openExternalLinks">
                <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" colspan="3">
+             <widget class="QCheckBox" name="promptExit_CheckBox">
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Prompt before exit</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QCheckBox" name="skipCompressionDialogs_CheckBox">
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Skip message and warning dialogs during compression</string>
               </property>
              </widget>
             </item>

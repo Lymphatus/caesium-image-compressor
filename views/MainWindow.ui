@@ -197,7 +197,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -897,6 +897,13 @@
                 </widget>
                </item>
                <item>
+                <widget class="QCheckBox" name="moveOriginalFileToTrash_CheckBox">
+                 <property name="text">
+                  <string>Move the original file to trash</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="Line" name="line_2">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -1068,7 +1075,7 @@
          <number>2</number>
         </property>
         <property name="horizontalSpacing">
-         <number>-1</number>
+         <number>9</number>
         </property>
         <property name="verticalSpacing">
          <number>4</number>
@@ -1186,7 +1193,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>24</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
