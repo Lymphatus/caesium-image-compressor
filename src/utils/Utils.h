@@ -71,6 +71,7 @@ typedef struct CompressionOptions {
     bool doNotEnlarge;
     bool sameFolderAsInput;
     bool skipIfBigger;
+    bool moveToTrash;
     int jpeg_quality;
     int png_quality;
     int webp_quality;

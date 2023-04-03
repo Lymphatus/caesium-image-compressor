@@ -37,7 +37,6 @@ public:
 protected:
     void closeEvent(QCloseEvent* event) override;
     void showEvent(QShowEvent* event) override;
-    void resizeEvent(QResizeEvent* event) override;
 
 private slots:
     void on_actionAbout_Caesium_Image_Compressor_triggered();
@@ -94,6 +93,7 @@ private slots:
     void on_actionPreview_triggered();
     void on_skipIfBigger_CheckBox_toggled(bool checked);
     void outputFormatIndexChanged(int index);
+    void moveOriginalFileToTrashToggled(bool checked);
     void importFromArgs(const QStringList);
 
 private:

@@ -68,24 +68,24 @@ All rights reserved.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="233"/>
+        <location filename="../../src/MainWindow.cpp" line="237"/>
         <source>Import files...</source>
         <translation>Importovať súbory...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="249"/>
+        <location filename="../../src/MainWindow.cpp" line="253"/>
         <source>Import folder...</source>
         <translation>Importovať adresár...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="455"/>
+        <location filename="../../src/MainWindow.cpp" line="460"/>
         <source>Importing files...</source>
         <translation>Importovanie súborov...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1065"/>
-        <location filename="../../src/MainWindow.cpp" line="455"/>
-        <location filename="../../src/MainWindow.cpp" line="660"/>
+        <location filename="../../src/MainWindow.cpp" line="460"/>
+        <location filename="../../src/MainWindow.cpp" line="666"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
@@ -98,28 +98,28 @@ All rights reserved.</source>
                 Naozaj chcete pokračovať?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="558"/>
+        <location filename="../../src/MainWindow.cpp" line="563"/>
         <source>No</source>
         <translation>Nie</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="588"/>
-        <location filename="../../src/MainWindow.cpp" line="1201"/>
+        <location filename="../../src/MainWindow.cpp" line="593"/>
+        <location filename="../../src/MainWindow.cpp" line="1207"/>
         <source>Compressing...</source>
         <translation>Komprimovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="656"/>
+        <location filename="../../src/MainWindow.cpp" line="662"/>
         <source>Do you really want to quit?</source>
         <translation>Naozaj chcete skončiť?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="751"/>
+        <location filename="../../src/MainWindow.cpp" line="757"/>
         <source>You just saved %1!</source>
         <translation>Práve ste uložili %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="761"/>
+        <location filename="../../src/MainWindow.cpp" line="767"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -127,30 +127,30 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1134"/>
+        <location filename="../../src/MainWindow.cpp" line="1140"/>
         <source>Finishing...</source>
         <translation>Dokončovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="557"/>
-        <location filename="../../src/MainWindow.cpp" line="659"/>
+        <location filename="../../src/MainWindow.cpp" line="562"/>
+        <location filename="../../src/MainWindow.cpp" line="665"/>
         <source>Yes</source>
         <translation>Áno</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="554"/>
+        <location filename="../../src/MainWindow.cpp" line="559"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="681"/>
+        <location filename="../../src/MainWindow.cpp" line="687"/>
         <source>Select output folder...</source>
         <translation>Vyberte cieľový priečinok...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="748"/>
+        <location filename="../../src/MainWindow.cpp" line="754"/>
         <source>Compression finished!</source>
         <translation>Kompresia dokončená!</translation>
     </message>
@@ -272,8 +272,8 @@ Do you really want to continue?</source>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="802"/>
-        <location filename="../../src/MainWindow.cpp" line="806"/>
+        <location filename="../../src/MainWindow.cpp" line="808"/>
+        <location filename="../../src/MainWindow.cpp" line="812"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -425,7 +425,7 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1330"/>
-        <location filename="../../src/MainWindow.cpp" line="173"/>
+        <location filename="../../src/MainWindow.cpp" line="177"/>
         <source>Exit</source>
         <translation>Koniec</translation>
     </message>
@@ -501,18 +501,18 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1120"/>
+        <location filename="../../src/MainWindow.cpp" line="1126"/>
         <source>Preview</source>
         <translation>Náhľad</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="816"/>
-        <location filename="../../src/MainWindow.cpp" line="820"/>
+        <location filename="../../src/MainWindow.cpp" line="822"/>
+        <location filename="../../src/MainWindow.cpp" line="826"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="934"/>
+        <location filename="../../src/MainWindow.cpp" line="940"/>
         <source>images in list</source>
         <translation>obrázky v zozname</translation>
     </message>
@@ -688,7 +688,7 @@ Do you really want to continue?</source>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="235"/>
+        <location filename="../../src/MainWindow.cpp" line="239"/>
         <source>Image Files</source>
         <translation>Súbory obrázkov</translation>
     </message>
@@ -708,22 +708,22 @@ Do you really want to continue?</source>
         <translation>Vytvorenie dočasného súboru zlyhalo</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="221"/>
+        <location filename="../../src/models/CImage.cpp" line="226"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Vynechané: komprimovaný súbor je väčší ako originál</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="231"/>
+        <location filename="../../src/models/CImage.cpp" line="236"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Výstupný súbor sa nedá skopírovať, skontrolujte svoje povolenia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="360"/>
+        <location filename="../../src/models/CImage.cpp" line="369"/>
         <source>Compressing...</source>
         <translation>Komprimovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="362"/>
+        <location filename="../../src/models/CImage.cpp" line="371"/>
         <source>Error:</source>
         <translation>Chyba:</translation>
     </message>
@@ -733,22 +733,22 @@ Do you really want to continue?</source>
         <translation>Súbor nenájdený</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="110"/>
+        <location filename="../../src/utils/Utils.h" line="111"/>
         <source>Same as input</source>
         <translation>Rovnako ako vstup</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="111"/>
+        <location filename="../../src/utils/Utils.h" line="112"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="112"/>
+        <location filename="../../src/utils/Utils.h" line="113"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="113"/>
+        <location filename="../../src/utils/Utils.h" line="114"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>

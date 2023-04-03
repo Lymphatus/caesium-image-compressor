@@ -209,9 +209,14 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         QFileInfo outputInfo(tempFileFullPath);
 
         bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size() && compressionOptions.skipIfBigger;
-
+        bool inputAlreadyMovedToTrash = false;
         if (outputAlreadyExists && !outputIsBiggerThanInput) {
-            QFile::remove(outputFullPath);
+            if (compressionOptions.sameFolderAsInput) {
+                QFile::moveToTrash(outputFullPath);
+                inputAlreadyMovedToTrash = true;
+            } else {
+                QFile::remove(outputFullPath);
+            }
         }
 
         if (!outputIsBiggerThanInput) {
@@ -231,6 +236,10 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             this->additionalInfo = QIODevice::tr("Cannot copy output file, check your permissions");
             return false;
         }
+        if (compressionOptions.moveToTrash && !inputAlreadyMovedToTrash) {
+            QFile::moveToTrash(this->getFullPath());
+        }
+
         QFileInfo outputFileInfo = QFileInfo(outputFullPath);
         if (compressionOptions.keepDates) {
             this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
@@ -407,7 +416,7 @@ QString CImage::getFormat() const
     return this->format;
 }
 
-QSize CImage::getSizeWithMetadata(QImageReader *reader)
+QSize CImage::getSizeWithMetadata(QImageReader* reader)
 {
     QSize imageSize = reader->size();
     QSize actualSize(imageSize.width(), imageSize.height());

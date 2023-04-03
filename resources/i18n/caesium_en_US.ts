@@ -69,29 +69,29 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="233"/>
+        <location filename="../../src/MainWindow.cpp" line="237"/>
         <source>Import files...</source>
         <translation>Import files...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="249"/>
+        <location filename="../../src/MainWindow.cpp" line="253"/>
         <source>Import folder...</source>
         <translation>Import folder...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="455"/>
+        <location filename="../../src/MainWindow.cpp" line="460"/>
         <source>Importing files...</source>
         <translation>Importing files...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1065"/>
-        <location filename="../../src/MainWindow.cpp" line="455"/>
-        <location filename="../../src/MainWindow.cpp" line="660"/>
+        <location filename="../../src/MainWindow.cpp" line="460"/>
+        <location filename="../../src/MainWindow.cpp" line="666"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="554"/>
+        <location filename="../../src/MainWindow.cpp" line="559"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -100,49 +100,49 @@ Do you really want to continue?</source>
 Do you really want to continue?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="558"/>
+        <location filename="../../src/MainWindow.cpp" line="563"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1134"/>
+        <location filename="../../src/MainWindow.cpp" line="1140"/>
         <source>Finishing...</source>
         <translation>Finishing...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="588"/>
-        <location filename="../../src/MainWindow.cpp" line="1201"/>
+        <location filename="../../src/MainWindow.cpp" line="593"/>
+        <location filename="../../src/MainWindow.cpp" line="1207"/>
         <source>Compressing...</source>
         <translation>Compressing...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="656"/>
+        <location filename="../../src/MainWindow.cpp" line="662"/>
         <source>Do you really want to quit?</source>
         <translation>Do you really want to quit?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="557"/>
-        <location filename="../../src/MainWindow.cpp" line="659"/>
+        <location filename="../../src/MainWindow.cpp" line="562"/>
+        <location filename="../../src/MainWindow.cpp" line="665"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="681"/>
+        <location filename="../../src/MainWindow.cpp" line="687"/>
         <source>Select output folder...</source>
         <translation>Select output folder...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="748"/>
+        <location filename="../../src/MainWindow.cpp" line="754"/>
         <source>Compression finished!</source>
         <translation>Compression finished!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="751"/>
+        <location filename="../../src/MainWindow.cpp" line="757"/>
         <source>You just saved %1!</source>
         <translation>You just saved %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="761"/>
+        <location filename="../../src/MainWindow.cpp" line="767"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -260,8 +260,8 @@ Saved: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="802"/>
-        <location filename="../../src/MainWindow.cpp" line="806"/>
+        <location filename="../../src/MainWindow.cpp" line="808"/>
+        <location filename="../../src/MainWindow.cpp" line="812"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -357,7 +357,7 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1120"/>
+        <location filename="../../src/MainWindow.cpp" line="1126"/>
         <source>Preview</source>
         <translation>Preview</translation>
     </message>
@@ -419,7 +419,7 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1330"/>
-        <location filename="../../src/MainWindow.cpp" line="173"/>
+        <location filename="../../src/MainWindow.cpp" line="177"/>
         <source>Exit</source>
         <translation>Exit</translation>
     </message>
@@ -495,13 +495,13 @@ Saved: %4 (%5%)</translation>
         <translation>Auto Preview</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="816"/>
-        <location filename="../../src/MainWindow.cpp" line="820"/>
+        <location filename="../../src/MainWindow.cpp" line="822"/>
+        <location filename="../../src/MainWindow.cpp" line="826"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="934"/>
+        <location filename="../../src/MainWindow.cpp" line="940"/>
         <source>images in list</source>
         <translation>images in list</translation>
     </message>
@@ -685,7 +685,7 @@ Saved: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="235"/>
+        <location filename="../../src/MainWindow.cpp" line="239"/>
         <source>Image Files</source>
         <translation>Image Files</translation>
     </message>
@@ -705,22 +705,22 @@ Saved: %4 (%5%)</translation>
         <translation>Temporary file creation failed</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="221"/>
+        <location filename="../../src/models/CImage.cpp" line="226"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Skipped: compressed file is bigger than original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="231"/>
+        <location filename="../../src/models/CImage.cpp" line="236"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Cannot copy output file, check your permissions</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="360"/>
+        <location filename="../../src/models/CImage.cpp" line="369"/>
         <source>Compressing...</source>
         <translation>Compressing...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="362"/>
+        <location filename="../../src/models/CImage.cpp" line="371"/>
         <source>Error:</source>
         <translation>Error:</translation>
     </message>
@@ -730,22 +730,22 @@ Saved: %4 (%5%)</translation>
         <translation>File not found</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="110"/>
+        <location filename="../../src/utils/Utils.h" line="111"/>
         <source>Same as input</source>
         <translation>Same as input</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="111"/>
+        <location filename="../../src/utils/Utils.h" line="112"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="112"/>
+        <location filename="../../src/utils/Utils.h" line="113"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="113"/>
+        <location filename="../../src/utils/Utils.h" line="114"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>

@@ -92,6 +92,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
+    connect(ui->moveOriginalFileToTrash_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToTrashToggled);
 
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
@@ -359,6 +360,7 @@ void MainWindow::readSettings()
     ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
     ui->keepLastAccessDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_access_date", false).toBool());
     ui->format_ComboBox->setCurrentIndex(settings.value("compression_options/output/format", 0).toInt());
+    ui->moveOriginalFileToTrash_CheckBox->setChecked(settings.value("compression_options/output/move_original_to_trash", false).toBool());
 
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
@@ -631,6 +633,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->doNotEnlarge_CheckBox->isChecked(),
         ui->sameOutputFolderAsInput_CheckBox->isChecked(),
         ui->skipIfBigger_CheckBox->isChecked(),
+        ui->moveOriginalFileToTrash_CheckBox->isChecked(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
@@ -1286,10 +1289,7 @@ void MainWindow::importFromArgs(const QStringList args)
         this->startCompression();
     }
 }
-void MainWindow::resizeEvent(QResizeEvent* event)
+void MainWindow::moveOriginalFileToTrashToggled(bool checked)
 {
-    qDebug() << event;
-    qDebug() << this->isMaximized();
-    QWidget::resizeEvent(event);
-    qDebug() << this->isMaximized();
+    this->writeSetting("compression_options/output/move_original_to_trash", checked);
 }
