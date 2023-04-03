@@ -20,6 +20,7 @@ QList<CsLocale> LanguageManager::getTranslations()
         { QString("id_ID"), QString("Bahasa Indonesia") },
         { QString("zh_TW"), QString("中文（台灣）") },
         { QString("sk_SK"), QString("Slovenčina") },
+        { QString("pl_PL"), QString("Polski") },
     };
 
     return translations;

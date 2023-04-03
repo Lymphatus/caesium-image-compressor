@@ -1,17 +1,20 @@
 <RCC>
     <qresource prefix="/">
-        <file>i18n/caesium_en_US.qm</file>
-        <file>i18n/caesium_it_IT.qm</file>
-        <file>i18n/caesium_fr_FR.qm</file>
-        <file>i18n/caesium_zh_CN.qm</file>
-        <file>i18n/caesium_ja_JP.qm</file>
-        <file>i18n/caesium_es_ES.qm</file>
         <file>i18n/caesium_ar_EG.qm</file>
         <file>i18n/caesium_de_DE.qm</file>
-        <file>i18n/caesium_ru_RU.qm</file>
-        <file>i18n/caesium_tr_TR.qm</file>
-        <file>i18n/caesium_pt_BR.qm</file>
         <file>i18n/caesium_el_GR.qm</file>
+        <file>i18n/caesium_en_US.qm</file>
+        <file>i18n/caesium_es_ES.qm</file>
+        <file>i18n/caesium_fr_FR.qm</file>
         <file>i18n/caesium_id_ID.qm</file>
+        <file>i18n/caesium_it_IT.qm</file>
+        <file>i18n/caesium_ja_JP.qm</file>
+        <file>i18n/caesium_pl_PL.qm</file>
+        <file>i18n/caesium_pt_BR.qm</file>
+        <file>i18n/caesium_ru_RU.qm</file>
+        <file>i18n/caesium_sk_SK.qm</file>
+        <file>i18n/caesium_tr_TR.qm</file>
+        <file>i18n/caesium_zh_CN.qm</file>
+        <file>i18n/caesium_zh_TW.qm</file>
     </qresource>
 </RCC>
