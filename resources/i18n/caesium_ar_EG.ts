@@ -524,7 +524,7 @@ Saved: %4 (%5%)</source>
         <translation>عام</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>حث قبل الإغلاق</translation>
     </message>
@@ -573,7 +573,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">القالب الأصلي</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>تحقق من التحديثات عند بدء التشغيل</translation>
     </message>
@@ -583,7 +583,7 @@ Saved: %4 (%5%)</source>
         <translation>استيراد الملفات في مجلدات فرعية عند فتح دليل</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>ارسل تقارير استخدام مجهولة الاسم</translation>
     </message>

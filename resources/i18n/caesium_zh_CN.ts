@@ -524,7 +524,7 @@ Saved: %4 (%5%)</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>退出前确认</translation>
     </message>
@@ -573,7 +573,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">原生</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>启动时检查更新</translation>
     </message>
@@ -583,7 +583,7 @@ Saved: %4 (%5%)</source>
         <translation>打开文件夹时导入子目录中的文件</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>发送匿名统计信息</translation>
     </message>

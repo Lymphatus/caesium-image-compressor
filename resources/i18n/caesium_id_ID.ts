@@ -525,7 +525,7 @@ Saved: %4 (%5%)</translation>
         <translation>Umum</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Tampilkan prompt sebelum keluar</translation>
     </message>
@@ -582,7 +582,7 @@ Saved: %4 (%5%)</translation>
         <translation type="vanished">Native</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Memeriksa pemutakhiran saat startup</translation>
     </message>
@@ -592,7 +592,7 @@ Saved: %4 (%5%)</translation>
         <translation>Mengimpor file dalam subfolder saat membuka direktori</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Kirim laporan penggunaan anonim</translation>
     </message>

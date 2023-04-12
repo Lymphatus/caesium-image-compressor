@@ -524,7 +524,7 @@ Saved: %4 (%5%)</translation>
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Demander avant de quitter</translation>
     </message>
@@ -573,7 +573,7 @@ Saved: %4 (%5%)</translation>
         <translation type="vanished">Natif</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Vérifier les mises à jour au démarrage</translation>
     </message>
@@ -583,7 +583,7 @@ Saved: %4 (%5%)</translation>
         <translation>Importer les fichiers dans les sous-répertoires lorsque vous ouvrez un dossier</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Envoyer des rapports anonymes d&apos;utilisation</translation>
     </message>

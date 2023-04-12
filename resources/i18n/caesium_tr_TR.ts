@@ -520,7 +520,7 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Dil</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Anonim kullanım raporlarını gönder</translation>
     </message>
@@ -565,12 +565,12 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Multithreading</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation type="unfinished">Başlangıçta güncellemeleri kontrol et</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Çıkmadan önce sor</translation>
     </message>

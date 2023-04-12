@@ -536,7 +536,7 @@ Do you really want to continue?</source>
         <translation>Všeobecné</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Výzva pred ukončením</translation>
     </message>
@@ -615,7 +615,7 @@ Do you really want to continue?</source>
         <translation type="vanished">Pôvodná</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Skontrolovať aktualizácie pri spustení</translation>
     </message>
@@ -625,7 +625,7 @@ Do you really want to continue?</source>
         <translation>Importovať	súbory v podpriečinkoch pri otvorení adresára</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Posielať anonymné správy o používaní</translation>
     </message>

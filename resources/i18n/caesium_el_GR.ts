@@ -525,7 +525,7 @@ Saved: %4 (%5%)</source>
         <translation>Γενικά</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Προτροπή πριν την έξοδο</translation>
     </message>
@@ -582,7 +582,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Native</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Ελέγξτε για ενημερώσεις κατά την εκκίνηση</translation>
     </message>
@@ -592,7 +592,7 @@ Saved: %4 (%5%)</source>
         <translation>Εισάγετε αρχεία σε υποφακέλους κατά το άνοιγμα ενός καταλόγου</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Αποστολή ανώνυμων αναφορών χρήσης</translation>
     </message>

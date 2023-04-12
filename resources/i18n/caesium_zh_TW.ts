@@ -524,12 +524,12 @@ Saved: %4 (%5%)</source>
         <translation>一般設定</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>退出前確認</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>啟動時檢查更新</translation>
     </message>
@@ -544,7 +544,7 @@ Saved: %4 (%5%)</source>
         <translation>打開檔案夾時導入子目錄中的檔案</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>發送匿名統計訊息</translation>
     </message>

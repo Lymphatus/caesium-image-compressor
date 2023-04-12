@@ -330,7 +330,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="902"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Sposta il file originale nel cestino</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="916"/>
@@ -544,7 +544,7 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Chiedi prima di uscire</translation>
     </message>
@@ -601,7 +601,7 @@ Risparmiato: %4 (%5%)</translation>
         <translation type="vanished">Nativo</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Controlla aggiornamenti all&apos;avvio</translation>
     </message>
@@ -611,7 +611,7 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Importa anche i file nelle sottocartelle quando apri una cartella</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Invia statistiche anonime sull&apos;uso</translation>
     </message>
@@ -634,7 +634,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Non mostrare gli avvisi durante la compressione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="319"/>
@@ -644,12 +644,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="506"/>

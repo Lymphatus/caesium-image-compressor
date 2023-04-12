@@ -318,7 +318,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="902"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Move the original file to trash</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="916"/>
@@ -525,7 +525,7 @@ Saved: %4 (%5%)</translation>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Prompt before exit</translation>
     </message>
@@ -582,7 +582,7 @@ Saved: %4 (%5%)</translation>
         <translation type="vanished">Native</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Check updates at startup</translation>
     </message>
@@ -592,7 +592,7 @@ Saved: %4 (%5%)</translation>
         <translation>Import files in subfolders when opening a directory</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Send anonymous usage reports</translation>
     </message>
@@ -615,7 +615,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Skip message and warning dialogs during compression</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="319"/>
@@ -625,12 +625,12 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="506"/>

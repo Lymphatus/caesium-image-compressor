@@ -524,7 +524,7 @@ Saved: %4 (%5%)</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>終了前に確認する</translation>
     </message>
@@ -573,7 +573,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">ネイティブ</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>起動時にアップデートを確認する</translation>
     </message>
@@ -583,7 +583,7 @@ Saved: %4 (%5%)</source>
         <translation>ディレクトリを開くときにサブフォルダー内のファイルもインポートする</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>匿名の使用状況レポートを送信する</translation>
     </message>

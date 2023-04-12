@@ -525,7 +525,7 @@ Saved: %4 (%5%)</source>
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Спрашивать перед закрытием</translation>
     </message>
@@ -574,7 +574,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Native</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Проверять наличие обновлений при запуске</translation>
     </message>
@@ -584,7 +584,7 @@ Saved: %4 (%5%)</source>
         <translation>При добавлении папки импортировать файлы из подпапок</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Отправка анонимных отчетов об использовании</translation>
     </message>

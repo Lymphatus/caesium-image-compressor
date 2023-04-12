@@ -524,7 +524,7 @@ Ersparnis: %4 (%5%)</translation>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="270"/>
         <source>Prompt before exit</source>
         <translation>Rückfrage vor Beenden</translation>
     </message>
@@ -573,7 +573,7 @@ Ersparnis: %4 (%5%)</translation>
         <translation type="vanished">original</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="245"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
         <translation>Beim Start auf Updates prüfen</translation>
     </message>
@@ -583,7 +583,7 @@ Ersparnis: %4 (%5%)</translation>
         <translation>Dateien in Unterordner auch importieren</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
         <translation>Anonyme Nutzungsreporte senden</translation>
     </message>
