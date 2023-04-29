@@ -63,10 +63,7 @@ endif ()
 
 set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
 string(TOLOWER ${CMAKE_BUILD_TYPE} LIBCAESIUM_BUILD_TYPE)
-if (WIN32)
-    #link_directories(${LIBCAESIUM_SOURCE_DIR}\\target\\x86_64-pc-windows-msvc\\${LIBCAESIUM_BUILD_TYPE})
-else ()
-
+if (NOT WIN32)
     link_directories(${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE})
 endif ()
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network Sql LinguistTools REQUIRED)
@@ -127,6 +124,7 @@ SET(TS_FILES
         resources/i18n/caesium_id_ID.ts
         resources/i18n/caesium_zh_TW.ts
         resources/i18n/caesium_sk_SK.ts
+        resources/i18n/caesium_pl_PL.ts
         )
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)

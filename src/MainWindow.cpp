@@ -36,6 +36,11 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    qRegisterMetaType<QList<int>>();
+    qRegisterMetaType<QWheelEvent*>();
+    qRegisterMetaType<Qt::CheckState>();
+    qRegisterMetaType<Qt::SortOrder>();
+    
     ui->setupUi(this);
     qInfo() << "Starting UI";
 
@@ -87,6 +92,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
+    connect(ui->moveOriginalFileToTrash_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToTrashToggled);
 
     this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
@@ -267,9 +273,8 @@ void MainWindow::triggerImportFolder()
 void MainWindow::writeSettings()
 {
     QSettings settings;
-    settings.setValue("mainwindow/maximized", this->isMaximized());
-    settings.setValue("mainwindow/size", this->size());
-    settings.setValue("mainwindow/pos", this->pos());
+    settings.setValue("mainwindow/geometry", this->saveGeometry());
+    settings.setValue("mainwindow/window_state", this->saveState());
     settings.setValue("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>(ui->sidebar_HSplitter->sizes()));
     settings.setValue("mainwindow/previews_visible", ui->actionShow_previews->isChecked());
     settings.setValue("mainwindow/auto_preview", ui->actionAuto_preview->isChecked());
@@ -322,12 +327,8 @@ void MainWindow::writeSetting(const QString& key, const QVariant& value)
 void MainWindow::readSettings()
 {
     QSettings settings;
-    this->resize(settings.value("mainwindow/size").toSize());
-    this->move(settings.value("mainwindow/pos").toPoint());
-    if (settings.value("mainwindow/maximized", false).toBool()) {
-        this->showMaximized();
-    }
-
+    this->restoreGeometry(settings.value("mainwindow/geometry").toByteArray());
+    this->restoreState(settings.value("mainwindow/window_state").toByteArray());
     ui->sidebar_HSplitter->setSizes(settings.value("mainwindow/left_splitter_sizes", QVariant::fromValue<QList<int>>({ 600, 1 })).value<QList<int>>());
     ui->main_VSplitter->setSizes(settings.value("mainwindow/main_splitter_sizes", QVariant::fromValue<QList<int>>({ 500, 250 })).value<QList<int>>());
     ui->actionShow_previews->setChecked(settings.value("mainwindow/previews_visible", true).toBool());
@@ -359,6 +360,7 @@ void MainWindow::readSettings()
     ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
     ui->keepLastAccessDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_access_date", false).toBool());
     ui->format_ComboBox->setCurrentIndex(settings.value("compression_options/output/format", 0).toInt());
+    ui->moveOriginalFileToTrash_CheckBox->setChecked(settings.value("compression_options/output/move_original_to_trash", false).toBool());
 
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
@@ -400,7 +402,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
                 previewFullPath = cImage->getCompressedFullPath();
             }
         }
-        auto *imageReader = new QImageReader(previewFullPath);
+        auto* imageReader = new QImageReader(previewFullPath);
         imageReader->setAutoTransform(true);
         QPixmap image = QPixmap::fromImageReader(imageReader);
         imagePreview.image = image;
@@ -408,7 +410,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         imagePreview.originalSize = cImage->getOriginalSize();
         imagePreview.isOnFlyPreview = isOnFlyPreview;
         imagePreview.format = QString(imageReader->format()).toUpper();
-        delete imageReader; //Or the file will be opened forever
+        delete imageReader; // Or the file will be opened forever
         return imagePreview;
     };
 
@@ -471,7 +473,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             }
             bool skipBySizeEnabled = QSettings().value("preferences/general/skip_by_size/enabled", false).toBool();
             if (skipBySizeEnabled) {
-                //TODO Make it an Enum
+                // TODO Make it an Enum
                 int unit = QSettings().value("preferences/general/skip_by_size/unit", 0).toInt();
                 int condition = QSettings().value("preferences/general/skip_by_size/condition", 0).toInt();
                 int size = QSettings().value("preferences/general/skip_by_size/value", 0).toInt() << (unit * 10);
@@ -548,10 +550,11 @@ void MainWindow::startCompression()
 
     QString rootFolder = getRootFolder(this->folderMap.keys());
 
+    bool skipDialogs = settings.value("preferences/general/skip_compression_dialogs").toBool();
     bool overwriteWarningFlag = (ui->sameOutputFolderAsInput_CheckBox->isChecked() && ui->outputSuffix_LineEdit->text().isEmpty())
         || rootFolder == ui->outputFolder_LineEdit->text();
 
-    if (overwriteWarningFlag) {
+    if (overwriteWarningFlag && !skipDialogs) {
         QCaesiumMessageBox sameFolderPrompt;
         sameFolderPrompt.setText(tr("You are about to overwrite your original images and this action can't be undone.\n\nDo you really want to continue?"));
         sameFolderPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
@@ -630,6 +633,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->doNotEnlarge_CheckBox->isChecked(),
         ui->sameOutputFolderAsInput_CheckBox->isChecked(),
         ui->skipIfBigger_CheckBox->isChecked(),
+        ui->moveOriginalFileToTrash_CheckBox->isChecked(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
@@ -757,16 +761,18 @@ void MainWindow::compressionFinished()
     ui->compressionProgress_Label->hide();
     this->toggleUIEnabled(true);
 
-    QCaesiumMessageBox compressionSummaryDialog;
-    compressionSummaryDialog.setText(title);
-    compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
-                                                    .arg(QString::number(compressionSummary.totalImages),
-                                                        toHumanSize(compressionSummary.totalUncompressedSize),
-                                                        toHumanSize(compressionSummary.totalCompressedSize),
-                                                        saved,
-                                                        savedPerc));
-    compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
-    compressionSummaryDialog.exec();
+    if (!settings.value("preferences/general/skip_compression_dialogs").toBool()) {
+        QCaesiumMessageBox compressionSummaryDialog;
+        compressionSummaryDialog.setText(title);
+        compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
+                                                        .arg(QString::number(compressionSummary.totalImages),
+                                                            toHumanSize(compressionSummary.totalUncompressedSize),
+                                                            toHumanSize(compressionSummary.totalCompressedSize),
+                                                            saved,
+                                                            savedPerc));
+        compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
+        compressionSummaryDialog.exec();
+    }
 }
 
 void MainWindow::on_actionRemove_triggered()
@@ -1097,27 +1103,34 @@ void MainWindow::showPreview(int index)
         ui->preview_GraphicsView->setLoading(false);
         ui->originalImageSize_Label->setLoading(false);
         ui->preview_GraphicsView->showPixmap(imagePreview.image);
-        ui->originalImageSize_Label->setText(QString("%1 %2").arg(toHumanSize((double)imagePreview.fileInfo.size()), imagePreview.format));
         ui->preview_GraphicsView->fitInView(ui->preview_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->preview_GraphicsView->show();
+        if (imagePreview.fileInfo.exists()) {
+            ui->originalImageSize_Label->setText(QString("%1 %2").arg(toHumanSize((double)imagePreview.fileInfo.size()), imagePreview.format));
+        } else {
+            ui->originalImageSize_Label->setText(tr("File not found"));
+        }
     }
 
     if (index == 1) {
-        auto originalSize = (double)imagePreview.originalSize;
-        auto currentSize = (double)imagePreview.fileInfo.size();
-        QString icon = "=";
-        QString color = "#14b8a6";
-        if (currentSize < originalSize) {
-            icon = "↓";
-            color = "#22c55e";
-        } else if (currentSize > originalSize) {
-            icon = "↑";
-            color = "#ef4444";
-        }
-        QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
-        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4) %5").arg(color, icon, toHumanSize(currentSize), ratio, imagePreview.format);
-        if (imagePreview.isOnFlyPreview) {
-            labelTextPrefix += " (" + tr("Preview") + ")";
+        QString labelTextPrefix = tr("File not found");
+        if (imagePreview.fileInfo.exists()) {
+            auto originalSize = (double)imagePreview.originalSize;
+            auto currentSize = (double)imagePreview.fileInfo.size();
+            QString icon = "=";
+            QString color = "#14b8a6";
+            if (currentSize < originalSize) {
+                icon = "↓";
+                color = "#22c55e";
+            } else if (currentSize > originalSize) {
+                icon = "↑";
+                color = "#ef4444";
+            }
+            QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
+            labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4) %5").arg(color, icon, toHumanSize(currentSize), ratio, imagePreview.format);
+            if (imagePreview.isOnFlyPreview) {
+                labelTextPrefix += " (" + tr("Preview") + ")";
+            }
         }
         ui->previewCompressed_GraphicsView->setLoading(false);
         ui->compressedImageSize_Label->setLoading(false);
@@ -1262,7 +1275,7 @@ void MainWindow::importFromArgs(const QStringList args)
 {
     QStringList filesList;
     QStringListIterator it(args);
-    //TODO Make a ENUM?
+    // TODO Make a ENUM?
     int argsBehaviour = QSettings().value("preferences/general/args_behaviour", 0).toInt();
     while (it.hasNext()) {
         QString path = it.next();
@@ -1282,4 +1295,8 @@ void MainWindow::importFromArgs(const QStringList args)
     if (argsBehaviour == 1) {
         this->startCompression();
     }
+}
+void MainWindow::moveOriginalFileToTrashToggled(bool checked)
+{
+    this->writeSetting("compression_options/output/move_original_to_trash", checked);
 }
