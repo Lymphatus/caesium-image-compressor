@@ -1103,27 +1103,34 @@ void MainWindow::showPreview(int index)
         ui->preview_GraphicsView->setLoading(false);
         ui->originalImageSize_Label->setLoading(false);
         ui->preview_GraphicsView->showPixmap(imagePreview.image);
-        ui->originalImageSize_Label->setText(QString("%1 %2").arg(toHumanSize((double)imagePreview.fileInfo.size()), imagePreview.format));
         ui->preview_GraphicsView->fitInView(ui->preview_GraphicsView->scene()->itemsBoundingRect(), Qt::KeepAspectRatio);
         ui->preview_GraphicsView->show();
+        if (imagePreview.fileInfo.exists()) {
+            ui->originalImageSize_Label->setText(QString("%1 %2").arg(toHumanSize((double)imagePreview.fileInfo.size()), imagePreview.format));
+        } else {
+            ui->originalImageSize_Label->setText(tr("File not found"));
+        }
     }
 
     if (index == 1) {
-        auto originalSize = (double)imagePreview.originalSize;
-        auto currentSize = (double)imagePreview.fileInfo.size();
-        QString icon = "=";
-        QString color = "#14b8a6";
-        if (currentSize < originalSize) {
-            icon = "↓";
-            color = "#22c55e";
-        } else if (currentSize > originalSize) {
-            icon = "↑";
-            color = "#ef4444";
-        }
-        QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
-        QString labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4) %5").arg(color, icon, toHumanSize(currentSize), ratio, imagePreview.format);
-        if (imagePreview.isOnFlyPreview) {
-            labelTextPrefix += " (" + tr("Preview") + ")";
+        QString labelTextPrefix = tr("File not found");
+        if (imagePreview.fileInfo.exists()) {
+            auto originalSize = (double)imagePreview.originalSize;
+            auto currentSize = (double)imagePreview.fileInfo.size();
+            QString icon = "=";
+            QString color = "#14b8a6";
+            if (currentSize < originalSize) {
+                icon = "↓";
+                color = "#22c55e";
+            } else if (currentSize > originalSize) {
+                icon = "↑";
+                color = "#ef4444";
+            }
+            QString ratio = QString::number(round(-100 + (currentSize / originalSize * 100))) + "%";
+            labelTextPrefix = QString("<span style=\" color:%1;\">%2</span> %3 (%4) %5").arg(color, icon, toHumanSize(currentSize), ratio, imagePreview.format);
+            if (imagePreview.isOnFlyPreview) {
+                labelTextPrefix += " (" + tr("Preview") + ")";
+            }
         }
         ui->previewCompressed_GraphicsView->setLoading(false);
         ui->compressedImageSize_Label->setLoading(false);

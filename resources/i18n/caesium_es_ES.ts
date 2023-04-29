@@ -105,13 +105,19 @@ Desea continuar?</translation>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1140"/>
+        <location filename="../../src/MainWindow.cpp" line="1111"/>
+        <location filename="../../src/MainWindow.cpp" line="1116"/>
+        <source>File not found</source>
+        <translation type="unfinished">Archivo no encontrado</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="1147"/>
         <source>Finishing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
-        <location filename="../../src/MainWindow.cpp" line="1207"/>
+        <location filename="../../src/MainWindow.cpp" line="1214"/>
         <source>Compressing...</source>
         <translation>Comprimiendo...</translation>
     </message>
@@ -357,7 +363,7 @@ Ahorrado: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1126"/>
+        <location filename="../../src/MainWindow.cpp" line="1132"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>

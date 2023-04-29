@@ -105,13 +105,19 @@ Do you really want to continue?</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1140"/>
+        <location filename="../../src/MainWindow.cpp" line="1111"/>
+        <location filename="../../src/MainWindow.cpp" line="1116"/>
+        <source>File not found</source>
+        <translation type="unfinished">ファイルが見つかりません</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="1147"/>
         <source>Finishing...</source>
         <translation>終了中...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
-        <location filename="../../src/MainWindow.cpp" line="1207"/>
+        <location filename="../../src/MainWindow.cpp" line="1214"/>
         <source>Compressing...</source>
         <translation>圧縮中...</translation>
     </message>
@@ -357,7 +363,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1126"/>
+        <location filename="../../src/MainWindow.cpp" line="1132"/>
         <source>Preview</source>
         <translation>プレビュー</translation>
     </message>

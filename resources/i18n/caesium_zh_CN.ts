@@ -105,13 +105,19 @@ Do you really want to continue?</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1140"/>
+        <location filename="../../src/MainWindow.cpp" line="1111"/>
+        <location filename="../../src/MainWindow.cpp" line="1116"/>
+        <source>File not found</source>
+        <translation type="unfinished">文件未找到</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="1147"/>
         <source>Finishing...</source>
         <translation>正在取消...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
-        <location filename="../../src/MainWindow.cpp" line="1207"/>
+        <location filename="../../src/MainWindow.cpp" line="1214"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
@@ -357,7 +363,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1126"/>
+        <location filename="../../src/MainWindow.cpp" line="1132"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
