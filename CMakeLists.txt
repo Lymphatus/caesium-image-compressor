@@ -24,7 +24,10 @@ else ()
     project(${TARGET} LANGUAGES CXX)
 endif ()
 
-find_program(CARGO "cargo" REQUIRED)
+find_library(LIBCAESIUM libcaesium)
+if(NOT LIBCAESIUM)
+    find_program(CARGO "cargo" REQUIRED)
+endif ()
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -159,20 +162,23 @@ if (WIN32)
     set(CARGO_TARGET "--target=x86_64-pc-windows-gnu")
 endif ()
 
-ExternalProject_Add(
-        libcaesium
-        GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG ${LIBCAESIUM_VERSION}
-        CONFIGURE_COMMAND ""
-        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
-        INSTALL_COMMAND ""
-        BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
-        LOG_OUTPUT_ON_FAILURE ON
-        LOG_BUILD ON
-        BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll
-)
-
-add_dependencies(caesium_image_compressor libcaesium)
+if (LIBCAESIUM)
+    add_dependencies(caesium_image_compressor ${LIBCAESIUM})
+else ()
+    ExternalProject_Add(
+            libcaesium
+            GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
+            GIT_TAG ${LIBCAESIUM_VERSION}
+            CONFIGURE_COMMAND ""
+            BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
+            INSTALL_COMMAND ""
+            BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
+            LOG_OUTPUT_ON_FAILURE ON
+            LOG_BUILD ON
+            BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll
+    )
+    add_dependencies(caesium_image_compressor libcaesium)
+endif ()
 
 # --- WinSparkle ---
 if (WIN32)
