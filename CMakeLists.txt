@@ -57,8 +57,6 @@ if (APPLE)
     else ()
         include_directories(${LIBSSH_INCLUDE_DIR})
     endif ()
-
-    include_directories(${CMAKE_BINARY_DIR}/libsparkle-prefix/src/libsparkle/Sparkle.framework/Headers)
 endif ()
 
 set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
@@ -204,6 +202,11 @@ if (APPLE)
             DOWNLOAD_EXTRACT_TIMESTAMP ON
     )
     add_dependencies(caesium_image_compressor libsparkle)
+
+    if (NOT EXISTS ${CMAKE_BINARY_DIR}/libsparkle-prefix/src/libsparkle/Sparkle.framework/Headers)
+        message(FATAL_ERROR "Cannot find Sparkle, aborting.")
+    endif ()
+    include_directories(${CMAKE_BINARY_DIR}/libsparkle-prefix/src/libsparkle/Sparkle.framework/Headers)
 endif ()
 # --- Sparkle ---
 

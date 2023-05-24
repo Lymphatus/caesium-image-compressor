@@ -66,9 +66,6 @@ jobs:
           modules: 'qtimageformats'
           cache: true
 
-      - name: Install OpenSSL
-        run: brew update && brew install openssl
-
       - name: Configure CMake
         run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
 
@@ -95,7 +92,7 @@ jobs:
         with:
           aqtversion: '==3.0.*'
           version: '6.4.3'
-          host: 'mac'
+          host: 'linux'
           target: 'desktop'
           arch: 'gcc_64'
           modules: 'qtimageformats'
