@@ -212,7 +212,11 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         bool inputAlreadyMovedToTrash = false;
         if (outputAlreadyExists && !outputIsBiggerThanInput) {
             if (compressionOptions.sameFolderAsInput) {
-                QFile::moveToTrash(outputFullPath);
+                bool trashingResult = QFile::moveToTrash(outputFullPath);
+                // Can fail in some conditions, like NAS storages. Fallback to normal remove.
+                if (!trashingResult) {
+                    QFile::remove(outputFullPath);
+                }
                 inputAlreadyMovedToTrash = true;
             } else {
                 QFile::remove(outputFullPath);
@@ -237,7 +241,11 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             return false;
         }
         if (compressionOptions.moveToTrash && !inputAlreadyMovedToTrash) {
-            QFile::moveToTrash(this->getFullPath());
+            bool trashingResult = QFile::moveToTrash(this->getFullPath());
+            if (!trashingResult) {
+                qWarning() << "Cannot move to trash file" << this->getFullPath();
+                this->additionalInfo = QIODevice::tr("Cannot move original file to trash, check your permissions");
+            }
         }
 
         QFileInfo outputFileInfo = QFileInfo(outputFullPath);
