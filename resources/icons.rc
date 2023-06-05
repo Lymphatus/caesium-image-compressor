@@ -4,7 +4,7 @@ IDI_ICON1               ICON    "icons/icon.ico"
 
 1 VERSIONINFO
  FILEVERSION     1,0,0,0
- PRODUCTVERSION  2,4,0,0
+ PRODUCTVERSION  2,4,1,0
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
@@ -15,7 +15,7 @@ BEGIN
             VALUE "FileVersion", "1.0.0\0"
             VALUE "InternalName", "Cs-133\0"
             VALUE "ProductName", "Caesium Image Compressor\0"
-            VALUE "ProductVersion", "2.4.0\0"
+            VALUE "ProductVersion", "2.4.1\0"
         END
     END
 
