@@ -13,6 +13,7 @@ if (WIN32)
         add_compile_definitions(IS_PORTABLE)
     endif ()
 else ()
+    include(GNUInstallDirs)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
 endif ()
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
@@ -24,7 +25,10 @@ else ()
     project(${TARGET} LANGUAGES CXX)
 endif ()
 
-find_program(CARGO "cargo" REQUIRED)
+find_library(LIBCAESIUM libcaesium)
+if(NOT LIBCAESIUM)
+    find_program(CARGO "cargo" REQUIRED)
+endif ()
 
 add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
 
@@ -145,6 +149,7 @@ if (WIN32)
     add_executable(${TARGET} WIN32 ${SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 else ()
     add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
+    install(TARGETS ${TARGET} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()
 
 # --- libcaesium ---
@@ -159,20 +164,23 @@ if (WIN32)
     set(CARGO_TARGET "--target=x86_64-pc-windows-gnu")
 endif ()
 
-ExternalProject_Add(
-        libcaesium
-        GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG ${LIBCAESIUM_VERSION}
-        CONFIGURE_COMMAND ""
-        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
-        INSTALL_COMMAND ""
-        BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
-        LOG_OUTPUT_ON_FAILURE ON
-        LOG_BUILD ON
-        BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll
-)
-
-add_dependencies(caesium_image_compressor libcaesium)
+if (LIBCAESIUM)
+    add_dependencies(caesium_image_compressor ${LIBCAESIUM})
+else ()
+    ExternalProject_Add(
+            libcaesium
+            GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
+            GIT_TAG ${LIBCAESIUM_VERSION}
+            CONFIGURE_COMMAND ""
+            BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
+            INSTALL_COMMAND ""
+            BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
+            LOG_OUTPUT_ON_FAILURE ON
+            LOG_BUILD ON
+            BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll
+    )
+    add_dependencies(caesium_image_compressor libcaesium)
+endif ()
 
 # --- WinSparkle ---
 if (WIN32)
@@ -218,6 +226,7 @@ if (APPLE)
 elseif (WIN32)
     target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql winsparkle ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll)
 else ()
+    set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "caesium-image-compressor")
     target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql caesium)
 endif ()
 
