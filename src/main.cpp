@@ -6,7 +6,9 @@
 #include <QCommandLineParser>
 #include <QDateTime>
 #include <QSettings>
+#include <QStyle>
 #include <QStyleFactory>
+#include <QStyleHints>
 #include <QTranslator>
 #include <QUuid>
 
@@ -34,42 +36,17 @@ void loadInstallationId()
 void loadTheme(QApplication* a)
 {
     int themeIndex = QSettings().value("preferences/general/theme", 0).toInt();
-    if (themeIndex > 0 && themeIndex < THEMES_COUNT) {
+    // From 2.4.1 and Qt 6.5, the framework can handle the switch between dark and light
+    if (themeIndex > 1) {
+        themeIndex = 1;
+    }
+
+    if (themeIndex == 1) {
         QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
-
-        if (themeIndex == 1) {
-            QColor darkGray(25, 25, 25);
-            //QColor gray(32, 32, 32);
-            QColor lightGray(82, 82, 82);
-            QColor black(0, 0, 0);
-            QColor blue(37, 99, 235);
-            QColor purple(168, 85, 247);
-            QColor white(241, 245, 249);
-
-            QPalette darkPalette;
-            darkPalette.setColor(QPalette::Window, darkGray);
-            darkPalette.setColor(QPalette::WindowText, white);
-            darkPalette.setColor(QPalette::Base, black);
-            darkPalette.setColor(QPalette::AlternateBase, darkGray);
-            darkPalette.setColor(QPalette::ToolTipBase, blue);
-            darkPalette.setColor(QPalette::ToolTipText, white);
-            darkPalette.setColor(QPalette::Text, white);
-            darkPalette.setColor(QPalette::Button, darkGray);
-            darkPalette.setColor(QPalette::ButtonText, white);
-            darkPalette.setColor(QPalette::Link, blue);
-            darkPalette.setColor(QPalette::Highlight, purple);
-            darkPalette.setColor(QPalette::HighlightedText, black);
-
-            darkPalette.setColor(QPalette::Active, QPalette::Button, darkGray);
-            darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText, lightGray);
-            darkPalette.setColor(QPalette::Disabled, QPalette::WindowText, lightGray);
-            darkPalette.setColor(QPalette::Disabled, QPalette::Text, lightGray);
-            darkPalette.setColor(QPalette::Disabled, QPalette::Light, darkGray);
-
-            QApplication::setPalette(darkPalette);
-
-            a->setStyleSheet("QToolTip { color: #ffffff; background-color: #404040; border: 1px solid darkgray; }");
-        }
+        auto palette = QApplication::palette();
+        QColor purple(168, 85, 247);
+        palette.setColor(QPalette::Highlight, purple);
+        QApplication::setPalette(palette);
     }
 }
 

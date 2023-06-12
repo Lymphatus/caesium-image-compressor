@@ -702,22 +702,27 @@ Saved: %4 (%5%)</source>
         <translation>فشل إنشاء الملف المؤقت</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="226"/>
+        <location filename="../../src/models/CImage.cpp" line="230"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>تخطي: الملف المضغوط أكبر من الملف الأصلي</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="236"/>
+        <location filename="../../src/models/CImage.cpp" line="240"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>غير قادر على نسخ ملف المخرج، افحص الأذونات الخاصة بك</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="369"/>
+        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <source>Cannot move original file to trash, check your permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/models/CImage.cpp" line="377"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="371"/>
+        <location filename="../../src/models/CImage.cpp" line="379"/>
         <source>Error:</source>
         <translation>خطأ:</translation>
     </message>
@@ -727,22 +732,22 @@ Saved: %4 (%5%)</source>
         <translation>الملف غير موجود</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="111"/>
+        <location filename="../../src/utils/Utils.h" line="110"/>
         <source>Same as input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="112"/>
+        <location filename="../../src/utils/Utils.h" line="111"/>
         <source>JPG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="113"/>
+        <location filename="../../src/utils/Utils.h" line="112"/>
         <source>PNG</source>
         <translation type="unfinished">PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="114"/>
+        <location filename="../../src/utils/Utils.h" line="113"/>
         <source>WebP</source>
         <translation type="unfinished">WebP</translation>
     </message>

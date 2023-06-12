@@ -100,11 +100,10 @@ typedef struct ImagePreview {
     QString format;
 } ImagePreview;
 
-const int THEMES_COUNT = 3;
+const int THEMES_COUNT = 2;
 const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Native"), QString("Native") },
-    { QString("Fusion"), QString("Fusion (Dark)") },
-    { QString("Fusion"), QString("Fusion (Light)") }
+    { QString("Fusion"), QString("Fusion") },
 };
 
 const QStringList OUTPUT_SUPPORTED_FORMATS = {

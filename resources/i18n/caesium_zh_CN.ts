@@ -702,22 +702,27 @@ Saved: %4 (%5%)</source>
         <translation>无法创建临时文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="226"/>
+        <location filename="../../src/models/CImage.cpp" line="230"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>跳过：压缩后的文件尺寸大于原始文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="236"/>
+        <location filename="../../src/models/CImage.cpp" line="240"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>无法复制输出文件到输出路径，请检查访问权限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="369"/>
+        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <source>Cannot move original file to trash, check your permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/models/CImage.cpp" line="377"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="371"/>
+        <location filename="../../src/models/CImage.cpp" line="379"/>
         <source>Error:</source>
         <translation>错误：</translation>
     </message>
@@ -727,22 +732,22 @@ Saved: %4 (%5%)</source>
         <translation>文件未找到</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="111"/>
+        <location filename="../../src/utils/Utils.h" line="110"/>
         <source>Same as input</source>
         <translation>和输入保持一致</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="112"/>
+        <location filename="../../src/utils/Utils.h" line="111"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="113"/>
+        <location filename="../../src/utils/Utils.h" line="112"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="114"/>
+        <location filename="../../src/utils/Utils.h" line="113"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
