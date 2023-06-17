@@ -95,7 +95,7 @@ Todos los derechos reservados.</translation>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
-        <translation>Va a sobre-escribir las imágenes originales y esta operación no se puede deshacer.
+        <translation>Vas a sobre-escribir las imágenes originales y esta operación no se puede deshacer.
 
 Desea continuar?</translation>
     </message>
@@ -108,12 +108,12 @@ Desea continuar?</translation>
         <location filename="../../src/MainWindow.cpp" line="1111"/>
         <location filename="../../src/MainWindow.cpp" line="1116"/>
         <source>File not found</source>
-        <translation type="unfinished">Archivo no encontrado</translation>
+        <translation>Archivo no encontrado</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1147"/>
         <source>Finishing...</source>
-        <translation type="unfinished"></translation>
+        <translation>Finalizando...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
@@ -124,7 +124,7 @@ Desea continuar?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="662"/>
         <source>Do you really want to quit?</source>
-        <translation>Quiere salir?</translation>
+        <translation>¿Realmente quieres salir?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="562"/>
@@ -145,7 +145,7 @@ Desea continuar?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="757"/>
         <source>You just saved %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Se guardó %1!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="767"/>
@@ -215,12 +215,12 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="479"/>
         <source>Lossless</source>
-        <translation>Lossless</translation>
+        <translation>Sin pérdidas</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="486"/>
         <source>Keep Metadata</source>
-        <translation>Mantener Metadata</translation>
+        <translation>Mantener Metadatos</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="509"/>
@@ -230,7 +230,7 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="535"/>
         <source>Resize to fit</source>
-        <translation>Redimensionar para calzar</translation>
+        <translation>Redimensionar para encajar</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="559"/>
@@ -319,12 +319,12 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="892"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation>Omitir si el tamaño de salida es mayor que el original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="902"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover el archivo original a la papelera</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="916"/>
@@ -349,7 +349,7 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="966"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Formato</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="991"/>
@@ -359,18 +359,18 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1152"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
         <location filename="../../src/MainWindow.cpp" line="1132"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Vista previa</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1145"/>
         <source>Compressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprimido</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1201"/>
@@ -396,7 +396,7 @@ Ahorrado: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="1233"/>
         <location filename="../../views/MainWindow.ui" line="1256"/>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Barra de herramientas</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1298"/>
@@ -432,7 +432,7 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1348"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation>Del</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1353"/>
@@ -477,27 +477,27 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1436"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Íconos</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1444"/>
         <source>Icons and Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Íconos y Textos</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1452"/>
         <source>Hide</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1457"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1465"/>
         <source>Auto preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Vista previa auto.</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="822"/>
@@ -537,27 +537,27 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="360"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Do importar si</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="378"/>
         <source>greater than</source>
-        <translation type="unfinished"></translation>
+        <translation>es mayor que</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="383"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation>igual a</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="388"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation>menor que</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="423"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="690"/>
@@ -571,12 +571,12 @@ Ahorrado: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="533"/>
-        <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <source>Esta opción se aplica al utilizar la línea de comandos o al soltar archivos en el icono de la aplicación</source>
+        <translation></translation>
     </message>
     <message>
         <source>Native</source>
-        <translation type="vanished">Nativo</translation>
+        <translation>Nativo</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="258"/>
@@ -591,7 +591,7 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="243"/>
         <source>Send anonymous usage reports</source>
-        <translation>Enviar reportes de uso anónimo</translation>
+        <translation>Enviar reportes de uso anónimos</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="464"/>
@@ -612,37 +612,37 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Omitir mensajes y cuadros de diálogo de advertencia durante la compresión</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="319"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="506"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar sólo</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="511"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar y comprimir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="493"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando se importan archivos directamente</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="624"/>
@@ -734,29 +734,29 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.h" line="110"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation>Mismo que de entrada</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="111"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="112"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.h" line="113"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>
     <name>QZoomGraphicsView</name>
     <message>
         <source>Loading...</source>
-        <translation type="vanished">Cargando...</translation>
+        <translation>Cargando...</translation>
     </message>
 </context>
 </TS>
