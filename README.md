@@ -10,7 +10,7 @@ Caesium is an image compression software that helps you store, send and share di
 You can quickly reduce the file size (and resolution, if you want) by preserving the overall quality of the image.
 
 ### Supported Platforms
-- **Windows**: 8.1+ (use old version v1.x for Windows 7 - [link](https://www.fosshub.com/Caesium-Image-Compressor-old.html))
+- **Windows**: 10 (build 1809 or later) (use old version v1.x for Windows 7 or 8 - [link](https://www.fosshub.com/Caesium-Image-Compressor-old.html))
 - **MacOS**: 10.15+
 - **Linux**: tested on Ubuntu 22.04 and Manjaro
 
