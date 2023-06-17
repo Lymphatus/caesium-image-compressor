@@ -106,13 +106,6 @@ const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Fusion"), QString("Fusion") },
 };
 
-const QStringList OUTPUT_SUPPORTED_FORMATS = {
-    QIODevice::tr("Same as input"),
-    QIODevice::tr("JPG"),
-    QIODevice::tr("PNG"),
-    QIODevice::tr("WebP"),
-};
-
 // Utilities
 QString toHumanSize(double size);
 QStringList scanDirectory(const QString& directory, bool subfolders);
@@ -123,4 +116,5 @@ QJsonObject getSystemData();
 QJsonObject getCompressionOptionsAsJSON();
 QString getCompressionOptionsHash();
 QString hashString(const QString& data, QCryptographicHash::Algorithm algorithm);
+QStringList getOutputSupportedFormats();
 #endif // UTILS_H

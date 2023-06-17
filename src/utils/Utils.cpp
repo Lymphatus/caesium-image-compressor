@@ -203,3 +203,13 @@ QString hashString(const QString& data, QCryptographicHash::Algorithm algorithm)
     hash.addData(data.toUtf8());
     return QString::fromUtf8(hash.result().toHex());
 }
+
+QStringList getOutputSupportedFormats()
+{
+    return {
+        QIODevice::tr("Same as input"),
+        QIODevice::tr("JPG"),
+        QIODevice::tr("PNG"),
+        QIODevice::tr("WebP"),
+    };
+}

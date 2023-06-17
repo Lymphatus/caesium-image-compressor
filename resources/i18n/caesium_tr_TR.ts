@@ -166,8 +166,8 @@ All rights reserved.</translation>
         <location filename="../../views/MainWindow.ui" line="643"/>
         <location filename="../../views/MainWindow.ui" line="687"/>
         <location filename="../../views/MainWindow.ui" line="744"/>
-        <location filename="../../src/MainWindow.cpp" line="808"/>
-        <location filename="../../src/MainWindow.cpp" line="812"/>
+        <location filename="../../src/MainWindow.cpp" line="809"/>
+        <location filename="../../src/MainWindow.cpp" line="813"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -258,8 +258,8 @@ All rights reserved.</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1065"/>
-        <location filename="../../src/MainWindow.cpp" line="460"/>
-        <location filename="../../src/MainWindow.cpp" line="666"/>
+        <location filename="../../src/MainWindow.cpp" line="461"/>
+        <location filename="../../src/MainWindow.cpp" line="667"/>
         <source>Cancel</source>
         <translation>İptal Et</translation>
     </message>
@@ -326,7 +326,7 @@ All rights reserved.</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1330"/>
-        <location filename="../../src/MainWindow.cpp" line="177"/>
+        <location filename="../../src/MainWindow.cpp" line="178"/>
         <source>Exit</source>
         <translation>Çıkış</translation>
     </message>
@@ -402,27 +402,27 @@ All rights reserved.</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
-        <location filename="../../src/MainWindow.cpp" line="1132"/>
+        <location filename="../../src/MainWindow.cpp" line="1133"/>
         <source>Preview</source>
         <translation>Ön izleme</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="237"/>
+        <location filename="../../src/MainWindow.cpp" line="238"/>
         <source>Import files...</source>
         <translation>Dosyaları içe aktar...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="253"/>
+        <location filename="../../src/MainWindow.cpp" line="254"/>
         <source>Import folder...</source>
         <translation>Klasörü içe aktar...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="460"/>
+        <location filename="../../src/MainWindow.cpp" line="461"/>
         <source>Importing files...</source>
         <translation>Dosyalar içe aktarılıyor...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="559"/>
+        <location filename="../../src/MainWindow.cpp" line="560"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -431,44 +431,44 @@ Do you really want to continue?</source>
 Gerçekten devam etmek istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="562"/>
-        <location filename="../../src/MainWindow.cpp" line="665"/>
+        <location filename="../../src/MainWindow.cpp" line="563"/>
+        <location filename="../../src/MainWindow.cpp" line="666"/>
         <source>Yes</source>
         <translation>Evet</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="563"/>
+        <location filename="../../src/MainWindow.cpp" line="564"/>
         <source>No</source>
         <translation>Hayır</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="593"/>
-        <location filename="../../src/MainWindow.cpp" line="1214"/>
+        <location filename="../../src/MainWindow.cpp" line="594"/>
+        <location filename="../../src/MainWindow.cpp" line="1215"/>
         <source>Compressing...</source>
         <translation>Sıkıştırılıyor...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="662"/>
+        <location filename="../../src/MainWindow.cpp" line="663"/>
         <source>Do you really want to quit?</source>
         <translation>Gerçekten çıkmak istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="687"/>
+        <location filename="../../src/MainWindow.cpp" line="688"/>
         <source>Select output folder...</source>
         <translation>Çıktı klasörünü seç...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="754"/>
+        <location filename="../../src/MainWindow.cpp" line="755"/>
         <source>Compression finished!</source>
         <translation>Sıkıştırma bitti!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="757"/>
+        <location filename="../../src/MainWindow.cpp" line="758"/>
         <source>You just saved %1!</source>
         <translation>Az önce kaydedilen %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="767"/>
+        <location filename="../../src/MainWindow.cpp" line="768"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -479,24 +479,24 @@ Sıkıştırılmış boyut: %3
 Kaydedildi: %4 (%5%)</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="822"/>
-        <location filename="../../src/MainWindow.cpp" line="826"/>
+        <location filename="../../src/MainWindow.cpp" line="823"/>
+        <location filename="../../src/MainWindow.cpp" line="827"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="940"/>
+        <location filename="../../src/MainWindow.cpp" line="941"/>
         <source>images in list</source>
         <translation type="unfinished">listedeki resimler</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1111"/>
-        <location filename="../../src/MainWindow.cpp" line="1116"/>
+        <location filename="../../src/MainWindow.cpp" line="1112"/>
+        <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
         <translation type="unfinished">Dosya bulunamadı</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1147"/>
+        <location filename="../../src/MainWindow.cpp" line="1148"/>
         <source>Finishing...</source>
         <translation type="unfinished">Bitiriliyor...</translation>
     </message>
@@ -664,7 +664,7 @@ Kaydedildi: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="239"/>
+        <location filename="../../src/MainWindow.cpp" line="240"/>
         <source>Image Files</source>
         <translation>Resim Dosyaları</translation>
     </message>
@@ -714,22 +714,22 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Dosya bulunamadı</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="110"/>
+        <location filename="../../src/utils/Utils.cpp" line="210"/>
         <source>Same as input</source>
         <translation type="unfinished">Giriş ile aynı</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="111"/>
+        <location filename="../../src/utils/Utils.cpp" line="211"/>
         <source>JPG</source>
         <translation type="unfinished">JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="112"/>
+        <location filename="../../src/utils/Utils.cpp" line="212"/>
         <source>PNG</source>
         <translation type="unfinished">PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.h" line="113"/>
+        <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
         <translation type="unfinished">WebP</translation>
     </message>

@@ -109,7 +109,7 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
     QString inputFullPath = this->fullPath;
     QFileInfo inputFileInfo(inputFullPath);
     QString outputFullPath = this->getTemporaryPreviewFullPath();
-    const QString& outputFormat = OUTPUT_SUPPORTED_FORMATS[compressionOptions.format];
+    const QString& outputFormat = getOutputSupportedFormats()[compressionOptions.format];
     bool convert = compressionOptions.format != 0 && this->getFormat().compare(outputFormat, Qt::CaseInsensitive) != 0;
     FileDates inputFileDates = {
         inputFileInfo.fileTime(QFile::FileBirthTime),
@@ -119,7 +119,7 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
     CCSParameters r_parameters = this->getCSParameters(compressionOptions);
     if (convert) {
         QImage imageToBeConverted = QImage(inputFullPath);
-        imageToBeConverted.save(outputFullPath, OUTPUT_SUPPORTED_FORMATS.at(compressionOptions.format).toLower().toUtf8().constData(), 100);
+        imageToBeConverted.save(outputFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
         inputFullPath = outputFullPath;
     }
     CCSResult result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
@@ -135,7 +135,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QString inputFullPath = this->getFullPath();
     QString suffix = compressionOptions.suffix;
     QFileInfo inputFileInfo = QFileInfo(inputFullPath);
-    QString outputFormat = OUTPUT_SUPPORTED_FORMATS[compressionOptions.format];
+    QString outputFormat = getOutputSupportedFormats()[compressionOptions.format];
     bool convert = compressionOptions.format != 0 && this->format.compare(outputFormat, Qt::CaseInsensitive) != 0;
     this->additionalInfo = "";
     if (!inputFileInfo.exists()) {
@@ -145,7 +145,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     }
     QString outputSuffix = this->extension;
     if (compressionOptions.format != 0) {
-        outputSuffix = OUTPUT_SUPPORTED_FORMATS[compressionOptions.format].toLower();
+        outputSuffix = getOutputSupportedFormats()[compressionOptions.format].toLower();
     }
 
     QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + outputSuffix;
@@ -190,7 +190,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QString inputCopyFile = inputFullPath;
     if (convert) {
         QImage imageToBeConverted = QImage(inputFullPath);
-        imageToBeConverted.save(tempFileFullPath, OUTPUT_SUPPORTED_FORMATS.at(compressionOptions.format).toLower().toUtf8().constData(), 100);
+        imageToBeConverted.save(tempFileFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
         inputFullPath = tempFileFullPath;
     }
 

@@ -65,8 +65,6 @@ MainWindow::MainWindow(QWidget* parent)
     this->keepDatesButtonGroup->addButton(ui->keepLastModifiedDate_CheckBox);
     this->keepDatesButtonGroup->addButton(ui->keepLastAccessDate_CheckBox);
 
-    ui->format_ComboBox->addItems(OUTPUT_SUPPORTED_FORMATS);
-
     this->initStatusBar();
     this->initListContextMenu();
     this->initTrayIconContextMenu();
@@ -120,7 +118,10 @@ MainWindow::MainWindow(QWidget* parent)
         this->importFromArgs(args);
     }
 
-    QImageReader::setAllocationLimit(512);
+    QImageReader::setAllocationLimit(1024);
+
+    ui->format_ComboBox->addItems(getOutputSupportedFormats());
+
 }
 
 MainWindow::~MainWindow()
