@@ -560,6 +560,11 @@ Ahorrado: %4 (%5%)</translation>
         <translation>bytes</translation>
     </message>
     <message>
+        <location filename="../../views/PreferencesDialog.ui" line="533"/>
+        <source>This option applies when using command line or by dropping files to the application icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../views/PreferencesDialog.ui" line="690"/>
         <source>Changes will apply after restart</source>
         <translation>Los cambios se aplicarán después de reiniciar</translation>
@@ -570,13 +575,8 @@ Ahorrado: %4 (%5%)</translation>
         <translation>Tema (experimental)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="533"/>
-        <source>Esta opción se aplica al utilizar la línea de comandos o al soltar archivos en el icono de la aplicación</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Native</source>
-        <translation>Nativo</translation>
+        <translation type="vanished">Nativo</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="258"/>
@@ -756,7 +756,7 @@ Ahorrado: %4 (%5%)</translation>
     <name>QZoomGraphicsView</name>
     <message>
         <source>Loading...</source>
-        <translation>Cargando...</translation>
+        <translation type="vanished">Cargando...</translation>
     </message>
 </context>
 </TS>

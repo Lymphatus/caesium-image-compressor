@@ -66,8 +66,11 @@ jobs:
           modules: 'qtimageformats'
           cache: true
 
+      - name: Setup Sparkle
+        run: brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/c6dfe6baf1639998ba1707f68668cf8fa97bac9d/Casks/sparkle.rb && sudo cp -R /usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework /Library/Frameworks/Sparkle.framework
+
       - name: Configure CMake
-        run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
+        run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}"-DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
 
       - name: Build
         run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor

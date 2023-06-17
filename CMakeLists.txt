@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(TARGET caesium_image_compressor)
-file (STRINGS "libcaesium.conf" LIBCAESIUM_VERSION)
+file(STRINGS "libcaesium.conf" LIBCAESIUM_VERSION)
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     if (DEFINED PORTABLE AND PORTABLE)
@@ -14,21 +14,21 @@ if (WIN32)
     endif ()
 elseif (APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
-else()
+else ()
     include(GNUInstallDirs)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-deprecated-register -Wno-deprecated")
 endif ()
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
 if (APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "11")
     project(${TARGET} LANGUAGES CXX OBJCXX)
 else ()
     project(${TARGET} LANGUAGES CXX)
 endif ()
 
 find_library(LIBCAESIUM libcaesium)
-if(NOT LIBCAESIUM)
+if (NOT LIBCAESIUM)
     find_program(CARGO "cargo" REQUIRED)
 endif ()
 
@@ -62,6 +62,12 @@ if (APPLE)
         message(FATAL_ERROR "LIBSSH_INCLUDE_DIR is not defined. Cannot find libssh include dir.")
     else ()
         include_directories(${LIBSSH_INCLUDE_DIR})
+    endif ()
+
+    if (NOT DEFINED SPARKLE_INCLUDE_DIR)
+        message(FATAL_ERROR "SPARKLE_INCLUDE_DIR is not defined. Cannot find Sparkle include dir.")
+    else ()
+        include_directories(${SPARKLE_INCLUDE_DIR})
     endif ()
 endif ()
 
@@ -151,7 +157,8 @@ if (WIN32)
     add_executable(${TARGET} WIN32 ${SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
 elseif (APPLE)
     add_executable(${TARGET} MACOSX_BUNDLE ${SOURCES} ${OSX_SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
-else()
+else ()
+    add_executable(${TARGET} ${SOURCES} ${OSX_SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
     install(TARGETS ${TARGET} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()
 
@@ -180,7 +187,6 @@ else ()
             BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
             LOG_OUTPUT_ON_FAILURE ON
             LOG_BUILD ON
-            BUILD_BYPRODUCTS ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll
     )
     add_dependencies(caesium_image_compressor libcaesium)
 endif ()
@@ -200,23 +206,6 @@ if (WIN32)
     add_dependencies(caesium_image_compressor libwinsparkle)
 endif ()
 # --- WinSparkle ---
-
-# --- Sparkle ---
-if (APPLE)
-    ExternalProject_Add(
-            libsparkle
-            URL https://github.com/sparkle-project/Sparkle/releases/download/1.27.1/Sparkle-1.27.1.tar.xz
-            CONFIGURE_COMMAND ""
-            BUILD_COMMAND ""
-            INSTALL_COMMAND cmake -E echo "Skipping install step."
-            LOG_BUILD ON
-            DOWNLOAD_EXTRACT_TIMESTAMP ON
-    )
-    add_dependencies(caesium_image_compressor libsparkle)
-    
-    include_directories(${CMAKE_BINARY_DIR}/libsparkle-prefix/src/libsparkle/Sparkle.framework/Headers)
-endif ()
-# --- Sparkle ---
 
 if (APPLE)
     set(OSX_FRAMEWORKS "-framework AppKit -framework Carbon -framework Foundation -framework ApplicationServices -framework Sparkle")

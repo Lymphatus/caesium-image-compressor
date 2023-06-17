@@ -30,8 +30,15 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 - [Rust](https://www.rust-lang.org/tools/install): required to compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
 - [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.4.2 (open source)
 - [libssh](https://www.libssh.org/): macOS only
+- [Sparkle](https://sparkle-project.org/): macOS only. Only version 1.27.1 is supported.
 
 #### Build
+##### Step 0 (macOS Only)
+You need to setup Sparkle in order to compile the project
+```
+brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/c6dfe6baf1639998ba1707f68668cf8fa97bac9d/Casks/sparkle.rb
+sudo cp -R /usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework /Library/Frameworks/Sparkle.framework
+```
 ##### Step 1
 You need to configure CMake first and the command is slightly different for all the platforms:
 Change the path in variables with the correct directories of the requirements.
@@ -41,7 +48,7 @@ cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DCMAKE_BUILD_TYPE=Re
 ```
 ###### MacOS
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBSSH_INCLUDE_DIR=/libssh/dir/include -DCMAKE_BUILD_TYPE=Release
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBSSH_INCLUDE_DIR=/libssh/dir/include -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DCMAKE_BUILD_TYPE=Release
 ```
 ###### Linux
 Make sure you have all the requirements installed with you own package manager
