@@ -1,6 +1,6 @@
 ## Caesium Image Compressor
 
-###### v2.4.1
+###### v2.4.1 [![Build](https://github.com/Lymphatus/caesium-image-compressor/actions/workflows/build-qt.yml/badge.svg)](https://github.com/Lymphatus/caesium-image-compressor/actions/workflows/build-qt.yml)
 
 ![caesium_screenshot_20220915](https://user-images.githubusercontent.com/12133996/190349051-6baebec3-9937-4047-8670-fb025c6c4869.PNG)
 
