@@ -1,4 +1,4 @@
-name: Build Caesium Image Compressor
+name: Build
 on:
   push:
     branches: [ main ]
