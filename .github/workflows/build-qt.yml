@@ -38,7 +38,7 @@ jobs:
         run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -G "CodeBlocks - MinGW Makefiles" -B ${{github.workspace}}/build-${{ runner.os }}
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
+        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor --parallel 2
 
   build-macos:
     runs-on: macos-latest
@@ -73,7 +73,7 @@ jobs:
         run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
+        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor --parallel 2
 
   build-ubuntu:
     runs-on: ubuntu-latest
@@ -105,4 +105,4 @@ jobs:
         run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
+        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor --parallel 2
