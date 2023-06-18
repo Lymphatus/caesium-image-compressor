@@ -715,7 +715,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="377"/>
         <source>Compressing...</source>
-        <translation type="unfinished">正在壓縮...</translation>
+        <translation>正在壓縮...</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="379"/>
@@ -735,17 +735,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="212"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 </TS>

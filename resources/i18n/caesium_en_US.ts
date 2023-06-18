@@ -108,7 +108,7 @@ Do you really want to continue?</translation>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">File not found</translation>
+        <translation>File not found</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>
@@ -723,7 +723,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="247"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Cannot move original file to trash, check your permissions</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="377"/>

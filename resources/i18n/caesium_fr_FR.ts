@@ -108,7 +108,7 @@ Voulez vous vraiment continuer?</translation>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">Fichier non trouvé</translation>
+        <translation>Fichier non trouvé</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>
@@ -739,17 +739,17 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="212"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>

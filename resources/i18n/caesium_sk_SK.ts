@@ -130,7 +130,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">Súbor nenájdený</translation>
+        <translation>Súbor nenájdený</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>

@@ -22,8 +22,8 @@
         <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</source>
-        <translation type="unfinished">Prawa autorskie © 2021 Matteo Paonessa.
-Wszelkie prawa zastrzeżone. {2023 ?}</translation>
+        <translation>Prawa autorskie © 2023 Matteo Paonessa.
+Wszelkie prawa zastrzeżone.</translation>
     </message>
     <message>
         <source>Copyright © 2022 Matteo Paonessa.
@@ -108,7 +108,7 @@ Czy na pewno chcesz kontynuować?</translation>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">Plik nie został znaleziony</translation>
+        <translation>Plik nie został znaleziony</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>

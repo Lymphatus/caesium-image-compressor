@@ -497,7 +497,7 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1465"/>
         <source>Auto preview</source>
-        <translation>Vista previa auto.</translation>
+        <translation>Vista previa auto</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="823"/>

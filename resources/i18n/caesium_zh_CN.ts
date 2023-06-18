@@ -108,7 +108,7 @@ Do you really want to continue?</source>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">文件未找到</translation>
+        <translation>文件未找到</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>

@@ -487,18 +487,18 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="941"/>
         <source>images in list</source>
-        <translation type="unfinished">listedeki resimler</translation>
+        <translation>listedeki resimler</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">Dosya bulunamadı</translation>
+        <translation>Dosya bulunamadı</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>
         <source>Finishing...</source>
-        <translation type="unfinished">Bitiriliyor...</translation>
+        <translation>Bitiriliyor...</translation>
     </message>
 </context>
 <context>
@@ -533,22 +533,22 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="319"/>
         <source>Import</source>
-        <translation type="unfinished">İçe aktar</translation>
+        <translation>İçe aktar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>KB</source>
-        <translation type="unfinished">KB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>MB</source>
-        <translation type="unfinished">MB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="533"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished">Bu seçenek, komut satırı kullanıldığında veya dosyalar uygulama simgesine bırakıldığında geçerlidir</translation>
+        <translation>Bu seçenek, komut satırı kullanıldığında veya dosyalar uygulama simgesine bırakıldığında geçerlidir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="690"/>
@@ -573,7 +573,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Check updates at startup</source>
-        <translation type="unfinished">Başlangıçta güncellemeleri kontrol et</translation>
+        <translation>Başlangıçta güncellemeleri kontrol et</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="270"/>
@@ -588,47 +588,47 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="360"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">Boyut şu ise içe aktarma</translation>
+        <translation>Boyut şu ise içe aktarma</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="378"/>
         <source>greater than</source>
-        <translation type="unfinished">&apos;den daha büyük</translation>
+        <translation>&apos;den daha büyük</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="383"/>
         <source>equal to</source>
-        <translation type="unfinished">eşittir</translation>
+        <translation>eşittir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="388"/>
         <source>less than</source>
-        <translation type="unfinished">&apos;den daha az</translation>
+        <translation>&apos;den daha az</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="423"/>
         <source>bytes</source>
-        <translation type="unfinished">bytes</translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="348"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">Bir dizini açarken dosyaları alt klasörlere aktar</translation>
+        <translation>Bir dizini açarken dosyaları alt klasörlere aktar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="506"/>
         <source>Import only</source>
-        <translation type="unfinished">Sadece aktar</translation>
+        <translation>Sadece aktar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="511"/>
         <source>Import and compress</source>
-        <translation type="unfinished">İçe aktar ve sıkıştır</translation>
+        <translation>İçe aktar ve sıkıştır</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="493"/>
         <source>When importing files directly</source>
-        <translation type="unfinished">Dosyaları doğrudan içe aktarırken</translation>
+        <translation>Dosyaları doğrudan içe aktarırken</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="624"/>
@@ -716,22 +716,22 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="210"/>
         <source>Same as input</source>
-        <translation type="unfinished">Giriş ile aynı</translation>
+        <translation>Giriş ile aynı</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
         <source>JPG</source>
-        <translation type="unfinished">JPG</translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="212"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 </TS>

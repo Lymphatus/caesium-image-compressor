@@ -108,7 +108,7 @@ Do you really want to continue?</source>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">ファイルが見つかりません</translation>
+        <translation>ファイルが見つかりません</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>
@@ -694,7 +694,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="167"/>
         <source>Cannot make output path, check your permissions</source>
-        <translation>出力パスを作成できません。権限を確認してください。</translation>
+        <translation>出力パスを作成できません。権限を確認してください</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="184"/>
@@ -709,7 +709,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="240"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation>出力ファイルをコピーできません。権限を確認してください。</translation>
+        <translation>出力ファイルをコピーできません。権限を確認してください</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="247"/>
@@ -739,17 +739,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="212"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>

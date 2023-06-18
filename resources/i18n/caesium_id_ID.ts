@@ -108,7 +108,7 @@ Apakah Anda benar-benar ingin melanjutkannya?</translation>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">File tidak ditemukan</translation>
+        <translation>File tidak ditemukan</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>

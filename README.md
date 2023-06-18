@@ -66,21 +66,22 @@ cmake --build build_dir --config Release --target caesium_image_compressor
 ### Languages and translations
 The 1.0 version of Caesium had a lot of community made translations, but this 2.0 release has a whole new set of strings and no old translations can be used anymore.   
 Caesium 2.0 is currently available in:
-- <img src="https://flagcdn.com/h20/us.png" srcset="https://flagcdn.com/h40/us.png 2x" height="12" alt="US"> English (US) ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/it.png" srcset="https://flagcdn.com/h40/it.png 2x" height="12" alt="IT"> Italian ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/fr.png" srcset="https://flagcdn.com/h40/fr.png 2x" height="12" alt="FR"> French ![83%](https://progress-bar.dev/83)
-- <img src="https://flagcdn.com/h20/jp.png" srcset="https://flagcdn.com/h40/jp.png 2x" height="12" alt="JP"> Japanese ![87%](https://progress-bar.dev/87)
-- <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> Simplified Chinese ![82%](https://progress-bar.dev/82)
-- <img src="https://flagcdn.com/h20/es.png" srcset="https://flagcdn.com/h40/es.png 2x" height="12" alt="ES"> Spanish ![99%](https://progress-bar.dev/99)
-- <img src="https://flagcdn.com/h20/eg.png" srcset="https://flagcdn.com/h40/eg.png 2x" height="12" alt="EG"> Arabic (Egypt) ![83%](https://progress-bar.dev/83)
-- <img src="https://flagcdn.com/h20/de.png" srcset="https://flagcdn.com/h40/de.png 2x" height="12" alt="DE"> German ![95%](https://progress-bar.dev/95)
-- <img src="https://flagcdn.com/h20/ru.png" srcset="https://flagcdn.com/h40/ru.png 2x" height="12" alt="RU"> Russian ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/tr.png" srcset="https://flagcdn.com/h40/tr.png 2x" height="12" alt="TR"> Turkish ![84%](https://progress-bar.dev/84)
-- <img src="https://flagcdn.com/h20/gr.png" srcset="https://flagcdn.com/h40/gr.png 2x" height="12" alt="GR"> Greek ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/br.png" srcset="https://flagcdn.com/h40/br.png 2x" height="12" alt="BR"> Brazilian Portuguese ![86%](https://progress-bar.dev/86)
-- <img src="https://flagcdn.com/h20/id.png" srcset="https://flagcdn.com/h40/id.png 2x" height="12" alt="ID"> Indonesian ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> Traditional Chinese (TW) ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/sk.png" srcset="https://flagcdn.com/h40/sk.png 2x" height="12" alt="SK"> Slovak ![80%](https://progress-bar.dev/80)
+- <img src="https://flagcdn.com/h20/eg.png" srcset="https://flagcdn.com/h40/eg.png 2x" height="12" alt="EG"> ar_EG ![82%](https://progress-bar.dev/82)
+- <img src="https://flagcdn.com/h20/de.png" srcset="https://flagcdn.com/h40/de.png 2x" height="12" alt="DE"> de_DE ![93%](https://progress-bar.dev/93)
+- <img src="https://flagcdn.com/h20/gr.png" srcset="https://flagcdn.com/h40/gr.png 2x" height="12" alt="GR"> el_GR ![98%](https://progress-bar.dev/98)
+- <img src="https://flagcdn.com/h20/us.png" srcset="https://flagcdn.com/h40/us.png 2x" height="12" alt="US"> en_US ![100%](https://progress-bar.dev/100)
+- <img src="https://flagcdn.com/h20/es.png" srcset="https://flagcdn.com/h40/es.png 2x" height="12" alt="ES"> es_ES ![99%](https://progress-bar.dev/99)
+- <img src="https://flagcdn.com/h20/fr.png" srcset="https://flagcdn.com/h40/fr.png 2x" height="12" alt="FR"> fr_FR ![83%](https://progress-bar.dev/83)
+- <img src="https://flagcdn.com/h20/id.png" srcset="https://flagcdn.com/h40/id.png 2x" height="12" alt="ID"> id_ID ![98%](https://progress-bar.dev/98)
+- <img src="https://flagcdn.com/h20/it.png" srcset="https://flagcdn.com/h40/it.png 2x" height="12" alt="IT"> it_IT ![100%](https://progress-bar.dev/100)
+- <img src="https://flagcdn.com/h20/jp.png" srcset="https://flagcdn.com/h40/jp.png 2x" height="12" alt="JP"> ja_JP ![88%](https://progress-bar.dev/88)
+- <img src="https://flagcdn.com/h20/pl.png" srcset="https://flagcdn.com/h40/pl.png 2x" height="12" alt="PL"> pl_PL ![96%](https://progress-bar.dev/96)
+- <img src="https://flagcdn.com/h20/br.png" srcset="https://flagcdn.com/h40/br.png 2x" height="12" alt="BR"> pt_BR ![88%](https://progress-bar.dev/88)
+- <img src="https://flagcdn.com/h20/ru.png" srcset="https://flagcdn.com/h40/ru.png 2x" height="12" alt="RU"> ru_RU ![98%](https://progress-bar.dev/98)
+- <img src="https://flagcdn.com/h20/sk.png" srcset="https://flagcdn.com/h40/sk.png 2x" height="12" alt="SK"> sk_SK ![96%](https://progress-bar.dev/96)
+- <img src="https://flagcdn.com/h20/tr.png" srcset="https://flagcdn.com/h40/tr.png 2x" height="12" alt="TR"> tr_TR ![97%](https://progress-bar.dev/97)
+- <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> zh_CN ![98%](https://progress-bar.dev/98)
+- <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> zh_TW ![64%](https://progress-bar.dev/64)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

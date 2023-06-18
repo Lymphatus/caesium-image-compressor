@@ -108,7 +108,7 @@ Deseja realmente continuar?</translation>
         <location filename="../../src/MainWindow.cpp" line="1112"/>
         <location filename="../../src/MainWindow.cpp" line="1117"/>
         <source>File not found</source>
-        <translation type="unfinished">Arquivo não encontrado</translation>
+        <translation>Arquivo não encontrado</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1148"/>
@@ -319,7 +319,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="892"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished">Ignorar se o tamanho de saída for maior que o original</translation>
+        <translation>Ignorar se o tamanho de saída for maior que o original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="902"/>
@@ -740,17 +740,17 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
         <source>JPG</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="212"/>
         <source>PNG</source>
-        <translation type="unfinished">PNG</translation>
+        <translation>PNG</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
-        <translation type="unfinished">WebP</translation>
+        <translation>WebP</translation>
     </message>
 </context>
 <context>
