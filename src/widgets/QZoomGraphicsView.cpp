@@ -1,9 +1,9 @@
 #include "QZoomGraphicsView.h"
 
 #include <QLabel>
+#include <QMovie>
 #include <QPainterPath>
 #include <QScrollBar>
-#include <QMovie>
 
 QZoomGraphicsView::QZoomGraphicsView(QWidget* parent)
     : QGraphicsView(parent)

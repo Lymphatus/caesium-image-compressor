@@ -2,13 +2,12 @@
 #ifndef QZOOMGRAPHICSVIEW_H
 #define QZOOMGRAPHICSVIEW_H
 
-#include <QGraphicsView>
-#include <QMouseEvent>
-#include <QWheelEvent>
-#include <QLabel>
-#include <QMovie>
 #include <QGraphicsProxyWidget>
-
+#include <QGraphicsView>
+#include <QLabel>
+#include <QMouseEvent>
+#include <QMovie>
+#include <QWheelEvent>
 
 class QZoomGraphicsView : public QGraphicsView {
     Q_OBJECT
@@ -35,7 +34,7 @@ private:
 
     QLabel* loaderLabel;
     QMovie* loaderMovie;
-    QGraphicsProxyWidget *loaderProxyWidget;
+    QGraphicsProxyWidget* loaderProxyWidget;
     QGraphicsScene* graphicsScene;
     QGraphicsPixmapItem* pixmapItem;
 

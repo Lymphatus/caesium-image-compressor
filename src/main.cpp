@@ -12,20 +12,6 @@
 #include <QTranslator>
 #include <QUuid>
 
-QLocale loadLocale(QTranslator* translator)
-{
-    QString localeId = LanguageManager::getLocaleFromPreferences(QSettings().value("preferences/language/locale", "default"));
-    QLocale locale = QLocale();
-    if (localeId != "default") {
-        locale = QLocale(localeId);
-    }
-    if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
-        QCoreApplication::installTranslator(translator);
-    }
-
-    return locale;
-}
-
 void loadInstallationId()
 {
     if (!QSettings().contains("uuid")) {
@@ -33,7 +19,7 @@ void loadInstallationId()
     }
 }
 
-void loadTheme(QApplication* a)
+void loadTheme()
 {
     int themeIndex = QSettings().value("preferences/general/theme", 0).toInt();
     // From 2.4.1 and Qt 6.5, the framework can handle the switch between dark and light
@@ -42,13 +28,12 @@ void loadTheme(QApplication* a)
     }
 
     if (themeIndex == 1) {
-        QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
         auto palette = QApplication::palette();
         QColor purple(168, 85, 247);
         palette.setColor(QPalette::Highlight, purple);
         if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
             QColor darkGray(25, 25, 25);
-            //QColor gray(32, 32, 32);
+            // QColor gray(32, 32, 32);
             QColor lightGray(82, 82, 82);
             QColor black(0, 0, 0);
             QColor blue(37, 99, 235);
@@ -73,6 +58,7 @@ void loadTheme(QApplication* a)
             palette.setColor(QPalette::Disabled, QPalette::Light, darkGray);
         }
         QApplication::setPalette(palette);
+        QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
     }
 }
 
@@ -92,10 +78,7 @@ int main(int argc, char* argv[])
     parser.addVersionOption();
     parser.process(a);
 
-    QTranslator translator;
-    QLocale currentLocale = loadLocale(&translator);
-    QApplication::setLayoutDirection(currentLocale.textDirection());
-    loadTheme(&a);
+    loadTheme();
 
     qInfo() << "---- Starting application ----";
     loadInstallationId();

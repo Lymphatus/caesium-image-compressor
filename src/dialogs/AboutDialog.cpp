@@ -53,3 +53,10 @@ void AboutDialog::onCheckForUpdatesClicked()
     win_sparkle_check_update_with_ui();
 #endif
 }
+
+void AboutDialog::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);
+    }
+}

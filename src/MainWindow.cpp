@@ -40,9 +40,12 @@ MainWindow::MainWindow(QWidget* parent)
     qRegisterMetaType<QWheelEvent*>();
     qRegisterMetaType<Qt::CheckState>();
     qRegisterMetaType<Qt::SortOrder>();
-    
+
     ui->setupUi(this);
     qInfo() << "Starting UI";
+
+    this->translator = new QTranslator();
+    LanguageManager::loadLocale(translator);
 
     this->cImageModel = new CImageTreeModel();
     this->aboutDialog = new AboutDialog(this);
@@ -121,7 +124,6 @@ MainWindow::MainWindow(QWidget* parent)
     QImageReader::setAllocationLimit(1024);
 
     ui->format_ComboBox->addItems(getOutputSupportedFormats());
-
 }
 
 MainWindow::~MainWindow()
@@ -138,6 +140,7 @@ MainWindow::~MainWindow()
     delete networkOperations;
     delete previewWatcher;
     delete trayIcon;
+    delete translator;
     delete ui;
 }
 
@@ -1300,4 +1303,16 @@ void MainWindow::importFromArgs(const QStringList args)
 void MainWindow::moveOriginalFileToTrashToggled(bool checked)
 {
     this->writeSetting("compression_options/output/move_original_to_trash", checked);
+}
+
+void MainWindow::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);
+    }
+}
+
+QTranslator* MainWindow::getTranslator() const
+{
+    return translator;
 }

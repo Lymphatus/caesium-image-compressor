@@ -6,7 +6,6 @@ QLoadingLabel::QLoadingLabel(QWidget* parent)
     : QLabel(parent)
 {
     this->animationMovie = new QMovie(":/icons/ui/loader.webp");
-
 }
 
 QLoadingLabel::~QLoadingLabel()

@@ -1,5 +1,7 @@
 #include "LanguageManager.h"
+#include <QApplication>
 #include <QDebug>
+#include <QSettings>
 
 QList<CsLocale> LanguageManager::getTranslations()
 {
@@ -30,7 +32,7 @@ QList<CsLocale> LanguageManager::getSortedTranslations()
 {
     QList<CsLocale> sortedList = getTranslations();
     std::sort(sortedList.begin(), sortedList.end(), [](const CsLocale& a, const CsLocale& b) {
-        if (a.label == "Default" ) {
+        if (a.label == "Default") {
             return true;
         }
         return a.label < b.label;
@@ -62,4 +64,17 @@ QString LanguageManager::getLocaleFromPreferences(const QVariant& preference)
     }
 
     return locale;
+}
+
+void LanguageManager::loadLocale(QTranslator* translator)
+{
+    QString localeId = LanguageManager::getLocaleFromPreferences(QSettings().value("preferences/language/locale", "default"));
+    QLocale locale = QLocale();
+    if (localeId != "default") {
+        locale = QLocale(localeId);
+    }
+    if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
+        QCoreApplication::installTranslator(translator);
+        QApplication::setLayoutDirection(locale.textDirection());
+    };
 }

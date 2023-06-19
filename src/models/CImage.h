@@ -71,8 +71,6 @@ private:
     QString hashedFullPath;
     QString extension;
     QString format;
-public:
-
 
 private:
     size_t size;
@@ -85,7 +83,7 @@ private:
 
     void setCompressedInfo(QFileInfo fileInfo);
     void setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates);
-    QSize getSizeWithMetadata(QImageReader *reader);
+    QSize getSizeWithMetadata(QImageReader* reader);
 };
 
 #endif // CIMAGE_H

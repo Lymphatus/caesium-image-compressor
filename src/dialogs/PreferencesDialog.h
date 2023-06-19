@@ -38,6 +38,7 @@ private:
     void loadPreferences();
     void loadLanguages();
     void loadThemes();
+    void changeEvent(QEvent* event);
 };
 
 #endif // PREFERENCESDIALOG_H

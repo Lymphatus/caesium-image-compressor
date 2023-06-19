@@ -7,6 +7,7 @@ class CImageSortFilterProxyModel : public QSortFilterProxyModel {
     Q_OBJECT
 private:
     static bool naturalLessThan(QString left, QString right);
+
 public:
     explicit CImageSortFilterProxyModel(QObject* parent = nullptr);
 

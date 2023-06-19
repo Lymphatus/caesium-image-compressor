@@ -1,11 +1,13 @@
 #include "PreferencesDialog.h"
 #include "ui_PreferencesDialog.h"
 
+#include "MainWindow.h"
 #include "utils/LanguageManager.h"
 #include "utils/Utils.h"
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <QSettings>
+#include <QStyleFactory>
 
 PreferencesDialog::PreferencesDialog(QWidget* parent)
     : QDialog(parent)
@@ -89,9 +91,11 @@ void PreferencesDialog::onPromptExitToggled(bool checked)
 void PreferencesDialog::onLanguageChanged(int index)
 {
     QString languageId = ui->language_ComboBox->itemData(index).toString();
-    ui->changesAfterRestartTheme_Label->setVisible(true);
-    ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
     QSettings().setValue("preferences/language/locale", languageId);
+
+    auto* p = qobject_cast<MainWindow*>(parent());
+    QTranslator* translator = p->getTranslator();
+    LanguageManager::loadLocale(translator);
 }
 
 void PreferencesDialog::onCheckUpdatesAtStartupToggled(bool checked)
@@ -186,7 +190,15 @@ int PreferencesDialog::getLocaleIndex()
 
     return localeIndex;
 }
+
 void PreferencesDialog::onSkipCompressionDialogsToggled(bool checked)
 {
     QSettings().setValue("preferences/general/skip_compression_dialogs", checked);
+}
+
+void PreferencesDialog::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);
+    }
 }

@@ -2,10 +2,10 @@
 #define CAESIUM_IMAGE_COMPRESSOR_DATABASE_H
 
 #include <QSqlDatabase>
-class Database
-{
+class Database {
 public:
     Database();
+
 private:
     void init();
 

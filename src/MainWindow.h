@@ -117,7 +117,12 @@ private:
     QList<QModelIndex> selectedIndexes;
     bool isItemRemovalRunning = false;
     QSystemTrayIcon* trayIcon;
+    QTranslator* translator;
 
+public:
+    QTranslator* getTranslator() const;
+
+private:
     void initStatusBar();
     void initUpdater();
     void initListContextMenu();
@@ -137,6 +142,7 @@ private:
     void updateFolderMap(QString baseFolder, int count);
     CompressionOptions getCompressionOptions(QString rootFolder);
     void clearCache();
+    void changeEvent(QEvent* event);
 };
 
 #endif // MAINWINDOW_H

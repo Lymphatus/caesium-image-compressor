@@ -38,5 +38,5 @@ QSize HtmlDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelInd
     QTextDocument doc;
     doc.setHtml(optionV.text);
     doc.setTextWidth(optionV.rect.width());
-    return {static_cast<int>(doc.idealWidth()), 24};
+    return { static_cast<int>(doc.idealWidth()), 24 };
 }

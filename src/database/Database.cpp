@@ -16,7 +16,6 @@ Database::Database()
     init();
 }
 
-
 void Database::init()
 {
     QSqlQuery createCompressedImagesTable("create table if not exists compressed_images(id integer not null constraint compressed_images_pk primary key autoincrement, path_hash TEXT not null, size INT not null, image_hash TEXT not null, parameters_hash TEXT not null, db_version INT not null);");
