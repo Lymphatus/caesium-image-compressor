@@ -4,6 +4,7 @@
 #include "exceptions/ImageTooBigException.h"
 #include "ui_MainWindow.h"
 #include "utils/Logger.h"
+#include "utils/LanguageManager.h"
 
 #include <QDesktopServices>
 #include <QFileDialog>

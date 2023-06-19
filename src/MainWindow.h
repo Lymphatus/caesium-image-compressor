@@ -34,6 +34,8 @@ public:
 
     ~MainWindow() override;
 
+    QTranslator* getTranslator() const;
+
 protected:
     void closeEvent(QCloseEvent* event) override;
     void showEvent(QShowEvent* event) override;
@@ -118,9 +120,6 @@ private:
     bool isItemRemovalRunning = false;
     QSystemTrayIcon* trayIcon;
     QTranslator* translator;
-
-public:
-    QTranslator* getTranslator() const;
 
 private:
     void initStatusBar();
