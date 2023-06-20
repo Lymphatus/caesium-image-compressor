@@ -515,53 +515,52 @@ Zaoszczędzono: %4 (%5%)</translation>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="20"/>
+        <location filename="../../views/PreferencesDialog.ui" line="12"/>
         <source>Preferences</source>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="76"/>
+        <location filename="../../views/PreferencesDialog.ui" line="483"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="120"/>
-        <location filename="../../views/PreferencesDialog.ui" line="177"/>
+        <location filename="../../views/PreferencesDialog.ui" line="29"/>
         <source>General</source>
         <translation>Ogólne</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="270"/>
+        <location filename="../../views/PreferencesDialog.ui" line="128"/>
         <source>Prompt before exit</source>
         <translation>Zapytaj przed zamknięciem</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="360"/>
+        <location filename="../../views/PreferencesDialog.ui" line="190"/>
         <source>Do not import if size is</source>
         <translation>Nie importuj, jeśli rozmiar jest</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="378"/>
+        <location filename="../../views/PreferencesDialog.ui" line="221"/>
         <source>greater than</source>
         <translation>większy niż</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="383"/>
+        <location filename="../../views/PreferencesDialog.ui" line="226"/>
         <source>equal to</source>
         <translation>równy</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="388"/>
+        <location filename="../../views/PreferencesDialog.ui" line="231"/>
         <source>less than</source>
         <translation>mniejszy niż</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="423"/>
+        <location filename="../../views/PreferencesDialog.ui" line="266"/>
         <source>bytes</source>
         <translation>bajtów</translation>
     </message>
@@ -574,17 +573,17 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation type="vanished">Mb</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="690"/>
+        <location filename="../../views/PreferencesDialog.ui" line="457"/>
         <source>Changes will apply after restart</source>
         <translation>Zmiany zostaną wprowadzone po ponownym uruchomieniu</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="209"/>
+        <location filename="../../views/PreferencesDialog.ui" line="55"/>
         <source>Theme (experimental)</source>
         <translation>Motyw (eksperymentalne)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="533"/>
+        <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>Ta opcja działa w przypadku korzystania z terminala lub przeciągania plików na ikonę aplikacji</translation>
     </message>
@@ -593,68 +592,66 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation type="vanished">Systemowy</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="258"/>
+        <location filename="../../views/PreferencesDialog.ui" line="70"/>
         <source>Check updates at startup</source>
         <translation>Sprawdź aktualizacje przy starcie</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="348"/>
+        <location filename="../../views/PreferencesDialog.ui" line="178"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Importuj pliki z podfolderów przy otwieraniu folderu</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="243"/>
+        <location filename="../../views/PreferencesDialog.ui" line="94"/>
         <source>Send anonymous usage reports</source>
         <translation>Wysyłaj anonimowe raporty użytkowania</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="464"/>
+        <location filename="../../views/PreferencesDialog.ui" line="294"/>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="567"/>
+        <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source>Multithreading</source>
         <translation>Wielowątkowość</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="132"/>
-        <location filename="../../views/PreferencesDialog.ui" line="592"/>
         <source>Language</source>
-        <translation>Język</translation>
+        <translation type="vanished">Język</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="319"/>
+        <location filename="../../views/PreferencesDialog.ui" line="164"/>
         <source>Import</source>
         <translation>Import</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="428"/>
+        <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="433"/>
+        <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="506"/>
+        <location filename="../../views/PreferencesDialog.ui" line="349"/>
         <source>Import only</source>
         <translation>Tylko importuj</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="511"/>
+        <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Import and compress</source>
         <translation>Importuj i kompresuj</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="493"/>
+        <location filename="../../views/PreferencesDialog.ui" line="308"/>
         <source>When importing files directly</source>
         <translation>Podczas bezpośredniego importu plików</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="624"/>
+        <location filename="../../views/PreferencesDialog.ui" line="82"/>
         <source>Preferred language</source>
         <translation>Preferowany język</translation>
     </message>
@@ -663,27 +660,27 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Zmiany zostaną zastosowane po restarcie&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="150"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="149"/>
         <source>Usage data</source>
         <translation>Dane dotyczące użytkowania</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="22"/>
         <source>Show usage data</source>
         <translation>Pokaż dane użytkowania</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="150"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>Dane są zbierane w celu zapewnienia najlepszego wsparcia dla aplikacji. Żadne dane nie są przesyłane do osób trzecich.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
         <source>System data</source>
         <translation>Dane systemowe</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
         <source>Compression data</source>
         <translation>Dane kompresji</translation>
     </message>
