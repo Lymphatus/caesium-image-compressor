@@ -46,16 +46,16 @@ You need to configure CMake first and the command is slightly different for all 
 Change the path in variables with the correct directories of the requirements.
 ###### Windows
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -DCMAKE_BUILD_TYPE=Release -G "MinGW Makefiles"
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version -G "MinGW Makefiles"
 ```
 ###### MacOS
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBSSH_INCLUDE_DIR=/libssh/dir/include -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DCMAKE_BUILD_TYPE=Release
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/macos -DLIBSSH_INCLUDE_DIR=/libssh/dir/include -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers
 ```
 ###### Linux
 Make sure you have all the requirements installed with you own package manager
 ```
-cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64 -DCMAKE_BUILD_TYPE=Release
+cmake -B build_dir -DCMAKE_PREFIX_PATH=/path/to/Qt/version/gcc_64
 ```
 ##### Step 2
 Then you can build with
