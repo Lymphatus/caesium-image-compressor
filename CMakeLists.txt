@@ -73,6 +73,10 @@ endif ()
 
 set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release")
+endif()
+
 if (CMAKE_BUILD_TYPE)
     string(TOLOWER ${CMAKE_BUILD_TYPE} LIBCAESIUM_BUILD_TYPE)
 endif()
