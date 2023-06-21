@@ -141,7 +141,7 @@ private:
     void updateFolderMap(QString baseFolder, int count);
     CompressionOptions getCompressionOptions(QString rootFolder);
     void clearCache();
-    void changeEvent(QEvent* event);
+    void changeEvent(QEvent* event) override;
 };
 
 #endif // MAINWINDOW_H

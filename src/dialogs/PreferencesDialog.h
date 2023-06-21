@@ -38,7 +38,7 @@ private:
     void loadPreferences();
     void loadLanguages();
     void loadThemes();
-    void changeEvent(QEvent* event);
+    void changeEvent(QEvent* event) override;
 };
 
 #endif // PREFERENCESDIALOG_H
