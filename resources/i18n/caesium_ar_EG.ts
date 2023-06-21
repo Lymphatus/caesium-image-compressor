@@ -519,7 +519,7 @@ Saved: %4 (%5%)</source>
         <translation>الإعدادات</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="483"/>
+        <location filename="../../views/PreferencesDialog.ui" line="480"/>
         <source>Close</source>
         <translation>إغلاق</translation>
     </message>
@@ -554,12 +554,12 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="266"/>
+        <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="457"/>
+        <location filename="../../views/PreferencesDialog.ui" line="454"/>
         <source>Changes will apply after restart</source>
         <translation>سيتم تطبيق التغييرات بعد إعادة التشغيل</translation>
     </message>
@@ -569,7 +569,7 @@ Saved: %4 (%5%)</source>
         <translation>القالب (التجريبي)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="376"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation type="unfinished"></translation>
     </message>
@@ -593,12 +593,12 @@ Saved: %4 (%5%)</source>
         <translation>ارسل تقارير استخدام مجهولة الاسم</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="294"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Advanced</source>
         <translation>الوضع المتقدم</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <location filename="../../views/PreferencesDialog.ui" line="317"/>
         <source>Multithreading</source>
         <translation>المتعدد</translation>
     </message>
@@ -617,27 +617,27 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="273"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="346"/>
         <source>Import only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="351"/>
         <source>Import and compress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="305"/>
         <source>When importing files directly</source>
         <translation type="unfinished"></translation>
     </message>
@@ -684,42 +684,42 @@ Saved: %4 (%5%)</source>
         <translation>ملفات الصور</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="143"/>
+        <location filename="../../src/models/CImage.cpp" line="144"/>
         <source>Input file does not exist</source>
         <translation>ملف الإدخال غير موجود</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="167"/>
+        <location filename="../../src/models/CImage.cpp" line="168"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>لا يمكن عمل مسار الإخراج ، تحقق من الأذونات الخاصة بك</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="184"/>
+        <location filename="../../src/models/CImage.cpp" line="185"/>
         <source>Temporary file creation failed</source>
         <translation>فشل إنشاء الملف المؤقت</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="230"/>
+        <location filename="../../src/models/CImage.cpp" line="231"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>تخطي: الملف المضغوط أكبر من الملف الأصلي</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="240"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>غير قادر على نسخ ملف المخرج، افحص الأذونات الخاصة بك</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <location filename="../../src/models/CImage.cpp" line="248"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="377"/>
+        <location filename="../../src/models/CImage.cpp" line="378"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="379"/>
+        <location filename="../../src/models/CImage.cpp" line="380"/>
         <source>Error:</source>
         <translation>خطأ:</translation>
     </message>

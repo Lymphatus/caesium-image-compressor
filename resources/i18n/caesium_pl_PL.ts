@@ -520,7 +520,7 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="483"/>
+        <location filename="../../views/PreferencesDialog.ui" line="480"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
@@ -560,7 +560,7 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation>mniejszy niż</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="266"/>
+        <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>bytes</source>
         <translation>bajtów</translation>
     </message>
@@ -573,7 +573,7 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation type="vanished">Mb</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="457"/>
+        <location filename="../../views/PreferencesDialog.ui" line="454"/>
         <source>Changes will apply after restart</source>
         <translation>Zmiany zostaną wprowadzone po ponownym uruchomieniu</translation>
     </message>
@@ -583,7 +583,7 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation>Motyw (eksperymentalne)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="376"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>Ta opcja działa w przypadku korzystania z terminala lub przeciągania plików na ikonę aplikacji</translation>
     </message>
@@ -607,12 +607,12 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation>Wysyłaj anonimowe raporty użytkowania</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="294"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <location filename="../../views/PreferencesDialog.ui" line="317"/>
         <source>Multithreading</source>
         <translation>Wielowątkowość</translation>
     </message>
@@ -626,27 +626,27 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation>Import</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="273"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="346"/>
         <source>Import only</source>
         <translation>Tylko importuj</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="351"/>
         <source>Import and compress</source>
         <translation>Importuj i kompresuj</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="305"/>
         <source>When importing files directly</source>
         <translation>Podczas bezpośredniego importu plików</translation>
     </message>
@@ -693,42 +693,42 @@ Zaoszczędzono: %4 (%5%)</translation>
         <translation>Pliki zdjęciowe</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="143"/>
+        <location filename="../../src/models/CImage.cpp" line="144"/>
         <source>Input file does not exist</source>
         <translation>Plik nie istnieje</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="167"/>
+        <location filename="../../src/models/CImage.cpp" line="168"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Nie można utworzyć folderu wyjściowego, sprawdź swoje uprawnienia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="184"/>
+        <location filename="../../src/models/CImage.cpp" line="185"/>
         <source>Temporary file creation failed</source>
         <translation>Tworzenie pliku tymczasowego nie powiodło się</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="230"/>
+        <location filename="../../src/models/CImage.cpp" line="231"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Pominięto: skompresowany plik jest większy niż oryginał</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="240"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Nie można skopiować pliku wyjściowego, sprawdź swoje uprawnienia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <location filename="../../src/models/CImage.cpp" line="248"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="377"/>
+        <location filename="../../src/models/CImage.cpp" line="378"/>
         <source>Compressing...</source>
         <translation>Kompresowanie...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="379"/>
+        <location filename="../../src/models/CImage.cpp" line="380"/>
         <source>Error:</source>
         <translation>Błąd:</translation>
     </message>
