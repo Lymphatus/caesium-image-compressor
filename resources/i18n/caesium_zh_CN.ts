@@ -519,7 +519,7 @@ Saved: %4 (%5%)</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="483"/>
+        <location filename="../../views/PreferencesDialog.ui" line="480"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
@@ -554,12 +554,12 @@ Saved: %4 (%5%)</source>
         <translation>小于</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="266"/>
+        <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="457"/>
+        <location filename="../../views/PreferencesDialog.ui" line="454"/>
         <source>Changes will apply after restart</source>
         <translation>更改将在重启后生效</translation>
     </message>
@@ -569,7 +569,7 @@ Saved: %4 (%5%)</source>
         <translation>主题（实验性）</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="376"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>该选项对使用命令行和拖动文件到应用图标上有效</translation>
     </message>
@@ -593,12 +593,12 @@ Saved: %4 (%5%)</source>
         <translation>发送匿名统计信息</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="294"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <location filename="../../views/PreferencesDialog.ui" line="317"/>
         <source>Multithreading</source>
         <translation>多线程</translation>
     </message>
@@ -617,27 +617,27 @@ Saved: %4 (%5%)</source>
         <translation>导入</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="273"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="346"/>
         <source>Import only</source>
         <translation>只导入</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="351"/>
         <source>Import and compress</source>
         <translation>导入并压缩</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="305"/>
         <source>When importing files directly</source>
         <translation>导入文件后</translation>
     </message>
@@ -684,42 +684,42 @@ Saved: %4 (%5%)</source>
         <translation>图片文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="143"/>
+        <location filename="../../src/models/CImage.cpp" line="144"/>
         <source>Input file does not exist</source>
         <translation>输入文件不存在</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="167"/>
+        <location filename="../../src/models/CImage.cpp" line="168"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>无法创建输出路径，请检查访问权限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="184"/>
+        <location filename="../../src/models/CImage.cpp" line="185"/>
         <source>Temporary file creation failed</source>
         <translation>无法创建临时文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="230"/>
+        <location filename="../../src/models/CImage.cpp" line="231"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>跳过：压缩后的文件尺寸大于原始文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="240"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>无法复制输出文件到输出路径，请检查访问权限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <location filename="../../src/models/CImage.cpp" line="248"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="377"/>
+        <location filename="../../src/models/CImage.cpp" line="378"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="379"/>
+        <location filename="../../src/models/CImage.cpp" line="380"/>
         <source>Error:</source>
         <translation>错误：</translation>
     </message>

@@ -30,7 +30,7 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 ### Build from source
 ##### Requirements
 - [Rust](https://www.rust-lang.org/tools/install): required to compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
-- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.4.2 (open source)
+- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.5.1 (open source)
 - [libssh](https://www.libssh.org/): macOS only
 - [Sparkle](https://sparkle-project.org/): macOS only. Only version 1.27.1 is supported.
 

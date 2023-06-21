@@ -531,7 +531,7 @@ Do you really want to continue?</source>
         <translation>Predvoľby</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="483"/>
+        <location filename="../../views/PreferencesDialog.ui" line="480"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
@@ -571,42 +571,42 @@ Do you really want to continue?</source>
         <translation>menšia ako</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="266"/>
+        <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>KB</source>
         <translation>kB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="273"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="305"/>
         <source>When importing files directly</source>
         <translation>Pri priamom importe súborov</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="346"/>
         <source>Import only</source>
         <translation>Importovať iba</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="351"/>
         <source>Import and compress</source>
         <translation>Import a kompresia</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="376"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>Táto možnosť platí pri použití príkazového riadka alebo presunutím súborov na ikonu aplikácie</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="457"/>
+        <location filename="../../views/PreferencesDialog.ui" line="454"/>
         <source>Changes will apply after restart</source>
         <translation>Zmeny sa prejavia po reštarte</translation>
     </message>
@@ -640,12 +640,12 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="294"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Advanced</source>
         <translation>Rozšírené</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <location filename="../../views/PreferencesDialog.ui" line="317"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
@@ -696,42 +696,42 @@ Do you really want to continue?</source>
         <translation>Súbory obrázkov</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="143"/>
+        <location filename="../../src/models/CImage.cpp" line="144"/>
         <source>Input file does not exist</source>
         <translation>Vstupný súbor neexistuje</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="167"/>
+        <location filename="../../src/models/CImage.cpp" line="168"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Nie je možné vytvoriť výstupnú cestu, skontrolujte svoje povolenia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="184"/>
+        <location filename="../../src/models/CImage.cpp" line="185"/>
         <source>Temporary file creation failed</source>
         <translation>Vytvorenie dočasného súboru zlyhalo</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="230"/>
+        <location filename="../../src/models/CImage.cpp" line="231"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Vynechané: komprimovaný súbor je väčší ako originál</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="240"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Výstupný súbor sa nedá skopírovať, skontrolujte svoje povolenia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <location filename="../../src/models/CImage.cpp" line="248"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="377"/>
+        <location filename="../../src/models/CImage.cpp" line="378"/>
         <source>Compressing...</source>
         <translation>Komprimovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="379"/>
+        <location filename="../../src/models/CImage.cpp" line="380"/>
         <source>Error:</source>
         <translation>Chyba:</translation>
     </message>

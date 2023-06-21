@@ -21,6 +21,7 @@ CImage::CImage(const QString& path)
     }
 
     if (!supportedFormats.contains(format)) {
+        delete imageReader;
         throw ImageNotSupportedException();
     }
 

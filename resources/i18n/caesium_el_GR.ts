@@ -520,7 +520,7 @@ Saved: %4 (%5%)</source>
         <translation>Προτιμήσεις</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="483"/>
+        <location filename="../../views/PreferencesDialog.ui" line="480"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
@@ -555,7 +555,7 @@ Saved: %4 (%5%)</source>
         <translation>λιγότερο από</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="266"/>
+        <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
@@ -568,7 +568,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Mb</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="457"/>
+        <location filename="../../views/PreferencesDialog.ui" line="454"/>
         <source>Changes will apply after restart</source>
         <translation>Οι αλλαγές θα εφαρμοστούν μετά την επανεκκίνηση</translation>
     </message>
@@ -578,7 +578,7 @@ Saved: %4 (%5%)</source>
         <translation>Θέμα (πειραματικό)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="376"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>Αυτή η επιλογή ισχύει κατά τη χρήση της γραμμής εντολών ή με την απόθεση αρχείων στο εικονίδιο της εφαρμογής</translation>
     </message>
@@ -602,12 +602,12 @@ Saved: %4 (%5%)</source>
         <translation>Αποστολή ανώνυμων αναφορών χρήσης</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="294"/>
+        <location filename="../../views/PreferencesDialog.ui" line="291"/>
         <source>Advanced</source>
         <translation>Προχωρημένο</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <location filename="../../views/PreferencesDialog.ui" line="317"/>
         <source>Multithreading</source>
         <translation>Πολυνηματική</translation>
     </message>
@@ -626,27 +626,27 @@ Saved: %4 (%5%)</source>
         <translation>Εισαγωγή</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="268"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="273"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="346"/>
         <source>Import only</source>
         <translation>Μόνο εισαγωγή</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="351"/>
         <source>Import and compress</source>
         <translation>Εισαγωγή και συμπίεση</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="308"/>
+        <location filename="../../views/PreferencesDialog.ui" line="305"/>
         <source>When importing files directly</source>
         <translation>Κατά την απευθείας εισαγωγή αρχείων</translation>
     </message>
@@ -693,42 +693,42 @@ Saved: %4 (%5%)</source>
         <translation>Αρχεία εικόνας</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="143"/>
+        <location filename="../../src/models/CImage.cpp" line="144"/>
         <source>Input file does not exist</source>
         <translation>Το αρχείο εισαγωγής δεν υπάρχει</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="167"/>
+        <location filename="../../src/models/CImage.cpp" line="168"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Δεν είναι δυνατή η δημιουργία διαδρομής εξαγωγής, ελέγξτε τα δικαιώματά σας</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="184"/>
+        <location filename="../../src/models/CImage.cpp" line="185"/>
         <source>Temporary file creation failed</source>
         <translation>Η δημιουργία προσωρινού αρχείου απέτυχε</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="230"/>
+        <location filename="../../src/models/CImage.cpp" line="231"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Παράλειψη: το συμπιεσμένο αρχείο είναι μεγαλύτερο από το αρχικό</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="240"/>
+        <location filename="../../src/models/CImage.cpp" line="241"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Δεν είναι δυνατή η αντιγραφή του αρχείου εξαγωγής, ελέγξτε τα δικαιώματά σας</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="247"/>
+        <location filename="../../src/models/CImage.cpp" line="248"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="377"/>
+        <location filename="../../src/models/CImage.cpp" line="378"/>
         <source>Compressing...</source>
         <translation>Συμπίεση...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="379"/>
+        <location filename="../../src/models/CImage.cpp" line="380"/>
         <source>Error:</source>
         <translation>Σφάλμα:</translation>
     </message>
