@@ -166,17 +166,19 @@ elseif (APPLE)
 else ()
     add_executable(${TARGET} ${SOURCES} ${OSX_SOURCES} ${UI} ${RESOURCES} ${CAESIUM_ICON} ${QM_FILES})
     install(TARGETS ${TARGET} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-    install(
-        FILES ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-    )
-    install(
-        CODE "execute_process(
-            COMMAND ${CMAKE_COMMAND} -E create_symlink
-            ${CMAKE_INSTALL_PREFIX}/lib/libcaesium.so
-            /usr/lib/libcaesium.so
-        )"
-    )
+    if (NOT LIBCAESIUM)
+        install(
+            FILES ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so
+            DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+        )
+        install(
+            CODE "execute_process(
+                COMMAND ${CMAKE_COMMAND} -E create_symlink
+                ${CMAKE_INSTALL_PREFIX}/lib/libcaesium.so
+                /usr/lib/libcaesium.so
+            )"
+        )
+    endif ()
 endif ()
 
 # --- libcaesium ---
