@@ -19,7 +19,6 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
     this->loadThemes();
     this->loadPreferences();
 
-    ui->menu_ListWidget->setCurrentRow(0);
     ui->showUsageData_Label->setText(R"(<html><head/><body><p><a href="#"><small style="text-decoration: underline; color:#007af4;">)" + tr("Show usage data") + "</small></a></p></body></html>");
 
     ui->changesAfterRestartTheme_Label->setVisible(false);

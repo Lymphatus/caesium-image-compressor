@@ -515,48 +515,47 @@ Saved: %4 (%5%)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="20"/>
+        <location filename="../../views/PreferencesDialog.ui" line="12"/>
         <source>Preferences</source>
         <translation>Προτιμήσεις</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="76"/>
+        <location filename="../../views/PreferencesDialog.ui" line="483"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="120"/>
-        <location filename="../../views/PreferencesDialog.ui" line="177"/>
+        <location filename="../../views/PreferencesDialog.ui" line="29"/>
         <source>General</source>
         <translation>Γενικά</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="270"/>
+        <location filename="../../views/PreferencesDialog.ui" line="128"/>
         <source>Prompt before exit</source>
         <translation>Προτροπή πριν την έξοδο</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="360"/>
+        <location filename="../../views/PreferencesDialog.ui" line="190"/>
         <source>Do not import if size is</source>
         <translation>Μην εισάγετε εάν το μέγεθος είναι</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="378"/>
+        <location filename="../../views/PreferencesDialog.ui" line="221"/>
         <source>greater than</source>
         <translation>μεγαλύτερο από</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="383"/>
+        <location filename="../../views/PreferencesDialog.ui" line="226"/>
         <source>equal to</source>
         <translation>ίσο με</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="388"/>
+        <location filename="../../views/PreferencesDialog.ui" line="231"/>
         <source>less than</source>
         <translation>λιγότερο από</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="423"/>
+        <location filename="../../views/PreferencesDialog.ui" line="266"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
@@ -569,17 +568,17 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Mb</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="690"/>
+        <location filename="../../views/PreferencesDialog.ui" line="457"/>
         <source>Changes will apply after restart</source>
         <translation>Οι αλλαγές θα εφαρμοστούν μετά την επανεκκίνηση</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="209"/>
+        <location filename="../../views/PreferencesDialog.ui" line="55"/>
         <source>Theme (experimental)</source>
         <translation>Θέμα (πειραματικό)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="533"/>
+        <location filename="../../views/PreferencesDialog.ui" line="376"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>Αυτή η επιλογή ισχύει κατά τη χρήση της γραμμής εντολών ή με την απόθεση αρχείων στο εικονίδιο της εφαρμογής</translation>
     </message>
@@ -588,73 +587,71 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Native</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="258"/>
+        <location filename="../../views/PreferencesDialog.ui" line="70"/>
         <source>Check updates at startup</source>
         <translation>Ελέγξτε για ενημερώσεις κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="348"/>
+        <location filename="../../views/PreferencesDialog.ui" line="178"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Εισάγετε αρχεία σε υποφακέλους κατά το άνοιγμα ενός καταλόγου</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="243"/>
+        <location filename="../../views/PreferencesDialog.ui" line="94"/>
         <source>Send anonymous usage reports</source>
         <translation>Αποστολή ανώνυμων αναφορών χρήσης</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="464"/>
+        <location filename="../../views/PreferencesDialog.ui" line="294"/>
         <source>Advanced</source>
         <translation>Προχωρημένο</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="567"/>
+        <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source>Multithreading</source>
         <translation>Πολυνηματική</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="132"/>
-        <location filename="../../views/PreferencesDialog.ui" line="592"/>
         <source>Language</source>
-        <translation>Γλώσσα</translation>
+        <translation type="vanished">Γλώσσα</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="319"/>
+        <location filename="../../views/PreferencesDialog.ui" line="164"/>
         <source>Import</source>
         <translation>Εισαγωγή</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="428"/>
+        <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="433"/>
+        <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="506"/>
+        <location filename="../../views/PreferencesDialog.ui" line="349"/>
         <source>Import only</source>
         <translation>Μόνο εισαγωγή</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="511"/>
+        <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Import and compress</source>
         <translation>Εισαγωγή και συμπίεση</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="493"/>
+        <location filename="../../views/PreferencesDialog.ui" line="308"/>
         <source>When importing files directly</source>
         <translation>Κατά την απευθείας εισαγωγή αρχείων</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="624"/>
+        <location filename="../../views/PreferencesDialog.ui" line="82"/>
         <source>Preferred language</source>
         <translation>Προτιμώμενη γλώσσα</translation>
     </message>
@@ -663,27 +660,27 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Οι αλλαγές θα εφαρμοστούν μετά την επανεκκίνηση&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="150"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="149"/>
         <source>Usage data</source>
         <translation>Δεδομένα χρήσης</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="22"/>
         <source>Show usage data</source>
         <translation>Προβολή δεδομένων χρήσης</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="150"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>Αυτά τα δεδομένα συλλέγονται για να παρέχουν την καλύτερη μακροπρόθεσμη υποστήριξη για την εφαρμογή. Δεν αποστέλλονται δεδομένα σε τρίτους.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
         <source>System data</source>
         <translation>Δεδομένα συστήματος</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
         <source>Compression data</source>
         <translation>Δεδομένα συμπίεσης</translation>
     </message>
