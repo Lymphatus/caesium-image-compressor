@@ -74,6 +74,14 @@ MainWindow::MainWindow(QWidget* parent)
     this->initTrayIconContextMenu();
     this->initTrayIcon();
 
+    for (const CsCompressionMode& mode : COMPRESSION_MODES) {
+        ui->compressionMode_ComboBox->addItem(mode.label);
+    }
+
+    for (const CsMaxOutputSizeUnit & unit : MAX_OUTPUT_UNITS) {
+        ui->maxOutputSizeUnit_ComboBox->addItem(unit.label);
+    }
+
     connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
     connect(ui->imageList_TreeView, &QDropTreeView::dropFinished, this, &MainWindow::dropFinished);
     connect(this->cImageModel, &CImageTreeModel::itemsChanged, this, &MainWindow::cModelItemsChanged);
@@ -91,6 +99,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::resultReadyAt, this, &MainWindow::showPreview);
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::finished, this, &MainWindow::previewFinished);
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::canceled, this, &MainWindow::previewCanceled);
+    connect(ui->compressionMode_ComboBox, &QComboBox::currentIndexChanged, ui->compression_StackedWidget, &QStackedWidget::setCurrentIndex);
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
@@ -296,6 +305,7 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/toolbar/visible", ui->toolBar->isVisible());
     settings.setValue("mainwindow/toolbar/button_style", ui->toolBar->toolButtonStyle());
 
+    settings.setValue("compression_options/compression/mode", ui->compressionMode_ComboBox->currentIndex());
     settings.setValue("compression_options/compression/lossless", ui->lossless_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_metadata", ui->keepMetadata_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_structure", ui->keepStructure_CheckBox->isChecked());
@@ -341,6 +351,7 @@ void MainWindow::readSettings()
     ui->toolBar->setVisible(settings.value("mainwindow/toolbar/visible", true).toBool());
     ui->toolBar->setToolButtonStyle(settings.value("mainwindow/toolbar/button_style", Qt::ToolButtonIconOnly).value<Qt::ToolButtonStyle>());
 
+    ui->compressionMode_ComboBox->setCurrentIndex(settings.value("compression_options/compression/mode", 0).toInt());
     ui->lossless_CheckBox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
     ui->keepMetadata_CheckBox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
     ui->keepStructure_CheckBox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
@@ -622,6 +633,11 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->keepLastAccessDate_CheckBox->isChecked()
     };
 
+    MaxOutputSize maxOutputSize {
+        MAX_OUTPUT_UNITS[std::clamp(ui->maxOutputSizeUnit_ComboBox->currentIndex(), 0, MAX_OUTPUT_UNITS_COUNT)].unit,
+        static_cast<size_t>(ui->maxOutputSize_SpinBox->value())
+    };
+
     CompressionOptions compressionOptions = {
         ui->outputFolder_LineEdit->text(),
         rootFolder,
@@ -643,7 +659,9 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
         ui->keepDates_CheckBox->checkState() != Qt::Unchecked,
-        datesMap
+        datesMap,
+        COMPRESSION_MODES[std::clamp(ui->compressionMode_ComboBox->currentIndex(), 0, COMPRESSION_MODES_COUNT)].mode,
+        maxOutputSize,
     };
 
     return compressionOptions;

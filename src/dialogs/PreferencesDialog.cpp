@@ -133,7 +133,7 @@ void PreferencesDialog::onArgsBehaviourChanged(int index)
     QSettings().setValue("preferences/general/args_behaviour", index);
 }
 
-void PreferencesDialog::onShowUsageDataLinkActivated(const QString& link)
+void PreferencesDialog::onShowUsageDataLinkActivated([[maybe_unused]] const QString& link)
 {
     QSettings settings;
     QJsonObject compressionData {

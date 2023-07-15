@@ -34,7 +34,7 @@ public:
 
     ~MainWindow() override;
 
-    QTranslator* getTranslator() const;
+    [[nodiscard]] QTranslator* getTranslator() const;
 
 protected:
     void closeEvent(QCloseEvent* event) override;
@@ -96,7 +96,7 @@ private slots:
     void on_skipIfBigger_CheckBox_toggled(bool checked);
     void outputFormatIndexChanged(int index);
     void moveOriginalFileToTrashToggled(bool checked);
-    void importFromArgs(const QStringList);
+    void importFromArgs(QStringList);
 
 private:
     Ui::MainWindow* ui;

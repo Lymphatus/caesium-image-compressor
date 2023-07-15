@@ -123,8 +123,9 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
         imageToBeConverted.save(outputFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
         inputFullPath = outputFullPath;
     }
-    CCSResult result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
-
+    size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
+    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize)
+                                                                  : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
     QFileInfo outputFileInfo(outputFullPath);
     this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
     return result.success;
@@ -205,7 +206,10 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
     CCSParameters r_parameters = this->getCSParameters(compressionOptions);
 
-    CCSResult result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
+    size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
+    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize)
+                                                                  : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+
     if (result.success) {
         QFileInfo outputInfo(tempFileFullPath);
 
@@ -270,13 +274,14 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
     CCSParameters r_parameters = {
         keepMetadata,
         static_cast<unsigned int>(compressionOptions.jpeg_quality),
+        0,
         static_cast<unsigned int>(compressionOptions.png_quality),
         false,
         20,
         static_cast<unsigned int>(compressionOptions.webp_quality),
         lossless,
         0,
-        0
+        0,
     };
 
     // Resize
@@ -440,4 +445,13 @@ QSize CImage::getSizeWithMetadata(QImageReader* reader)
     }
 
     return actualSize;
+}
+
+size_t CImage::getMaxOutputSizeInBytes(MaxOutputSize maxOutputSize, size_t originalSize)
+{
+    if (maxOutputSize.unit == MAX_OUTPUT_PERCENTAGE) {
+        return std::floor(originalSize * maxOutputSize.maxOutputSize / 100);
+    }
+
+    return maxOutputSize.maxOutputSize << (maxOutputSize.unit * 10);
 }
