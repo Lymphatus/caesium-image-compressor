@@ -706,42 +706,42 @@ Ahorrado: %4 (%5%)</translation>
         <translation>Archivos de Imagen</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="145"/>
+        <location filename="../../src/models/CImage.cpp" line="154"/>
         <source>Input file does not exist</source>
         <translation>Archivo de entrada no existe</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="169"/>
+        <location filename="../../src/models/CImage.cpp" line="178"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>No se puede crear la ruta de salida, revise sus permisos</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="186"/>
+        <location filename="../../src/models/CImage.cpp" line="195"/>
         <source>Temporary file creation failed</source>
         <translation>Creación de archivo temporal fallido</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="235"/>
+        <location filename="../../src/models/CImage.cpp" line="252"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Saltado: archivo comprimido es más grande que el original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="245"/>
+        <location filename="../../src/models/CImage.cpp" line="262"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>No se pudo copiar archivo de salida, revise sus permisos</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="252"/>
+        <location filename="../../src/models/CImage.cpp" line="269"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="383"/>
+        <location filename="../../src/models/CImage.cpp" line="400"/>
         <source>Compressing...</source>
         <translation>Comprimiendo...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="385"/>
+        <location filename="../../src/models/CImage.cpp" line="402"/>
         <source>Error:</source>
         <translation>Error:</translation>
     </message>

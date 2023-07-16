@@ -124,8 +124,17 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
         inputFullPath = outputFullPath;
     }
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
-    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize)
-                                                                  : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+
+    CCSResult result = {
+        false,
+        nullptr
+    };
+    if (compressionOptions.compressionMode == SIZE) {
+        result = c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
+    } else {
+        result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+    }
+
     QFileInfo outputFileInfo(outputFullPath);
     this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
     return result.success;
@@ -207,8 +216,16 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     CCSParameters r_parameters = this->getCSParameters(compressionOptions);
 
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
-    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize)
-                                                                  : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+
+    CCSResult result = {
+        false,
+        nullptr
+    };
+    if (compressionOptions.compressionMode == SIZE) {
+        result = c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
+    } else {
+        result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+    }
 
     if (result.success) {
         QFileInfo outputInfo(tempFileFullPath);

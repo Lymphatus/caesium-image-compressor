@@ -734,42 +734,42 @@ Risparmiato: %4 (%5%)</translation>
         <translation>File immagine</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="145"/>
+        <location filename="../../src/models/CImage.cpp" line="154"/>
         <source>Input file does not exist</source>
         <translation>Il file di input non esiste</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="169"/>
+        <location filename="../../src/models/CImage.cpp" line="178"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Impossibile creare la cartella di output, controlla i permessi</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="186"/>
+        <location filename="../../src/models/CImage.cpp" line="195"/>
         <source>Temporary file creation failed</source>
         <translation>Creazione del file temporaneo fallita</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="235"/>
+        <location filename="../../src/models/CImage.cpp" line="252"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Ignorato: il file compresso è più grande dell&apos;originale</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="245"/>
+        <location filename="../../src/models/CImage.cpp" line="262"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Impossibile copiare il file di output, controlla i permessi</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="252"/>
+        <location filename="../../src/models/CImage.cpp" line="269"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation>Impossibile spostare il file nel cestino, controlla i permessi</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="383"/>
+        <location filename="../../src/models/CImage.cpp" line="400"/>
         <source>Compressing...</source>
         <translation>Compressione...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="385"/>
+        <location filename="../../src/models/CImage.cpp" line="402"/>
         <source>Error:</source>
         <translation>Errore:</translation>
     </message>

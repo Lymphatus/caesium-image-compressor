@@ -707,42 +707,42 @@ Saved: %4 (%5%)</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="145"/>
+        <location filename="../../src/models/CImage.cpp" line="154"/>
         <source>Input file does not exist</source>
         <translation>Исходный файл не существует</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="169"/>
+        <location filename="../../src/models/CImage.cpp" line="178"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Не удается создать папку, предоставьте необходимые разрешения</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="186"/>
+        <location filename="../../src/models/CImage.cpp" line="195"/>
         <source>Temporary file creation failed</source>
         <translation>Не удалось создать временный файл</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="235"/>
+        <location filename="../../src/models/CImage.cpp" line="252"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Пропущено: сжатый файл больше исходного</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="245"/>
+        <location filename="../../src/models/CImage.cpp" line="262"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Не удается скопировать сжатый файл, предоставьте необходимые разрешения</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="252"/>
+        <location filename="../../src/models/CImage.cpp" line="269"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="383"/>
+        <location filename="../../src/models/CImage.cpp" line="400"/>
         <source>Compressing...</source>
         <translation>Сжатие...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="385"/>
+        <location filename="../../src/models/CImage.cpp" line="402"/>
         <source>Error:</source>
         <translation>Ошибка:</translation>
     </message>

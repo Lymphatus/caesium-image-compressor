@@ -3,8 +3,8 @@
 #include "./exceptions/ImageNotSupportedException.h"
 #include "exceptions/ImageTooBigException.h"
 #include "ui_MainWindow.h"
-#include "utils/Logger.h"
 #include "utils/LanguageManager.h"
+#include "utils/Logger.h"
 
 #include <QDesktopServices>
 #include <QFileDialog>
@@ -78,9 +78,11 @@ MainWindow::MainWindow(QWidget* parent)
         ui->compressionMode_ComboBox->addItem(mode.label);
     }
 
-    for (const CsMaxOutputSizeUnit & unit : MAX_OUTPUT_UNITS) {
+    for (const CsMaxOutputSizeUnit& unit : MAX_OUTPUT_UNITS) {
         ui->maxOutputSizeUnit_ComboBox->addItem(unit.label);
     }
+
+    ui->format_ComboBox->addItems(getOutputSupportedFormats());
 
     connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
     connect(ui->imageList_TreeView, &QDropTreeView::dropFinished, this, &MainWindow::dropFinished);
@@ -132,8 +134,6 @@ MainWindow::MainWindow(QWidget* parent)
     }
 
     QImageReader::setAllocationLimit(1024);
-
-    ui->format_ComboBox->addItems(getOutputSupportedFormats());
 }
 
 MainWindow::~MainWindow()
