@@ -222,9 +222,9 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         nullptr
     };
     if (compressionOptions.compressionMode == SIZE) {
-        result = c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
+        result = c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
     } else {
-        result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+        result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
     }
 
     if (result.success) {
