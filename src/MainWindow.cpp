@@ -102,6 +102,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::finished, this, &MainWindow::previewFinished);
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::canceled, this, &MainWindow::previewCanceled);
     connect(ui->compressionMode_ComboBox, &QComboBox::currentIndexChanged, ui->compression_StackedWidget, &QStackedWidget::setCurrentIndex);
+    connect(ui->maxOutputSize_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onMaxOutputSizeChanged);
+    connect(ui->maxOutputSizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onMaxOutputSizeUnitChanged);
+
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
@@ -312,6 +315,8 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/jpeg_quality", ui->JPEGQuality_Slider->value());
     settings.setValue("compression_options/compression/png_quality", ui->PNGQuality_Slider->value());
     settings.setValue("compression_options/compression/webp_quality", ui->WebPQuality_Slider->value());
+    settings.setValue("compression_options/compression/max_output_size", ui->maxOutputSize_SpinBox->value());
+    settings.setValue("compression_options/compression/max_output_size_unit", ui->maxOutputSizeUnit_ComboBox->currentIndex());
 
     settings.setValue("compression_options/resize/resize", ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
     settings.setValue("compression_options/resize/fit_to", ui->fitTo_ComboBox->currentIndex());
@@ -359,6 +364,8 @@ void MainWindow::readSettings()
     ui->PNGQuality_SpinBox->setValue(settings.value("compression_options/compression/png_quality", 80).toInt());
     ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     ui->WebPQuality_SpinBox->setValue(settings.value("compression_options/compression/webp_quality", 60).toInt());
+    ui->maxOutputSize_SpinBox->setValue(settings.value("compression_options/compression/max_output_size", 500).toInt());
+    ui->maxOutputSizeUnit_ComboBox->setCurrentIndex(settings.value("compression_options/compression/max_output_size_unit", 0).toInt());
 
     ui->fitTo_ComboBox->setCurrentIndex(settings.value("compression_options/resize/fit_to", 0).toInt());
     ui->width_SpinBox->setValue(settings.value("compression_options/resize/width", 1000).toInt());
@@ -1334,4 +1341,17 @@ void MainWindow::changeEvent(QEvent* event)
 QTranslator* MainWindow::getTranslator() const
 {
     return translator;
+}
+
+void MainWindow::onMaxOutputSizeChanged(int value)
+{
+    this->writeSetting("compression_options/compression/max_output_size", ui->maxOutputSize_SpinBox->value());
+}
+
+void MainWindow::onMaxOutputSizeUnitChanged(int value)
+{
+    if (value == MaxOutputSizeUnit::MAX_OUTPUT_PERCENTAGE && ui->maxOutputSize_SpinBox->value() > 100) {
+        ui->maxOutputSize_SpinBox->setValue(100);
+    }
+    this->writeSetting("compression_options/compression/max_output_size_unit", ui->maxOutputSizeUnit_ComboBox->currentIndex());
 }

@@ -97,6 +97,8 @@ private slots:
     void outputFormatIndexChanged(int index);
     void moveOriginalFileToTrashToggled(bool checked);
     void importFromArgs(QStringList);
+    void onMaxOutputSizeChanged(int value);
+    void onMaxOutputSizeUnitChanged(int value);
 
 private:
     Ui::MainWindow* ui;
