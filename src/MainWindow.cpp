@@ -1299,6 +1299,8 @@ void MainWindow::on_skipIfBigger_CheckBox_toggled(bool checked)
 void MainWindow::outputFormatIndexChanged(int index)
 {
     this->writeSetting("compression_options/output/format", index);
+    this->toggleLosslessWarningVisible();
+
 }
 
 void MainWindow::importFromArgs(const QStringList args)
@@ -1354,4 +1356,14 @@ void MainWindow::onMaxOutputSizeUnitChanged(int value)
         ui->maxOutputSize_SpinBox->setValue(100);
     }
     this->writeSetting("compression_options/compression/max_output_size_unit", ui->maxOutputSizeUnit_ComboBox->currentIndex());
+}
+
+void MainWindow::toggleLosslessWarningVisible()
+{
+    bool showLosslessWarning = ui->lossless_CheckBox->isChecked() && (ui->format_ComboBox->currentIndex() != 0 || ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
+    if (showLosslessWarning) {
+        ui->lossless_CheckBox->setIcon(QIcon(":/icons/compression_statuses/warning.svg"));
+    } else {
+        ui->lossless_CheckBox->setIcon(QIcon());
+    }
 }

@@ -258,7 +258,7 @@
                <property name="currentIndex">
                 <number>0</number>
                </property>
-               <widget class="QWidget" name="byQuality_StackedWidgetPage" native="true">
+               <widget class="QWidget" name="byQuality_StackedWidgetPage">
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <item>
                   <widget class="QWidget" name="qualityContainer_Widget" native="true">
@@ -532,8 +532,17 @@
                  </item>
                  <item>
                   <widget class="QCheckBox" name="lossless_CheckBox">
+                   <property name="toolTip">
+                    <string>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</string>
+                   </property>
                    <property name="text">
                     <string>Lossless</string>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>16</width>
+                     <height>16</height>
+                    </size>
                    </property>
                   </widget>
                  </item>
@@ -1322,7 +1331,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

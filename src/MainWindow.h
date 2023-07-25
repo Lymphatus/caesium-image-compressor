@@ -141,6 +141,7 @@ private:
     void readSettings();
     void previewImage(const QModelIndex& imageIndex, bool forceRuntimePreview = false);
     void updateFolderMap(QString baseFolder, int count);
+    void toggleLosslessWarningVisible();
     CompressionOptions getCompressionOptions(QString rootFolder);
     void clearCache();
     void changeEvent(QEvent* event) override;

@@ -217,10 +217,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
 
-    CCSResult result = {
-        false,
-        nullptr
-    };
+    CCSResult result{};
     if (compressionOptions.compressionMode == SIZE) {
         result = c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
     } else {
