@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hi_IN">
+<TS version="2.1" language="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -218,31 +218,9 @@ Saved: %4 (%5%)</source>
         <translation>दोषरहित</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="633"/>
-        <source>Maximum output size</source>
-        <translation type="unfinished">अधिकतम उत्पादन आकार</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">बाइट</translation>
-    </message>
-    <message>
-        <location filename="../../views/MainWindow.ui" line="227"/>
-        <source>Mode</source>
-        <translation type="unfinished">तरीका</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="486"/>
         <source>Keep Metadata</source>
         <translation>मेटाडेटा रखें</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">किलोबाइट</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">मेगाबाइट</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="509"/>
@@ -372,11 +350,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="966"/>
         <source>Format</source>
         <translation>प्रारुप</translation>
-    </message>
-    <message>
-        <location filename="../../views/MainWindow.ui" line="536"/>
-        <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished">किसी नए प्रारूप में परिवर्तित करने या आकार बदलने से गुणवत्ता ख़राब हो सकती है, भले ही &quot;दोषरहित&quot; विकल्प चुना गया हो</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="991"/>
@@ -536,7 +509,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="945"/>
         <source>images in list</source>
-        <translation>चित्र सूची में</translation>
+        <translation>सूची में चित्र</translation>
     </message>
 </context>
 <context>
@@ -564,22 +537,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="190"/>
         <source>Do not import if size is</source>
-        <translation>आयात न करें यदि आकार</translation>
+        <translation>आयात न करें यदि आकार इससे </translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="221"/>
         <source>greater than</source>
-        <translation>इससे बड़ा है</translation>
+        <translation>बड़ा है</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="226"/>
         <source>equal to</source>
-        <translation>इसके बराबर है</translation>
+        <translation>बराबर है</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="231"/>
         <source>less than</source>
-        <translation>इससे छोटा है</translation>
+        <translation>छोटा है</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="263"/>
@@ -645,7 +618,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="140"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation>संकुचित करते समय संदेश और चेतावनी संवाद छोड़ दें</translation>
+        <translation>संकुचित करते समय संदेश और चेतावनी संवाद छोड़ें</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="164"/>
@@ -783,36 +756,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/utils/Utils.cpp" line="213"/>
         <source>WebP</source>
         <translation>वेब पी</translation>
-    </message>
-    <message>
-        <location filename="../../src/utils/Utils.h" line="140"/>
-        <source>Quality</source>
-        <translation type="unfinished">गुणवत्ता</translation>
-    </message>
-    <message>
-        <location filename="../../src/utils/Utils.h" line="141"/>
-        <source>Size</source>
-        <translation type="unfinished">आकार</translation>
-    </message>
-    <message>
-        <location filename="../../src/utils/Utils.h" line="146"/>
-        <source>bytes</source>
-        <translation type="unfinished">बाइट</translation>
-    </message>
-    <message>
-        <location filename="../../src/utils/Utils.h" line="147"/>
-        <source>KB</source>
-        <translation type="unfinished">किलोबाइट</translation>
-    </message>
-    <message>
-        <location filename="../../src/utils/Utils.h" line="148"/>
-        <source>MB</source>
-        <translation type="unfinished">मेगाबाइट</translation>
-    </message>
-    <message>
-        <location filename="../../src/utils/Utils.h" line="149"/>
-        <source>%</source>
-        <translation type="unfinished">%</translation>
     </message>
 </context>
 <context>
