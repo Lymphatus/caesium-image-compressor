@@ -192,6 +192,9 @@ endif ()
 set(CARGO_TARGET "")
 if (WIN32)
     set(CARGO_TARGET "--target=x86_64-pc-windows-gnu")
+    set(LIBCAESIUM_EXTERNAL_PATH ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll)
+else()
+    set(LIBCAESIUM_EXTERNAL_PATH ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so)
 endif ()
 
 if (LIBCAESIUM)
@@ -207,6 +210,7 @@ else ()
             BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
             LOG_OUTPUT_ON_FAILURE ON
             LOG_BUILD ON
+            BUILD_BYPRODUCTS ${LIBCAESIUM_EXTERNAL_PATH}
     )
     add_dependencies(caesium_image_compressor libcaesium)
 endif ()

@@ -77,5 +77,5 @@ void LanguageManager::loadLocale(QTranslator* translator)
     if (translator->load(locale, QLatin1String("caesium"), QLatin1String("_"), QLatin1String(":/i18n"))) {
         QCoreApplication::installTranslator(translator);
         QApplication::setLayoutDirection(locale.textDirection());
-    };
+    }
 }

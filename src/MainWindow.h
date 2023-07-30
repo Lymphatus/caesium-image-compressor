@@ -34,7 +34,7 @@ public:
 
     ~MainWindow() override;
 
-    QTranslator* getTranslator() const;
+    [[nodiscard]] QTranslator* getTranslator() const;
 
 protected:
     void closeEvent(QCloseEvent* event) override;
@@ -96,7 +96,9 @@ private slots:
     void on_skipIfBigger_CheckBox_toggled(bool checked);
     void outputFormatIndexChanged(int index);
     void moveOriginalFileToTrashToggled(bool checked);
-    void importFromArgs(const QStringList);
+    void importFromArgs(QStringList);
+    void onMaxOutputSizeChanged(int value);
+    void onMaxOutputSizeUnitChanged(int value);
 
 private:
     Ui::MainWindow* ui;
@@ -139,6 +141,7 @@ private:
     void readSettings();
     void previewImage(const QModelIndex& imageIndex, bool forceRuntimePreview = false);
     void updateFolderMap(QString baseFolder, int count);
+    void toggleLosslessWarningVisible();
     CompressionOptions getCompressionOptions(QString rootFolder);
     void clearCache();
     void changeEvent(QEvent* event) override;

@@ -9,6 +9,7 @@
 typedef struct CCSParameters {
     bool keep_metadata;
     unsigned int jpeg_quality;
+    unsigned int jpeg_chroma_subsampling;
     unsigned int png_quality;
     bool png_force_zopfli;
     unsigned int gif_quality;
@@ -24,6 +25,7 @@ struct CCSResult {
 };
 
 extern "C" CCSResult c_compress(const char* i, const char* o, struct CCSParameters params);
+extern "C" CCSResult c_compress_to_size(const char* i, const char* o, struct CCSParameters params, size_t maxSize);
 
 class CImage {
     const QList<QByteArray> supportedFormats = { "png", "jpg", "jpeg", "webp" };
@@ -84,6 +86,7 @@ private:
     void setCompressedInfo(QFileInfo fileInfo);
     void setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates);
     QSize getSizeWithMetadata(QImageReader* reader);
+    size_t getMaxOutputSizeInBytes(MaxOutputSize maxOutputSize, size_t originalSize);
 };
 
 #endif // CIMAGE_H

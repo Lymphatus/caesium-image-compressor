@@ -28,7 +28,7 @@ private slots:
     static void onImportSubfoldersToggled(bool checked);
     static void onSendUsageReportToggled(bool checked);
     static void onMultithreadingToggled(bool checked);
-    static void onShowUsageDataLinkActivated(const QString& link);
+    static void onShowUsageDataLinkActivated([[maybe_unused]] const QString& link);
     static void onSkipCompressionDialogsToggled(bool checked);
 
 private:

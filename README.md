@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/Lymphatus/caesium-image-compressor/actions/workflows/build-qt.yml/badge.svg)](https://github.com/Lymphatus/caesium-image-compressor/actions/workflows/build-qt.yml)
 
-###### v2.4.1
+###### v2.5.0
 
 ![caesium_screenshot_20220915](https://user-images.githubusercontent.com/12133996/190349051-6baebec3-9937-4047-8670-fb025c6c4869.PNG)
 
@@ -23,6 +23,8 @@ Head to the [releases' page](https://github.com/Lymphatus/caesium-image-compress
 - **Windows**: installer and portable versions are available
 - **MacOS**: DMG package
 - **Linux**: compile the source code yourself, or download binary from [third-party build](https://github.com/larygwil/caesium-image-compressor/releases)
+
+Note that the main branch can contain unstable code. If you want to build on a stable version, use a tagged version.
 
 ### Troubleshooting and/or feature request
 Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/issues).
