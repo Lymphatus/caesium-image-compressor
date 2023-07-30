@@ -128,6 +128,7 @@ SET(TS_FILES
         resources/i18n/caesium_en_US.ts
         resources/i18n/caesium_it_IT.ts
         resources/i18n/caesium_fr_FR.ts
+        resources/i18n/caesium_hi_IN.ts
         resources/i18n/caesium_zh_CN.ts
         resources/i18n/caesium_ja_JP.ts
         resources/i18n/caesium_es_ES.ts

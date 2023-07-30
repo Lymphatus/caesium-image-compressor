@@ -74,6 +74,7 @@ Caesium 2.0 is currently available in:
 - <img src="https://flagcdn.com/h20/us.png" srcset="https://flagcdn.com/h40/us.png 2x" height="12" alt="US"> en_US ![100%](https://progress-bar.dev/100)
 - <img src="https://flagcdn.com/h20/es.png" srcset="https://flagcdn.com/h40/es.png 2x" height="12" alt="ES"> es_ES ![99%](https://progress-bar.dev/99)
 - <img src="https://flagcdn.com/h20/fr.png" srcset="https://flagcdn.com/h40/fr.png 2x" height="12" alt="FR"> fr_FR ![83%](https://progress-bar.dev/83)
+- <img src="https://flagcdn.com/h20/in.png" srcset="https://flagcdn.com/h40/in.png 2x" height="12" alt="IN"> hi_IN ![100%](https://progress-bar.dev/100)
 - <img src="https://flagcdn.com/h20/id.png" srcset="https://flagcdn.com/h40/id.png 2x" height="12" alt="ID"> id_ID ![98%](https://progress-bar.dev/98)
 - <img src="https://flagcdn.com/h20/it.png" srcset="https://flagcdn.com/h40/it.png 2x" height="12" alt="IT"> it_IT ![100%](https://progress-bar.dev/100)
 - <img src="https://flagcdn.com/h20/jp.png" srcset="https://flagcdn.com/h40/jp.png 2x" height="12" alt="JP"> ja_JP ![88%](https://progress-bar.dev/88)

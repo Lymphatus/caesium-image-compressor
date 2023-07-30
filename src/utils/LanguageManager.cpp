@@ -10,6 +10,7 @@ QList<CsLocale> LanguageManager::getTranslations()
         { QString("en_US"), QString("English (US)") },
         { QString("it_IT"), QString("Italiano") },
         { QString("fr_FR"), QString("Français") },
+        { QString("hi_IN"), QString("हिन्दी") },
         { QString("ja_JP"), QString("日本語") },
         { QString("zh_CN"), QString("中文（中国大陆）") },
         { QString("es_ES"), QString("Español") },
