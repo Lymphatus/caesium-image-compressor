@@ -16,5 +16,6 @@
         <file>i18n/caesium_tr_TR.qm</file>
         <file>i18n/caesium_zh_CN.qm</file>
         <file>i18n/caesium_zh_TW.qm</file>
+        <file>i18n/caesium_hi_IN.qm</file>
     </qresource>
 </RCC>

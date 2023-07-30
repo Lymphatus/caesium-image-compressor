@@ -84,6 +84,7 @@ Caesium 2.0 is currently available in:
 - <img src="https://flagcdn.com/h20/tr.png" srcset="https://flagcdn.com/h40/tr.png 2x" height="12" alt="TR"> tr_TR ![97%](https://progress-bar.dev/97)
 - <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> zh_CN ![98%](https://progress-bar.dev/98)
 - <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> zh_TW ![64%](https://progress-bar.dev/64)
+- <img src="https://flagcdn.com/h20/in.png" srcset="https://flagcdn.com/h40/in.png 2x" height="12" alt="TW"> hi_IN ![64%](https://progress-bar.dev/100)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
