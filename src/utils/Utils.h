@@ -45,20 +45,15 @@ typedef struct CsLocale {
 } CsLocale;
 
 enum CompressionMode {
-    QUALITY,
-    SIZE
+    QUALITY = 0,
+    SIZE = 1
 };
 
-typedef struct CsCompressionMode {
-    QString label;
-    CompressionMode mode;
-} CsCompressionMode;
-
 enum MaxOutputSizeUnit {
-    MAX_OUTPUT_BYTES,
-    MAX_OUTPUT_KB,
-    MAX_OUTPUT_MB,
-    MAX_OUTPUT_PERCENTAGE,
+    MAX_OUTPUT_BYTES = 0,
+    MAX_OUTPUT_KB = 1,
+    MAX_OUTPUT_MB = 2,
+    MAX_OUTPUT_PERCENTAGE = 3,
 };
 
 typedef struct CsMaxOutputSizeUnit {
@@ -133,20 +128,6 @@ const int THEMES_COUNT = 2;
 const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Native"), QString("Native") },
     { QString("Fusion"), QString("Fusion") },
-};
-
-const int COMPRESSION_MODES_COUNT = 2;
-const CsCompressionMode COMPRESSION_MODES[COMPRESSION_MODES_COUNT] = {
-    { QIODevice::tr("Quality"), QUALITY },
-    { QIODevice::tr("Size"), SIZE },
-};
-
-const int MAX_OUTPUT_UNITS_COUNT = 4;
-const CsMaxOutputSizeUnit MAX_OUTPUT_UNITS[MAX_OUTPUT_UNITS_COUNT] = {
-    { QIODevice::tr("bytes"), MAX_OUTPUT_BYTES },
-    { QIODevice::tr("KB"), MAX_OUTPUT_KB },
-    { QIODevice::tr("MB"), MAX_OUTPUT_MB },
-    { QIODevice::tr("%"), MAX_OUTPUT_PERCENTAGE },
 };
 
 // Utilities

@@ -99,6 +99,7 @@ private slots:
     void importFromArgs(QStringList);
     void onMaxOutputSizeChanged(int value);
     void onMaxOutputSizeUnitChanged(int value);
+    void onCompressionModeChanged(int value);
 
 private:
     Ui::MainWindow* ui;

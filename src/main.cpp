@@ -1,10 +1,8 @@
 #include "MainWindow.h"
-#include "utils/LanguageManager.h"
 #include "utils/Logger.h"
 
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QDateTime>
 #include <QSettings>
 #include <QStyle>
 #include <QStyleFactory>
@@ -12,10 +10,14 @@
 #include <QTranslator>
 #include <QUuid>
 
-void loadInstallationId()
+QString loadInstallationId()
 {
     if (!QSettings().contains("uuid")) {
-        QSettings().setValue("uuid", QUuid::createUuid().toString(QUuid::WithoutBraces));
+        QString newUUID = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        QSettings().setValue("uuid", newUUID);
+        return newUUID;
+    } else {
+        return QSettings().value("uuid").toString();
     }
 }
 
@@ -81,7 +83,8 @@ int main(int argc, char* argv[])
     loadTheme();
 
     qInfo() << "---- Starting application ----";
-    loadInstallationId();
+    QString uuid = loadInstallationId();
+    qInfo() << "UUID:" << uuid;
     MainWindow w;
 
     QScreen* spawnScreen = w.screen();

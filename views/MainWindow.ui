@@ -233,6 +233,9 @@
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Minimum</enum>
+                 </property>
                  <property name="sizeHint" stdset="0">
                   <size>
                    <width>40</width>
@@ -242,7 +245,18 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QComboBox" name="compressionMode_ComboBox"/>
+                <widget class="QComboBox" name="compressionMode_ComboBox">
+                 <item>
+                  <property name="text">
+                   <string>Quality</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Size</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
               </layout>
              </item>
@@ -578,8 +592,28 @@
                    <item row="0" column="3">
                     <widget class="QComboBox" name="maxOutputSizeUnit_ComboBox">
                      <property name="currentIndex">
-                      <number>-1</number>
+                      <number>0</number>
                      </property>
+                     <item>
+                      <property name="text">
+                       <string>bytes</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>KB</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>MB</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>%</string>
+                      </property>
+                     </item>
                     </widget>
                    </item>
                    <item row="0" column="1">
@@ -1331,7 +1365,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1729,8 +1763,8 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1204</x>
-     <y>164</y>
+     <x>1235</x>
+     <y>187</y>
     </hint>
     <hint type="destinationlabel">
      <x>1037</x>
@@ -1745,8 +1779,8 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>836</x>
-     <y>276</y>
+     <x>1235</x>
+     <y>302</y>
     </hint>
     <hint type="destinationlabel">
      <x>1204</x>
@@ -1761,12 +1795,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1207</x>
-     <y>246</y>
+     <x>1235</x>
+     <y>273</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1055</x>
-     <y>272</y>
+     <x>1235</x>
+     <y>302</y>
     </hint>
    </hints>
   </connection>
@@ -1777,12 +1811,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1147</x>
-     <y>360</y>
+     <x>1235</x>
+     <y>388</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1215</x>
-     <y>337</y>
+     <x>1235</x>
+     <y>359</y>
     </hint>
    </hints>
   </connection>
@@ -1793,12 +1827,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1210</x>
-     <y>330</y>
+     <x>1235</x>
+     <y>359</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1081</x>
-     <y>354</y>
+     <x>1235</x>
+     <y>388</y>
     </hint>
    </hints>
   </connection>
@@ -1809,8 +1843,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>977</x>
-     <y>394</y>
+     <x>1242</x>
+     <y>421</y>
     </hint>
     <hint type="destinationlabel">
      <x>977</x>

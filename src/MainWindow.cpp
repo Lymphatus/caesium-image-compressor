@@ -74,14 +74,6 @@ MainWindow::MainWindow(QWidget* parent)
     this->initTrayIconContextMenu();
     this->initTrayIcon();
 
-    for (const CsCompressionMode& mode : COMPRESSION_MODES) {
-        ui->compressionMode_ComboBox->addItem(mode.label);
-    }
-
-    for (const CsMaxOutputSizeUnit& unit : MAX_OUTPUT_UNITS) {
-        ui->maxOutputSizeUnit_ComboBox->addItem(unit.label);
-    }
-
     ui->format_ComboBox->addItems(getOutputSupportedFormats());
 
     connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
@@ -102,6 +94,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::finished, this, &MainWindow::previewFinished);
     connect(this->previewWatcher, &QFutureWatcher<ImagePreview>::canceled, this, &MainWindow::previewCanceled);
     connect(ui->compressionMode_ComboBox, &QComboBox::currentIndexChanged, ui->compression_StackedWidget, &QStackedWidget::setCurrentIndex);
+    connect(ui->compressionMode_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onCompressionModeChanged);
     connect(ui->maxOutputSize_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onMaxOutputSizeChanged);
     connect(ui->maxOutputSizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onMaxOutputSizeUnitChanged);
 
@@ -121,7 +114,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->actionToolbarHide->setChecked(ui->toolBar->isHidden());
 
     QSettings settings;
-    if (settings.value("preferences/general/send_usage_reports", false).toBool()) {
+    if (settings.value("preferences/general/send_usage_reports", true).toBool()) {
         if (!settings.contains("access_token")) {
             this->networkOperations->requestToken();
         } else {
@@ -641,7 +634,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
     };
 
     MaxOutputSize maxOutputSize {
-        MAX_OUTPUT_UNITS[std::clamp(ui->maxOutputSizeUnit_ComboBox->currentIndex(), 0, MAX_OUTPUT_UNITS_COUNT)].unit,
+        static_cast<MaxOutputSizeUnit>(ui->maxOutputSizeUnit_ComboBox->currentIndex()),
         static_cast<size_t>(ui->maxOutputSize_SpinBox->value())
     };
 
@@ -667,7 +660,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
         ui->keepDates_CheckBox->checkState() != Qt::Unchecked,
         datesMap,
-        COMPRESSION_MODES[std::clamp(ui->compressionMode_ComboBox->currentIndex(), 0, COMPRESSION_MODES_COUNT)].mode,
+        static_cast<CompressionMode>(ui->compressionMode_ComboBox->currentIndex()),
         maxOutputSize,
     };
 
@@ -990,8 +983,8 @@ void MainWindow::initUpdater()
 #ifdef Q_OS_MAC
     CocoaInitializer initializer;
     auto updater = new SparkleAutoUpdater("https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml");
-    updater->setCheckForUpdatesAutomatically(settings.value("preferences/general/check_updates_at_startup", false).toBool());
-    if (settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
+    updater->setCheckForUpdatesAutomatically(settings.value("preferences/general/check_updates_at_startup", true).toBool());
+    if (settings.value("preferences/general/check_updates_at_startup", true).toBool()) {
         updater->checkForUpdates();
     }
 #endif
@@ -1008,7 +1001,7 @@ void MainWindow::initUpdater()
     win_sparkle_set_appcast_url("https://saerasoft.com/repository/com.saerasoft.caesium/win/appcast.xml");
     win_sparkle_init();
 
-    if (settings.value("preferences/general/check_updates_at_startup", false).toBool()) {
+    if (settings.value("preferences/general/check_updates_at_startup", true).toBool()) {
         win_sparkle_check_update_without_ui();
     }
 
@@ -1300,7 +1293,6 @@ void MainWindow::outputFormatIndexChanged(int index)
 {
     this->writeSetting("compression_options/output/format", index);
     this->toggleLosslessWarningVisible();
-
 }
 
 void MainWindow::importFromArgs(const QStringList args)
@@ -1366,4 +1358,9 @@ void MainWindow::toggleLosslessWarningVisible()
     } else {
         ui->lossless_CheckBox->setIcon(QIcon());
     }
+}
+
+void MainWindow::onCompressionModeChanged(int value)
+{
+    this->writeSetting("compression_options/compression/mode", ui->compressionMode_ComboBox->currentIndex());
 }
