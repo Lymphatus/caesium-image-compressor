@@ -30,7 +30,6 @@
 
 #ifdef Q_OS_WIN
 #include "./updater/win/winsparkle.h"
-#include "utils/LanguageManager.h"
 #endif
 
 MainWindow::MainWindow(QWidget* parent)
@@ -108,6 +107,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
+    this->toggleLosslessWarningVisible();
 
     ui->actionToolbarIcons_only->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonIconOnly && !ui->toolBar->isHidden());
     ui->actionToolbarIcons_and_Text->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonTextUnderIcon && !ui->toolBar->isHidden());
@@ -159,10 +159,12 @@ void MainWindow::showEvent(QShowEvent* event)
 
 void MainWindow::initStatusBar()
 {
+    ui->statusbar->addPermanentWidget(ui->losslessWarning_Button);
     ui->statusbar->addPermanentWidget(ui->compressionProgress_Label);
     ui->statusbar->addPermanentWidget(ui->compression_ProgressBar);
     ui->statusbar->addPermanentWidget(ui->cancelCompression_Button);
 
+    ui->losslessWarning_Button->hide();
     ui->cancelCompression_Button->hide();
     ui->compression_ProgressBar->hide();
     ui->compressionProgress_Label->hide();
@@ -864,6 +866,7 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
     }
 
     this->writeSetting("compression_options/resize/fit_to", index);
+    this->toggleLosslessWarningVisible();
 }
 
 void MainWindow::on_width_SpinBox_valueChanged(int value)
@@ -928,6 +931,7 @@ void MainWindow::on_keepStructure_CheckBox_toggled(bool checked)
 void MainWindow::on_lossless_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/lossless", checked);
+    this->toggleLosslessWarningVisible();
 }
 
 void MainWindow::on_keepMetadata_CheckBox_toggled(bool checked)
@@ -1353,11 +1357,7 @@ void MainWindow::onMaxOutputSizeUnitChanged(int value)
 void MainWindow::toggleLosslessWarningVisible()
 {
     bool showLosslessWarning = ui->lossless_CheckBox->isChecked() && (ui->format_ComboBox->currentIndex() != 0 || ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
-    if (showLosslessWarning) {
-        ui->lossless_CheckBox->setIcon(QIcon(":/icons/compression_statuses/warning.svg"));
-    } else {
-        ui->lossless_CheckBox->setIcon(QIcon());
-    }
+    ui->losslessWarning_Button->setVisible(showLosslessWarning);
 }
 
 void MainWindow::onCompressionModeChanged(int value)

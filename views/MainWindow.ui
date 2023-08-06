@@ -46,7 +46,7 @@
         <enum>Qt::Horizontal</enum>
        </property>
        <widget class="QWidget" name="layoutWidget">
-        <layout class="QVBoxLayout" name="verticalLayout_4">
+        <layout class="QVBoxLayout" name="imageList_VerticalLayout">
          <property name="spacing">
           <number>4</number>
          </property>
@@ -190,6 +190,9 @@
         </layout>
        </widget>
        <widget class="QWidget" name="verticalLayoutWidget_2">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <layout class="QVBoxLayout" name="sidebar_VerticalLayout">
          <property name="spacing">
           <number>6</number>
@@ -546,9 +549,6 @@
                  </item>
                  <item>
                   <widget class="QCheckBox" name="lossless_CheckBox">
-                   <property name="toolTip">
-                    <string>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</string>
-                   </property>
                    <property name="text">
                     <string>Lossless</string>
                    </property>
@@ -1207,6 +1207,24 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="losslessWarning_Button">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../resources/resources.qrc">
+             <normaloff>:/icons/compression_statuses/warning.svg</normaloff>
+             <disabledoff>:/icons/compression_statuses/warning.svg</disabledoff>:/icons/compression_statuses/warning.svg</iconset>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QProgressBar" name="compression_ProgressBar">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1647,6 +1665,9 @@
    </property>
    <property name="text">
     <string>Preview</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
   </action>
  </widget>
