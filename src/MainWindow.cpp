@@ -1356,11 +1356,16 @@ void MainWindow::onMaxOutputSizeUnitChanged(int value)
 
 void MainWindow::toggleLosslessWarningVisible()
 {
-    bool showLosslessWarning = ui->lossless_CheckBox->isChecked() && (ui->format_ComboBox->currentIndex() != 0 || ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE);
+    bool showLosslessWarning = ui->lossless_CheckBox->isChecked()
+        && (ui->format_ComboBox->currentIndex() != 0 || ui->fitTo_ComboBox->currentIndex() != ResizeMode::NO_RESIZE)
+        && ui->compressionMode_ComboBox->currentIndex() == QUALITY;
+
     ui->losslessWarning_Button->setVisible(showLosslessWarning);
 }
 
 void MainWindow::onCompressionModeChanged(int value)
 {
     this->writeSetting("compression_options/compression/mode", ui->compressionMode_ComboBox->currentIndex());
+
+    this->toggleLosslessWarningVisible();
 }
