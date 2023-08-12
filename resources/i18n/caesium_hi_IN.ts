@@ -86,7 +86,7 @@ All rights reserved.</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1255"/>
         <location filename="../../src/MainWindow.cpp" line="478"/>
-        <location filename="../../src/MainWindow.cpp" line="691"/>
+        <location filename="../../src/MainWindow.cpp" line="692"/>
         <source>Cancel</source>
         <translation>रद्द करें</translation>
     </message>
@@ -105,50 +105,50 @@ Do you really want to continue?</source>
         <translation>नहीं</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1138"/>
-        <location filename="../../src/MainWindow.cpp" line="1143"/>
+        <location filename="../../src/MainWindow.cpp" line="1139"/>
+        <location filename="../../src/MainWindow.cpp" line="1144"/>
         <source>File not found</source>
         <translation>फाइल नहीं मिली</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1174"/>
+        <location filename="../../src/MainWindow.cpp" line="1175"/>
         <source>Finishing...</source>
         <translation>पूर्ण हो रहा है...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="611"/>
-        <location filename="../../src/MainWindow.cpp" line="1241"/>
+        <location filename="../../src/MainWindow.cpp" line="612"/>
+        <location filename="../../src/MainWindow.cpp" line="1242"/>
         <source>Compressing...</source>
         <translation>संकुचन हो रहा है...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="687"/>
+        <location filename="../../src/MainWindow.cpp" line="688"/>
         <source>Do you really want to quit?</source>
         <translation>क्या आप सच में बंद करना चाहते हैं?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="580"/>
-        <location filename="../../src/MainWindow.cpp" line="690"/>
+        <location filename="../../src/MainWindow.cpp" line="691"/>
         <source>Yes</source>
         <translation>हां</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="712"/>
+        <location filename="../../src/MainWindow.cpp" line="713"/>
         <source>Select output folder...</source>
         <translation>उत्पादन फ़ोल्डर चुनें...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="779"/>
+        <location filename="../../src/MainWindow.cpp" line="780"/>
         <source>Compression finished!</source>
         <translation>संकुचन समाप्त हुआ!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="782"/>
+        <location filename="../../src/MainWindow.cpp" line="783"/>
         <source>You just saved %1!</source>
         <translation>आपने अभी बचाया %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="792"/>
+        <location filename="../../src/MainWindow.cpp" line="793"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -292,8 +292,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="815"/>
         <location filename="../../views/MainWindow.ui" line="859"/>
         <location filename="../../views/MainWindow.ui" line="916"/>
-        <location filename="../../src/MainWindow.cpp" line="833"/>
-        <location filename="../../src/MainWindow.cpp" line="837"/>
+        <location filename="../../src/MainWindow.cpp" line="834"/>
+        <location filename="../../src/MainWindow.cpp" line="838"/>
         <source>px</source>
         <translation>पिक्सल</translation>
     </message>
@@ -395,7 +395,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1667"/>
-        <location filename="../../src/MainWindow.cpp" line="1159"/>
+        <location filename="../../src/MainWindow.cpp" line="1160"/>
         <source>Preview</source>
         <translation>पूर्वावलोकन</translation>
     </message>
@@ -539,13 +539,13 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="614"/>
-        <location filename="../../src/MainWindow.cpp" line="847"/>
-        <location filename="../../src/MainWindow.cpp" line="851"/>
+        <location filename="../../src/MainWindow.cpp" line="848"/>
+        <location filename="../../src/MainWindow.cpp" line="852"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="967"/>
+        <location filename="../../src/MainWindow.cpp" line="968"/>
         <source>images in list</source>
         <translation>चित्र सूची में</translation>
     </message>
@@ -553,47 +553,52 @@ Saved: %4 (%5%)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="12"/>
+        <location filename="../../views/PreferencesDialog.ui" line="20"/>
         <source>Preferences</source>
         <translation>अधिमान</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="480"/>
+        <location filename="../../views/PreferencesDialog.ui" line="402"/>
+        <source> threads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="503"/>
         <source>Close</source>
         <translation>बंद करें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="29"/>
+        <location filename="../../views/PreferencesDialog.ui" line="37"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="128"/>
+        <location filename="../../views/PreferencesDialog.ui" line="136"/>
         <source>Prompt before exit</source>
         <translation>बंद करने से पहले पूछें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="190"/>
+        <location filename="../../views/PreferencesDialog.ui" line="198"/>
         <source>Do not import if size is</source>
         <translation>आयात न करें यदि आकार</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="229"/>
         <source>greater than</source>
         <translation>इससे बड़ा है</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="226"/>
+        <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>equal to</source>
         <translation>इसके बराबर है</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="231"/>
+        <location filename="../../views/PreferencesDialog.ui" line="239"/>
         <source>less than</source>
         <translation>इससे छोटा है</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="263"/>
+        <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>bytes</source>
         <translation>बाइट</translation>
     </message>
@@ -606,17 +611,17 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">मेगाबाइट</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="454"/>
+        <location filename="../../views/PreferencesDialog.ui" line="477"/>
         <source>Changes will apply after restart</source>
         <translation>पुनरारंभ के बाद परिवर्तन लागू होंगे</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="55"/>
+        <location filename="../../views/PreferencesDialog.ui" line="63"/>
         <source>Theme (experimental)</source>
         <translation>थीम (प्रयोगात्मक)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="373"/>
+        <location filename="../../views/PreferencesDialog.ui" line="381"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>यह विकल्प कमांड लाइन का उपयोग करते समय या एप्लिकेशन प्रतीक पर फ़ाइलें छोड़ते समय लागू होता है</translation>
     </message>
@@ -625,27 +630,27 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">मूल</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="70"/>
+        <location filename="../../views/PreferencesDialog.ui" line="78"/>
         <source>Check updates at startup</source>
         <translation>शुरु करते समय अद्यतन के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="178"/>
+        <location filename="../../views/PreferencesDialog.ui" line="186"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>निर्देशिका खोलते समय सबफ़ोल्डर्स की फ़ाइलें आयात करें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="94"/>
+        <location filename="../../views/PreferencesDialog.ui" line="102"/>
         <source>Send anonymous usage reports</source>
         <translation>अनाम उपयोग प्रतिवेदन भेजें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="299"/>
         <source>Advanced</source>
         <translation>उच्च स्तर</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="317"/>
+        <location filename="../../views/PreferencesDialog.ui" line="325"/>
         <source>Multithreading</source>
         <translation>बहुसूत्रण</translation>
     </message>
@@ -654,42 +659,42 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">भाषा</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="140"/>
+        <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>संकुचित करते समय संदेश और चेतावनी संवाद छोड़ दें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="164"/>
+        <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
         <translation>आयात करें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="268"/>
+        <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>KB</source>
         <translation>किलोबाइट</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="273"/>
+        <location filename="../../views/PreferencesDialog.ui" line="281"/>
         <source>MB</source>
         <translation>मेगाबाइट</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="346"/>
+        <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Import only</source>
         <translation>केवल आयात करें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="351"/>
+        <location filename="../../views/PreferencesDialog.ui" line="359"/>
         <source>Import and compress</source>
         <translation>आयात करें और संकुचित करें</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="305"/>
+        <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>When importing files directly</source>
         <translation>फ़ाइलें सीधे आयात करते समय</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="82"/>
+        <location filename="../../views/PreferencesDialog.ui" line="90"/>
         <source>Preferred language</source>
         <translation>अधिमानित भाषा</translation>
     </message>
@@ -698,27 +703,27 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ पुनरारंभ के बाद परिवर्तन लागू होंगे&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="149"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
         <source>Usage data</source>
         <translation>उपयोग की जानकारी</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="22"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>उपयोग की जानकारी दिखाऐं</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="150"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="153"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।.</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="154"/>
         <source>System data</source>
         <translation>सिस्टम की जानकारी</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="154"/>
         <source>Compression data</source>
         <translation>संकुचन की जानकारी</translation>
     </message>

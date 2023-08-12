@@ -19,6 +19,7 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
     this->loadThemes();
     this->loadPreferences();
 
+    ui->multithreadingMaxThreads_SpinBox->setMaximum(QThread::idealThreadCount());
     ui->showUsageData_Label->setText(R"(<html><head/><body><p><a href="#"><small style="text-decoration: underline; color:#007af4;">)" + tr("Show usage data") + "</small></a></p></body></html>");
 
     ui->changesAfterRestartTheme_Label->setVisible(false);
@@ -42,6 +43,7 @@ void PreferencesDialog::setupConnections()
     connect(ui->importSubfolders_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onImportSubfoldersToggled);
     connect(ui->sendUsageReport_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSendUsageReportToggled);
     connect(ui->multithreading_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onMultithreadingToggled);
+    connect(ui->multithreadingMaxThreads_SpinBox, &QSpinBox::valueChanged, this, &PreferencesDialog::onMultithreadingMaxThreadsChanged);
     connect(ui->showUsageData_Label, &QLabel::linkActivated, this, &PreferencesDialog::onShowUsageDataLinkActivated);
     connect(ui->skipBySize_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipBySizeToggled);
     connect(ui->skipBySizeCondition_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeConditionChanged);
@@ -72,6 +74,7 @@ void PreferencesDialog::loadPreferences()
     ui->importSubfolders_CheckBox->setChecked(settings.value("preferences/general/import_subfolders", true).toBool());
     ui->sendUsageReport_CheckBox->setChecked(settings.value("preferences/general/send_usage_reports", true).toBool());
     ui->multithreading_CheckBox->setChecked(settings.value("preferences/general/multithreading", true).toBool());
+    ui->multithreadingMaxThreads_SpinBox->setValue(settings.value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt());
     ui->skipCompressionDialogs_CheckBox->setChecked(settings.value("preferences/general/skip_compression_dialogs", false).toBool());
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
     ui->argsBehaviour_ComboBox->setCurrentIndex(settings.value("preferences/general/args_behaviour", 0).toInt());
@@ -200,4 +203,9 @@ void PreferencesDialog::changeEvent(QEvent* event)
     if (event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
     }
+}
+
+void PreferencesDialog::onMultithreadingMaxThreadsChanged(int value)
+{
+    QSettings().setValue("preferences/general/multithreading_max_threads", value);
 }

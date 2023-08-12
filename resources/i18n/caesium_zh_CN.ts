@@ -86,7 +86,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1255"/>
         <location filename="../../src/MainWindow.cpp" line="478"/>
-        <location filename="../../src/MainWindow.cpp" line="691"/>
+        <location filename="../../src/MainWindow.cpp" line="692"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -105,50 +105,50 @@ Do you really want to continue?</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1138"/>
-        <location filename="../../src/MainWindow.cpp" line="1143"/>
+        <location filename="../../src/MainWindow.cpp" line="1139"/>
+        <location filename="../../src/MainWindow.cpp" line="1144"/>
         <source>File not found</source>
         <translation>文件未找到</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1174"/>
+        <location filename="../../src/MainWindow.cpp" line="1175"/>
         <source>Finishing...</source>
         <translation>正在取消...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="611"/>
-        <location filename="../../src/MainWindow.cpp" line="1241"/>
+        <location filename="../../src/MainWindow.cpp" line="612"/>
+        <location filename="../../src/MainWindow.cpp" line="1242"/>
         <source>Compressing...</source>
         <translation>正在压缩...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="687"/>
+        <location filename="../../src/MainWindow.cpp" line="688"/>
         <source>Do you really want to quit?</source>
         <translation>确定退出吗？</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="580"/>
-        <location filename="../../src/MainWindow.cpp" line="690"/>
+        <location filename="../../src/MainWindow.cpp" line="691"/>
         <source>Yes</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="712"/>
+        <location filename="../../src/MainWindow.cpp" line="713"/>
         <source>Select output folder...</source>
         <translation>选择输出文件夹...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="779"/>
+        <location filename="../../src/MainWindow.cpp" line="780"/>
         <source>Compression finished!</source>
         <translation>压缩完成！</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="782"/>
+        <location filename="../../src/MainWindow.cpp" line="783"/>
         <source>You just saved %1!</source>
         <translation>你节省了 %1 存储空间！</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="792"/>
+        <location filename="../../src/MainWindow.cpp" line="793"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -292,8 +292,8 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="815"/>
         <location filename="../../views/MainWindow.ui" line="859"/>
         <location filename="../../views/MainWindow.ui" line="916"/>
-        <location filename="../../src/MainWindow.cpp" line="833"/>
-        <location filename="../../src/MainWindow.cpp" line="837"/>
+        <location filename="../../src/MainWindow.cpp" line="834"/>
+        <location filename="../../src/MainWindow.cpp" line="838"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -395,7 +395,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1667"/>
-        <location filename="../../src/MainWindow.cpp" line="1159"/>
+        <location filename="../../src/MainWindow.cpp" line="1160"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
@@ -538,13 +538,13 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="614"/>
-        <location filename="../../src/MainWindow.cpp" line="847"/>
-        <location filename="../../src/MainWindow.cpp" line="851"/>
+        <location filename="../../src/MainWindow.cpp" line="848"/>
+        <location filename="../../src/MainWindow.cpp" line="852"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="967"/>
+        <location filename="../../src/MainWindow.cpp" line="968"/>
         <source>images in list</source>
         <translation>张已选图片</translation>
     </message>
@@ -552,62 +552,67 @@ Saved: %4 (%5%)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="12"/>
+        <location filename="../../views/PreferencesDialog.ui" line="20"/>
         <source>Preferences</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="480"/>
+        <location filename="../../views/PreferencesDialog.ui" line="503"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="29"/>
+        <location filename="../../views/PreferencesDialog.ui" line="37"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="128"/>
+        <location filename="../../views/PreferencesDialog.ui" line="136"/>
         <source>Prompt before exit</source>
         <translation>退出前确认</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="190"/>
+        <location filename="../../views/PreferencesDialog.ui" line="198"/>
         <source>Do not import if size is</source>
         <translation>不导入的大小</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="221"/>
+        <location filename="../../views/PreferencesDialog.ui" line="229"/>
         <source>greater than</source>
         <translation>大于</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="226"/>
+        <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>equal to</source>
         <translation>等于</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="231"/>
+        <location filename="../../views/PreferencesDialog.ui" line="239"/>
         <source>less than</source>
         <translation>小于</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="263"/>
+        <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="454"/>
+        <location filename="../../views/PreferencesDialog.ui" line="402"/>
+        <source> threads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="477"/>
         <source>Changes will apply after restart</source>
         <translation>更改将在重启后生效</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="55"/>
+        <location filename="../../views/PreferencesDialog.ui" line="63"/>
         <source>Theme (experimental)</source>
         <translation>主题（实验性）</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="373"/>
+        <location filename="../../views/PreferencesDialog.ui" line="381"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>该选项对使用命令行和拖动文件到应用图标上有效</translation>
     </message>
@@ -616,27 +621,27 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">原生</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="70"/>
+        <location filename="../../views/PreferencesDialog.ui" line="78"/>
         <source>Check updates at startup</source>
         <translation>启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="178"/>
+        <location filename="../../views/PreferencesDialog.ui" line="186"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>打开文件夹时导入子目录中的文件</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="94"/>
+        <location filename="../../views/PreferencesDialog.ui" line="102"/>
         <source>Send anonymous usage reports</source>
         <translation>发送匿名统计信息</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="291"/>
+        <location filename="../../views/PreferencesDialog.ui" line="299"/>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="317"/>
+        <location filename="../../views/PreferencesDialog.ui" line="325"/>
         <source>Multithreading</source>
         <translation>多线程</translation>
     </message>
@@ -645,42 +650,42 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">语言</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="140"/>
+        <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="164"/>
+        <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
         <translation>导入</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="268"/>
+        <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>KB</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="273"/>
+        <location filename="../../views/PreferencesDialog.ui" line="281"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="346"/>
+        <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Import only</source>
         <translation>只导入</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="351"/>
+        <location filename="../../views/PreferencesDialog.ui" line="359"/>
         <source>Import and compress</source>
         <translation>导入并压缩</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="305"/>
+        <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>When importing files directly</source>
         <translation>导入文件后</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="82"/>
+        <location filename="../../views/PreferencesDialog.ui" line="90"/>
         <source>Preferred language</source>
         <translation>默认语言</translation>
     </message>
@@ -689,27 +694,27 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 更改将在应用重启后生效&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="149"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
         <source>Usage data</source>
         <translation>使用数据</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="22"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>展示使用数据</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="150"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="153"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
         <translation>我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="154"/>
         <source>System data</source>
         <translation>系统数据</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="151"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="154"/>
         <source>Compression data</source>
         <translation>压缩数据</translation>
     </message>

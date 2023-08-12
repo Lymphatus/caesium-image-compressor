@@ -595,7 +595,8 @@ void MainWindow::startCompression()
     if (!settings.value("preferences/general/multithreading", true).toBool()) {
         QThreadPool::globalInstance()->setMaxThreadCount(1);
     } else {
-        QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
+        int maxThreads = settings.value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt();
+        QThreadPool::globalInstance()->setMaxThreadCount(maxThreads);
     }
 
     this->compressionWatcher = new QFutureWatcher<void>();

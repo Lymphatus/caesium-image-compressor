@@ -5,6 +5,14 @@
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>840</width>
+    <height>560</height>
+   </rect>
+  </property>
   <property name="focusPolicy">
    <enum>Qt::StrongFocus</enum>
   </property>
@@ -383,6 +391,21 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="3">
+       <widget class="QSpinBox" name="multithreadingMaxThreads_SpinBox">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="suffix">
+         <string> threads</string>
+        </property>
+        <property name="minimum">
+         <number>2</number>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -496,12 +519,28 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>714</x>
-     <y>510</y>
+     <x>827</x>
+     <y>547</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
      <y>494</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>multithreading_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>multithreadingMaxThreads_SpinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>109</x>
+     <y>478</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>659</x>
+     <y>478</y>
     </hint>
    </hints>
   </connection>
