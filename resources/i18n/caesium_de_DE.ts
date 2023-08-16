@@ -221,17 +221,17 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="667"/>
         <source>Maximum output size</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximale Ausgabegröße</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="599"/>
         <source>bytes</source>
-        <translation type="unfinished">Bytes</translation>
+        <translation>Bytes</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="230"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modus</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="566"/>
@@ -241,12 +241,12 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="604"/>
         <source>KB</source>
-        <translation type="unfinished">KB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="609"/>
         <source>MB</source>
-        <translation type="unfinished">MB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="681"/>
@@ -351,7 +351,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1074"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschiebe Originaldatei in den Papierkorb</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1088"/>
@@ -386,7 +386,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1215"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Konvertierung in ein anderes Format oder eine Größenänderung kann die Qualität reduzieren, selbst wenn die Option 'verlustfrei' ausgewählt ist</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1335"/>
@@ -534,7 +534,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1670"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="614"/>
@@ -574,7 +574,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="198"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht importieren wenn Dateigröße</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="229"/>
@@ -599,7 +599,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="402"/>
         <source> threads</source>
-        <translation type="unfinished"></translation>
+        <translation> Threads</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="477"/>
@@ -652,12 +652,12 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignoriere Meldungen und Warnungen während Komprimierung</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Import</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="276"/>
@@ -672,17 +672,17 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur importieren</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="359"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Importieren und komprimieren</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim direkten Importieren von Dateien</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="90"/>
@@ -754,7 +754,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Kann Originaldatei nicht in den Papierkorb verschieben, prüfen Sie Ihre Berechtigungen</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="397"/>
@@ -774,7 +774,7 @@ Ersparnis: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="210"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation>Originalformat</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
