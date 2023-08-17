@@ -20,5 +20,7 @@
         <file>icons/ui/preview.svg</file>
         <file>icons/ui/help.svg</file>
         <file>icons/ui/loader.webp</file>
+        <file>icons/ui/v_handle.png</file>
+        <file>icons/ui/h_handle.png</file>
     </qresource>
 </RCC>

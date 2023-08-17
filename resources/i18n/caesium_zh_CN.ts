@@ -67,6 +67,13 @@ All rights reserved.</translation>
     </message>
 </context>
 <context>
+    <name>Dialog</name>
+    <message>
+        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
+        <translation type="obsolete">我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../../src/MainWindow.cpp" line="249"/>
@@ -84,7 +91,7 @@ All rights reserved.</translation>
         <translation>正在导入文件...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1255"/>
+        <location filename="../../views/MainWindow.ui" line="1264"/>
         <location filename="../../src/MainWindow.cpp" line="478"/>
         <location filename="../../src/MainWindow.cpp" line="692"/>
         <source>Cancel</source>
@@ -164,43 +171,43 @@ Saved: %4 (%5%)</source>
         <translation>Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="126"/>
+        <location filename="../../views/MainWindow.ui" line="135"/>
         <source>Add...</source>
         <translation>添加...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="146"/>
-        <location filename="../../views/MainWindow.ui" line="1535"/>
+        <location filename="../../views/MainWindow.ui" line="155"/>
+        <location filename="../../views/MainWindow.ui" line="1544"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="179"/>
-        <location filename="../../views/MainWindow.ui" line="1612"/>
-        <location filename="../../views/MainWindow.ui" line="1615"/>
+        <location filename="../../views/MainWindow.ui" line="188"/>
+        <location filename="../../views/MainWindow.ui" line="1621"/>
+        <location filename="../../views/MainWindow.ui" line="1624"/>
         <source>Compress</source>
         <translation>压缩</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="210"/>
+        <location filename="../../views/MainWindow.ui" line="219"/>
         <source>Compression</source>
         <translation>压缩选项</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="298"/>
+        <location filename="../../views/MainWindow.ui" line="307"/>
         <source>JPEG</source>
         <translation>JPEG</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="254"/>
-        <location filename="../../views/MainWindow.ui" line="360"/>
-        <location filename="../../views/MainWindow.ui" line="442"/>
-        <location filename="../../views/MainWindow.ui" line="483"/>
+        <location filename="../../views/MainWindow.ui" line="263"/>
+        <location filename="../../views/MainWindow.ui" line="369"/>
+        <location filename="../../views/MainWindow.ui" line="451"/>
+        <location filename="../../views/MainWindow.ui" line="492"/>
         <source>Quality</source>
         <translation>图片质量</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="383"/>
+        <location filename="../../views/MainWindow.ui" line="392"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
@@ -209,335 +216,335 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">压缩等级</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="465"/>
+        <location filename="../../views/MainWindow.ui" line="474"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="553"/>
+        <location filename="../../views/MainWindow.ui" line="562"/>
         <source>Lossless</source>
         <translation>无损压缩</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="667"/>
+        <location filename="../../views/MainWindow.ui" line="676"/>
         <source>Maximum output size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="599"/>
+        <location filename="../../views/MainWindow.ui" line="608"/>
         <source>bytes</source>
         <translation type="unfinished">bytes</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="230"/>
+        <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="566"/>
+        <location filename="../../views/MainWindow.ui" line="575"/>
         <source>Keep Metadata</source>
         <translation>保留元数据</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="604"/>
+        <location filename="../../views/MainWindow.ui" line="613"/>
         <source>KB</source>
         <translation type="unfinished">KB</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="609"/>
+        <location filename="../../views/MainWindow.ui" line="618"/>
         <source>MB</source>
         <translation type="unfinished">MB</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="681"/>
+        <location filename="../../views/MainWindow.ui" line="690"/>
         <source>Resize</source>
         <translation>图片尺寸</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="707"/>
+        <location filename="../../views/MainWindow.ui" line="716"/>
         <source>Resize to fit</source>
         <translation>调整方式</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="731"/>
+        <location filename="../../views/MainWindow.ui" line="740"/>
         <source>No resize</source>
         <translation>保持原始尺寸</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="736"/>
+        <location filename="../../views/MainWindow.ui" line="745"/>
         <source>Dimensions</source>
         <translation>像素值</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="741"/>
+        <location filename="../../views/MainWindow.ui" line="750"/>
         <source>Percentage</source>
         <translation>百分比</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="746"/>
+        <location filename="../../views/MainWindow.ui" line="755"/>
         <source>Short edge</source>
         <translation>短边长</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="751"/>
+        <location filename="../../views/MainWindow.ui" line="760"/>
         <source>Long edge</source>
         <translation>长边长</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="787"/>
+        <location filename="../../views/MainWindow.ui" line="796"/>
         <source>Width</source>
         <translation>宽度</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="815"/>
-        <location filename="../../views/MainWindow.ui" line="859"/>
-        <location filename="../../views/MainWindow.ui" line="916"/>
+        <location filename="../../views/MainWindow.ui" line="824"/>
+        <location filename="../../views/MainWindow.ui" line="868"/>
+        <location filename="../../views/MainWindow.ui" line="925"/>
         <location filename="../../src/MainWindow.cpp" line="834"/>
         <location filename="../../src/MainWindow.cpp" line="838"/>
         <source>px</source>
         <translation>px</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="259"/>
-        <location filename="../../views/MainWindow.ui" line="831"/>
+        <location filename="../../views/MainWindow.ui" line="268"/>
+        <location filename="../../views/MainWindow.ui" line="840"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="888"/>
+        <location filename="../../views/MainWindow.ui" line="897"/>
         <source>Height</source>
         <translation>高度</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="934"/>
+        <location filename="../../views/MainWindow.ui" line="943"/>
         <source>Do not enlarge</source>
         <translation>不要放大</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="944"/>
+        <location filename="../../views/MainWindow.ui" line="953"/>
         <source>Keep aspect ratio</source>
         <translation>保持长宽比</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="971"/>
+        <location filename="../../views/MainWindow.ui" line="980"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="991"/>
+        <location filename="../../views/MainWindow.ui" line="1000"/>
         <source>Folder</source>
         <translation>文件夹</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1035"/>
+        <location filename="../../views/MainWindow.ui" line="1044"/>
         <source>Select...</source>
         <translation>选择...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1047"/>
+        <location filename="../../views/MainWindow.ui" line="1056"/>
         <source>Same folder as input</source>
         <translation>输出到原目录</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1057"/>
+        <location filename="../../views/MainWindow.ui" line="1066"/>
         <source>Keep folder structure</source>
         <translation>保留目录结构</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1064"/>
+        <location filename="../../views/MainWindow.ui" line="1073"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>如果输出文件大于源文件就跳过</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1074"/>
+        <location filename="../../views/MainWindow.ui" line="1083"/>
         <source>Move the original file to trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1088"/>
+        <location filename="../../views/MainWindow.ui" line="1097"/>
         <source>Keep file dates</source>
         <translation>保留文件时间</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1103"/>
+        <location filename="../../views/MainWindow.ui" line="1112"/>
         <source>Creation</source>
         <translation>创建时间</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1110"/>
+        <location filename="../../views/MainWindow.ui" line="1119"/>
         <source>Last modified</source>
         <translation>修改时间</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1117"/>
+        <location filename="../../views/MainWindow.ui" line="1126"/>
         <source>Last access</source>
         <translation>访问时间</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1138"/>
+        <location filename="../../views/MainWindow.ui" line="1147"/>
         <source>Format</source>
         <translation>格式</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1163"/>
+        <location filename="../../views/MainWindow.ui" line="1172"/>
         <source>Suffix</source>
         <translation>后缀</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1215"/>
+        <location filename="../../views/MainWindow.ui" line="1224"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1342"/>
+        <location filename="../../views/MainWindow.ui" line="1351"/>
         <source>Original</source>
         <translation>原始</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1667"/>
+        <location filename="../../views/MainWindow.ui" line="1676"/>
         <location filename="../../src/MainWindow.cpp" line="1160"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1335"/>
+        <location filename="../../views/MainWindow.ui" line="1344"/>
         <source>Compressed</source>
         <translation>压缩</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1391"/>
+        <location filename="../../views/MainWindow.ui" line="1400"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1399"/>
+        <location filename="../../views/MainWindow.ui" line="1408"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1408"/>
+        <location filename="../../views/MainWindow.ui" line="1417"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1419"/>
+        <location filename="../../views/MainWindow.ui" line="1428"/>
         <source>View</source>
         <translation>视图</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1423"/>
-        <location filename="../../views/MainWindow.ui" line="1446"/>
+        <location filename="../../views/MainWindow.ui" line="1432"/>
+        <location filename="../../views/MainWindow.ui" line="1455"/>
         <source>Toolbar</source>
         <translation>工具栏</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1488"/>
+        <location filename="../../views/MainWindow.ui" line="1497"/>
         <source>About Caesium Image Compressor</source>
         <translation>关于 Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1500"/>
+        <location filename="../../views/MainWindow.ui" line="1509"/>
         <source>Add files...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1503"/>
+        <location filename="../../views/MainWindow.ui" line="1512"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1512"/>
+        <location filename="../../views/MainWindow.ui" line="1521"/>
         <source>Add folder...</source>
         <translation>打开文件夹...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1515"/>
+        <location filename="../../views/MainWindow.ui" line="1524"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1520"/>
+        <location filename="../../views/MainWindow.ui" line="1529"/>
         <location filename="../../src/MainWindow.cpp" line="189"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1538"/>
+        <location filename="../../views/MainWindow.ui" line="1547"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1543"/>
+        <location filename="../../views/MainWindow.ui" line="1552"/>
         <source>Select All</source>
         <translation>全选</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1546"/>
+        <location filename="../../views/MainWindow.ui" line="1555"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1558"/>
+        <location filename="../../views/MainWindow.ui" line="1567"/>
         <source>Clear</source>
         <translation>清空</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1569"/>
+        <location filename="../../views/MainWindow.ui" line="1578"/>
         <source>Show previews</source>
         <translation>展示预览</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1578"/>
+        <location filename="../../views/MainWindow.ui" line="1587"/>
         <source>Preferences...</source>
         <translation>选项...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1586"/>
+        <location filename="../../views/MainWindow.ui" line="1595"/>
         <source>Show original in file manager</source>
         <translation>在文件管理器中查看原图</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1591"/>
+        <location filename="../../views/MainWindow.ui" line="1600"/>
         <source>Show compressed in file manager</source>
         <translation>在文件管理器中查看压缩图</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1600"/>
+        <location filename="../../views/MainWindow.ui" line="1609"/>
         <source>Donate</source>
         <translation>捐赠</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1626"/>
+        <location filename="../../views/MainWindow.ui" line="1635"/>
         <source>Icons</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1634"/>
+        <location filename="../../views/MainWindow.ui" line="1643"/>
         <source>Icons and Text</source>
         <translation>图标和文本</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1642"/>
+        <location filename="../../views/MainWindow.ui" line="1651"/>
         <source>Hide</source>
         <translation>隐藏</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1647"/>
+        <location filename="../../views/MainWindow.ui" line="1656"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1655"/>
+        <location filename="../../views/MainWindow.ui" line="1664"/>
         <source>Auto preview</source>
         <translation>自动预览</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1670"/>
+        <location filename="../../views/MainWindow.ui" line="1679"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="614"/>
+        <location filename="../../views/MainWindow.ui" line="623"/>
         <location filename="../../src/MainWindow.cpp" line="848"/>
         <location filename="../../src/MainWindow.cpp" line="852"/>
         <source>%</source>
@@ -557,7 +564,7 @@ Saved: %4 (%5%)</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="503"/>
+        <location filename="../../views/PreferencesDialog.ui" line="490"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
@@ -602,7 +609,7 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="477"/>
+        <location filename="../../views/PreferencesDialog.ui" line="464"/>
         <source>Changes will apply after restart</source>
         <translation>更改将在重启后生效</translation>
     </message>
@@ -694,9 +701,8 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 更改将在应用重启后生效&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="152"/>
         <source>Usage data</source>
-        <translation>使用数据</translation>
+        <translation type="vanished">使用数据</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
@@ -704,19 +710,16 @@ Saved: %4 (%5%)</source>
         <translation>展示使用数据</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="153"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
+        <translation type="vanished">我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="154"/>
         <source>System data</source>
-        <translation>系统数据</translation>
+        <translation type="vanished">系统数据</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="154"/>
         <source>Compression data</source>
-        <translation>压缩数据</translation>
+        <translation type="vanished">压缩数据</translation>
     </message>
 </context>
 <context>
@@ -821,6 +824,34 @@ Saved: %4 (%5%)</source>
     <message>
         <source>Loading...</source>
         <translation type="vanished">正在加载...</translation>
+    </message>
+</context>
+<context>
+    <name>UsageStatsDialog</name>
+    <message>
+        <location filename="../../views/UsageStatsDialog.ui" line="14"/>
+        <source>Usage Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/UsageStatsDialog.ui" line="26"/>
+        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
+        <translation type="unfinished">我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
+    </message>
+    <message>
+        <location filename="../../views/UsageStatsDialog.ui" line="42"/>
+        <source>Close</source>
+        <translation type="unfinished">关闭</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
+        <source>System data</source>
+        <translation type="unfinished">系统数据</translation>
+    </message>
+    <message>
+        <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
+        <source>Compression data</source>
+        <translation type="unfinished">压缩数据</translation>
     </message>
 </context>
 </TS>

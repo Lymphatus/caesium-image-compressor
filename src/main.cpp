@@ -21,13 +21,19 @@ QString loadInstallationId()
     }
 }
 
-void loadTheme()
+void loadTheme(QApplication& a)
 {
     int themeIndex = QSettings().value("preferences/general/theme", 0).toInt();
     // From 2.4.1 and Qt 6.5, the framework can handle the switch between dark and light
     if (themeIndex > 1) {
         themeIndex = 1;
     }
+
+#ifdef Q_OS_WIN
+    if (themeIndex == 0) {
+        a.setStyleSheet("QSplitter::handle:horizontal{image:url(:/icons/ui/v_handle.png);}QSplitter::handle:vertical{image:url(:/icons/ui/h_handle.png);}");
+    }
+#endif
 
     if (themeIndex == 1) {
         auto palette = QApplication::palette();
@@ -80,7 +86,7 @@ int main(int argc, char* argv[])
     parser.addVersionOption();
     parser.process(a);
 
-    loadTheme();
+    loadTheme(a);
 
     qInfo() << "---- Starting application ----";
     QString uuid = loadInstallationId();

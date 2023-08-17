@@ -38,12 +38,21 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
+      <property name="handleWidth">
+       <number>5</number>
+      </property>
       <property name="childrenCollapsible">
        <bool>false</bool>
       </property>
       <widget class="QSplitter" name="sidebar_HSplitter">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>5</number>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
        </property>
        <widget class="QWidget" name="layoutWidget">
         <layout class="QVBoxLayout" name="imageList_VerticalLayout">
@@ -1383,7 +1392,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

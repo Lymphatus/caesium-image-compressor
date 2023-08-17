@@ -2,10 +2,10 @@
 #include "ui_PreferencesDialog.h"
 
 #include "MainWindow.h"
+#include "UsageStatsDialog.h"
 #include "utils/LanguageManager.h"
 #include "utils/Utils.h"
 #include <QJsonDocument>
-#include <QMessageBox>
 #include <QSettings>
 #include <QStyleFactory>
 
@@ -138,23 +138,10 @@ void PreferencesDialog::onArgsBehaviourChanged(int index)
 
 void PreferencesDialog::onShowUsageDataLinkActivated([[maybe_unused]] const QString& link)
 {
-    QSettings settings;
-    QJsonObject compressionData {
-        { "uuid", settings.value("uuid").toString() },
-        { "totalFiles", "..." },
-        { "uncompressedSize", "..." },
-        { "compressedSize", "..." },
-        { "elapsedTime", "..." },
-        { "compressionOptions", getCompressionOptionsAsJSON() }
-    };
-    QMessageBox messageBox;
-    messageBox.setStyleSheet("QLabel{min-width: 500px;}");
-    messageBox.setText(tr("Usage data"));
-    messageBox.setInformativeText(tr("This data is collected to provide the best long term support for the application. No data is sent to third parties."));
-    messageBox.setDetailedText(tr("System data") + "\n" + QJsonDocument(getSystemData()).toJson(QJsonDocument::Indented) + "\n" + tr("Compression data") + "\n" + QJsonDocument(compressionData).toJson(QJsonDocument::Indented));
-    messageBox.setStandardButtons(QMessageBox::Ok);
-    messageBox.setDefaultButton(QMessageBox::Ok);
-    messageBox.exec();
+    auto* usageStatsDialog = new UsageStatsDialog();
+    usageStatsDialog->setModal(true);
+
+    usageStatsDialog->show();
 }
 
 void PreferencesDialog::onSkipBySizeToggled(bool checked)

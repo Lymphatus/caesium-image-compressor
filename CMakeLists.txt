@@ -109,7 +109,9 @@ set(SOURCES
         src/exceptions/ImageTooBigException.cpp
         src/dialogs/PreferencesDialog.cpp
         src/network/NetworkOperations.cpp
-        src/database/Database.cpp)
+        src/database/Database.cpp
+        src/dialogs/UsageStatsDialog.cpp
+)
 
 if (APPLE)
     set(OSX_SOURCES
@@ -122,7 +124,9 @@ endif ()
 set(UI
         views/MainWindow.ui
         views/AboutDialog.ui
-        views/PreferencesDialog.ui)
+        views/PreferencesDialog.ui
+        views/UsageStatsDialog.ui
+)
 
 SET(TS_FILES
         resources/i18n/caesium_en_US.ts
