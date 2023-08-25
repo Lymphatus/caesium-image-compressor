@@ -24,6 +24,7 @@ QList<CsLocale> LanguageManager::getTranslations()
         { QString("zh_TW"), QString("中文（台灣）") },
         { QString("sk_SK"), QString("Slovenčina") },
         { QString("pl_PL"), QString("Polski") },
+        { QString("fi_FI"), QString("Suomi") },
     };
 
     return translations;
