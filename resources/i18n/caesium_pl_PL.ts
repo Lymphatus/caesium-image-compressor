@@ -233,7 +233,7 @@ Zaoszczędzono: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
         <source>bytes</source>
-        <translation type="unfinished">bajtów</translation>
+        <translation>bajtów</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
@@ -399,12 +399,12 @@ Zaoszczędzono: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="613"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>Kb</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="618"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1224"/>
@@ -542,7 +542,7 @@ Zaoszczędzono: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1679"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="623"/>
@@ -678,7 +678,7 @@ Zaoszczędzono: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kb</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="281"/>
@@ -828,27 +828,27 @@ Zaoszczędzono: %4 (%5%)</translation>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Dane dotyczące użytkowania</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="unfinished">Dane są zbierane w celu zapewnienia najlepszego wsparcia dla aplikacji. Żadne dane nie są przesyłane do osób trzecich.</translation>
+        <translation>Dane są zbierane w celu zapewnienia najlepszego wsparcia dla aplikacji. Żadne dane nie są przesyłane do osób trzecich.</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="42"/>
         <source>Close</source>
-        <translation type="unfinished">Zamknij</translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation type="unfinished">Dane systemowe</translation>
+        <translation>Dane systemowe</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation type="unfinished">Dane kompresji</translation>
+        <translation>Dane kompresji</translation>
     </message>
 </context>
 </TS>

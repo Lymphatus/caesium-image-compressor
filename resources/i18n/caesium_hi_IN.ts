@@ -233,7 +233,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
         <source>bytes</source>
-        <translation type="unfinished">बाइट</translation>
+        <translation>बाइट</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
@@ -248,12 +248,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="613"/>
         <source>KB</source>
-        <translation type="unfinished">किलोबाइट</translation>
+        <translation>किलोबाइट</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="618"/>
         <source>MB</source>
-        <translation type="unfinished">मेगाबाइट</translation>
+        <translation>मेगाबाइट</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="690"/>
@@ -542,7 +542,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1679"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="623"/>
@@ -840,27 +840,27 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation type="unfinished"></translation>
+        <translation>उपयोग की जानकारी</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="unfinished">यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।.</translation>
+        <translation>यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।.</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="42"/>
         <source>Close</source>
-        <translation type="unfinished">बंद करें</translation>
+        <translation>बंद करें</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation type="unfinished">सिस्टम की जानकारी</translation>
+        <translation>सिस्टम की जानकारी</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation type="unfinished">संकुचन की जानकारी</translation>
+        <translation>संकुचन की जानकारी</translation>
     </message>
 </context>
 </TS>

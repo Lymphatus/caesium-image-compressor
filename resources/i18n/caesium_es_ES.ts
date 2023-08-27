@@ -831,27 +831,27 @@ Ahorrado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Datos de uso</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="unfinished">Estos datos son recogidos para entregar el mejor soporte a largo plazo para la aplicación. No se entregan datos a terceros.</translation>
+        <translation>Estos datos son recogidos para entregar el mejor soporte a largo plazo para la aplicación. No se entregan datos a terceros.</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="42"/>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation type="unfinished">Datos del sistema</translation>
+        <translation>Datos del sistema</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation type="unfinished">Datos de compresión</translation>
+        <translation>Datos de compresión</translation>
     </message>
 </context>
 </TS>

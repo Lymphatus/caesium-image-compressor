@@ -840,27 +840,27 @@ Säästö: %4 (%5%)</translation>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Käyttötiedot</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="unfinished">Tämä tieto kerätään tarjotaksemme parasta pitkäaikaista tukea sovellukselle. Tietoa ei lähetetä kolmansille osapuolille</translation>
+        <translation>Tämä tieto kerätään tarjotaksemme parasta pitkäaikaista tukea sovellukselle. Tietoa ei lähetetä kolmansille osapuolille.</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="42"/>
         <source>Close</source>
-        <translation type="unfinished">Sulje</translation>
+        <translation>Sulje</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation type="unfinished">Järjestelmätiedot</translation>
+        <translation>Järjestelmätiedot</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation type="unfinished">Pakkaustiedot</translation>
+        <translation>Pakkaustiedot</translation>
     </message>
 </context>
 </TS>
