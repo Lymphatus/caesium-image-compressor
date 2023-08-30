@@ -84,8 +84,8 @@ Caesium 2.0 is currently available in:
 - <img src="https://flagcdn.com/h20/ru.png" srcset="https://flagcdn.com/h40/ru.png 2x" height="12" alt="RU"> ru_RU ![95%](https://progress-bar.dev/95)
 - <img src="https://flagcdn.com/h20/sk.png" srcset="https://flagcdn.com/h40/sk.png 2x" height="12" alt="SK"> sk_SK ![93%](https://progress-bar.dev/93)
 - <img src="https://flagcdn.com/h20/tr.png" srcset="https://flagcdn.com/h40/tr.png 2x" height="12" alt="TR"> tr_TR ![95%](https://progress-bar.dev/95)
-- <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> zh_CN ![95%](https://progress-bar.dev/95)
-- <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> zh_TW ![61%](https://progress-bar.dev/61)
+- <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> zh_CN ![95%](https://progress-bar.dev/100)
+- <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> zh_TW ![61%](https://progress-bar.dev/100)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

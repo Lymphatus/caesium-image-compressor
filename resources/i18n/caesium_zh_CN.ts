@@ -228,7 +228,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="676"/>
         <source>Maximum output size</source>
-        <translation type="unfinished">图片最大输出体积</translation>
+        <translation>图片最大输出体积</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
@@ -238,7 +238,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
-        <translation type="unfinished">模式</translation>
+        <translation>模式</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="575"/>
@@ -358,7 +358,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1083"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished">删除源文件</translation>
+        <translation>删除源文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1097"/>
@@ -393,7 +393,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1224"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished">图片转换格式或图片调整大小后可能会降低图像质量，即使勾选了&ldquo;无损&rdquo;</translation>
+        <translation>图片转换格式或图片调整大小后可能会降低图像质量，即使勾选了“无损”</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1351"/>
@@ -606,7 +606,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="402"/>
         <source> threads</source>
-        <translation type="unfinished">线程</translation>
+        <translation> 线程</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="464"/>
@@ -659,7 +659,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished">压缩过程中跳过消息和警告</translation>
+        <translation>压缩过程中跳过消息和警告</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
@@ -757,7 +757,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished">无法删除源文件，请检查访问权限</translation>
+        <translation>无法删除源文件，请检查访问权限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="397"/>
