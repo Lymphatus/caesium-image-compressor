@@ -63,7 +63,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">信息</translation>
     </message>
 </context>
 <context>
@@ -134,7 +134,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="783"/>
         <source>You just saved %1!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">你已節省 %1 的儲存空間</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="793"/>
@@ -151,12 +151,12 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/MainWindow.cpp" line="1139"/>
         <location filename="../../src/MainWindow.cpp" line="1144"/>
         <source>File not found</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">未找到文件</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1175"/>
         <source>Finishing...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">壓縮中</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="17"/>
@@ -221,12 +221,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="676"/>
         <source>Maximum output size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">最大圖片體積</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">模式</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="575"/>
@@ -331,12 +331,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1073"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">若輸出體積大於源文件則跳過</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1083"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">刪除源文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1097"/>
@@ -361,22 +361,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1147"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">格式</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">bytes</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="613"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">KB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="618"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">MB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1172"/>
@@ -386,17 +386,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1224"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圖片轉換格式或圖片調整大小後可能會降低圖像質量，即使勾選了&ldquo;無損&rdquo;</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1344"/>
         <source>Compressed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">壓縮</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1351"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">源文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1400"/>
@@ -422,7 +422,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1432"/>
         <location filename="../../views/MainWindow.ui" line="1455"/>
         <source>Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">工具欄</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1497"/>
@@ -458,7 +458,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1547"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">刪除</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1552"/>
@@ -488,53 +488,53 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1595"/>
         <source>Show original in file manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">在文件管理器中查看原圖</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1600"/>
         <source>Show compressed in file manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">在文件管理器中查看壓縮圖</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1609"/>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">捐贈</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1635"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圖標</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1643"/>
         <source>Icons and Text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圖標和文本</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1651"/>
         <source>Hide</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">隱藏</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1656"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">顯示</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1664"/>
         <source>Auto preview</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">自動預覽</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1676"/>
         <location filename="../../src/MainWindow.cpp" line="1160"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">預覽</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1679"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="623"/>
@@ -559,7 +559,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="402"/>
         <source> threads</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">線程</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="490"/>
@@ -584,7 +584,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">壓縮過程中跳過消息警告</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="186"/>
@@ -599,47 +599,47 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="63"/>
         <source>Theme (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">主題（實驗）</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">導入</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="198"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">不導入以下體積的圖片文件：</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="229"/>
         <source>greater than</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">大於</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">等於</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="239"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">小於</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">bytes</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="281"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="299"/>
@@ -649,22 +649,22 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">導入文件後</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">僅導入</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="359"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">導入並壓縮</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="381"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">該選項對使用命令行和拖動文件到應用圖標上有效</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="325"/>
@@ -674,7 +674,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="464"/>
         <source>Changes will apply after restart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">設定將在重啟後生效</translation>
     </message>
     <message>
         <source>Language</source>
@@ -692,7 +692,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">展示使用數據</translation>
     </message>
 </context>
 <context>
@@ -705,32 +705,32 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="154"/>
         <source>Input file does not exist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">輸入文件不存在</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="178"/>
         <source>Cannot make output path, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">無法創建輸出路徑，請檢查訪問權限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="195"/>
         <source>Temporary file creation failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">無法創建臨時文件</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="249"/>
         <source>Skipped: compressed file is bigger than original</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">跳過：壓縮後的文件尺寸大於原始文件</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="259"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">無法復製輸出文件到輸出路徑，請檢查訪問權限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">無法刪除源文件，請檢查訪問權限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="397"/>
@@ -740,17 +740,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
         <source>Error:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">異常：</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="134"/>
         <source>File not found</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">找不到文件</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="210"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">和輸入保持一致</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="211"/>
@@ -785,12 +785,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">使用數據</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">我們需要收集這些數據來為應用程序提供更好的長期支持，收集的任何數據都不會向第三方透露。</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="42"/>
@@ -800,12 +800,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">系統數據</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">壓縮數據</translation>
     </message>
 </context>
 </TS>
