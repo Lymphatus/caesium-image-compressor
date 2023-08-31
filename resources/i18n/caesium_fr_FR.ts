@@ -58,7 +58,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Saved</source>
-        <translation>Ratio</translation>
+        <translation>Sauvegardé</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
@@ -70,7 +70,7 @@ All rights reserved.</translation>
     <name>Dialog</name>
     <message>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">Ces données sont collectées pour fournir le meilleur support à long terme pour l&apos;application. Aucune donnée n&apos;est transmise à des tiers.</translation>
+        <translation type="obsolete">Ces données sont collectées pour fournir le meilleur support à long terme pour l'application. Aucune donnée n'est transmise à des tiers.</translation>
     </message>
 </context>
 <context>
@@ -161,9 +161,9 @@ Original size: %2
 Compressed size: %3
 Saved: %4 (%5%)</source>
         <translation>Total files: %1
-Original size: %2
-Compressed size: %3
-Saved: %4 (%5%)</translation>
+Taille d'origine: %2
+Taille compressé: %3
+Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="17"/>
@@ -233,7 +233,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="575"/>
@@ -248,7 +248,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="716"/>
         <source>Resize to fit</source>
-        <translation>Redimensionner pour s&apos;adapter</translation>
+        <translation>Redimensionner pour s'ajuster</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="740"/>
@@ -328,7 +328,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1056"/>
         <source>Same folder as input</source>
-        <translation>Même répertoire que l&apos;entrée</translation>
+        <translation>Même répertoire que l'entrée</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1066"/>
@@ -338,12 +338,12 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1073"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorer si la taille de sortie est plus grand que l'original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1083"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer l'original dans la corbeille</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1097"/>
@@ -368,7 +368,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1147"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Format</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1172"/>
@@ -384,32 +384,32 @@ Saved: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="1676"/>
         <location filename="../../src/MainWindow.cpp" line="1160"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1344"/>
         <source>Compressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Compressé</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>octets</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="613"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KO</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="618"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MO</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1224"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">La conversion vers un nouveau format ou le redimensionnement peu dégradé la qualité même si l'option "sans perte" est séléctionnée</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1400"/>
@@ -471,7 +471,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1547"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppr</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1552"/>
@@ -511,7 +511,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1609"/>
         <source>Donate</source>
-        <translation>Donner</translation>
+        <translation>Faire un don</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1635"/>
@@ -536,12 +536,12 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1664"/>
         <source>Auto preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu automatique</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1679"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="623"/>
@@ -581,27 +581,27 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="198"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas importer si la taille est supérieur à</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="229"/>
         <source>greater than</source>
-        <translation type="unfinished"></translation>
+        <translation>plus grand que</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation>égal à </translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="239"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation>inférieur à</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>octets</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="402"/>
@@ -664,12 +664,12 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KO</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="281"/>
@@ -684,7 +684,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="359"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer et compresser></translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="313"/>
