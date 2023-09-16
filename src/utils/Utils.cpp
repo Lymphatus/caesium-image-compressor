@@ -86,8 +86,22 @@ QString getRootFolder(QList<QString> folderMap)
     return rootFolderPath;
 }
 
-std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge)
+std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions &compressionOptions)
 {
+    int fitTo = compressionOptions.fitTo;
+    int width = compressionOptions.width;
+    int height = compressionOptions.height;
+    int size = compressionOptions.size;
+    bool doNotEnlarge = compressionOptions.doNotEnlarge;
+    bool keepMetadata = compressionOptions.keepMetadata;
+    bool rotatedByMetadata = false;
+
+    QSize originalSize = reader->size();
+    if (keepMetadata && (fitTo == ResizeMode::FIXED_WIDTH || fitTo == ResizeMode::FIXED_HEIGHT)) {
+        originalSize = getSizeWithMetadata(reader);
+        rotatedByMetadata = isRotatedByMetadata(reader);
+    }
+
     int originalWidth = originalSize.width();
     int originalHeight = originalSize.height();
 
@@ -109,6 +123,28 @@ std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, in
         int outputWidth = (int)round((double)originalWidth * (double)outputWidthPerc / 100);
         int outputHeight = (int)round((double)originalHeight * (double)outputHeightPerc / 100);
         return { outputWidth, outputHeight };
+    } else if (fitTo == ResizeMode::FIXED_WIDTH) {
+        if (doNotEnlarge && keepMetadata && width > originalWidth) {
+            return { 0, 0 };
+        } else if (doNotEnlarge && !keepMetadata && width > originalWidth) {
+            return { originalWidth, originalHeight };
+        }
+
+        if (rotatedByMetadata && keepMetadata) {
+            return { 0, width };
+        }
+        return { width, 0 };
+    } else if (fitTo == ResizeMode::FIXED_HEIGHT) {
+        if (doNotEnlarge && keepMetadata && height > originalHeight) {
+            return { 0, 0 };
+        } else if (doNotEnlarge && !keepMetadata && height > originalHeight) {
+            return { originalWidth, originalHeight };
+        }
+
+        if (rotatedByMetadata && keepMetadata) {
+            return { height, 0 };
+        }
+        return { 0, height };
     } else if (fitTo == ResizeMode::LONG_EDGE || fitTo == ResizeMode::SHORT_EDGE) {
         // TODO Refactor this section
         if ((fitTo == ResizeMode::LONG_EDGE && originalWidth >= originalHeight) || (fitTo == ResizeMode::SHORT_EDGE && originalWidth <= originalHeight)) {
@@ -212,4 +248,26 @@ QStringList getOutputSupportedFormats()
         QIODevice::tr("PNG"),
         QIODevice::tr("WebP"),
     };
+}
+
+bool isRotatedByMetadata(QImageReader* reader)
+{
+    QFlags<QImageIOHandler::Transformation> transformation = reader->transformation();
+    return (transformation == QImageIOHandler::TransformationRotate90
+        || transformation == QImageIOHandler::TransformationMirrorAndRotate90
+        || transformation == QImageIOHandler::TransformationFlipAndRotate90
+        || transformation == QImageIOHandler::TransformationRotate270);
+}
+
+QSize getSizeWithMetadata(QImageReader* reader)
+{
+    QSize imageSize = reader->size();
+    QSize actualSize(imageSize.width(), imageSize.height());
+    // We need to check if the image is rotated by metadata and adjust the values accordingly
+    if (isRotatedByMetadata(reader)) {
+        actualSize.setWidth(imageSize.height());
+        actualSize.setHeight(imageSize.width());
+    }
+
+    return actualSize;
 }

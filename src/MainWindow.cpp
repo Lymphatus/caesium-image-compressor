@@ -102,7 +102,6 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
     connect(ui->moveOriginalFileToTrash_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToTrashToggled);
 
-    this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
@@ -823,10 +822,10 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
     switch (index) {
     default:
     case ResizeMode::NO_RESIZE:
-        ui->resize_Frame->setDisabled(true);
+        ui->resize_Frame->setHidden(true);
         break;
     case ResizeMode::DIMENSIONS:
-        ui->resize_Frame->setDisabled(false);
+        ui->resize_Frame->setHidden(false);
         ui->edge_Label->hide();
         ui->edge_SpinBox->hide();
         ui->width_Label->show();
@@ -840,22 +839,22 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
         ui->keepAspectRatio_CheckBox->setDisabled(true);
         break;
     case ResizeMode::PERCENTAGE:
-        ui->resize_Frame->setDisabled(false);
+        ui->resize_Frame->setHidden(false);
         ui->edge_Label->hide();
         ui->edge_SpinBox->hide();
         ui->width_Label->show();
         ui->width_SpinBox->show();
         ui->width_SpinBox->setSuffix(tr("%"));
-        ui->width_SpinBox->setMaximum(ui->keepAspectRatio_CheckBox->isChecked() ? 100 : 999);
+        ui->width_SpinBox->setMaximum(ui->doNotEnlarge_CheckBox->isChecked() ? 100 : 999);
         ui->height_Label->show();
         ui->height_SpinBox->show();
         ui->height_SpinBox->setSuffix(tr("%"));
-        ui->height_SpinBox->setMaximum(ui->keepAspectRatio_CheckBox->isChecked() ? 100 : 999);
+        ui->height_SpinBox->setMaximum(ui->doNotEnlarge_CheckBox->isChecked() ? 100 : 999);
         ui->keepAspectRatio_CheckBox->setEnabled(true);
         break;
     case ResizeMode::SHORT_EDGE:
     case ResizeMode::LONG_EDGE:
-        ui->resize_Frame->setDisabled(false);
+        ui->resize_Frame->setHidden(false);
         ui->edge_Label->show();
         ui->edge_SpinBox->show();
         ui->width_Label->hide();
@@ -864,8 +863,33 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
         ui->height_SpinBox->hide();
         ui->keepAspectRatio_CheckBox->setDisabled(true);
         break;
+    case ResizeMode::FIXED_WIDTH:
+        ui->resize_Frame->setHidden(false);
+        ui->edge_Label->hide();
+        ui->edge_SpinBox->hide();
+        ui->width_Label->show();
+        ui->width_SpinBox->show();
+        ui->width_SpinBox->setSuffix(tr("px"));
+        ui->height_Label->hide();
+        ui->height_SpinBox->hide();
+        ui->height_SpinBox->setSuffix(tr("px"));
+        ui->keepAspectRatio_CheckBox->setEnabled(false);
+        break;
+    case ResizeMode::FIXED_HEIGHT:
+        ui->resize_Frame->setHidden(false);
+        ui->edge_Label->hide();
+        ui->edge_SpinBox->hide();
+        ui->width_Label->hide();
+        ui->width_SpinBox->hide();
+        ui->width_SpinBox->setSuffix(tr("px"));
+        ui->height_Label->show();
+        ui->height_SpinBox->show();
+        ui->height_SpinBox->setSuffix(tr("px"));
+        ui->keepAspectRatio_CheckBox->setEnabled(false);
+        break;
     }
 
+    qDebug() << ui->width_SpinBox->suffix();
     this->writeSetting("compression_options/resize/fit_to", index);
     this->toggleLosslessWarningVisible();
 }
@@ -875,8 +899,6 @@ void MainWindow::on_width_SpinBox_valueChanged(int value)
     if (ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE && ui->keepAspectRatio_CheckBox->isChecked()) {
         ui->height_SpinBox->setValue(value);
     }
-    this->writeSetting("compression_options/resize/width", value);
-    this->writeSetting("compression_options/resize/height", ui->height_SpinBox->value());
 }
 
 void MainWindow::on_height_SpinBox_valueChanged(int value)
@@ -884,8 +906,6 @@ void MainWindow::on_height_SpinBox_valueChanged(int value)
     if (ui->fitTo_ComboBox->currentIndex() == ResizeMode::PERCENTAGE && ui->keepAspectRatio_CheckBox->isChecked()) {
         ui->width_SpinBox->setValue(value);
     }
-    this->writeSetting("compression_options/resize/height", value);
-    this->writeSetting("compression_options/resize/width", ui->width_SpinBox->value());
 }
 
 void MainWindow::on_edge_SpinBox_valueChanged(int value)

@@ -85,7 +85,6 @@ private:
 
     void setCompressedInfo(QFileInfo fileInfo);
     void setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates);
-    QSize getSizeWithMetadata(QImageReader* reader);
     size_t getMaxOutputSizeInBytes(MaxOutputSize maxOutputSize, size_t originalSize);
 };
 

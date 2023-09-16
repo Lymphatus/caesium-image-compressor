@@ -760,6 +760,16 @@
                    <string>Long edge</string>
                   </property>
                  </item>
+                 <item>
+                  <property name="text">
+                   <string>Width</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Height</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
               </layout>
@@ -819,9 +829,6 @@
                     </property>
                     <property name="showGroupSeparator" stdset="0">
                      <bool>false</bool>
-                    </property>
-                    <property name="suffix">
-                     <string>px</string>
                     </property>
                     <property name="minimum">
                      <number>1</number>
@@ -920,9 +927,6 @@
                     </property>
                     <property name="showGroupSeparator" stdset="0">
                      <bool>false</bool>
-                    </property>
-                    <property name="suffix">
-                     <string>px</string>
                     </property>
                     <property name="minimum">
                      <number>1</number>
@@ -1392,7 +1396,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

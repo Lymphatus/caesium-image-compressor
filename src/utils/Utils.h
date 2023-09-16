@@ -36,7 +36,9 @@ enum ResizeMode {
     DIMENSIONS = 1,
     PERCENTAGE = 2,
     SHORT_EDGE = 3,
-    LONG_EDGE = 4
+    LONG_EDGE = 4,
+    FIXED_WIDTH = 5,
+    FIXED_HEIGHT = 6
 };
 
 typedef struct CsLocale {
@@ -134,7 +136,9 @@ const CsTheme THEMES[THEMES_COUNT] = {
 QString toHumanSize(double size);
 QStringList scanDirectory(const QString& directory, bool subfolders);
 QString getRootFolder(QList<QString> folderMap);
-std::tuple<unsigned int, unsigned int> cResize(QSize originalSize, int fitTo, int width, int height, int size, bool doNotEnlarge);
+std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions &compressionOptions);
+QSize getSizeWithMetadata(QImageReader* reader);
+bool isRotatedByMetadata(QImageReader*  reader);
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
 QJsonObject getSystemData();
 QJsonObject getCompressionOptionsAsJSON();

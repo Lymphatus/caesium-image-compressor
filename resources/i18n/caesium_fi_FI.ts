@@ -76,29 +76,29 @@ Kaikki oikeudet pidätetään.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="249"/>
+        <location filename="../../src/MainWindow.cpp" line="248"/>
         <source>Import files...</source>
         <translation>Tuo tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="265"/>
+        <location filename="../../src/MainWindow.cpp" line="264"/>
         <source>Import folder...</source>
         <translation>Tuo kansio...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="478"/>
+        <location filename="../../src/MainWindow.cpp" line="477"/>
         <source>Importing files...</source>
         <translation>Tuodaan tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1264"/>
-        <location filename="../../src/MainWindow.cpp" line="478"/>
-        <location filename="../../src/MainWindow.cpp" line="692"/>
+        <location filename="../../views/MainWindow.ui" line="1268"/>
+        <location filename="../../src/MainWindow.cpp" line="477"/>
+        <location filename="../../src/MainWindow.cpp" line="691"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="577"/>
+        <location filename="../../src/MainWindow.cpp" line="576"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -107,55 +107,55 @@ Do you really want to continue?</source>
 Haluatko varmasti jatkaa?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="581"/>
+        <location filename="../../src/MainWindow.cpp" line="580"/>
         <source>No</source>
         <translation>En</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1139"/>
-        <location filename="../../src/MainWindow.cpp" line="1144"/>
+        <location filename="../../src/MainWindow.cpp" line="1159"/>
+        <location filename="../../src/MainWindow.cpp" line="1164"/>
         <source>File not found</source>
         <translation>Tiedostoa ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1175"/>
+        <location filename="../../src/MainWindow.cpp" line="1195"/>
         <source>Finishing...</source>
         <translation>Viimeistellään...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="612"/>
-        <location filename="../../src/MainWindow.cpp" line="1242"/>
+        <location filename="../../src/MainWindow.cpp" line="611"/>
+        <location filename="../../src/MainWindow.cpp" line="1262"/>
         <source>Compressing...</source>
         <translation>Pakataan...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="688"/>
+        <location filename="../../src/MainWindow.cpp" line="687"/>
         <source>Do you really want to quit?</source>
         <translation>Haluatko varmasti sulkea?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="580"/>
-        <location filename="../../src/MainWindow.cpp" line="691"/>
+        <location filename="../../src/MainWindow.cpp" line="579"/>
+        <location filename="../../src/MainWindow.cpp" line="690"/>
         <source>Yes</source>
         <translation>Kyllä</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="713"/>
+        <location filename="../../src/MainWindow.cpp" line="712"/>
         <source>Select output folder...</source>
         <translation>Valitse tulostuskansio...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="780"/>
+        <location filename="../../src/MainWindow.cpp" line="779"/>
         <source>Compression finished!</source>
         <translation>Pakkaus valmis!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="783"/>
+        <location filename="../../src/MainWindow.cpp" line="782"/>
         <source>You just saved %1!</source>
         <translation>Tallensit juuri %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="793"/>
+        <location filename="../../src/MainWindow.cpp" line="792"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -177,14 +177,14 @@ Säästö: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="155"/>
-        <location filename="../../views/MainWindow.ui" line="1544"/>
+        <location filename="../../views/MainWindow.ui" line="1548"/>
         <source>Remove</source>
         <translation>Poista</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="188"/>
-        <location filename="../../views/MainWindow.ui" line="1621"/>
-        <location filename="../../views/MainWindow.ui" line="1624"/>
+        <location filename="../../views/MainWindow.ui" line="1625"/>
+        <location filename="../../views/MainWindow.ui" line="1628"/>
         <source>Compress</source>
         <translation>Pakkaa</translation>
     </message>
@@ -291,268 +291,272 @@ Säästö: %4 (%5%)</translation>
         <translation>Pitkä reuna</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="796"/>
+        <location filename="../../views/MainWindow.ui" line="765"/>
+        <location filename="../../views/MainWindow.ui" line="806"/>
         <source>Width</source>
         <translation>Leveys</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="824"/>
-        <location filename="../../views/MainWindow.ui" line="868"/>
-        <location filename="../../views/MainWindow.ui" line="925"/>
-        <location filename="../../src/MainWindow.cpp" line="834"/>
-        <location filename="../../src/MainWindow.cpp" line="838"/>
+        <location filename="../../views/MainWindow.ui" line="875"/>
+        <location filename="../../src/MainWindow.cpp" line="833"/>
+        <location filename="../../src/MainWindow.cpp" line="837"/>
+        <location filename="../../src/MainWindow.cpp" line="872"/>
+        <location filename="../../src/MainWindow.cpp" line="875"/>
+        <location filename="../../src/MainWindow.cpp" line="884"/>
+        <location filename="../../src/MainWindow.cpp" line="887"/>
         <source>px</source>
         <translation>px</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="268"/>
-        <location filename="../../views/MainWindow.ui" line="840"/>
+        <location filename="../../views/MainWindow.ui" line="847"/>
         <source>Size</source>
         <translation>Koko</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="897"/>
+        <location filename="../../views/MainWindow.ui" line="770"/>
+        <location filename="../../views/MainWindow.ui" line="904"/>
         <source>Height</source>
         <translation>Korkeus</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="943"/>
+        <location filename="../../views/MainWindow.ui" line="947"/>
         <source>Do not enlarge</source>
         <translation>Älä suurenna</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="953"/>
+        <location filename="../../views/MainWindow.ui" line="957"/>
         <source>Keep aspect ratio</source>
         <translation>Pidä kuvasuhde</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="980"/>
+        <location filename="../../views/MainWindow.ui" line="984"/>
         <source>Output</source>
         <translation>Tulos</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1000"/>
+        <location filename="../../views/MainWindow.ui" line="1004"/>
         <source>Folder</source>
         <translation>Kansio</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1044"/>
+        <location filename="../../views/MainWindow.ui" line="1048"/>
         <source>Select...</source>
         <translation>Valitse...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1056"/>
+        <location filename="../../views/MainWindow.ui" line="1060"/>
         <source>Same folder as input</source>
         <translation>Sama kansio kuin alkuperäisellä</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1066"/>
+        <location filename="../../views/MainWindow.ui" line="1070"/>
         <source>Keep folder structure</source>
         <translation>Pidä kansion rakenne</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1073"/>
+        <location filename="../../views/MainWindow.ui" line="1077"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>Jätä väliin, jos tuloksen koko on isompi kuin alkuperäisen.</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1083"/>
+        <location filename="../../views/MainWindow.ui" line="1087"/>
         <source>Move the original file to trash</source>
         <translation>Siirrä alkuperäinen tiedosto roskakoriin.</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1097"/>
+        <location filename="../../views/MainWindow.ui" line="1101"/>
         <source>Keep file dates</source>
         <translation>Pidä tiedostopäivämäärät</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1112"/>
+        <location filename="../../views/MainWindow.ui" line="1116"/>
         <source>Creation</source>
         <translation>Luonti</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1119"/>
+        <location filename="../../views/MainWindow.ui" line="1123"/>
         <source>Last modified</source>
         <translation>Viimeksi muokattu</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1126"/>
+        <location filename="../../views/MainWindow.ui" line="1130"/>
         <source>Last access</source>
         <translation>Viimeksi käytetty</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1147"/>
+        <location filename="../../views/MainWindow.ui" line="1151"/>
         <source>Format</source>
         <translation>Formaatti</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1172"/>
+        <location filename="../../views/MainWindow.ui" line="1176"/>
         <source>Suffix</source>
         <translation>Jatke</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1224"/>
+        <location filename="../../views/MainWindow.ui" line="1228"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation>Uuteen formaattiin muuntaminen tai koon muuttaminen voi heikentää kuvan laatua, vaikka häviötön valinta olisi valittuna</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1351"/>
+        <location filename="../../views/MainWindow.ui" line="1355"/>
         <source>Original</source>
         <translation>Alkuperäinen</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1676"/>
-        <location filename="../../src/MainWindow.cpp" line="1160"/>
+        <location filename="../../views/MainWindow.ui" line="1680"/>
+        <location filename="../../src/MainWindow.cpp" line="1180"/>
         <source>Preview</source>
         <translation>Esikatselu</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1344"/>
+        <location filename="../../views/MainWindow.ui" line="1348"/>
         <source>Compressed</source>
         <translation>Pakattu</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1400"/>
+        <location filename="../../views/MainWindow.ui" line="1404"/>
         <source>Help</source>
         <translation>Apua</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1408"/>
+        <location filename="../../views/MainWindow.ui" line="1412"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1417"/>
+        <location filename="../../views/MainWindow.ui" line="1421"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1428"/>
+        <location filename="../../views/MainWindow.ui" line="1432"/>
         <source>View</source>
         <translation>Näytä</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1432"/>
-        <location filename="../../views/MainWindow.ui" line="1455"/>
+        <location filename="../../views/MainWindow.ui" line="1436"/>
+        <location filename="../../views/MainWindow.ui" line="1459"/>
         <source>Toolbar</source>
         <translation>Työkalupalkki</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1497"/>
+        <location filename="../../views/MainWindow.ui" line="1501"/>
         <source>About Caesium Image Compressor</source>
         <translation>Tietoa Caesium Kuvanpakkausohjelmasta</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1509"/>
+        <location filename="../../views/MainWindow.ui" line="1513"/>
         <source>Add files...</source>
         <translation>Lisää tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1512"/>
+        <location filename="../../views/MainWindow.ui" line="1516"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1521"/>
+        <location filename="../../views/MainWindow.ui" line="1525"/>
         <source>Add folder...</source>
         <translation>Lisää kansio...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1524"/>
+        <location filename="../../views/MainWindow.ui" line="1528"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1529"/>
-        <location filename="../../src/MainWindow.cpp" line="189"/>
+        <location filename="../../views/MainWindow.ui" line="1533"/>
+        <location filename="../../src/MainWindow.cpp" line="188"/>
         <source>Exit</source>
         <translation>Poistu</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1547"/>
+        <location filename="../../views/MainWindow.ui" line="1551"/>
         <source>Del</source>
         <translatorcomment>Poisto näppäippäin näppäimistöllä</translatorcomment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1552"/>
+        <location filename="../../views/MainWindow.ui" line="1556"/>
         <source>Select All</source>
         <translation>Valitse Kaikki</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1555"/>
+        <location filename="../../views/MainWindow.ui" line="1559"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1567"/>
+        <location filename="../../views/MainWindow.ui" line="1571"/>
         <source>Clear</source>
         <translation>Tyhjennä</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1578"/>
+        <location filename="../../views/MainWindow.ui" line="1582"/>
         <source>Show previews</source>
         <translation>Näytä esikatselut</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1587"/>
+        <location filename="../../views/MainWindow.ui" line="1591"/>
         <source>Preferences...</source>
         <translation>Asetukset...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1595"/>
+        <location filename="../../views/MainWindow.ui" line="1599"/>
         <source>Show original in file manager</source>
         <translation>Näytä alkuperäiset tiedostojenhallinnassa</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1600"/>
+        <location filename="../../views/MainWindow.ui" line="1604"/>
         <source>Show compressed in file manager</source>
         <translation>Näytä pakatut tiedostojenhallinnassa</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1609"/>
+        <location filename="../../views/MainWindow.ui" line="1613"/>
         <source>Donate</source>
         <translation>Lahjoita</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1635"/>
+        <location filename="../../views/MainWindow.ui" line="1639"/>
         <source>Icons</source>
         <translation>Kuvakkeet</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1643"/>
+        <location filename="../../views/MainWindow.ui" line="1647"/>
         <source>Icons and Text</source>
         <translation>Kuvakkeet ja Teksti</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1651"/>
+        <location filename="../../views/MainWindow.ui" line="1655"/>
         <source>Hide</source>
         <translation>Piilota</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1656"/>
+        <location filename="../../views/MainWindow.ui" line="1660"/>
         <source>Show</source>
         <translation>Näytä</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1664"/>
+        <location filename="../../views/MainWindow.ui" line="1668"/>
         <source>Auto preview</source>
         <translation>Automaattinen esikatselu</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1679"/>
+        <location filename="../../views/MainWindow.ui" line="1683"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="623"/>
-        <location filename="../../src/MainWindow.cpp" line="848"/>
-        <location filename="../../src/MainWindow.cpp" line="852"/>
+        <location filename="../../src/MainWindow.cpp" line="847"/>
+        <location filename="../../src/MainWindow.cpp" line="851"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="968"/>
+        <location filename="../../src/MainWindow.cpp" line="988"/>
         <source>images in list</source>
         <translation>kuvaa listassa</translation>
     </message>
@@ -734,7 +738,7 @@ Säästö: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="251"/>
+        <location filename="../../src/MainWindow.cpp" line="250"/>
         <source>Image Files</source>
         <translation>Kuvatiedostot</translation>
     </message>
@@ -769,37 +773,37 @@ Säästö: %4 (%5%)</translation>
         <translation>Alkuperäistä tiedostoa ei voitu siirtää roskakoriin, tarkista käyttöoikeutesi</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="397"/>
+        <location filename="../../src/models/CImage.cpp" line="392"/>
         <source>Compressing...</source>
         <translation>Pakataan...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="399"/>
+        <location filename="../../src/models/CImage.cpp" line="394"/>
         <source>Error:</source>
         <translation>Virhe:</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="134"/>
+        <location filename="../../src/utils/Utils.cpp" line="170"/>
         <source>File not found</source>
         <translation>Tiedostoa ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="210"/>
+        <location filename="../../src/utils/Utils.cpp" line="246"/>
         <source>Same as input</source>
         <translation>Sama kuin syöte</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="211"/>
+        <location filename="../../src/utils/Utils.cpp" line="247"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="212"/>
+        <location filename="../../src/utils/Utils.cpp" line="248"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="213"/>
+        <location filename="../../src/utils/Utils.cpp" line="249"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>

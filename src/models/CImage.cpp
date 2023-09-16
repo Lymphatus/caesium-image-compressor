@@ -28,7 +28,7 @@ CImage::CImage(const QString& path)
     this->extension = fileInfo.suffix();
     this->size = fileInfo.size();
 
-    if (this->size > 300 * 1024 * 1024) {
+    if (this->size > 500 * 1024 * 1024) {
         throw ImageTooBigException();
     }
 
@@ -217,7 +217,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
 
-    CCSResult result{};
+    CCSResult result {};
     if (compressionOptions.compressionMode == SIZE) {
         result = c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
     } else {
@@ -303,16 +303,11 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
         QImageReader imageReader(this->getFullPath());
         QSize originalSize = imageReader.size();
 
-        std::tuple<unsigned int, unsigned int> dimensions = cResize(originalSize,
-            compressionOptions.fitTo,
-            compressionOptions.width,
-            compressionOptions.height,
-            compressionOptions.size,
-            compressionOptions.doNotEnlarge);
+        std::tuple<unsigned int, unsigned int> dimensions = cResize(&imageReader, compressionOptions);
 
         if (std::get<0>(dimensions) != originalSize.width() || std::get<1>(dimensions) != originalSize.height()) {
-            r_parameters.width = std::get<0>(dimensions);
-            r_parameters.height = std::get<1>(dimensions);
+            r_parameters.width = (int)std::get<0>(dimensions);
+            r_parameters.height = (int)std::get<1>(dimensions);
         }
     }
     return r_parameters;
@@ -442,23 +437,6 @@ QString CImage::getPreviewFullPath() const
 QString CImage::getFormat() const
 {
     return this->format;
-}
-
-QSize CImage::getSizeWithMetadata(QImageReader* reader)
-{
-    QSize imageSize = reader->size();
-    QSize actualSize(imageSize.width(), imageSize.height());
-    QFlags<QImageIOHandler::Transformation> transformation = reader->transformation();
-    // We need to check if the image is rotated by metadata and adjust the values accordingly
-    if (transformation == QImageIOHandler::TransformationRotate90
-        || transformation == QImageIOHandler::TransformationMirrorAndRotate90
-        || transformation == QImageIOHandler::TransformationFlipAndRotate90
-        || transformation == QImageIOHandler::TransformationRotate270) {
-        actualSize.setWidth(imageSize.height());
-        actualSize.setHeight(imageSize.width());
-    }
-
-    return actualSize;
 }
 
 size_t CImage::getMaxOutputSizeInBytes(MaxOutputSize maxOutputSize, size_t originalSize)
