@@ -25,6 +25,9 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
     ui->changesAfterRestartTheme_Label->setVisible(false);
     ui->changesAfterRestartTheme_LabelIcon->setVisible(false);
 
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+    ui->postCompressionAction_ComboBox->removeItem(PostCompressionAction::SLEEP);
+#endif
     this->setupConnections();
 }
 
@@ -50,6 +53,7 @@ void PreferencesDialog::setupConnections()
     connect(ui->skipBySizeSize_SpinBox, &QSpinBox::valueChanged, this, &PreferencesDialog::onSkipBySizeValueChanged);
     connect(ui->skipBySizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeUnitChanged);
     connect(ui->skipCompressionDialogs_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipCompressionDialogsToggled);
+    connect(ui->postCompressionAction_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onPostCompressionActionChanged);
 }
 
 void PreferencesDialog::loadLanguages()
@@ -82,6 +86,7 @@ void PreferencesDialog::loadPreferences()
     ui->skipBySizeCondition_ComboBox->setCurrentIndex(settings.value("preferences/general/skip_by_size/condition", 0).toInt());
     ui->skipBySizeSize_SpinBox->setValue(settings.value("preferences/general/skip_by_size/value", 0).toInt());
     ui->skipBySizeUnit_ComboBox->setCurrentIndex(settings.value("preferences/general/skip_by_size/unit", 0).toInt());
+    ui->postCompressionAction_ComboBox->setCurrentIndex(settings.value("preferences/general/post_compression_action", 0).toInt());
     ui->language_ComboBox->setCurrentIndex(PreferencesDialog::getLocaleIndex());
 }
 
@@ -195,4 +200,9 @@ void PreferencesDialog::changeEvent(QEvent* event)
 void PreferencesDialog::onMultithreadingMaxThreadsChanged(int value)
 {
     QSettings().setValue("preferences/general/multithreading_max_threads", value);
+}
+
+void PreferencesDialog::onPostCompressionActionChanged(int value)
+{
+    QSettings().setValue("preferences/general/post_compression_action", value);
 }

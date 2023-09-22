@@ -302,33 +302,6 @@
       <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="0">
-       <widget class="QLabel" name="argsBehaviour_Label">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>When importing files directly</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="multithreading_CheckBox">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Multithreading</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="2">
        <spacer name="horizontalSpacer_2">
         <property name="orientation">
@@ -342,23 +315,34 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="3">
-       <widget class="QComboBox" name="argsBehaviour_ComboBox">
+      <item row="2" column="3">
+       <widget class="QSpinBox" name="multithreadingMaxThreads_SpinBox">
         <property name="font">
          <font>
           <bold>false</bold>
          </font>
         </property>
-        <item>
-         <property name="text">
-          <string>Import only</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Import and compress</string>
-         </property>
-        </item>
+        <property name="suffix">
+         <string> threads</string>
+        </property>
+        <property name="minimum">
+         <number>2</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="multithreading_CheckBox">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Multithreading</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item row="0" column="1">
@@ -391,18 +375,75 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="3">
-       <widget class="QSpinBox" name="multithreadingMaxThreads_SpinBox">
+      <item row="0" column="3">
+       <widget class="QComboBox" name="argsBehaviour_ComboBox">
         <property name="font">
          <font>
           <bold>false</bold>
          </font>
         </property>
-        <property name="suffix">
-         <string> threads</string>
+        <item>
+         <property name="text">
+          <string>Import only</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Import and compress</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="argsBehaviour_Label">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
         </property>
-        <property name="minimum">
-         <number>2</number>
+        <property name="text">
+         <string>When importing files directly</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QComboBox" name="postCompressionAction_ComboBox">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>No action</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Close the application</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sleep</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Shutdown</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QLabel" name="postCompressionAction_Label">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Perform an action after successful compression</string>
         </property>
        </widget>
       </item>

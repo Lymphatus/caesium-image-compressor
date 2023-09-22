@@ -58,6 +58,13 @@ enum MaxOutputSizeUnit {
     MAX_OUTPUT_PERCENTAGE = 3,
 };
 
+enum class PostCompressionAction {
+    NO_ACTION,
+    CLOSE_APPLICATION,
+    SLEEP,
+    SHUTDOWN
+};
+
 typedef struct CsMaxOutputSizeUnit {
     QString label;
     MaxOutputSizeUnit unit;

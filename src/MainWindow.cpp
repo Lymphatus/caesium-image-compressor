@@ -30,6 +30,7 @@
 
 #ifdef Q_OS_WIN
 #include "./updater/win/winsparkle.h"
+#include "utils/PostCompressionActions.h"
 #endif
 
 MainWindow::MainWindow(QWidget* parent)
@@ -776,16 +777,23 @@ void MainWindow::compressionFinished()
             << "\nCompressed size:" << toHumanSize(compressionSummary.totalCompressedSize)
             << "\nElapsed time:" << compressionSummary.elapsedTime << "ms";
 
+
     QString title = tr("Compression finished!");
     QString saved = toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize);
     QString savedPerc = QString::number(round((compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize) / compressionSummary.totalUncompressedSize * 100));
-    this->trayIcon->showMessage(title, tr("You just saved %1!").arg(saved), QSystemTrayIcon::NoIcon);
 
     ui->cancelCompression_Button->hide();
     ui->compression_ProgressBar->hide();
     ui->compressionProgress_Label->hide();
     this->toggleUIEnabled(true);
 
+    PostCompressionAction postCompressionAction = static_cast<PostCompressionAction>(settings.value("preferences/general/post_compression_action", 0).toInt());
+    if (postCompressionAction != PostCompressionAction::NO_ACTION) {
+        PostCompressionActions::runAction(postCompressionAction);
+        return;
+    }
+
+    this->trayIcon->showMessage(title, tr("You just saved %1!").arg(saved), QSystemTrayIcon::NoIcon);
     if (!settings.value("preferences/general/skip_compression_dialogs").toBool()) {
         QCaesiumMessageBox compressionSummaryDialog;
         compressionSummaryDialog.setText(title);

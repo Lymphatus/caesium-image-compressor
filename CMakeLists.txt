@@ -98,6 +98,7 @@ set(SOURCES
         src/utils/Utils.cpp
         src/utils/LanguageManager.cpp
         src/utils/Logger.cpp
+        src/utils/PostCompressionActions.cpp
         src/dialogs/AboutDialog.cpp
         src/widgets/QDropTreeView.cpp
         src/widgets/QZoomGraphicsView.cpp

@@ -31,6 +31,7 @@ private slots:
     static void onShowUsageDataLinkActivated([[maybe_unused]] const QString& link);
     static void onSkipCompressionDialogsToggled(bool checked);
     static void onMultithreadingMaxThreadsChanged(int value);
+    static void onPostCompressionActionChanged(int value);
 
 private:
     Ui::PreferencesDialog* ui;
