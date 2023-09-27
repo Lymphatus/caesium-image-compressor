@@ -1,5 +1,6 @@
 #include "PostCompressionActions.h"
 #include <QProcess>
+#include <utility>
 
 void PostCompressionActions::runAction(PostCompressionAction action)
 {
@@ -14,8 +15,20 @@ void PostCompressionActions::runAction(PostCompressionAction action)
         putMachineToSleep();
         break;
     default:
+    case PostCompressionAction::OPEN_FOLDER:
     case PostCompressionAction::NO_ACTION:
         break;
+    }
+}
+
+void PostCompressionActions::runAction(PostCompressionAction action, const QString& folder)
+{
+    switch (action) {
+    case PostCompressionAction::OPEN_FOLDER:
+        openOutputFolder(folder);
+        break;
+    default:
+        return runAction(action);
     }
 }
 
@@ -44,4 +57,9 @@ void PostCompressionActions::putMachineToSleep()
 #ifdef Q_OS_MAC
     system("pmset sleepnow");
 #endif
+}
+
+void PostCompressionActions::openOutputFolder(const QString& folder)
+{
+    showDirectoryInNativeFileManager(folder);
 }

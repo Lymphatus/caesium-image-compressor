@@ -188,6 +188,11 @@ void showFileInNativeFileManager(const QString& filePath, const QString& fallbac
     QDesktopServices::openUrl(QUrl::fromLocalFile(fallbackDirectory));
 }
 
+void showDirectoryInNativeFileManager(const QString& dirPath)
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(dirPath));
+}
+
 QJsonObject getSystemData()
 {
     QSettings settings;

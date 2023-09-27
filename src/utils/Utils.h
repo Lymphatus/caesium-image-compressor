@@ -62,7 +62,8 @@ enum class PostCompressionAction {
     NO_ACTION,
     CLOSE_APPLICATION,
     SLEEP,
-    SHUTDOWN
+    SHUTDOWN,
+    OPEN_FOLDER
 };
 
 typedef struct CsMaxOutputSizeUnit {
@@ -147,6 +148,7 @@ std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const Compr
 QSize getSizeWithMetadata(QImageReader* reader);
 bool isRotatedByMetadata(QImageReader*  reader);
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
+void showDirectoryInNativeFileManager(const QString& dirPath);
 QJsonObject getSystemData();
 QJsonObject getCompressionOptionsAsJSON();
 QString getCompressionOptionsHash();

@@ -789,7 +789,7 @@ void MainWindow::compressionFinished()
 
     PostCompressionAction postCompressionAction = static_cast<PostCompressionAction>(settings.value("preferences/general/post_compression_action", 0).toInt());
     if (postCompressionAction != PostCompressionAction::NO_ACTION) {
-        PostCompressionActions::runAction(postCompressionAction);
+        PostCompressionActions::runAction(postCompressionAction, ui->outputFolder_LineEdit->text());
         return;
     }
 

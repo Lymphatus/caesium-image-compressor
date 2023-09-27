@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>537</width>
-    <height>419</height>
+    <height>446</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -431,6 +431,11 @@
         <item>
          <property name="text">
           <string>Shutdown</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Open output folder</string>
          </property>
         </item>
        </widget>
