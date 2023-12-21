@@ -242,7 +242,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             }
         }
 
-        bool copyResult = False
+        bool copyResult = false
         if (!outputIsBiggerThanInput) {
             inputCopyFile = tempFileFullPath;
             copyResult = QFile::copy(inputCopyFile, outputFullPath);
