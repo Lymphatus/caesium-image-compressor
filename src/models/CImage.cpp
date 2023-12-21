@@ -242,16 +242,17 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             }
         }
 
+        bool copyResult = False
         if (!outputIsBiggerThanInput) {
             inputCopyFile = tempFileFullPath;
-            bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
+            copyResult = QFile::copy(inputCopyFile, outputFullPath);
         } else {
             this->status = CImageStatus::WARNING;
             this->additionalInfo = QIODevice::tr("Skipped: compressed file is bigger than original");
             // Overwrite output file name with original file name to avoid broken extension (ex: .png named .webp) 
             fullFileName = inputFileInfo.filename()
             outputFullPath = outputDir.absoluteFilePath(fullFileName);    
-            bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
+            copyResult = QFile::copy(inputCopyFile, outputFullPath);
             if (outputAlreadyExists) {
                 QFileInfo outputFileInfo = QFileInfo(outputFullPath);
                 this->setCompressedInfo(outputFileInfo);
