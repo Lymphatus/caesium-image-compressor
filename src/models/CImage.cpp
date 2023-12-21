@@ -250,7 +250,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             this->status = CImageStatus::WARNING;
             this->additionalInfo = QIODevice::tr("Skipped: compressed file is bigger than original");
             // Overwrite output file name with original file name to avoid broken extension (ex: .png named .webp) 
-            fullFileName = inputFileInfo.filename()
+            fullFileName = inputFileInfo.filename();
             outputFullPath = outputDir.absoluteFilePath(fullFileName);    
             copyResult = QFile::copy(inputCopyFile, outputFullPath);
             if (outputAlreadyExists) {
