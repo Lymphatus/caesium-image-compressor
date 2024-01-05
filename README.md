@@ -2,6 +2,8 @@
 
 [![Build](https://github.com/Lymphatus/caesium-image-compressor/actions/workflows/build-qt.yml/badge.svg)](https://github.com/Lymphatus/caesium-image-compressor/actions/workflows/build-qt.yml)
 
+Try it directly on browser at [caesium.app](https://caesium.app)
+
 ###### v2.6.0
 
 ![caesium_screenshot_20220915](https://user-images.githubusercontent.com/12133996/190349051-6baebec3-9937-4047-8670-fb025c6c4869.PNG)
