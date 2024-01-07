@@ -14,8 +14,8 @@ public:
     explicit PreferencesDialog(QWidget* parent = nullptr);
     ~PreferencesDialog() override;
 
-    private slots:
-        void onLanguageChanged(int index);
+private slots:
+    void onLanguageChanged(int index);
     void onThemeChanged(int index);
     static int getLocaleIndex();
     static void onArgsBehaviourChanged(int index);
