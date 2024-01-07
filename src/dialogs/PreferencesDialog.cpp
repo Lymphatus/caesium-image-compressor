@@ -27,9 +27,6 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
     ui->changesAfterRestartTheme_LabelIcon->setVisible(false);
     ui->restart_Button->setVisible(false);
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-    ui->postCompressionAction_ComboBox->removeItem(PostCompressionAction::SLEEP);
-#endif
     this->setupConnections();
 }
 
