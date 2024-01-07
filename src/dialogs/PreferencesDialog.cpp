@@ -6,8 +6,9 @@
 #include "utils/LanguageManager.h"
 #include "utils/Utils.h"
 #include <QJsonDocument>
+#include <QProcess>
 #include <QSettings>
-#include <QStyleFactory>
+
 
 PreferencesDialog::PreferencesDialog(QWidget* parent)
     : QDialog(parent)
@@ -24,6 +25,7 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 
     ui->changesAfterRestartTheme_Label->setVisible(false);
     ui->changesAfterRestartTheme_LabelIcon->setVisible(false);
+    ui->restart_Button->setVisible(false);
 
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
     ui->postCompressionAction_ComboBox->removeItem(PostCompressionAction::SLEEP);
@@ -54,6 +56,7 @@ void PreferencesDialog::setupConnections()
     connect(ui->skipBySizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeUnitChanged);
     connect(ui->skipCompressionDialogs_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipCompressionDialogsToggled);
     connect(ui->postCompressionAction_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onPostCompressionActionChanged);
+    connect(ui->restart_Button, &QPushButton::pressed, this, &PreferencesDialog::onRestartButtonPressed);
 }
 
 void PreferencesDialog::loadLanguages()
@@ -133,6 +136,7 @@ void PreferencesDialog::onThemeChanged(int index)
     }
     ui->changesAfterRestartTheme_Label->setVisible(true);
     ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
+    ui->restart_Button->setVisible(true);
     QSettings().setValue("preferences/general/theme", themeIndex);
 }
 
@@ -205,4 +209,10 @@ void PreferencesDialog::onMultithreadingMaxThreadsChanged(int value)
 void PreferencesDialog::onPostCompressionActionChanged(int value)
 {
     QSettings().setValue("preferences/general/post_compression_action", value);
+}
+
+void PreferencesDialog::onRestartButtonPressed()
+{
+    qApp->quit();
+    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
 }

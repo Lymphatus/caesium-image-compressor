@@ -1,6 +1,4 @@
 #include "PostCompressionActions.h"
-#include <QProcess>
-#include <utility>
 
 void PostCompressionActions::runAction(PostCompressionAction action)
 {
@@ -43,7 +41,7 @@ void PostCompressionActions::shutdownMachine()
     system("shutdown /s");
 #endif
 
-#ifdef Q_OS_MAC
+#if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
     system("shutdown -h now");
 #endif
 }
@@ -56,6 +54,10 @@ void PostCompressionActions::putMachineToSleep()
 
 #ifdef Q_OS_MAC
     system("pmset sleepnow");
+#endif
+
+#ifdef Q_OS_LINUX
+    system("systemctl suspend");
 #endif
 }
 

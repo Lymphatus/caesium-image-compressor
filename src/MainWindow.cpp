@@ -1,22 +1,18 @@
 #include "MainWindow.h"
-#include "./delegates/HtmlDelegate.h"
-#include "./exceptions/ImageNotSupportedException.h"
+#include "delegates/HtmlDelegate.h"
+#include "exceptions/ImageNotSupportedException.h"
 #include "exceptions/ImageTooBigException.h"
 #include "ui_MainWindow.h"
 #include "utils/LanguageManager.h"
 #include "utils/Logger.h"
-
+#include "utils/PostCompressionActions.h"
 #include <QDesktopServices>
 #include <QFileDialog>
-#include <QMessageBox>
 #include <QMovie>
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QScrollBar>
-#include <QStandardPaths>
-#include <QTime>
 #include <QWheelEvent>
-#include <QWidgetAction>
 #include <QWindow>
 #include <QtConcurrent>
 #include <dialogs/PreferencesDialog.h>
@@ -30,7 +26,6 @@
 
 #ifdef Q_OS_WIN
 #include "./updater/win/winsparkle.h"
-#include "utils/PostCompressionActions.h"
 #endif
 
 MainWindow::MainWindow(QWidget* parent)
@@ -776,7 +771,6 @@ void MainWindow::compressionFinished()
             << "\nUncompressed size:" << toHumanSize(compressionSummary.totalUncompressedSize)
             << "\nCompressed size:" << toHumanSize(compressionSummary.totalCompressedSize)
             << "\nElapsed time:" << compressionSummary.elapsedTime << "ms";
-
 
     QString title = tr("Compression finished!");
     QString saved = toHumanSize(compressionSummary.totalUncompressedSize - compressionSummary.totalCompressedSize);

@@ -7,24 +7,24 @@
         <entry key="Debug">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.2/mingw_64/./qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.2/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.3/mingw_64/./qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.3/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
         <entry key="Release">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.2/mingw_64/./qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.2/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.3/mingw_64/./qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.3/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
         <entry key="Release (Portable)">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.2/mingw_64/./qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.2/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.3/mingw_64/./qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.5.3/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
