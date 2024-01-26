@@ -2,20 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QButtonGroup>
-#include <QCloseEvent>
-#include <QDialog>
 #include <QFutureWatcher>
-#include <QGraphicsScene>
 #include <QItemSelection>
 #include <QMainWindow>
-#include <QNetworkAccessManager>
 #include <QShowEvent>
-#include <QSortFilterProxyModel>
 #include <QSystemTrayIcon>
 #include <climits>
 #include <dialogs/AboutDialog.h>
 
-#include "models/CImage.h"
 #include "models/CImageSortFilterProxyModel.h"
 #include "models/CImageTreeModel.h"
 #include "network/NetworkOperations.h"
@@ -124,7 +118,6 @@ private:
     QSystemTrayIcon* trayIcon;
     QTranslator* translator;
 
-private:
     void initStatusBar();
     void initUpdater();
     void initListContextMenu();

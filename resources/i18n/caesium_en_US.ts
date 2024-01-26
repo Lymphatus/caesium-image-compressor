@@ -112,19 +112,19 @@ Do you really want to continue?</translation>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1161"/>
-        <location filename="../../src/MainWindow.cpp" line="1166"/>
+        <location filename="../../src/MainWindow.cpp" line="1160"/>
+        <location filename="../../src/MainWindow.cpp" line="1165"/>
         <source>File not found</source>
         <translation>File not found</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1197"/>
+        <location filename="../../src/MainWindow.cpp" line="1196"/>
         <source>Finishing...</source>
         <translation>Finishing...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="607"/>
-        <location filename="../../src/MainWindow.cpp" line="1264"/>
+        <location filename="../../src/MainWindow.cpp" line="1263"/>
         <source>Compressing...</source>
         <translation>Compressing...</translation>
     </message>
@@ -406,7 +406,7 @@ Saved: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1680"/>
-        <location filename="../../src/MainWindow.cpp" line="1182"/>
+        <location filename="../../src/MainWindow.cpp" line="1181"/>
         <source>Preview</source>
         <translation>Preview</translation>
     </message>
@@ -556,7 +556,7 @@ Saved: %4 (%5%)</translation>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="990"/>
+        <location filename="../../src/MainWindow.cpp" line="989"/>
         <source>images in list</source>
         <translation>images in list</translation>
     </message>

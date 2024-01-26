@@ -891,7 +891,6 @@ void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index)
         break;
     }
 
-    qDebug() << ui->width_SpinBox->suffix();
     this->writeSetting("compression_options/resize/fit_to", index);
     this->toggleLosslessWarningVisible();
 }
