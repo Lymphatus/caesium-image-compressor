@@ -595,37 +595,37 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="418"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessuna azione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="423"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi l&apos;applicazione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>Sospendi</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Spegni</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="438"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri la cartella di destinazione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="451"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Esegui un&apos;azione dopo una compressione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="523"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Riavvia</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="549"/>

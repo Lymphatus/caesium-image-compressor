@@ -34,7 +34,7 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 ### Build from source
 ##### Requirements
 - [Rust](https://www.rust-lang.org/tools/install): required to compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
-- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.5.1 (open source)
+- [Qt6 SDK](https://www.qt.io/download/): binaries are built on 6.5.3 (open source)
 - [libssh](https://www.libssh.org/): macOS only
 - [Sparkle](https://sparkle-project.org/): macOS only. Only version 1.27.1 is supported.
 
@@ -70,24 +70,24 @@ cmake --build build_dir --config Release --target caesium_image_compressor
 ### Languages and translations
 The 1.0 version of Caesium had a lot of community made translations, but this 2.0 release has a whole new set of strings and no old translations can be used anymore.   
 Caesium 2.0 is currently available in:
-- <img src="https://flagcdn.com/h20/eg.png" srcset="https://flagcdn.com/h40/eg.png 2x" height="12" alt="EG"> ar_EG ![78%](https://progress-bar.dev/78)
-- <img src="https://flagcdn.com/h20/de.png" srcset="https://flagcdn.com/h40/de.png 2x" height="12" alt="DE"> de_DE ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/gr.png" srcset="https://flagcdn.com/h40/gr.png 2x" height="12" alt="GR"> el_GR ![95%](https://progress-bar.dev/95)
+- <img src="https://flagcdn.com/h20/eg.png" srcset="https://flagcdn.com/h40/eg.png 2x" height="12" alt="EG"> ar_EG ![75%](https://progress-bar.dev/75)
+- <img src="https://flagcdn.com/h20/de.png" srcset="https://flagcdn.com/h40/de.png 2x" height="12" alt="DE"> de_DE ![96%](https://progress-bar.dev/96)
+- <img src="https://flagcdn.com/h20/gr.png" srcset="https://flagcdn.com/h40/gr.png 2x" height="12" alt="GR"> el_GR ![91%](https://progress-bar.dev/91)
 - <img src="https://flagcdn.com/h20/us.png" srcset="https://flagcdn.com/h40/us.png 2x" height="12" alt="US"> en_US ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/es.png" srcset="https://flagcdn.com/h40/es.png 2x" height="12" alt="ES"> es_ES ![93%](https://progress-bar.dev/93)
-- <img src="https://flagcdn.com/h20/fi.png" srcset="https://flagcdn.com/h40/fi.png 2x" height="12" alt="FI"> fi_FI ![99%](https://progress-bar.dev/99)
-- <img src="https://flagcdn.com/h20/fr.png" srcset="https://flagcdn.com/h40/fr.png 2x" height="12" alt="FR"> fr_FR ![76%](https://progress-bar.dev/76)
-- <img src="https://flagcdn.com/h20/in.png" srcset="https://flagcdn.com/h40/in.png 2x" height="12" alt="IN"> hi_IN ![99%](https://progress-bar.dev/99)
-- <img src="https://flagcdn.com/h20/id.png" srcset="https://flagcdn.com/h40/id.png 2x" height="12" alt="ID"> id_ID ![95%](https://progress-bar.dev/95)
+- <img src="https://flagcdn.com/h20/es.png" srcset="https://flagcdn.com/h40/es.png 2x" height="12" alt="ES"> es_ES ![89%](https://progress-bar.dev/89)
+- <img src="https://flagcdn.com/h20/fi.png" srcset="https://flagcdn.com/h40/fi.png 2x" height="12" alt="FI"> fi_FI ![95%](https://progress-bar.dev/95)
+- <img src="https://flagcdn.com/h20/fr.png" srcset="https://flagcdn.com/h40/fr.png 2x" height="12" alt="FR"> fr_FR ![89%](https://progress-bar.dev/89)
+- <img src="https://flagcdn.com/h20/in.png" srcset="https://flagcdn.com/h40/in.png 2x" height="12" alt="IN"> hi_IN ![95%](https://progress-bar.dev/95)
+- <img src="https://flagcdn.com/h20/id.png" srcset="https://flagcdn.com/h40/id.png 2x" height="12" alt="ID"> id_ID ![91%](https://progress-bar.dev/91)
 - <img src="https://flagcdn.com/h20/it.png" srcset="https://flagcdn.com/h40/it.png 2x" height="12" alt="IT"> it_IT ![100%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/jp.png" srcset="https://flagcdn.com/h40/jp.png 2x" height="12" alt="JP"> ja_JP ![83%](https://progress-bar.dev/83)
-- <img src="https://flagcdn.com/h20/pl.png" srcset="https://flagcdn.com/h40/pl.png 2x" height="12" alt="PL"> pl_PL ![93%](https://progress-bar.dev/93)
-- <img src="https://flagcdn.com/h20/br.png" srcset="https://flagcdn.com/h40/br.png 2x" height="12" alt="BR"> pt_BR ![83%](https://progress-bar.dev/83)
-- <img src="https://flagcdn.com/h20/ru.png" srcset="https://flagcdn.com/h40/ru.png 2x" height="12" alt="RU"> ru_RU ![95%](https://progress-bar.dev/95)
-- <img src="https://flagcdn.com/h20/sk.png" srcset="https://flagcdn.com/h40/sk.png 2x" height="12" alt="SK"> sk_SK ![93%](https://progress-bar.dev/93)
-- <img src="https://flagcdn.com/h20/tr.png" srcset="https://flagcdn.com/h40/tr.png 2x" height="12" alt="TR"> tr_TR ![95%](https://progress-bar.dev/95)
-- <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> zh_CN ![95%](https://progress-bar.dev/100)
-- <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> zh_TW ![61%](https://progress-bar.dev/100)
+- <img src="https://flagcdn.com/h20/jp.png" srcset="https://flagcdn.com/h40/jp.png 2x" height="12" alt="JP"> ja_JP ![95%](https://progress-bar.dev/95)
+- <img src="https://flagcdn.com/h20/pl.png" srcset="https://flagcdn.com/h40/pl.png 2x" height="12" alt="PL"> pl_PL ![89%](https://progress-bar.dev/89)
+- <img src="https://flagcdn.com/h20/br.png" srcset="https://flagcdn.com/h40/br.png 2x" height="12" alt="BR"> pt_BR ![79%](https://progress-bar.dev/79)
+- <img src="https://flagcdn.com/h20/ru.png" srcset="https://flagcdn.com/h40/ru.png 2x" height="12" alt="RU"> ru_RU ![91%](https://progress-bar.dev/91)
+- <img src="https://flagcdn.com/h20/sk.png" srcset="https://flagcdn.com/h40/sk.png 2x" height="12" alt="SK"> sk_SK ![89%](https://progress-bar.dev/89)
+- <img src="https://flagcdn.com/h20/tr.png" srcset="https://flagcdn.com/h40/tr.png 2x" height="12" alt="TR"> tr_TR ![91%](https://progress-bar.dev/91)
+- <img src="https://flagcdn.com/h20/cn.png" srcset="https://flagcdn.com/h40/cn.png 2x" height="12" alt="CN"> zh_CN ![96%](https://progress-bar.dev/96)
+- <img src="https://flagcdn.com/h20/tw.png" srcset="https://flagcdn.com/h40/tw.png 2x" height="12" alt="TW"> zh_TW ![95%](https://progress-bar.dev/95)
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

@@ -24,7 +24,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           aqtversion: '==3.0.*'
-          version: '6.5.2'
+          version: '6.5.3'
           host: 'windows'
           target: 'desktop'
           arch: 'win64_mingw'
@@ -40,40 +40,40 @@ jobs:
       - name: Build
         run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
 
-#  build-macos:
-#    runs-on: macos-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v3
-#
-#      - name: Cache libcaesium
-#        id: cache-libcaesium
-#        uses: actions/cache@v3
-#        env:
-#          cache-name: cache-libcaesium
-#        with:
-#          path: ${{github.workspace}}/build-${{ runner.os }}/libcaesium-prefix
-#          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/libcaesium.conf') }}
-#
-#      - name: Install Qt
-#        uses: jurplel/install-qt-action@v3
-#        with:
-#          aqtversion: '==3.0.*'
-#          version: '6.5.2'
-#          host: 'mac'
-#          target: 'desktop'
-#          arch: 'clang_64'
-#          modules: 'qtimageformats'
-#          cache: true
-#
-#      - name: Setup Sparkle
-#        run: brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/c6dfe6baf1639998ba1707f68668cf8fa97bac9d/Casks/sparkle.rb && sudo cp -R /usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework /Library/Frameworks/Sparkle.framework
-#
-#      - name: Configure CMake
-#        run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
-#
-#      - name: Build
-#        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache libcaesium
+        id: cache-libcaesium
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-libcaesium
+        with:
+          path: ${{github.workspace}}/build-${{ runner.os }}/libcaesium-prefix
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/libcaesium.conf') }}
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          aqtversion: '==3.0.*'
+          version: '6.5.3'
+          host: 'mac'
+          target: 'desktop'
+          arch: 'clang_64'
+          modules: 'qtimageformats'
+          cache: true
+
+      - name: Setup Sparkle
+        run: brew install --cask https://raw.githubusercontent.com/Homebrew/homebrew-cask/c6dfe6baf1639998ba1707f68668cf8fa97bac9d/Casks/sparkle.rb && sudo cp -R /usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework /Library/Frameworks/Sparkle.framework
+
+      - name: Configure CMake
+        run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
 
   build-ubuntu:
     runs-on: ubuntu-latest
@@ -94,7 +94,7 @@ jobs:
         uses: jurplel/install-qt-action@v3
         with:
           aqtversion: '==3.0.*'
-          version: '6.5.2'
+          version: '6.5.3'
           host: 'linux'
           target: 'desktop'
           arch: 'gcc_64'
