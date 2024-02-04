@@ -8,6 +8,9 @@ Try it directly on browser at [caesium.app](https://caesium.app)
 
 ![caesium_screenshot_20220915](https://user-images.githubusercontent.com/12133996/190349051-6baebec3-9937-4047-8670-fb025c6c4869.PNG)
 
+### Special Thanks
+<a href="https://github.com/7eventech77"><img src="https://github.com/7eventech77.png" width="30px" alt="7eventech77" style="border-radius: 100%;" /></a>
+
 ----------
 ### What is it for
 Caesium is an image compression software that helps you store, send and share digital pictures, supporting JPG, PNG and WebP formats.  
