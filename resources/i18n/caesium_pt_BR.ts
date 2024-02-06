@@ -63,7 +63,7 @@ Todos os direitos reservados.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
-        <translation>Info</translation>
+        <translation>Informação</translation>
     </message>
 </context>
 <context>
@@ -347,7 +347,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1087"/>
         <source>Move the original file to trash</source>
-        <translation>Mover o original para a lixeira</translation>
+        <translation>Mover o arquivo original para a lixeira</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1101"/>
@@ -413,7 +413,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1228"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation>Converter para um novo formato ou redimensionar pode degradar a qualidade mesmo se a opção &quot;sem perdas&quot; estiver selecionada</translation>
+        <translation>Converter para um novo formato ou redimensionar pode degradar a qualidade, mesmo se a opção &quot;sem perdas&quot; estiver selecionada</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1404"/>
@@ -606,7 +606,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>equal to</source>
-        <translation>Igual a</translation>
+        <translation>igual a</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="239"/>
@@ -636,7 +636,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation>Essa opção apenas é aplicada quando usando a linha de comando ou jogando arquivos no icone da aplicação</translation>
+        <translation>Essa opção apenas é aplicada quando utilizando a linha de comando ou jogando arquivos no icone da aplicação</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="326"/>
@@ -671,7 +671,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="451"/>
         <source>Perform an action after successful compression</source>
-        <translation>Performar ação após compressão bem sucedida</translation>
+        <translation>Performe uma ação após compressão bem sucedida</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="510"/>
