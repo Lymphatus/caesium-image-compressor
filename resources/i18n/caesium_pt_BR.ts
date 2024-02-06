@@ -228,12 +228,12 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="676"/>
         <source>Maximum output size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho máximo de saida</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="575"/>
@@ -347,7 +347,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1087"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover o original para a lixeira</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1101"/>
@@ -372,7 +372,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1151"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Formato</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1176"/>
@@ -398,22 +398,22 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="613"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="618"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1228"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Converter para um novo formato ou redimensionar pode degradar a qualidade mesmo se a opção &quot;sem perdas&quot; estiver selecionada</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1404"/>
@@ -546,7 +546,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1683"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="623"/>
@@ -571,7 +571,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="523"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="549"/>
@@ -591,87 +591,87 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="198"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished"></translation>
+        <translation>Não importar se tamanho maior que</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="229"/>
         <source>greater than</source>
-        <translation type="unfinished"></translation>
+        <translation>maior que</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>equal to</source>
-        <translation type="unfinished"></translation>
+        <translation>Igual a</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="239"/>
         <source>less than</source>
-        <translation type="unfinished"></translation>
+        <translation>menor que</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="271"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="405"/>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando importando arquivos diretamente</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="387"/>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Apenas importe</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="392"/>
         <source>Import and compress</source>
-        <translation type="unfinished"></translation>
+        <translation>Importe e comprima</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Essa opção apenas é aplicada quando usando a linha de comando ou jogando arquivos no icone da aplicação</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="326"/>
         <source> threads</source>
-        <translation type="unfinished"></translation>
+        <translation> threads</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="418"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhuma ação</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="423"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar a aplicação</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>Hibernar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Desligar</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="438"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir pasta de saida</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="451"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Performar ação após compressão bem sucedida</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="510"/>
@@ -705,17 +705,17 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Pular mensagens e diálogos de alerta durante compressão</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="281"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="299"/>
@@ -797,7 +797,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível mover arquivo original para a lixeira, verifique suas permissões</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="398"/>
@@ -817,7 +817,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="251"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation>Mesmo que origem</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="252"/>
