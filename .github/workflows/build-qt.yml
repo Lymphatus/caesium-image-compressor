@@ -73,7 +73,7 @@ jobs:
         run: cmake -B build_dir -DCMAKE_PREFIX_PATH="${{env.Qt6_Dir}}" -DSPARKLE_INCLUDE_DIR=/usr/local/Caskroom/sparkle/1.27.1/Sparkle.framework/Versions/Current/Headers -DLIBSSH_INCLUDE_DIR=/usr/local/opt/openssl/ -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build-${{ runner.os }}
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor
+        run: cmake --build ${{github.workspace}}/build-${{ runner.os }} --config Release --target caesium_image_compressor -j1
 
   build-ubuntu:
     runs-on: ubuntu-latest
