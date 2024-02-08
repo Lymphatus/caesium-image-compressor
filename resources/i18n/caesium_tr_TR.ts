@@ -287,7 +287,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1151"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Biçim</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1176"/>
@@ -297,7 +297,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1228"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yeni bir formata dönüştürmek veya yeniden boyutlandırmak, &quot;kayıpsız&quot; seçeneği seçili olsa bile kaliteyi düşürebilir</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1268"/>
@@ -560,37 +560,37 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="418"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Eylem yok</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="423"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Uygulamayı kapat</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="428"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Uyku</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="433"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kapat</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="438"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Çıktı klasörünü aç</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="451"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Başarılı sıkıştırmadan sonra bir eylem gerçekleştir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="523"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yeniden başlat</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="549"/>
@@ -634,7 +634,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="326"/>
         <source> threads</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İş parçacığı</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="510"/>
@@ -654,7 +654,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="341"/>
         <source>Multithreading</source>
-        <translation>Multithreading</translation>
+        <translation>Çoklu iş parçacığı</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="78"/>
@@ -669,7 +669,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sıkıştırma sırasında mesaj ve uyarı iletişim kutularını atla</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="198"/>
@@ -844,7 +844,7 @@ Kaydedildi: %4 (%5%)</translation>
     <name>QUnifiedPreview</name>
     <message>
         <source>Preview</source>
-        <translation type="obsolete">Ön izleme</translation>
+        <translation type="obsolete">Önizle</translation>
     </message>
 </context>
 <context>
