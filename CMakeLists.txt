@@ -27,7 +27,7 @@ else ()
     project(${TARGET} LANGUAGES CXX)
 endif ()
 
-find_library(LIBCAESIUM libcaesium)
+find_library(LIBCAESIUM caesium)
 if (NOT LIBCAESIUM)
     find_program(CARGO "cargo" REQUIRED)
 endif ()
@@ -204,7 +204,7 @@ else()
 endif ()
 
 if (LIBCAESIUM)
-    add_dependencies(caesium_image_compressor ${LIBCAESIUM})
+    target_link_libraries(${TARGET} PRIVATE ${LIBCAESIUM})
 else ()
     ExternalProject_Add(
             libcaesium
@@ -218,7 +218,7 @@ else ()
             LOG_BUILD ON
             BUILD_BYPRODUCTS ${LIBCAESIUM_EXTERNAL_PATH}
     )
-    add_dependencies(caesium_image_compressor libcaesium)
+    add_dependencies(${TARGET} libcaesium)
 endif ()
 
 # --- WinSparkle ---
@@ -249,7 +249,10 @@ elseif (WIN32)
     target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql winsparkle ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll)
 else ()
     set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "caesium-image-compressor")
-    target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql caesium)
+    target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Sql)
+    if (NOT LIBCAESIUM)
+        target_link_libraries(${TARGET} PRIVATE caesium)
+    endif ()
 endif ()
 
 add_subdirectory(tests)
