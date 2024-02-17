@@ -228,15 +228,18 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         QFileInfo outputInfo(tempFileFullPath);
 
         bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size() && compressionOptions.skipIfBigger;
-        bool inputAlreadyMovedToTrash = false;
+        bool inputAlreadyMoved = false;
         if (outputAlreadyExists && !outputIsBiggerThanInput) {
             if (compressionOptions.sameFolderAsInput) {
-                bool trashingResult = QFile::moveToTrash(outputFullPath);
+                bool trashingResult = false;
+                if (!compressionOptions.moveOriginalFile || (compressionOptions.moveOriginalFile && compressionOptions.moveOriginalFileDestination == 0)) {
+                    trashingResult = QFile::moveToTrash(outputFullPath);
+                }
                 // Can fail in some conditions, like NAS storages. Fallback to normal remove.
                 if (!trashingResult) {
                     QFile::remove(outputFullPath);
                 }
-                inputAlreadyMovedToTrash = true;
+                inputAlreadyMoved = true;
             } else {
                 QFile::remove(outputFullPath);
             }
@@ -249,9 +252,9 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         } else {
             this->status = CImageStatus::WARNING;
             this->additionalInfo = QIODevice::tr("Skipped: compressed file is bigger than original");
-            // Overwrite output file name with original file name to avoid broken extension (ex: .png named .webp) 
+            // Overwrite output file name with original file name to avoid broken extension (ex: .png named .webp)
             fullFileName = inputFileInfo.fileName();
-            outputFullPath = outputDir.absoluteFilePath(fullFileName);    
+            outputFullPath = outputDir.absoluteFilePath(fullFileName);
             copyResult = QFile::copy(inputCopyFile, outputFullPath);
             if (outputAlreadyExists) {
                 QFileInfo outputFileInfo = QFileInfo(outputFullPath);
@@ -259,17 +262,19 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
                 return true;
             }
         }
-        
+
         if (!copyResult) {
             qCritical() << "Failed to copy from" << inputCopyFile << "to" << outputFullPath;
             this->additionalInfo = QIODevice::tr("Cannot copy output file, check your permissions");
             return false;
         }
-        if (compressionOptions.moveToTrash && !inputAlreadyMovedToTrash) {
-            bool trashingResult = QFile::moveToTrash(this->getFullPath());
-            if (!trashingResult) {
+        if (compressionOptions.moveOriginalFile && !inputAlreadyMoved) {
+            if (compressionOptions.moveOriginalFileDestination == 0 && !QFile::moveToTrash(this->getFullPath())) {
                 qWarning() << "Cannot move to trash file" << this->getFullPath();
                 this->additionalInfo = QIODevice::tr("Cannot move original file to trash, check your permissions");
+            } else if (compressionOptions.moveOriginalFileDestination == 1 && !QFile::remove(this->getFullPath())) {
+                qWarning() << "Cannot delete file" << this->getFullPath();
+                this->additionalInfo = QIODevice::tr("Cannot delete original file, check your permissions");
             }
         }
 
@@ -296,9 +301,12 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
         static_cast<unsigned int>(compressionOptions.jpeg_quality),
         0,
         static_cast<unsigned int>(compressionOptions.png_quality),
+        6,
         false,
         20,
         static_cast<unsigned int>(compressionOptions.webp_quality),
+        1,
+        3,
         lossless,
         0,
         0,

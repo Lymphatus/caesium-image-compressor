@@ -89,11 +89,13 @@ private slots:
     void on_actionPreview_triggered();
     void on_skipIfBigger_CheckBox_toggled(bool checked);
     void outputFormatIndexChanged(int index);
-    void moveOriginalFileToTrashToggled(bool checked);
+    void moveOriginalFileToggled(bool checked);
+    void moveOriginalFileDestinationChanged(int index);
     void importFromArgs(QStringList);
     void onMaxOutputSizeChanged(int value);
     void onMaxOutputSizeUnitChanged(int value);
     void onCompressionModeChanged(int value);
+    void onAdvancedImportTriggered();
 
 private:
     Ui::MainWindow* ui;

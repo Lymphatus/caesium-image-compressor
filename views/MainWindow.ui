@@ -209,7 +209,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -1082,11 +1082,45 @@
                 </widget>
                </item>
                <item>
-                <widget class="QCheckBox" name="moveOriginalFileToTrash_CheckBox">
-                 <property name="text">
-                  <string>Move the original file to trash</string>
+                <layout class="QHBoxLayout" name="moveOriginalFile_HorizontalLayout">
+                 <property name="spacing">
+                  <number>0</number>
                  </property>
-                </widget>
+                 <item>
+                  <widget class="QCheckBox" name="moveOriginalFile_CheckBox">
+                   <property name="text">
+                    <string>Move the original file</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_10">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="moveOriginalFile_ComboBox">
+                   <item>
+                    <property name="text">
+                     <string>To Trash</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Delete Permanently</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
                </item>
                <item>
                 <widget class="Line" name="line_2">
@@ -1413,6 +1447,7 @@
     </property>
     <addaction name="actionAdd_files"/>
     <addaction name="actionAdd_folder"/>
+    <addaction name="actionAdvanced_import"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -1681,6 +1716,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionAdvanced_import">
+   <property name="text">
+    <string>Advanced import...</string>
    </property>
   </action>
  </widget>

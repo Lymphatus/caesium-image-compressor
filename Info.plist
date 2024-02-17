@@ -19,9 +19,9 @@
         <key>NSSupportsAutomaticGraphicsSwitching</key>
         <true/>
         <key>CFBundleShortVersionString</key>
-        <string>2.6.0</string>
+        <string>2.7.0</string>
         <key>CFBundleVersion</key>
-        <string>2.6.0</string>
+        <string>2.7.0</string>
         <key>SUFeedURL</key>
         <string>https://saerasoft.com/repository/com.saerasoft.caesium/osx/appcast.xml</string>
         <key>SUEnableAutomaticChecks</key>

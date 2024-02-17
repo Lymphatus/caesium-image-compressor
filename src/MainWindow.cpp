@@ -18,6 +18,7 @@
 #include <dialogs/PreferencesDialog.h>
 #include <utility>
 #include <widgets/QCaesiumMessageBox.h>
+#include <dialogs/AdvancedImportDialog.h>
 
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
@@ -93,15 +94,20 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->maxOutputSize_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onMaxOutputSizeChanged);
     connect(ui->maxOutputSizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onMaxOutputSizeUnitChanged);
 
+    connect(ui->actionAdvanced_import, &QAction::triggered, this, &MainWindow::onAdvancedImportTriggered);
+
+    connect(ui->moveOriginalFile_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToggled);
+    connect(ui->moveOriginalFile_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::moveOriginalFileDestinationChanged);
+
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
-    connect(ui->moveOriginalFileToTrash_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToTrashToggled);
 
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_doNotEnlarge_CheckBox_toggled(ui->doNotEnlarge_CheckBox->isChecked());
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
+    this->moveOriginalFileToggled(ui->moveOriginalFile_CheckBox->isChecked());
     this->toggleLosslessWarningVisible();
 
     ui->actionToolbarIcons_only->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonIconOnly && !ui->toolBar->isHidden());
@@ -325,6 +331,8 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/output/keep_last_modified_date", ui->keepLastModifiedDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/keep_last_access_date", ui->keepLastAccessDate_CheckBox->isChecked());
     settings.setValue("compression_options/output/format", ui->format_ComboBox->currentIndex());
+    settings.setValue("compression_options/output/move_original_file", ui->moveOriginalFile_CheckBox->isChecked());
+    settings.setValue("compression_options/output/move_original_file_destination", ui->moveOriginalFile_ComboBox->currentIndex());
 
     settings.setValue("extra/last_opened_directory", this->lastOpenedDirectory);
 }
@@ -373,7 +381,8 @@ void MainWindow::readSettings()
     ui->keepLastModifiedDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_modified_date", false).toBool());
     ui->keepLastAccessDate_CheckBox->setChecked(settings.value("compression_options/output/keep_last_access_date", false).toBool());
     ui->format_ComboBox->setCurrentIndex(settings.value("compression_options/output/format", 0).toInt());
-    ui->moveOriginalFileToTrash_CheckBox->setChecked(settings.value("compression_options/output/move_original_to_trash", false).toBool());
+    ui->moveOriginalFile_CheckBox->setChecked(settings.value("compression_options/output/move_original_file", settings.value("compression_options/output/move_original_to_trash", false).toBool()).toBool()); // Trying to get legacy value
+    ui->moveOriginalFile_ComboBox->setCurrentIndex(settings.value("compression_options/output/move_original_file_destination", 0).toInt());
 
     this->lastOpenedDirectory = settings.value("extra/last_opened_directory", QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).at(0)).toString();
 }
@@ -652,7 +661,8 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->doNotEnlarge_CheckBox->isChecked(),
         ui->sameOutputFolderAsInput_CheckBox->isChecked(),
         ui->skipIfBigger_CheckBox->isChecked(),
-        ui->moveOriginalFileToTrash_CheckBox->isChecked(),
+        ui->moveOriginalFile_CheckBox->isChecked(),
+        ui->moveOriginalFile_ComboBox->currentIndex(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
@@ -1346,9 +1356,16 @@ void MainWindow::importFromArgs(const QStringList args)
         this->startCompression();
     }
 }
-void MainWindow::moveOriginalFileToTrashToggled(bool checked)
+
+void MainWindow::moveOriginalFileToggled(bool checked)
 {
-    this->writeSetting("compression_options/output/move_original_to_trash", checked);
+    ui->moveOriginalFile_ComboBox->setEnabled(checked);
+    this->writeSetting("compression_options/output/move_original_file", checked);
+}
+
+void MainWindow::moveOriginalFileDestinationChanged(int index)
+{
+    this->writeSetting("compression_options/output/move_original_file_destination", index);
 }
 
 void MainWindow::changeEvent(QEvent* event)
@@ -1390,4 +1407,19 @@ void MainWindow::onCompressionModeChanged(int value)
     this->writeSetting("compression_options/compression/mode", ui->compressionMode_ComboBox->currentIndex());
 
     this->toggleLosslessWarningVisible();
+}
+
+void MainWindow::onAdvancedImportTriggered()
+{
+    const auto advancedImportDialog = new AdvancedImportDialog();
+    connect(advancedImportDialog, &AdvancedImportDialog::importTriggered, [](QStringList a) {
+        qDebug() << a;
+    });
+
+    const int accepted = advancedImportDialog->exec();
+
+    if (accepted == 0) {
+        return;
+    }
+    qDebug() << accepted;
 }

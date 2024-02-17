@@ -112,6 +112,7 @@ set(SOURCES
         src/network/NetworkOperations.cpp
         src/database/Database.cpp
         src/dialogs/UsageStatsDialog.cpp
+        src/dialogs/AdvancedImportDialog.cpp
 )
 
 if (APPLE)
@@ -127,6 +128,7 @@ set(UI
         views/AboutDialog.ui
         views/PreferencesDialog.ui
         views/UsageStatsDialog.ui
+        views/AdvancedImportDialog.ui
 )
 
 SET(TS_FILES
