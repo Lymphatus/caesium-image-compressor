@@ -96,6 +96,9 @@ private slots:
     void onMaxOutputSizeUnitChanged(int value);
     void onCompressionModeChanged(int value);
     void onAdvancedImportTriggered();
+    void onPNGOptimizationLevelChanged(int value);
+    void onTiffCompressionMethodChanged(int index);
+    void onTiffDeflateLevelChanged(int value);
 
 private:
     Ui::MainWindow* ui;

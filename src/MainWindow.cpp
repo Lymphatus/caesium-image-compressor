@@ -99,6 +99,10 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->moveOriginalFile_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToggled);
     connect(ui->moveOriginalFile_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::moveOriginalFileDestinationChanged);
 
+    connect(ui->PNGOptimizationLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onPNGOptimizationLevelChanged);
+
+    connect(ui->TIFFCompressionMethod_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onTiffCompressionMethodChanged);
+    connect(ui->TIFFDeflateLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onTiffDeflateLevelChanged);
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
@@ -249,7 +253,7 @@ void MainWindow::triggerImportFiles()
     QStringList fileList = QFileDialog::getOpenFileNames(this,
         tr("Import files..."),
         this->lastOpenedDirectory,
-        QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png *.webp)");
+        QIODevice::tr("Image Files") + " (*.jpg *.jpeg *.png *.webp *.tif *.tiff)");
 
     if (fileList.isEmpty()) {
         return;
@@ -310,7 +314,10 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/keep_structure", ui->keepStructure_CheckBox->isChecked());
     settings.setValue("compression_options/compression/jpeg_quality", ui->JPEGQuality_Slider->value());
     settings.setValue("compression_options/compression/png_quality", ui->PNGQuality_Slider->value());
+    settings.setValue("compression_options/compression/png_optimization_level", ui->PNGOptimizationLevel_Slider->value());
     settings.setValue("compression_options/compression/webp_quality", ui->WebPQuality_Slider->value());
+    settings.setValue("compression_options/compression/tiff_method", ui->TIFFCompressionMethod_ComboBox->currentIndex());
+    settings.setValue("compression_options/compression/tiff_deflate_level", ui->TIFFDeflateLevel_Slider->value());
     settings.setValue("compression_options/compression/max_output_size", ui->maxOutputSize_SpinBox->value());
     settings.setValue("compression_options/compression/max_output_size_unit", ui->maxOutputSizeUnit_ComboBox->currentIndex());
 
@@ -360,8 +367,11 @@ void MainWindow::readSettings()
     ui->keepStructure_CheckBox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
     ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     ui->PNGQuality_SpinBox->setValue(settings.value("compression_options/compression/png_quality", 80).toInt());
+    ui->PNGOptimizationLevel_Slider->setValue(settings.value("compression_options/compression/png_optimization_level", 3).toInt());
     ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
     ui->WebPQuality_SpinBox->setValue(settings.value("compression_options/compression/webp_quality", 60).toInt());
+    ui->TIFFCompressionMethod_ComboBox->setCurrentIndex(settings.value("compression_options/compression/tiff_method", 1).toInt());
+    ui->TIFFDeflateLevel_Slider->setValue(settings.value("compression_options/compression/tiff_deflate_level", 2).toInt());
     ui->maxOutputSize_SpinBox->setValue(settings.value("compression_options/compression/max_output_size", 500).toInt());
     ui->maxOutputSizeUnit_ComboBox->setCurrentIndex(settings.value("compression_options/compression/max_output_size_unit", 0).toInt());
 
@@ -665,7 +675,10 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->moveOriginalFile_ComboBox->currentIndex(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
+        qBound(ui->PNGOptimizationLevel_Slider->value(), 1, 6),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
+        ui->TIFFCompressionMethod_ComboBox->currentIndex(),
+        qBound(ui->TIFFDeflateLevel_Slider->value() * 3, 1, 9),
         ui->keepDates_CheckBox->checkState() != Qt::Unchecked,
         datesMap,
         static_cast<CompressionMode>(ui->compressionMode_ComboBox->currentIndex()),
@@ -963,6 +976,17 @@ void MainWindow::on_keepStructure_CheckBox_toggled(bool checked)
 void MainWindow::on_lossless_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/lossless", checked);
+
+    ui->JPEGOptions_GroupBox->setEnabled(!checked);
+    ui->WebPOptions_GroupBox->setEnabled(!checked);
+
+    ui->PNGQuality_Label->setEnabled(!checked);
+    ui->PNGQuality_SpinBox->setEnabled(!checked);
+    ui->PNGQuality_Slider->setEnabled(!checked);
+    ui->PNGOptimizationLevel_Label->setEnabled(checked);
+    ui->PNGOptimizationLevel_SpinBox->setEnabled(checked);
+    ui->PNGOptimizationLevel_Slider->setEnabled(checked);
+
     this->toggleLosslessWarningVisible();
 }
 
@@ -1422,4 +1446,20 @@ void MainWindow::onAdvancedImportTriggered()
         return;
     }
     qDebug() << accepted;
+}
+
+void MainWindow::onPNGOptimizationLevelChanged(int value)
+{
+    this->writeSetting("compression_options/compression/png_optimization_level", value);
+}
+
+void MainWindow::onTiffCompressionMethodChanged(int index)
+{
+    ui->TIFFDeflateLevelContainer_Widget->setEnabled(index == 2);
+    this->writeSetting("compression_options/compression/tiff_method", index);
+}
+
+void MainWindow::onTiffDeflateLevelChanged(int value)
+{
+    this->writeSetting("compression_options/compression/tiff_deflate_level", value);
 }

@@ -40,7 +40,7 @@ QString toHumanSize(double size)
 // TODO Another thread?
 QStringList scanDirectory(const QString& directory, bool subfolders)
 {
-    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp" };
+    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp", "*.tif", "*.tiff" };
     QStringList fileList = {};
     auto iteratorFlags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
     // Collecting all files in folder
@@ -252,6 +252,7 @@ QStringList getOutputSupportedFormats()
         QIODevice::tr("JPG"),
         QIODevice::tr("PNG"),
         QIODevice::tr("WebP"),
+        QIODevice::tr("TIFF"),
     };
 }
 

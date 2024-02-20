@@ -107,7 +107,10 @@ typedef struct CompressionOptions {
     int moveOriginalFileDestination;
     int jpeg_quality;
     int png_quality;
+    int png_optimization_level;
     int webp_quality;
+    int tiff_method;
+    int tiff_deflate_level;
     bool keepDates;
     FileDatesOutputOption datesMap;
     CompressionMode compressionMode;

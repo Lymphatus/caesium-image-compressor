@@ -209,7 +209,7 @@
          <item>
           <widget class="QTabWidget" name="parameters_TabWidget">
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <property name="usesScrollButtons">
             <bool>false</bool>
@@ -319,7 +319,7 @@
                        <property name="bottomMargin">
                         <number>6</number>
                        </property>
-                       <item row="1" column="0" colspan="3">
+                       <item row="3" column="0" colspan="3">
                         <widget class="QSlider" name="JPEGQuality_Slider">
                          <property name="minimum">
                           <number>0</number>
@@ -341,7 +341,7 @@
                          </property>
                         </widget>
                        </item>
-                       <item row="0" column="2">
+                       <item row="2" column="2">
                         <widget class="QSpinBox" name="JPEGQuality_SpinBox">
                          <property name="minimumSize">
                           <size>
@@ -363,14 +363,14 @@
                          </property>
                         </widget>
                        </item>
-                       <item row="0" column="0">
+                       <item row="2" column="0">
                         <widget class="QLabel" name="JPEGQuality_Label">
                          <property name="text">
                           <string>Quality</string>
                          </property>
                         </widget>
                        </item>
-                       <item row="0" column="1">
+                       <item row="2" column="1">
                         <spacer name="horizontalSpacer_5">
                          <property name="orientation">
                           <enum>Qt::Horizontal</enum>
@@ -407,7 +407,37 @@
                        <property name="spacing">
                         <number>6</number>
                        </property>
-                       <item row="0" column="2">
+                       <item row="3" column="0">
+                        <widget class="QLabel" name="PNGOptimizationLevel_Label">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="text">
+                          <string>Optimization level</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <spacer name="horizontalSpacer_4">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QLabel" name="PNGQuality_Label">
+                         <property name="text">
+                          <string>Quality</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="2">
                         <widget class="QSpinBox" name="PNGQuality_SpinBox">
                          <property name="minimumSize">
                           <size>
@@ -426,7 +456,7 @@
                          </property>
                         </widget>
                        </item>
-                       <item row="1" column="0" colspan="3">
+                       <item row="2" column="0" colspan="3">
                         <widget class="QSlider" name="PNGQuality_Slider">
                          <property name="maximum">
                           <number>100</number>
@@ -445,25 +475,46 @@
                          </property>
                         </widget>
                        </item>
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="PNGQuality_Label">
-                         <property name="text">
-                          <string>Quality</string>
+                       <item row="4" column="0" colspan="3">
+                        <widget class="QSlider" name="PNGOptimizationLevel_Slider">
+                         <property name="enabled">
+                          <bool>false</bool>
                          </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <spacer name="horizontalSpacer_4">
+                         <property name="minimum">
+                          <number>1</number>
+                         </property>
+                         <property name="maximum">
+                          <number>6</number>
+                         </property>
+                         <property name="pageStep">
+                          <number>1</number>
+                         </property>
+                         <property name="value">
+                          <number>3</number>
+                         </property>
                          <property name="orientation">
                           <enum>Qt::Horizontal</enum>
                          </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
+                         <property name="tickPosition">
+                          <enum>QSlider::TicksBelow</enum>
                          </property>
-                        </spacer>
+                        </widget>
+                       </item>
+                       <item row="3" column="2">
+                        <widget class="QSpinBox" name="PNGOptimizationLevel_SpinBox">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="minimum">
+                          <number>1</number>
+                         </property>
+                         <property name="maximum">
+                          <number>6</number>
+                         </property>
+                         <property name="value">
+                          <number>3</number>
+                         </property>
+                        </widget>
                        </item>
                       </layout>
                      </widget>
@@ -486,26 +537,6 @@
                        <property name="bottomMargin">
                         <number>6</number>
                        </property>
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="WebPQuality_Label">
-                         <property name="text">
-                          <string>Quality</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <spacer name="horizontalSpacer_6">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>288</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
                        <item row="0" column="2">
                         <widget class="QSpinBox" name="WebPQuality_SpinBox">
                          <property name="minimumSize">
@@ -525,6 +556,13 @@
                          </property>
                          <property name="value">
                           <number>60</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="WebPQuality_Label">
+                         <property name="text">
+                          <string>Quality</string>
                          </property>
                         </widget>
                        </item>
@@ -548,6 +586,164 @@
                          <property name="tickInterval">
                           <number>10</number>
                          </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <spacer name="horizontalSpacer_6">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>288</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QGroupBox" name="TIFFOptions_GroupBox">
+                      <property name="title">
+                       <string>TIFF</string>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_5">
+                       <property name="leftMargin">
+                        <number>6</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>6</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>6</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>6</number>
+                       </property>
+                       <item row="0" column="1" colspan="2">
+                        <spacer name="horizontalSpacer_11">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item row="0" column="3">
+                        <widget class="QComboBox" name="TIFFCompressionMethod_ComboBox">
+                         <property name="currentIndex">
+                          <number>1</number>
+                         </property>
+                         <item>
+                          <property name="text">
+                           <string>Uncompressed</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string notr="true">Lzw</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string notr="true">Deflate</string>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string notr="true">Packbits</string>
+                          </property>
+                         </item>
+                        </widget>
+                       </item>
+                       <item row="0" column="0">
+                        <widget class="QLabel" name="TIFFCompressionMethod_Label">
+                         <property name="text">
+                          <string>Method</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0" colspan="4">
+                        <widget class="QWidget" name="TIFFDeflateLevelContainer_Widget" native="true">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_6">
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item row="1" column="3">
+                           <widget class="QLabel" name="TIFFDeflateLevelBest_Label">
+                            <property name="text">
+                             <string>Best</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="TIFFDeflateLevel_Label">
+                            <property name="text">
+                             <string>Deflate level</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QLabel" name="TIFFDeflateLevelBalanced_Label">
+                            <property name="text">
+                             <string>Balanced</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QLabel" name="TIFFDeflateLevelFast_Label">
+                            <property name="text">
+                             <string>Fast</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1" colspan="3">
+                           <widget class="QSlider" name="TIFFDeflateLevel_Slider">
+                            <property name="minimum">
+                             <number>1</number>
+                            </property>
+                            <property name="maximum">
+                             <number>3</number>
+                            </property>
+                            <property name="pageStep">
+                             <number>1</number>
+                            </property>
+                            <property name="value">
+                             <number>2</number>
+                            </property>
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="tickPosition">
+                             <enum>QSlider::TicksBelow</enum>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>
@@ -1773,12 +1969,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1250</x>
+     <x>727</x>
      <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1250</x>
-     <y>140</y>
+     <x>726</x>
+     <y>126</y>
     </hint>
    </hints>
   </connection>
@@ -1789,7 +1985,7 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1250</x>
+     <x>727</x>
      <y>198</y>
     </hint>
     <hint type="destinationlabel">
@@ -1886,11 +2082,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1235</x>
-     <y>388</y>
+     <y>444</y>
     </hint>
     <hint type="destinationlabel">
      <x>1235</x>
-     <y>359</y>
+     <y>415</y>
     </hint>
    </hints>
   </connection>
@@ -1902,27 +2098,43 @@
    <hints>
     <hint type="sourcelabel">
      <x>1235</x>
-     <y>359</y>
+     <y>415</y>
     </hint>
     <hint type="destinationlabel">
      <x>1235</x>
-     <y>388</y>
+     <y>444</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>lossless_CheckBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>qualityContainer_Widget</receiver>
-   <slot>setDisabled(bool)</slot>
+   <sender>PNGOptimizationLevel_Slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>PNGOptimizationLevel_SpinBox</receiver>
+   <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1242</x>
-     <y>421</y>
+     <x>1124</x>
+     <y>350</y>
     </hint>
     <hint type="destinationlabel">
-     <x>977</x>
-     <y>257</y>
+     <x>1199</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PNGOptimizationLevel_SpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>PNGOptimizationLevel_Slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1217</x>
+     <y>316</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1061</x>
+     <y>349</y>
     </hint>
    </hints>
   </connection>

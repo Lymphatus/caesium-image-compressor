@@ -61,32 +61,31 @@ bool operator!=(const CImage& c1, const CImage& c2)
     return !(c1 == c2);
 }
 
-QString CImage::getFormattedSize()
+QString CImage::getFormattedSize() const
 {
     bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
     size_t s = needsFormatting ? this->compressedSize : this->size;
-    return toHumanSize((double)s);
+    return toHumanSize(static_cast<double>(s));
 }
 
-QString CImage::getRichFormattedSize()
+QString CImage::getRichFormattedSize() const
 {
     bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
     if (needsFormatting && this->size != this->compressedSize) {
-        return "<small><s>" + toHumanSize((double)this->size) + "</s></small> " + toHumanSize((double)this->compressedSize);
+        return "<small><s>" + toHumanSize(static_cast<double>(this->size)) + "</s></small> " + toHumanSize(static_cast<double>(this->compressedSize));
     }
-    return toHumanSize((double)this->size);
+    return toHumanSize(static_cast<double>(this->size));
 }
 
-QString CImage::getResolution()
+QString CImage::getResolution() const
 {
-    bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
-    if (needsFormatting) {
+    if (this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING) {
         return QString::number(this->compressedWidth) + "x" + QString::number(this->compressedHeight);
     }
     return QString::number(this->width) + "x" + QString::number(this->height);
 }
 
-QString CImage::getRichResolution()
+QString CImage::getRichResolution() const
 {
     bool needsFormatting = this->status == CImageStatus::COMPRESSED || this->status == CImageStatus::WARNING;
     if (needsFormatting && (this->width != this->compressedWidth || this->height != this->compressedHeight)) {
@@ -105,11 +104,14 @@ QString CImage::getFullPath() const
     return this->fullPath;
 }
 
-bool CImage::preview(const CompressionOptions& compressionOptions)
+bool CImage::preview(const CompressionOptions& compressionOptions) const
 {
     QString inputFullPath = this->fullPath;
     QFileInfo inputFileInfo(inputFullPath);
     QString outputFullPath = this->getTemporaryPreviewFullPath();
+    if (outputFullPath.isEmpty()) {
+        return false;
+    }
     const QString& outputFormat = getOutputSupportedFormats()[compressionOptions.format];
     bool convert = compressionOptions.format != 0 && this->getFormat().compare(outputFormat, Qt::CaseInsensitive) != 0;
     FileDates inputFileDates = {
@@ -120,23 +122,18 @@ bool CImage::preview(const CompressionOptions& compressionOptions)
     CCSParameters r_parameters = this->getCSParameters(compressionOptions);
     if (convert) {
         QImage imageToBeConverted = QImage(inputFullPath);
-        imageToBeConverted.save(outputFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
+        bool conversionSuccess = imageToBeConverted.save(outputFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
+        if (!conversionSuccess) {
+            return false;
+        }
         inputFullPath = outputFullPath;
     }
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
 
-    CCSResult result = {
-        false,
-        nullptr
-    };
-    if (compressionOptions.compressionMode == SIZE) {
-        result = c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
-    } else {
-        result = c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
-    }
+    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize) : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
 
     QFileInfo outputFileInfo(outputFullPath);
-    this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
+    CImage::setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
     return result.success;
 }
 
@@ -201,14 +198,17 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     QString inputCopyFile = inputFullPath;
     if (convert) {
         QImage imageToBeConverted = QImage(inputFullPath);
-        imageToBeConverted.save(tempFileFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
+        bool conversionSuccess = imageToBeConverted.save(tempFileFullPath, getOutputSupportedFormats().at(compressionOptions.format).toLower().toUtf8().constData(), 100);
+        this->additionalInfo = QIODevice::tr("File conversion failed");
+        if (!conversionSuccess) {
+            return false;
+        }
         inputFullPath = tempFileFullPath;
     }
 
     QString previewPath = this->getTemporaryPreviewFullPath();
     if (QFile::exists(previewPath)) {
-        bool removeSuccess = QFile::remove(tempFileFullPath);
-        if (removeSuccess) {
+        if (QFile::remove(tempFileFullPath)) {
             QFile::copy(previewPath, tempFileFullPath);
         }
     }
@@ -217,12 +217,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
 
-    CCSResult result {};
-    if (compressionOptions.compressionMode == SIZE) {
-        result = c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters, maxOutputSize);
-    } else {
-        result = c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
-    }
+    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters, maxOutputSize) : c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
 
     if (result.success) {
         QFileInfo outputInfo(tempFileFullPath);
@@ -245,7 +240,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             }
         }
 
-        bool copyResult = false;
+        bool copyResult;
         if (!outputIsBiggerThanInput) {
             inputCopyFile = tempFileFullPath;
             copyResult = QFile::copy(inputCopyFile, outputFullPath);
@@ -280,7 +275,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
         QFileInfo outputFileInfo = QFileInfo(outputFullPath);
         if (compressionOptions.keepDates) {
-            this->setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
+            CImage::setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
         }
         this->setCompressedInfo(outputFileInfo);
     } else {
@@ -291,26 +286,22 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     return result.success;
 }
 
-CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptions)
+CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptions) const
 {
-    bool lossless = compressionOptions.lossless;
-    bool keepMetadata = compressionOptions.keepMetadata;
-
-    CCSParameters r_parameters = {
-        keepMetadata,
-        static_cast<unsigned int>(compressionOptions.jpeg_quality),
-        0,
-        static_cast<unsigned int>(compressionOptions.png_quality),
-        6,
-        false,
-        20,
-        static_cast<unsigned int>(compressionOptions.webp_quality),
-        1,
-        3,
-        lossless,
-        0,
-        0,
-    };
+    CCSParameters r_parameters = {};
+    r_parameters.keep_metadata = compressionOptions.keepMetadata;
+    r_parameters.jpeg_quality = static_cast<unsigned int>(compressionOptions.jpeg_quality);
+    r_parameters.jpeg_chroma_subsampling = 0;
+    r_parameters.png_quality = static_cast<unsigned int>(compressionOptions.png_quality);
+    r_parameters.png_optimization_level = static_cast<unsigned int>(compressionOptions.png_optimization_level);
+    r_parameters.png_force_zopfli = false;
+    r_parameters.gif_quality = 20;
+    r_parameters.webp_quality = static_cast<unsigned int>(compressionOptions.webp_quality);
+    r_parameters.tiff_compression = static_cast<unsigned int>(compressionOptions.tiff_method);
+    r_parameters.tiff_deflate_level = static_cast<unsigned int>(compressionOptions.tiff_deflate_level);
+    r_parameters.optimize = compressionOptions.lossless;
+    r_parameters.width = 0;
+    r_parameters.height = 0;
 
     // Resize
     if (compressionOptions.resize) {
@@ -320,14 +311,14 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
         std::tuple<unsigned int, unsigned int> dimensions = cResize(&imageReader, compressionOptions);
 
         if (std::get<0>(dimensions) != originalSize.width() || std::get<1>(dimensions) != originalSize.height()) {
-            r_parameters.width = (int)std::get<0>(dimensions);
-            r_parameters.height = (int)std::get<1>(dimensions);
+            r_parameters.width = static_cast<int>(std::get<0>(dimensions));
+            r_parameters.height = static_cast<int>(std::get<1>(dimensions));
         }
     }
     return r_parameters;
 }
 
-void CImage::setCompressedInfo(QFileInfo fileInfo)
+void CImage::setCompressedInfo(const QFileInfo& fileInfo)
 {
     QImageReader imageReader(fileInfo.canonicalFilePath());
     QSize imageSize = getSizeWithMetadata(&imageReader);
@@ -338,7 +329,7 @@ void CImage::setCompressedInfo(QFileInfo fileInfo)
     this->compressedHeight = imageSize.height();
 }
 
-void CImage::setFileDates(QFileInfo fileInfo, FileDatesOutputOption datesMap, FileDates inputFileDates)
+void CImage::setFileDates(const QFileInfo& fileInfo, FileDatesOutputOption datesMap, const FileDates& inputFileDates)
 {
     QFile outputFile(fileInfo.canonicalFilePath());
     outputFile.open(QIODevice::ReadWrite);
@@ -361,15 +352,15 @@ QString CImage::getCompressedFullPath() const
 
 double CImage::getRatio() const
 {
-    return (double)this->compressedSize / this->size;
+    return static_cast<double>(this->compressedSize) / static_cast<double>(this->size);
 }
 
-QString CImage::getFormattedSavedRatio()
+QString CImage::getFormattedSavedRatio() const
 {
     return QString::number(round(100 - (this->getRatio() * 100))) + "%";
 }
 
-QString CImage::getRichFormattedSavedRatio()
+QString CImage::getRichFormattedSavedRatio() const
 {
     return this->getFormattedSavedRatio();
 }
@@ -435,8 +426,11 @@ QString CImage::getTemporaryPreviewFullPath() const
     QString tempFileName = hashString(this->hashedFullPath + "." + getCompressionOptionsHash(), QCryptographicHash::Sha256);
     QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
     QString temporaryPreviewFullPath = cacheDir + QDir::separator() + tempFileName;
-    QDir(cacheDir).mkpath(cacheDir);
-    return temporaryPreviewFullPath + ".jpg";
+    bool pathCreationSuccess = QDir(cacheDir).mkpath(cacheDir);
+    if (!pathCreationSuccess) {
+        return { "" };
+    }
+    return temporaryPreviewFullPath;
 }
 
 QString CImage::getPreviewFullPath() const
