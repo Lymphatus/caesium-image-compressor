@@ -228,7 +228,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="676"/>
         <source>Maximum output size</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальный выходной размер</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="608"/>
@@ -238,7 +238,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="575"/>
@@ -362,7 +362,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1087"/>
         <source>Move the original file to trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемещать исходный файл в корзину</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1101"/>
@@ -397,7 +397,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1228"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Преобразование в новый формат или изменение размера может ухудшить качество, даже если выбран вариант &quot;без потерь&quot;</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1355"/>
@@ -571,7 +571,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="523"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезапустить</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="549"/>
@@ -699,7 +699,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Пропускать диалоговые окна сообщений и предупреждений во время сжатия</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
@@ -797,7 +797,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно переместить исходный файл в корзину, проверьте разрешения</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="398"/>
