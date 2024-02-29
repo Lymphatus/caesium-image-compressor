@@ -2,8 +2,20 @@ name: Build
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.clang-format'
+      - 'setup.iss'
+      - '.github/ISSUE_TEMPLATE/**'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.clang-format'
+      - 'setup.iss'
+      - '.github/ISSUE_TEMPLATE/**'
 jobs:
   build-windows:
     runs-on: windows-latest
