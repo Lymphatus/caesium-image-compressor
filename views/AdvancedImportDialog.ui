@@ -11,103 +11,24 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Advanced Import Dialog</string>
+   <string>Advanced Import</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0" rowspan="2" colspan="2">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="5" column="0" rowspan="3" colspan="3">
-      <widget class="QCheckBox" name="checkBox_2">
-       <property name="text">
-        <string>File types</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string>CheckBox</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QComboBox" name="comboBox"/>
-     </item>
-     <item row="0" column="0" colspan="4">
-      <widget class="QPlainTextEdit" name="plainTextEdit">
-       <property name="lineWrapMode">
-        <enum>QPlainTextEdit::NoWrap</enum>
-       </property>
-       <property name="placeholderText">
-        <string>Insert paths for either folder or files, one per row</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="text">
-        <string>Select Files...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0" colspan="4">
-      <widget class="QCheckBox" name="checkBox_6">
-       <property name="text">
-        <string>CheckBox</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QSpinBox" name="spinBox"/>
-     </item>
-     <item row="6" column="3">
-      <widget class="QCheckBox" name="checkBox_4">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>PNG</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="3">
-      <widget class="QCheckBox" name="checkBox_3">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>JPEG</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QComboBox" name="comboBox_2"/>
-     </item>
-     <item row="1" column="3">
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Select Folder...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="3">
-      <widget class="QCheckBox" name="checkBox_5">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>WebP</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="4">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
+   <item row="2" column="0">
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </item>
    <item row="3" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -122,16 +43,151 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="Line" name="line_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
+   <item row="0" column="0" rowspan="2" colspan="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="1">
+      <widget class="QToolButton" name="remove_Button">
+       <property name="text">
+        <string>Remove</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resources/resources.qrc">
+         <normaloff>:/icons/ui/remove.svg</normaloff>:/icons/ui/remove.svg</iconset>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="6">
+      <widget class="QCheckBox" name="importSubfolders_CheckBox">
+       <property name="text">
+        <string>Import files in subfolders when opening a directory</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QToolButton" name="add_Button">
+       <property name="text">
+        <string>Add...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resources/resources.qrc">
+         <normaloff>:/icons/ui/add_files.svg</normaloff>:/icons/ui/add_files.svg</iconset>
+       </property>
+       <property name="popupMode">
+        <enum>QToolButton::InstantPopup</enum>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
+       </property>
+       <property name="arrowType">
+        <enum>Qt::NoArrow</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="3">
+      <widget class="QCheckBox" name="skipBySize_CheckBox">
+       <property name="text">
+        <string>Do not import if size is</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="6">
+      <widget class="QListWidget" name="importList_ListWidget">
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="viewMode">
+        <enum>QListView::ListMode</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="3">
+      <widget class="QLabel" name="filenamePattern_Label">
+       <property name="text">
+        <string>File name pattern (regex)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3" colspan="3">
+      <widget class="QLineEdit" name="filenamePattern_LineEdit">
+       <property name="placeholderText">
+        <string>.*\.jpg|.*\.png</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QSpinBox" name="skipBySizeSize_SpinBox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="5">
+      <widget class="QComboBox" name="skipBySizeUnit_ComboBox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>bytes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>KB</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MB</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QComboBox" name="skipBySizeCondition_ComboBox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>greater than</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>equal to</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>less than</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="6">
+      <widget class="QLabel" name="importList_Label">
+       <property name="text">
+        <string>Import list</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>
@@ -162,6 +218,54 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>skipBySize_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>skipBySizeCondition_ComboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>skipBySize_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>skipBySizeSize_SpinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>342</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>346</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>skipBySize_CheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>skipBySizeUnit_ComboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>333</y>
     </hint>
    </hints>
   </connection>

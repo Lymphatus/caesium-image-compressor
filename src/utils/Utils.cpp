@@ -61,6 +61,9 @@ QStringList scanDirectory(const QString& directory, bool subfolders)
 
 QString getRootFolder(QList<QString> folderMap)
 {
+    if (folderMap.isEmpty()) {
+        return QDir::rootPath();
+    }
     QStringListIterator it(folderMap);
     QString rootFolderPath = folderMap.first();
     while (it.hasNext()) {

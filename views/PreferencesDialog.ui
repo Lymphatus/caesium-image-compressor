@@ -175,7 +175,7 @@
       <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
-      <item row="1" column="0" colspan="6">
+      <item row="0" column="0" colspan="2">
        <widget class="QCheckBox" name="importSubfolders_CheckBox">
         <property name="font">
          <font>
@@ -186,104 +186,6 @@
          <string>Import files in subfolders when opening a directory</string>
         </property>
        </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="skipBySize_CheckBox">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Do not import if size is</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="2" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <property name="spacing">
-         <number>6</number>
-        </property>
-        <item>
-         <widget class="QComboBox" name="skipBySizeCondition_ComboBox">
-          <property name="font">
-           <font>
-            <bold>false</bold>
-           </font>
-          </property>
-          <item>
-           <property name="text">
-            <string>greater than</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>equal to</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>less than</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="skipBySizeSize_SpinBox">
-          <property name="font">
-           <font>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>9999</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="skipBySizeUnit_ComboBox">
-          <property name="font">
-           <font>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="frame">
-           <bool>true</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>bytes</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>KB</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MB</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
       </item>
      </layout>
     </widget>
@@ -302,19 +204,6 @@
       <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="2">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
       <item row="2" column="3">
        <widget class="QSpinBox" name="multithreadingMaxThreads_SpinBox">
         <property name="font">
@@ -342,67 +231,6 @@
         </property>
         <property name="checked">
          <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="argsBehaviourHelp_Label">
-        <property name="maximumSize">
-         <size>
-          <width>16</width>
-          <height>16</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>WhatsThisCursor</cursorShape>
-        </property>
-        <property name="toolTip">
-         <string>This option applies when using command line or by dropping files to the application icon</string>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="../resources/resources.qrc">:/icons/ui/help.svg</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QComboBox" name="argsBehaviour_ComboBox">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <item>
-         <property name="text">
-          <string>Import only</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Import and compress</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="argsBehaviour_Label">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>When importing files directly</string>
         </property>
        </widget>
       </item>
@@ -450,6 +278,80 @@
         <property name="text">
          <string>Perform an action after successful compression</string>
         </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="argsBehaviourHelp_Label">
+        <property name="maximumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>WhatsThisCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>This option applies when using command line or by dropping files to the application icon</string>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../resources/resources.qrc">:/icons/ui/help.svg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="argsBehaviour_Label">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>When importing files directly</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="argsBehaviour_ComboBox">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>Import only</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Import and compress</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>

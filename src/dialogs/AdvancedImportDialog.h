@@ -2,6 +2,7 @@
 #define ADVANCEDIMPORTDIALOG_H
 
 #include <QDialog>
+#include <QFileInfo>
 #include <QThread>
 
 namespace Ui {
@@ -20,11 +21,32 @@ signals:
 
 private slots:
     void accept() override;
+    void onAddFilesActionTriggered();
+    void onAddFolderActionTriggered();
+    void onImportFromListActionTriggered();
+    void onRemoveButtonClicked() const;
+    static void onImportSubfoldersToggled(bool checked);
+    static void onSkipBySizeToggled(bool checked);
+    static void onSkipBySizeConditionChanged(int index);
+    static void onSkipBySizeValueChanged(int value);
+    static void onSkipBySizeUnitChanged(int index);
+    static void onFilenamePatternTextChanged(const QString& text);
 
 private:
     Ui::AdvancedImportDialog* ui;
 
     void changeEvent(QEvent* event) override;
+    void setupAddButtonMenu() const;
+    void setupConnections();
+    void loadPreferences();
+    void setLastOpenedDirectory(const QString& directory);
+    bool passesFilters(const QFileInfo& fileInfo) const;
+
+    QMenu* addButtonContextMenu;
+    QAction* addFilesAction;
+    QAction* addFolderAction;
+    QAction* importFromListAction;
+    QString lastOpenedDirectory;
 };
 
 #endif // ADVANCEDIMPORTDIALOG_H

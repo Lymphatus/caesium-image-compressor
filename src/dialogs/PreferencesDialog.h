@@ -19,10 +19,10 @@ private slots:
     void onThemeChanged(int index);
     static int getLocaleIndex();
     static void onArgsBehaviourChanged(int index);
-    static void onSkipBySizeToggled(bool checked);
-    static void onSkipBySizeConditionChanged(int index);
-    static void onSkipBySizeValueChanged(int value);
-    static void onSkipBySizeUnitChanged(int index);
+    // static void onSkipBySizeToggled(bool checked);
+    // static void onSkipBySizeConditionChanged(int index);
+    // static void onSkipBySizeValueChanged(int value);
+    // static void onSkipBySizeUnitChanged(int index);
     static void onPromptExitToggled(bool checked);
     static void onCheckUpdatesAtStartupToggled(bool checked);
     static void onImportSubfoldersToggled(bool checked);

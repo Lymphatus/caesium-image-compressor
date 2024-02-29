@@ -15,10 +15,10 @@
 #include <QWheelEvent>
 #include <QWindow>
 #include <QtConcurrent>
+#include <dialogs/AdvancedImportDialog.h>
 #include <dialogs/PreferencesDialog.h>
 #include <utility>
 #include <widgets/QCaesiumMessageBox.h>
-#include <dialogs/AdvancedImportDialog.h>
 
 #ifdef Q_OS_MAC
 #include "./updater/osx/CocoaInitializer.h"
@@ -502,17 +502,6 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
             auto* cImage = new CImage(fileList.at(i));
             if (this->cImageModel->contains(cImage)) {
                 continue;
-            }
-            bool skipBySizeEnabled = QSettings().value("preferences/general/skip_by_size/enabled", false).toBool();
-            if (skipBySizeEnabled) {
-                // TODO Make it an Enum
-                int unit = QSettings().value("preferences/general/skip_by_size/unit", 0).toInt();
-                int condition = QSettings().value("preferences/general/skip_by_size/condition", 0).toInt();
-                int size = QSettings().value("preferences/general/skip_by_size/value", 0).toInt() << (unit * 10);
-                size_t imageSize = cImage->getOriginalSize();
-                if ((condition == 0 && imageSize > size) || (condition == 1 && imageSize == size) || (condition == 2 && imageSize < size)) {
-                    continue;
-                }
             }
             list.append(cImage);
         } catch (ImageNotSupportedException& e) {
@@ -1436,8 +1425,12 @@ void MainWindow::onCompressionModeChanged(int value)
 void MainWindow::onAdvancedImportTriggered()
 {
     const auto advancedImportDialog = new AdvancedImportDialog();
-    connect(advancedImportDialog, &AdvancedImportDialog::importTriggered, [](QStringList a) {
-        qDebug() << a;
+    connect(advancedImportDialog, &AdvancedImportDialog::importTriggered, [this](const QStringList& fileList) {
+        if (fileList.isEmpty()) {
+            return;
+        }
+        QString baseFolder = getRootFolder(fileList);
+        this->importFiles(fileList, baseFolder);
     });
 
     const int accepted = advancedImportDialog->exec();
@@ -1445,7 +1438,6 @@ void MainWindow::onAdvancedImportTriggered()
     if (accepted == 0) {
         return;
     }
-    qDebug() << accepted;
 }
 
 void MainWindow::onPNGOptimizationLevelChanged(int value)
