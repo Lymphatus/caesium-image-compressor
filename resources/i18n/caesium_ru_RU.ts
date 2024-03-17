@@ -773,37 +773,37 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="215"/>
         <source> threads</source>
-        <translation type="unfinished"></translation>
+        <translation> потока(ов)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="246"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет действия</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="251"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть приложение</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="256"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>Спящий режим</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="261"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Выключить</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="266"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть папку экспорта</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="279"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие после успешного сжатия</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="412"/>
