@@ -89,7 +89,7 @@ QString getRootFolder(QList<QString> folderMap)
     return rootFolderPath;
 }
 
-std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions &compressionOptions)
+std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions& compressionOptions)
 {
     int fitTo = compressionOptions.fitTo;
     int width = compressionOptions.width;

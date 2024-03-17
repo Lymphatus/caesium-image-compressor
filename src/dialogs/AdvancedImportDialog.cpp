@@ -1,6 +1,7 @@
 #include "AdvancedImportDialog.h"
 #include "ui_AdvancedImportDialog.h"
 
+#include <QDirIterator>
 #include <QFileDialog>
 #include <QMenu>
 #include <QSettings>
@@ -35,16 +36,13 @@ void AdvancedImportDialog::accept()
     for (int i = 0; i < ui->importList_ListWidget->count(); ++i) {
         QFileInfo fileInfo(ui->importList_ListWidget->item(i)->text());
         QString absoluteFilePath = fileInfo.absoluteFilePath();
-        if (fileInfo.isFile() || fileInfo.isDir()) {
+        if (fileInfo.isFile()) {
             if (!passesFilters(fileInfo)) {
                 continue;
             }
-
-            if (fileInfo.isFile()) {
-                fileList << absoluteFilePath;
-            } else if (fileInfo.isDir()) {
-                fileList << scanDirectory(absoluteFilePath, ui->importSubfolders_CheckBox->isChecked());
-            }
+            fileList << absoluteFilePath;
+        } else if (fileInfo.isDir()) {
+            fileList << scanDirectoryWithFilters(absoluteFilePath, ui->importSubfolders_CheckBox->isChecked());
         }
     }
 
@@ -155,6 +153,7 @@ void AdvancedImportDialog::onAddFolderActionTriggered()
     }
 
     this->setLastOpenedDirectory(directoryPath);
+    ui->importList_ListWidget->addItems(QStringList() << directoryPath);
 }
 
 void AdvancedImportDialog::onImportFromListActionTriggered()
@@ -220,4 +219,28 @@ void AdvancedImportDialog::onSkipBySizeUnitChanged(int index)
 void AdvancedImportDialog::onFilenamePatternTextChanged(const QString& text)
 {
     QSettings().setValue("preferences/advanced_import/filename_pattern", text);
+}
+
+QStringList AdvancedImportDialog::scanDirectoryWithFilters(const QString& directory, bool subfolders) const
+{
+    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp", "*.tif", "*.tiff" };
+    QStringList fileList = {};
+    auto iteratorFlags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
+    // Collecting all files in folder
+    if (QDir(directory).exists()) {
+        QDirIterator it(directory,
+            inputFilterList,
+            QDir::AllEntries,
+            iteratorFlags);
+
+        while (it.hasNext()) {
+            it.next();
+            QString filePath = it.filePath();
+            if (passesFilters(QFileInfo(filePath))) {
+                fileList.append(filePath);
+            }
+        }
+    }
+
+    return fileList;
 }

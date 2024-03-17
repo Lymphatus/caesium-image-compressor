@@ -131,32 +131,32 @@ Tutti i diritti riservati.</translation>
         <translation type="obsolete">WebP</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="17"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="18"/>
         <source>Add files...</source>
         <translation type="unfinished">Importa files...</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="18"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="19"/>
         <source>Add folder...</source>
         <translation type="unfinished">Importa cartella...</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="19"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="20"/>
         <source>Import from list...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="135"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="133"/>
         <source>Import files...</source>
         <translation type="unfinished">Importa files...</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="149"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="147"/>
         <source>Import folder...</source>
         <translation type="unfinished">Importa cartella...</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="162"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="161"/>
         <source>Import file...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -959,7 +959,7 @@ Risparmiato: %4 (%5%)</translation>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="137"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="135"/>
         <location filename="../../src/MainWindow.cpp" line="256"/>
         <source>Image Files</source>
         <translation>File immagine</translation>

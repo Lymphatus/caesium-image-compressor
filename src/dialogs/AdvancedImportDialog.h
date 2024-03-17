@@ -41,6 +41,7 @@ private:
     void loadPreferences();
     void setLastOpenedDirectory(const QString& directory);
     bool passesFilters(const QFileInfo& fileInfo) const;
+    QStringList scanDirectoryWithFilters(const QString& directory, bool subfolders) const; //TODO This is a duplicate of the function in Utils, we need to make this way more generic and testable
 
     QMenu* addButtonContextMenu;
     QAction* addFilesAction;

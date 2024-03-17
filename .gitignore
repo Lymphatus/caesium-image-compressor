@@ -109,6 +109,8 @@ Thumbs.db
 # *.iml
 # *.ipr
 
+.idea/**/copilot
+
 # CMake
 cmake-build-*/
 

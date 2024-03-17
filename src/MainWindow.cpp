@@ -1433,11 +1433,7 @@ void MainWindow::onAdvancedImportTriggered()
         this->importFiles(fileList, baseFolder);
     });
 
-    const int accepted = advancedImportDialog->exec();
-
-    if (accepted == 0) {
-        return;
-    }
+    advancedImportDialog->exec();
 }
 
 void MainWindow::onPNGOptimizationLevelChanged(int value)
