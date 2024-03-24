@@ -113,6 +113,7 @@ set(SOURCES
         src/database/Database.cpp
         src/dialogs/UsageStatsDialog.cpp
         src/dialogs/AdvancedImportDialog.cpp
+        src/services/Importer.cpp
 )
 
 if (APPLE)

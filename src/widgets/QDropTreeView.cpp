@@ -5,6 +5,7 @@
 #include <QSettings>
 
 #include <QFileInfo>
+#include <services/Importer.h>
 #include <utils/Utils.h>
 
 QDropTreeView::QDropTreeView(QWidget* parent)
@@ -35,7 +36,7 @@ void QDropTreeView::dropEvent(QDropEvent* event)
             } else if (QFileInfo(absolutePath).isDir()) {
                 QSettings settings;
                 bool scanSubfolders = settings.value("preferences/general/import_subfolders", true).toBool();
-                fileList.append(scanDirectory(absolutePath, scanSubfolders));
+                fileList.append(Importer::scanDirectory(absolutePath, scanSubfolders));
             }
         }
     }

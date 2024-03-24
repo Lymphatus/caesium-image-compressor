@@ -3,7 +3,7 @@
 
 #include <QtMessageHandler>
 class Logger {
-    static const int RETENTION_DAYS = 30;
+    static constexpr int RETENTION_DAYS = 30;
 
 public:
     static void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg);

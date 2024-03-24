@@ -126,17 +126,17 @@ All rights reserved.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="133"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="124"/>
         <source>Import files...</source>
         <translation type="unfinished">Импортировать файлы...</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="147"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="138"/>
         <source>Import folder...</source>
         <translation type="unfinished">Импортировать папку...</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="161"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="152"/>
         <source>Import file...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -179,29 +179,29 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="254"/>
+        <location filename="../../src/MainWindow.cpp" line="255"/>
         <source>Import files...</source>
         <translation>Импортировать файлы...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="270"/>
+        <location filename="../../src/MainWindow.cpp" line="271"/>
         <source>Import folder...</source>
         <translation>Импортировать папку...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="492"/>
+        <location filename="../../src/MainWindow.cpp" line="493"/>
         <source>Importing files...</source>
         <translation>Импорт файлов...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1498"/>
-        <location filename="../../src/MainWindow.cpp" line="492"/>
-        <location filename="../../src/MainWindow.cpp" line="699"/>
+        <location filename="../../src/MainWindow.cpp" line="493"/>
+        <location filename="../../src/MainWindow.cpp" line="700"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="580"/>
+        <location filename="../../src/MainWindow.cpp" line="581"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -210,55 +210,55 @@ Do you really want to continue?</source>
 Вы действительно хотите продолжить?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="584"/>
+        <location filename="../../src/MainWindow.cpp" line="585"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1183"/>
-        <location filename="../../src/MainWindow.cpp" line="1188"/>
+        <location filename="../../src/MainWindow.cpp" line="1184"/>
+        <location filename="../../src/MainWindow.cpp" line="1189"/>
         <source>File not found</source>
         <translation>Файл не найден</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1219"/>
+        <location filename="../../src/MainWindow.cpp" line="1220"/>
         <source>Finishing...</source>
         <translation>Завершение...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="615"/>
-        <location filename="../../src/MainWindow.cpp" line="1286"/>
+        <location filename="../../src/MainWindow.cpp" line="616"/>
+        <location filename="../../src/MainWindow.cpp" line="1287"/>
         <source>Compressing...</source>
         <translation>Сжатие...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="695"/>
+        <location filename="../../src/MainWindow.cpp" line="696"/>
         <source>Do you really want to quit?</source>
         <translation>Вы действительно хотите выйти?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="583"/>
-        <location filename="../../src/MainWindow.cpp" line="698"/>
+        <location filename="../../src/MainWindow.cpp" line="584"/>
+        <location filename="../../src/MainWindow.cpp" line="699"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="720"/>
+        <location filename="../../src/MainWindow.cpp" line="721"/>
         <source>Select output folder...</source>
         <translation>Выберите папку для сохранения изображений...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="787"/>
+        <location filename="../../src/MainWindow.cpp" line="788"/>
         <source>Compression finished!</source>
         <translation>Сжатие завершено!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="802"/>
+        <location filename="../../src/MainWindow.cpp" line="803"/>
         <source>You just saved %1!</source>
         <translation>Вы сохранили %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="806"/>
+        <location filename="../../src/MainWindow.cpp" line="807"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -401,12 +401,12 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1071"/>
-        <location filename="../../src/MainWindow.cpp" line="847"/>
-        <location filename="../../src/MainWindow.cpp" line="851"/>
-        <location filename="../../src/MainWindow.cpp" line="886"/>
-        <location filename="../../src/MainWindow.cpp" line="889"/>
-        <location filename="../../src/MainWindow.cpp" line="898"/>
-        <location filename="../../src/MainWindow.cpp" line="901"/>
+        <location filename="../../src/MainWindow.cpp" line="848"/>
+        <location filename="../../src/MainWindow.cpp" line="852"/>
+        <location filename="../../src/MainWindow.cpp" line="887"/>
+        <location filename="../../src/MainWindow.cpp" line="890"/>
+        <location filename="../../src/MainWindow.cpp" line="899"/>
+        <location filename="../../src/MainWindow.cpp" line="902"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -508,7 +508,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1911"/>
-        <location filename="../../src/MainWindow.cpp" line="1204"/>
+        <location filename="../../src/MainWindow.cpp" line="1205"/>
         <source>Preview</source>
         <translation>Предварительный просмотр</translation>
     </message>
@@ -625,7 +625,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1764"/>
-        <location filename="../../src/MainWindow.cpp" line="194"/>
+        <location filename="../../src/MainWindow.cpp" line="195"/>
         <source>Exit</source>
         <translation>Выйти</translation>
     </message>
@@ -712,13 +712,13 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="819"/>
-        <location filename="../../src/MainWindow.cpp" line="861"/>
-        <location filename="../../src/MainWindow.cpp" line="865"/>
+        <location filename="../../src/MainWindow.cpp" line="862"/>
+        <location filename="../../src/MainWindow.cpp" line="866"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1012"/>
+        <location filename="../../src/MainWindow.cpp" line="1013"/>
         <source>images in list</source>
         <translation>изображения в списке</translation>
     </message>
@@ -920,8 +920,8 @@ Saved: %4 (%5%)</source>
 <context>
     <name>QIODevice</name>
     <message>
-        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="135"/>
-        <location filename="../../src/MainWindow.cpp" line="256"/>
+        <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="126"/>
+        <location filename="../../src/MainWindow.cpp" line="257"/>
         <source>Image Files</source>
         <translation>Изображения</translation>
     </message>
@@ -976,32 +976,32 @@ Saved: %4 (%5%)</source>
         <translation>Ошибка:</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="173"/>
+        <location filename="../../src/utils/Utils.cpp" line="121"/>
         <source>File not found</source>
         <translation>Файл не найден</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="254"/>
+        <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>Same as input</source>
         <translation>Как у исходного</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="255"/>
+        <location filename="../../src/utils/Utils.cpp" line="203"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="256"/>
+        <location filename="../../src/utils/Utils.cpp" line="204"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="257"/>
+        <location filename="../../src/utils/Utils.cpp" line="205"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="258"/>
+        <location filename="../../src/utils/Utils.cpp" line="206"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>

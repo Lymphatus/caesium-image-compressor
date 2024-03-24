@@ -1,11 +1,11 @@
 #include "AdvancedImportDialog.h"
 #include "ui_AdvancedImportDialog.h"
 
-#include <QDirIterator>
 #include <QFileDialog>
 #include <QMenu>
 #include <QSettings>
 #include <QStandardPaths>
+#include <services/Importer.h>
 #include <utils/Utils.h>
 
 AdvancedImportDialog::AdvancedImportDialog(QWidget* parent)
@@ -33,16 +33,34 @@ AdvancedImportDialog::~AdvancedImportDialog()
 void AdvancedImportDialog::accept()
 {
     QStringList fileList;
+
+    SkipBySizeFilter skipBySizeFilter {
+        ui->skipBySize_CheckBox->isChecked(),
+        ui->skipBySizeUnit_ComboBox->currentIndex(),
+        ui->skipBySizeCondition_ComboBox->currentIndex(),
+        ui->skipBySizeSize_SpinBox->value()
+    };
+
+    FilenameRegexFilter filenameRegexFilter {
+        !ui->filenamePattern_LineEdit->text().isEmpty(),
+        ui->filenamePattern_LineEdit->text()
+    };
+
+    ImportFilters importFilters {
+        skipBySizeFilter,
+        filenameRegexFilter
+    };
+
     for (int i = 0; i < ui->importList_ListWidget->count(); ++i) {
         QFileInfo fileInfo(ui->importList_ListWidget->item(i)->text());
         QString absoluteFilePath = fileInfo.absoluteFilePath();
         if (fileInfo.isFile()) {
-            if (!passesFilters(fileInfo)) {
+            if (!Importer::passesFilters(fileInfo, importFilters)) {
                 continue;
             }
             fileList << absoluteFilePath;
         } else if (fileInfo.isDir()) {
-            fileList << scanDirectoryWithFilters(absoluteFilePath, ui->importSubfolders_CheckBox->isChecked());
+            fileList << Importer::scanDirectory(absoluteFilePath, ui->importSubfolders_CheckBox->isChecked(), importFilters);
         }
     }
 
@@ -98,33 +116,6 @@ void AdvancedImportDialog::setLastOpenedDirectory(const QString& directory)
 {
     this->lastOpenedDirectory = directory;
     QSettings().setValue("extra/last_opened_directory", directory);
-}
-
-bool AdvancedImportDialog::passesFilters(const QFileInfo& fileInfo) const
-{
-    if (ui->skipBySize_CheckBox->isChecked()) {
-        // TODO Make it an Enum
-        int unit = ui->skipBySizeUnit_ComboBox->currentIndex();
-        int condition = ui->skipBySizeCondition_ComboBox->currentIndex();
-        int size = ui->skipBySizeSize_SpinBox->value() << (unit * 10);
-        size_t imageSize = fileInfo.size();
-        if ((condition == 0 && imageSize > size) || (condition == 1 && imageSize == size) || (condition == 2 && imageSize < size)) {
-            return false;
-        }
-    }
-
-    if (!ui->filenamePattern_LineEdit->text().isEmpty()) {
-        QString filename = fileInfo.fileName();
-
-        QString pattern = ui->filenamePattern_LineEdit->text();
-        QRegularExpression regex(pattern);
-
-        if (!regex.match(filename).hasMatch()) {
-            return false;
-        }
-    }
-
-    return true;
 }
 
 void AdvancedImportDialog::onAddFilesActionTriggered()
@@ -219,28 +210,4 @@ void AdvancedImportDialog::onSkipBySizeUnitChanged(int index)
 void AdvancedImportDialog::onFilenamePatternTextChanged(const QString& text)
 {
     QSettings().setValue("preferences/advanced_import/filename_pattern", text);
-}
-
-QStringList AdvancedImportDialog::scanDirectoryWithFilters(const QString& directory, bool subfolders) const
-{
-    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp", "*.tif", "*.tiff" };
-    QStringList fileList = {};
-    auto iteratorFlags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
-    // Collecting all files in folder
-    if (QDir(directory).exists()) {
-        QDirIterator it(directory,
-            inputFilterList,
-            QDir::AllEntries,
-            iteratorFlags);
-
-        while (it.hasNext()) {
-            it.next();
-            QString filePath = it.filePath();
-            if (passesFilters(QFileInfo(filePath))) {
-                fileList.append(filePath);
-            }
-        }
-    }
-
-    return fileList;
 }

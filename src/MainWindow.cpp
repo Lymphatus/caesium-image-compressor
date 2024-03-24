@@ -17,6 +17,7 @@
 #include <QtConcurrent>
 #include <dialogs/AdvancedImportDialog.h>
 #include <dialogs/PreferencesDialog.h>
+#include <services/Importer.h>
 #include <utility>
 #include <widgets/QCaesiumMessageBox.h>
 
@@ -277,7 +278,7 @@ void MainWindow::triggerImportFolder()
 
     QSettings settings;
     bool scanSubfolders = settings.value("preferences/general/import_subfolders", true).toBool();
-    QStringList fileList = scanDirectory(directoryPath, scanSubfolders);
+    QStringList fileList = Importer::scanDirectory(directoryPath, scanSubfolders);
 
     if (fileList.isEmpty()) {
         return;
@@ -515,7 +516,7 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 
     if (!list.isEmpty() && listLength > 0) {
         this->updateFolderMap(std::move(baseFolder), (int)list.count());
-        QString rootFolder = getRootFolder(this->folderMap.keys());
+        QString rootFolder = Importer::getRootFolder(this->folderMap.keys());
         this->cImageModel->appendItems(list, rootFolder);
         this->importedFilesRootFolder = rootFolder;
     }
@@ -569,7 +570,7 @@ void MainWindow::startCompression()
         return;
     }
 
-    QString rootFolder = getRootFolder(this->folderMap.keys());
+    QString rootFolder = Importer::getRootFolder(this->folderMap.keys());
 
     bool skipDialogs = settings.value("preferences/general/skip_compression_dialogs").toBool();
     bool overwriteWarningFlag = (ui->sameOutputFolderAsInput_CheckBox->isChecked() && ui->outputSuffix_LineEdit->text().isEmpty())
@@ -826,7 +827,7 @@ void MainWindow::on_actionClear_triggered()
 
 void MainWindow::dropFinished(QStringList filePaths)
 {
-    QString baseFolder = getRootFolder(filePaths);
+    QString baseFolder = Importer::getRootFolder(filePaths);
     this->importFiles(filePaths, baseFolder);
 }
 
@@ -1355,7 +1356,7 @@ void MainWindow::importFromArgs(const QStringList args)
         QFileInfo info = QFileInfo(path);
         if (info.isDir()) {
             bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
-            filesList.append(scanDirectory(path, scanSubfolders));
+            filesList.append(Importer::scanDirectory(path, scanSubfolders));
         } else if (info.isFile()) {
             filesList.append(path);
         }
@@ -1363,7 +1364,7 @@ void MainWindow::importFromArgs(const QStringList args)
     if (filesList.isEmpty()) {
         return;
     }
-    QString baseFolder = getRootFolder(args);
+    QString baseFolder = Importer::getRootFolder(args);
     this->importFiles(filesList, baseFolder);
     if (argsBehaviour == 1) {
         this->startCompression();
@@ -1429,7 +1430,7 @@ void MainWindow::onAdvancedImportTriggered()
         if (fileList.isEmpty()) {
             return;
         }
-        QString baseFolder = getRootFolder(fileList);
+        QString baseFolder = Importer::getRootFolder(fileList);
         this->importFiles(fileList, baseFolder);
     });
 

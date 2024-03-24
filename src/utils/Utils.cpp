@@ -37,58 +37,6 @@ QString toHumanSize(double size)
     return QString::number(size / (pow(1024, order)) * (isNegative ? -1 : 1), 'f', 2) + ' ' + unit[(int)order];
 }
 
-// TODO Another thread?
-QStringList scanDirectory(const QString& directory, bool subfolders)
-{
-    QStringList inputFilterList = { "*.jpg", "*.jpeg", "*.png", "*.webp", "*.tif", "*.tiff" };
-    QStringList fileList = {};
-    auto iteratorFlags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
-    // Collecting all files in folder
-    if (QDir(directory).exists()) {
-        QDirIterator it(directory,
-            inputFilterList,
-            QDir::AllEntries,
-            iteratorFlags);
-
-        while (it.hasNext()) {
-            it.next();
-            fileList.append(it.filePath());
-        }
-    }
-
-    return fileList;
-}
-
-QString getRootFolder(QList<QString> folderMap)
-{
-    if (folderMap.isEmpty()) {
-        return QDir::rootPath();
-    }
-    QStringListIterator it(folderMap);
-    QString rootFolderPath = folderMap.first();
-    while (it.hasNext()) {
-        QString newFolderPath = it.next();
-        QStringList splitNewFolder = QDir::toNativeSeparators(newFolderPath).split(QDir::separator());
-        QStringList splitRootFolder = QDir::toNativeSeparators(rootFolderPath).split(QDir::separator());
-        QStringList splitCommonPath;
-
-        for (int i = 0; i < (std::min)(splitNewFolder.count(), splitRootFolder.count()); i++) {
-            if (QString::compare(splitNewFolder.at(i), splitRootFolder.at(i)) != 0) {
-                if (i == 0) {
-                    rootFolderPath = QDir::rootPath();
-                } else {
-                    rootFolderPath = QDir(splitCommonPath.join(QDir::separator())).absolutePath();
-                }
-                break;
-            }
-            splitCommonPath.append(splitNewFolder.at(i));
-        }
-        rootFolderPath = QDir(splitCommonPath.join(QDir::separator())).absolutePath();
-    }
-
-    return rootFolderPath;
-}
-
 std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions& compressionOptions)
 {
     int fitTo = compressionOptions.fitTo;

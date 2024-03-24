@@ -146,8 +146,6 @@ const CsTheme THEMES[THEMES_COUNT] = {
 
 // Utilities
 QString toHumanSize(double size);
-QStringList scanDirectory(const QString& directory, bool subfolders);
-QString getRootFolder(QList<QString> folderMap);
 std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions &compressionOptions);
 QSize getSizeWithMetadata(QImageReader* reader);
 bool isRotatedByMetadata(QImageReader*  reader);
