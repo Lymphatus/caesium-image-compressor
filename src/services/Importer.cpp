@@ -59,6 +59,24 @@ bool Importer::passesFilters(const QFileInfo& fileInfo, const ImportFilters& imp
     return true;
 }
 
+QStringList Importer::scanList(const QStringList& filesAndFolders, bool subfolders)
+{
+    QStringList filesList;
+    QStringListIterator it(filesAndFolders);
+
+    while (it.hasNext()) {
+        QString path = it.next();
+        QFileInfo info = QFileInfo(path);
+        if (info.isDir()) {
+            filesList.append(scanDirectory(path, subfolders));
+        } else if (info.isFile()) {
+            filesList.append(path);
+        }
+    }
+
+    return filesList;
+}
+
 QStringList Importer::scanDirectory(const QString& directory, bool subfolders)
 {
     return scanDirectory(false, directory, subfolders, ImportFilters());

@@ -91,7 +91,7 @@ private slots:
     void outputFormatIndexChanged(int index);
     void moveOriginalFileToggled(bool checked);
     void moveOriginalFileDestinationChanged(int index);
-    void importFromArgs(QStringList);
+    void importFromArgs(const QStringList&);
     void onMaxOutputSizeChanged(int value);
     void onMaxOutputSizeUnitChanged(int value);
     void onCompressionModeChanged(int value);

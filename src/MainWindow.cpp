@@ -113,6 +113,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->on_keepAspectRatio_CheckBox_toggled(ui->keepAspectRatio_CheckBox->isChecked());
     this->on_sameOutputFolderAsInput_CheckBox_toggled(ui->sameOutputFolderAsInput_CheckBox->isChecked());
     this->moveOriginalFileToggled(ui->moveOriginalFile_CheckBox->isChecked());
+    this->on_fitTo_ComboBox_currentIndexChanged(ui->fitTo_ComboBox->currentIndex());
     this->toggleLosslessWarningVisible();
 
     ui->actionToolbarIcons_only->setChecked(ui->toolBar->toolButtonStyle() == Qt::ToolButtonIconOnly && !ui->toolBar->isHidden());
@@ -1345,28 +1346,18 @@ void MainWindow::outputFormatIndexChanged(int index)
     this->toggleLosslessWarningVisible();
 }
 
-void MainWindow::importFromArgs(const QStringList args)
+void MainWindow::importFromArgs(const QStringList& args)
 {
-    QStringList filesList;
-    QStringListIterator it(args);
-    // TODO Make a ENUM?
-    int argsBehaviour = QSettings().value("preferences/general/args_behaviour", 0).toInt();
-    while (it.hasNext()) {
-        QString path = it.next();
-        QFileInfo info = QFileInfo(path);
-        if (info.isDir()) {
-            bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
-            filesList.append(Importer::scanDirectory(path, scanSubfolders));
-        } else if (info.isFile()) {
-            filesList.append(path);
-        }
-    }
+    bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
+    QStringList filesList = Importer::scanList(args, scanSubfolders);
     if (filesList.isEmpty()) {
         return;
     }
+
+    ImportFromArgsMethod argsBehaviour = static_cast<ImportFromArgsMethod>(QSettings().value("preferences/general/args_behaviour", 0).toInt());
     QString baseFolder = Importer::getRootFolder(args);
     this->importFiles(filesList, baseFolder);
-    if (argsBehaviour == 1) {
+    if (argsBehaviour == IMPORT_AND_COMPRESS) {
         this->startCompression();
     }
 }

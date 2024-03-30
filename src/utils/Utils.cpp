@@ -3,7 +3,6 @@
 
 #include <QDesktopServices>
 #include <QDir>
-#include <QDirIterator>
 #include <QImageReader>
 #include <QJsonObject>
 #include <QMessageBox>

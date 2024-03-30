@@ -2,16 +2,12 @@
 #define UTILS_H
 
 #include <QCryptographicHash>
-#include <QDateTime>
 #include <QFileInfo>
-#include <QImage>
 #include <QImageReader>
 #include <QJsonObject>
-#include <QMap>
 #include <QPixmap>
 #include <QSize>
 #include <QString>
-#include <QStringList>
 
 enum class CImageStatus {
     UNCOMPRESSED,
@@ -21,7 +17,7 @@ enum class CImageStatus {
     WARNING
 };
 
-const int CIMAGE_COLUMNS_SIZE = 5;
+constexpr int CIMAGE_COLUMNS_SIZE = 5;
 
 enum CImageColumns {
     NAME_COLUMN = 0,
