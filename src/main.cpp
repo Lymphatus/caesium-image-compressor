@@ -7,7 +7,6 @@
 #include <QStyle>
 #include <QStyleFactory>
 #include <QStyleHints>
-#include <QTranslator>
 #include <QUuid>
 
 QString loadInstallationId()

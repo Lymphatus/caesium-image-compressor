@@ -290,15 +290,15 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
 {
     CCSParameters r_parameters = {};
     r_parameters.keep_metadata = compressionOptions.keepMetadata;
-    r_parameters.jpeg_quality = static_cast<unsigned int>(compressionOptions.jpeg_quality);
-    r_parameters.jpeg_chroma_subsampling = 0;
-    r_parameters.png_quality = static_cast<unsigned int>(compressionOptions.png_quality);
-    r_parameters.png_optimization_level = static_cast<unsigned int>(compressionOptions.png_optimization_level);
+    r_parameters.jpeg_quality = static_cast<unsigned int>(compressionOptions.jpegQuality);
+    r_parameters.jpeg_chroma_subsampling = compressionOptions.jpegChromaSubsampling;
+    r_parameters.png_quality = static_cast<unsigned int>(compressionOptions.pngQuality);
+    r_parameters.png_optimization_level = static_cast<unsigned int>(compressionOptions.pngOptimizationLevel);
     r_parameters.png_force_zopfli = false;
     r_parameters.gif_quality = 20;
-    r_parameters.webp_quality = static_cast<unsigned int>(compressionOptions.webp_quality);
-    r_parameters.tiff_compression = static_cast<unsigned int>(compressionOptions.tiff_method);
-    r_parameters.tiff_deflate_level = static_cast<unsigned int>(compressionOptions.tiff_deflate_level);
+    r_parameters.webp_quality = static_cast<unsigned int>(compressionOptions.webpQuality);
+    r_parameters.tiff_compression = static_cast<unsigned int>(compressionOptions.tiffMethod);
+    r_parameters.tiff_deflate_level = static_cast<unsigned int>(compressionOptions.tiffDeflateLevel);
     r_parameters.optimize = compressionOptions.lossless;
     r_parameters.width = 0;
     r_parameters.height = 0;

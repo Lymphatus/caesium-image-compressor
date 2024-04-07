@@ -99,6 +99,7 @@ private slots:
     void onPNGOptimizationLevelChanged(int value);
     void onTiffCompressionMethodChanged(int index);
     void onTiffDeflateLevelChanged(int value);
+    void onJPEGChromaSubsamplingChanged();
 
 private:
     Ui::MainWindow* ui;
@@ -144,6 +145,7 @@ private:
     CompressionOptions getCompressionOptions(QString rootFolder);
     void clearCache();
     void changeEvent(QEvent* event) override;
+    void setupChromaSubsamplingComboBox();
 };
 
 #endif // MAINWINDOW_H

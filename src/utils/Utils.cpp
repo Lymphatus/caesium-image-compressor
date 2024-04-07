@@ -227,3 +227,14 @@ QSize getSizeWithMetadata(QImageReader* reader)
 
     return actualSize;
 }
+
+QMap<int, QString> getChromaSubsamplingOptions()
+{
+    return {
+        { JPEGChromaSubsampling::CHROMA_AUTO, QIODevice::tr("Auto") },
+        { JPEGChromaSubsampling::CHROMA_444, QString("444") },
+        { JPEGChromaSubsampling::CHROMA_422, QString("422") },
+        { JPEGChromaSubsampling::CHROMA_420, QString("420") },
+        { JPEGChromaSubsampling::CHROMA_411, QString("411") },
+    };
+}

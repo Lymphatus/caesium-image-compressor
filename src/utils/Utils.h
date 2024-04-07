@@ -62,6 +62,14 @@ enum class PostCompressionAction {
     OPEN_FOLDER
 };
 
+enum JPEGChromaSubsampling {
+    CHROMA_AUTO = 0,
+    CHROMA_444 = 444,
+    CHROMA_422 = 422,
+    CHROMA_420 = 420,
+    CHROMA_411 = 411,
+};
+
 typedef struct CsMaxOutputSizeUnit {
     QString label;
     MaxOutputSizeUnit unit;
@@ -83,6 +91,11 @@ typedef struct FileDatesOutputOption {
     bool keepLastAccess;
 } FileDatesOutputOption;
 
+typedef struct ChromaSubsampling {
+    QString label;
+    int value;
+} ChromaSubsampling;
+
 typedef struct CompressionOptions {
     QString outputPath;
     QString basePath;
@@ -101,12 +114,13 @@ typedef struct CompressionOptions {
     bool skipIfBigger;
     bool moveOriginalFile;
     int moveOriginalFileDestination;
-    int jpeg_quality;
-    int png_quality;
-    int png_optimization_level;
-    int webp_quality;
-    int tiff_method;
-    int tiff_deflate_level;
+    int jpegQuality;
+    int jpegChromaSubsampling;
+    int pngQuality;
+    int pngOptimizationLevel;
+    int webpQuality;
+    int tiffMethod;
+    int tiffDeflateLevel;
     bool keepDates;
     FileDatesOutputOption datesMap;
     CompressionMode compressionMode;
@@ -134,7 +148,7 @@ typedef struct ImagePreview {
     QString format;
 } ImagePreview;
 
-const int THEMES_COUNT = 2;
+constexpr int THEMES_COUNT = 2;
 const CsTheme THEMES[THEMES_COUNT] = {
     { QString("Native"), QString("Native") },
     { QString("Fusion"), QString("Fusion") },
@@ -142,9 +156,9 @@ const CsTheme THEMES[THEMES_COUNT] = {
 
 // Utilities
 QString toHumanSize(double size);
-std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions &compressionOptions);
+std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions& compressionOptions);
 QSize getSizeWithMetadata(QImageReader* reader);
-bool isRotatedByMetadata(QImageReader*  reader);
+bool isRotatedByMetadata(QImageReader* reader);
 void showFileInNativeFileManager(const QString& filePath, const QString& fallbackDirectory);
 void showDirectoryInNativeFileManager(const QString& dirPath);
 QJsonObject getSystemData();
@@ -152,4 +166,5 @@ QJsonObject getCompressionOptionsAsJSON();
 QString getCompressionOptionsHash();
 QString hashString(const QString& data, QCryptographicHash::Algorithm algorithm);
 QStringList getOutputSupportedFormats();
+QMap<int, QString> getChromaSubsamplingOptions();
 #endif // UTILS_H

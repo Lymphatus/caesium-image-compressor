@@ -72,6 +72,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->initTrayIcon();
 
     ui->format_ComboBox->addItems(getOutputSupportedFormats());
+    this->setupChromaSubsamplingComboBox();
 
     connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
     connect(ui->imageList_TreeView, &QDropTreeView::dropFinished, this, &MainWindow::dropFinished);
@@ -100,6 +101,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->moveOriginalFile_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToggled);
     connect(ui->moveOriginalFile_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::moveOriginalFileDestinationChanged);
 
+    connect(ui->JPEGChromaSubsampling_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onJPEGChromaSubsamplingChanged);
     connect(ui->PNGOptimizationLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onPNGOptimizationLevelChanged);
 
     connect(ui->TIFFCompressionMethod_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onTiffCompressionMethodChanged);
@@ -315,6 +317,7 @@ void MainWindow::writeSettings()
     settings.setValue("compression_options/compression/keep_metadata", ui->keepMetadata_CheckBox->isChecked());
     settings.setValue("compression_options/compression/keep_structure", ui->keepStructure_CheckBox->isChecked());
     settings.setValue("compression_options/compression/jpeg_quality", ui->JPEGQuality_Slider->value());
+    settings.setValue("compression_options/compression/jpeg_chroma_subsampling", ui->JPEGChromaSubsampling_ComboBox->currentData(Qt::UserRole));
     settings.setValue("compression_options/compression/png_quality", ui->PNGQuality_Slider->value());
     settings.setValue("compression_options/compression/png_optimization_level", ui->PNGOptimizationLevel_Slider->value());
     settings.setValue("compression_options/compression/webp_quality", ui->WebPQuality_Slider->value());
@@ -368,6 +371,7 @@ void MainWindow::readSettings()
     ui->keepMetadata_CheckBox->setChecked(settings.value("compression_options/compression/keep_metadata", true).toBool());
     ui->keepStructure_CheckBox->setChecked(settings.value("compression_options/compression/keep_structure", false).toBool());
     ui->JPEGQuality_Slider->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
+    ui->JPEGChromaSubsampling_ComboBox->setCurrentIndex(static_cast<int>(getChromaSubsamplingOptions().keys().indexOf(settings.value("compression_options/compression/jpeg_chroma_subsampling", 0).toInt())));
     ui->PNGQuality_SpinBox->setValue(settings.value("compression_options/compression/png_quality", 80).toInt());
     ui->PNGOptimizationLevel_Slider->setValue(settings.value("compression_options/compression/png_optimization_level", 3).toInt());
     ui->JPEGQuality_SpinBox->setValue(settings.value("compression_options/compression/jpeg_quality", 80).toInt());
@@ -665,6 +669,7 @@ CompressionOptions MainWindow::getCompressionOptions(QString rootFolder)
         ui->moveOriginalFile_CheckBox->isChecked(),
         ui->moveOriginalFile_ComboBox->currentIndex(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
+        ui->JPEGChromaSubsampling_ComboBox->currentData(Qt::UserRole).toInt(),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->PNGOptimizationLevel_Slider->value(), 1, 6),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
@@ -1442,4 +1447,19 @@ void MainWindow::onTiffCompressionMethodChanged(int index)
 void MainWindow::onTiffDeflateLevelChanged(int value)
 {
     this->writeSetting("compression_options/compression/tiff_deflate_level", value);
+}
+
+void MainWindow::onJPEGChromaSubsamplingChanged()
+{
+    this->writeSetting("compression_options/compression/jpeg_chroma_subsampling", ui->JPEGChromaSubsampling_ComboBox->currentData(Qt::UserRole));
+}
+
+void MainWindow::setupChromaSubsamplingComboBox()
+{
+    auto chromaSubsamplings = getChromaSubsamplingOptions();
+    auto iterator = QMapIterator<int, QString>(chromaSubsamplings);
+    while (iterator.hasNext()) {
+        auto chromaSubsamplingOption = iterator.next();
+        ui->JPEGChromaSubsampling_ComboBox->addItem(chromaSubsamplingOption.value(), chromaSubsamplingOption.key());
+    }
 }
