@@ -33,10 +33,10 @@ QString toHumanSize(double size)
         order = 4;
     }
 
-    return QString::number(size / (pow(1024, order)) * (isNegative ? -1 : 1), 'f', 2) + ' ' + unit[(int)order];
+    return QString::number(size / (pow(1024, order)) * (isNegative ? -1 : 1), 'f', 2) + ' ' + unit[static_cast<int>(order)];
 }
 
-std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const CompressionOptions& compressionOptions)
+std::tuple<unsigned int, unsigned int> cResize(const QImageReader* reader, const CompressionOptions& compressionOptions)
 {
     int fitTo = compressionOptions.fitTo;
     int width = compressionOptions.width;
@@ -70,8 +70,8 @@ std::tuple<unsigned int, unsigned int> cResize(QImageReader* reader, const Compr
             return { originalWidth, originalHeight };
         }
 
-        int outputWidth = (int)round((double)originalWidth * (double)outputWidthPerc / 100);
-        int outputHeight = (int)round((double)originalHeight * (double)outputHeightPerc / 100);
+        int outputWidth = static_cast<int>(round(static_cast<double>(originalWidth) * static_cast<double>(outputWidthPerc) / 100));
+        int outputHeight = static_cast<int>(round(static_cast<double>(originalHeight) * static_cast<double>(outputHeightPerc) / 100));
         return { outputWidth, outputHeight };
     } else if (fitTo == ResizeMode::FIXED_WIDTH) {
         if (doNotEnlarge && keepMetadata && width > originalWidth) {
@@ -206,7 +206,7 @@ QStringList getOutputSupportedFormats()
     };
 }
 
-bool isRotatedByMetadata(QImageReader* reader)
+bool isRotatedByMetadata(const QImageReader* reader)
 {
     QFlags<QImageIOHandler::Transformation> transformation = reader->transformation();
     return (transformation == QImageIOHandler::TransformationRotate90
@@ -215,7 +215,7 @@ bool isRotatedByMetadata(QImageReader* reader)
         || transformation == QImageIOHandler::TransformationRotate270);
 }
 
-QSize getSizeWithMetadata(QImageReader* reader)
+QSize getSizeWithMetadata(const QImageReader* reader)
 {
     QSize imageSize = reader->size();
     QSize actualSize(imageSize.width(), imageSize.height());
@@ -232,9 +232,9 @@ QMap<int, QString> getChromaSubsamplingOptions()
 {
     return {
         { JPEGChromaSubsampling::CHROMA_AUTO, QIODevice::tr("Auto") },
-        { JPEGChromaSubsampling::CHROMA_444, QString("444") },
-        { JPEGChromaSubsampling::CHROMA_422, QString("422") },
-        { JPEGChromaSubsampling::CHROMA_420, QString("420") },
-        { JPEGChromaSubsampling::CHROMA_411, QString("411") },
+        { JPEGChromaSubsampling::CHROMA_444, QString("4:4:4") },
+        { JPEGChromaSubsampling::CHROMA_422, QString("4:2:2") },
+        { JPEGChromaSubsampling::CHROMA_420, QString("4:2:0") },
+        { JPEGChromaSubsampling::CHROMA_411, QString("4:1:1") },
     };
 }

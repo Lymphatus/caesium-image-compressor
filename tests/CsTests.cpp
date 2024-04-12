@@ -1,4 +1,5 @@
 #include <QtTest>
+#include <services/Importer.h>
 
 class CsTests : public QObject
 {

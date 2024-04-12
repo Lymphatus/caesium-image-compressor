@@ -18,5 +18,5 @@ enable_testing()
 add_executable(CsTests CsTests.cpp)
 add_test(NAME CsTests COMMAND CsTests)
 
-target_link_libraries(CsTests PRIVATE Qt${QT_VERSION_MAJOR}::Test)
+target_link_libraries(CsTests PRIVATE Qt${QT_VERSION_MAJOR}::Test Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network)
 
