@@ -111,11 +111,18 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->moveOriginalFile_CheckBox, &QCheckBox::toggled, this, &MainWindow::moveOriginalFileToggled);
     connect(ui->moveOriginalFile_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::moveOriginalFileDestinationChanged);
 
+    connect(ui->JPEGQuality_Slider, &QSlider::valueChanged, this, &MainWindow::onJPEGQualityValueChanged);
+    connect(ui->JPEGQuality_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onJPEGQualityValueChanged);
+    connect(ui->PNGQuality_Slider, &QSlider::valueChanged, this, &MainWindow::onPNGQualityValueChanged);
+    connect(ui->PNGQuality_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onPNGQualityValueChanged);
+    connect(ui->WebPQuality_Slider, &QSlider::valueChanged, this, &MainWindow::onWebPQualityValueChanged);
+    connect(ui->WebPQuality_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onWebPQualityValueChanged);
     connect(ui->JPEGChromaSubsampling_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onJPEGChromaSubsamplingChanged);
     connect(ui->PNGOptimizationLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onPNGOptimizationLevelChanged);
+    connect(ui->PNGOptimizationLevel_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onPNGOptimizationLevelChanged);
 
-    connect(ui->TIFFCompressionMethod_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onTiffCompressionMethodChanged);
-    connect(ui->TIFFDeflateLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onTiffDeflateLevelChanged);
+    connect(ui->TIFFCompressionMethod_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onTIFFCompressionMethodChanged);
+    connect(ui->TIFFDeflateLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onTIFFDeflateLevelChanged);
     this->readSettings();
 
     connect(ui->format_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::outputFormatIndexChanged);
@@ -1009,24 +1016,38 @@ void MainWindow::on_keepMetadata_CheckBox_toggled(bool checked)
     this->writeSetting("compression_options/compression/keep_metadata", checked);
 }
 
-void MainWindow::on_JPEGQuality_Slider_valueChanged(int value)
+void MainWindow::onJPEGQualityValueChanged(int value)
 {
+    if (ui->JPEGQuality_Slider->value() != value) {
+        ui->JPEGQuality_Slider->setValue(value);
+    }
+
+    if (ui->JPEGQuality_SpinBox->value() != value) {
+        ui->JPEGQuality_SpinBox->setValue(value);
+    }
     this->writeSetting("compression_options/compression/jpeg_quality", value);
 }
 
-void MainWindow::on_JPEGQuality_SpinBox_valueChanged(int value)
+void MainWindow::onPNGQualityValueChanged(int value)
 {
-    this->writeSetting("compression_options/compression/jpeg_quality", value);
-}
-
-void MainWindow::on_PNGQuality_Slider_valueChanged(int value)
-{
+    if (ui->PNGQuality_SpinBox->value() != value) {
+        ui->PNGQuality_SpinBox->setValue(value);
+    }
+    if (ui->PNGQuality_Slider->value() != value) {
+        ui->PNGQuality_Slider->setValue(value);
+    }
     this->writeSetting("compression_options/compression/png_quality", value);
 }
 
-void MainWindow::on_PNGQuality_SpinBox_valueChanged(int value)
+void MainWindow::onWebPQualityValueChanged(int value)
 {
-    this->writeSetting("compression_options/compression/png_quality", value);
+    if (ui->WebPQuality_SpinBox->value() != value) {
+        ui->WebPQuality_SpinBox->setValue(value);
+    }
+    if (ui->WebPQuality_Slider->value() != value) {
+        ui->WebPQuality_Slider->setValue(value);
+    }
+    this->writeSetting("compression_options/compression/webp_quality", value);
 }
 
 void MainWindow::cModelItemsChanged()
@@ -1453,16 +1474,23 @@ void MainWindow::onAdvancedImportTriggered()
 
 void MainWindow::onPNGOptimizationLevelChanged(int value)
 {
+    if (ui->PNGOptimizationLevel_SpinBox->value() != value) {
+        ui->PNGOptimizationLevel_SpinBox->setValue(value);
+    }
+    if ( ui->PNGOptimizationLevel_Slider->value() != value) {
+        ui->PNGOptimizationLevel_Slider->setValue(value);
+    }
+
     this->writeSetting("compression_options/compression/png_optimization_level", value);
 }
 
-void MainWindow::onTiffCompressionMethodChanged(int index)
+void MainWindow::onTIFFCompressionMethodChanged(int index)
 {
     ui->TIFFDeflateLevelContainer_Widget->setEnabled(index == 2);
     this->writeSetting("compression_options/compression/tiff_method", index);
 }
 
-void MainWindow::onTiffDeflateLevelChanged(int value)
+void MainWindow::onTIFFDeflateLevelChanged(int value)
 {
     this->writeSetting("compression_options/compression/tiff_deflate_level", value);
 }

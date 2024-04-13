@@ -95,7 +95,7 @@ QStringList Importer::scanDirectory(bool hasFilters, const QString& directory, b
 
     while (it.hasNext()) {
         QString filePath = it.next();
-        if (!hasFilters || !passesFilters(QFileInfo(filePath), importFilters)) {
+        if (hasFilters && !passesFilters(QFileInfo(filePath), importFilters)) {
             continue;
         }
         fileList.append(filePath);

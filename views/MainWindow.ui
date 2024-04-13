@@ -403,9 +403,6 @@
                         <property name="readOnly">
                          <bool>false</bool>
                         </property>
-                        <property name="buttonSymbols">
-                         <enum>QAbstractSpinBox::NoButtons</enum>
-                        </property>
                         <property name="maximum">
                          <number>100</number>
                         </property>
@@ -463,9 +460,6 @@
                           <width>40</width>
                           <height>0</height>
                          </size>
-                        </property>
-                        <property name="buttonSymbols">
-                         <enum>QAbstractSpinBox::NoButtons</enum>
                         </property>
                         <property name="maximum">
                          <number>100</number>
@@ -546,6 +540,9 @@
                        <widget class="QSpinBox" name="PNGOptimizationLevel_SpinBox">
                         <property name="enabled">
                          <bool>false</bool>
+                        </property>
+                        <property name="buttonSymbols">
+                         <enum>QAbstractSpinBox::UpDownArrows</enum>
                         </property>
                         <property name="minimum">
                          <number>1</number>
@@ -649,9 +646,6 @@
                         </property>
                         <property name="readOnly">
                          <bool>false</bool>
-                        </property>
-                        <property name="buttonSymbols">
-                         <enum>QAbstractSpinBox::NoButtons</enum>
                         </property>
                         <property name="maximum">
                          <number>100</number>
@@ -2076,8 +2070,8 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>727</x>
-     <y>198</y>
+     <x>726</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>726</x>
@@ -2092,12 +2086,12 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>727</x>
-     <y>198</y>
+     <x>726</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1249</x>
-     <y>171</y>
+     <x>726</x>
+     <y>126</y>
     </hint>
    </hints>
   </connection>

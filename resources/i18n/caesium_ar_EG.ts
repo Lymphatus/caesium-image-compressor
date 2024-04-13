@@ -186,29 +186,29 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="268"/>
+        <location filename="../../src/MainWindow.cpp" line="275"/>
         <source>Import files...</source>
         <translation>استيراد ملفات...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="284"/>
+        <location filename="../../src/MainWindow.cpp" line="291"/>
         <source>Import folder...</source>
         <translation>استيراد المجلد...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="516"/>
+        <location filename="../../src/MainWindow.cpp" line="523"/>
         <source>Importing files...</source>
         <translation>جاري استيراد ملفات...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1600"/>
-        <location filename="../../src/MainWindow.cpp" line="516"/>
-        <location filename="../../src/MainWindow.cpp" line="724"/>
+        <location filename="../../views/MainWindow.ui" line="1594"/>
+        <location filename="../../src/MainWindow.cpp" line="523"/>
+        <location filename="../../src/MainWindow.cpp" line="731"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="604"/>
+        <location filename="../../src/MainWindow.cpp" line="611"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -217,55 +217,55 @@ Do you really want to continue?</source>
 هل تريد حقًا الاستمرار؟</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="608"/>
+        <location filename="../../src/MainWindow.cpp" line="615"/>
         <source>No</source>
         <translation>لا</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1208"/>
-        <location filename="../../src/MainWindow.cpp" line="1213"/>
+        <location filename="../../src/MainWindow.cpp" line="1229"/>
+        <location filename="../../src/MainWindow.cpp" line="1234"/>
         <source>File not found</source>
         <translation type="unfinished">الملف غير موجود</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1244"/>
+        <location filename="../../src/MainWindow.cpp" line="1265"/>
         <source>Finishing...</source>
         <translation>جاري الإنهاء...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="639"/>
-        <location filename="../../src/MainWindow.cpp" line="1311"/>
+        <location filename="../../src/MainWindow.cpp" line="646"/>
+        <location filename="../../src/MainWindow.cpp" line="1332"/>
         <source>Compressing...</source>
         <translation>جاري الضغط...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="720"/>
+        <location filename="../../src/MainWindow.cpp" line="727"/>
         <source>Do you really want to quit?</source>
         <translation>هل حقا تريد الخروج؟</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="607"/>
-        <location filename="../../src/MainWindow.cpp" line="723"/>
+        <location filename="../../src/MainWindow.cpp" line="614"/>
+        <location filename="../../src/MainWindow.cpp" line="730"/>
         <source>Yes</source>
         <translation>نعم</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="745"/>
+        <location filename="../../src/MainWindow.cpp" line="752"/>
         <source>Select output folder...</source>
         <translation>حدد مجلد المخرجات...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="812"/>
+        <location filename="../../src/MainWindow.cpp" line="819"/>
         <source>Compression finished!</source>
         <translation>انتهى الضغط!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="827"/>
+        <location filename="../../src/MainWindow.cpp" line="834"/>
         <source>You just saved %1!</source>
         <translation>لقد وفرت  لتو %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="831"/>
+        <location filename="../../src/MainWindow.cpp" line="838"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -287,14 +287,14 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="155"/>
-        <location filename="../../views/MainWindow.ui" line="1881"/>
+        <location filename="../../views/MainWindow.ui" line="1875"/>
         <source>Remove</source>
         <translation>حذف</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="188"/>
-        <location filename="../../views/MainWindow.ui" line="1958"/>
-        <location filename="../../views/MainWindow.ui" line="1961"/>
+        <location filename="../../views/MainWindow.ui" line="1952"/>
+        <location filename="../../views/MainWindow.ui" line="1955"/>
         <source>Compress</source>
         <translation>ضغط</translation>
     </message>
@@ -311,13 +311,13 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="263"/>
         <location filename="../../views/MainWindow.ui" line="391"/>
-        <location filename="../../views/MainWindow.ui" line="564"/>
-        <location filename="../../views/MainWindow.ui" line="667"/>
+        <location filename="../../views/MainWindow.ui" line="561"/>
+        <location filename="../../views/MainWindow.ui" line="661"/>
         <source>Quality</source>
         <translation>الجودة</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="437"/>
+        <location filename="../../views/MainWindow.ui" line="434"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
@@ -326,17 +326,17 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">مستوى</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="581"/>
+        <location filename="../../views/MainWindow.ui" line="578"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="860"/>
+        <location filename="../../views/MainWindow.ui" line="854"/>
         <source>Lossless</source>
         <translation>ضغط بدون فقد</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="974"/>
+        <location filename="../../views/MainWindow.ui" line="968"/>
         <source>Maximum output size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -346,192 +346,192 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="873"/>
+        <location filename="../../views/MainWindow.ui" line="867"/>
         <source>Keep Metadata</source>
         <translation>احتفظ بالبيانات الوصفية</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="988"/>
+        <location filename="../../views/MainWindow.ui" line="982"/>
         <source>Resize</source>
         <translation>إعادة تحجيم</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1014"/>
+        <location filename="../../views/MainWindow.ui" line="1008"/>
         <source>Resize to fit</source>
         <translation>تغيير حجم لتناسب</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1038"/>
+        <location filename="../../views/MainWindow.ui" line="1032"/>
         <source>No resize</source>
         <translation>احتفظ بالحجم الأصلي</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1043"/>
+        <location filename="../../views/MainWindow.ui" line="1037"/>
         <source>Dimensions</source>
         <translation>أبعاد</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1048"/>
+        <location filename="../../views/MainWindow.ui" line="1042"/>
         <source>Percentage</source>
         <translation>نسبة مئوية</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1053"/>
+        <location filename="../../views/MainWindow.ui" line="1047"/>
         <source>Short edge</source>
         <translation>الحافة القصيرة</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1058"/>
+        <location filename="../../views/MainWindow.ui" line="1052"/>
         <source>Long edge</source>
         <translation>الحافة الطويلة</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1063"/>
-        <location filename="../../views/MainWindow.ui" line="1104"/>
+        <location filename="../../views/MainWindow.ui" line="1057"/>
+        <location filename="../../views/MainWindow.ui" line="1098"/>
         <source>Width</source>
         <translation>العرض</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1173"/>
-        <location filename="../../src/MainWindow.cpp" line="872"/>
-        <location filename="../../src/MainWindow.cpp" line="876"/>
-        <location filename="../../src/MainWindow.cpp" line="911"/>
-        <location filename="../../src/MainWindow.cpp" line="914"/>
-        <location filename="../../src/MainWindow.cpp" line="923"/>
-        <location filename="../../src/MainWindow.cpp" line="926"/>
+        <location filename="../../views/MainWindow.ui" line="1167"/>
+        <location filename="../../src/MainWindow.cpp" line="879"/>
+        <location filename="../../src/MainWindow.cpp" line="883"/>
+        <location filename="../../src/MainWindow.cpp" line="918"/>
+        <location filename="../../src/MainWindow.cpp" line="921"/>
+        <location filename="../../src/MainWindow.cpp" line="930"/>
+        <location filename="../../src/MainWindow.cpp" line="933"/>
         <source>px</source>
         <translation>px</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="268"/>
-        <location filename="../../views/MainWindow.ui" line="1145"/>
+        <location filename="../../views/MainWindow.ui" line="1139"/>
         <source>Size</source>
         <translation>حجم</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1068"/>
-        <location filename="../../views/MainWindow.ui" line="1202"/>
+        <location filename="../../views/MainWindow.ui" line="1062"/>
+        <location filename="../../views/MainWindow.ui" line="1196"/>
         <source>Height</source>
         <translation>الطول</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1245"/>
+        <location filename="../../views/MainWindow.ui" line="1239"/>
         <source>Do not enlarge</source>
         <translation>لا تكبير</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1255"/>
+        <location filename="../../views/MainWindow.ui" line="1249"/>
         <source>Keep aspect ratio</source>
         <translation>الحفاظ على نسبة العرض إلى الارتفاع</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1282"/>
+        <location filename="../../views/MainWindow.ui" line="1276"/>
         <source>Output</source>
         <translation>المخرج</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1302"/>
+        <location filename="../../views/MainWindow.ui" line="1296"/>
         <source>Folder</source>
         <translation>المجلد</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1346"/>
+        <location filename="../../views/MainWindow.ui" line="1340"/>
         <source>Select...</source>
         <translation>حدد...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1358"/>
+        <location filename="../../views/MainWindow.ui" line="1352"/>
         <source>Same folder as input</source>
         <translation>نفس المجلد كإدخال</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1368"/>
+        <location filename="../../views/MainWindow.ui" line="1362"/>
         <source>Keep folder structure</source>
         <translation>حافظ على مكان المجلد</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1375"/>
+        <location filename="../../views/MainWindow.ui" line="1369"/>
         <source>Skip if output size is bigger than the original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1433"/>
+        <location filename="../../views/MainWindow.ui" line="1427"/>
         <source>Keep file dates</source>
         <translation>احتفظ بتواريخ الملفات</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1448"/>
+        <location filename="../../views/MainWindow.ui" line="1442"/>
         <source>Creation</source>
         <translation>وقت إنشاء</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1455"/>
+        <location filename="../../views/MainWindow.ui" line="1449"/>
         <source>Last modified</source>
         <translation>آخر تعديل</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1462"/>
+        <location filename="../../views/MainWindow.ui" line="1456"/>
         <source>Last access</source>
         <translation>آخر ولوج</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1483"/>
+        <location filename="../../views/MainWindow.ui" line="1477"/>
         <source>Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1508"/>
+        <location filename="../../views/MainWindow.ui" line="1502"/>
         <source>Suffix</source>
         <translation>لاحقة</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2013"/>
-        <location filename="../../src/MainWindow.cpp" line="1229"/>
+        <location filename="../../views/MainWindow.ui" line="2007"/>
+        <location filename="../../src/MainWindow.cpp" line="1250"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="906"/>
+        <location filename="../../views/MainWindow.ui" line="900"/>
         <source>bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="497"/>
+        <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="684"/>
+        <location filename="../../views/MainWindow.ui" line="678"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="753"/>
+        <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="788"/>
+        <location filename="../../views/MainWindow.ui" line="782"/>
         <source>Deflate level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="778"/>
+        <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Best</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="795"/>
+        <location filename="../../views/MainWindow.ui" line="789"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="805"/>
+        <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="730"/>
+        <location filename="../../views/MainWindow.ui" line="724"/>
         <source>Uncompressed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -541,191 +541,191 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="911"/>
+        <location filename="../../views/MainWindow.ui" line="905"/>
         <source>KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="916"/>
+        <location filename="../../views/MainWindow.ui" line="910"/>
         <source>MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1390"/>
+        <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1411"/>
+        <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1416"/>
+        <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1560"/>
+        <location filename="../../views/MainWindow.ui" line="1554"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1680"/>
+        <location filename="../../views/MainWindow.ui" line="1674"/>
         <source>Compressed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1687"/>
+        <location filename="../../views/MainWindow.ui" line="1681"/>
         <source>Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1736"/>
+        <location filename="../../views/MainWindow.ui" line="1730"/>
         <source>Help</source>
         <translation>مساعدة</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1744"/>
+        <location filename="../../views/MainWindow.ui" line="1738"/>
         <source>File</source>
         <translation>ملف</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1754"/>
+        <location filename="../../views/MainWindow.ui" line="1748"/>
         <source>Edit</source>
         <translation>تعديل</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1765"/>
+        <location filename="../../views/MainWindow.ui" line="1759"/>
         <source>View</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1769"/>
-        <location filename="../../views/MainWindow.ui" line="1792"/>
+        <location filename="../../views/MainWindow.ui" line="1763"/>
+        <location filename="../../views/MainWindow.ui" line="1786"/>
         <source>Toolbar</source>
         <translation>شريط الأدوات</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1834"/>
+        <location filename="../../views/MainWindow.ui" line="1828"/>
         <source>About Caesium Image Compressor</source>
         <translation>حول ضاغط صور Caesium</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1846"/>
+        <location filename="../../views/MainWindow.ui" line="1840"/>
         <source>Add files...</source>
         <translation>إضافة ملفات...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1849"/>
+        <location filename="../../views/MainWindow.ui" line="1843"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1858"/>
+        <location filename="../../views/MainWindow.ui" line="1852"/>
         <source>Add folder...</source>
         <translation>أضف المجلد...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1861"/>
+        <location filename="../../views/MainWindow.ui" line="1855"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1866"/>
-        <location filename="../../src/MainWindow.cpp" line="208"/>
+        <location filename="../../views/MainWindow.ui" line="1860"/>
+        <location filename="../../src/MainWindow.cpp" line="215"/>
         <source>Exit</source>
         <translation>خروج</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1884"/>
+        <location filename="../../views/MainWindow.ui" line="1878"/>
         <source>Del</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1889"/>
+        <location filename="../../views/MainWindow.ui" line="1883"/>
         <source>Select All</source>
         <translation>اختيار الكل</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1892"/>
+        <location filename="../../views/MainWindow.ui" line="1886"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1904"/>
+        <location filename="../../views/MainWindow.ui" line="1898"/>
         <source>Clear</source>
         <translation>محو</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1915"/>
+        <location filename="../../views/MainWindow.ui" line="1909"/>
         <source>Show previews</source>
         <translation>إظهار المعاينات</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1924"/>
+        <location filename="../../views/MainWindow.ui" line="1918"/>
         <source>Preferences...</source>
         <translation>الإعدادات...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1932"/>
+        <location filename="../../views/MainWindow.ui" line="1926"/>
         <source>Show original in file manager</source>
         <translation>إظهار الأصل في مدير الملفات</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1937"/>
+        <location filename="../../views/MainWindow.ui" line="1931"/>
         <source>Show compressed in file manager</source>
         <translation>إظهار مضغوط في مدير الملفات</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1946"/>
+        <location filename="../../views/MainWindow.ui" line="1940"/>
         <source>Donate</source>
         <translation>تبرع</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1972"/>
+        <location filename="../../views/MainWindow.ui" line="1966"/>
         <source>Icons</source>
         <translation>الايقونات</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1980"/>
+        <location filename="../../views/MainWindow.ui" line="1974"/>
         <source>Icons and Text</source>
         <translation>الايقونات والنص</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1988"/>
+        <location filename="../../views/MainWindow.ui" line="1982"/>
         <source>Hide</source>
         <translation>إخفاء</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1993"/>
+        <location filename="../../views/MainWindow.ui" line="1987"/>
         <source>Show</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2001"/>
+        <location filename="../../views/MainWindow.ui" line="1995"/>
         <source>Auto preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2016"/>
+        <location filename="../../views/MainWindow.ui" line="2010"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2021"/>
+        <location filename="../../views/MainWindow.ui" line="2015"/>
         <source>Advanced import...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="921"/>
-        <location filename="../../src/MainWindow.cpp" line="886"/>
-        <location filename="../../src/MainWindow.cpp" line="890"/>
+        <location filename="../../views/MainWindow.ui" line="915"/>
+        <location filename="../../src/MainWindow.cpp" line="893"/>
+        <location filename="../../src/MainWindow.cpp" line="897"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1037"/>
+        <location filename="../../src/MainWindow.cpp" line="1058"/>
         <source>images in list</source>
         <translation>الصور في القائمة</translation>
     </message>
@@ -900,7 +900,7 @@ Saved: %4 (%5%)</source>
     <name>QIODevice</name>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="126"/>
-        <location filename="../../src/MainWindow.cpp" line="270"/>
+        <location filename="../../src/MainWindow.cpp" line="277"/>
         <source>Image Files</source>
         <translation>ملفات الصور</translation>
     </message>

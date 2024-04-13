@@ -185,24 +185,24 @@ All rights reserved.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="268"/>
+        <location filename="../../src/MainWindow.cpp" line="275"/>
         <source>Import files...</source>
         <translation>Importovať súbory...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="284"/>
+        <location filename="../../src/MainWindow.cpp" line="291"/>
         <source>Import folder...</source>
         <translation>Importovať adresár...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="516"/>
+        <location filename="../../src/MainWindow.cpp" line="523"/>
         <source>Importing files...</source>
         <translation>Importovanie súborov...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1600"/>
-        <location filename="../../src/MainWindow.cpp" line="516"/>
-        <location filename="../../src/MainWindow.cpp" line="724"/>
+        <location filename="../../views/MainWindow.ui" line="1594"/>
+        <location filename="../../src/MainWindow.cpp" line="523"/>
+        <location filename="../../src/MainWindow.cpp" line="731"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
@@ -215,28 +215,28 @@ All rights reserved.</source>
                 Naozaj chcete pokračovať?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="608"/>
+        <location filename="../../src/MainWindow.cpp" line="615"/>
         <source>No</source>
         <translation>Nie</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="639"/>
-        <location filename="../../src/MainWindow.cpp" line="1311"/>
+        <location filename="../../src/MainWindow.cpp" line="646"/>
+        <location filename="../../src/MainWindow.cpp" line="1332"/>
         <source>Compressing...</source>
         <translation>Komprimovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="720"/>
+        <location filename="../../src/MainWindow.cpp" line="727"/>
         <source>Do you really want to quit?</source>
         <translation>Naozaj chcete skončiť?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="827"/>
+        <location filename="../../src/MainWindow.cpp" line="834"/>
         <source>You just saved %1!</source>
         <translation>Práve ste uložili %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="831"/>
+        <location filename="../../src/MainWindow.cpp" line="838"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -244,36 +244,36 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1208"/>
-        <location filename="../../src/MainWindow.cpp" line="1213"/>
+        <location filename="../../src/MainWindow.cpp" line="1229"/>
+        <location filename="../../src/MainWindow.cpp" line="1234"/>
         <source>File not found</source>
         <translation>Súbor nenájdený</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1244"/>
+        <location filename="../../src/MainWindow.cpp" line="1265"/>
         <source>Finishing...</source>
         <translation>Dokončovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="607"/>
-        <location filename="../../src/MainWindow.cpp" line="723"/>
+        <location filename="../../src/MainWindow.cpp" line="614"/>
+        <location filename="../../src/MainWindow.cpp" line="730"/>
         <source>Yes</source>
         <translation>Áno</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="604"/>
+        <location filename="../../src/MainWindow.cpp" line="611"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="745"/>
+        <location filename="../../src/MainWindow.cpp" line="752"/>
         <source>Select output folder...</source>
         <translation>Vyberte cieľový priečinok...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="812"/>
+        <location filename="../../src/MainWindow.cpp" line="819"/>
         <source>Compression finished!</source>
         <translation>Kompresia dokončená!</translation>
     </message>
@@ -299,14 +299,14 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="155"/>
-        <location filename="../../views/MainWindow.ui" line="1881"/>
+        <location filename="../../views/MainWindow.ui" line="1875"/>
         <source>Remove</source>
         <translation>Odstrániť</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="188"/>
-        <location filename="../../views/MainWindow.ui" line="1958"/>
-        <location filename="../../views/MainWindow.ui" line="1961"/>
+        <location filename="../../views/MainWindow.ui" line="1952"/>
+        <location filename="../../views/MainWindow.ui" line="1955"/>
         <source>Compress</source>
         <translation>Komprimovať</translation>
     </message>
@@ -323,13 +323,13 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="263"/>
         <location filename="../../views/MainWindow.ui" line="391"/>
-        <location filename="../../views/MainWindow.ui" line="564"/>
-        <location filename="../../views/MainWindow.ui" line="667"/>
+        <location filename="../../views/MainWindow.ui" line="561"/>
+        <location filename="../../views/MainWindow.ui" line="661"/>
         <source>Quality</source>
         <translation>Kvalita</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="437"/>
+        <location filename="../../views/MainWindow.ui" line="434"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
@@ -338,22 +338,22 @@ Do you really want to continue?</source>
         <translation type="vanished">Úroveň</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="581"/>
+        <location filename="../../views/MainWindow.ui" line="578"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="860"/>
+        <location filename="../../views/MainWindow.ui" line="854"/>
         <source>Lossless</source>
         <translation>Bezstratový</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="974"/>
+        <location filename="../../views/MainWindow.ui" line="968"/>
         <source>Maximum output size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="906"/>
+        <location filename="../../views/MainWindow.ui" line="900"/>
         <source>bytes</source>
         <translation>bytes</translation>
     </message>
@@ -363,115 +363,115 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="873"/>
+        <location filename="../../views/MainWindow.ui" line="867"/>
         <source>Keep Metadata</source>
         <translation>Uchovať metadáta</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="911"/>
+        <location filename="../../views/MainWindow.ui" line="905"/>
         <source>KB</source>
         <translation>kB</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="916"/>
+        <location filename="../../views/MainWindow.ui" line="910"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="988"/>
+        <location filename="../../views/MainWindow.ui" line="982"/>
         <source>Resize</source>
         <translation>Zmeniť veľkosť</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1014"/>
+        <location filename="../../views/MainWindow.ui" line="1008"/>
         <source>Resize to fit</source>
         <translation>Prispôsobiť veľkosť</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1038"/>
+        <location filename="../../views/MainWindow.ui" line="1032"/>
         <source>No resize</source>
         <translation>Žiadna zmena veľkosti</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1043"/>
+        <location filename="../../views/MainWindow.ui" line="1037"/>
         <source>Dimensions</source>
         <translation>Rozmery</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1048"/>
+        <location filename="../../views/MainWindow.ui" line="1042"/>
         <source>Percentage</source>
         <translation>Percento</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1053"/>
+        <location filename="../../views/MainWindow.ui" line="1047"/>
         <source>Short edge</source>
         <translation>Krátky okraj</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1058"/>
+        <location filename="../../views/MainWindow.ui" line="1052"/>
         <source>Long edge</source>
         <translation>Dlhý okraj</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1063"/>
-        <location filename="../../views/MainWindow.ui" line="1104"/>
+        <location filename="../../views/MainWindow.ui" line="1057"/>
+        <location filename="../../views/MainWindow.ui" line="1098"/>
         <source>Width</source>
         <translation>Šírka</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1173"/>
-        <location filename="../../src/MainWindow.cpp" line="872"/>
-        <location filename="../../src/MainWindow.cpp" line="876"/>
-        <location filename="../../src/MainWindow.cpp" line="911"/>
-        <location filename="../../src/MainWindow.cpp" line="914"/>
-        <location filename="../../src/MainWindow.cpp" line="923"/>
-        <location filename="../../src/MainWindow.cpp" line="926"/>
+        <location filename="../../views/MainWindow.ui" line="1167"/>
+        <location filename="../../src/MainWindow.cpp" line="879"/>
+        <location filename="../../src/MainWindow.cpp" line="883"/>
+        <location filename="../../src/MainWindow.cpp" line="918"/>
+        <location filename="../../src/MainWindow.cpp" line="921"/>
+        <location filename="../../src/MainWindow.cpp" line="930"/>
+        <location filename="../../src/MainWindow.cpp" line="933"/>
         <source>px</source>
         <translation>px</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="268"/>
-        <location filename="../../views/MainWindow.ui" line="1145"/>
+        <location filename="../../views/MainWindow.ui" line="1139"/>
         <source>Size</source>
         <translation>Veľkosť</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="497"/>
+        <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="684"/>
+        <location filename="../../views/MainWindow.ui" line="678"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="753"/>
+        <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="788"/>
+        <location filename="../../views/MainWindow.ui" line="782"/>
         <source>Deflate level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="778"/>
+        <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Best</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="795"/>
+        <location filename="../../views/MainWindow.ui" line="789"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="805"/>
+        <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="730"/>
+        <location filename="../../views/MainWindow.ui" line="724"/>
         <source>Uncompressed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -481,263 +481,263 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1068"/>
-        <location filename="../../views/MainWindow.ui" line="1202"/>
+        <location filename="../../views/MainWindow.ui" line="1062"/>
+        <location filename="../../views/MainWindow.ui" line="1196"/>
         <source>Height</source>
         <translation>Výška</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1245"/>
+        <location filename="../../views/MainWindow.ui" line="1239"/>
         <source>Do not enlarge</source>
         <translation>Nezväčšovať</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1255"/>
+        <location filename="../../views/MainWindow.ui" line="1249"/>
         <source>Keep aspect ratio</source>
         <translation>Zachovať pomer strán</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1282"/>
+        <location filename="../../views/MainWindow.ui" line="1276"/>
         <source>Output</source>
         <translation>Výkon</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1302"/>
+        <location filename="../../views/MainWindow.ui" line="1296"/>
         <source>Folder</source>
         <translation>Adresár</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1346"/>
+        <location filename="../../views/MainWindow.ui" line="1340"/>
         <source>Select...</source>
         <translation>Výber...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1358"/>
+        <location filename="../../views/MainWindow.ui" line="1352"/>
         <source>Same folder as input</source>
         <translation>Rovnaký priečinok ako vstup</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1368"/>
+        <location filename="../../views/MainWindow.ui" line="1362"/>
         <source>Keep folder structure</source>
         <translation>Udržujte štruktúru priečinkov</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1375"/>
+        <location filename="../../views/MainWindow.ui" line="1369"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>Preskočte, ak je výstupná veľkosť väčšia ako originál</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1390"/>
+        <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1411"/>
+        <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1416"/>
+        <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1433"/>
+        <location filename="../../views/MainWindow.ui" line="1427"/>
         <source>Keep file dates</source>
         <translation>Zachovať dátumy súborov</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1448"/>
+        <location filename="../../views/MainWindow.ui" line="1442"/>
         <source>Creation</source>
         <translation>Tvorba</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1455"/>
+        <location filename="../../views/MainWindow.ui" line="1449"/>
         <source>Last modified</source>
         <translation>Naposledy zmenené</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1462"/>
+        <location filename="../../views/MainWindow.ui" line="1456"/>
         <source>Last access</source>
         <translation>Posledný prístup</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1483"/>
+        <location filename="../../views/MainWindow.ui" line="1477"/>
         <source>Format</source>
         <translation>Formát</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1508"/>
+        <location filename="../../views/MainWindow.ui" line="1502"/>
         <source>Suffix</source>
         <translation>Prípona</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1560"/>
+        <location filename="../../views/MainWindow.ui" line="1554"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1680"/>
+        <location filename="../../views/MainWindow.ui" line="1674"/>
         <source>Compressed</source>
         <translation>Skomprimované</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1687"/>
+        <location filename="../../views/MainWindow.ui" line="1681"/>
         <source>Original</source>
         <translation>Originál</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1736"/>
+        <location filename="../../views/MainWindow.ui" line="1730"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1744"/>
+        <location filename="../../views/MainWindow.ui" line="1738"/>
         <source>File</source>
         <translation>Súbor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1754"/>
+        <location filename="../../views/MainWindow.ui" line="1748"/>
         <source>Edit</source>
         <translation>Editovať</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1765"/>
+        <location filename="../../views/MainWindow.ui" line="1759"/>
         <source>View</source>
         <translation>Zobrazenie</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1769"/>
-        <location filename="../../views/MainWindow.ui" line="1792"/>
+        <location filename="../../views/MainWindow.ui" line="1763"/>
+        <location filename="../../views/MainWindow.ui" line="1786"/>
         <source>Toolbar</source>
         <translation>Panel s nástrojmi</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1834"/>
+        <location filename="../../views/MainWindow.ui" line="1828"/>
         <source>About Caesium Image Compressor</source>
         <translation>O programe Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1846"/>
+        <location filename="../../views/MainWindow.ui" line="1840"/>
         <source>Add files...</source>
         <translation>Pridať súbory...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1849"/>
+        <location filename="../../views/MainWindow.ui" line="1843"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1858"/>
+        <location filename="../../views/MainWindow.ui" line="1852"/>
         <source>Add folder...</source>
         <translation>Pridať adresár...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1861"/>
+        <location filename="../../views/MainWindow.ui" line="1855"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1866"/>
-        <location filename="../../src/MainWindow.cpp" line="208"/>
+        <location filename="../../views/MainWindow.ui" line="1860"/>
+        <location filename="../../src/MainWindow.cpp" line="215"/>
         <source>Exit</source>
         <translation>Koniec</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1884"/>
+        <location filename="../../views/MainWindow.ui" line="1878"/>
         <source>Del</source>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1889"/>
+        <location filename="../../views/MainWindow.ui" line="1883"/>
         <source>Select All</source>
         <translation>Vybrať všetko</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1892"/>
+        <location filename="../../views/MainWindow.ui" line="1886"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1904"/>
+        <location filename="../../views/MainWindow.ui" line="1898"/>
         <source>Clear</source>
         <translation>Zmazať</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1915"/>
+        <location filename="../../views/MainWindow.ui" line="1909"/>
         <source>Show previews</source>
         <translation>Zobraziť ukážky</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1924"/>
+        <location filename="../../views/MainWindow.ui" line="1918"/>
         <source>Preferences...</source>
         <translation>Predvoľby...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1932"/>
+        <location filename="../../views/MainWindow.ui" line="1926"/>
         <source>Show original in file manager</source>
         <translation>Zobraziť originál v správcovi súborov</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1937"/>
+        <location filename="../../views/MainWindow.ui" line="1931"/>
         <source>Show compressed in file manager</source>
         <translation>Zobraziť komprimované v správcovi súborov</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1946"/>
+        <location filename="../../views/MainWindow.ui" line="1940"/>
         <source>Donate</source>
         <translation>Darovať</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1972"/>
+        <location filename="../../views/MainWindow.ui" line="1966"/>
         <source>Icons</source>
         <translation>Ikony</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1980"/>
+        <location filename="../../views/MainWindow.ui" line="1974"/>
         <source>Icons and Text</source>
         <translation>Ikony and Text</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1988"/>
+        <location filename="../../views/MainWindow.ui" line="1982"/>
         <source>Hide</source>
         <translation>Skryť</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1993"/>
+        <location filename="../../views/MainWindow.ui" line="1987"/>
         <source>Show</source>
         <translation>Zobraziť</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2001"/>
+        <location filename="../../views/MainWindow.ui" line="1995"/>
         <source>Auto preview</source>
         <translation>Automatický náhľad</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2013"/>
-        <location filename="../../src/MainWindow.cpp" line="1229"/>
+        <location filename="../../views/MainWindow.ui" line="2007"/>
+        <location filename="../../src/MainWindow.cpp" line="1250"/>
         <source>Preview</source>
         <translation>Náhľad</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2016"/>
+        <location filename="../../views/MainWindow.ui" line="2010"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2021"/>
+        <location filename="../../views/MainWindow.ui" line="2015"/>
         <source>Advanced import...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="921"/>
-        <location filename="../../src/MainWindow.cpp" line="886"/>
-        <location filename="../../src/MainWindow.cpp" line="890"/>
+        <location filename="../../views/MainWindow.ui" line="915"/>
+        <location filename="../../src/MainWindow.cpp" line="893"/>
+        <location filename="../../src/MainWindow.cpp" line="897"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1037"/>
+        <location filename="../../src/MainWindow.cpp" line="1058"/>
         <source>images in list</source>
         <translation>obrázky v zozname</translation>
     </message>
@@ -940,7 +940,7 @@ Do you really want to continue?</source>
     <name>QIODevice</name>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="126"/>
-        <location filename="../../src/MainWindow.cpp" line="270"/>
+        <location filename="../../src/MainWindow.cpp" line="277"/>
         <source>Image Files</source>
         <translation>Súbory obrázkov</translation>
     </message>

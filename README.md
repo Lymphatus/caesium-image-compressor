@@ -6,7 +6,7 @@ Try it directly on browser at [caesium.app](https://caesium.app)
 
 ###### v2.7.0
 
-![caesium_screenshot_20220915](https://user-images.githubusercontent.com/12133996/190349051-6baebec3-9937-4047-8670-fb025c6c4869.PNG)
+![caesium_screenshot_20240413](https://github.com/Lymphatus/caesium-image-compressor/assets/12133996/c09f06ab-abe2-4fa6-8c43-29b7073cb6df)
 
 ### Special Thanks
 <a href="https://github.com/7eventech77"><img src="https://github.com/7eventech77.png" width="30px" alt="7eventech77" style="border-radius: 100%;" /></a>

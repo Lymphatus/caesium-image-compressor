@@ -59,10 +59,9 @@ private slots:
     void on_fitTo_ComboBox_currentIndexChanged(int index);
     void on_lossless_CheckBox_toggled(bool checked);
     void on_keepMetadata_CheckBox_toggled(bool checked);
-    void on_JPEGQuality_Slider_valueChanged(int value);
-    void on_PNGQuality_Slider_valueChanged(int value);
-    void on_JPEGQuality_SpinBox_valueChanged(int arg1);
-    void on_PNGQuality_SpinBox_valueChanged(int arg1);
+    void onJPEGQualityValueChanged(int value);
+    void onPNGQualityValueChanged(int value);
+    void onWebPQualityValueChanged(int value);
     void cModelItemsChanged();
     void showListContextMenu(const QPoint& pos);
     void on_actionShow_previews_toggled(bool arg1);
@@ -97,8 +96,8 @@ private slots:
     void onCompressionModeChanged(int value);
     void onAdvancedImportTriggered();
     void onPNGOptimizationLevelChanged(int value);
-    void onTiffCompressionMethodChanged(int index);
-    void onTiffDeflateLevelChanged(int value);
+    void onTIFFCompressionMethodChanged(int index);
+    void onTIFFDeflateLevelChanged(int value);
     void onJPEGChromaSubsamplingChanged();
     void onJPEGOptionsVisibilityChanged(bool visible);
     void onPNGOptionsVisibilityChanged(bool visible);
