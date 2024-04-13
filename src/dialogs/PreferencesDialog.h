@@ -15,14 +15,10 @@ public:
     ~PreferencesDialog() override;
 
 private slots:
-    void onLanguageChanged(int index);
-    void onThemeChanged(int index);
+    void onLanguageChanged(int index) const;
+    void onThemeChanged(int index) const;
     static int getLocaleIndex();
     static void onArgsBehaviourChanged(int index);
-    // static void onSkipBySizeToggled(bool checked);
-    // static void onSkipBySizeConditionChanged(int index);
-    // static void onSkipBySizeValueChanged(int value);
-    // static void onSkipBySizeUnitChanged(int index);
     static void onPromptExitToggled(bool checked);
     static void onCheckUpdatesAtStartupToggled(bool checked);
     static void onImportSubfoldersToggled(bool checked);
@@ -38,9 +34,9 @@ private:
     Ui::PreferencesDialog* ui;
 
     void setupConnections();
-    void loadPreferences();
-    void loadLanguages();
-    void loadThemes();
+    void loadPreferences() const;
+    void loadLanguages() const;
+    void loadThemes() const;
     void changeEvent(QEvent* event) override;
 };
 

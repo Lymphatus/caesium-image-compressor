@@ -100,6 +100,10 @@ private slots:
     void onTiffCompressionMethodChanged(int index);
     void onTiffDeflateLevelChanged(int value);
     void onJPEGChromaSubsamplingChanged();
+    void onJPEGOptionsVisibilityChanged(bool visible);
+    void onPNGOptionsVisibilityChanged(bool visible);
+    void onWebPOptionsVisibilityChanged(bool visible);
+    void onTIFFOptionsVisibilityChanged(bool visible);
 
 private:
     Ui::MainWindow* ui;

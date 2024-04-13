@@ -74,6 +74,16 @@ MainWindow::MainWindow(QWidget* parent)
     ui->format_ComboBox->addItems(getOutputSupportedFormats());
     this->setupChromaSubsamplingComboBox();
 
+    ui->JPEGToggle_ToolButton->setContent(ui->JPEGOptions_Frame);
+    ui->PNGToggle_ToolButton->setContent(ui->PNGOptions_Frame);
+    ui->WebPToggle_ToolButton->setContent(ui->WebPOptions_Frame);
+    ui->TIFFToggle_ToolButton->setContent(ui->TIFFOptions_Frame);
+
+    connect(ui->JPEGToggle_ToolButton, &QCollapseToolButton::contentVisibilityToggled, this, &MainWindow::onJPEGOptionsVisibilityChanged);
+    connect(ui->PNGToggle_ToolButton, &QCollapseToolButton::contentVisibilityToggled, this, &MainWindow::onPNGOptionsVisibilityChanged);
+    connect(ui->WebPToggle_ToolButton, &QCollapseToolButton::contentVisibilityToggled, this, &MainWindow::onWebPOptionsVisibilityChanged);
+    connect(ui->TIFFToggle_ToolButton, &QCollapseToolButton::contentVisibilityToggled, this, &MainWindow::onTIFFOptionsVisibilityChanged);
+
     connect(ui->imageList_TreeView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::imageList_selectionChanged);
     connect(ui->imageList_TreeView, &QDropTreeView::dropFinished, this, &MainWindow::dropFinished);
     connect(this->cImageModel, &CImageTreeModel::itemsChanged, this, &MainWindow::cModelItemsChanged);
@@ -311,6 +321,10 @@ void MainWindow::writeSettings()
     settings.setValue("mainwindow/list_view/sort_column_order", ui->imageList_TreeView->header()->sortIndicatorOrder());
     settings.setValue("mainwindow/toolbar/visible", ui->toolBar->isVisible());
     settings.setValue("mainwindow/toolbar/button_style", ui->toolBar->toolButtonStyle());
+    settings.setValue("mainwindow/compression/jpeg_options_visible", ui->JPEGToggle_ToolButton->contentVisible());
+    settings.setValue("mainwindow/compression/png_options_visible", ui->PNGToggle_ToolButton->contentVisible());
+    settings.setValue("mainwindow/compression/webp_options_visible", ui->WebPToggle_ToolButton->contentVisible());
+    settings.setValue("mainwindow/compression/tiff_options_visible", ui->TIFFToggle_ToolButton->contentVisible());
 
     settings.setValue("compression_options/compression/mode", ui->compressionMode_ComboBox->currentIndex());
     settings.setValue("compression_options/compression/lossless", ui->lossless_CheckBox->isChecked());
@@ -365,6 +379,10 @@ void MainWindow::readSettings()
     ui->actionAuto_preview->setChecked(settings.value("mainwindow/auto_preview", false).toBool());
     ui->toolBar->setVisible(settings.value("mainwindow/toolbar/visible", true).toBool());
     ui->toolBar->setToolButtonStyle(settings.value("mainwindow/toolbar/button_style", Qt::ToolButtonIconOnly).value<Qt::ToolButtonStyle>());
+    ui->JPEGToggle_ToolButton->setContentVisible(settings.value("mainwindow/compression/jpeg_options_visible", true).toBool());
+    ui->PNGToggle_ToolButton->setContentVisible(settings.value("mainwindow/compression/png_options_visible", true).toBool());
+    ui->WebPToggle_ToolButton->setContentVisible(settings.value("mainwindow/compression/webp_options_visible", true).toBool());
+    ui->TIFFToggle_ToolButton->setContentVisible(settings.value("mainwindow/compression/tiff_options_visible", true).toBool());
 
     ui->compressionMode_ComboBox->setCurrentIndex(settings.value("compression_options/compression/mode", 0).toInt());
     ui->lossless_CheckBox->setChecked(settings.value("compression_options/compression/lossless", false).toBool());
@@ -973,8 +991,8 @@ void MainWindow::on_lossless_CheckBox_toggled(bool checked)
 {
     this->writeSetting("compression_options/compression/lossless", checked);
 
-    ui->JPEGOptions_GroupBox->setEnabled(!checked);
-    ui->WebPOptions_GroupBox->setEnabled(!checked);
+    ui->JPEGOptions_Frame->setEnabled(!checked);
+    ui->WebPOptions_Frame->setEnabled(!checked);
 
     ui->PNGQuality_Label->setEnabled(!checked);
     ui->PNGQuality_SpinBox->setEnabled(!checked);
@@ -1462,4 +1480,21 @@ void MainWindow::setupChromaSubsamplingComboBox()
         auto chromaSubsamplingOption = iterator.next();
         ui->JPEGChromaSubsampling_ComboBox->addItem(chromaSubsamplingOption.value(), chromaSubsamplingOption.key());
     }
+}
+
+void MainWindow::onJPEGOptionsVisibilityChanged(bool visible)
+{
+    this->writeSetting("mainwindow/compression/jpeg_options_visible", visible);
+}
+void MainWindow::onPNGOptionsVisibilityChanged(bool visible)
+{
+    this->writeSetting("mainwindow/compression/png_options_visible", visible);
+}
+void MainWindow::onWebPOptionsVisibilityChanged(bool visible)
+{
+    this->writeSetting("mainwindow/compression/webp_options_visible", visible);
+}
+void MainWindow::onTIFFOptionsVisibilityChanged(bool visible)
+{
+    this->writeSetting("mainwindow/compression/tiff_options_visible", visible);
 }

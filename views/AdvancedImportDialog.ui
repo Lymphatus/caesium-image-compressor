@@ -119,7 +119,7 @@
      <item row="5" column="3" colspan="3">
       <widget class="QLineEdit" name="filenamePattern_LineEdit">
        <property name="placeholderText">
-        <string>.*\.jpg|.*\.png</string>
+        <string notr="true">.*\.jpg|.*\.png</string>
        </property>
       </widget>
      </item>

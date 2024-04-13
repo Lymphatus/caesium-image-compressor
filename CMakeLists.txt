@@ -105,6 +105,7 @@ set(SOURCES
         src/widgets/QCaesiumMessageBox.cpp
         src/widgets/QMainCheckBox.cpp
         src/widgets/QLoadingLabel.cpp
+        src/widgets/QCollapseToolButton.cpp
         src/delegates/HtmlDelegate.cpp
         src/exceptions/ImageNotSupportedException.cpp
         src/exceptions/ImageTooBigException.cpp

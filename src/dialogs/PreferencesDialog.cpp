@@ -47,30 +47,26 @@ void PreferencesDialog::setupConnections()
     connect(ui->multithreading_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onMultithreadingToggled);
     connect(ui->multithreadingMaxThreads_SpinBox, &QSpinBox::valueChanged, this, &PreferencesDialog::onMultithreadingMaxThreadsChanged);
     connect(ui->showUsageData_Label, &QLabel::linkActivated, this, &PreferencesDialog::onShowUsageDataLinkActivated);
-    // connect(ui->skipBySize_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipBySizeToggled);
-    // connect(ui->skipBySizeCondition_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeConditionChanged);
-    // connect(ui->skipBySizeSize_SpinBox, &QSpinBox::valueChanged, this, &PreferencesDialog::onSkipBySizeValueChanged);
-    // connect(ui->skipBySizeUnit_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onSkipBySizeUnitChanged);
     connect(ui->skipCompressionDialogs_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipCompressionDialogsToggled);
     connect(ui->postCompressionAction_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onPostCompressionActionChanged);
     connect(ui->restart_Button, &QPushButton::pressed, this, &PreferencesDialog::onRestartButtonPressed);
 }
 
-void PreferencesDialog::loadLanguages()
+void PreferencesDialog::loadLanguages() const
 {
     for (const CsLocale& locale : LanguageManager::getSortedTranslations()) {
         ui->language_ComboBox->addItem(locale.label, locale.locale);
     }
 }
 
-void PreferencesDialog::loadThemes()
+void PreferencesDialog::loadThemes() const
 {
     for (const CsTheme& theme : THEMES) {
         ui->theme_ComboBox->addItem(theme.label);
     }
 }
 
-void PreferencesDialog::loadPreferences()
+void PreferencesDialog::loadPreferences() const
 {
     QSettings settings;
     ui->promptExit_CheckBox->setChecked(settings.value("preferences/general/prompt_before_exit", false).toBool());
@@ -82,10 +78,6 @@ void PreferencesDialog::loadPreferences()
     ui->skipCompressionDialogs_CheckBox->setChecked(settings.value("preferences/general/skip_compression_dialogs", false).toBool());
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
     ui->argsBehaviour_ComboBox->setCurrentIndex(settings.value("preferences/general/args_behaviour", 0).toInt());
-    // ui->skipBySize_CheckBox->setChecked(settings.value("preferences/general/skip_by_size/enabled", false).toBool());
-    // ui->skipBySizeCondition_ComboBox->setCurrentIndex(settings.value("preferences/general/skip_by_size/condition", 0).toInt());
-    // ui->skipBySizeSize_SpinBox->setValue(settings.value("preferences/general/skip_by_size/value", 0).toInt());
-    // ui->skipBySizeUnit_ComboBox->setCurrentIndex(settings.value("preferences/general/skip_by_size/unit", 0).toInt());
     ui->postCompressionAction_ComboBox->setCurrentIndex(settings.value("preferences/general/post_compression_action", 0).toInt());
     ui->language_ComboBox->setCurrentIndex(PreferencesDialog::getLocaleIndex());
 }
@@ -95,7 +87,7 @@ void PreferencesDialog::onPromptExitToggled(bool checked)
     QSettings().setValue("preferences/general/prompt_before_exit", checked);
 }
 
-void PreferencesDialog::onLanguageChanged(int index)
+void PreferencesDialog::onLanguageChanged(int index) const
 {
     QString languageId = ui->language_ComboBox->itemData(index).toString();
     QSettings().setValue("preferences/language/locale", languageId);
@@ -125,7 +117,7 @@ void PreferencesDialog::onMultithreadingToggled(bool checked)
     QSettings().setValue("preferences/general/multithreading", checked);
 }
 
-void PreferencesDialog::onThemeChanged(int index)
+void PreferencesDialog::onThemeChanged(int index) const
 {
     int themeIndex = index;
     if (index < 0 || index > THEMES_COUNT - 1) {
@@ -149,26 +141,6 @@ void PreferencesDialog::onShowUsageDataLinkActivated([[maybe_unused]] const QStr
 
     usageStatsDialog->show();
 }
-
-// void PreferencesDialog::onSkipBySizeToggled(bool checked)
-// {
-//     QSettings().setValue("preferences/general/skip_by_size/enabled", checked);
-// }
-
-// void PreferencesDialog::onSkipBySizeConditionChanged(int index)
-// {
-//     QSettings().setValue("preferences/general/skip_by_size/condition", index);
-// }
-//
-// void PreferencesDialog::onSkipBySizeValueChanged(int value)
-// {
-//     QSettings().setValue("preferences/general/skip_by_size/value", value);
-// }
-//
-// void PreferencesDialog::onSkipBySizeUnitChanged(int index)
-// {
-//     QSettings().setValue("preferences/general/skip_by_size/unit", index);
-// }
 
 // Versions below 2.3.0 use an index on the unsorted list, we need to convert it to the new sorting
 int PreferencesDialog::getLocaleIndex()
@@ -211,5 +183,5 @@ void PreferencesDialog::onPostCompressionActionChanged(int value)
 void PreferencesDialog::onRestartButtonPressed()
 {
     qApp->quit();
-    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+    QProcess::startDetached(qApp->arguments()[0]);
 }
