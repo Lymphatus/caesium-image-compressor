@@ -915,47 +915,47 @@ Saved: %4 (%5%)</source>
         <translation>輸入文件不存在</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="175"/>
+        <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>無法創建輸出路徑，請檢查訪問權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="192"/>
+        <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
         <translation>無法創建臨時文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="202"/>
+        <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="249"/>
+        <location filename="../../src/models/CImage.cpp" line="255"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>跳過：壓縮後的文件尺寸大於原始文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="263"/>
+        <location filename="../../src/models/CImage.cpp" line="265"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>無法復製輸出文件到輸出路徑，請檢查訪問權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="269"/>
+        <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation>無法刪除源文件，請檢查訪問權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="272"/>
+        <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="397"/>
+        <location filename="../../src/models/CImage.cpp" line="399"/>
         <source>Compressing...</source>
         <translation>正在壓縮...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="399"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Error:</source>
         <translation>異常：</translation>
     </message>

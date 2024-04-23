@@ -951,47 +951,47 @@ Saved: %4 (%5%)</source>
         <translation>निविष्ट फ़ाइल उपस्थित नहीं है</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="175"/>
+        <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>उत्पादन पथ नहीं बनाया जा सकता, अपनी अनुमतियाँ जांचें</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="192"/>
+        <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
         <translation>अस्थाई फ़ाइल निर्माण विफल हुआ</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="202"/>
+        <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="249"/>
+        <location filename="../../src/models/CImage.cpp" line="255"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>छोड़ दिया गया: संकुचित फ़ाइल मूल फ़ाइल से बड़ी है</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="263"/>
+        <location filename="../../src/models/CImage.cpp" line="265"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>उत्पादित फ़ाइल की प्रतिलिपि नहीं बनायी जा सकती, अपनी अनुमतियाँ जांचें</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="269"/>
+        <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation>मूल फ़ाइल को ट्रैश में स्थानांतरित नहीं किया जा सकता, अपनी अनुमतियाँ जांचें</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="272"/>
+        <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="397"/>
+        <location filename="../../src/models/CImage.cpp" line="399"/>
         <source>Compressing...</source>
         <translation>संकुचन हो रहा है...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="399"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Error:</source>
         <translation>त्रुटि:</translation>
     </message>

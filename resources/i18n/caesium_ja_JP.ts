@@ -934,47 +934,47 @@ Saved: %4 (%5%)</source>
         <translation>入力ファイルが存在しません</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="175"/>
+        <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>出力パスを作成できません。権限を確認してください</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="192"/>
+        <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
         <translation>一時ファイルの作成に失敗しました</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="202"/>
+        <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="249"/>
+        <location filename="../../src/models/CImage.cpp" line="255"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>スキップ: 圧縮後のファイルが圧縮前よりも大きい</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="263"/>
+        <location filename="../../src/models/CImage.cpp" line="265"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>出力ファイルをコピーできません。権限を確認してください</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="269"/>
+        <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation>入力ファイルをごみ箱に移動できません。権限を確認してください</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="272"/>
+        <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="397"/>
+        <location filename="../../src/models/CImage.cpp" line="399"/>
         <source>Compressing...</source>
         <translation>圧縮中...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="399"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Error:</source>
         <translation>エラー:</translation>
     </message>

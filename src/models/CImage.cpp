@@ -157,6 +157,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
     }
 
     QString fullFileName = inputFileInfo.completeBaseName() + suffix + "." + outputSuffix;
+    QString fullFileNameWithOriginalExtension = inputFileInfo.completeBaseName() + suffix + "." + this->extension;
     FileDates inputFileDates = {
         inputFileInfo.fileTime(QFile::FileBirthTime),
         inputFileInfo.fileTime(QFile::FileModificationTime),
@@ -224,6 +225,13 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
         bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size() && compressionOptions.skipIfBigger;
         bool inputAlreadyMoved = false;
+
+        // If the output is bigger and we are converting, we should fallback to the original file with original extension
+        if (outputIsBiggerThanInput && convert) {
+            outputFullPath = outputDir.absoluteFilePath(fullFileNameWithOriginalExtension);
+            outputAlreadyExists = QFile(outputFullPath).exists();
+        }
+
         if (outputAlreadyExists && !outputIsBiggerThanInput) {
             if (compressionOptions.sameFolderAsInput) {
                 bool trashingResult = false;
@@ -240,24 +248,18 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
             }
         }
 
-        bool copyResult;
         if (!outputIsBiggerThanInput) {
             inputCopyFile = tempFileFullPath;
-            copyResult = QFile::copy(inputCopyFile, outputFullPath);
         } else {
             this->status = CImageStatus::WARNING;
             this->additionalInfo = QIODevice::tr("Skipped: compressed file is bigger than original");
-            // Overwrite output file name with original file name to avoid broken extension (ex: .png named .webp)
-            fullFileName = inputFileInfo.fileName();
-            outputFullPath = outputDir.absoluteFilePath(fullFileName);
-            copyResult = QFile::copy(inputCopyFile, outputFullPath);
             if (outputAlreadyExists) {
                 QFileInfo outputFileInfo = QFileInfo(outputFullPath);
                 this->setCompressedInfo(outputFileInfo);
                 return true;
             }
         }
-
+        bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
         if (!copyResult) {
             qCritical() << "Failed to copy from" << inputCopyFile << "to" << outputFullPath;
             this->additionalInfo = QIODevice::tr("Cannot copy output file, check your permissions");

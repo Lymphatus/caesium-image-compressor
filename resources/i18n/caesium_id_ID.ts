@@ -947,47 +947,47 @@ Saved: %4 (%5%)</translation>
         <translation>File input tidak ada</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="175"/>
+        <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Tidak dapat membuat path, periksa izin Anda</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="192"/>
+        <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
         <translation>Pembuatan file sementara gagal</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="202"/>
+        <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="249"/>
+        <location filename="../../src/models/CImage.cpp" line="255"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Dilewati: file yang dikompresi lebih besar dari aslinya</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="263"/>
+        <location filename="../../src/models/CImage.cpp" line="265"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Tidak dapat menyalin output file., periksa izin Anda</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="269"/>
+        <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="272"/>
+        <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="397"/>
+        <location filename="../../src/models/CImage.cpp" line="399"/>
         <source>Compressing...</source>
         <translation>Mengkompres...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="399"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Error:</source>
         <translation>Galat:</translation>
     </message>
