@@ -22,14 +22,14 @@
         <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Copyright © 2023 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation>Telif Hakkı © 2023 Matteo Paonessa.
+Tüm hakları saklıdır.</translation>
     </message>
     <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
-        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation type="vanished">Telif Hakkı © 2022 Matteo Paonessa.
+Tüm hakları saklıdır.</translation>
     </message>
 </context>
 <context>
@@ -82,17 +82,17 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="180"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Listeyi içe aktar</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="115"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dosya adı deseni (regex)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gelişmiş İçe Aktar</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
@@ -124,7 +124,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="20"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Listeden aktar...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="124"/>
@@ -139,7 +139,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="152"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dosyayı aktar...</translation>
     </message>
 </context>
 <context>
@@ -238,7 +238,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="968"/>
         <source>Maximum output size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Maksimum çıktı boyutu</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="900"/>
@@ -248,7 +248,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mod</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="867"/>
@@ -326,17 +326,17 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Optimizasyon seviyesi</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="678"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Metot</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="782"/>
@@ -346,27 +346,27 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">En iyi</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="789"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dengeli</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hızlı</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="724"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sıkıştırılmamış</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="331"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kroma alt örnekleme</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1062"/>
@@ -417,17 +417,17 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Orijinal dosyayı taşı</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Çöp Kutusuna</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kalıcı Olarak Sil</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1427"/>
@@ -1021,7 +1021,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="234"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Otomatik</translation>
     </message>
 </context>
 <context>
@@ -1036,7 +1036,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation>Kullanım verisi</translation>
+        <translation>Kullanım Verisi</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
