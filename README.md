@@ -10,6 +10,7 @@ Try it directly on browser at [caesium.app](https://caesium.app)
 
 ### Special Thanks
 <a href="https://github.com/7eventech77"><img src="https://github.com/7eventech77.png" width="30px" alt="7eventech77" style="border-radius: 100%;" /></a>
+<a href="https://github.com/ClearRabbit"><img src="https://github.com/ClearRabbit.png" width="30px" alt="ClearRabbit" style="border-radius: 100%;" /></a>
 
 ----------
 ### What is it for
