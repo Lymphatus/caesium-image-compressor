@@ -43,67 +43,67 @@ Todos os direitos reservados.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">Ao abrir uma pasta, importar também os arquivos em subpastas</translation>
+        <translation>Ao abrir uma pasta, importar também os arquivos em subpastas</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">Adicionar...</translation>
+        <translation>Adicionar...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="140"/>
         <source>bytes</source>
-        <translation type="unfinished">bytes</translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="145"/>
         <source>KB</source>
-        <translation type="unfinished">KB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="150"/>
         <source>MB</source>
-        <translation type="unfinished">MB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>greater than</source>
-        <translation type="unfinished">maior que</translation>
+        <translation>maior que</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="167"/>
         <source>equal to</source>
-        <translation type="unfinished">igual a</translation>
+        <translation>igual a</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="172"/>
         <source>less than</source>
-        <translation type="unfinished">menor que</translation>
+        <translation>menor que</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="180"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de importação</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="115"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Padrão de nome de arquivo (regex)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importação avançada</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">Não importar se tamanho maior que</translation>
+        <translation>Não importar se tamanho for</translation>
     </message>
     <message>
         <source>PNG</source>
@@ -120,32 +120,32 @@ Todos os direitos reservados.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="18"/>
         <source>Add files...</source>
-        <translation type="unfinished">Adicionar arquivos...</translation>
+        <translation>Adicionar arquivos...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="19"/>
         <source>Add folder...</source>
-        <translation type="unfinished">Adicionar pasta...</translation>
+        <translation>Adicionar pasta...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="20"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar de lista...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="124"/>
         <source>Import files...</source>
-        <translation type="unfinished">Importar arquivos...</translation>
+        <translation>Importar arquivos...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="138"/>
         <source>Import folder...</source>
-        <translation type="unfinished">Importar pasta...</translation>
+        <translation>Importar pasta...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="152"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar arquivo...</translation>
     </message>
 </context>
 <context>
@@ -507,47 +507,47 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation>Nível de otimização</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="678"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>Método</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="782"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation>Nível de compressão</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>Melhor</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="789"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Rápido</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="724"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Sem compressão</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="331"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation>Subamostragem de croma</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="900"/>
@@ -567,17 +567,17 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>Mover o arquivo original</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Para a Lixeira</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir definitivamente</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1554"/>
@@ -720,7 +720,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="2015"/>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importação avançada...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="915"/>
@@ -769,7 +769,7 @@ Economizado: %4 (%5%)</translation>
     </message>
     <message>
         <source>Do not import if size is</source>
-        <translation type="vanished">Não importar se tamanho maior que</translation>
+        <translation type="vanished">Não importar se tamanho for</translation>
     </message>
     <message>
         <source>greater than</source>
@@ -790,7 +790,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="334"/>
         <source>When importing files directly</source>
-        <translation>Quando importando arquivos diretamente</translation>
+        <translation>Ao importar arquivos diretamente</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="347"/>
@@ -805,7 +805,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="313"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation>Essa opção apenas é aplicada quando utilizando a linha de comando ou jogando arquivos no icone da aplicação</translation>
+        <translation>Essa opção é aplicada ao utilizar a linha de comando ou soltar arquivos sobre o ícone da aplicação</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="215"/>
@@ -835,12 +835,12 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="266"/>
         <source>Open output folder</source>
-        <translation>Abrir pasta de saida</translation>
+        <translation>Abrir pasta de saída</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="279"/>
         <source>Perform an action after successful compression</source>
-        <translation>Performe uma ação após compressão bem sucedida</translation>
+        <translation>Executar uma ação após compressão bem sucedida</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="412"/>
@@ -955,7 +955,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Conversão de arquivo falhou</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -975,7 +975,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível excluir o arquivo original, verifique suas permissões</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -1015,7 +1015,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="205"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1032,7 +1032,7 @@ Economizado: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="234"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
 </context>
 <context>
