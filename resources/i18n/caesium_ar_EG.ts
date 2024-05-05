@@ -447,12 +447,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1362"/>
         <source>Keep folder structure</source>
-        <translation>حافظ على مكان المجلد</translation>
+        <translation>الحفاظ علي ترتيب الملف</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1369"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation type="unfinished"></translation>
+        <translation >تخطي اذا كان الحجم اكبر من الاصل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1427"/>
@@ -477,7 +477,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation >صيغه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1502"/>
@@ -488,97 +488,97 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="2007"/>
         <location filename="../../src/MainWindow.cpp" line="1250"/>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>لمحه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="900"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation >مجموعه من البايت</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation >مستوي التحسين</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="678"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation >عملية</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="782"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation >مستوي الانكماش</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>افضل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="789"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>متوازن</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation >سريع</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="724"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>غير مضغوط</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="331"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation >اخذ عينات فرعيه من الكروما</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="905"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation >ك ب</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="910"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation >م ب</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation >تحريك الملف الرئيسي</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation >الي المهملات</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation >خذف بشكل دائم</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1554"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished"></translation>
+        <translation >التحويل الي شكل جديد او التغيير في الحكم يمكن ان يقلل الجودة حتي اذا تم اخيار خيار بدون فقد باينات </translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1674"/>
         <source>Compressed</source>
-        <translation type="unfinished"></translation>
+        <translation >مضغوط</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1681"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation >الاصل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1730"/>
