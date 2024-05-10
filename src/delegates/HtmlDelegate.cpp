@@ -18,7 +18,7 @@ void HtmlDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, 
 
     // Painting item without text
     optionV.text = QString();
-    style->drawControl(QStyle::CE_ItemViewItem, &optionV, painter);
+    style->drawControl(QStyle::CE_ItemViewItem, &optionV, painter, optionV.widget);
 
     QAbstractTextDocumentLayout::PaintContext ctx;
     QRect textRect = style->subElementRect(QStyle::SE_ItemViewItemText, &optionV);

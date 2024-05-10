@@ -43,32 +43,32 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">حذف</translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">استيراد الملفات في مجلدات فرعية عند فتح دليل</translation>
+        <translation>استيراد الملفات في مجلدات فرعية عند فتح دليل</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">إضافة...</translation>
+        <translation>إضافة...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="140"/>
         <source>bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>مجموعه من البايت</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="145"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation>ك ب</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="150"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation>م ب</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
@@ -120,12 +120,12 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="18"/>
         <source>Add files...</source>
-        <translation type="unfinished">إضافة ملفات...</translation>
+        <translation>إضافة ملفات...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="19"/>
         <source>Add folder...</source>
-        <translation type="unfinished">أضف المجلد...</translation>
+        <translation>أضف المجلد...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="20"/>
@@ -135,12 +135,12 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="124"/>
         <source>Import files...</source>
-        <translation type="unfinished">استيراد ملفات...</translation>
+        <translation>استيراد ملفات...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="138"/>
         <source>Import folder...</source>
-        <translation type="unfinished">استيراد المجلد...</translation>
+        <translation>استيراد المجلد...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="152"/>
@@ -225,7 +225,7 @@ Do you really want to continue?</source>
         <location filename="../../src/MainWindow.cpp" line="1229"/>
         <location filename="../../src/MainWindow.cpp" line="1234"/>
         <source>File not found</source>
-        <translation type="unfinished">الملف غير موجود</translation>
+        <translation>الملف غير موجود</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1265"/>
@@ -452,7 +452,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1369"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation >تخطي اذا كان الحجم اكبر من الاصل</translation>
+        <translation>تخطي اذا كان الحجم اكبر من الاصل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1427"/>
@@ -477,7 +477,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1477"/>
         <source>Format</source>
-        <translation >صيغه</translation>
+        <translation>صيغه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1502"/>
@@ -493,12 +493,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="900"/>
         <source>bytes</source>
-        <translation >مجموعه من البايت</translation>
+        <translation>مجموعه من البايت</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
-        <translation >مستوي التحسين</translation>
+        <translation>مستوي التحسين</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="678"/>
@@ -508,12 +508,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
-        <translation >عملية</translation>
+        <translation>عملية</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="782"/>
         <source>Deflate level</source>
-        <translation >مستوي الانكماش</translation>
+        <translation>مستوي الانكماش</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="772"/>
@@ -528,7 +528,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
-        <translation >سريع</translation>
+        <translation>سريع</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="724"/>
@@ -538,47 +538,47 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="331"/>
         <source>Chroma subsampling</source>
-        <translation >اخذ عينات فرعيه من الكروما</translation>
+        <translation>اخذ عينات فرعيه من الكروما</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="905"/>
         <source>KB</source>
-        <translation >ك ب</translation>
+        <translation>ك ب</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="910"/>
         <source>MB</source>
-        <translation >م ب</translation>
+        <translation>م ب</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
-        <translation >تحريك الملف الرئيسي</translation>
+        <translation>تحريك الملف الرئيسي</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
-        <translation >الي المهملات</translation>
+        <translation>الي المهملات</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
-        <translation >خذف بشكل دائم</translation>
+        <translation>خذف بشكل دائم</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1554"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation >التحويل الي شكل جديد او التغيير في الحكم يمكن ان يقلل الجودة حتي اذا تم اخيار خيار بدون فقد باينات </translation>
+        <translation>التحويل الي شكل جديد او التغيير في الحكم يمكن ان يقلل الجودة حتي اذا تم اخيار خيار بدون فقد باينات </translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1674"/>
         <source>Compressed</source>
-        <translation >مضغوط</translation>
+        <translation>مضغوط</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1681"/>
         <source>Original</source>
-        <translation >الاصل</translation>
+        <translation>الاصل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1730"/>
@@ -922,7 +922,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -982,7 +982,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="205"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>

@@ -992,7 +992,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="205"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">TIFF</translation>
     </message>
     <message>
         <source>Quality</source>

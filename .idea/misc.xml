@@ -3,6 +3,9 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.10 (caesium-image-compressor)" />
   </component>
+  <component name="CMakePythonSetting">
+    <option name="pythonIntegrationState" value="NO" />
+  </component>
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
     <excludeRoots>

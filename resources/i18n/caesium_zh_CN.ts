@@ -23,19 +23,19 @@
         <source>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
-All rights reserved.</translation>
+保留所有权利.</translation>
     </message>
     <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
         <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-All rights reserved.</translation>
+保留所有权利.</translation>
     </message>
     <message>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
         <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-All rights reserved.</translation>
+保留所有权利.</translation>
     </message>
 </context>
 <context>
@@ -43,67 +43,67 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">打开文件夹时导入子目录中的文件</translation>
+        <translation>打开文件夹时导入子目录中的文件</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">添加...</translation>
+        <translation>添加...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="140"/>
         <source>bytes</source>
-        <translation type="unfinished">bytes</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="145"/>
         <source>KB</source>
-        <translation type="unfinished">KB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="150"/>
         <source>MB</source>
-        <translation type="unfinished">MB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>greater than</source>
-        <translation type="unfinished">大于</translation>
+        <translation>大于</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="167"/>
         <source>equal to</source>
-        <translation type="unfinished">等于</translation>
+        <translation>等于</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="172"/>
         <source>less than</source>
-        <translation type="unfinished">小于</translation>
+        <translation>小于</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="180"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>导入列表</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="115"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>文件名模式（正则）</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>高级导入</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">不导入的大小</translation>
+        <translation>导入时忽略的文件大小</translation>
     </message>
     <message>
         <source>PNG</source>
@@ -120,32 +120,32 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="18"/>
         <source>Add files...</source>
-        <translation type="unfinished">打开文件...</translation>
+        <translation>打开文件...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="19"/>
         <source>Add folder...</source>
-        <translation type="unfinished">打开文件夹...</translation>
+        <translation>打开文件夹...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="20"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>从列表导入...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="124"/>
         <source>Import files...</source>
-        <translation type="unfinished">导入文件...</translation>
+        <translation>导入文件...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="138"/>
         <source>Import folder...</source>
-        <translation type="unfinished">导入文件夹...</translation>
+        <translation>导入文件夹...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="152"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>导入文件...</translation>
     </message>
 </context>
 <context>
@@ -168,7 +168,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Saved</source>
-        <translation>节省了</translation>
+        <translation>已节省</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
@@ -338,12 +338,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="968"/>
         <source>Maximum output size</source>
-        <translation>图片最大输出体积</translation>
+        <translation>文件最大输出大小</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="900"/>
         <source>bytes</source>
-        <translation>bytes</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="239"/>
@@ -383,7 +383,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1037"/>
         <source>Dimensions</source>
-        <translation>像素值</translation>
+        <translation>指定像素</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1042"/>
@@ -393,12 +393,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1047"/>
         <source>Short edge</source>
-        <translation>短边长</translation>
+        <translation>短边</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1052"/>
         <source>Long edge</source>
-        <translation>长边长</translation>
+        <translation>长边</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1057"/>
@@ -527,62 +527,62 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="491"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation>优化级别</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="678"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="747"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>方法</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="782"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation>默认级别</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="772"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>最佳</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="789"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>平衡</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="799"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>最快</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="724"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>不压缩</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="331"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation>色度二次采样</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>移动原始文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1405"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>删除到回收站</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1410"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>永久删除</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1730"/>
@@ -731,7 +731,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1058"/>
         <source>images in list</source>
-        <translation>张已选图片</translation>
+        <translation>张图片</translation>
     </message>
 </context>
 <context>
@@ -744,7 +744,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="425"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>重启</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="451"/>
@@ -759,11 +759,11 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="136"/>
         <source>Prompt before exit</source>
-        <translation>退出前确认</translation>
+        <translation>退出前提示</translation>
     </message>
     <message>
         <source>Do not import if size is</source>
-        <translation type="vanished">不导入的大小</translation>
+        <translation type="vanished">导入时忽略的文件大小</translation>
     </message>
     <message>
         <source>greater than</source>
@@ -779,7 +779,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="vanished">bytes</translation>
+        <translation type="vanished">B</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="215"/>
@@ -789,32 +789,32 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="246"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation>无动作</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="251"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭应用程序</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="256"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>休眠</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="261"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>关机</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="266"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation>打开输出文件夹</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="279"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation>图像压缩成功后执行操作</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="412"/>
@@ -954,7 +954,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>文件转换失败</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -974,7 +974,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>无法删除原始文件，请检查您的权限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -1014,7 +1014,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="205"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1026,7 +1026,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="obsolete">bytes</translation>
+        <translation type="obsolete">B</translation>
     </message>
     <message>
         <source>KB</source>
@@ -1043,7 +1043,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="234"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自动</translation>
     </message>
 </context>
 <context>
