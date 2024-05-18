@@ -74,7 +74,7 @@ cmake --build build_dir --config Release --target caesium_image_compressor
 ### Languages and translations
 The 1.0 version of Caesium had a lot of community made translations, but this 2.0 release has a whole new set of strings and no old translations can be used anymore.   
 Caesium 2.0 is currently available in:
-- <img src="https://flagcdn.com/48x36/eg.png" width="24" height="18" alt="EG"> ![64%](https://progress-bar.dev/64/?title=ar_EG)
+- <img src="https://flagcdn.com/48x36/eg.png" width="24" height="18" alt="EG"> ![82%](https://progress-bar.dev/82/?title=ar_EG)
 - <img src="https://flagcdn.com/48x36/de.png" width="24" height="18" alt="DE"> ![78%](https://progress-bar.dev/78/?title=de_DE)
 - <img src="https://flagcdn.com/48x36/gr.png" width="24" height="18" alt="GR"> ![75%](https://progress-bar.dev/75/?title=el_GR)
 - <img src="https://flagcdn.com/48x36/us.png" width="24" height="18" alt="US"> ![99%](https://progress-bar.dev/99/?title=en_US)
@@ -86,13 +86,12 @@ Caesium 2.0 is currently available in:
 - <img src="https://flagcdn.com/48x36/it.png" width="24" height="18" alt="IT"> ![100%](https://progress-bar.dev/100/?title=it_IT)
 - <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ![78%](https://progress-bar.dev/78/?title=ja_JP)
 - <img src="https://flagcdn.com/48x36/pl.png" width="24" height="18" alt="PL"> ![74%](https://progress-bar.dev/74/?title=pl_PL)
-- <img src="https://flagcdn.com/48x36/br.png" width="24" height="18" alt="BR"> ![81%](https://progress-bar.dev/81/?title=pt_BR)
+- <img src="https://flagcdn.com/48x36/br.png" width="24" height="18" alt="BR"> ![100%](https://progress-bar.dev/100/?title=pt_BR)
 - <img src="https://flagcdn.com/48x36/ru.png" width="24" height="18" alt="RU"> ![81%](https://progress-bar.dev/81/?title=ru_RU)
 - <img src="https://flagcdn.com/48x36/sk.png" width="24" height="18" alt="SK"> ![73%](https://progress-bar.dev/73/?title=sk_SK)
 - <img src="https://flagcdn.com/48x36/tr.png" width="24" height="18" alt="TR"> ![74%](https://progress-bar.dev/74/?title=tr_TR)
-- <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> ![78%](https://progress-bar.dev/78/?title=zh_CN)
+- <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> ![99%](https://progress-bar.dev/99/?title=zh_CN)
 - <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> ![77%](https://progress-bar.dev/77/?title=zh_TW)
-
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  
