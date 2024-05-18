@@ -3,6 +3,9 @@
 QCollapseToolButton::QCollapseToolButton(QWidget* parent)
     : QToolButton(parent)
 {
+#ifdef Q_OS_MAC
+    this->setStyleSheet("border: none;");
+#endif
     this->content = new QFrame();
     this->isContentVisible = true;
     this->setArrowType(Qt::ArrowType::DownArrow);
@@ -24,6 +27,7 @@ bool QCollapseToolButton::contentVisible() const
 void QCollapseToolButton::setContentVisible(bool visible)
 {
     this->isContentVisible = visible;
+    this->setArrowType(this->isContentVisible ? Qt::ArrowType::DownArrow : Qt::ArrowType::RightArrow);
     this->content->setVisible(visible);
 }
 

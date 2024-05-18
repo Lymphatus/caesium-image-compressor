@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1272</width>
-    <height>993</height>
+    <height>1016</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -300,9 +300,6 @@
                    </item>
                    <item row="0" column="0">
                     <widget class="QCollapseToolButton" name="JPEGToggle_ToolButton">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
                      <property name="text">
                       <string>JPEG</string>
                      </property>
@@ -1722,7 +1719,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

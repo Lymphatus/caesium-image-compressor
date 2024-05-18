@@ -189,7 +189,7 @@ All rights reserved.</translation>
         <translation>Импорт файлов...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1594"/>
+        <location filename="../../views/MainWindow.ui" line="1591"/>
         <location filename="../../src/MainWindow.cpp" line="523"/>
         <location filename="../../src/MainWindow.cpp" line="731"/>
         <source>Cancel</source>
@@ -275,14 +275,14 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="155"/>
-        <location filename="../../views/MainWindow.ui" line="1875"/>
+        <location filename="../../views/MainWindow.ui" line="1872"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="188"/>
+        <location filename="../../views/MainWindow.ui" line="1949"/>
         <location filename="../../views/MainWindow.ui" line="1952"/>
-        <location filename="../../views/MainWindow.ui" line="1955"/>
         <source>Compress</source>
         <translation>Сжать</translation>
     </message>
@@ -292,20 +292,20 @@ Saved: %4 (%5%)</source>
         <translation>Сжатие</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="307"/>
+        <location filename="../../views/MainWindow.ui" line="304"/>
         <source>JPEG</source>
         <translation>JPEG</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="263"/>
-        <location filename="../../views/MainWindow.ui" line="391"/>
-        <location filename="../../views/MainWindow.ui" line="561"/>
-        <location filename="../../views/MainWindow.ui" line="661"/>
+        <location filename="../../views/MainWindow.ui" line="388"/>
+        <location filename="../../views/MainWindow.ui" line="558"/>
+        <location filename="../../views/MainWindow.ui" line="658"/>
         <source>Quality</source>
         <translation>Качество</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="434"/>
+        <location filename="../../views/MainWindow.ui" line="431"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
@@ -314,22 +314,22 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Уровень</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="578"/>
+        <location filename="../../views/MainWindow.ui" line="575"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="854"/>
+        <location filename="../../views/MainWindow.ui" line="851"/>
         <source>Lossless</source>
         <translation>Без потерь</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="968"/>
+        <location filename="../../views/MainWindow.ui" line="965"/>
         <source>Maximum output size</source>
         <translation>Максимальный выходной размер</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="900"/>
+        <location filename="../../views/MainWindow.ui" line="897"/>
         <source>bytes</source>
         <translation>байтов</translation>
     </message>
@@ -339,63 +339,63 @@ Saved: %4 (%5%)</source>
         <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="867"/>
+        <location filename="../../views/MainWindow.ui" line="864"/>
         <source>Keep Metadata</source>
         <translation>Сохранять метаданные</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="905"/>
+        <location filename="../../views/MainWindow.ui" line="902"/>
         <source>KB</source>
         <translation>КБ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="910"/>
+        <location filename="../../views/MainWindow.ui" line="907"/>
         <source>MB</source>
         <translation>МБ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="982"/>
+        <location filename="../../views/MainWindow.ui" line="979"/>
         <source>Resize</source>
         <translation>Разрешение</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1008"/>
+        <location filename="../../views/MainWindow.ui" line="1005"/>
         <source>Resize to fit</source>
         <translation>Изменить размер, ориентируясь на</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1032"/>
+        <location filename="../../views/MainWindow.ui" line="1029"/>
         <source>No resize</source>
         <translation>Не изменять</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1037"/>
+        <location filename="../../views/MainWindow.ui" line="1034"/>
         <source>Dimensions</source>
         <translation>Размеры</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1042"/>
+        <location filename="../../views/MainWindow.ui" line="1039"/>
         <source>Percentage</source>
         <translation>Процент</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1047"/>
+        <location filename="../../views/MainWindow.ui" line="1044"/>
         <source>Short edge</source>
         <translation>Короткую сторону</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1052"/>
+        <location filename="../../views/MainWindow.ui" line="1049"/>
         <source>Long edge</source>
         <translation>Длинную сторону</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1057"/>
-        <location filename="../../views/MainWindow.ui" line="1098"/>
+        <location filename="../../views/MainWindow.ui" line="1054"/>
+        <location filename="../../views/MainWindow.ui" line="1095"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1167"/>
+        <location filename="../../views/MainWindow.ui" line="1164"/>
         <location filename="../../src/MainWindow.cpp" line="879"/>
         <location filename="../../src/MainWindow.cpp" line="883"/>
         <location filename="../../src/MainWindow.cpp" line="918"/>
@@ -407,53 +407,53 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="268"/>
-        <location filename="../../views/MainWindow.ui" line="1139"/>
+        <location filename="../../views/MainWindow.ui" line="1136"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1062"/>
-        <location filename="../../views/MainWindow.ui" line="1196"/>
+        <location filename="../../views/MainWindow.ui" line="1059"/>
+        <location filename="../../views/MainWindow.ui" line="1193"/>
         <source>Height</source>
         <translation>Высота</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1239"/>
+        <location filename="../../views/MainWindow.ui" line="1236"/>
         <source>Do not enlarge</source>
         <translation>Не увеличивать</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1249"/>
+        <location filename="../../views/MainWindow.ui" line="1246"/>
         <source>Keep aspect ratio</source>
         <translation>Сохранять пропорции</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1276"/>
+        <location filename="../../views/MainWindow.ui" line="1273"/>
         <source>Output</source>
         <translation>Экспорт</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1296"/>
+        <location filename="../../views/MainWindow.ui" line="1293"/>
         <source>Folder</source>
         <translation>Папка</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1340"/>
+        <location filename="../../views/MainWindow.ui" line="1337"/>
         <source>Select...</source>
         <translation>Выбрать...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1352"/>
+        <location filename="../../views/MainWindow.ui" line="1349"/>
         <source>Same folder as input</source>
         <translation>Сохранять в исходную папку</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1362"/>
+        <location filename="../../views/MainWindow.ui" line="1359"/>
         <source>Keep folder structure</source>
         <translation>Сохранять структуру папок</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1369"/>
+        <location filename="../../views/MainWindow.ui" line="1366"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>Пропускать, если сжатое изображение больше оригинала</translation>
     </message>
@@ -462,256 +462,256 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">Перемещать исходный файл в корзину</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1427"/>
+        <location filename="../../views/MainWindow.ui" line="1424"/>
         <source>Keep file dates</source>
         <translation>Сохранять даты файлов</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1442"/>
+        <location filename="../../views/MainWindow.ui" line="1439"/>
         <source>Creation</source>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1449"/>
+        <location filename="../../views/MainWindow.ui" line="1446"/>
         <source>Last modified</source>
         <translation>Последнее изменение</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1456"/>
+        <location filename="../../views/MainWindow.ui" line="1453"/>
         <source>Last access</source>
         <translation>Последний доступ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1477"/>
+        <location filename="../../views/MainWindow.ui" line="1474"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1502"/>
+        <location filename="../../views/MainWindow.ui" line="1499"/>
         <source>Suffix</source>
         <translation>Суффикс</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1554"/>
+        <location filename="../../views/MainWindow.ui" line="1551"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation>Преобразование в новый формат или изменение размера может ухудшить качество, даже если выбран вариант &quot;без потерь&quot;</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1681"/>
+        <location filename="../../views/MainWindow.ui" line="1678"/>
         <source>Original</source>
         <translation>Исходный</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2007"/>
+        <location filename="../../views/MainWindow.ui" line="2004"/>
         <location filename="../../src/MainWindow.cpp" line="1250"/>
         <source>Preview</source>
         <translation>Предварительный просмотр</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1674"/>
+        <location filename="../../views/MainWindow.ui" line="1671"/>
         <source>Compressed</source>
         <translation>Сжатый</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="331"/>
+        <location filename="../../views/MainWindow.ui" line="328"/>
         <source>Chroma subsampling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="491"/>
+        <location filename="../../views/MainWindow.ui" line="488"/>
         <source>Optimization level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="678"/>
+        <location filename="../../views/MainWindow.ui" line="675"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="724"/>
+        <location filename="../../views/MainWindow.ui" line="721"/>
         <source>Uncompressed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="747"/>
+        <location filename="../../views/MainWindow.ui" line="744"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="772"/>
+        <location filename="../../views/MainWindow.ui" line="769"/>
         <source>Best</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="782"/>
+        <location filename="../../views/MainWindow.ui" line="779"/>
         <source>Deflate level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="789"/>
+        <location filename="../../views/MainWindow.ui" line="786"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="799"/>
+        <location filename="../../views/MainWindow.ui" line="796"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1384"/>
+        <location filename="../../views/MainWindow.ui" line="1381"/>
         <source>Move the original file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1405"/>
+        <location filename="../../views/MainWindow.ui" line="1402"/>
         <source>To Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1410"/>
+        <location filename="../../views/MainWindow.ui" line="1407"/>
         <source>Delete Permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1730"/>
+        <location filename="../../views/MainWindow.ui" line="1727"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1738"/>
+        <location filename="../../views/MainWindow.ui" line="1735"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1748"/>
+        <location filename="../../views/MainWindow.ui" line="1745"/>
         <source>Edit</source>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1759"/>
+        <location filename="../../views/MainWindow.ui" line="1756"/>
         <source>View</source>
         <translation>Вид</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1763"/>
-        <location filename="../../views/MainWindow.ui" line="1786"/>
+        <location filename="../../views/MainWindow.ui" line="1760"/>
+        <location filename="../../views/MainWindow.ui" line="1783"/>
         <source>Toolbar</source>
         <translation>Панель инструментов</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1828"/>
+        <location filename="../../views/MainWindow.ui" line="1825"/>
         <source>About Caesium Image Compressor</source>
         <translation>О Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1840"/>
+        <location filename="../../views/MainWindow.ui" line="1837"/>
         <source>Add files...</source>
         <translation>Добавить файлы...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1843"/>
+        <location filename="../../views/MainWindow.ui" line="1840"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1852"/>
+        <location filename="../../views/MainWindow.ui" line="1849"/>
         <source>Add folder...</source>
         <translation>Добавить папку...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1855"/>
+        <location filename="../../views/MainWindow.ui" line="1852"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1860"/>
+        <location filename="../../views/MainWindow.ui" line="1857"/>
         <location filename="../../src/MainWindow.cpp" line="215"/>
         <source>Exit</source>
         <translation>Выйти</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1878"/>
+        <location filename="../../views/MainWindow.ui" line="1875"/>
         <source>Del</source>
         <translatorcomment>Delete key on keyboard</translatorcomment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1883"/>
+        <location filename="../../views/MainWindow.ui" line="1880"/>
         <source>Select All</source>
         <translation>Выбрать все</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1886"/>
+        <location filename="../../views/MainWindow.ui" line="1883"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1898"/>
+        <location filename="../../views/MainWindow.ui" line="1895"/>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1909"/>
+        <location filename="../../views/MainWindow.ui" line="1906"/>
         <source>Show previews</source>
         <translation>Показать превью</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1918"/>
+        <location filename="../../views/MainWindow.ui" line="1915"/>
         <source>Preferences...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1926"/>
+        <location filename="../../views/MainWindow.ui" line="1923"/>
         <source>Show original in file manager</source>
         <translation>Показать исходное изображение в проводнике</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1931"/>
+        <location filename="../../views/MainWindow.ui" line="1928"/>
         <source>Show compressed in file manager</source>
         <translation>Показать сжатое изображение в проводнике</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1940"/>
+        <location filename="../../views/MainWindow.ui" line="1937"/>
         <source>Donate</source>
         <translation>Поддержать разработчика</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1966"/>
+        <location filename="../../views/MainWindow.ui" line="1963"/>
         <source>Icons</source>
         <translation>Иконки</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1974"/>
+        <location filename="../../views/MainWindow.ui" line="1971"/>
         <source>Icons and Text</source>
         <translation>Иконки и текст</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1982"/>
+        <location filename="../../views/MainWindow.ui" line="1979"/>
         <source>Hide</source>
         <translation>Скрыть</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1987"/>
+        <location filename="../../views/MainWindow.ui" line="1984"/>
         <source>Show</source>
         <translation>Показать</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1995"/>
+        <location filename="../../views/MainWindow.ui" line="1992"/>
         <source>Auto preview</source>
         <translation>Авто превью</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2010"/>
+        <location filename="../../views/MainWindow.ui" line="2007"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2015"/>
+        <location filename="../../views/MainWindow.ui" line="2012"/>
         <source>Advanced import...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="915"/>
+        <location filename="../../views/MainWindow.ui" line="912"/>
         <location filename="../../src/MainWindow.cpp" line="893"/>
         <location filename="../../src/MainWindow.cpp" line="897"/>
         <source>%</source>
