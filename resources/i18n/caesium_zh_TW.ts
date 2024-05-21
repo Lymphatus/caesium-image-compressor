@@ -56,37 +56,37 @@ All rights reserved.</translation>
         <translation type="unfinished">添加...</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="140"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="146"/>
         <source>bytes</source>
         <translation type="unfinished">bytes</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="145"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="151"/>
         <source>KB</source>
         <translation type="unfinished">KB</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="150"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="156"/>
         <source>MB</source>
         <translation type="unfinished">MB</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="168"/>
         <source>greater than</source>
         <translation type="unfinished">大於</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="167"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="173"/>
         <source>equal to</source>
         <translation type="unfinished">等於</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="172"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="178"/>
         <source>less than</source>
         <translation type="unfinished">小於</translation>
     </message>
     <message>
-        <location filename="../../views/AdvancedImportDialog.ui" line="180"/>
+        <location filename="../../views/AdvancedImportDialog.ui" line="186"/>
         <source>Import list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -196,12 +196,12 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1591"/>
         <location filename="../../src/MainWindow.cpp" line="523"/>
-        <location filename="../../src/MainWindow.cpp" line="731"/>
+        <location filename="../../src/MainWindow.cpp" line="732"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="611"/>
+        <location filename="../../src/MainWindow.cpp" line="612"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
@@ -210,44 +210,55 @@ Do you really want to continue?</source>
 確定繼續嗎？</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="615"/>
+        <location filename="../../src/MainWindow.cpp" line="616"/>
         <source>No</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="646"/>
-        <location filename="../../src/MainWindow.cpp" line="1332"/>
+        <location filename="../../src/MainWindow.cpp" line="647"/>
+        <location filename="../../src/MainWindow.cpp" line="1334"/>
         <source>Compressing...</source>
         <translation>正在壓縮...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="727"/>
+        <location filename="../../src/MainWindow.cpp" line="728"/>
         <source>Do you really want to quit?</source>
         <translation>確定退出嗎？</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="614"/>
-        <location filename="../../src/MainWindow.cpp" line="730"/>
+        <location filename="../../src/MainWindow.cpp" line="615"/>
+        <location filename="../../src/MainWindow.cpp" line="731"/>
         <source>Yes</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="752"/>
+        <location filename="../../src/MainWindow.cpp" line="596"/>
+        <source>Please select an output folder first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="599"/>
+        <location filename="../../src/MainWindow.cpp" line="846"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.cpp" line="753"/>
         <source>Select output folder...</source>
         <translation>選擇輸出檔案夾...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="819"/>
+        <location filename="../../src/MainWindow.cpp" line="820"/>
         <source>Compression finished!</source>
         <translation>壓縮完成！</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="834"/>
+        <location filename="../../src/MainWindow.cpp" line="835"/>
         <source>You just saved %1!</source>
         <translation>你已節省 %1 的儲存空間!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="838"/>
+        <location filename="../../src/MainWindow.cpp" line="839"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -258,13 +269,13 @@ Saved: %4 (%5%)</source>
 節省比例: %4 (%5%)</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1229"/>
-        <location filename="../../src/MainWindow.cpp" line="1234"/>
+        <location filename="../../src/MainWindow.cpp" line="1231"/>
+        <location filename="../../src/MainWindow.cpp" line="1236"/>
         <source>File not found</source>
         <translation>未找到文件</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1265"/>
+        <location filename="../../src/MainWindow.cpp" line="1267"/>
         <source>Finishing...</source>
         <translation>壓縮中...</translation>
     </message>
@@ -386,12 +397,12 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1164"/>
-        <location filename="../../src/MainWindow.cpp" line="879"/>
-        <location filename="../../src/MainWindow.cpp" line="883"/>
-        <location filename="../../src/MainWindow.cpp" line="918"/>
-        <location filename="../../src/MainWindow.cpp" line="921"/>
-        <location filename="../../src/MainWindow.cpp" line="930"/>
-        <location filename="../../src/MainWindow.cpp" line="933"/>
+        <location filename="../../src/MainWindow.cpp" line="881"/>
+        <location filename="../../src/MainWindow.cpp" line="885"/>
+        <location filename="../../src/MainWindow.cpp" line="920"/>
+        <location filename="../../src/MainWindow.cpp" line="923"/>
+        <location filename="../../src/MainWindow.cpp" line="932"/>
+        <location filename="../../src/MainWindow.cpp" line="935"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -700,7 +711,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2004"/>
-        <location filename="../../src/MainWindow.cpp" line="1250"/>
+        <location filename="../../src/MainWindow.cpp" line="1252"/>
         <source>Preview</source>
         <translation>預覽</translation>
     </message>
@@ -716,13 +727,13 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="912"/>
-        <location filename="../../src/MainWindow.cpp" line="893"/>
-        <location filename="../../src/MainWindow.cpp" line="897"/>
+        <location filename="../../src/MainWindow.cpp" line="895"/>
+        <location filename="../../src/MainWindow.cpp" line="899"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1058"/>
+        <location filename="../../src/MainWindow.cpp" line="1060"/>
         <source>images in list</source>
         <translation>張已選圖片</translation>
     </message>
@@ -965,27 +976,32 @@ Saved: %4 (%5%)</source>
         <translation>找不到文件</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="201"/>
+        <location filename="../../src/utils/Utils.cpp" line="123"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>Same as input</source>
         <translation>和輸入保持一致</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="202"/>
+        <location filename="../../src/utils/Utils.cpp" line="203"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="203"/>
+        <location filename="../../src/utils/Utils.cpp" line="204"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="204"/>
+        <location filename="../../src/utils/Utils.cpp" line="205"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="205"/>
+        <location filename="../../src/utils/Utils.cpp" line="206"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1002,7 +1018,7 @@ Saved: %4 (%5%)</source>
         <translation type="obsolete">%</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="234"/>
+        <location filename="../../src/utils/Utils.cpp" line="235"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>

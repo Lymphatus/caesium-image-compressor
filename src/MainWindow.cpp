@@ -593,9 +593,10 @@ void MainWindow::startCompression()
 
     if (ui->outputFolder_LineEdit->text().isEmpty() && !ui->sameOutputFolderAsInput_CheckBox->isChecked()) {
         QCaesiumMessageBox msgBox;
-        msgBox.setText("Please select an output folder first");
+        msgBox.setText(tr("Please select an output folder first"));
         msgBox.setStandardButtons(QMessageBox::Ok);
         msgBox.setDefaultButton(QMessageBox::Ok);
+        msgBox.setButtonText(QMessageBox::Ok, tr("Ok"));
         msgBox.exec();
         return;
     }
@@ -842,6 +843,7 @@ void MainWindow::compressionFinished()
                                                             saved,
                                                             savedPerc));
         compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
+        compressionSummaryDialog.setButtonText(QMessageBox::Ok, tr("Ok"));
         compressionSummaryDialog.exec();
     }
 }

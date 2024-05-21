@@ -120,6 +120,7 @@ void showFileInNativeFileManager(const QString& filePath, const QString& fallbac
         msgBox.setText(QIODevice::tr("File not found"));
         msgBox.setStandardButtons(QMessageBox::Ok);
         msgBox.setDefaultButton(QMessageBox::Ok);
+        msgBox.setButtonText(QMessageBox::Ok, QIODevice::tr("Ok"));
         msgBox.exec();
         return;
     }
