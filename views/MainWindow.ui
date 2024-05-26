@@ -287,6 +287,14 @@
              </item>
              <item>
               <widget class="QScrollArea" name="scrollArea">
+               <property name="styleSheet">
+                <string notr="true">QScrollArea { background: transparent; }
+QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }
+QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
                <property name="lineWidth">
                 <number>0</number>
                </property>
@@ -298,8 +306,8 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>606</width>
-                  <height>551</height>
+                  <width>608</width>
+                  <height>547</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
