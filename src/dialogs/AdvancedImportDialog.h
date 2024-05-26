@@ -31,6 +31,8 @@ private slots:
     static void onSkipBySizeValueChanged(int value);
     static void onSkipBySizeUnitChanged(int index);
     static void onFilenamePatternTextChanged(const QString& text);
+    void dropFinished(QDropEvent* event) const;
+
 
 private:
     Ui::AdvancedImportDialog* ui;
@@ -40,6 +42,7 @@ private:
     void setupConnections();
     void loadPreferences();
     void setLastOpenedDirectory(const QString& directory);
+    static QStringList openList(const QString& filePath);
 
     QMenu* addButtonContextMenu;
     QAction* addFilesAction;

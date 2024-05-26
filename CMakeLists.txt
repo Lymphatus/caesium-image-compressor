@@ -101,6 +101,7 @@ set(SOURCES
         src/utils/PostCompressionActions.cpp
         src/dialogs/AboutDialog.cpp
         src/widgets/QDropTreeView.cpp
+        src/widgets/QDropListWidget.cpp
         src/widgets/QZoomGraphicsView.cpp
         src/widgets/QCaesiumMessageBox.cpp
         src/widgets/QMainCheckBox.cpp

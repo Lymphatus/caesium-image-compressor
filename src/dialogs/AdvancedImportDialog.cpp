@@ -3,8 +3,11 @@
 
 #include <QFileDialog>
 #include <QMenu>
+#include <QMimeData>
 #include <QSettings>
 #include <QStandardPaths>
+#include <qevent.h>
+#include <qmimedatabase.h>
 #include <services/Importer.h>
 #include <utils/Utils.h>
 
@@ -99,6 +102,8 @@ void AdvancedImportDialog::loadPreferences()
 
 void AdvancedImportDialog::setupConnections()
 {
+    connect(ui->importList_ListWidget, &QDropListWidget::dropFinished, this, &AdvancedImportDialog::dropFinished);
+
     connect(this->addFilesAction, &QAction::triggered, this, &AdvancedImportDialog::onAddFilesActionTriggered);
     connect(this->addFolderAction, &QAction::triggered, this, &AdvancedImportDialog::onAddFolderActionTriggered);
     connect(this->importFromListAction, &QAction::triggered, this, &AdvancedImportDialog::onImportFromListActionTriggered);
@@ -157,12 +162,19 @@ void AdvancedImportDialog::onImportFromListActionTriggered()
 
     this->setLastOpenedDirectory(listFilePath);
 
-    QFile listFile(listFilePath);
+    QStringList fileList = AdvancedImportDialog::openList(listFilePath);
+
+    ui->importList_ListWidget->addItems(fileList);
+}
+
+QStringList AdvancedImportDialog::openList(const QString& filePath)
+{
+    QFile listFile(filePath);
+    QStringList fileList;
     if (!listFile.open(QIODevice::ReadOnly)) {
-        return;
+        return fileList;
     }
 
-    QStringList fileList;
     while (!listFile.atEnd()) {
         auto pathToAdd = listFile.readLine().trimmed();
         if (!QFileInfo::exists(pathToAdd)) {
@@ -171,7 +183,7 @@ void AdvancedImportDialog::onImportFromListActionTriggered()
         fileList.append(pathToAdd);
     }
 
-    ui->importList_ListWidget->addItems(fileList);
+    return fileList;
 }
 
 void AdvancedImportDialog::onRemoveButtonClicked() const
@@ -210,4 +222,31 @@ void AdvancedImportDialog::onSkipBySizeUnitChanged(int index)
 void AdvancedImportDialog::onFilenamePatternTextChanged(const QString& text)
 {
     QSettings().setValue("preferences/advanced_import/filename_pattern", text);
+}
+
+void AdvancedImportDialog::dropFinished(QDropEvent* event) const
+{
+    const QMimeData* mimeData = event->mimeData();
+    QList<QUrl> urlList = mimeData->urls();
+    QStringList fileList;
+    if (mimeData->hasFormat("text/uri-list")) {
+        foreach (QUrl url, urlList) {
+            QString absolutePath = url.toLocalFile();
+            QFileInfo fileInfo =  QFileInfo(absolutePath);
+            if (fileInfo.isFile() || fileInfo.isDir()) {
+                QMimeDatabase db;
+                QMimeType mime = db.mimeTypeForFile(absolutePath, QMimeDatabase::MatchContent);
+                if (mime.name() == "text/plain") {
+                    fileList.append(AdvancedImportDialog::openList(absolutePath));
+                } else {
+                    fileList << absolutePath;
+                }
+
+            }
+        }
+    }
+
+    ui->importList_ListWidget->addItems(fileList);
+
+    event->acceptProposedAction();
 }

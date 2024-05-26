@@ -94,7 +94,13 @@
       </widget>
      </item>
      <item row="1" column="0" colspan="6">
-      <widget class="QListWidget" name="importList_ListWidget">
+      <widget class="QDropListWidget" name="importList_ListWidget">
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::DropOnly</enum>
+       </property>
+       <property name="defaultDropAction">
+        <enum>Qt::MoveAction</enum>
+       </property>
        <property name="alternatingRowColors">
         <bool>true</bool>
        </property>
@@ -191,6 +197,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QDropListWidget</class>
+   <extends>QListWidget</extends>
+   <header>widgets/QDropListWidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>
