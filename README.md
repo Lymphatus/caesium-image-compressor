@@ -4,7 +4,7 @@
 
 Try it directly on browser at [caesium.app](https://caesium.app)
 
-###### v2.7.0
+###### v2.7.1
 
 ![caesium_screenshot_20240413](https://github.com/Lymphatus/caesium-image-compressor/assets/12133996/c09f06ab-abe2-4fa6-8c43-29b7073cb6df)
 

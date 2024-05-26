@@ -252,13 +252,13 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>请首先选择一个输出文件夹</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <location filename="../../src/MainWindow.cpp" line="846"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="753"/>
@@ -1005,7 +1005,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
