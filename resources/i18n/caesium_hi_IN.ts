@@ -201,7 +201,7 @@ All rights reserved.</source>
         <translation>फ़ाइलें आयात की जा रही हैं...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1642"/>
+        <location filename="../../views/MainWindow.ui" line="1648"/>
         <location filename="../../src/MainWindow.cpp" line="523"/>
         <location filename="../../src/MainWindow.cpp" line="732"/>
         <source>Cancel</source>
@@ -298,14 +298,14 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="161"/>
-        <location filename="../../views/MainWindow.ui" line="1923"/>
+        <location filename="../../views/MainWindow.ui" line="1929"/>
         <source>Remove</source>
         <translation>हटाऐं</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="194"/>
-        <location filename="../../views/MainWindow.ui" line="2000"/>
-        <location filename="../../views/MainWindow.ui" line="2003"/>
+        <location filename="../../views/MainWindow.ui" line="2006"/>
+        <location filename="../../views/MainWindow.ui" line="2009"/>
         <source>Compress</source>
         <translation>संकुचित करें</translation>
     </message>
@@ -315,20 +315,20 @@ Saved: %4 (%5%)</source>
         <translation>संकुचीकरण</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="351"/>
+        <location filename="../../views/MainWindow.ui" line="357"/>
         <source>JPEG</source>
         <translation>जे पी ई जी</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="269"/>
-        <location filename="../../views/MainWindow.ui" line="435"/>
-        <location filename="../../views/MainWindow.ui" line="605"/>
-        <location filename="../../views/MainWindow.ui" line="705"/>
+        <location filename="../../views/MainWindow.ui" line="441"/>
+        <location filename="../../views/MainWindow.ui" line="611"/>
+        <location filename="../../views/MainWindow.ui" line="711"/>
         <source>Quality</source>
         <translation>गुणवत्ता</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="478"/>
+        <location filename="../../views/MainWindow.ui" line="484"/>
         <source>PNG</source>
         <translation>पी एन जी</translation>
     </message>
@@ -337,22 +337,22 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">स्तर</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="622"/>
+        <location filename="../../views/MainWindow.ui" line="628"/>
         <source>WebP</source>
         <translation>वेब पी</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="898"/>
+        <location filename="../../views/MainWindow.ui" line="904"/>
         <source>Lossless</source>
         <translation>दोषरहित</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1012"/>
+        <location filename="../../views/MainWindow.ui" line="1018"/>
         <source>Maximum output size</source>
         <translation>अधिकतम उत्पादन आकार</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="944"/>
+        <location filename="../../views/MainWindow.ui" line="950"/>
         <source>bytes</source>
         <translation>बाइट</translation>
     </message>
@@ -362,63 +362,63 @@ Saved: %4 (%5%)</source>
         <translation>तरीका</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="911"/>
+        <location filename="../../views/MainWindow.ui" line="917"/>
         <source>Keep Metadata</source>
         <translation>मेटाडेटा रखें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="949"/>
+        <location filename="../../views/MainWindow.ui" line="955"/>
         <source>KB</source>
         <translation>किलोबाइट</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="954"/>
+        <location filename="../../views/MainWindow.ui" line="960"/>
         <source>MB</source>
         <translation>मेगाबाइट</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1030"/>
+        <location filename="../../views/MainWindow.ui" line="1036"/>
         <source>Resize</source>
         <translation>आकार परिवर्तित करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1056"/>
+        <location filename="../../views/MainWindow.ui" line="1062"/>
         <source>Resize to fit</source>
         <translation>फ़िट होने तक आकार परिवर्तित करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1080"/>
+        <location filename="../../views/MainWindow.ui" line="1086"/>
         <source>No resize</source>
         <translation>आकार परिवर्तित न करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1085"/>
+        <location filename="../../views/MainWindow.ui" line="1091"/>
         <source>Dimensions</source>
         <translation>लम्बाई चौड़ाई</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1090"/>
+        <location filename="../../views/MainWindow.ui" line="1096"/>
         <source>Percentage</source>
         <translation>प्रतिशत</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1095"/>
+        <location filename="../../views/MainWindow.ui" line="1101"/>
         <source>Short edge</source>
         <translation>छोटा किनारा</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1100"/>
+        <location filename="../../views/MainWindow.ui" line="1106"/>
         <source>Long edge</source>
         <translation>लम्बा किनारा</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1105"/>
-        <location filename="../../views/MainWindow.ui" line="1146"/>
+        <location filename="../../views/MainWindow.ui" line="1111"/>
+        <location filename="../../views/MainWindow.ui" line="1152"/>
         <source>Width</source>
         <translation>चौड़ाई</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1215"/>
+        <location filename="../../views/MainWindow.ui" line="1221"/>
         <location filename="../../src/MainWindow.cpp" line="881"/>
         <location filename="../../src/MainWindow.cpp" line="885"/>
         <location filename="../../src/MainWindow.cpp" line="920"/>
@@ -430,53 +430,53 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="274"/>
-        <location filename="../../views/MainWindow.ui" line="1187"/>
+        <location filename="../../views/MainWindow.ui" line="1193"/>
         <source>Size</source>
         <translation>आकार</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1110"/>
-        <location filename="../../views/MainWindow.ui" line="1244"/>
+        <location filename="../../views/MainWindow.ui" line="1116"/>
+        <location filename="../../views/MainWindow.ui" line="1250"/>
         <source>Height</source>
         <translation>लम्बाई</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1287"/>
+        <location filename="../../views/MainWindow.ui" line="1293"/>
         <source>Do not enlarge</source>
         <translation>बड़ा न करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1297"/>
+        <location filename="../../views/MainWindow.ui" line="1303"/>
         <source>Keep aspect ratio</source>
         <translation>अभिमुक्ता अनुपात बनाए रखें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1324"/>
+        <location filename="../../views/MainWindow.ui" line="1330"/>
         <source>Output</source>
         <translation>उत्पादन</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1344"/>
+        <location filename="../../views/MainWindow.ui" line="1350"/>
         <source>Folder</source>
         <translation>फ़ोल्डर</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1388"/>
+        <location filename="../../views/MainWindow.ui" line="1394"/>
         <source>Select...</source>
         <translation>चुनें...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1400"/>
+        <location filename="../../views/MainWindow.ui" line="1406"/>
         <source>Same folder as input</source>
         <translation>निविष्ट के समान फ़ोल्डर</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1410"/>
+        <location filename="../../views/MainWindow.ui" line="1416"/>
         <source>Keep folder structure</source>
         <translation>फ़ोल्डर संरचना बनाए रखें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1417"/>
+        <location filename="../../views/MainWindow.ui" line="1423"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>यदि उत्पादन का आकार मूल आकार से बड़ा हो तो छोड़ दें</translation>
     </message>
@@ -485,256 +485,256 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">मूल फाइल को ट्रैश में स्थानांतरित करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1475"/>
+        <location filename="../../views/MainWindow.ui" line="1481"/>
         <source>Keep file dates</source>
         <translation>फ़ाइल की दिनांक रखें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1490"/>
+        <location filename="../../views/MainWindow.ui" line="1496"/>
         <source>Creation</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1497"/>
+        <location filename="../../views/MainWindow.ui" line="1503"/>
         <source>Last modified</source>
         <translation>अंतिम संशोधन</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1504"/>
+        <location filename="../../views/MainWindow.ui" line="1510"/>
         <source>Last access</source>
         <translation>अंतिम अभिगम</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1525"/>
+        <location filename="../../views/MainWindow.ui" line="1531"/>
         <source>Format</source>
         <translation>प्रारुप</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1602"/>
+        <location filename="../../views/MainWindow.ui" line="1608"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation>किसी नए प्रारूप में परिवर्तित करने या आकार बदलने से गुणवत्ता ख़राब हो सकती है, भले ही &quot;दोषरहित&quot; विकल्प चुना गया हो</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1550"/>
+        <location filename="../../views/MainWindow.ui" line="1556"/>
         <source>Suffix</source>
         <translation>प्रत्यय</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1729"/>
+        <location filename="../../views/MainWindow.ui" line="1735"/>
         <source>Original</source>
         <translation>मूल</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2055"/>
+        <location filename="../../views/MainWindow.ui" line="2061"/>
         <location filename="../../src/MainWindow.cpp" line="1252"/>
         <source>Preview</source>
         <translation>पूर्वावलोकन</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1722"/>
+        <location filename="../../views/MainWindow.ui" line="1728"/>
         <source>Compressed</source>
         <translation>संकुचित</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="535"/>
+        <location filename="../../views/MainWindow.ui" line="541"/>
         <source>Optimization level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="722"/>
+        <location filename="../../views/MainWindow.ui" line="728"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="791"/>
+        <location filename="../../views/MainWindow.ui" line="797"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="826"/>
+        <location filename="../../views/MainWindow.ui" line="832"/>
         <source>Deflate level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="816"/>
+        <location filename="../../views/MainWindow.ui" line="822"/>
         <source>Best</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="833"/>
+        <location filename="../../views/MainWindow.ui" line="839"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="843"/>
+        <location filename="../../views/MainWindow.ui" line="849"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="768"/>
+        <location filename="../../views/MainWindow.ui" line="774"/>
         <source>Uncompressed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="375"/>
+        <location filename="../../views/MainWindow.ui" line="381"/>
         <source>Chroma subsampling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1432"/>
+        <location filename="../../views/MainWindow.ui" line="1438"/>
         <source>Move the original file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1453"/>
+        <location filename="../../views/MainWindow.ui" line="1459"/>
         <source>To Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1458"/>
+        <location filename="../../views/MainWindow.ui" line="1464"/>
         <source>Delete Permanently</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1778"/>
+        <location filename="../../views/MainWindow.ui" line="1784"/>
         <source>Help</source>
         <translation>मदद</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1786"/>
+        <location filename="../../views/MainWindow.ui" line="1792"/>
         <source>File</source>
         <translation>फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1796"/>
+        <location filename="../../views/MainWindow.ui" line="1802"/>
         <source>Edit</source>
         <translation>संपादन करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1807"/>
+        <location filename="../../views/MainWindow.ui" line="1813"/>
         <source>View</source>
         <translation>देखें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1811"/>
-        <location filename="../../views/MainWindow.ui" line="1834"/>
+        <location filename="../../views/MainWindow.ui" line="1817"/>
+        <location filename="../../views/MainWindow.ui" line="1840"/>
         <source>Toolbar</source>
         <translation>उपकरण पट्टिका</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1876"/>
+        <location filename="../../views/MainWindow.ui" line="1882"/>
         <source>About Caesium Image Compressor</source>
         <translation>सीजियम चित्र संकुचक के बारे में</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1888"/>
+        <location filename="../../views/MainWindow.ui" line="1894"/>
         <source>Add files...</source>
         <translation>फ़ाइलें जोड़ें...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1891"/>
+        <location filename="../../views/MainWindow.ui" line="1897"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1900"/>
+        <location filename="../../views/MainWindow.ui" line="1906"/>
         <source>Add folder...</source>
         <translation>फ़ोल्डर जोड़ें...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1903"/>
+        <location filename="../../views/MainWindow.ui" line="1909"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1908"/>
+        <location filename="../../views/MainWindow.ui" line="1914"/>
         <location filename="../../src/MainWindow.cpp" line="215"/>
         <source>Exit</source>
         <translation>बंद करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1926"/>
+        <location filename="../../views/MainWindow.ui" line="1932"/>
         <source>Del</source>
         <translatorcomment>Delete key on keyboard</translatorcomment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1931"/>
+        <location filename="../../views/MainWindow.ui" line="1937"/>
         <source>Select All</source>
         <translation>सभी चुनें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1934"/>
+        <location filename="../../views/MainWindow.ui" line="1940"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1946"/>
+        <location filename="../../views/MainWindow.ui" line="1952"/>
         <source>Clear</source>
         <translation>सभी हटाऐं</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1957"/>
+        <location filename="../../views/MainWindow.ui" line="1963"/>
         <source>Show previews</source>
         <translation>पूर्वावलोकन दिखाऐं</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1966"/>
+        <location filename="../../views/MainWindow.ui" line="1972"/>
         <source>Preferences...</source>
         <translation>अधिमान...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1974"/>
+        <location filename="../../views/MainWindow.ui" line="1980"/>
         <source>Show original in file manager</source>
         <translation>फ़ाइल प्रबंधक में मूल फ़ाइल दिखाऐं</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1979"/>
+        <location filename="../../views/MainWindow.ui" line="1985"/>
         <source>Show compressed in file manager</source>
         <translation>फ़ाइल प्रबंधक में संकुचित फ़ाइल दिखाऐं</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1988"/>
+        <location filename="../../views/MainWindow.ui" line="1994"/>
         <source>Donate</source>
         <translation>दान करें</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2014"/>
+        <location filename="../../views/MainWindow.ui" line="2020"/>
         <source>Icons</source>
         <translation>प्रतीक चित्र</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2022"/>
+        <location filename="../../views/MainWindow.ui" line="2028"/>
         <source>Icons and Text</source>
         <translation>प्रतीक व लेख</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2030"/>
+        <location filename="../../views/MainWindow.ui" line="2036"/>
         <source>Hide</source>
         <translation>छुपाऐं</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2035"/>
+        <location filename="../../views/MainWindow.ui" line="2041"/>
         <source>Show</source>
         <translation>दिखाऐं</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2043"/>
+        <location filename="../../views/MainWindow.ui" line="2049"/>
         <source>Auto preview</source>
         <translation>स्वतः पूर्वावलोकन</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2058"/>
+        <location filename="../../views/MainWindow.ui" line="2064"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2063"/>
+        <location filename="../../views/MainWindow.ui" line="2069"/>
         <source>Advanced import...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="959"/>
+        <location filename="../../views/MainWindow.ui" line="965"/>
         <location filename="../../src/MainWindow.cpp" line="895"/>
         <location filename="../../src/MainWindow.cpp" line="899"/>
         <source>%</source>
