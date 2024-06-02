@@ -43,67 +43,67 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">除去</translation>
+        <translation>除去</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">ディレクトリを開くときにサブフォルダー内のファイルもインポートする</translation>
+        <translation>ディレクトリを開く際にサブフォルダー内のファイルもインポートする</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">追加...</translation>
+        <translation>追加...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="152"/>
         <source>bytes</source>
-        <translation type="unfinished">バイト</translation>
+        <translation>バイト</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
         <source>KB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>MB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
         <source>greater than</source>
-        <translation type="unfinished">以下より大きい</translation>
+        <translation>以下より大きい</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="179"/>
         <source>equal to</source>
-        <translation type="unfinished">以下に等しい</translation>
+        <translation>以下に等しい</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="184"/>
         <source>less than</source>
-        <translation type="unfinished">以下より小さい</translation>
+        <translation>以下より小さい</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="192"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>インポートするファイル一覧</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="121"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル名の規則 (正規表現)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>高度なインポート</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">インポートしない条件</translation>
+        <translation>インポートしない条件</translation>
     </message>
     <message>
         <source>PNG</source>
@@ -120,32 +120,32 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation type="unfinished">ファイルの追加...</translation>
+        <translation>ファイルの追加...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation type="unfinished">フォルダーの追加...</translation>
+        <translation>フォルダーの追加...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>一覧ファイルからインポート...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation type="unfinished">ファイルをインポート...</translation>
+        <translation>ファイルをインポート...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
         <source>Import folder...</source>
-        <translation type="unfinished">フォルダーをインポート...</translation>
+        <translation>フォルダーをインポート...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="157"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルをインポート...</translation>
     </message>
 </context>
 <context>
@@ -252,13 +252,13 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>先に出力先のフォルダーを選択してください</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <location filename="../../src/MainWindow.cpp" line="846"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="753"/>
@@ -518,47 +518,47 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="541"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">圧縮レベル</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="728"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="797"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>方式</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="832"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deflate の品質</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="822"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>最高</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="839"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">均衡</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="849"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>高速</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="774"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>未圧縮</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="381"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation>クロマ・サブサンプリング</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="950"/>
@@ -578,17 +578,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1438"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>入力ファイルを削除</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1459"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>ごみ箱へ</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1464"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>完全に削除</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1608"/>
@@ -730,7 +730,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2069"/>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation>高度なインポート...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="965"/>
@@ -755,7 +755,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="425"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>再起動</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="451"/>
@@ -957,7 +957,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル変換に失敗しました</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -977,7 +977,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>入力ファイルを削除できません。権限を確認してください</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -997,7 +997,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
@@ -1022,7 +1022,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="206"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1039,7 +1039,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="235"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自動</translation>
     </message>
 </context>
 <context>
