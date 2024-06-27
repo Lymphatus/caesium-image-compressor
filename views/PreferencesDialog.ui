@@ -204,19 +204,65 @@
       <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="2" column="3">
-       <widget class="QSpinBox" name="multithreadingMaxThreads_SpinBox">
+      <item row="0" column="1">
+       <widget class="QLabel" name="argsBehaviourHelp_Label">
+        <property name="maximumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <bold>false</bold>
          </font>
         </property>
-        <property name="suffix">
-         <string> threads</string>
+        <property name="cursor">
+         <cursorShape>WhatsThisCursor</cursorShape>
         </property>
-        <property name="minimum">
-         <number>2</number>
+        <property name="toolTip">
+         <string>This option applies when using command line or by dropping files to the application icon</string>
         </property>
+        <property name="pixmap">
+         <pixmap resource="../resources/resources.qrc">:/icons/ui/help.svg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QLabel" name="postCompressionAction_Label">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Perform an action after successful compression</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="argsBehaviour_ComboBox">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>Import only</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Import and compress</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item row="2" column="0">
@@ -268,15 +314,15 @@
         </item>
        </widget>
       </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLabel" name="postCompressionAction_Label">
+      <item row="0" column="0">
+       <widget class="QLabel" name="argsBehaviour_Label">
         <property name="font">
          <font>
           <bold>false</bold>
          </font>
         </property>
         <property name="text">
-         <string>Perform an action after successful compression</string>
+         <string>When importing files directly</string>
         </property>
        </widget>
       </item>
@@ -293,65 +339,50 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="argsBehaviourHelp_Label">
-        <property name="maximumSize">
-         <size>
-          <width>16</width>
-          <height>16</height>
-         </size>
-        </property>
+      <item row="2" column="3">
+       <widget class="QSpinBox" name="multithreadingMaxThreads_SpinBox">
         <property name="font">
          <font>
           <bold>false</bold>
          </font>
         </property>
-        <property name="cursor">
-         <cursorShape>WhatsThisCursor</cursorShape>
+        <property name="suffix">
+         <string> threads</string>
         </property>
-        <property name="toolTip">
-         <string>This option applies when using command line or by dropping files to the application icon</string>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="../resources/resources.qrc">:/icons/ui/help.svg</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        <property name="minimum">
+         <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="argsBehaviour_Label">
+      <item row="3" column="0">
+       <widget class="QLabel" name="threadsPriority_Label">
         <property name="font">
          <font>
           <bold>false</bold>
          </font>
         </property>
         <property name="text">
-         <string>When importing files directly</string>
+         <string>Threads priority</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QComboBox" name="argsBehaviour_ComboBox">
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
+      <item row="3" column="3">
+       <widget class="QSlider" name="threadsPriority_Slider">
+        <property name="maximum">
+         <number>6</number>
         </property>
-        <item>
-         <property name="text">
-          <string>Import only</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Import and compress</string>
-         </property>
-        </item>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>3</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBelow</enum>
+        </property>
        </widget>
       </item>
      </layout>

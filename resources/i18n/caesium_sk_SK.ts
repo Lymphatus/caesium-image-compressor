@@ -202,7 +202,7 @@ All rights reserved.</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1648"/>
         <location filename="../../src/MainWindow.cpp" line="523"/>
-        <location filename="../../src/MainWindow.cpp" line="732"/>
+        <location filename="../../src/MainWindow.cpp" line="734"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
@@ -220,23 +220,23 @@ All rights reserved.</source>
         <translation>Nie</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="647"/>
-        <location filename="../../src/MainWindow.cpp" line="1334"/>
+        <location filename="../../src/MainWindow.cpp" line="649"/>
+        <location filename="../../src/MainWindow.cpp" line="1336"/>
         <source>Compressing...</source>
         <translation>Komprimovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="728"/>
+        <location filename="../../src/MainWindow.cpp" line="730"/>
         <source>Do you really want to quit?</source>
         <translation>Naozaj chcete skončiť?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="835"/>
+        <location filename="../../src/MainWindow.cpp" line="837"/>
         <source>You just saved %1!</source>
         <translation>Práve ste uložili %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="839"/>
+        <location filename="../../src/MainWindow.cpp" line="841"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -244,19 +244,19 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1231"/>
-        <location filename="../../src/MainWindow.cpp" line="1236"/>
+        <location filename="../../src/MainWindow.cpp" line="1233"/>
+        <location filename="../../src/MainWindow.cpp" line="1238"/>
         <source>File not found</source>
         <translation>Súbor nenájdený</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1267"/>
+        <location filename="../../src/MainWindow.cpp" line="1269"/>
         <source>Finishing...</source>
         <translation>Dokončovanie...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="615"/>
-        <location filename="../../src/MainWindow.cpp" line="731"/>
+        <location filename="../../src/MainWindow.cpp" line="733"/>
         <source>Yes</source>
         <translation>Áno</translation>
     </message>
@@ -267,7 +267,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
-        <location filename="../../src/MainWindow.cpp" line="846"/>
+        <location filename="../../src/MainWindow.cpp" line="848"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
@@ -279,12 +279,12 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="753"/>
+        <location filename="../../src/MainWindow.cpp" line="755"/>
         <source>Select output folder...</source>
         <translation>Vyberte cieľový priečinok...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="820"/>
+        <location filename="../../src/MainWindow.cpp" line="822"/>
         <source>Compression finished!</source>
         <translation>Kompresia dokončená!</translation>
     </message>
@@ -431,12 +431,12 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1221"/>
-        <location filename="../../src/MainWindow.cpp" line="881"/>
-        <location filename="../../src/MainWindow.cpp" line="885"/>
-        <location filename="../../src/MainWindow.cpp" line="920"/>
-        <location filename="../../src/MainWindow.cpp" line="923"/>
-        <location filename="../../src/MainWindow.cpp" line="932"/>
-        <location filename="../../src/MainWindow.cpp" line="935"/>
+        <location filename="../../src/MainWindow.cpp" line="883"/>
+        <location filename="../../src/MainWindow.cpp" line="887"/>
+        <location filename="../../src/MainWindow.cpp" line="922"/>
+        <location filename="../../src/MainWindow.cpp" line="925"/>
+        <location filename="../../src/MainWindow.cpp" line="934"/>
+        <location filename="../../src/MainWindow.cpp" line="937"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -726,7 +726,7 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2061"/>
-        <location filename="../../src/MainWindow.cpp" line="1252"/>
+        <location filename="../../src/MainWindow.cpp" line="1254"/>
         <source>Preview</source>
         <translation>Náhľad</translation>
     </message>
@@ -742,13 +742,13 @@ Do you really want to continue?</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="965"/>
-        <location filename="../../src/MainWindow.cpp" line="895"/>
-        <location filename="../../src/MainWindow.cpp" line="899"/>
+        <location filename="../../src/MainWindow.cpp" line="897"/>
+        <location filename="../../src/MainWindow.cpp" line="901"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1060"/>
+        <location filename="../../src/MainWindow.cpp" line="1062"/>
         <source>images in list</source>
         <translation>obrázky v zozname</translation>
     </message>
@@ -761,12 +761,17 @@ Do you really want to continue?</source>
         <translation>Predvoľby</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="425"/>
+        <location filename="../../views/PreferencesDialog.ui" line="365"/>
+        <source>Threads priority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="456"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="451"/>
+        <location filename="../../views/PreferencesDialog.ui" line="482"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
@@ -814,62 +819,62 @@ Do you really want to continue?</source>
         <translation type="vanished">MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="334"/>
+        <location filename="../../views/PreferencesDialog.ui" line="325"/>
         <source>When importing files directly</source>
         <translation>Pri priamom importe súborov</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="347"/>
+        <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Import only</source>
         <translation>Importovať iba</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="352"/>
+        <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>Import and compress</source>
         <translation>Import a kompresia</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="313"/>
+        <location filename="../../views/PreferencesDialog.ui" line="224"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>Táto možnosť platí pri použití príkazového riadka alebo presunutím súborov na ikonu aplikácie</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="215"/>
+        <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source> threads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="246"/>
+        <location filename="../../views/PreferencesDialog.ui" line="292"/>
         <source>No action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="251"/>
+        <location filename="../../views/PreferencesDialog.ui" line="297"/>
         <source>Close the application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="256"/>
+        <location filename="../../views/PreferencesDialog.ui" line="302"/>
         <source>Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="261"/>
+        <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="266"/>
+        <location filename="../../views/PreferencesDialog.ui" line="312"/>
         <source>Open output folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="279"/>
+        <location filename="../../views/PreferencesDialog.ui" line="245"/>
         <source>Perform an action after successful compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="412"/>
+        <location filename="../../views/PreferencesDialog.ui" line="443"/>
         <source>Changes will apply after restart</source>
         <translation>Zmeny sa prejavia po reštarte</translation>
     </message>
@@ -908,7 +913,7 @@ Do you really want to continue?</source>
         <translation>Rozšírené</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="230"/>
+        <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>

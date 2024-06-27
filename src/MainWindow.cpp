@@ -633,6 +633,8 @@ void MainWindow::startCompression()
         int maxThreads = settings.value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt();
         QThreadPool::globalInstance()->setMaxThreadCount(maxThreads);
     }
+    qDebug() << settings.value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>();
+    QThreadPool::globalInstance()->setThreadPriority(settings.value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>());
 
     this->compressionWatcher = new QFutureWatcher<void>();
     connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
@@ -1479,7 +1481,7 @@ void MainWindow::onPNGOptimizationLevelChanged(int value)
     if (ui->PNGOptimizationLevel_SpinBox->value() != value) {
         ui->PNGOptimizationLevel_SpinBox->setValue(value);
     }
-    if ( ui->PNGOptimizationLevel_Slider->value() != value) {
+    if (ui->PNGOptimizationLevel_Slider->value() != value) {
         ui->PNGOptimizationLevel_Slider->setValue(value);
     }
 

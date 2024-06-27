@@ -29,6 +29,7 @@ private slots:
     static void onMultithreadingMaxThreadsChanged(int value);
     static void onPostCompressionActionChanged(int value);
     static void onRestartButtonPressed();
+    static void onThreadsPriorityChanged(int value);
 
 private:
     Ui::PreferencesDialog* ui;

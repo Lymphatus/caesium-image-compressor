@@ -50,6 +50,7 @@ void PreferencesDialog::setupConnections()
     connect(ui->skipCompressionDialogs_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onSkipCompressionDialogsToggled);
     connect(ui->postCompressionAction_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onPostCompressionActionChanged);
     connect(ui->restart_Button, &QPushButton::pressed, this, &PreferencesDialog::onRestartButtonPressed);
+    connect(ui->threadsPriority_Slider, &QSlider::valueChanged, this, &PreferencesDialog::onThreadsPriorityChanged);
 }
 
 void PreferencesDialog::loadLanguages() const
@@ -79,6 +80,7 @@ void PreferencesDialog::loadPreferences() const
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
     ui->argsBehaviour_ComboBox->setCurrentIndex(settings.value("preferences/general/args_behaviour", 0).toInt());
     ui->postCompressionAction_ComboBox->setCurrentIndex(settings.value("preferences/general/post_compression_action", 0).toInt());
+    ui->threadsPriority_Slider->setValue(settings.value("preferences/general/threads_priority", QThread::NormalPriority).toInt());
     ui->language_ComboBox->setCurrentIndex(PreferencesDialog::getLocaleIndex());
 }
 
@@ -184,4 +186,9 @@ void PreferencesDialog::onRestartButtonPressed()
 {
     qApp->quit();
     QProcess::startDetached(qApp->arguments()[0]);
+}
+
+void PreferencesDialog::onThreadsPriorityChanged(int value)
+{
+    QSettings().setValue("preferences/general/threads_priority", value);
 }
