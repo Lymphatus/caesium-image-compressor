@@ -294,25 +294,25 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="141"/>
         <source>Add...</source>
-        <translation>Add...</translation>
+        <translation>افزودن...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="161"/>
         <location filename="../../views/MainWindow.ui" line="1929"/>
         <source>Remove</source>
-        <translation>Remove</translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="194"/>
         <location filename="../../views/MainWindow.ui" line="2006"/>
         <location filename="../../views/MainWindow.ui" line="2009"/>
         <source>Compress</source>
-        <translation>Compress</translation>
+        <translation>فشرده کردن</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="225"/>
         <source>Compression</source>
-        <translation>Compression</translation>
+        <translation>فشرده سازی</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="357"/>
@@ -325,7 +325,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="611"/>
         <location filename="../../views/MainWindow.ui" line="711"/>
         <source>Quality</source>
-        <translation>Quality</translation>
+        <translation>کیفیت</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="484"/>
@@ -334,7 +334,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Level</source>
-        <translation type="vanished">Level</translation>
+        <translation type="vanished">سطح</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="628"/>
@@ -349,7 +349,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1018"/>
         <source>Maximum output size</source>
-        <translation>Maximum output size</translation>
+        <translation>حداکثر اندازه خروجی</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="950"/>
@@ -359,12 +359,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="245"/>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation>حالت</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="917"/>
         <source>Keep Metadata</source>
-        <translation>Keep Metadata</translation>
+        <translation>متادیتا را نگه دارید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="955"/>
@@ -379,43 +379,43 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1036"/>
         <source>Resize</source>
-        <translation>Resize</translation>
+        <translation>تغییر اندازه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1062"/>
         <source>Resize to fit</source>
-        <translation>Resize to fit</translation>
+        <translation>تغییر اندازه به تناسب</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1086"/>
         <source>No resize</source>
-        <translation>No resize</translation>
+        <translation>بدون تغییر اندازه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1091"/>
         <source>Dimensions</source>
-        <translation>Dimensions</translation>
+        <translation>ابعاد</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1096"/>
         <source>Percentage</source>
-        <translation>Percentage</translation>
+        <translation>درصد</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1101"/>
         <source>Short edge</source>
-        <translation>Short edge</translation>
+        <translation>لبه کوتاه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1106"/>
         <source>Long edge</source>
-        <translation>Long edge</translation>
+        <translation>لبه بلند</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1111"/>
         <location filename="../../views/MainWindow.ui" line="1152"/>
         <source>Width</source>
-        <translation>Width</translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1221"/>
@@ -432,113 +432,113 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="274"/>
         <location filename="../../views/MainWindow.ui" line="1193"/>
         <source>Size</source>
-        <translation>Size</translation>
+        <translation>سایز</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1116"/>
         <location filename="../../views/MainWindow.ui" line="1250"/>
         <source>Height</source>
-        <translation>Height</translation>
+        <translation>ارتفاع</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1293"/>
         <source>Do not enlarge</source>
-        <translation>Do not enlarge</translation>
+        <translation>بزرگ نکنید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1303"/>
         <source>Keep aspect ratio</source>
-        <translation>Keep aspect ratio</translation>
+        <translation>نسبت تصویر را حفظ کنید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1330"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation>خروجی</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1350"/>
         <source>Folder</source>
-        <translation>Folder</translation>
+        <translation>پوشه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1394"/>
         <source>Select...</source>
-        <translation>Select...</translation>
+        <translation>انتخاب...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1406"/>
         <source>Same folder as input</source>
-        <translation>Same folder as input</translation>
+        <translation>همان پوشه ورودی</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1416"/>
         <source>Keep folder structure</source>
-        <translation>Keep folder structure</translation>
+        <translation>ساختار پوشه را حفظ کنید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1423"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation>Skip if output size is bigger than the original</translation>
+        <translation>اگر اندازه خروجی بزرگتر از اندازه اصلی است، از آن بگذرید</translation>
     </message>
     <message>
         <source>Move the original file to trash</source>
-        <translation type="vanished">Move the original file to trash</translation>
+        <translation type="vanished">فایل اصلی را به سطل زباله منتقل کنید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1481"/>
         <source>Keep file dates</source>
-        <translation>Keep file dates</translation>
+        <translation>تاریخ پرونده را نگه دارید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1496"/>
         <source>Creation</source>
-        <translation>Creation</translation>
+        <translation>ایجاد</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1503"/>
         <source>Last modified</source>
-        <translation>Last modified</translation>
+        <translation>آخرین تغییر</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1510"/>
         <source>Last access</source>
-        <translation>Last access</translation>
+        <translation>آخرین دسترسی</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1531"/>
         <source>Format</source>
-        <translation>Format</translation>
+        <translation>قالب</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1556"/>
         <source>Suffix</source>
-        <translation>Suffix</translation>
+        <translation>پسوند</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1608"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</translation>
+        <translation>تبدیل به فرمت جدید یا تغییر اندازه می تواند کیفیت را کاهش دهد حتی اگر &quot;بی ضرر&quot; گزینه انتخاب شده است</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1735"/>
         <source>Original</source>
-        <translation>Original</translation>
+        <translation>اصل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2061"/>
         <location filename="../../src/MainWindow.cpp" line="1254"/>
         <source>Preview</source>
-        <translation>Preview</translation>
+        <translation>پیش نمایش</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1728"/>
         <source>Compressed</source>
-        <translation>Compressed</translation>
+        <translation>فشرده شده</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="541"/>
         <source>Optimization level</source>
-        <translation>Optimization level</translation>
+        <translation>سطح بهینه سازی</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="728"/>
@@ -548,89 +548,89 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="797"/>
         <source>Method</source>
-        <translation>Method</translation>
+        <translation>روش</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="832"/>
         <source>Deflate level</source>
-        <translation>Deflate level</translation>
+        <translation>کاهش سطح</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="822"/>
         <source>Best</source>
-        <translation>Best</translation>
+        <translation>بهترین</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="839"/>
         <source>Balanced</source>
-        <translation>Balanced</translation>
+        <translation>متعادل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="849"/>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation>سریع</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="774"/>
         <source>Uncompressed</source>
-        <translation>Uncompressed</translation>
+        <translation>فشرده نشده</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="381"/>
         <source>Chroma subsampling</source>
         <translatorcomment>Refers to: https://en.wikipedia.org/wiki/Chroma_subsampling</translatorcomment>
-        <translation>Chroma subsampling</translation>
+        <translation>زیر نمونه برداری کروما</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1438"/>
         <source>Move the original file</source>
-        <translation>Move the original file</translation>
+        <translation>فایل اصلی را جابجا کنید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1459"/>
         <source>To Trash</source>
-        <translation>To Trash</translation>
+        <translation>به سطل زباله</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1464"/>
         <source>Delete Permanently</source>
-        <translation>Delete Permanently</translation>
+        <translation>حذف برای همیشه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1784"/>
         <source>Help</source>
-        <translation>Help</translation>
+        <translation>کمک</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1792"/>
         <source>File</source>
-        <translation>File</translation>
+        <translation>فایل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1802"/>
         <source>Edit</source>
-        <translation>Edit</translation>
+        <translation>ویرایش</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1813"/>
         <source>View</source>
-        <translation>View</translation>
+        <translation>مشاهده</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1817"/>
         <location filename="../../views/MainWindow.ui" line="1840"/>
         <source>Toolbar</source>
-        <translation>Toolbar</translation>
+        <translation>نوار ابزار</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1882"/>
         <source>About Caesium Image Compressor</source>
-        <translation>About Caesium Image Compressor</translation>
+        <translation>درباره کمپرسور تصویر سزیوم</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1894"/>
         <source>Add files...</source>
-        <translation>Add files...</translation>
+        <translation>افزودن فایل ها...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1897"/>
@@ -640,7 +640,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1906"/>
         <source>Add folder...</source>
-        <translation>Add folder...</translation>
+        <translation>افزودن پوشه...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1909"/>
@@ -651,7 +651,7 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1914"/>
         <location filename="../../src/MainWindow.cpp" line="215"/>
         <source>Exit</source>
-        <translation>Exit</translation>
+        <translation>خروج</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1932"/>
@@ -662,7 +662,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1937"/>
         <source>Select All</source>
-        <translation>Select All</translation>
+        <translation>انتخاب همه</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1940"/>
@@ -672,57 +672,57 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1952"/>
         <source>Clear</source>
-        <translation>Clear</translation>
+        <translation>پاک کردن</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1963"/>
         <source>Show previews</source>
-        <translation>Show previews</translation>
+        <translation>نمایش پیش نمایش ها</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1972"/>
         <source>Preferences...</source>
-        <translation>Preferences...</translation>
+        <translation>اولویت ها...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1980"/>
         <source>Show original in file manager</source>
-        <translation>Show original in file manager</translation>
+        <translation>نمایش اصلی در مدیر فایل</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1985"/>
         <source>Show compressed in file manager</source>
-        <translation>Show compressed in file manager</translation>
+        <translation>نمایش فشرده در فایل منیجر</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1994"/>
         <source>Donate</source>
-        <translation>Donate</translation>
+        <translation>حمایت</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2020"/>
         <source>Icons</source>
-        <translation>Icons</translation>
+        <translation>نمادها</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2028"/>
         <source>Icons and Text</source>
-        <translation>Icons and Text</translation>
+        <translation>آیکون ها و متن</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2036"/>
         <source>Hide</source>
-        <translation>Hide</translation>
+        <translation>پنهان شدن</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2041"/>
         <source>Show</source>
-        <translation>Show</translation>
+        <translation>نمایش</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2049"/>
         <source>Auto preview</source>
-        <translation>Auto Preview</translation>
+        <translation>پیش نمایش خودکار</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2064"/>
@@ -732,7 +732,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2069"/>
         <source>Advanced import...</source>
-        <translation>Advanced import...</translation>
+        <translation>وارد کردن پیشرفته...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="965"/>
@@ -744,7 +744,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1062"/>
         <source>images in list</source>
-        <translation>images in list</translation>
+        <translation>تصاویر در لیست</translation>
     </message>
 </context>
 <context>
@@ -752,83 +752,83 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="20"/>
         <source>Preferences</source>
-        <translation>Preferences</translation>
+        <translation>تنظیمات برگزیده</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source> threads</source>
-        <translation> threads</translation>
+        <translation> رشته ها</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="292"/>
         <source>No action</source>
-        <translation>No action</translation>
+        <translation>هیچ اقدامی</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="297"/>
         <source>Close the application</source>
-        <translation>Close the application</translation>
+        <translation>برنامه را ببندید</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="302"/>
         <source>Sleep</source>
-        <translation>Sleep</translation>
+        <translation>خواب</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Shutdown</source>
-        <translation>Shutdown</translation>
+        <translation>خاموش شدن</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="312"/>
         <source>Open output folder</source>
-        <translation>Open output folder</translation>
+        <translation>پوشه خروجی را باز کنید</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="245"/>
         <source>Perform an action after successful compression</source>
-        <translation>Perform an action after successful compression</translation>
+        <translation>پس از فشرده سازی موفقیت آمیز اقدامی را انجام دهید</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">اولویت رشته ها</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="456"/>
         <source>Restart</source>
-        <translation>Restart</translation>
+        <translation>راه اندازی مجدد</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="482"/>
         <source>Close</source>
-        <translation>Close</translation>
+        <translation>بستن</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="37"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation>عمومی</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="136"/>
         <source>Prompt before exit</source>
-        <translation>Prompt before exit</translation>
+        <translation>درخواست قبل از خروج</translation>
     </message>
     <message>
         <source>Do not import if size is</source>
-        <translation type="vanished">Do not import if size is</translation>
+        <translation type="vanished">اگر اندازه است وارد نکنید</translation>
     </message>
     <message>
         <source>greater than</source>
-        <translation type="vanished">greater than</translation>
+        <translation type="vanished">بزرگتر از</translation>
     </message>
     <message>
         <source>equal to</source>
-        <translation type="vanished">equal to</translation>
+        <translation type="vanished">مساوی با</translation>
     </message>
     <message>
         <source>less than</source>
-        <translation type="vanished">less than</translation>
+        <translation type="vanished">کمتر از</translation>
     </message>
     <message>
         <source>bytes</source>
@@ -845,17 +845,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="443"/>
         <source>Changes will apply after restart</source>
-        <translation>Changes will apply after restart</translation>
+        <translation>تغییرات پس از راه اندازی مجدد اعمال خواهد شد</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="63"/>
         <source>Theme (experimental)</source>
-        <translation>Theme (experimental)</translation>
+        <translation>موضوع (آزمایشی)</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="224"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation>This option applies when using command line or by dropping files to the application icon</translation>
+        <translation>این گزینه هنگام استفاده از خط فرمان یا با انداختن فایل ها به نماد برنامه اعمال می شود</translation>
     </message>
     <message>
         <source>Native</source>
@@ -864,41 +864,41 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="78"/>
         <source>Check updates at startup</source>
-        <translation>Check updates at startup</translation>
+        <translation>در هنگام راه اندازی به روز رسانی ها را بررسی کنید</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="186"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation>Import files in subfolders when opening a directory</translation>
+        <translation>هنگام باز کردن دایرکتوری، فایل ها را در زیر پوشه ها وارد کنید</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="102"/>
         <source>Send anonymous usage reports</source>
-        <translation>Send anonymous usage reports</translation>
+        <translation>ارسال گزارش های استفاده به صورت ناشناس</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="201"/>
         <source>Advanced</source>
-        <translation>Advanced</translation>
+        <translation>پیشرفته</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="276"/>
         <source>Multithreading</source>
-        <translation>Multithreading</translation>
+        <translation>چند رشته ای</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="vanished">Language</translation>
+        <translation type="vanished">زبان</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation>Skip message and warning dialogs during compression</translation>
+        <translation>در حین فشرده سازی، از گفتگوهای پیام و هشدار رد شوید</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
-        <translation>Import</translation>
+        <translation>وارد كردن</translation>
     </message>
     <message>
         <source>KB</source>
@@ -911,47 +911,47 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="258"/>
         <source>Import only</source>
-        <translation>Import only</translation>
+        <translation>فقط وارد کردن</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="263"/>
         <source>Import and compress</source>
-        <translation>Import and compress</translation>
+        <translation>وارد کردن و فشرده سازی</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="325"/>
         <source>When importing files directly</source>
-        <translation>When importing files directly</translation>
+        <translation>هنگام وارد کردن مستقیم فایل ها</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="90"/>
         <source>Preferred language</source>
-        <translation>Preferred language</translation>
+        <translation>زبان ترجیحی</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ تغییرات پس از راه اندازی مجدد اعمال خواهد شد&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Usage data</source>
-        <translation type="vanished">Usage data</translation>
+        <translation type="vanished">داده های استفاده شده</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="24"/>
         <source>Show usage data</source>
-        <translation>Show usage data</translation>
+        <translation>نمایش داده های استفاده شده</translation>
     </message>
     <message>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">This data is collected to provide the best long term support for the application. No data is sent to third parties.</translation>
+        <translation type="vanished">این داده ها برای ارائه بهترین پشتیبانی طولانی مدت برای برنامه جمع آوری شده است. هیچ داده ای به اشخاص ثالث ارسال نمی شود.</translation>
     </message>
     <message>
         <source>System data</source>
-        <translation type="vanished">System data</translation>
+        <translation type="vanished">داده سیستم</translation>
     </message>
     <message>
         <source>Compression data</source>
-        <translation type="vanished">Compression data</translation>
+        <translation type="vanished">داده های فشرده سازی</translation>
     </message>
 </context>
 <context>
@@ -960,62 +960,62 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="131"/>
         <location filename="../../src/MainWindow.cpp" line="277"/>
         <source>Image Files</source>
-        <translation>Image Files</translation>
+        <translation>فایل های تصویری</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="151"/>
         <source>Input file does not exist</source>
-        <translation>Input file does not exist</translation>
+        <translation>فایل ورودی وجود ندارد</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="176"/>
         <source>Cannot make output path, check your permissions</source>
-        <translation>Cannot make output path, check your permissions</translation>
+        <translation>نمی توان مسیر خروجی را ایجاد کرد، مجوزهای خود را بررسی کنید</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="193"/>
         <source>Temporary file creation failed</source>
-        <translation>Temporary file creation failed</translation>
+        <translation>ایجاد فایل موقت ناموفق بود</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation>File conversion failed</translation>
+        <translation>تبدیل فایل انجام نشد</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
         <source>Skipped: compressed file is bigger than original</source>
-        <translation>Skipped: compressed file is bigger than original</translation>
+        <translation>رد شد: فایل فشرده بزرگتر از اصلی است</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="265"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation>Cannot copy output file, check your permissions</translation>
+        <translation>فایل خروجی را نمی توان کپی کرد، مجوزهای خود را بررسی کنید</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation>Cannot move original file to trash, check your permissions</translation>
+        <translation>فایل اصلی را نمی توان به سطل زباله منتقل کرد، مجوزهای خود را بررسی کنید</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation>Cannot delete original file, check your permissions</translation>
+        <translation>فایل اصلی را نمی توان حذف کرد، مجوزهای خود را بررسی کنید</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
         <source>Compressing...</source>
-        <translation>Compressing...</translation>
+        <translation>فشرده سازی...</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Error:</source>
-        <translation>Error:</translation>
+        <translation>خطا:</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="120"/>
         <source>File not found</source>
-        <translation>File not found</translation>
+        <translation>فایل پیدا نشد</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
@@ -1025,7 +1025,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>Same as input</source>
-        <translation>Same as input</translation>
+        <translation>مشابه ورودی</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="203"/>
@@ -1049,11 +1049,11 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="obsolete">Quality</translation>
+        <translation type="obsolete">کیفیت</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="obsolete">Size</translation>
+        <translation type="obsolete">سایز</translation>
     </message>
     <message>
         <source>bytes</source>
@@ -1081,14 +1081,14 @@ Saved: %4 (%5%)</source>
     <name>QUnifiedPreview</name>
     <message>
         <source>Preview</source>
-        <translation type="obsolete">Preview</translation>
+        <translation type="obsolete">پیش نمایش</translation>
     </message>
 </context>
 <context>
     <name>QZoomGraphicsView</name>
     <message>
         <source>Loading...</source>
-        <translation type="vanished">Loading...</translation>
+        <translation type="vanished">بارگذاری...</translation>
     </message>
 </context>
 <context>
@@ -1096,27 +1096,27 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation>Usage data</translation>
+        <translation>داده های استفاده شده</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>This data is collected to provide the best long term support for the application. No data is sent to third parties.</translation>
+        <translation>این داده ها برای ارائه بهترین پشتیبانی طولانی مدت برای برنامه جمع آوری شده است. هیچ داده ای به اشخاص ثالث ارسال نمی شود.</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="42"/>
         <source>Close</source>
-        <translation>Close</translation>
+        <translation>بستن</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation>System data</translation>
+        <translation>داده سیستم</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation>Compression data</translation>
+        <translation>داده های فشرده سازی</translation>
     </message>
 </context>
 <context>
