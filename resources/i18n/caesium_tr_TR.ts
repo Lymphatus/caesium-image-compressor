@@ -341,7 +341,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="832"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deflate seviyesi</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="822"/>
@@ -606,13 +606,13 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="2049"/>
         <source>Auto preview</source>
-        <translation>Otomatik önizleme</translation>
+        <translation>Otomatik önizle</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2061"/>
         <location filename="../../src/MainWindow.cpp" line="1254"/>
         <source>Preview</source>
-        <translation>Ön izleme</translation>
+        <translation>Önizle</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2064"/>
@@ -622,7 +622,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="2069"/>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gelişmiş içe aktar...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="275"/>
@@ -642,13 +642,13 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lütfen önce bir çıktı klasörü seç</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <location filename="../../src/MainWindow.cpp" line="848"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tamam</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="612"/>
@@ -771,7 +771,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İş parçacığı önceliği</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="456"/>
@@ -948,7 +948,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dosya dönüştürme başarısız oldu</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -958,17 +958,17 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="265"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation>Çıktı dosyası kopyalanamıyor, izinlerinizi kontrol edin</translation>
+        <translation>Çıktı dosyası kopyalanamıyor, izinleri kontrol edin</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Orijinal dosya çöp kutusuna taşınamıyor, izinleri kontrol edin</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Orijinal dosya silinemiyor, izinleri kontrol edin</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -988,7 +988,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tamam</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
