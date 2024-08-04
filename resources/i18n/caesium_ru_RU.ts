@@ -6,7 +6,7 @@
     <message>
         <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
-        <translation>Caesium - Image Compressor</translation>
+        <translation>О Caesium - Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="104"/>
@@ -22,8 +22,8 @@
         <location filename="../../views/AboutDialog.ui" line="205"/>
         <source>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</source>
-        <translation>Copyright © 2023 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation>Авторское право © 2023 Matteo Paonessa.
+Все права защищены.</translation>
     </message>
     <message>
         <source>Copyright © 2022 Matteo Paonessa.
@@ -34,8 +34,8 @@ All rights reserved.</source>
     <message>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-All rights reserved.</translation>
+        <translation type="vanished">Авторское право © 2021 Matteo Paonessa.
+Все права защищены.</translation>
     </message>
 </context>
 <context>
@@ -43,97 +43,97 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенный импорт</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">При добавлении папки импортировать файлы из подпапок</translation>
+        <translation>При добавлении папки импортировать файлы из подпапок</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">Добавить...</translation>
+        <translation>Добавить...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">Не импортировать, если размер</translation>
+        <translation>Не импортировать, если размер</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="121"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблон имени файла (regex)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="152"/>
         <source>bytes</source>
-        <translation type="unfinished">байтов</translation>
+        <translation>байтов</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
         <source>KB</source>
-        <translation type="unfinished">КБ</translation>
+        <translation>КБ</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>MB</source>
-        <translation type="unfinished">МБ</translation>
+        <translation>МБ</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
         <source>greater than</source>
-        <translation type="unfinished">больше, чем</translation>
+        <translation>больше, чем</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="179"/>
         <source>equal to</source>
-        <translation type="unfinished">равен</translation>
+        <translation>равен</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="184"/>
         <source>less than</source>
-        <translation type="unfinished">меньше, чем</translation>
+        <translation>меньше, чем</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="192"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>Список импорта</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation type="unfinished">Добавить файлы...</translation>
+        <translation>Добавить файлы...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation type="unfinished">Добавить папку...</translation>
+        <translation>Добавить папку...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт из списка...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation type="unfinished">Импортировать файлы...</translation>
+        <translation>Импортировать файлы...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
         <source>Import folder...</source>
-        <translation type="unfinished">Импортировать папку...</translation>
+        <translation>Импортировать папку...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="157"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Импортировать файл...</translation>
     </message>
 </context>
 <context>
@@ -186,7 +186,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="523"/>
         <source>Importing files...</source>
-        <translation>Импорт файлов...</translation>
+        <translation>Импортировать файлы...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1648"/>
@@ -240,13 +240,13 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>Сначала выберите папку для сохранения изображений</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <location filename="../../src/MainWindow.cpp" line="848"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ок</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="755"/>
@@ -261,7 +261,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="837"/>
         <source>You just saved %1!</source>
-        <translation>Вы сохранили %1!</translation>
+        <translation>Вы сжали %1!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="841"/>
@@ -526,62 +526,62 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="381"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation>Цветовая субдискретизация</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="541"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation>Уровень оптимизации</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="728"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="774"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Без сжатия</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="797"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>Метод</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="822"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>Лучший</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="832"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation>Уровень сжатия Deflate</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="839"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбалансированный</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="849"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Быстрый</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1438"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>Переместить исходный файл</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1459"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>В корзину</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1464"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить навсегда</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1784"/>
@@ -664,7 +664,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1963"/>
         <source>Show previews</source>
-        <translation>Показать превью</translation>
+        <translation>Показать предпросмотр</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1972"/>
@@ -709,7 +709,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2049"/>
         <source>Auto preview</source>
-        <translation>Авто превью</translation>
+        <translation>Автопредпросмотр</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2064"/>
@@ -719,7 +719,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2069"/>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширенный импорт...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="965"/>
@@ -744,7 +744,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Приоритет потоков</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="456"/>
@@ -959,7 +959,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Преобразование файла не удалось</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -979,7 +979,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно удалить исходный файл, проверьте разрешения</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -999,7 +999,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ок</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
@@ -1024,7 +1024,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="206"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1053,7 +1053,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="235"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Авто</translation>
     </message>
 </context>
 <context>
