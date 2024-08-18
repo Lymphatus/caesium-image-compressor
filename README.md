@@ -74,25 +74,28 @@ cmake --build build_dir --config Release --target caesium_image_compressor
 ### Languages and translations
 The 1.0 version of Caesium had a lot of community made translations, but this 2.0 release has a whole new set of strings and no old translations can be used anymore.   
 Caesium 2.0 is currently available in:
-- <img src="https://flagcdn.com/48x36/eg.png" width="24" height="18" alt="EG"> ![80%](https://progress-bar.dev/80/?title=ar_EG)
-- <img src="https://flagcdn.com/48x36/de.png" width="24" height="18" alt="DE"> ![76%](https://progress-bar.dev/76/?title=de_DE)
-- <img src="https://flagcdn.com/48x36/gr.png" width="24" height="18" alt="GR"> ![73%](https://progress-bar.dev/73/?title=el_GR)
-- <img src="https://flagcdn.com/48x36/us.png" width="24" height="18" alt="US"> ![97%](https://progress-bar.dev/97/?title=en_US)
-- <img src="https://flagcdn.com/48x36/es.png" width="24" height="18" alt="ES"> ![71%](https://progress-bar.dev/71/?title=es_ES)
-- <img src="https://flagcdn.com/48x36/ir.png" width="24" height="18" alt="IR"> ![98%](https://progress-bar.dev/98/?title=fa_IR)
-- <img src="https://flagcdn.com/48x36/fi.png" width="24" height="18" alt="FI"> ![76%](https://progress-bar.dev/76/?title=fi_FI)
-- <img src="https://flagcdn.com/48x36/fr.png" width="24" height="18" alt="FR"> ![71%](https://progress-bar.dev/71/?title=fr_FR)
-- <img src="https://flagcdn.com/48x36/in.png" width="24" height="18" alt="IN"> ![75%](https://progress-bar.dev/75/?title=hi_IN)
-- <img src="https://flagcdn.com/48x36/id.png" width="24" height="18" alt="ID"> ![73%](https://progress-bar.dev/73/?title=id_ID)
-- <img src="https://flagcdn.com/48x36/it.png" width="24" height="18" alt="IT"> ![98%](https://progress-bar.dev/98/?title=it_IT)
-- <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ![94%](https://progress-bar.dev/94/?title=ja_JP)
-- <img src="https://flagcdn.com/48x36/pl.png" width="24" height="18" alt="PL"> ![72%](https://progress-bar.dev/72/?title=pl_PL)
-- <img src="https://flagcdn.com/48x36/br.png" width="24" height="18" alt="BR"> ![98%](https://progress-bar.dev/98/?title=pt_BR)
-- <img src="https://flagcdn.com/48x36/ru.png" width="24" height="18" alt="RU"> ![100%](https://progress-bar.dev/100/?title=ru_RU)
-- <img src="https://flagcdn.com/48x36/sk.png" width="24" height="18" alt="SK"> ![72%](https://progress-bar.dev/72/?title=sk_SK)
-- <img src="https://flagcdn.com/48x36/tr.png" width="24" height="18" alt="TR"> ![73%](https://progress-bar.dev/73/?title=tr_TR)
-- <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> ![99%](https://progress-bar.dev/99/?title=zh_CN)
-- <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> ![76%](https://progress-bar.dev/76/?title=zh_TW)
+
+| Language                                                                           | Progress |
+|------------------------------------------------------------------------------------|----------|
+| <img src="https://flagcdn.com/48x36/eg.png" width="24" height="18" alt="EG"> ar_EG | 80%      |
+| <img src="https://flagcdn.com/48x36/de.png" width="24" height="18" alt="DE"> de_DE | 76%      |
+| <img src="https://flagcdn.com/48x36/gr.png" width="24" height="18" alt="GR"> el_GR | 73%      |
+| <img src="https://flagcdn.com/48x36/us.png" width="24" height="18" alt="US"> en_US | 99%      |
+| <img src="https://flagcdn.com/48x36/es.png" width="24" height="18" alt="ES"> es_ES | 71%      |
+| <img src="https://flagcdn.com/48x36/ir.png" width="24" height="18" alt="IR"> fa_IR | 98%      |
+| <img src="https://flagcdn.com/48x36/fi.png" width="24" height="18" alt="FI"> fi_FI | 76%      |
+| <img src="https://flagcdn.com/48x36/fr.png" width="24" height="18" alt="FR"> fr_FR | 71%      |
+| <img src="https://flagcdn.com/48x36/in.png" width="24" height="18" alt="IN"> hi_IN | 75%      |
+| <img src="https://flagcdn.com/48x36/id.png" width="24" height="18" alt="ID"> id_ID | 73%      |
+| <img src="https://flagcdn.com/48x36/it.png" width="24" height="18" alt="IT"> it_IT | 100%     |
+| <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ja_JP | 94%      |
+| <img src="https://flagcdn.com/48x36/pl.png" width="24" height="18" alt="PL"> pl_PL | 72%      |
+| <img src="https://flagcdn.com/48x36/br.png" width="24" height="18" alt="BR"> pt_BR | 98%      |
+| <img src="https://flagcdn.com/48x36/ru.png" width="24" height="18" alt="RU"> ru_RU | 100%     |
+| <img src="https://flagcdn.com/48x36/sk.png" width="24" height="18" alt="SK"> sk_SK | 72%      |
+| <img src="https://flagcdn.com/48x36/tr.png" width="24" height="18" alt="TR"> tr_TR | 100%     |
+| <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> zh_CN | 99%      |
+| <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> zh_TW | 76%      |
 
 #### How to contribute with your translation
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your translated file.  

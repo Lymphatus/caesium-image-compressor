@@ -252,13 +252,13 @@ Do you really want to continue?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>Please select an output folder first</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <location filename="../../src/MainWindow.cpp" line="848"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="755"/>
@@ -792,7 +792,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Threads priority</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="456"/>
@@ -1020,7 +1020,7 @@ Saved: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>

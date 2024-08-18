@@ -37,67 +37,67 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">Kaldır</translation>
+        <translation>Kaldır</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">Bir dizini açarken dosyaları alt klasörlere aktar</translation>
+        <translation>Bir dizini açarken dosyaları alt klasörlere aktar</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">Ekle...</translation>
+        <translation>Ekle...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="152"/>
         <source>bytes</source>
-        <translation type="unfinished">bytes</translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
         <source>KB</source>
-        <translation type="unfinished">KB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>MB</source>
-        <translation type="unfinished">MB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
         <source>greater than</source>
-        <translation type="unfinished">&apos;den daha büyük</translation>
+        <translation>&apos;den daha büyük</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="179"/>
         <source>equal to</source>
-        <translation type="unfinished">eşittir</translation>
+        <translation>eşittir</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="184"/>
         <source>less than</source>
-        <translation type="unfinished">&apos;den daha az</translation>
+        <translation>&apos;den daha az</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="192"/>
         <source>Import list</source>
-        <translation type="unfinished">Listeyi içe aktar</translation>
+        <translation>Listeyi içe aktar</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="121"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished">Dosya adı deseni (regex)</translation>
+        <translation>Dosya adı deseni (regex)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished">Gelişmiş İçe Aktar</translation>
+        <translation>Gelişmiş İçe Aktar</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">Boyut şu ise içe aktarma</translation>
+        <translation>Boyut şu ise içe aktarma</translation>
     </message>
     <message>
         <source>PNG</source>
@@ -114,32 +114,32 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation type="unfinished">Dosyaları ekle...</translation>
+        <translation>Dosyaları ekle...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation type="unfinished">Klasör ekle...</translation>
+        <translation>Klasör ekle...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation type="unfinished">Listeden aktar...</translation>
+        <translation>Listeden aktar...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation type="unfinished">Dosyaları içe aktar...</translation>
+        <translation>Dosyaları içe aktar...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
         <source>Import folder...</source>
-        <translation type="unfinished">Klasörü içe aktar...</translation>
+        <translation>Klasörü içe aktar...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="157"/>
         <source>Import file...</source>
-        <translation type="unfinished">Dosyayı aktar...</translation>
+        <translation>Dosyayı aktar...</translation>
     </message>
 </context>
 <context>
@@ -238,7 +238,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1018"/>
         <source>Maximum output size</source>
-        <translation type="unfinished">Maksimum çıktı boyutu</translation>
+        <translation>Maksimum çıktı boyutu</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="950"/>
@@ -248,7 +248,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="245"/>
         <source>Mode</source>
-        <translation type="unfinished">Mod</translation>
+        <translation>Mod</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="917"/>
@@ -326,47 +326,47 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="541"/>
         <source>Optimization level</source>
-        <translation type="unfinished">Optimizasyon seviyesi</translation>
+        <translation>Optimizasyon seviyesi</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="728"/>
         <source>TIFF</source>
-        <translation type="unfinished">TIFF</translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="797"/>
         <source>Method</source>
-        <translation type="unfinished">Metot</translation>
+        <translation>Metot</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="832"/>
         <source>Deflate level</source>
-        <translation type="unfinished">Deflate seviyesi</translation>
+        <translation>Deflate seviyesi</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="822"/>
         <source>Best</source>
-        <translation type="unfinished">En iyi</translation>
+        <translation>En iyi</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="839"/>
         <source>Balanced</source>
-        <translation type="unfinished">Dengeli</translation>
+        <translation>Dengeli</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="849"/>
         <source>Fast</source>
-        <translation type="unfinished">Hızlı</translation>
+        <translation>Hızlı</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="774"/>
         <source>Uncompressed</source>
-        <translation type="unfinished">Sıkıştırılmamış</translation>
+        <translation>Sıkıştırılmamış</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="381"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished">Kroma alt örnekleme</translation>
+        <translation>Kroma alt örnekleme</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1116"/>
@@ -417,17 +417,17 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1438"/>
         <source>Move the original file</source>
-        <translation type="unfinished">Orijinal dosyayı taşı</translation>
+        <translation>Orijinal dosyayı taşı</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1459"/>
         <source>To Trash</source>
-        <translation type="unfinished">Çöp Kutusuna</translation>
+        <translation>Çöp Kutusuna</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1464"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished">Kalıcı Olarak Sil</translation>
+        <translation>Kalıcı Olarak Sil</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1481"/>
@@ -452,7 +452,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1531"/>
         <source>Format</source>
-        <translation type="unfinished">Biçim</translation>
+        <translation>Biçim</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1556"/>
@@ -462,7 +462,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1608"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation type="unfinished">Yeni bir formata dönüştürmek veya yeniden boyutlandırmak, &quot;kayıpsız&quot; seçeneği seçili olsa bile kaliteyi düşürebilir</translation>
+        <translation>Yeni bir formata dönüştürmek veya yeniden boyutlandırmak, &quot;kayıpsız&quot; seçeneği seçili olsa bile kaliteyi düşürebilir</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1648"/>
@@ -622,7 +622,7 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="2069"/>
         <source>Advanced import...</source>
-        <translation type="unfinished">Gelişmiş içe aktar...</translation>
+        <translation>Gelişmiş içe aktar...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="275"/>
@@ -642,13 +642,13 @@ Tüm hakları saklıdır.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="596"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished">Lütfen önce bir çıktı klasörü seç</translation>
+        <translation>Lütfen önce bir çıktı klasörü seç</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="599"/>
         <location filename="../../src/MainWindow.cpp" line="848"/>
         <source>Ok</source>
-        <translation type="unfinished">Tamam</translation>
+        <translation>Tamam</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="612"/>
@@ -741,42 +741,42 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="292"/>
         <source>No action</source>
-        <translation type="unfinished">Eylem yok</translation>
+        <translation>Eylem yok</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="297"/>
         <source>Close the application</source>
-        <translation type="unfinished">Uygulamayı kapat</translation>
+        <translation>Uygulamayı kapat</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="302"/>
         <source>Sleep</source>
-        <translation type="unfinished">Uyku</translation>
+        <translation>Uyku</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="307"/>
         <source>Shutdown</source>
-        <translation type="unfinished">Kapat</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="312"/>
         <source>Open output folder</source>
-        <translation type="unfinished">Çıktı klasörünü aç</translation>
+        <translation>Çıktı klasörünü aç</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="245"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished">Başarılı sıkıştırmadan sonra bir eylem gerçekleştir</translation>
+        <translation>Başarılı sıkıştırmadan sonra bir eylem gerçekleştir</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="365"/>
         <source>Threads priority</source>
-        <translation type="unfinished">İş parçacığı önceliği</translation>
+        <translation>İş parçacığı önceliği</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="456"/>
         <source>Restart</source>
-        <translation type="unfinished">Yeniden başlat</translation>
+        <translation>Yeniden başlat</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="482"/>
@@ -818,7 +818,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source> threads</source>
-        <translation type="unfinished">İş parçacığı</translation>
+        <translation> İş parçacığı</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="443"/>
@@ -853,7 +853,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished">Sıkıştırma sırasında mesaj ve uyarı iletişim kutularını atla</translation>
+        <translation>Sıkıştırma sırasında mesaj ve uyarı iletişim kutularını atla</translation>
     </message>
     <message>
         <source>Do not import if size is</source>
@@ -948,7 +948,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished">Dosya dönüştürme başarısız oldu</translation>
+        <translation>Dosya dönüştürme başarısız oldu</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -963,12 +963,12 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="271"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished">Orijinal dosya çöp kutusuna taşınamıyor, izinleri kontrol edin</translation>
+        <translation>Orijinal dosya çöp kutusuna taşınamıyor, izinleri kontrol edin</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished">Orijinal dosya silinemiyor, izinleri kontrol edin</translation>
+        <translation>Orijinal dosya silinemiyor, izinleri kontrol edin</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -988,7 +988,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished">Tamam</translation>
+        <translation>Tamam</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
@@ -1013,7 +1013,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="206"/>
         <source>TIFF</source>
-        <translation type="unfinished">TIFF</translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1042,7 +1042,7 @@ Kaydedildi: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="235"/>
         <source>Auto</source>
-        <translation type="unfinished">Otomatik</translation>
+        <translation>Otomatik</translation>
     </message>
 </context>
 <context>
