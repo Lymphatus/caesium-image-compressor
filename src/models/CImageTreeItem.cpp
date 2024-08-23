@@ -96,19 +96,31 @@ CImage* CImageTreeItem::getCImage() const
     return cImage;
 }
 
-QFuture<void> CImageTreeItem::compress(CompressionOptions compressionOptions)
+QFuture<void> CImageTreeItem::compress(const CompressionOptions& compressionOptions)
 {
-    return QtConcurrent::map(m_childItems, [compressionOptions, this](CImageTreeItem* item) {
+    return this->performCompression(compressionOptions, false);
+}
+
+QFuture<void> CImageTreeItem::compressOnlyFailed(const CompressionOptions& compressionOptions)
+{
+    return this->performCompression(compressionOptions, true);
+}
+
+QFuture<void> CImageTreeItem::performCompression(const CompressionOptions& compressionOptions, bool onlyFailed)
+{
+    return QtConcurrent::map(m_childItems, [compressionOptions, onlyFailed, this](const CImageTreeItem* item) {
         if (item->compressionCanceled || this->compressionCanceled) {
             return;
         }
         CImage* image = item->getCImage();
-        image->setStatus(CImageStatus::COMPRESSING);
-        bool compressionResult = image->compress(compressionOptions);
-        if (!compressionResult) {
-            image->setStatus(CImageStatus::ERROR);
-        } else if (image->getStatus() == CImageStatus::COMPRESSING) {
-            image->setStatus(CImageStatus::COMPRESSED);
+        if (!onlyFailed || (onlyFailed && image->getStatus() == CImageStatus::ERROR)) {
+            image->setStatus(CImageStatus::COMPRESSING);
+            bool compressionResult = image->compress(compressionOptions);
+            if (!compressionResult) {
+                image->setStatus(CImageStatus::ERROR);
+            } else if (image->getStatus() == CImageStatus::COMPRESSING) {
+                image->setStatus(CImageStatus::COMPRESSED);
+            }
         }
     });
 }

@@ -186,7 +186,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="compress_Button">
+             <widget class="QToolButton" name="compress_Button">
               <property name="enabled">
                <bool>false</bool>
               </property>
@@ -196,6 +196,12 @@
               <property name="icon">
                <iconset resource="../resources/resources.qrc">
                 <normaloff>:/icons/ui/compress.svg</normaloff>:/icons/ui/compress.svg</iconset>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::MenuButtonPopup</enum>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
               </property>
              </widget>
             </item>

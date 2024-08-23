@@ -12,11 +12,11 @@
             </PerProfileState>
           </value>
         </entry>
-        <entry key="Debug (Qt 6.7.1)">
+        <entry key="Debug (Qt 6.7.2)">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.7.1/mingw_64/./qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.7.1/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.7.2/mingw_64/./qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.7.2/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
