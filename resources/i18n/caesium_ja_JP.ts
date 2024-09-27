@@ -201,7 +201,7 @@ All rights reserved.</translation>
         <translation>ファイルをインポート中...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1654"/>
+        <location filename="../../views/MainWindow.ui" line="1631"/>
         <location filename="../../src/MainWindow.cpp" line="512"/>
         <location filename="../../src/MainWindow.cpp" line="726"/>
         <source>Cancel</source>
@@ -303,14 +303,14 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="161"/>
-        <location filename="../../views/MainWindow.ui" line="1935"/>
+        <location filename="../../views/MainWindow.ui" line="1912"/>
         <source>Remove</source>
         <translation>除去</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="194"/>
-        <location filename="../../views/MainWindow.ui" line="2012"/>
-        <location filename="../../views/MainWindow.ui" line="2015"/>
+        <location filename="../../views/MainWindow.ui" line="1989"/>
+        <location filename="../../views/MainWindow.ui" line="1992"/>
         <source>Compress</source>
         <translation>圧縮開始</translation>
     </message>
@@ -320,20 +320,20 @@ Saved: %4 (%5%)</source>
         <translation>圧縮</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="363"/>
+        <location filename="../../views/MainWindow.ui" line="353"/>
         <source>JPEG</source>
         <translation>JPEG</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="275"/>
-        <location filename="../../views/MainWindow.ui" line="447"/>
-        <location filename="../../views/MainWindow.ui" line="617"/>
-        <location filename="../../views/MainWindow.ui" line="717"/>
+        <location filename="../../views/MainWindow.ui" line="265"/>
+        <location filename="../../views/MainWindow.ui" line="375"/>
+        <location filename="../../views/MainWindow.ui" line="577"/>
+        <location filename="../../views/MainWindow.ui" line="645"/>
         <source>Quality</source>
         <translation>品質</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="490"/>
+        <location filename="../../views/MainWindow.ui" line="467"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
@@ -342,17 +342,17 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">レベル</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="634"/>
+        <location filename="../../views/MainWindow.ui" line="616"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="910"/>
+        <location filename="../../views/MainWindow.ui" line="878"/>
         <source>Lossless</source>
         <translation>可逆圧縮</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1024"/>
+        <location filename="../../views/MainWindow.ui" line="920"/>
         <source>Maximum output size</source>
         <translation>出力するサイズの上限</translation>
     </message>
@@ -362,53 +362,53 @@ Saved: %4 (%5%)</source>
         <translation>動作モード</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="923"/>
+        <location filename="../../views/MainWindow.ui" line="891"/>
         <source>Keep Metadata</source>
         <translation>メタデータを保持</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1042"/>
+        <location filename="../../views/MainWindow.ui" line="1016"/>
         <source>Resize</source>
         <translation>サイズ変更</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1068"/>
+        <location filename="../../views/MainWindow.ui" line="1042"/>
         <source>Resize to fit</source>
         <translation>自動サイズ変更</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1092"/>
+        <location filename="../../views/MainWindow.ui" line="1066"/>
         <source>No resize</source>
         <translation>変更しない</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1097"/>
+        <location filename="../../views/MainWindow.ui" line="1071"/>
         <source>Dimensions</source>
         <translation>サイズ指定</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1102"/>
+        <location filename="../../views/MainWindow.ui" line="1076"/>
         <source>Percentage</source>
         <translation>倍率指定</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1107"/>
+        <location filename="../../views/MainWindow.ui" line="1081"/>
         <source>Short edge</source>
         <translation>短辺合わせ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1112"/>
+        <location filename="../../views/MainWindow.ui" line="1086"/>
         <source>Long edge</source>
         <translation>長辺合わせ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1117"/>
-        <location filename="../../views/MainWindow.ui" line="1158"/>
+        <location filename="../../views/MainWindow.ui" line="1091"/>
+        <location filename="../../views/MainWindow.ui" line="1132"/>
         <source>Width</source>
         <translation>幅</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1227"/>
+        <location filename="../../views/MainWindow.ui" line="1201"/>
         <location filename="../../src/MainWindow.cpp" line="873"/>
         <location filename="../../src/MainWindow.cpp" line="877"/>
         <location filename="../../src/MainWindow.cpp" line="912"/>
@@ -419,54 +419,54 @@ Saved: %4 (%5%)</source>
         <translation>ピクセル</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="280"/>
-        <location filename="../../views/MainWindow.ui" line="1199"/>
+        <location filename="../../views/MainWindow.ui" line="270"/>
+        <location filename="../../views/MainWindow.ui" line="1173"/>
         <source>Size</source>
         <translation>サイズ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1122"/>
-        <location filename="../../views/MainWindow.ui" line="1256"/>
+        <location filename="../../views/MainWindow.ui" line="1096"/>
+        <location filename="../../views/MainWindow.ui" line="1230"/>
         <source>Height</source>
         <translation>高さ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1299"/>
+        <location filename="../../views/MainWindow.ui" line="1273"/>
         <source>Do not enlarge</source>
         <translation>拡大しない</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1309"/>
+        <location filename="../../views/MainWindow.ui" line="1283"/>
         <source>Keep aspect ratio</source>
         <translation>縦横比を維持</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1336"/>
+        <location filename="../../views/MainWindow.ui" line="1310"/>
         <source>Output</source>
         <translation>出力</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1356"/>
+        <location filename="../../views/MainWindow.ui" line="1330"/>
         <source>Folder</source>
         <translation>フォルダー</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1400"/>
+        <location filename="../../views/MainWindow.ui" line="1374"/>
         <source>Select...</source>
         <translation>選択...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1412"/>
+        <location filename="../../views/MainWindow.ui" line="1386"/>
         <source>Same folder as input</source>
         <translation>入力と同じフォルダー</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1422"/>
+        <location filename="../../views/MainWindow.ui" line="1396"/>
         <source>Keep folder structure</source>
         <translation>フォルダーの構造を維持</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1429"/>
+        <location filename="../../views/MainWindow.ui" line="1403"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>出力サイズが元よりも大きい場合はスキップ</translation>
     </message>
@@ -475,270 +475,270 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">入力ファイルをごみ箱へ移動</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1487"/>
+        <location filename="../../views/MainWindow.ui" line="1461"/>
         <source>Keep file dates</source>
         <translation>ファイルの日時を維持</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1502"/>
+        <location filename="../../views/MainWindow.ui" line="1476"/>
         <source>Creation</source>
         <translation>作成日時</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1509"/>
+        <location filename="../../views/MainWindow.ui" line="1483"/>
         <source>Last modified</source>
         <translation>更新日時</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1516"/>
+        <location filename="../../views/MainWindow.ui" line="1490"/>
         <source>Last access</source>
         <translation>アクセス日時</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1537"/>
+        <location filename="../../views/MainWindow.ui" line="1511"/>
         <source>Format</source>
         <translation>画像形式</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1562"/>
+        <location filename="../../views/MainWindow.ui" line="1536"/>
         <source>Suffix</source>
         <translation>ファイル名末尾に追加する文字列</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1741"/>
+        <location filename="../../views/MainWindow.ui" line="1665"/>
         <source>Original</source>
         <translation>圧縮前</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2067"/>
+        <location filename="../../views/MainWindow.ui" line="2044"/>
         <location filename="../../src/MainWindow.cpp" line="1235"/>
         <source>Preview</source>
         <translation>プレビュー</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1734"/>
+        <location filename="../../views/MainWindow.ui" line="1741"/>
         <source>Compressed</source>
         <translation>圧縮後</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="547"/>
+        <location filename="../../views/MainWindow.ui" line="570"/>
         <source>Optimization level</source>
         <translation type="unfinished">圧縮レベル</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="734"/>
+        <location filename="../../views/MainWindow.ui" line="709"/>
         <source>TIFF</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="803"/>
+        <location filename="../../views/MainWindow.ui" line="848"/>
         <source>Method</source>
         <translation>方式</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="838"/>
+        <location filename="../../views/MainWindow.ui" line="766"/>
         <source>Deflate level</source>
         <translation type="unfinished">Deflate の品質</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="828"/>
+        <location filename="../../views/MainWindow.ui" line="756"/>
         <source>Best</source>
         <translation>最高</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="845"/>
+        <location filename="../../views/MainWindow.ui" line="773"/>
         <source>Balanced</source>
         <translation type="unfinished">均衡</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="855"/>
+        <location filename="../../views/MainWindow.ui" line="783"/>
         <source>Fast</source>
         <translation>高速</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="780"/>
+        <location filename="../../views/MainWindow.ui" line="825"/>
         <source>Uncompressed</source>
         <translation>未圧縮</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="387"/>
+        <location filename="../../views/MainWindow.ui" line="384"/>
         <source>Chroma subsampling</source>
         <translation>クロマ・サブサンプリング</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="956"/>
+        <location filename="../../views/MainWindow.ui" line="969"/>
         <source>bytes</source>
         <translation>バイト</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="961"/>
+        <location filename="../../views/MainWindow.ui" line="974"/>
         <source>KB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="966"/>
+        <location filename="../../views/MainWindow.ui" line="979"/>
         <source>MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1444"/>
+        <location filename="../../views/MainWindow.ui" line="1418"/>
         <source>Move the original file</source>
         <translation>入力ファイルを削除</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1465"/>
+        <location filename="../../views/MainWindow.ui" line="1439"/>
         <source>To Trash</source>
         <translation>ごみ箱へ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1470"/>
+        <location filename="../../views/MainWindow.ui" line="1444"/>
         <source>Delete Permanently</source>
         <translation>完全に削除</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1614"/>
+        <location filename="../../views/MainWindow.ui" line="1591"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
         <translation>新たな画像形式への変換やリサイズは、「可逆圧縮」を選択しても画質を劣化させる可能性あり</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1790"/>
+        <location filename="../../views/MainWindow.ui" line="1767"/>
         <source>Help</source>
         <translation>ヘルプ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1798"/>
+        <location filename="../../views/MainWindow.ui" line="1775"/>
         <source>File</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1808"/>
+        <location filename="../../views/MainWindow.ui" line="1785"/>
         <source>Edit</source>
         <translation>編集</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1819"/>
+        <location filename="../../views/MainWindow.ui" line="1796"/>
         <source>View</source>
         <translation>表示</translation>
     </message>
     <message>
+        <location filename="../../views/MainWindow.ui" line="1800"/>
         <location filename="../../views/MainWindow.ui" line="1823"/>
-        <location filename="../../views/MainWindow.ui" line="1846"/>
         <source>Toolbar</source>
         <translation>ツールバー</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1888"/>
+        <location filename="../../views/MainWindow.ui" line="1865"/>
         <source>About Caesium Image Compressor</source>
         <translation>バージョン情報</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1900"/>
+        <location filename="../../views/MainWindow.ui" line="1877"/>
         <source>Add files...</source>
         <translation>ファイルの追加...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1903"/>
+        <location filename="../../views/MainWindow.ui" line="1880"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1912"/>
+        <location filename="../../views/MainWindow.ui" line="1889"/>
         <source>Add folder...</source>
         <translation>フォルダーの追加...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1915"/>
+        <location filename="../../views/MainWindow.ui" line="1892"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1920"/>
+        <location filename="../../views/MainWindow.ui" line="1897"/>
         <location filename="../../src/MainWindow.cpp" line="214"/>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1938"/>
+        <location filename="../../views/MainWindow.ui" line="1915"/>
         <source>Del</source>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1943"/>
+        <location filename="../../views/MainWindow.ui" line="1920"/>
         <source>Select All</source>
         <translation>すべて選択</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1946"/>
+        <location filename="../../views/MainWindow.ui" line="1923"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1958"/>
+        <location filename="../../views/MainWindow.ui" line="1935"/>
         <source>Clear</source>
         <translation>一覧を消去</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1969"/>
+        <location filename="../../views/MainWindow.ui" line="1946"/>
         <source>Show previews</source>
         <translation>プレビューを表示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1978"/>
+        <location filename="../../views/MainWindow.ui" line="1955"/>
         <source>Preferences...</source>
         <translation>設定...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1986"/>
+        <location filename="../../views/MainWindow.ui" line="1963"/>
         <source>Show original in file manager</source>
         <translation>ファイル マネージャーで圧縮前を表示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1991"/>
+        <location filename="../../views/MainWindow.ui" line="1968"/>
         <source>Show compressed in file manager</source>
         <translation>ファイル マネージャーで圧縮後を表示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2000"/>
+        <location filename="../../views/MainWindow.ui" line="1977"/>
         <source>Donate</source>
         <translation>寄付</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2026"/>
+        <location filename="../../views/MainWindow.ui" line="2003"/>
         <source>Icons</source>
         <translation>アイコンのみ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2034"/>
+        <location filename="../../views/MainWindow.ui" line="2011"/>
         <source>Icons and Text</source>
         <translation>アイコンとテキスト</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2042"/>
+        <location filename="../../views/MainWindow.ui" line="2019"/>
         <source>Hide</source>
         <translation>非表示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2047"/>
+        <location filename="../../views/MainWindow.ui" line="2024"/>
         <source>Show</source>
         <translation>表示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2055"/>
+        <location filename="../../views/MainWindow.ui" line="2032"/>
         <source>Auto preview</source>
         <translation>自動プレビュー</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2070"/>
+        <location filename="../../views/MainWindow.ui" line="2047"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2075"/>
+        <location filename="../../views/MainWindow.ui" line="2052"/>
         <source>Advanced import...</source>
         <translation>高度なインポート...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="971"/>
+        <location filename="../../views/MainWindow.ui" line="984"/>
         <location filename="../../src/MainWindow.cpp" line="887"/>
         <location filename="../../src/MainWindow.cpp" line="891"/>
         <source>%</source>

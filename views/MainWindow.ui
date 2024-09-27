@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="contextMenuPolicy">
-   <enum>Qt::NoContextMenu</enum>
+   <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
   </property>
   <property name="windowTitle">
    <string>Caesium Image Compressor</string>
@@ -42,7 +42,7 @@
        <bool>true</bool>
       </property>
       <property name="orientation">
-       <enum>Qt::Vertical</enum>
+       <enum>Qt::Orientation::Vertical</enum>
       </property>
       <property name="handleWidth">
        <number>5</number>
@@ -52,7 +52,7 @@
       </property>
       <widget class="QSplitter" name="sidebar_HSplitter">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="handleWidth">
         <number>5</number>
@@ -68,19 +68,19 @@
          <item>
           <widget class="QDropTreeView" name="imageList_TreeView">
            <property name="contextMenuPolicy">
-            <enum>Qt::CustomContextMenu</enum>
+            <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
            </property>
            <property name="dragDropMode">
-            <enum>QAbstractItemView::DropOnly</enum>
+            <enum>QAbstractItemView::DragDropMode::DropOnly</enum>
            </property>
            <property name="defaultDropAction">
-            <enum>Qt::MoveAction</enum>
+            <enum>Qt::DropAction::MoveAction</enum>
            </property>
            <property name="alternatingRowColors">
             <bool>false</bool>
            </property>
            <property name="selectionMode">
-            <enum>QAbstractItemView::ExtendedSelection</enum>
+            <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
            </property>
            <property name="indentation">
             <number>0</number>
@@ -111,10 +111,10 @@
          <item>
           <widget class="QFrame" name="listActions_Frame">
            <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
+            <enum>QFrame::Shape::NoFrame</enum>
            </property>
            <property name="frameShadow">
-            <enum>QFrame::Plain</enum>
+            <enum>QFrame::Shadow::Plain</enum>
            </property>
            <property name="lineWidth">
             <number>0</number>
@@ -175,7 +175,7 @@
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -198,10 +198,10 @@
                 <normaloff>:/icons/ui/compress.svg</normaloff>:/icons/ui/compress.svg</iconset>
               </property>
               <property name="popupMode">
-               <enum>QToolButton::MenuButtonPopup</enum>
+               <enum>QToolButton::ToolButtonPopupMode::MenuButtonPopup</enum>
               </property>
               <property name="toolButtonStyle">
-               <enum>Qt::ToolButtonTextBesideIcon</enum>
+               <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
               </property>
              </widget>
             </item>
@@ -230,7 +230,7 @@
             <attribute name="title">
              <string>Compression</string>
             </attribute>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
+            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -253,23 +253,13 @@
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_9">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Minimum</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
                 <widget class="QComboBox" name="compressionMode_ComboBox">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <item>
                   <property name="text">
                    <string>Quality</string>
@@ -287,7 +277,7 @@
              <item>
               <widget class="Line" name="line_3">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -305,7 +295,7 @@ QScrollArea &gt; QWidget &gt; QWidget { background: transparent; }
 QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                </property>
                <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
+                <enum>QFrame::Shape::NoFrame</enum>
                </property>
                <property name="lineWidth">
                 <number>0</number>
@@ -318,8 +308,8 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>608</width>
-                  <height>547</height>
+                  <width>611</width>
+                  <height>569</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -353,7 +343,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                        <item row="0" column="1">
                         <widget class="Line" name="JPEGToggle_HLine">
                          <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
+                          <enum>Qt::Orientation::Horizontal</enum>
                          </property>
                         </widget>
                        </item>
@@ -379,7 +369,14 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                           <property name="bottomMargin">
                            <number>6</number>
                           </property>
-                          <item row="2" column="0" colspan="3">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="JPEGQuality_Label">
+                            <property name="text">
+                             <string>Quality</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0" colspan="2">
                            <layout class="QHBoxLayout" name="horizontalLayout">
                             <item>
                              <widget class="QLabel" name="JPEGChromaSubsampling_Label">
@@ -389,70 +386,28 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                              </widget>
                             </item>
                             <item>
-                             <spacer name="horizontalSpacer_12">
-                              <property name="orientation">
-                               <enum>Qt::Horizontal</enum>
+                             <widget class="QComboBox" name="JPEGChromaSubsampling_ComboBox">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
                               </property>
-                              <property name="sizeHint" stdset="0">
-                               <size>
-                                <width>40</width>
-                                <height>20</height>
-                               </size>
-                              </property>
-                             </spacer>
-                            </item>
-                            <item>
-                             <widget class="QComboBox" name="JPEGChromaSubsampling_ComboBox"/>
+                             </widget>
                             </item>
                            </layout>
                           </item>
-                          <item row="1" column="0" colspan="3">
-                           <widget class="QSlider" name="JPEGQuality_Slider">
-                            <property name="minimum">
-                             <number>0</number>
-                            </property>
-                            <property name="maximum">
-                             <number>100</number>
-                            </property>
-                            <property name="value">
-                             <number>80</number>
-                            </property>
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="tickPosition">
-                             <enum>QSlider::TicksBelow</enum>
-                            </property>
-                            <property name="tickInterval">
-                             <number>10</number>
-                            </property>
-                           </widget>
-                          </item>
                           <item row="0" column="1">
-                           <spacer name="horizontalSpacer_5">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>40</width>
-                              <height>20</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="JPEGQuality_Label">
-                            <property name="text">
-                             <string>Quality</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="2">
                            <widget class="QSpinBox" name="JPEGQuality_SpinBox">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
                             <property name="minimumSize">
                              <size>
-                              <width>40</width>
+                              <width>100</width>
                               <height>0</height>
                              </size>
                             </property>
@@ -464,6 +419,28 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                             </property>
                             <property name="value">
                              <number>80</number>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="QSlider" name="JPEGQuality_Slider">
+                            <property name="minimum">
+                             <number>0</number>
+                            </property>
+                            <property name="maximum">
+                             <number>100</number>
+                            </property>
+                            <property name="value">
+                             <number>80</number>
+                            </property>
+                            <property name="orientation">
+                             <enum>Qt::Orientation::Horizontal</enum>
+                            </property>
+                            <property name="tickPosition">
+                             <enum>QSlider::TickPosition::TicksBelow</enum>
+                            </property>
+                            <property name="tickInterval">
+                             <number>10</number>
                             </property>
                            </widget>
                           </item>
@@ -480,7 +457,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                        <item row="0" column="1">
                         <widget class="Line" name="PNGToggle_HLine">
                          <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
+                          <enum>Qt::Orientation::Horizontal</enum>
                          </property>
                         </widget>
                        </item>
@@ -509,46 +486,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                           <property name="spacing">
                            <number>6</number>
                           </property>
-                          <item row="1" column="2">
-                           <widget class="QSpinBox" name="PNGQuality_SpinBox">
-                            <property name="minimumSize">
-                             <size>
-                              <width>40</width>
-                              <height>0</height>
-                             </size>
-                            </property>
-                            <property name="maximum">
-                             <number>100</number>
-                            </property>
-                            <property name="value">
-                             <number>80</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <spacer name="horizontalSpacer_4">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>40</width>
-                              <height>20</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
-                          <item row="3" column="0">
-                           <widget class="QLabel" name="PNGOptimizationLevel_Label">
-                            <property name="enabled">
-                             <bool>false</bool>
-                            </property>
-                            <property name="text">
-                             <string>Optimization level</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="4" column="0" colspan="3">
+                          <item row="4" column="0" colspan="2">
                            <widget class="QSlider" name="PNGOptimizationLevel_Slider">
                             <property name="enabled">
                              <bool>false</bool>
@@ -566,39 +504,32 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                              <number>3</number>
                             </property>
                             <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
+                             <enum>Qt::Orientation::Horizontal</enum>
                             </property>
                             <property name="tickPosition">
-                             <enum>QSlider::TicksBelow</enum>
+                             <enum>QSlider::TickPosition::TicksBelow</enum>
                             </property>
                            </widget>
                           </item>
-                          <item row="2" column="0" colspan="3">
-                           <widget class="QSlider" name="PNGQuality_Slider">
-                            <property name="maximum">
-                             <number>100</number>
-                            </property>
-                            <property name="value">
-                             <number>80</number>
-                            </property>
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="tickPosition">
-                             <enum>QSlider::TicksBelow</enum>
-                            </property>
-                            <property name="tickInterval">
-                             <number>10</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="2">
+                          <item row="3" column="1">
                            <widget class="QSpinBox" name="PNGOptimizationLevel_SpinBox">
                             <property name="enabled">
                              <bool>false</bool>
                             </property>
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>0</height>
+                             </size>
+                            </property>
                             <property name="buttonSymbols">
-                             <enum>QAbstractSpinBox::UpDownArrows</enum>
+                             <enum>QAbstractSpinBox::ButtonSymbols::UpDownArrows</enum>
                             </property>
                             <property name="minimum">
                              <number>1</number>
@@ -611,10 +542,61 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                             </property>
                            </widget>
                           </item>
+                          <item row="2" column="0" colspan="2">
+                           <widget class="QSlider" name="PNGQuality_Slider">
+                            <property name="maximum">
+                             <number>100</number>
+                            </property>
+                            <property name="value">
+                             <number>80</number>
+                            </property>
+                            <property name="orientation">
+                             <enum>Qt::Orientation::Horizontal</enum>
+                            </property>
+                            <property name="tickPosition">
+                             <enum>QSlider::TickPosition::TicksBelow</enum>
+                            </property>
+                            <property name="tickInterval">
+                             <number>10</number>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="0">
+                           <widget class="QLabel" name="PNGOptimizationLevel_Label">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="text">
+                             <string>Optimization level</string>
+                            </property>
+                           </widget>
+                          </item>
                           <item row="1" column="0">
                            <widget class="QLabel" name="PNGQuality_Label">
                             <property name="text">
                              <string>Quality</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QSpinBox" name="PNGQuality_SpinBox">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximum">
+                             <number>100</number>
+                            </property>
+                            <property name="value">
+                             <number>80</number>
                             </property>
                            </widget>
                           </item>
@@ -638,7 +620,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                        <item row="0" column="1">
                         <widget class="Line" name="WebPToggle_HLine">
                          <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
+                          <enum>Qt::Orientation::Horizontal</enum>
                          </property>
                         </widget>
                        </item>
@@ -657,46 +639,24 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                           <property name="bottomMargin">
                            <number>6</number>
                           </property>
-                          <item row="1" column="0" colspan="3">
-                           <widget class="QSlider" name="WebPQuality_Slider">
-                            <property name="minimum">
-                             <number>0</number>
-                            </property>
-                            <property name="maximum">
-                             <number>100</number>
-                            </property>
-                            <property name="value">
-                             <number>60</number>
-                            </property>
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="tickPosition">
-                             <enum>QSlider::TicksBelow</enum>
-                            </property>
-                            <property name="tickInterval">
-                             <number>10</number>
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="WebPQuality_Label">
+                            <property name="text">
+                             <string>Quality</string>
                             </property>
                            </widget>
                           </item>
                           <item row="0" column="1">
-                           <spacer name="horizontalSpacer_6">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>288</width>
-                              <height>20</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
-                          <item row="0" column="2">
                            <widget class="QSpinBox" name="WebPQuality_SpinBox">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
                             <property name="minimumSize">
                              <size>
-                              <width>40</width>
+                              <width>100</width>
                               <height>0</height>
                              </size>
                             </property>
@@ -711,10 +671,25 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="0">
-                           <widget class="QLabel" name="WebPQuality_Label">
-                            <property name="text">
-                             <string>Quality</string>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="QSlider" name="WebPQuality_Slider">
+                            <property name="minimum">
+                             <number>0</number>
+                            </property>
+                            <property name="maximum">
+                             <number>100</number>
+                            </property>
+                            <property name="value">
+                             <number>60</number>
+                            </property>
+                            <property name="orientation">
+                             <enum>Qt::Orientation::Horizontal</enum>
+                            </property>
+                            <property name="tickPosition">
+                             <enum>QSlider::TickPosition::TicksBelow</enum>
+                            </property>
+                            <property name="tickInterval">
+                             <number>10</number>
                             </property>
                            </widget>
                           </item>
@@ -738,7 +713,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                        <item row="0" column="1">
                         <widget class="Line" name="TIFFToggle_HLine">
                          <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
+                          <enum>Qt::Orientation::Horizontal</enum>
                          </property>
                         </widget>
                        </item>
@@ -757,21 +732,91 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                           <property name="bottomMargin">
                            <number>6</number>
                           </property>
-                          <item row="0" column="1" colspan="2">
-                           <spacer name="horizontalSpacer_11">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="QWidget" name="TIFFDeflateLevelContainer_Widget" native="true">
+                            <property name="enabled">
+                             <bool>false</bool>
                             </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>40</width>
-                              <height>20</height>
-                             </size>
-                            </property>
-                           </spacer>
+                            <layout class="QGridLayout" name="gridLayout_6">
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item row="1" column="3">
+                              <widget class="QLabel" name="TIFFDeflateLevelBest_Label">
+                               <property name="text">
+                                <string>Best</string>
+                               </property>
+                               <property name="alignment">
+                                <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="0">
+                              <widget class="QLabel" name="TIFFDeflateLevel_Label">
+                               <property name="text">
+                                <string>Deflate level</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="1" column="2">
+                              <widget class="QLabel" name="TIFFDeflateLevelBalanced_Label">
+                               <property name="text">
+                                <string>Balanced</string>
+                               </property>
+                               <property name="alignment">
+                                <set>Qt::AlignmentFlag::AlignCenter</set>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="1" column="1">
+                              <widget class="QLabel" name="TIFFDeflateLevelFast_Label">
+                               <property name="text">
+                                <string>Fast</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item row="0" column="1" colspan="3">
+                              <widget class="QSlider" name="TIFFDeflateLevel_Slider">
+                               <property name="minimum">
+                                <number>1</number>
+                               </property>
+                               <property name="maximum">
+                                <number>3</number>
+                               </property>
+                               <property name="pageStep">
+                                <number>1</number>
+                               </property>
+                               <property name="value">
+                                <number>2</number>
+                               </property>
+                               <property name="orientation">
+                                <enum>Qt::Orientation::Horizontal</enum>
+                               </property>
+                               <property name="tickPosition">
+                                <enum>QSlider::TickPosition::TicksBelow</enum>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
                           </item>
-                          <item row="0" column="3">
+                          <item row="0" column="1">
                            <widget class="QComboBox" name="TIFFCompressionMethod_ComboBox">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
                             <property name="currentIndex">
                              <number>1</number>
                             </property>
@@ -802,83 +847,6 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                             <property name="text">
                              <string>Method</string>
                             </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0" colspan="4">
-                           <widget class="QWidget" name="TIFFDeflateLevelContainer_Widget" native="true">
-                            <property name="enabled">
-                             <bool>false</bool>
-                            </property>
-                            <layout class="QGridLayout" name="gridLayout_6">
-                             <property name="leftMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="topMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="rightMargin">
-                              <number>0</number>
-                             </property>
-                             <property name="bottomMargin">
-                              <number>0</number>
-                             </property>
-                             <item row="1" column="3">
-                              <widget class="QLabel" name="TIFFDeflateLevelBest_Label">
-                               <property name="text">
-                                <string>Best</string>
-                               </property>
-                               <property name="alignment">
-                                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="0" column="0">
-                              <widget class="QLabel" name="TIFFDeflateLevel_Label">
-                               <property name="text">
-                                <string>Deflate level</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="1" column="2">
-                              <widget class="QLabel" name="TIFFDeflateLevelBalanced_Label">
-                               <property name="text">
-                                <string>Balanced</string>
-                               </property>
-                               <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="1" column="1">
-                              <widget class="QLabel" name="TIFFDeflateLevelFast_Label">
-                               <property name="text">
-                                <string>Fast</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item row="0" column="1" colspan="3">
-                              <widget class="QSlider" name="TIFFDeflateLevel_Slider">
-                               <property name="minimum">
-                                <number>1</number>
-                               </property>
-                               <property name="maximum">
-                                <number>3</number>
-                               </property>
-                               <property name="pageStep">
-                                <number>1</number>
-                               </property>
-                               <property name="value">
-                                <number>2</number>
-                               </property>
-                               <property name="orientation">
-                                <enum>Qt::Horizontal</enum>
-                               </property>
-                               <property name="tickPosition">
-                                <enum>QSlider::TicksBelow</enum>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
                            </widget>
                           </item>
                          </layout>
@@ -927,7 +895,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                      <item>
                       <spacer name="verticalSpacer">
                        <property name="orientation">
-                        <enum>Qt::Vertical</enum>
+                        <enum>Qt::Orientation::Vertical</enum>
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
@@ -940,13 +908,58 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                     </layout>
                    </widget>
                    <widget class="QWidget" name="bySize_StackedWidgetPage">
-                    <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,1">
                      <item>
-                      <layout class="QGridLayout" name="gridLayout_4">
+                      <layout class="QHBoxLayout" name="horizontalLayout_7">
                        <property name="leftMargin">
                         <number>0</number>
                        </property>
-                       <item row="0" column="3">
+                       <item>
+                        <widget class="QLabel" name="maxOutputSize_Label">
+                         <property name="text">
+                          <string>Maximum output size</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Orientation::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QSpinBox" name="maxOutputSize_SpinBox">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="prefix">
+                          <string/>
+                         </property>
+                         <property name="minimum">
+                          <number>1</number>
+                         </property>
+                         <property name="maximum">
+                          <number>999999</number>
+                         </property>
+                         <property name="stepType">
+                          <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
+                         </property>
+                         <property name="value">
+                          <number>500</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
                         <widget class="QComboBox" name="maxOutputSizeUnit_ComboBox">
                          <property name="currentIndex">
                           <number>0</number>
@@ -973,59 +986,20 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                          </item>
                         </widget>
                        </item>
-                       <item row="0" column="1">
-                        <spacer name="horizontalSpacer_7">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                       <item row="0" column="2">
-                        <widget class="QSpinBox" name="maxOutputSize_SpinBox">
-                         <property name="prefix">
-                          <string/>
-                         </property>
-                         <property name="minimum">
-                          <number>1</number>
-                         </property>
-                         <property name="maximum">
-                          <number>999999</number>
-                         </property>
-                         <property name="stepType">
-                          <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
-                         </property>
-                         <property name="value">
-                          <number>500</number>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="1" column="0" colspan="4">
-                        <spacer name="verticalSpacer_4">
-                         <property name="orientation">
-                          <enum>Qt::Vertical</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>20</width>
-                           <height>40</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="maxOutputSize_Label">
-                         <property name="text">
-                          <string>Maximum output size</string>
-                         </property>
-                        </widget>
-                       </item>
                       </layout>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_4">
+                       <property name="orientation">
+                        <enum>Qt::Orientation::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                     </layout>
                    </widget>
@@ -1041,7 +1015,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
             <attribute name="title">
              <string>Resize</string>
             </attribute>
-            <layout class="QVBoxLayout" name="verticalLayout_10">
+            <layout class="QVBoxLayout" name="verticalLayout_10" stretch="0,0,1">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -1075,7 +1049,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                <item>
                 <spacer name="horizontalSpacer_2">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -1129,10 +1103,10 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
              <item>
               <widget class="QFrame" name="resize_Frame">
                <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
+                <enum>QFrame::Shape::NoFrame</enum>
                </property>
                <property name="frameShadow">
-                <enum>QFrame::Plain</enum>
+                <enum>QFrame::Shadow::Plain</enum>
                </property>
                <property name="lineWidth">
                 <number>0</number>
@@ -1169,12 +1143,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>70</width>
                       <height>0</height>
                      </size>
                     </property>
                     <property name="buttonSymbols">
-                     <enum>QAbstractSpinBox::NoButtons</enum>
+                     <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
                     </property>
                     <property name="accelerated">
                      <bool>false</bool>
@@ -1210,12 +1184,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>70</width>
                       <height>0</height>
                      </size>
                     </property>
                     <property name="buttonSymbols">
-                     <enum>QAbstractSpinBox::NoButtons</enum>
+                     <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
                     </property>
                     <property name="accelerated">
                      <bool>false</bool>
@@ -1240,7 +1214,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                   <item>
                    <spacer name="horizontalSpacer_3">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1267,12 +1241,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>70</width>
                       <height>0</height>
                      </size>
                     </property>
                     <property name="buttonSymbols">
-                     <enum>QAbstractSpinBox::NoButtons</enum>
+                     <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
                     </property>
                     <property name="accelerated">
                      <bool>false</bool>
@@ -1319,12 +1293,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
              <item>
               <spacer name="verticalSpacer_2">
                <property name="orientation">
-                <enum>Qt::Vertical</enum>
+                <enum>Qt::Orientation::Vertical</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>20</width>
-                 <height>405</height>
+                 <height>40</height>
                 </size>
                </property>
               </spacer>
@@ -1335,7 +1309,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
             <attribute name="title">
              <string>Output</string>
             </attribute>
-            <layout class="QVBoxLayout" name="verticalLayout_12">
+            <layout class="QVBoxLayout" name="verticalLayout_12" stretch="0,1">
              <property name="leftMargin">
               <number>6</number>
              </property>
@@ -1378,7 +1352,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                  <item>
                   <spacer name="horizontalSpacer_8">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1448,7 +1422,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                  <item>
                   <spacer name="horizontalSpacer_10">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1477,7 +1451,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                <item>
                 <widget class="Line" name="line_2">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                 </widget>
                </item>
@@ -1522,7 +1496,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                <item>
                 <widget class="Line" name="line">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                 </widget>
                </item>
@@ -1541,7 +1515,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                  <item>
                   <spacer name="format_HSpacer">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -1576,20 +1550,23 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                  </property>
                 </widget>
                </item>
-               <item>
-                <spacer name="verticalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
               </layout>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Expanding</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </widget>
@@ -1669,69 +1646,16 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
         <property name="verticalSpacing">
          <number>4</number>
         </property>
-        <item row="1" column="2" colspan="2">
-         <widget class="QZoomGraphicsView" name="previewCompressed_GraphicsView">
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
+        <item row="0" column="1">
+         <widget class="QLoadingLabel" name="originalImageSize_Label">
           <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
+           <enum>QFrame::Shadow::Plain</enum>
           </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="dragMode">
-           <enum>QGraphicsView::ScrollHandDrag</enum>
-          </property>
-          <property name="transformationAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
-          </property>
-          <property name="resizeAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="2">
-         <widget class="QZoomGraphicsView" name="preview_GraphicsView">
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="renderHints">
-           <set>QPainter::Antialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
-          </property>
-          <property name="dragMode">
-           <enum>QGraphicsView::ScrollHandDrag</enum>
-          </property>
-          <property name="transformationAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
-          </property>
-          <property name="resizeAnchor">
-           <enum>QGraphicsView::AnchorViewCenter</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="compressedImage_Label">
           <property name="text">
-           <string>Compressed</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -1745,23 +1669,76 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
         <item row="0" column="3">
          <widget class="QLoadingLabel" name="compressedImageSize_Label">
           <property name="textFormat">
-           <enum>Qt::RichText</enum>
+           <enum>Qt::TextFormat::RichText</enum>
           </property>
           <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QLoadingLabel" name="originalImageSize_Label">
+        <item row="1" column="0" colspan="2">
+         <widget class="QZoomGraphicsView" name="preview_GraphicsView">
+          <property name="frameShape">
+           <enum>QFrame::Shape::Box</enum>
+          </property>
           <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
+           <enum>QFrame::Shadow::Raised</enum>
           </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="renderHints">
+           <set>QPainter::RenderHint::Antialiasing|QPainter::RenderHint::LosslessImageRendering|QPainter::RenderHint::SmoothPixmapTransform|QPainter::RenderHint::TextAntialiasing</set>
+          </property>
+          <property name="dragMode">
+           <enum>QGraphicsView::DragMode::ScrollHandDrag</enum>
+          </property>
+          <property name="transformationAnchor">
+           <enum>QGraphicsView::ViewportAnchor::AnchorViewCenter</enum>
+          </property>
+          <property name="resizeAnchor">
+           <enum>QGraphicsView::ViewportAnchor::AnchorViewCenter</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2" colspan="2">
+         <widget class="QZoomGraphicsView" name="previewCompressed_GraphicsView">
+          <property name="frameShape">
+           <enum>QFrame::Shape::Box</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="renderHints">
+           <set>QPainter::RenderHint::LosslessImageRendering|QPainter::RenderHint::TextAntialiasing</set>
+          </property>
+          <property name="dragMode">
+           <enum>QGraphicsView::DragMode::ScrollHandDrag</enum>
+          </property>
+          <property name="transformationAnchor">
+           <enum>QGraphicsView::ViewportAnchor::AnchorViewCenter</enum>
+          </property>
+          <property name="resizeAnchor">
+           <enum>QGraphicsView::ViewportAnchor::AnchorViewCenter</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="compressedImage_Label">
           <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <string>Compressed</string>
           </property>
          </widget>
         </item>
@@ -1782,7 +1759,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>22</height>
+     <height>33</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1840,7 +1817,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="contextMenuPolicy">
-    <enum>Qt::NoContextMenu</enum>
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
    </property>
    <property name="windowTitle">
     <string>Toolbar</string>
@@ -1852,7 +1829,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
     <bool>false</bool>
    </property>
    <property name="allowedAreas">
-    <set>Qt::AllToolBarAreas</set>
+    <set>Qt::ToolBarArea::AllToolBarAreas</set>
    </property>
    <property name="iconSize">
     <size>
@@ -1861,7 +1838,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
     </size>
    </property>
    <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonIconOnly</enum>
+    <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
    </property>
    <property name="floatable">
     <bool>false</bool>
@@ -1888,7 +1865,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
     <string>About Caesium Image Compressor</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::AboutRole</enum>
+    <enum>QAction::MenuRole::AboutRole</enum>
    </property>
   </action>
   <action name="actionAdd_files">
@@ -1920,7 +1897,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
     <string>Exit</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::QuitRole</enum>
+    <enum>QAction::MenuRole::QuitRole</enum>
    </property>
   </action>
   <action name="actionRemove">
@@ -1978,7 +1955,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
     <string>Preferences...</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::PreferencesRole</enum>
+    <enum>QAction::MenuRole::PreferencesRole</enum>
    </property>
   </action>
   <action name="actionShow_original_in_file_manager">
