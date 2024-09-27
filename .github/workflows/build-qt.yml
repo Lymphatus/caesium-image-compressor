@@ -33,9 +33,9 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/libcaesium.conf') }}
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
-          aqtversion: '==3.0.*'
+          aqtversion: '==3.1.*'
           version: '6.7.3'
           host: 'windows'
           target: 'desktop'
@@ -68,9 +68,9 @@ jobs:
   #          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/libcaesium.conf') }}
   #
   #      - name: Install Qt
-  #        uses: jurplel/install-qt-action@v3
+  #        uses: jurplel/install-qt-action@v4
   #        with:
-  #          aqtversion: '==3.0.*'
+  #          aqtversion: '==3.1.*'
   #          version: '6.7.3'
   #          host: 'mac'
   #          target: 'desktop'
@@ -103,9 +103,9 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/libcaesium.conf') }}
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
-          aqtversion: '==3.0.*'
+          aqtversion: '==3.1.*'
           version: '6.7.3'
           host: 'linux'
           target: 'desktop'
