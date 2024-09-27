@@ -303,14 +303,14 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="161"/>
-        <location filename="../../views/MainWindow.ui" line="1912"/>
+        <location filename="../../views/MainWindow.ui" line="1921"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="194"/>
-        <location filename="../../views/MainWindow.ui" line="1989"/>
-        <location filename="../../views/MainWindow.ui" line="1992"/>
+        <location filename="../../views/MainWindow.ui" line="1998"/>
+        <location filename="../../views/MainWindow.ui" line="2001"/>
         <source>Compress</source>
         <translation>压缩</translation>
     </message>
@@ -530,13 +530,13 @@ Saved: %4 (%5%)</source>
         <translation>原始</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2044"/>
+        <location filename="../../views/MainWindow.ui" line="2053"/>
         <location filename="../../src/MainWindow.cpp" line="1235"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1741"/>
+        <location filename="../../views/MainWindow.ui" line="1750"/>
         <source>Compressed</source>
         <translation>压缩</translation>
     </message>
@@ -601,139 +601,139 @@ Saved: %4 (%5%)</source>
         <translation>永久删除</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1767"/>
+        <location filename="../../views/MainWindow.ui" line="1776"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1775"/>
+        <location filename="../../views/MainWindow.ui" line="1784"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1785"/>
+        <location filename="../../views/MainWindow.ui" line="1794"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1796"/>
+        <location filename="../../views/MainWindow.ui" line="1805"/>
         <source>View</source>
         <translation>视图</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1800"/>
-        <location filename="../../views/MainWindow.ui" line="1823"/>
+        <location filename="../../views/MainWindow.ui" line="1809"/>
+        <location filename="../../views/MainWindow.ui" line="1832"/>
         <source>Toolbar</source>
         <translation>工具栏</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1865"/>
+        <location filename="../../views/MainWindow.ui" line="1874"/>
         <source>About Caesium Image Compressor</source>
         <translation>关于 Caesium Image Compressor</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1877"/>
+        <location filename="../../views/MainWindow.ui" line="1886"/>
         <source>Add files...</source>
         <translation>打开文件...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1880"/>
+        <location filename="../../views/MainWindow.ui" line="1889"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1889"/>
+        <location filename="../../views/MainWindow.ui" line="1898"/>
         <source>Add folder...</source>
         <translation>打开文件夹...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1892"/>
+        <location filename="../../views/MainWindow.ui" line="1901"/>
         <source>Ctrl+Shift+O</source>
         <translation>Ctrl+Shift+O</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1897"/>
+        <location filename="../../views/MainWindow.ui" line="1906"/>
         <location filename="../../src/MainWindow.cpp" line="214"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1915"/>
+        <location filename="../../views/MainWindow.ui" line="1924"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1920"/>
+        <location filename="../../views/MainWindow.ui" line="1929"/>
         <source>Select All</source>
         <translation>全选</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1923"/>
+        <location filename="../../views/MainWindow.ui" line="1932"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1935"/>
+        <location filename="../../views/MainWindow.ui" line="1944"/>
         <source>Clear</source>
         <translation>清空</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1946"/>
+        <location filename="../../views/MainWindow.ui" line="1955"/>
         <source>Show previews</source>
         <translation>展示预览</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1955"/>
+        <location filename="../../views/MainWindow.ui" line="1964"/>
         <source>Preferences...</source>
         <translation>选项...</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1963"/>
+        <location filename="../../views/MainWindow.ui" line="1972"/>
         <source>Show original in file manager</source>
         <translation>在文件管理器中查看原图</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1968"/>
+        <location filename="../../views/MainWindow.ui" line="1977"/>
         <source>Show compressed in file manager</source>
         <translation>在文件管理器中查看压缩图</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="1977"/>
+        <location filename="../../views/MainWindow.ui" line="1986"/>
         <source>Donate</source>
         <translation>捐赠</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2003"/>
+        <location filename="../../views/MainWindow.ui" line="2012"/>
         <source>Icons</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2011"/>
+        <location filename="../../views/MainWindow.ui" line="2020"/>
         <source>Icons and Text</source>
         <translation>图标和文本</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2019"/>
+        <location filename="../../views/MainWindow.ui" line="2028"/>
         <source>Hide</source>
         <translation>隐藏</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2024"/>
+        <location filename="../../views/MainWindow.ui" line="2033"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2032"/>
+        <location filename="../../views/MainWindow.ui" line="2041"/>
         <source>Auto preview</source>
         <translation>自动预览</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2047"/>
+        <location filename="../../views/MainWindow.ui" line="2056"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="2052"/>
+        <location filename="../../views/MainWindow.ui" line="2061"/>
         <source>Advanced import...</source>
         <translation>高级导入</translation>
     </message>

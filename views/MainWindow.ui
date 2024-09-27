@@ -1684,6 +1684,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
           <property name="frameShadow">
            <enum>QFrame::Shadow::Raised</enum>
           </property>
+          <property name="lineWidth">
+           <number>0</number>
+          </property>
+          <property name="midLineWidth">
+           <number>1</number>
+          </property>
           <property name="verticalScrollBarPolicy">
            <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
           </property>
@@ -1713,6 +1719,9 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
            <enum>QFrame::Shadow::Raised</enum>
           </property>
           <property name="lineWidth">
+           <number>0</number>
+          </property>
+          <property name="midLineWidth">
            <number>1</number>
           </property>
           <property name="verticalScrollBarPolicy">
