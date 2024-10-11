@@ -12,6 +12,8 @@ Try it directly on browser at [caesium.app](https://caesium.app)
 
 <a href="https://github.com/7eventech77"><img src="https://github.com/7eventech77.png" width="30px" alt="7eventech77" style="border-radius: 100%;" /></a>
 <a href="https://github.com/ClearRabbit"><img src="https://github.com/ClearRabbit.png" width="30px" alt="ClearRabbit" style="border-radius: 100%;" /></a>
+<a href="https://github.com/LushawnDev"><img src="https://github.com/LushawnDev.png" width="30px" alt="LushawnDev" style="border-radius: 100%;" /></a>
+<a href="https://github.com/yannkost"><img src="https://github.com/yannkost.png" width="30px" alt="yannkost" style="border-radius: 100%;" /></a>
 
 ----------
 
