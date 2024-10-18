@@ -289,7 +289,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1500"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>再压缩失败</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -760,7 +760,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="331"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>线程优先级</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="490"/>
