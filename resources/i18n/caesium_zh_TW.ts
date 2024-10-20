@@ -6,7 +6,7 @@
     <message>
         <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
-        <translation>Caesium - Image Compressor</translation>
+        <translation>關于 Caesium - Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="104"/>
@@ -23,19 +23,19 @@
         <source>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
-All rights reserved.</translation>
+保留所有權利.</translation>
     </message>
     <message>
         <source>Copyright © 2022 Matteo Paonessa.
 All rights reserved.</source>
         <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-All rights reserved.</translation>
+保留所有權利.</translation>
     </message>
     <message>
         <source>Copyright © 2021 Matteo Paonessa.
 All rights reserved.</source>
         <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-All rights reserved.</translation>
+保留所有權利.</translation>
     </message>
 </context>
 <context>
@@ -43,67 +43,67 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">刪除</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">打開檔案夾時導入子目錄中的檔案</translation>
+        <translation>打開檔案夾時導入子目錄中的檔案</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">添加...</translation>
+        <translation>添加...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="152"/>
         <source>bytes</source>
-        <translation type="unfinished">bytes</translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
         <source>KB</source>
-        <translation type="unfinished">KB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>MB</source>
-        <translation type="unfinished">MB</translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
         <source>greater than</source>
-        <translation type="unfinished">大於</translation>
+        <translation>大於</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="179"/>
         <source>equal to</source>
-        <translation type="unfinished">等於</translation>
+        <translation>等於</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="184"/>
         <source>less than</source>
-        <translation type="unfinished">小於</translation>
+        <translation>小於</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="192"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>導入列表</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="121"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>文件名模式（正則）</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>高級導入</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">不導入以下體積的圖片文件</translation>
+        <translation>不導入以下體積的圖片文件</translation>
     </message>
     <message>
         <source>PNG</source>
@@ -120,32 +120,32 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation type="unfinished">打開檔案...</translation>
+        <translation>打開檔案...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation type="unfinished">打開檔案夾...</translation>
+        <translation>打開檔案夾...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>從列表導入...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation type="unfinished">載入檔案...</translation>
+        <translation>載入檔案...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
         <source>Import folder...</source>
-        <translation type="unfinished">載入檔案夾...</translation>
+        <translation>載入檔案夾...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="157"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>導入文件...</translation>
     </message>
 </context>
 <context>
@@ -234,13 +234,13 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="584"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>請首先選擇一個輸出文件夾</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="587"/>
         <location filename="../../src/MainWindow.cpp" line="839"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="747"/>
@@ -282,7 +282,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1500"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>再壓縮失敗</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -500,47 +500,47 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="570"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation>优化級別</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="709"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="848"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>方法</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="766"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation>默認級別</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="756"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>最佳</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="773"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>平衡</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="783"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>最快</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="825"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>不壓縮</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="384"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation>色度二次采樣</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="974"/>
@@ -555,17 +555,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="1418"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>移動原始文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1439"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>刪除到回收站</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1444"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>永久刪除</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1536"/>
@@ -728,7 +728,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2061"/>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation>高級導入...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="984"/>
@@ -758,42 +758,42 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="344"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation>無動作</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="349"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation>關閉應用程序</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="354"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>休眠</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="359"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>關机</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="364"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation>打開輸出文件夾</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="215"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation>圖像壓縮成功后執行操作</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="331"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>線程優先級</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="490"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>重啟</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="516"/>
@@ -948,7 +948,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="203"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>文件轉換失敗</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="255"/>
@@ -968,7 +968,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="274"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>無法刪除原始文件，請檢查您的權限</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="399"/>
@@ -988,7 +988,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="123"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
@@ -1013,7 +1013,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="206"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1030,7 +1030,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="235"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>自動</translation>
     </message>
 </context>
 <context>

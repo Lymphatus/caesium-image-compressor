@@ -289,7 +289,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1500"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>再圧縮失敗</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -523,12 +523,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="570"/>
         <source>Optimization level</source>
-        <translation type="unfinished">圧縮レベル</translation>
+        <translation>最適化レベル</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="709"/>
         <source>TIFF</source>
-        <translation></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="848"/>
@@ -538,7 +538,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="766"/>
         <source>Deflate level</source>
-        <translation type="unfinished">Deflate の品質</translation>
+        <translation>収縮レベル</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="756"/>
@@ -548,7 +548,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="773"/>
         <source>Balanced</source>
-        <translation type="unfinished">均衡</translation>
+        <translation>均衡</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="783"/>
@@ -760,7 +760,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="331"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>スレッドの優先度</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="490"/>
@@ -888,7 +888,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished">圧縮中のメッセージと警告ダイアログをスキップする</translation>
+        <translation>圧縮中のメッセージと警告ダイアログをスキップする</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
