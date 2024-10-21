@@ -41,6 +41,7 @@ jobs:
           target: 'desktop'
           arch: 'win64_mingw'
           modules: 'qtimageformats'
+          tools: 'tools_mingw90'
           cache: true
 
       - name: Install Rust target
@@ -109,7 +110,7 @@ jobs:
           version: '6.7.3'
           host: 'linux'
           target: 'desktop'
-          arch: 'gcc_64'
+          arch: 'linux_gcc_64'
           modules: 'qtimageformats'
           cache: true
 

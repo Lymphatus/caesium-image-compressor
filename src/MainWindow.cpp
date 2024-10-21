@@ -119,6 +119,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->WebPQuality_Slider, &QSlider::valueChanged, this, &MainWindow::onWebPQualityValueChanged);
     connect(ui->WebPQuality_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onWebPQualityValueChanged);
     connect(ui->JPEGChromaSubsampling_ComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::onJPEGChromaSubsamplingChanged);
+    connect(ui->JPEGProgressive_CheckBox, &QCheckBox::toggled, this, &MainWindow::onJPEGProgressiveToggled);
     connect(ui->PNGOptimizationLevel_Slider, &QSlider::valueChanged, this, &MainWindow::onPNGOptimizationLevelChanged);
     connect(ui->PNGOptimizationLevel_SpinBox, &QSpinBox::valueChanged, this, &MainWindow::onPNGOptimizationLevelChanged);
 
@@ -335,6 +336,7 @@ void MainWindow::writeSettings() const
     QSettings().setValue("compression_options/compression/keep_structure", ui->keepStructure_CheckBox->isChecked());
     QSettings().setValue("compression_options/compression/jpeg_quality", ui->JPEGQuality_Slider->value());
     QSettings().setValue("compression_options/compression/jpeg_chroma_subsampling", ui->JPEGChromaSubsampling_ComboBox->currentData(Qt::UserRole));
+    QSettings().setValue("compression_options/compression/jpeg_progressive", ui->JPEGProgressive_CheckBox->isChecked());
     QSettings().setValue("compression_options/compression/png_quality", ui->PNGQuality_Slider->value());
     QSettings().setValue("compression_options/compression/png_optimization_level", ui->PNGOptimizationLevel_Slider->value());
     QSettings().setValue("compression_options/compression/webp_quality", ui->WebPQuality_Slider->value());
@@ -387,6 +389,7 @@ void MainWindow::readSettings()
     ui->keepStructure_CheckBox->setChecked(QSettings().value("compression_options/compression/keep_structure", false).toBool());
     ui->JPEGQuality_Slider->setValue(QSettings().value("compression_options/compression/jpeg_quality", 80).toInt());
     ui->JPEGChromaSubsampling_ComboBox->setCurrentIndex(static_cast<int>(getChromaSubsamplingOptions().keys().indexOf(QSettings().value("compression_options/compression/jpeg_chroma_subsampling", 0).toInt())));
+    ui->JPEGProgressive_CheckBox->setChecked(QSettings().value("compression_options/compression/jpeg_progressive", true).toBool());
     ui->PNGQuality_SpinBox->setValue(QSettings().value("compression_options/compression/png_quality", 80).toInt());
     ui->PNGOptimizationLevel_Slider->setValue(QSettings().value("compression_options/compression/png_optimization_level", 3).toInt());
     ui->JPEGQuality_SpinBox->setValue(QSettings().value("compression_options/compression/jpeg_quality", 80).toInt());
@@ -621,7 +624,6 @@ void MainWindow::startCompression(bool onlyFailed)
         int maxThreads = QSettings().value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt();
         QThreadPool::globalInstance()->setMaxThreadCount(maxThreads);
     }
-    qDebug() << QSettings().value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>();
     QThreadPool::globalInstance()->setThreadPriority(QSettings().value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>());
 
     this->compressionWatcher = new QFutureWatcher<void>();
@@ -691,6 +693,7 @@ CompressionOptions MainWindow::getCompressionOptions(const QString& rootFolder) 
         ui->moveOriginalFile_ComboBox->currentIndex(),
         qBound(ui->JPEGQuality_Slider->value(), 1, 100),
         ui->JPEGChromaSubsampling_ComboBox->currentData(Qt::UserRole).toInt(),
+        ui->JPEGProgressive_CheckBox->isChecked(),
         qBound(ui->PNGQuality_Slider->value(), 0, 100),
         qBound(ui->PNGOptimizationLevel_Slider->value(), 1, 6),
         qBound(ui->WebPQuality_Slider->value(), 1, 100),
@@ -1517,6 +1520,10 @@ void MainWindow::onWebPOptionsVisibilityChanged(bool visible)
 void MainWindow::onTIFFOptionsVisibilityChanged(bool visible)
 {
     QSettings().setValue("mainwindow/compression/tiff_options_visible", visible);
+}
+void MainWindow::onJPEGProgressiveToggled(bool checked)
+{
+    QSettings().setValue("compression_options/compression/jpeg_progressive", checked);
 }
 
 void MainWindow::recompressFailed()

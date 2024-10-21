@@ -116,6 +116,7 @@ typedef struct CompressionOptions {
     int moveOriginalFileDestination;
     int jpegQuality;
     int jpegChromaSubsampling;
+    int jpegProgressive;
     int pngQuality;
     int pngOptimizationLevel;
     int webpQuality;
