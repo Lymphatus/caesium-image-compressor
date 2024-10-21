@@ -237,17 +237,17 @@ All rights reserved.</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="274"/>
+        <location filename="../../src/MainWindow.cpp" line="276"/>
         <source>Import files...</source>
         <translation>Impor berkas...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="290"/>
+        <location filename="../../src/MainWindow.cpp" line="292"/>
         <source>Import folder...</source>
         <translation>Impor folder...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="515"/>
+        <location filename="../../src/MainWindow.cpp" line="517"/>
         <source>Importing files...</source>
         <translation>Mengimport berkas...</translation>
     </message>
@@ -256,8 +256,8 @@ All rights reserved.</translation>
         <location filename="../../build/cmake-build-debug/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1438"/>
         <location filename="../../build/cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1430"/>
         <location filename="../../build/cmake-build-release-portable/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1430"/>
-        <location filename="../../src/MainWindow.cpp" line="515"/>
-        <location filename="../../src/MainWindow.cpp" line="729"/>
+        <location filename="../../src/MainWindow.cpp" line="517"/>
+        <location filename="../../src/MainWindow.cpp" line="727"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
@@ -271,66 +271,66 @@ Do you really want to continue?</source>
 Apakah Anda benar-benar ingin melanjutkannya?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="607"/>
+        <location filename="../../src/MainWindow.cpp" line="605"/>
         <source>No</source>
         <translation>Tidak</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1217"/>
-        <location filename="../../src/MainWindow.cpp" line="1222"/>
+        <location filename="../../src/MainWindow.cpp" line="1214"/>
+        <location filename="../../src/MainWindow.cpp" line="1219"/>
         <source>File not found</source>
         <translation>File tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1253"/>
+        <location filename="../../src/MainWindow.cpp" line="1250"/>
         <source>Finishing...</source>
         <translation>Finishing...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="639"/>
-        <location filename="../../src/MainWindow.cpp" line="1320"/>
+        <location filename="../../src/MainWindow.cpp" line="637"/>
+        <location filename="../../src/MainWindow.cpp" line="1317"/>
         <source>Compressing...</source>
         <translation>Mengompres...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="725"/>
+        <location filename="../../src/MainWindow.cpp" line="723"/>
         <source>Do you really want to quit?</source>
         <translation>Apakah Anda benar-benar ingin keluar?</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="606"/>
-        <location filename="../../src/MainWindow.cpp" line="728"/>
+        <location filename="../../src/MainWindow.cpp" line="604"/>
+        <location filename="../../src/MainWindow.cpp" line="726"/>
         <source>Yes</source>
         <translation>Ya</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="587"/>
+        <location filename="../../src/MainWindow.cpp" line="589"/>
         <source>Please select an output folder first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="590"/>
-        <location filename="../../src/MainWindow.cpp" line="842"/>
+        <location filename="../../src/MainWindow.cpp" line="839"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="750"/>
+        <location filename="../../src/MainWindow.cpp" line="748"/>
         <source>Select output folder...</source>
         <translation>Pilih folder output...</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="816"/>
+        <location filename="../../src/MainWindow.cpp" line="814"/>
         <source>Compression finished!</source>
         <translation>Kompresi selesai!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="831"/>
+        <location filename="../../src/MainWindow.cpp" line="829"/>
         <source>You just saved %1!</source>
         <translation>Kamu telah menghemat %1!</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="835"/>
+        <location filename="../../src/MainWindow.cpp" line="833"/>
         <source>Total files: %1
 Original size: %2
 Compressed size: %3
@@ -341,7 +341,7 @@ Compressed size: %3
 Saved: %4 (%5%)</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1503"/>
+        <location filename="../../src/MainWindow.cpp" line="1500"/>
         <source>Recompress failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -574,12 +574,12 @@ Saved: %4 (%5%)</translation>
         <location filename="../../build/cmake-build-debug/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1415"/>
         <location filename="../../build/cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1407"/>
         <location filename="../../build/cmake-build-release-portable/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1407"/>
-        <location filename="../../src/MainWindow.cpp" line="876"/>
-        <location filename="../../src/MainWindow.cpp" line="880"/>
+        <location filename="../../src/MainWindow.cpp" line="873"/>
+        <location filename="../../src/MainWindow.cpp" line="877"/>
+        <location filename="../../src/MainWindow.cpp" line="912"/>
         <location filename="../../src/MainWindow.cpp" line="915"/>
-        <location filename="../../src/MainWindow.cpp" line="918"/>
+        <location filename="../../src/MainWindow.cpp" line="924"/>
         <location filename="../../src/MainWindow.cpp" line="927"/>
-        <location filename="../../src/MainWindow.cpp" line="930"/>
         <source>px</source>
         <translation>px</translation>
     </message>
@@ -740,7 +740,7 @@ Saved: %4 (%5%)</translation>
         <location filename="../../build/cmake-build-debug/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1365"/>
         <location filename="../../build/cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1358"/>
         <location filename="../../build/cmake-build-release-portable/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1358"/>
-        <location filename="../../src/MainWindow.cpp" line="1238"/>
+        <location filename="../../src/MainWindow.cpp" line="1235"/>
         <source>Preview</source>
         <translation>Preview</translation>
     </message>
@@ -943,7 +943,7 @@ Saved: %4 (%5%)</translation>
         <location filename="../../build/cmake-build-debug/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1341"/>
         <location filename="../../build/cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1334"/>
         <location filename="../../build/cmake-build-release-portable/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1334"/>
-        <location filename="../../src/MainWindow.cpp" line="215"/>
+        <location filename="../../src/MainWindow.cpp" line="217"/>
         <source>Exit</source>
         <translation>Keluar</translation>
     </message>
@@ -1081,13 +1081,13 @@ Saved: %4 (%5%)</translation>
         <location filename="../../build/cmake-build-debug/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1401"/>
         <location filename="../../build/cmake-build-release/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1393"/>
         <location filename="../../build/cmake-build-release-portable/caesium_image_compressor_autogen/include/ui_MainWindow.h" line="1393"/>
-        <location filename="../../src/MainWindow.cpp" line="890"/>
-        <location filename="../../src/MainWindow.cpp" line="894"/>
+        <location filename="../../src/MainWindow.cpp" line="887"/>
+        <location filename="../../src/MainWindow.cpp" line="891"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../../src/MainWindow.cpp" line="1055"/>
+        <location filename="../../src/MainWindow.cpp" line="1052"/>
         <source>images in list</source>
         <translation>gambar dalam daftar</translation>
     </message>
@@ -1363,7 +1363,7 @@ Saved: %4 (%5%)</translation>
         <translation type="vanished">Usage data</translation>
     </message>
     <message>
-        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="24"/>
+        <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>Tampilkan data penggunaan</translation>
     </message>
@@ -1384,7 +1384,7 @@ Saved: %4 (%5%)</translation>
     <name>QIODevice</name>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="131"/>
-        <location filename="../../src/MainWindow.cpp" line="276"/>
+        <location filename="../../src/MainWindow.cpp" line="278"/>
         <source>Image Files</source>
         <translation>Berkas gambar</translation>
     </message>
@@ -1444,32 +1444,32 @@ Saved: %4 (%5%)</translation>
         <translation>File tidak ditemukan</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="123"/>
+        <location filename="../../src/utils/Utils.cpp" line="121"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="202"/>
+        <location filename="../../src/utils/Utils.cpp" line="200"/>
         <source>Same as input</source>
         <translation>Sama denngan input</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="203"/>
+        <location filename="../../src/utils/Utils.cpp" line="201"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="204"/>
+        <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="205"/>
+        <location filename="../../src/utils/Utils.cpp" line="203"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="206"/>
+        <location filename="../../src/utils/Utils.cpp" line="204"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1498,7 +1498,7 @@ Saved: %4 (%5%)</translation>
         <translation type="obsolete">%</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="235"/>
+        <location filename="../../src/utils/Utils.cpp" line="233"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>

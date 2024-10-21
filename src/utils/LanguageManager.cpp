@@ -56,10 +56,10 @@ int LanguageManager::findSortedIndex(const QString& languageId)
 
 QString LanguageManager::getLocaleFromPreferences(const QVariant& preference)
 {
-    if (preference.type() == QVariant::Int || preference.type() == QVariant::LongLong) {
+    if (preference.typeId() == QVariant::Int || preference.typeId() == QVariant::LongLong) {
         int localeIndex = preference.toInt();
         return LanguageManager::getTranslations().at(localeIndex).locale;
-    } else if (preference.type() == QVariant::String) {
+    } else if (preference.typeId() == QVariant::String) {
         return preference.toString();
     } else {
         return "default";

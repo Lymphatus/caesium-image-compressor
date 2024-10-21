@@ -30,7 +30,7 @@ void loadTheme(QApplication& a)
 
 #ifdef Q_OS_WIN
     if (themeIndex == 0) {
-        a.setStyleSheet("QSplitter::handle:horizontal{image:url(:/icons/ui/v_handle.png);}QSplitter::handle:vertical{image:url(:/icons/ui/h_handle.png);}");
+        a.setStyleSheet("QSplitter::handle:horizontal{image:url(:/icons/ui/v_handle.png);}QSplitter::handle:vertical{image:url(:/icons/ui/h_handle.png);}QStatusBar::item{border: none;}");
     }
 #endif
 

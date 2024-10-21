@@ -118,9 +118,7 @@ void showFileInNativeFileManager(const QString& filePath, const QString& fallbac
     if (!QFileInfo::exists(filePath)) {
         QCaesiumMessageBox msgBox;
         msgBox.setText(QIODevice::tr("File not found"));
-        msgBox.setStandardButtons(QMessageBox::Ok);
-        msgBox.setDefaultButton(QMessageBox::Ok);
-        msgBox.setButtonText(QMessageBox::Ok, QIODevice::tr("Ok"));
+        msgBox.addButton(QIODevice::tr("Ok"), QMessageBox::AcceptRole);
         msgBox.exec();
         return;
     }

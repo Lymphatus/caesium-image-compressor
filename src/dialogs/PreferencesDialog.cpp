@@ -9,7 +9,6 @@
 #include <QProcess>
 #include <QSettings>
 
-
 PreferencesDialog::PreferencesDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PreferencesDialog)
@@ -149,11 +148,11 @@ int PreferencesDialog::getLocaleIndex()
 {
     auto localeConf = QSettings().value("preferences/language/locale", "default");
     int localeIndex = 0;
-    if (localeConf.type() == QVariant::Int || localeConf.type() == QVariant::LongLong) {
+    if (localeConf.typeId() == QVariant::Int || localeConf.typeId() == QVariant::LongLong) {
         localeIndex = localeConf.toInt();
         QString locale = LanguageManager::getTranslations().at(localeIndex).locale;
         localeIndex = LanguageManager::findSortedIndex(locale);
-    } else if (localeConf.type() == QVariant::String) {
+    } else if (localeConf.typeId() == QVariant::String) {
         localeIndex = LanguageManager::findSortedIndex(localeConf.toString());
     }
 

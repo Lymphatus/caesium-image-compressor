@@ -55,6 +55,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->proxyModel = new CImageSortFilterProxyModel();
     this->trayIcon = new QSystemTrayIcon();
 
+    ui->sidebar_HSplitter->setCollapsible(1, true);
+
     this->initListWidget();
 
     ui->edge_Label->hide();
@@ -585,9 +587,7 @@ void MainWindow::startCompression(bool onlyFailed)
     if (ui->outputFolder_LineEdit->text().isEmpty() && !ui->sameOutputFolderAsInput_CheckBox->isChecked()) {
         QCaesiumMessageBox msgBox;
         msgBox.setText(tr("Please select an output folder first"));
-        msgBox.setStandardButtons(QMessageBox::Ok);
-        msgBox.setDefaultButton(QMessageBox::Ok);
-        msgBox.setButtonText(QMessageBox::Ok, tr("Ok"));
+        msgBox.addButton(tr("Ok"), QMessageBox::AcceptRole);
         msgBox.exec();
         return;
     }
@@ -601,10 +601,8 @@ void MainWindow::startCompression(bool onlyFailed)
     if (overwriteWarningFlag && !skipDialogs) {
         QCaesiumMessageBox sameFolderPrompt;
         sameFolderPrompt.setText(tr("You are about to overwrite your original images and this action can't be undone.\n\nDo you really want to continue?"));
-        sameFolderPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-
-        sameFolderPrompt.setButtonText(QMessageBox::Yes, tr("Yes"));
-        sameFolderPrompt.setButtonText(QMessageBox::No, tr("No"));
+        sameFolderPrompt.addButton(tr("Yes"), QMessageBox::YesRole);
+        sameFolderPrompt.addButton(tr("No"), QMessageBox::NoRole);
 
         int answer = sameFolderPrompt.exec();
 
@@ -725,8 +723,8 @@ void MainWindow::closeEvent(QCloseEvent* event)
         exitPrompt.setText(tr("Do you really want to quit?"));
         exitPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 
-        exitPrompt.setButtonText(QMessageBox::Yes, tr("Yes"));
-        exitPrompt.setButtonText(QMessageBox::No, tr("Cancel"));
+        exitPrompt.addButton(tr("Yes"), QMessageBox::YesRole);
+        exitPrompt.addButton(tr("Cancel"), QMessageBox::RejectRole);
 
         int answer = exitPrompt.exec();
 
@@ -838,8 +836,7 @@ void MainWindow::compressionFinished()
                                                             toHumanSize(compressionSummary.totalCompressedSize),
                                                             saved,
                                                             savedPerc));
-        compressionSummaryDialog.setStandardButtons(QMessageBox::Ok);
-        compressionSummaryDialog.setButtonText(QMessageBox::Ok, tr("Ok"));
+        compressionSummaryDialog.addButton(tr("Ok"), QMessageBox::AcceptRole);
         compressionSummaryDialog.exec();
     }
 }
