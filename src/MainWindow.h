@@ -103,6 +103,7 @@ private slots:
     static void onPNGOptionsVisibilityChanged(bool visible);
     static void onWebPOptionsVisibilityChanged(bool visible);
     static void onTIFFOptionsVisibilityChanged(bool visible);
+    static void onJPEGProgressiveToggled(bool checked);
     void recompressFailed();
 
 private:

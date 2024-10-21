@@ -2,7 +2,7 @@
 <project version="4">
   <component name="BackendCodeEditorMiscSettings">
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="75" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="70" type="long" />
   </component>
   <component name="Black">
     <option name="sdkName" value="Python 3.10 (caesium-image-compressor)" />
@@ -13,6 +13,7 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
     <excludeRoots>
+      <file path="$PROJECT_DIR$/build" />
       <file path="$PROJECT_DIR$/package" />
       <file path="$PROJECT_DIR$/src/updater" />
       <file path="$PROJECT_DIR$/src/updater/win" />

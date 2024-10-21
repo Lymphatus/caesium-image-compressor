@@ -10,6 +10,7 @@ typedef struct CCSParameters {
     bool keep_metadata;
     unsigned int jpeg_quality;
     unsigned int jpeg_chroma_subsampling;
+    unsigned int jpeg_progressive;
     unsigned int png_quality;
     unsigned int png_optimization_level;
     bool png_force_zopfli;

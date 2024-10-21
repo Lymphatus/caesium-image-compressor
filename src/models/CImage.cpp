@@ -294,6 +294,7 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
     r_parameters.keep_metadata = compressionOptions.keepMetadata;
     r_parameters.jpeg_quality = static_cast<unsigned int>(compressionOptions.jpegQuality);
     r_parameters.jpeg_chroma_subsampling = compressionOptions.jpegChromaSubsampling;
+    r_parameters.jpeg_progressive = compressionOptions.jpegProgressive;
     r_parameters.png_quality = static_cast<unsigned int>(compressionOptions.pngQuality);
     r_parameters.png_optimization_level = static_cast<unsigned int>(compressionOptions.pngOptimizationLevel);
     r_parameters.png_force_zopfli = false;

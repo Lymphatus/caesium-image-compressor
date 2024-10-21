@@ -309,7 +309,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                   <x>0</x>
                   <y>0</y>
                   <width>611</width>
-                  <height>569</height>
+                  <height>558</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -376,27 +376,6 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                             </property>
                            </widget>
                           </item>
-                          <item row="2" column="0" colspan="2">
-                           <layout class="QHBoxLayout" name="horizontalLayout">
-                            <item>
-                             <widget class="QLabel" name="JPEGChromaSubsampling_Label">
-                              <property name="text">
-                               <string>Chroma subsampling</string>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QComboBox" name="JPEGChromaSubsampling_ComboBox">
-                              <property name="sizePolicy">
-                               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                               </sizepolicy>
-                              </property>
-                             </widget>
-                            </item>
-                           </layout>
-                          </item>
                           <item row="0" column="1">
                            <widget class="QSpinBox" name="JPEGQuality_SpinBox">
                             <property name="sizePolicy">
@@ -441,6 +420,37 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                             </property>
                             <property name="tickInterval">
                              <number>10</number>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0" colspan="2">
+                           <layout class="QHBoxLayout" name="horizontalLayout">
+                            <item>
+                             <widget class="QLabel" name="JPEGChromaSubsampling_Label">
+                              <property name="text">
+                               <string>Chroma subsampling</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QComboBox" name="JPEGChromaSubsampling_ComboBox">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                          <item row="3" column="0">
+                           <widget class="QCheckBox" name="JPEGProgressive_CheckBox">
+                            <property name="text">
+                             <string>Progressive</string>
+                            </property>
+                            <property name="checked">
+                             <bool>true</bool>
                             </property>
                            </widget>
                           </item>
