@@ -301,7 +301,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1500"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricomprimi errori</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -426,7 +426,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="450"/>
         <source>Progressive</source>
-        <translation type="unfinished"></translation>
+        <translation>Progressiva</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="901"/>
