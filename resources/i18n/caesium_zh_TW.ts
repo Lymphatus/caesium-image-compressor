@@ -590,7 +590,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="450"/>
         <source>Progressive</source>
-        <translation type="unfinished"></translation>
+        <translation>累進</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1786"/>
