@@ -20,7 +20,7 @@ Try it directly on browser at [caesium.app](https://caesium.app)
 ### What is it for
 
 Caesium is an image compression software that helps you store, send and share digital pictures, supporting JPG, PNG and
-WebP formats.  
+WebP formats.
 You can quickly reduce the file size (and resolution, if you want) by preserving the overall quality of the image.
 
 ### Supported Platforms
@@ -105,7 +105,7 @@ cmake --build build_dir --config Release --target caesium_image_compressor
 ### Languages and translations
 
 The 1.0 version of Caesium had a lot of community made translations, but this 2.0 release has a whole new set of strings
-and no old translations can be used anymore.   
+and no old translations can be used anymore.
 Caesium 2.0 is currently available in:
 
 | Language                                                                           | Progress |
@@ -121,19 +121,19 @@ Caesium 2.0 is currently available in:
 | <img src="https://flagcdn.com/48x36/in.png" width="24" height="18" alt="IN"> hi_IN | 73%      |
 | <img src="https://flagcdn.com/48x36/id.png" width="24" height="18" alt="ID"> id_ID | 70%      |
 | <img src="https://flagcdn.com/48x36/it.png" width="24" height="18" alt="IT"> it_IT | 100%     |
-| <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ja_JP | 96%      |
+| <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ja_JP | 100%     |
 | <img src="https://flagcdn.com/48x36/pl.png" width="24" height="18" alt="PL"> pl_PL | 70%      |
 | <img src="https://flagcdn.com/48x36/br.png" width="24" height="18" alt="BR"> pt_BR | 97%      |
 | <img src="https://flagcdn.com/48x36/ru.png" width="24" height="18" alt="RU"> ru_RU | 99%      |
 | <img src="https://flagcdn.com/48x36/sk.png" width="24" height="18" alt="SK"> sk_SK | 69%      |
 | <img src="https://flagcdn.com/48x36/tr.png" width="24" height="18" alt="TR"> tr_TR | 99%      |
-| <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> zh_CN | 99%      |
-| <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> zh_TW | 99%      |
+| <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> zh_CN | 100%     |
+| <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> zh_TW | 100%     |
 
 #### How to contribute with your translation
 
 You can help translate by opening the `resources/i18n/caesium_en_US.ts` with QtLinguist or any XML editor. Rename it to
 your language (e.g. `caesium_it_IT.ts`) and translate all the sentences. Then you can start a pull request with your
-translated file.  
+translated file.
 See [this pull request](https://github.com/Lymphatus/caesium-image-compressor/pull/106) as an example.
 Thanks to all the people who contributed.
