@@ -740,7 +740,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2071"/>
         <source>Advanced import...</source>
-        <translation>高级导入</translation>
+        <translation>高级导入...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="994"/>
@@ -765,17 +765,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="153"/>
         <source>Auto</source>
-        <translation type="unfinished">自动</translation>
+        <translation>自动</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="158"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>浅色</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="163"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>深色</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>

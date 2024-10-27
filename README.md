@@ -121,14 +121,14 @@ Caesium 2.0 is currently available in:
 | <img src="https://flagcdn.com/48x36/in.png" width="24" height="18" alt="IN"> hi_IN | 72%      |
 | <img src="https://flagcdn.com/48x36/id.png" width="24" height="18" alt="ID"> id_ID | 69%      |
 | <img src="https://flagcdn.com/48x36/it.png" width="24" height="18" alt="IT"> it_IT | 100%     |
-| <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ja_JP | 95%      |
+| <img src="https://flagcdn.com/48x36/jp.png" width="24" height="18" alt="JP"> ja_JP | 97%      |
 | <img src="https://flagcdn.com/48x36/pl.png" width="24" height="18" alt="PL"> pl_PL | 69%      |
 | <img src="https://flagcdn.com/48x36/br.png" width="24" height="18" alt="BR"> pt_BR | 95%      |
 | <img src="https://flagcdn.com/48x36/ru.png" width="24" height="18" alt="RU"> ru_RU | 97%      |
 | <img src="https://flagcdn.com/48x36/sk.png" width="24" height="18" alt="SK"> sk_SK | 68%      |
 | <img src="https://flagcdn.com/48x36/tr.png" width="24" height="18" alt="TR"> tr_TR | 97%      |
-| <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> zh_CN | 98%      |
-| <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> zh_TW | 98%      |
+| <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> zh_CN | 100%     |
+| <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> zh_TW | 100%     |
 
 #### How to contribute with your translation
 
