@@ -756,52 +756,67 @@ Saved: %4 (%5%)</source>
         <translation>選項</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="301"/>
+        <location filename="../../views/PreferencesDialog.ui" line="153"/>
+        <source>Auto</source>
+        <translation type="unfinished">自動</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="163"/>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source> threads</source>
         <translation> 線程</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="344"/>
+        <location filename="../../views/PreferencesDialog.ui" line="363"/>
         <source>No action</source>
         <translation>無動作</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="368"/>
         <source>Close the application</source>
         <translation>關閉應用程序</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>Sleep</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="359"/>
+        <location filename="../../views/PreferencesDialog.ui" line="378"/>
         <source>Shutdown</source>
         <translation>關机</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="364"/>
+        <location filename="../../views/PreferencesDialog.ui" line="383"/>
         <source>Open output folder</source>
         <translation>打開輸出文件夾</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="215"/>
+        <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>Perform an action after successful compression</source>
         <translation>圖像壓縮成功后執行操作</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="331"/>
+        <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source>Threads priority</source>
         <translation>線程優先級</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="490"/>
+        <location filename="../../views/PreferencesDialog.ui" line="509"/>
         <source>Restart</source>
         <translation>重啟</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="516"/>
+        <location filename="../../views/PreferencesDialog.ui" line="535"/>
         <source>Close</source>
         <translation>關閉</translation>
     </message>
@@ -811,37 +826,37 @@ Saved: %4 (%5%)</source>
         <translation>一般設定</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="136"/>
+        <location filename="../../views/PreferencesDialog.ui" line="133"/>
         <source>Prompt before exit</source>
         <translation>退出前確認</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="78"/>
+        <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>啟動時檢查更新</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="148"/>
+        <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>壓縮過程中跳過消息警告</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="186"/>
+        <location filename="../../views/PreferencesDialog.ui" line="205"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>打開檔案夾時導入子目錄中的檔案</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="102"/>
+        <location filename="../../views/PreferencesDialog.ui" line="84"/>
         <source>Send anonymous usage reports</source>
         <translation>發送匿名統計訊息</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="63"/>
+        <location filename="../../views/PreferencesDialog.ui" line="145"/>
         <source>Theme (experimental)</source>
         <translation>主題（實驗）</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="172"/>
+        <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>導入</translation>
     </message>
@@ -874,37 +889,37 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">MB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="201"/>
+        <location filename="../../views/PreferencesDialog.ui" line="220"/>
         <source>Advanced</source>
         <translation>進階</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="289"/>
+        <location filename="../../views/PreferencesDialog.ui" line="308"/>
         <source>When importing files directly</source>
         <translation>導入文件後</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="290"/>
         <source>Import only</source>
         <translation>僅導入</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="295"/>
         <source>Import and compress</source>
         <translation>導入並壓縮</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="236"/>
+        <location filename="../../views/PreferencesDialog.ui" line="255"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>該選項對使用命令行和拖動文件到應用圖標上有效</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="316"/>
+        <location filename="../../views/PreferencesDialog.ui" line="335"/>
         <source>Multithreading</source>
         <translation>多線程</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="477"/>
+        <location filename="../../views/PreferencesDialog.ui" line="496"/>
         <source>Changes will apply after restart</source>
         <translation>設定將在重啟後生效</translation>
     </message>
@@ -913,7 +928,7 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">語言設定</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="90"/>
+        <location filename="../../views/PreferencesDialog.ui" line="72"/>
         <source>Preferred language</source>
         <translation>預設語言</translation>
     </message>

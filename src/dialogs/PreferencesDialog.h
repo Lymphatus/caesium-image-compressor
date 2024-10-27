@@ -17,6 +17,7 @@ public:
 private slots:
     void onLanguageChanged(int index) const;
     void onThemeChanged(int index) const;
+    void onThemeVariantChanged(int index) const;
     static int getLocaleIndex();
     static void onArgsBehaviourChanged(int index);
     static void onPromptExitToggled(bool checked);

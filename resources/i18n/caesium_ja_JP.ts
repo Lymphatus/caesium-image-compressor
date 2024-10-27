@@ -763,17 +763,17 @@ Saved: %4 (%5%)</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="331"/>
+        <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source>Threads priority</source>
         <translation>スレッドの優先度</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="490"/>
+        <location filename="../../views/PreferencesDialog.ui" line="509"/>
         <source>Restart</source>
         <translation>再起動</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="516"/>
+        <location filename="../../views/PreferencesDialog.ui" line="535"/>
         <source>Close</source>
         <translation>閉じる</translation>
     </message>
@@ -783,7 +783,7 @@ Saved: %4 (%5%)</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="136"/>
+        <location filename="../../views/PreferencesDialog.ui" line="133"/>
         <source>Prompt before exit</source>
         <translation>終了前に確認する</translation>
     </message>
@@ -808,52 +808,52 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">バイト</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="301"/>
+        <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source> threads</source>
         <translation> スレッド</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="344"/>
+        <location filename="../../views/PreferencesDialog.ui" line="363"/>
         <source>No action</source>
         <translation>何もしない</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="349"/>
+        <location filename="../../views/PreferencesDialog.ui" line="368"/>
         <source>Close the application</source>
         <translation>アプリを閉じる</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="354"/>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>Sleep</source>
         <translation>スリープ</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="359"/>
+        <location filename="../../views/PreferencesDialog.ui" line="378"/>
         <source>Shutdown</source>
         <translation>シャットダウン</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="364"/>
+        <location filename="../../views/PreferencesDialog.ui" line="383"/>
         <source>Open output folder</source>
         <translation>出力先のフォルダーを開く</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="215"/>
+        <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>Perform an action after successful compression</source>
         <translation>圧縮成功後に実行する動作</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="477"/>
+        <location filename="../../views/PreferencesDialog.ui" line="496"/>
         <source>Changes will apply after restart</source>
         <translation>再起動後に変更が適用されます</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="63"/>
+        <location filename="../../views/PreferencesDialog.ui" line="145"/>
         <source>Theme (experimental)</source>
         <translation>テーマ (試験段階)</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="236"/>
+        <location filename="../../views/PreferencesDialog.ui" line="255"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>これはアプリのアイコンにファイルをドロップしたりコマンドラインでの使用時に適用されます</translation>
     </message>
@@ -862,27 +862,27 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">ネイティブ</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="78"/>
+        <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>起動時にアップデートを確認する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="186"/>
+        <location filename="../../views/PreferencesDialog.ui" line="205"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>ディレクトリを開くときにサブフォルダー内のファイルもインポートする</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="102"/>
+        <location filename="../../views/PreferencesDialog.ui" line="84"/>
         <source>Send anonymous usage reports</source>
         <translation>匿名の使用状況レポートを送信する</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="201"/>
+        <location filename="../../views/PreferencesDialog.ui" line="220"/>
         <source>Advanced</source>
         <translation>高度</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="316"/>
+        <location filename="../../views/PreferencesDialog.ui" line="335"/>
         <source>Multithreading</source>
         <translation>マルチスレッド処理を使用する</translation>
     </message>
@@ -891,32 +891,47 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">言語</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="148"/>
+        <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>圧縮中のメッセージと警告ダイアログをスキップする</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="172"/>
+        <location filename="../../views/PreferencesDialog.ui" line="153"/>
+        <source>Auto</source>
+        <translation type="unfinished">自動</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="163"/>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>インポート</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="271"/>
+        <location filename="../../views/PreferencesDialog.ui" line="290"/>
         <source>Import only</source>
         <translation>インポートのみ</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="276"/>
+        <location filename="../../views/PreferencesDialog.ui" line="295"/>
         <source>Import and compress</source>
         <translation>インポートと圧縮</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="289"/>
+        <location filename="../../views/PreferencesDialog.ui" line="308"/>
         <source>When importing files directly</source>
         <translation>ファイルを直接インポートしたときの動作</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="90"/>
+        <location filename="../../views/PreferencesDialog.ui" line="72"/>
         <source>Preferred language</source>
         <translation>使用言語</translation>
     </message>

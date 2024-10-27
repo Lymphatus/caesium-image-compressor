@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Caesium Image Compressor"
-#define MyAppVersion "2.8.0"
+#define MyAppVersion "2.8.1"
 #define MyAppPublisher "SaeraSoft"
 #define MyAppURL "https://saerasoft.com/caesium"
 #define MyAppExeName "Caesium Image Compressor.exe"

@@ -38,6 +38,7 @@ void PreferencesDialog::setupConnections()
 {
     connect(ui->language_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onLanguageChanged);
     connect(ui->theme_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onThemeChanged);
+    connect(ui->themeVariant_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onThemeVariantChanged);
     connect(ui->argsBehaviour_ComboBox, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onArgsBehaviourChanged);
     connect(ui->promptExit_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onPromptExitToggled);
     connect(ui->checkUpdatesAtStartup_CheckBox, &QCheckBox::toggled, this, &PreferencesDialog::onCheckUpdatesAtStartupToggled);
@@ -77,6 +78,7 @@ void PreferencesDialog::loadPreferences() const
     ui->multithreadingMaxThreads_SpinBox->setValue(settings.value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt());
     ui->skipCompressionDialogs_CheckBox->setChecked(settings.value("preferences/general/skip_compression_dialogs", false).toBool());
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
+    ui->themeVariant_ComboBox->setCurrentIndex(settings.value("preferences/general/theme_variant", 0).toInt());
     ui->argsBehaviour_ComboBox->setCurrentIndex(settings.value("preferences/general/args_behaviour", 0).toInt());
     ui->postCompressionAction_ComboBox->setCurrentIndex(settings.value("preferences/general/post_compression_action", 0).toInt());
     ui->threadsPriority_Slider->setValue(settings.value("preferences/general/threads_priority", QThread::NormalPriority).toInt());
@@ -128,6 +130,14 @@ void PreferencesDialog::onThemeChanged(int index) const
     ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
     ui->restart_Button->setVisible(true);
     QSettings().setValue("preferences/general/theme", themeIndex);
+}
+
+void PreferencesDialog::onThemeVariantChanged(int index) const
+{
+    ui->changesAfterRestartTheme_Label->setVisible(true);
+    ui->changesAfterRestartTheme_LabelIcon->setVisible(true);
+    ui->restart_Button->setVisible(true);
+    QSettings().setValue("preferences/general/theme_variant", index);
 }
 
 void PreferencesDialog::onArgsBehaviourChanged(int index)
