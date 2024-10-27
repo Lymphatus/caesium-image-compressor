@@ -56,6 +56,11 @@ int main(int argc, char* argv[])
 #ifdef NDEBUG
     qInstallMessageHandler(Logger::messageHandler);
 #endif
+
+#ifdef Q_OS_WIN
+    qputenv("QT_QPA_PLATFORM", "windows:fontengine=gdi");
+#endif
+
     QApplication a(argc, argv);
 
     QCommandLineParser parser;
