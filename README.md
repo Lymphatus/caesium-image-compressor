@@ -4,7 +4,7 @@
 
 Try it directly on browser at [caesium.app](https://caesium.app)
 
-###### v2.8.1
+###### v2.8.2
 
 ![caesium_screenshot_280](https://github.com/user-attachments/assets/e5a6510a-58c5-4349-8563-f4e3ee84d5a0)
 
