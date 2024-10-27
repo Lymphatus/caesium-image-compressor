@@ -602,11 +602,11 @@ void MainWindow::startCompression(bool onlyFailed)
         QCaesiumMessageBox sameFolderPrompt;
         sameFolderPrompt.setText(tr("You are about to overwrite your original images and this action can't be undone.\n\nDo you really want to continue?"));
         sameFolderPrompt.addButton(tr("Yes"), QMessageBox::YesRole);
-        sameFolderPrompt.addButton(tr("No"), QMessageBox::NoRole);
+        auto noButton = sameFolderPrompt.addButton(tr("No"), QMessageBox::NoRole);
 
-        int answer = sameFolderPrompt.exec();
+        sameFolderPrompt.exec();
 
-        if (answer == QMessageBox::No) {
+        if (sameFolderPrompt.clickedButton() == noButton) {
             return;
         }
     }
@@ -721,14 +721,13 @@ void MainWindow::closeEvent(QCloseEvent* event)
     if (QSettings().value("preferences/general/prompt_before_exit", false).toBool()) {
         QCaesiumMessageBox exitPrompt;
         exitPrompt.setText(tr("Do you really want to quit?"));
-        exitPrompt.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
 
         exitPrompt.addButton(tr("Yes"), QMessageBox::YesRole);
-        exitPrompt.addButton(tr("Cancel"), QMessageBox::RejectRole);
+        auto rejectButton = exitPrompt.addButton(tr("Cancel"), QMessageBox::RejectRole);
 
-        int answer = exitPrompt.exec();
+        exitPrompt.exec();
 
-        if (answer == QMessageBox::No) {
+        if (exitPrompt.clickedButton() == rejectButton) {
             event->ignore();
             return;
         }
