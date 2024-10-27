@@ -41,7 +41,7 @@ jobs:
           target: 'desktop'
           arch: 'win64_mingw'
           modules: 'qtimageformats'
-          tools: 'tools_mingw90'
+          tools: 'tools_mingw1310'
           cache: true
 
       - name: Install Rust target
