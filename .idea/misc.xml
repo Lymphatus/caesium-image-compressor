@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="70" type="long" />
-  </component>
   <component name="Black">
     <option name="sdkName" value="Python 3.10 (caesium-image-compressor)" />
   </component>

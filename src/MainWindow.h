@@ -105,6 +105,7 @@ private slots:
     static void onTIFFOptionsVisibilityChanged(bool visible);
     static void onJPEGProgressiveToggled(bool checked);
     void recompressFailed();
+    void installCompressionOptionsEventFilter() const;
 
 private:
     Ui::MainWindow* ui;

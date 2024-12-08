@@ -309,7 +309,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: 1; }</string>
                   <x>0</x>
                   <y>0</y>
                   <width>611</width>
-                  <height>558</height>
+                  <height>599</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">

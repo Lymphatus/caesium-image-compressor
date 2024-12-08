@@ -1,28 +1,26 @@
 <RCC>
-  <qresource prefix="/">
-    <file>icons/ui/chevron_down.svg</file>
-    <file>icons/ui/chevron_up.svg</file>
-    <file>icons/logo.png</file>
-    <file>icons/logo_mono.png</file>
-    <file>icons/compression_statuses/compressed.svg</file>
-    <file>icons/compression_statuses/uncompressed.svg</file>
-    <file>icons/compression_statuses/compressing.svg</file>
-    <file>icons/compression_statuses/error.svg</file>
-    <file>icons/ui/language.svg</file>
-    <file>icons/ui/settings.svg</file>
-    <file>ssl/win_dsa_pub.pem</file>
-    <file>icons/compression_statuses/warning.svg</file>
-    <file>icons/ui/add_files.svg</file>
-    <file>icons/ui/add_folder.svg</file>
-    <file>icons/ui/donate.svg</file>
-    <file>icons/ui/preferences.svg</file>
-    <file>icons/ui/remove.svg</file>
-    <file>icons/ui/trash.svg</file>
-    <file>icons/ui/compress.svg</file>
-    <file>icons/ui/preview.svg</file>
-    <file>icons/ui/help.svg</file>
-    <file>icons/ui/loader.webp</file>
-    <file>icons/ui/v_handle.png</file>
-    <file>icons/ui/h_handle.png</file>
-  </qresource>
+    <qresource prefix="/">
+        <file>icons/logo.png</file>
+        <file>icons/logo_mono.png</file>
+        <file>icons/compression_statuses/compressed.svg</file>
+        <file>icons/compression_statuses/uncompressed.svg</file>
+        <file>icons/compression_statuses/compressing.svg</file>
+        <file>icons/compression_statuses/error.svg</file>
+        <file>icons/ui/language.svg</file>
+        <file>icons/ui/settings.svg</file>
+        <file>ssl/win_dsa_pub.pem</file>
+        <file>icons/compression_statuses/warning.svg</file>
+        <file>icons/ui/add_files.svg</file>
+        <file>icons/ui/add_folder.svg</file>
+        <file>icons/ui/donate.svg</file>
+        <file>icons/ui/preferences.svg</file>
+        <file>icons/ui/remove.svg</file>
+        <file>icons/ui/trash.svg</file>
+        <file>icons/ui/compress.svg</file>
+        <file>icons/ui/preview.svg</file>
+        <file>icons/ui/help.svg</file>
+        <file>icons/ui/loader.webp</file>
+        <file>icons/ui/v_handle.png</file>
+        <file>icons/ui/h_handle.png</file>
+    </qresource>
 </RCC>

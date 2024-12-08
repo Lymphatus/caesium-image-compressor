@@ -37,7 +37,7 @@ void loadTheme(QApplication& a)
 
 #ifdef Q_OS_WIN
     if (themeIndex == 0) {
-        a.setStyleSheet("QSplitter::handle:horizontal{image:url(:/icons/ui/v_handle.png);}QSplitter::handle:vertical{image:url(:/icons/ui/h_handle.png);}QStatusBar::item{border: none;}QHeaderView::up-arrow{image: url(:/icons/ui/chevron_up.svg);width: 16px;height:16px;}QHeaderView::down-arrow{image: url(:/icons/ui/chevron_down.svg);width: 16px;height:16px;}");
+        a.setStyleSheet("QSplitter::handle:horizontal{image:url(:/icons/ui/v_handle.png);}QSplitter::handle:vertical{image:url(:/icons/ui/h_handle.png);}QStatusBar::item{border: none;}");
     }
 #endif
 
@@ -51,14 +51,10 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.8.2");
+    QCoreApplication::setApplicationVersion("2.8.3");
 
 #ifdef NDEBUG
     qInstallMessageHandler(Logger::messageHandler);
-#endif
-
-#ifdef Q_OS_WIN
-    qputenv("QT_QPA_PLATFORM", "windows:fontengine=gdi");
 #endif
 
     QApplication a(argc, argv);

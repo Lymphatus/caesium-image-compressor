@@ -2,6 +2,7 @@
 #include "delegates/HtmlDelegate.h"
 #include "exceptions/ImageNotSupportedException.h"
 #include "exceptions/ImageTooBigException.h"
+#include "filters/QSliderScrollFilter.h"
 #include "ui_MainWindow.h"
 #include "utils/LanguageManager.h"
 #include "utils/Logger.h"
@@ -81,6 +82,8 @@ MainWindow::MainWindow(QWidget* parent)
     ui->PNGToggle_ToolButton->setContent(ui->PNGOptions_Frame);
     ui->WebPToggle_ToolButton->setContent(ui->WebPOptions_Frame);
     ui->TIFFToggle_ToolButton->setContent(ui->TIFFOptions_Frame);
+
+    this->installCompressionOptionsEventFilter();
 
     connect(ui->JPEGToggle_ToolButton, &QCollapseToolButton::contentVisibilityToggled, this, &MainWindow::onJPEGOptionsVisibilityChanged);
     connect(ui->PNGToggle_ToolButton, &QCollapseToolButton::contentVisibilityToggled, this, &MainWindow::onPNGOptionsVisibilityChanged);
@@ -830,11 +833,11 @@ void MainWindow::compressionFinished()
         QCaesiumMessageBox compressionSummaryDialog;
         compressionSummaryDialog.setText(title);
         compressionSummaryDialog.setInformativeText(tr("Total files: %1\nOriginal size: %2\nCompressed size: %3\nSaved: %4 (%5%)")
-                                                        .arg(QString::number(compressionSummary.totalImages),
-                                                            toHumanSize(compressionSummary.totalUncompressedSize),
-                                                            toHumanSize(compressionSummary.totalCompressedSize),
-                                                            saved,
-                                                            savedPerc));
+                .arg(QString::number(compressionSummary.totalImages),
+                    toHumanSize(compressionSummary.totalUncompressedSize),
+                    toHumanSize(compressionSummary.totalCompressedSize),
+                    saved,
+                    savedPerc));
         compressionSummaryDialog.addButton(tr("Ok"), QMessageBox::AcceptRole);
         compressionSummaryDialog.exec();
     }
@@ -1525,4 +1528,23 @@ void MainWindow::onJPEGProgressiveToggled(bool checked)
 void MainWindow::recompressFailed()
 {
     this->startCompression(true);
+}
+
+void MainWindow::installCompressionOptionsEventFilter() const
+{
+    // TODO This is not super optimal, we should not disable scrolling on the widgets when we are not scrolling the ScrollArea
+    ui->JPEGQuality_Slider->installEventFilter(new QSliderScrollFilter());
+    ui->JPEGQuality_SpinBox->installEventFilter(new QSliderScrollFilter());
+    ui->JPEGChromaSubsampling_ComboBox->installEventFilter(new QSliderScrollFilter());
+
+    ui->PNGQuality_Slider->installEventFilter(new QSliderScrollFilter());
+    ui->PNGQuality_SpinBox->installEventFilter(new QSliderScrollFilter());
+    ui->PNGOptimizationLevel_Slider->installEventFilter(new QSliderScrollFilter());
+    ui->PNGOptimizationLevel_SpinBox->installEventFilter(new QSliderScrollFilter());
+
+    ui->WebPQuality_Slider->installEventFilter(new QSliderScrollFilter());
+    ui->WebPQuality_SpinBox->installEventFilter(new QSliderScrollFilter());
+
+    ui->TIFFDeflateLevel_Slider->installEventFilter(new QSliderScrollFilter());
+    ui->TIFFCompressionMethod_ComboBox->installEventFilter(new QSliderScrollFilter());
 }

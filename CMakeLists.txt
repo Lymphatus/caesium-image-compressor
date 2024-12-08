@@ -73,7 +73,7 @@ endif ()
 
 set(LIBCAESIUM_SOURCE_DIR ${CMAKE_BINARY_DIR}/libcaesium-prefix/src/libcaesium)
 
-if(NOT CMAKE_BUILD_TYPE)
+if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
 endif ()
 
@@ -116,6 +116,7 @@ set(SOURCES
         src/dialogs/UsageStatsDialog.cpp
         src/dialogs/AdvancedImportDialog.cpp
         src/services/Importer.cpp
+        src/filters/QSliderScrollFilter.cpp
 )
 
 if (APPLE)
@@ -123,7 +124,7 @@ if (APPLE)
             src/updater/osx/AutoUpdater.cpp
             src/updater/osx/CocoaInitializer.mm
             src/updater/osx/SparkleAutoUpdater.mm
-            )
+    )
 endif ()
 
 set(UI
@@ -153,7 +154,7 @@ SET(TS_FILES
         resources/i18n/caesium_sk_SK.ts
         resources/i18n/caesium_pl_PL.ts
         resources/i18n/caesium_fi_FI.ts
-        )
+)
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
@@ -180,11 +181,11 @@ else ()
     install(TARGETS ${TARGET} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
     if (NOT LIBCAESIUM)
         install(
-            FILES ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so
-            DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+                FILES ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so
+                DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
         )
         install(
-            CODE "execute_process(
+                CODE "execute_process(
                 COMMAND ${CMAKE_COMMAND} -E create_symlink
                 ${CMAKE_INSTALL_PREFIX}/lib/libcaesium.so
                 /usr/lib/libcaesium.so
@@ -204,7 +205,7 @@ set(CARGO_TARGET "")
 if (WIN32)
     set(CARGO_TARGET "--target=x86_64-pc-windows-gnu")
     set(LIBCAESIUM_EXTERNAL_PATH ${LIBCAESIUM_SOURCE_DIR}/target/x86_64-pc-windows-gnu/${LIBCAESIUM_BUILD_TYPE}/caesium.dll)
-else()
+else ()
     set(LIBCAESIUM_EXTERNAL_PATH ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so)
 endif ()
 
