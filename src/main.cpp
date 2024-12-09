@@ -43,6 +43,40 @@ void loadTheme(QApplication& a)
 
     if (themeIndex == 1) {
         QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
+
+        if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+            auto palette = QApplication::palette();
+            QColor purple(168, 85, 247);
+            palette.setColor(QPalette::Highlight, purple);
+            if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+                QColor darkGray(25, 25, 25);
+                // QColor gray(32, 32, 32);
+                QColor lightGray(82, 82, 82);
+                QColor black(0, 0, 0);
+                QColor blue(37, 99, 235);
+                QColor white(241, 245, 249);
+
+                palette.setColor(QPalette::Window, darkGray);
+                palette.setColor(QPalette::WindowText, white);
+                palette.setColor(QPalette::Base, black);
+                palette.setColor(QPalette::AlternateBase, darkGray);
+                palette.setColor(QPalette::ToolTipBase, blue);
+                palette.setColor(QPalette::ToolTipText, white);
+                palette.setColor(QPalette::Text, white);
+                palette.setColor(QPalette::Button, darkGray);
+                palette.setColor(QPalette::ButtonText, white);
+                palette.setColor(QPalette::Link, blue);
+                palette.setColor(QPalette::HighlightedText, black);
+
+                palette.setColor(QPalette::Active, QPalette::Button, darkGray);
+                palette.setColor(QPalette::Disabled, QPalette::ButtonText, lightGray);
+                palette.setColor(QPalette::Disabled, QPalette::WindowText, lightGray);
+                palette.setColor(QPalette::Disabled, QPalette::Text, lightGray);
+                palette.setColor(QPalette::Disabled, QPalette::Light, darkGray);
+            }
+            QApplication::setPalette(palette);
+            QApplication::setStyle(QStyleFactory::create(THEMES[themeIndex].theme));
+        }
     }
 }
 
