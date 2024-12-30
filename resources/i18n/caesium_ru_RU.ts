@@ -1123,4 +1123,19 @@ Saved: %4 (%5%)</source>
         <translation>Данные сжатия</translation>
     </message>
 </context>
+<context>
+    <name>advancedImport_Dialog</name>
+    <message>
+        <source>PNG</source>
+        <translation type="obsolete">PNG</translation>
+    </message>
+    <message>
+        <source>JPEG</source>
+        <translation type="obsolete">JPEG</translation>
+    </message>
+    <message>
+        <source>WebP</source>
+        <translation type="obsolete">WebP</translation>
+    </message>
+</context>    
 </TS>
