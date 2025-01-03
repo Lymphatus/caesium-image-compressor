@@ -277,7 +277,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1502"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторное сжатие не удалось</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -561,12 +561,12 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="450"/>
         <source>Progressive</source>
-        <translation type="unfinished"></translation>
+        <translation>Прогрессивный</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="776"/>
         <source>Deflate level</source>
-        <translation>Уровень сжатия Deflate</translation>
+        <translation>Уровень сжатия</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="783"/>
@@ -754,17 +754,17 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="153"/>
         <source>Auto</source>
-        <translation type="unfinished">Авто</translation>
+        <translation>Авто</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="158"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="163"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Темный</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
@@ -1123,4 +1123,19 @@ Saved: %4 (%5%)</source>
         <translation>Данные сжатия</translation>
     </message>
 </context>
+<context>
+    <name>advancedImport_Dialog</name>
+    <message>
+        <source>PNG</source>
+        <translation type="obsolete">PNG</translation>
+    </message>
+    <message>
+        <source>JPEG</source>
+        <translation type="obsolete">JPEG</translation>
+    </message>
+    <message>
+        <source>WebP</source>
+        <translation type="obsolete">WebP</translation>
+    </message>
+</context>    
 </TS>
