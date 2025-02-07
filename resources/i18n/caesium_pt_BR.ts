@@ -979,52 +979,52 @@ Economizado: %4 (%5%)</translation>
         <translation>Arquivos de imagem</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="151"/>
+        <location filename="../../src/models/CImage.cpp" line="152"/>
         <source>Input file does not exist</source>
         <translation>Arquivo de origem não existe</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="176"/>
+        <location filename="../../src/models/CImage.cpp" line="177"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Não foi possível criar o caminho de destino. Verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="193"/>
+        <location filename="../../src/models/CImage.cpp" line="194"/>
         <source>Temporary file creation failed</source>
         <translation>Falha ao criar arquivo temporário</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="203"/>
+        <location filename="../../src/models/CImage.cpp" line="204"/>
         <source>File conversion failed</source>
         <translation>Conversão de arquivo falhou</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="255"/>
+        <location filename="../../src/models/CImage.cpp" line="256"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Ignorado: arquivo comprimido é maior que o original</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="265"/>
+        <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Não foi possível copiar o arquivo de destino. Verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="271"/>
+        <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation>Não foi possível mover arquivo original para a lixeira, verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="274"/>
+        <location filename="../../src/models/CImage.cpp" line="275"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation>Não foi possível excluir o arquivo original, verifique suas permissões</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="400"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Compressing...</source>
         <translation>Comprimindo...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="402"/>
+        <location filename="../../src/models/CImage.cpp" line="403"/>
         <source>Error:</source>
         <translation>Erro:</translation>
     </message>
@@ -1039,27 +1039,27 @@ Economizado: %4 (%5%)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="200"/>
+        <location filename="../../src/utils/Utils.cpp" line="198"/>
         <source>Same as input</source>
         <translation>Mesmo que origem</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="201"/>
+        <location filename="../../src/utils/Utils.cpp" line="199"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="202"/>
+        <location filename="../../src/utils/Utils.cpp" line="200"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="203"/>
+        <location filename="../../src/utils/Utils.cpp" line="201"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="204"/>
+        <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>TIFF</source>
         <translation>TIFF</translation>
     </message>
@@ -1076,7 +1076,7 @@ Economizado: %4 (%5%)</translation>
         <translation type="obsolete">%</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="233"/>
+        <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>

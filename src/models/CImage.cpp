@@ -1,4 +1,5 @@
 #include "CImage.h"
+#include "../include/libcaesium.h"
 
 #include "./exceptions/ImageNotSupportedException.h"
 #include "exceptions/ImageTooBigException.h"
@@ -130,7 +131,7 @@ bool CImage::preview(const CompressionOptions& compressionOptions) const
     }
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
 
-    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters, maxOutputSize) : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), r_parameters);
+    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), &r_parameters, maxOutputSize, true) : c_compress(inputFullPath.toUtf8().constData(), outputFullPath.toUtf8().constData(), &r_parameters);
 
     QFileInfo outputFileInfo(outputFullPath);
     CImage::setFileDates(outputFileInfo, compressionOptions.datesMap, inputFileDates);
@@ -218,7 +219,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
 
     size_t maxOutputSize = getMaxOutputSizeInBytes(compressionOptions.maxOutputSize, inputFileInfo.size());
 
-    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters, maxOutputSize) : c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), r_parameters);
+    CCSResult result = compressionOptions.compressionMode == SIZE ? c_compress_to_size(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), &r_parameters, maxOutputSize, true) : c_compress(inputFullPath.toUtf8().constData(), tempFileFullPath.toUtf8().constData(), &r_parameters);
 
     if (result.success) {
         QFileInfo outputInfo(tempFileFullPath);
@@ -226,7 +227,7 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         bool outputIsBiggerThanInput = outputInfo.size() >= inputFileInfo.size() && compressionOptions.skipIfBigger;
         bool inputAlreadyMoved = false;
 
-        // If the output is bigger and we are converting, we should fallback to the original file with original extension
+        // If the output is bigger, and we are converting, we should fall back to the original file with original extension
         if (outputIsBiggerThanInput && convert) {
             outputFullPath = outputDir.absoluteFilePath(fullFileNameWithOriginalExtension);
             outputAlreadyExists = QFile(outputFullPath).exists();

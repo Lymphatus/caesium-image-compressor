@@ -986,52 +986,52 @@ Do you really want to continue?</source>
         <translation>Súbory obrázkov</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="151"/>
+        <location filename="../../src/models/CImage.cpp" line="152"/>
         <source>Input file does not exist</source>
         <translation>Vstupný súbor neexistuje</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="176"/>
+        <location filename="../../src/models/CImage.cpp" line="177"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>Nie je možné vytvoriť výstupnú cestu, skontrolujte svoje povolenia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="193"/>
+        <location filename="../../src/models/CImage.cpp" line="194"/>
         <source>Temporary file creation failed</source>
         <translation>Vytvorenie dočasného súboru zlyhalo</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="203"/>
+        <location filename="../../src/models/CImage.cpp" line="204"/>
         <source>File conversion failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="255"/>
+        <location filename="../../src/models/CImage.cpp" line="256"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>Vynechané: komprimovaný súbor je väčší ako originál</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="265"/>
+        <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>Výstupný súbor sa nedá skopírovať, skontrolujte svoje povolenia</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="271"/>
+        <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="274"/>
+        <location filename="../../src/models/CImage.cpp" line="275"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="400"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Compressing...</source>
         <translation>Komprimovanie...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="402"/>
+        <location filename="../../src/models/CImage.cpp" line="403"/>
         <source>Error:</source>
         <translation>Chyba:</translation>
     </message>
@@ -1046,27 +1046,27 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="200"/>
+        <location filename="../../src/utils/Utils.cpp" line="198"/>
         <source>Same as input</source>
         <translation>Rovnako ako vstup</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="201"/>
+        <location filename="../../src/utils/Utils.cpp" line="199"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="202"/>
+        <location filename="../../src/utils/Utils.cpp" line="200"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="203"/>
+        <location filename="../../src/utils/Utils.cpp" line="201"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="204"/>
+        <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>TIFF</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1095,7 +1095,7 @@ Do you really want to continue?</source>
         <translation type="obsolete">%</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="233"/>
+        <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>

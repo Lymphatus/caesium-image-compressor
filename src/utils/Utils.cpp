@@ -124,10 +124,8 @@ void showFileInNativeFileManager(const QString& filePath, const QString& fallbac
     }
 
 #if defined(Q_OS_WIN)
-    QStringList param;
-    param += QLatin1String("/select,");
-    param += QDir::toNativeSeparators(filePath);
-    if (QProcess::startDetached("explorer.exe", param)) {
+    QStringList param = QStringList { "/select", ",", filePath };
+    if (QProcess::startDetached("explorer", param)) {
         return;
     }
 #elif defined(Q_OS_MAC)

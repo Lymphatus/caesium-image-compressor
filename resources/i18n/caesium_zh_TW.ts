@@ -951,52 +951,52 @@ Saved: %4 (%5%)</source>
         <translation>圖片檔案</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="151"/>
+        <location filename="../../src/models/CImage.cpp" line="152"/>
         <source>Input file does not exist</source>
         <translation>輸入文件不存在</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="176"/>
+        <location filename="../../src/models/CImage.cpp" line="177"/>
         <source>Cannot make output path, check your permissions</source>
         <translation>無法創建輸出路徑，請檢查訪問權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="193"/>
+        <location filename="../../src/models/CImage.cpp" line="194"/>
         <source>Temporary file creation failed</source>
         <translation>無法創建臨時文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="203"/>
+        <location filename="../../src/models/CImage.cpp" line="204"/>
         <source>File conversion failed</source>
         <translation>文件轉換失敗</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="255"/>
+        <location filename="../../src/models/CImage.cpp" line="256"/>
         <source>Skipped: compressed file is bigger than original</source>
         <translation>跳過：壓縮後的文件尺寸大於原始文件</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="265"/>
+        <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot copy output file, check your permissions</source>
         <translation>無法復製輸出文件到輸出路徑，請檢查訪問權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="271"/>
+        <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
         <translation>無法刪除源文件，請檢查訪問權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="274"/>
+        <location filename="../../src/models/CImage.cpp" line="275"/>
         <source>Cannot delete original file, check your permissions</source>
         <translation>無法刪除原始文件，請檢查您的權限</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="400"/>
+        <location filename="../../src/models/CImage.cpp" line="401"/>
         <source>Compressing...</source>
         <translation>正在壓縮...</translation>
     </message>
     <message>
-        <location filename="../../src/models/CImage.cpp" line="402"/>
+        <location filename="../../src/models/CImage.cpp" line="403"/>
         <source>Error:</source>
         <translation>異常：</translation>
     </message>
@@ -1011,27 +1011,27 @@ Saved: %4 (%5%)</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="200"/>
+        <location filename="../../src/utils/Utils.cpp" line="198"/>
         <source>Same as input</source>
         <translation>和輸入保持一致</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="201"/>
+        <location filename="../../src/utils/Utils.cpp" line="199"/>
         <source>JPG</source>
         <translation>JPG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="202"/>
+        <location filename="../../src/utils/Utils.cpp" line="200"/>
         <source>PNG</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="203"/>
+        <location filename="../../src/utils/Utils.cpp" line="201"/>
         <source>WebP</source>
         <translation>WebP</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="204"/>
+        <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>TIFF</source>
         <translation>TIFF</translation>
     </message>
@@ -1048,7 +1048,7 @@ Saved: %4 (%5%)</source>
         <translation type="obsolete">%</translation>
     </message>
     <message>
-        <location filename="../../src/utils/Utils.cpp" line="233"/>
+        <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>自動</translation>
     </message>
