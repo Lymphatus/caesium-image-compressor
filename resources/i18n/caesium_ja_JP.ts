@@ -63,12 +63,12 @@ All rights reserved.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
         <source>KB</source>
-        <translation></translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>MB</source>
-        <translation></translation>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
@@ -212,7 +212,7 @@ All rights reserved.</translation>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
-        <translation>元のイメージを上書きしようとしていますが、この操作を元に戻すことはできません。
+        <translation>元の画像を上書きしようとしていますが、この操作を元に戻すことはできません。
 
 本当に続行しますか?</translation>
     </message>
@@ -357,6 +357,11 @@ Saved: %4 (%5%)</source>
         <translation>出力するサイズの上限</translation>
     </message>
     <message>
+        <location filename="../../views/MainWindow.ui" line="979"/>
+        <source>bytes</source>
+        <translation>バイト</translation>
+    </message>
+    <message>
         <location filename="../../views/MainWindow.ui" line="251"/>
         <source>Mode</source>
         <translation>動作モード</translation>
@@ -365,6 +370,16 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="901"/>
         <source>Keep Metadata</source>
         <translation>メタデータを保持</translation>
+    </message>
+    <message>
+        <location filename="../../views/MainWindow.ui" line="984"/>
+        <source>KB</source>
+        <translation>KB</translation>
+    </message>
+    <message>
+        <location filename="../../views/MainWindow.ui" line="989"/>
+        <source>MB</source>
+        <translation>MB</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1026"/>
@@ -505,6 +520,11 @@ Saved: %4 (%5%)</source>
         <translation>ファイル名末尾に追加する文字列</translation>
     </message>
     <message>
+        <location filename="../../views/MainWindow.ui" line="1601"/>
+        <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
+        <translation>新たな画像形式への変換やリサイズは、「可逆圧縮」を選択しても画質を劣化させる可能性あり</translation>
+    </message>
+    <message>
         <location filename="../../views/MainWindow.ui" line="1675"/>
         <source>Original</source>
         <translation>圧縮前</translation>
@@ -571,21 +591,6 @@ Saved: %4 (%5%)</source>
         <translation>プログレッシブ</translation>
     </message>
     <message>
-        <location filename="../../views/MainWindow.ui" line="979"/>
-        <source>bytes</source>
-        <translation>バイト</translation>
-    </message>
-    <message>
-        <location filename="../../views/MainWindow.ui" line="984"/>
-        <source>KB</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../views/MainWindow.ui" line="989"/>
-        <source>MB</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="1428"/>
         <source>Move the original file</source>
         <translation>入力ファイルを削除</translation>
@@ -599,11 +604,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1454"/>
         <source>Delete Permanently</source>
         <translation>完全に削除</translation>
-    </message>
-    <message>
-        <location filename="../../views/MainWindow.ui" line="1601"/>
-        <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation>新たな画像形式への変換やリサイズは、「可逆圧縮」を選択しても画質を劣化させる可能性あり</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1786"/>
@@ -735,7 +735,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2066"/>
         <source>Ctrl+P</source>
-        <translation></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2071"/>
@@ -761,6 +761,56 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="20"/>
         <source>Preferences</source>
         <translation>設定</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="153"/>
+        <source>Auto</source>
+        <translation>自動</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="158"/>
+        <source>Light</source>
+        <translation>ライト</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="163"/>
+        <source>Dark</source>
+        <translation>ダーク</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <source> threads</source>
+        <translation> スレッド</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="363"/>
+        <source>No action</source>
+        <translation>何もしない</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="368"/>
+        <source>Close the application</source>
+        <translation>アプリを閉じる</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="373"/>
+        <source>Sleep</source>
+        <translation>スリープ</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="378"/>
+        <source>Shutdown</source>
+        <translation>シャットダウン</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="383"/>
+        <source>Open output folder</source>
+        <translation>出力先のフォルダーを開く</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="234"/>
+        <source>Perform an action after successful compression</source>
+        <translation>圧縮成功後に実行する動作</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
@@ -808,39 +858,12 @@ Saved: %4 (%5%)</source>
         <translation type="vanished">バイト</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
-        <source> threads</source>
-        <translation> スレッド</translation>
+        <source>Kb</source>
+        <translation type="vanished">KB</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="363"/>
-        <source>No action</source>
-        <translation>何もしない</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="368"/>
-        <source>Close the application</source>
-        <translation>アプリを閉じる</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="373"/>
-        <source>Sleep</source>
-        <translation>スリープ</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="378"/>
-        <source>Shutdown</source>
-        <translation>シャットダウン</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="383"/>
-        <source>Open output folder</source>
-        <translation>出力先のフォルダーを開く</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="234"/>
-        <source>Perform an action after successful compression</source>
-        <translation>圧縮成功後に実行する動作</translation>
+        <source>Mb</source>
+        <translation type="vanished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="496"/>
@@ -896,24 +919,17 @@ Saved: %4 (%5%)</source>
         <translation>圧縮中のメッセージと警告ダイアログをスキップする</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="153"/>
-        <source>Auto</source>
-        <translation>自動</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="158"/>
-        <source>Light</source>
-        <translation>ライト</translation>
-    </message>
-    <message>
-        <location filename="../../views/PreferencesDialog.ui" line="163"/>
-        <source>Dark</source>
-        <translation>ダーク</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>インポート</translation>
+    </message>
+    <message>
+        <source>KB</source>
+        <translation type="vanished">KB</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="vanished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="290"/>
@@ -1052,7 +1068,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>TIFF</source>
-        <translation></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1061,6 +1077,18 @@ Saved: %4 (%5%)</source>
     <message>
         <source>Size</source>
         <translation type="obsolete">サイズ</translation>
+    </message>
+    <message>
+        <source>bytes</source>
+        <translation type="obsolete">bytes</translation>
+    </message>
+    <message>
+        <source>KB</source>
+        <translation type="obsolete">KB</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="obsolete">MB</translation>
     </message>
     <message>
         <source>%</source>
