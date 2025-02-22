@@ -1137,5 +1137,5 @@ Saved: %4 (%5%)</source>
         <source>WebP</source>
         <translation type="obsolete">WebP</translation>
     </message>
-</context>    
+</context>
 </TS>

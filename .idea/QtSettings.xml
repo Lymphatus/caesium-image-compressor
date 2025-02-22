@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="QtSettings">
-    <option name="myCurrentProfile" value="Debug" />
     <option name="mySettingsPerProfile">
       <map>
         <entry key="Debug">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.1/mingw_64/qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.1/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.2/mingw_64/qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.2/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
         <entry key="Release">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.1/mingw_64/qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.1/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.2/mingw_64/qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.2/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
         <entry key="Release (Portable)">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.1/mingw_64/qml" />
-              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.1/mingw_64/bin" />
+              <option name="myQmlPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.2/mingw_64/qml" />
+              <option name="myQtBinPath" value="$PROJECT_DIR$/../../../../../../../Qt/6.8.2/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>
