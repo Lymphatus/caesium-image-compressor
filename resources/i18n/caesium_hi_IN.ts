@@ -43,67 +43,67 @@ All rights reserved.</source>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished">हटाऐं</translation>
+        <translation>हटाऐं</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">निर्देशिका खोलते समय सबफ़ोल्डर्स की फ़ाइलें आयात करें</translation>
+        <translation>निर्देशिका खोलते समय सबफ़ोल्डर्स की फ़ाइलें आयात करें</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
         <source>Add...</source>
-        <translation type="unfinished">जोड़ें...</translation>
+        <translation>जोड़ें...</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="152"/>
         <source>bytes</source>
-        <translation type="unfinished">बाइट</translation>
+        <translation>बाइट</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
         <source>KB</source>
-        <translation type="unfinished">किलोबाइट</translation>
+        <translation>किलोबाइट</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="162"/>
         <source>MB</source>
-        <translation type="unfinished">मेगाबाइट</translation>
+        <translation>मेगाबाइट</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
         <source>greater than</source>
-        <translation type="unfinished">इससे बड़ा है</translation>
+        <translation>इससे बड़ा है</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="179"/>
         <source>equal to</source>
-        <translation type="unfinished">इसके बराबर है</translation>
+        <translation>इसके बराबर है</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="184"/>
         <source>less than</source>
-        <translation type="unfinished">इससे छोटा है</translation>
+        <translation>इससे छोटा है</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="192"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>आयात सूची</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="121"/>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>फ़ाइल नाम पैटर्न (रेगेक्स)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>उन्नत आयात</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation type="unfinished">आयात न करें यदि आकार</translation>
+        <translation>आयात न करें यदि आकार</translation>
     </message>
     <message>
         <source>PNG</source>
@@ -120,32 +120,32 @@ All rights reserved.</source>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation type="unfinished">फ़ाइलें जोड़ें...</translation>
+        <translation>फ़ाइलें जोड़ें...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation type="unfinished">फ़ोल्डर जोड़ें...</translation>
+        <translation>फ़ोल्डर जोड़ें...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>सूची से आयात करें...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation type="unfinished">फ़ाइलें आयात करें...</translation>
+        <translation>फ़ाइलें आयात करें...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
         <source>Import folder...</source>
-        <translation type="unfinished">फ़ोल्डर आयात करें...</translation>
+        <translation>फ़ोल्डर आयात करें...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="157"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>फ़ाइल आयात करें...</translation>
     </message>
 </context>
 <context>
@@ -252,13 +252,13 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="592"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>कृपया पहले एक आउटपुट फ़ोल्डर चुनें</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
         <location filename="../../src/MainWindow.cpp" line="841"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ठीक है</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="750"/>
@@ -289,7 +289,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1502"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>पुन:संपीड़न विफल रहा</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -543,67 +543,67 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="580"/>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation>अनुकूलन स्तर</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="719"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>टिफ़</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="858"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>तरीका</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="776"/>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation>अपस्फीति स्तर</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="766"/>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>सर्वोत्तम</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="783"/>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>संतुलित</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="793"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>तेज़</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="835"/>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>असम्पीडित</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="431"/>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translation>क्रोमा सबसैंपलिंग</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="450"/>
         <source>Progressive</source>
-        <translation type="unfinished"></translation>
+        <translation>प्रोग्रेसिव</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1428"/>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>मूल फ़ाइल खिसकाएँ</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1449"/>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>कचरा में</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1454"/>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>स्थायी रूप से हटाएँ</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1786"/>
@@ -741,7 +741,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/MainWindow.ui" line="2071"/>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation>उन्नत आयात...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="994"/>
@@ -766,62 +766,62 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="153"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>स्वत:</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="158"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>रोशनी</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="163"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>अँधेरा</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="320"/>
-        <source> threads</source>
-        <translation type="unfinished"></translation>
+        <source>threads</source>
+        <translation>धागे</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="363"/>
         <source>No action</source>
-        <translation type="unfinished"></translation>
+        <translation>कोई कार्रवाई नहीं</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="368"/>
         <source>Close the application</source>
-        <translation type="unfinished"></translation>
+        <translation>एप्लिकेशन बंद करें</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="373"/>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>सोना</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="378"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>बंद करना</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="383"/>
         <source>Open output folder</source>
-        <translation type="unfinished"></translation>
+        <translation>आउटपुट फ़ोल्डर खोलें</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Perform an action after successful compression</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>धागे प्राथमिकता</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="509"/>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>पुनः आरंभ करें</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="535"/>
@@ -1004,7 +1004,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="204"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>फ़ाइल रूपांतरण विफल रहा</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="256"/>
@@ -1024,7 +1024,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/models/CImage.cpp" line="275"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>मूल फ़ाइल को हटाया नहीं जा सकता, अपनी अनुमतियाँ जाँचें</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="401"/>
@@ -1044,7 +1044,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="121"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ठीक है</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="198"/>
@@ -1069,7 +1069,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>टिफ़</translation>
     </message>
     <message>
         <source>Quality</source>
@@ -1098,7 +1098,7 @@ Saved: %4 (%5%)</source>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>स्वत:</translation>
     </message>
 </context>
 <context>
