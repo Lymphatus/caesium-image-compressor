@@ -4,6 +4,9 @@
 
 Try it directly on browser at [caesium.app](https://caesium.app)
 
+> [!NOTE]
+> I'm starting to work to the v3.0.0 version to address a lot of suggestions, feature requests and general improvements. You can participate in the development in this [discussion thread](https://github.com/Lymphatus/caesium-image-compressor/issues/334).
+
 ###### v2.8.3
 
 ![caesium_screenshot_280](https://github.com/user-attachments/assets/e5a6510a-58c5-4349-8563-f4e3ee84d5a0)
