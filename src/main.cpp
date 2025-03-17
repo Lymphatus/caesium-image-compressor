@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
     QCoreApplication::setOrganizationName("SaeraSoft");
     QCoreApplication::setOrganizationDomain("saerasoft.com");
     QCoreApplication::setApplicationName("Caesium Image Compressor");
-    QCoreApplication::setApplicationVersion("2.8.3");
+    QCoreApplication::setApplicationVersion("2.8.4");
 
 #ifdef NDEBUG
     qInstallMessageHandler(Logger::messageHandler);

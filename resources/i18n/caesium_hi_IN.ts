@@ -779,9 +779,8 @@ Saved: %4 (%5%)</source>
         <translation>अँधेरा</translation>
     </message>
     <message>
-        <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source>threads</source>
-        <translation>धागे</translation>
+        <translation type="vanished">धागे</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="363"/>
@@ -812,6 +811,11 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>Perform an action after successful compression</source>
         <translation>Perform an action after successful compression</translation>
+    </message>
+    <message>
+        <location filename="../../views/PreferencesDialog.ui" line="320"/>
+        <source> threads</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
