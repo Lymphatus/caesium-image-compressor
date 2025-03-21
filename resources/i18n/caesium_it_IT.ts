@@ -4,13 +4,9 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>Restart to update</source>
-        <translation type="vanished">Riavvia per aggiornare</translation>
-    </message>
-    <message>
         <location filename="../../views/AboutDialog.ui" line="26"/>
         <source>About Caesium - Image Compressor</source>
-        <translation>Informazioni su Caesium Image Compressor</translation>
+        <translation>Info su Caesium Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/AboutDialog.ui" line="104"/>
@@ -29,22 +25,6 @@ All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
 Tutti i diritti riservati.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-Tutti i diritti riservati.</translation>
-    </message>
-    <message>
-        <source>No updates available</source>
-        <translation type="vanished">Nessun aggiornamento disponibile</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-Tutti i diritti riservati.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -56,7 +36,7 @@ Tutti i diritti riservati.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="65"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation>Importa anche i file nelle sottocartelle quando apri una cartella</translation>
+        <translation>Quando apri una cartella Importa anche i file nelle sottocartelle</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="72"/>
@@ -66,7 +46,7 @@ Tutti i diritti riservati.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="152"/>
         <source>bytes</source>
-        <translation>bytes</translation>
+        <translation>byte</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="157"/>
@@ -81,7 +61,7 @@ Tutti i diritti riservati.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="174"/>
         <source>greater than</source>
-        <translation>più di</translation>
+        <translation>maggiore di</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="179"/>
@@ -91,17 +71,17 @@ Tutti i diritti riservati.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="184"/>
         <source>less than</source>
-        <translation>meno di</translation>
+        <translation>inferiore a</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="192"/>
         <source>Import list</source>
-        <translation>Lista di importazione</translation>
+        <translation>Importa elenco</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="121"/>
         <source>File name pattern (regex)</source>
-        <translation>Filtro sul nome del file (regex)</translation>
+        <translation>Filtro nome file (regex)</translation>
     </message>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="14"/>
@@ -111,39 +91,27 @@ Tutti i diritti riservati.</translation>
     <message>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
-        <translation>Non importare se il peso è</translation>
-    </message>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
+        <translation>Non importare se la dimensione è</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation>Importa files...</translation>
+        <translation>Aggiungi file...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation>Importa cartella...</translation>
+        <translation>Aggiungi cartella...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation>Importa da una lista...</translation>
+        <translation>Importa da un elenco...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation>Importa files...</translation>
+        <translation>Importa file...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
@@ -185,18 +153,11 @@ Tutti i diritti riservati.</translation>
     </message>
 </context>
 <context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">Questi dati sono raccolti per fornire il miglior supporto a lungo termine per l&apos;applicazione. Nessun dato è condiviso con terzi.</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <location filename="../../src/MainWindow.cpp" line="279"/>
         <source>Import files...</source>
-        <translation>Importa files...</translation>
+        <translation>Importa file...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="295"/>
@@ -206,23 +167,23 @@ Tutti i diritti riservati.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="520"/>
         <source>Importing files...</source>
-        <translation>Importazione...</translation>
+        <translation>Importazione file...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1641"/>
         <location filename="../../src/MainWindow.cpp" line="520"/>
         <location filename="../../src/MainWindow.cpp" line="729"/>
         <source>Cancel</source>
-        <translation>Cancella</translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="606"/>
         <source>You are about to overwrite your original images and this action can&apos;t be undone.
 
 Do you really want to continue?</source>
-        <translation>Stai per sovrascrivere i file originali e questa azione non può essere annullata.
+        <translation>Si stanno per sovrascrivere i file originali e questa azione non può essere annullata.
 
-Vuoi veramente continuare?</translation>
+Vuoi continuare?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="608"/>
@@ -247,13 +208,9 @@ Vuoi veramente continuare?</translation>
         <translation>Compressione...</translation>
     </message>
     <message>
-        <source>Are you sure?</source>
-        <translation type="vanished">Sei sicuro?</translation>
-    </message>
-    <message>
         <location filename="../../src/MainWindow.cpp" line="726"/>
         <source>Do you really want to quit?</source>
-        <translation>Vuoi veramente uscire?</translation>
+        <translation>Vuoi uscire?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="607"/>
@@ -264,23 +221,23 @@ Vuoi veramente continuare?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="592"/>
         <source>Please select an output folder first</source>
-        <translation>Seleziona una cartella di destinazione</translation>
+        <translation>Seleziona una cartella destinazione</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
         <location filename="../../src/MainWindow.cpp" line="841"/>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="750"/>
         <source>Select output folder...</source>
-        <translation>Selezione cartella di output...</translation>
+        <translation>Selezione cartella destinazione...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="816"/>
         <source>Compression finished!</source>
-        <translation>Compressione terminata!</translation>
+        <translation>Compressione completata!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="831"/>
@@ -296,12 +253,12 @@ Saved: %4 (%5%)</source>
         <translation>File totali: %1
 Dimensione originale: %2
 Dimensione compressa: %3
-Risparmiato: %4 (%5%)</translation>
+Risparmio: %4 (%5%)</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1502"/>
         <source>Recompress failed</source>
-        <translation>Ricomprimi errori</translation>
+        <translation>Ricomprimi file con errori</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
@@ -350,10 +307,6 @@ Risparmiato: %4 (%5%)</translation>
         <translation>PNG</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">Livello</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
         <source>WebP</source>
         <translation>WebP</translation>
@@ -371,7 +324,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="979"/>
         <source>bytes</source>
-        <translation>bytes</translation>
+        <translation>byte</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="251"/>
@@ -381,7 +334,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="580"/>
         <source>Optimization level</source>
-        <translation>Livello di ottimizzazione</translation>
+        <translation>Livello ottimizzazione</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="719"/>
@@ -421,7 +374,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="431"/>
         <source>Chroma subsampling</source>
-        <translation>Sottocampionamento della crominanza</translation>
+        <translation>Sottocampionamento crominanza</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="450"/>
@@ -431,7 +384,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="901"/>
         <source>Keep Metadata</source>
-        <translation>Mantieni Metadata</translation>
+        <translation>Mantieni metadati</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="984"/>
@@ -451,7 +404,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1052"/>
         <source>Resize to fit</source>
-        <translation>Ridimensiona per</translation>
+        <translation>Ridimensiona per adattare</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1076"/>
@@ -530,12 +483,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1384"/>
         <source>Select...</source>
-        <translation>Scegli...</translation>
+        <translation>Seleziona...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1396"/>
         <source>Same folder as input</source>
-        <translation>Stessa cartella di origine</translation>
+        <translation>Stessa cartella file sorgenti</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1406"/>
@@ -545,16 +498,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1413"/>
         <source>Skip if output size is bigger than the original</source>
-        <translation>Salta se il risultato è più grande dell&apos;originale</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">Sposta il file originale nel cestino</translation>
+        <translation>Salta se il nuovo file è più grande dell&apos;originale</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1471"/>
         <source>Keep file dates</source>
-        <translation>Mantieni le date nel file</translation>
+        <translation>Mantieni date file</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1486"/>
@@ -579,7 +528,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1601"/>
         <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation>Convertire ad un altro formato o ridimensionare può degradare la qualità anche con l&apos;opzione &quot;Senza perdità di qualità&quot;</translation>
+        <translation>La conversione in un altro formato o la ridimensione può degradare la qualità anche con l&apos;opzione &quot;Senza perdità di qualità&quot;</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2066"/>
@@ -625,7 +574,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1454"/>
         <source>Delete Permanently</source>
-        <translation>Cancella permanentemente</translation>
+        <translation>Elimina permanentemente</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1934"/>
@@ -635,12 +584,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1982"/>
         <source>Show original in file manager</source>
-        <translation>Mostra originale nel file manager</translation>
+        <translation>Visualizza originale in Gestione file</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1987"/>
         <source>Show compressed in file manager</source>
-        <translation>Mostra compresso nel file manager</translation>
+        <translation>Visualizza compresso in Gestione file</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1996"/>
@@ -655,7 +604,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="2030"/>
         <source>Icons and Text</source>
-        <translation>Icone e Testo</translation>
+        <translation>Icone e testo</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2038"/>
@@ -665,20 +614,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="2043"/>
         <source>Show</source>
-        <translation>Mostra</translation>
+        <translation>Visualizza</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="2051"/>
         <source>Auto preview</source>
         <translation>Anteprima automatica</translation>
-    </message>
-    <message>
-        <source>_compressed</source>
-        <translation type="vanished">_compressa</translation>
-    </message>
-    <message>
-        <source>Restart to update</source>
-        <translation type="vanished">Riavvia per aggiornare</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1786"/>
@@ -704,17 +645,17 @@ Risparmiato: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="1819"/>
         <location filename="../../views/MainWindow.ui" line="1842"/>
         <source>Toolbar</source>
-        <translation>Barra degli strumenti</translation>
+        <translation>Barra strumenti</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1884"/>
         <source>About Caesium Image Compressor</source>
-        <translation>Informazioni su Caesium Image Compressor</translation>
+        <translation>Info su Caesium Image Compressor</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1896"/>
         <source>Add files...</source>
-        <translation>Importa files...</translation>
+        <translation>Aggiungi file...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1899"/>
@@ -724,12 +665,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1908"/>
         <source>Add folder...</source>
-        <translation>Importa cartella...</translation>
+        <translation>Aggiungi cartella...</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1911"/>
         <source>Ctrl+Shift+O</source>
-        <translation>Ctrl+Shift+O</translation>
+        <translation>Ctrl+Maiusc+O</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1916"/>
@@ -750,12 +691,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/MainWindow.ui" line="1954"/>
         <source>Clear</source>
-        <translation>Pulisci</translation>
+        <translation>Azzera</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1965"/>
         <source>Show previews</source>
-        <translation>Mostra anteprime</translation>
+        <translation>Visualizza anteprime</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1974"/>
@@ -772,7 +713,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1054"/>
         <source>images in list</source>
-        <translation>immagini in lista</translation>
+        <translation>immagini nell&apos;elenco</translation>
     </message>
 </context>
 <context>
@@ -800,7 +741,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source> threads</source>
-        <translation> threads</translation>
+        <translation> thread</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="363"/>
@@ -825,17 +766,17 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="383"/>
         <source>Open output folder</source>
-        <translation>Apri la cartella di destinazione</translation>
+        <translation>Apri cartella destinazione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="234"/>
         <source>Perform an action after successful compression</source>
-        <translation>Esegui un&apos;azione dopo una compressione</translation>
+        <translation>Dopo la compressione esegui un&apos;azione</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="350"/>
         <source>Threads priority</source>
-        <translation>Priorità dei threads</translation>
+        <translation>Priorità thread</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="509"/>
@@ -858,34 +799,6 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Chiedi prima di uscire</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">Non importare se il peso è</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">più di</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">uguale a</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">meno di</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">bytes</translation>
-    </message>
-    <message>
-        <source>Kb</source>
-        <translation type="vanished">Kb</translation>
-    </message>
-    <message>
-        <source>Mb</source>
-        <translation type="vanished">Mb</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="496"/>
         <source>Changes will apply after restart</source>
         <translation>Le modifiche verranno applicate al riavvio</translation>
@@ -901,10 +814,6 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Questa opzione si applica usando la riga di comando o trascinando i file sull&apos;icona dell&apos;applicazione</translation>
     </message>
     <message>
-        <source>Native</source>
-        <translation type="vanished">Nativo</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>Controlla aggiornamenti all&apos;avvio</translation>
@@ -912,7 +821,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="205"/>
         <source>Import files in subfolders when opening a directory</source>
-        <translation>Importa anche i file nelle sottocartelle quando apri una cartella</translation>
+        <translation>Quando apri la cartella importa i file nelle sottocartelle</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="84"/>
@@ -930,31 +839,19 @@ Risparmiato: %4 (%5%)</translation>
         <translation>Multithreading</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">Lingua</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
-        <translation>Non mostrare gli avvisi durante la compressione</translation>
+        <translation>Durante la compressione non visualizzare gli avvisi</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
-        <translation>Importazione</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
+        <translation>Importa</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="290"/>
         <source>Import only</source>
-        <translation>Solo importa</translation>
+        <translation>Importa solamente</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="295"/>
@@ -964,37 +861,17 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="308"/>
         <source>When importing files directly</source>
-        <translation>Quando importi file direttamente</translation>
+        <translation>Quando importi direttamente file</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="72"/>
         <source>Preferred language</source>
-        <translation>Lingua preferita</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Le modifiche verranno applicate dopo il riavvio&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">Dati sull&apos;uso</translation>
+        <translation>Lingua UI preferita</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
-        <translation>Mostra dati sull&apos;uso</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">Questi dati sono raccolti per fornire il miglior supporto a lungo termine per l&apos;applicazione. Nessun dato è condiviso con terzi.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">Dati di sistema</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">Dati di compressione</translation>
+        <translation>Visualizza dati uso</translation>
     </message>
 </context>
 <context>
@@ -1008,22 +885,22 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="152"/>
         <source>Input file does not exist</source>
-        <translation>Il file di input non esiste</translation>
+        <translation>Il file sorgente non esiste</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="177"/>
         <source>Cannot make output path, check your permissions</source>
-        <translation>Impossibile creare la cartella di output, controlla i permessi</translation>
+        <translation>Impossibile creare la cartella destinazione, controlla i permessi</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="194"/>
         <source>Temporary file creation failed</source>
-        <translation>Creazione del file temporaneo fallita</translation>
+        <translation>Creazione file temporaneo fallita</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="204"/>
         <source>File conversion failed</source>
-        <translation>Conversione fallita</translation>
+        <translation>Conversione file fallita</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="256"/>
@@ -1033,17 +910,17 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="266"/>
         <source>Cannot copy output file, check your permissions</source>
-        <translation>Impossibile copiare il file di output, controlla i permessi</translation>
+        <translation>Impossibile copiare il file destinazione, controlla i permessi</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation>Impossibile spostare il file nel cestino, controlla i permessi</translation>
+        <translation>Impossibile spostare il file nel Cestino, controlla i permessi</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="275"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation>Impossibile cancellare il file originale, controlla i permessi</translation>
+        <translation>Impossibile eliminare il file originale, controlla i permessi</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="401"/>
@@ -1063,12 +940,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="121"/>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="198"/>
         <source>Same as input</source>
-        <translation>Come l&apos;originale</translation>
+        <translation>Uguale all&apos;originale</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="199"/>
@@ -1091,47 +968,9 @@ Risparmiato: %4 (%5%)</translation>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">Qualità</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Dimensione</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">MB</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>Automatico</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">Anteprima</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">Caricamento...</translation>
     </message>
 </context>
 <context>
@@ -1139,7 +978,7 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="14"/>
         <source>Usage Data</source>
-        <translation>Dati sull&apos;uso</translation>
+        <translation>Dati uso</translation>
     </message>
     <message>
         <location filename="../../views/UsageStatsDialog.ui" line="26"/>
@@ -1154,27 +993,12 @@ Risparmiato: %4 (%5%)</translation>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>System data</source>
-        <translation>Dati di sistema</translation>
+        <translation>Dati sistema</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
-        <translation>Dati di compressione</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
+        <translation>Dati compressione</translation>
     </message>
 </context>
 </TS>
