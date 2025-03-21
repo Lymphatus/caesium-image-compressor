@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
 保留所有權利.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-保留所有權利.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-保留所有權利.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -104,18 +92,6 @@ All rights reserved.</source>
         <location filename="../../views/AdvancedImportDialog.ui" line="92"/>
         <source>Do not import if size is</source>
         <translation>不導入以下體積的圖片文件</translation>
-    </message>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
@@ -331,10 +307,6 @@ Saved: %4 (%5%)</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">壓縮等級</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
         <source>WebP</source>
         <translation>WebP</translation>
@@ -462,10 +434,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1413"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>若輸出體積大於源文件則跳過</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">刪除源文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1471"/>
@@ -861,34 +829,6 @@ Saved: %4 (%5%)</source>
         <translation>導入</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">不導入以下體積的圖片文件</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">大於</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">等於</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">小於</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="220"/>
         <source>Advanced</source>
         <translation>進階</translation>
@@ -924,17 +864,9 @@ Saved: %4 (%5%)</source>
         <translation>設定將在重啟後生效</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">語言設定</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="72"/>
         <source>Preferred language</source>
         <translation>預設語言</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 更改將在程式重啟後生效&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
@@ -1036,28 +968,9 @@ Saved: %4 (%5%)</source>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">圖片品質</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">大小</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>自動</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">預覽</translation>
     </message>
 </context>
 <context>
@@ -1086,21 +999,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>壓縮數據</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>

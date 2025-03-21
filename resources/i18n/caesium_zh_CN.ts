@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
 保留所有权利.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-保留所有权利.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-保留所有权利.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -106,18 +94,6 @@ All rights reserved.</source>
         <translation>导入时忽略的文件大小</translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation>打开文件...</translation>
@@ -174,13 +150,6 @@ All rights reserved.</source>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>信息</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
     </message>
 </context>
 <context>
@@ -338,10 +307,6 @@ Saved: %4 (%5%)</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">压缩等级</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
         <source>WebP</source>
         <translation>WebP</translation>
@@ -484,10 +449,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1413"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>如果输出文件大于源文件就跳过</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">删除源文件</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1471"/>
@@ -803,26 +764,6 @@ Saved: %4 (%5%)</source>
         <translation>退出前提示</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">导入时忽略的文件大小</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">大于</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">等于</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">小于</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">B</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source> threads</source>
         <translation> 线程</translation>
@@ -873,10 +814,6 @@ Saved: %4 (%5%)</source>
         <translation>该选项对使用命令行和拖动文件到应用图标上有效</translation>
     </message>
     <message>
-        <source>Native</source>
-        <translation type="vanished">原生</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>启动时检查更新</translation>
@@ -902,10 +839,6 @@ Saved: %4 (%5%)</source>
         <translation>多线程</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">语言</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>压缩过程中跳过消息和警告</translation>
@@ -914,14 +847,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>导入</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="290"/>
@@ -944,29 +869,9 @@ Saved: %4 (%5%)</source>
         <translation>默认语言</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ 更改将在应用重启后生效&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">使用数据</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>展示使用数据</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">我们需要收集这些数据来为应用程序提供更好的长期支持，收集的任何数据都不会向第三方透露。</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">系统数据</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">压缩数据</translation>
     </message>
 </context>
 <context>
@@ -1063,47 +968,9 @@ Saved: %4 (%5%)</source>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">图片质量</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">大小</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">B</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">MB</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>自动</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">预览</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">正在加载...</translation>
     </message>
 </context>
 <context>
@@ -1132,21 +999,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>压缩数据</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>

@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">حقوق النشر © 2022 ماتيو باونيسا.
-كافة الحقوق محفوظة.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-All rights reserved.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -106,18 +94,6 @@ All rights reserved.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation>إضافة ملفات...</translation>
@@ -174,13 +150,6 @@ All rights reserved.</translation>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>معلومات</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">يتم جمع هذه البيانات لتقديم أفضل دعم طويل المدى للتطبيق. لا يتم إرسال أي بيانات إلى جهات طرف ثالث.</translation>
     </message>
 </context>
 <context>
@@ -336,10 +305,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="477"/>
         <source>PNG</source>
         <translation>PNG</translation>
-    </message>
-    <message>
-        <source>Level</source>
-        <translation type="vanished">مستوى</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
@@ -849,10 +814,6 @@ Saved: %4 (%5%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Native</source>
-        <translation type="vanished">القالب الأصلي</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>تحقق من التحديثات عند بدء التشغيل</translation>
@@ -876,10 +837,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="335"/>
         <source>Multithreading</source>
         <translation>المتعدد</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="vanished">اللغة</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="51"/>
@@ -912,29 +869,9 @@ Saved: %4 (%5%)</source>
         <translation>اللغة المفضلة</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">بيانات المستخدمة</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>إظهار البيانات المستخدمة</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">يتم جمع هذه البيانات لتقديم أفضل دعم طويل المدى للتطبيق. لا يتم إرسال أي بيانات إلى جهات طرف ثالث.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">بيانات النظام</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">بيانات الضغط</translation>
     </message>
 </context>
 <context>
@@ -1031,24 +968,9 @@ Saved: %4 (%5%)</source>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">الجودة</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">جاري التحميل...</translation>
     </message>
 </context>
 <context>
@@ -1077,21 +999,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>بيانات الضغط</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>

@@ -24,18 +24,6 @@
 All rights reserved.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-                All rights reserved.</source>
-        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-                All rights reserved.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-                All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-                All rights reserved.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -105,18 +93,6 @@ All rights reserved.</source>
         <translation type="unfinished">Neimportovať, ak je veľkosť</translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation type="unfinished">Pridať súbory...</translation>
@@ -176,13 +152,6 @@ All rights reserved.</source>
     </message>
 </context>
 <context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">Tieto údaje sa zhromažďujú, aby poskytli najlepšiu dlhodobú podporu pre aplikáciu. Žiadne údaje sa neposielajú tretím stranám.</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <location filename="../../src/MainWindow.cpp" line="279"/>
@@ -205,14 +174,6 @@ All rights reserved.</source>
         <location filename="../../src/MainWindow.cpp" line="729"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
-    </message>
-    <message>
-        <source>You are about to overwrite your original images and this action can&apos;t be undone.
-
-                Do you really want to continue?</source>
-        <translation type="vanished">Chystáte sa prepísať svoje pôvodné obrázky a táto akcia sa nedá vrátiť späť.
-
-                Naozaj chcete pokračovať?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="608"/>
@@ -294,16 +255,6 @@ Do you really want to continue?</source>
         <translation>Kompresia dokončená!</translation>
     </message>
     <message>
-        <source>Total files: %1
-                Original size: %2
-                Compressed size: %3
-                Saved: %4 (%5%)</source>
-        <translation type="vanished">Celkový počet súborov: %1
-                Pôvodná veľkosť: %2
-                Veľkosť po kompresii: %3
-                Ušetrené: %4 (%5%)</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="23"/>
         <source>Caesium Image Compressor</source>
         <translation>Caesium Image Compressor</translation>
@@ -348,10 +299,6 @@ Do you really want to continue?</source>
         <location filename="../../views/MainWindow.ui" line="477"/>
         <source>PNG</source>
         <translation>PNG</translation>
-    </message>
-    <message>
-        <source>Level</source>
-        <translation type="vanished">Úroveň</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
@@ -801,34 +748,6 @@ Do you really want to continue?</source>
         <translation>Import</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">Neimportovať, ak je veľkosť</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">väčšia ako</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">rovná</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">menšia ako</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">kB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="308"/>
         <source>When importing files directly</source>
         <translation>Pri priamom importe súborov</translation>
@@ -909,10 +828,6 @@ Do you really want to continue?</source>
         <translation>Téma (experimentálne)</translation>
     </message>
     <message>
-        <source>Native</source>
-        <translation type="vanished">Pôvodná</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>Skontrolovať aktualizácie pri spustení</translation>
@@ -943,38 +858,14 @@ Do you really want to continue?</source>
         <translation>Multithreading</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">Jazyk</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="72"/>
         <source>Preferred language</source>
         <translation>Preferovaný jazyk</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">Údaje o používaní</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>Zobraziť údaje o používaní</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">Tieto údaje sa zhromažďujú, aby poskytli najlepšiu dlhodobú podporu pre aplikáciu. Žiadne údaje sa neposielajú tretím stranám.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">Systémové údaje</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">Údaje o kompresii</translation>
     </message>
 </context>
 <context>
@@ -1071,47 +962,9 @@ Do you really want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">Kvalita</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Veľkosť</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">kB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">MB</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">Náhľad</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">Nahrávanie...</translation>
     </message>
 </context>
 <context>
@@ -1140,21 +993,6 @@ Do you really want to continue?</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>Údaje o kompresii</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>

@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
 Todos los derechos reservados.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2022 Matteo Paonessa.
-Todos los derechos reservados.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Copyright © 2021 Matteo Paonessa.
-Todos los derechos reservados.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -106,18 +94,6 @@ Todos los derechos reservados.</translation>
         <translation type="unfinished">Do importar si</translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation type="unfinished">Agregar archivos...</translation>
@@ -174,13 +150,6 @@ Todos los derechos reservados.</translation>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>Info</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">Estos datos son recogidos para entregar el mejor soporte a largo plazo para la aplicación. No se entregan datos a terceros.</translation>
     </message>
 </context>
 <context>
@@ -338,10 +307,6 @@ Ahorrado: %4 (%5%)</translation>
         <translation>PNG</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">Nivel</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
         <source>WebP</source>
         <translation>WebP</translation>
@@ -484,10 +449,6 @@ Ahorrado: %4 (%5%)</translation>
         <location filename="../../views/MainWindow.ui" line="1413"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>Omitir si el tamaño de salida es mayor que el original</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">Mover el archivo original a la papelera</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1471"/>
@@ -833,26 +794,6 @@ Ahorrado: %4 (%5%)</translation>
         <translation>Preguntar antes de salir</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">Do importar si</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">es mayor que</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">igual a</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">menor que</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">bytes</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="255"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation type="unfinished"></translation>
@@ -871,10 +812,6 @@ Ahorrado: %4 (%5%)</translation>
         <location filename="../../views/PreferencesDialog.ui" line="145"/>
         <source>Theme (experimental)</source>
         <translation>Tema (experimental)</translation>
-    </message>
-    <message>
-        <source>Native</source>
-        <translation type="vanished">Nativo</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
@@ -902,10 +839,6 @@ Ahorrado: %4 (%5%)</translation>
         <translation>Multihilo</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">Idioma</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>Omitir mensajes y cuadros de diálogo de advertencia durante la compresión</translation>
@@ -914,14 +847,6 @@ Ahorrado: %4 (%5%)</translation>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>Importar</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="290"/>
@@ -944,29 +869,9 @@ Ahorrado: %4 (%5%)</translation>
         <translation>Idioma preferido</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Los cambios se aplicarán después de reiniciar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">Datos de uso</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>Mostrar datos de uso</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">Estos datos son recogidos para entregar el mejor soporte a largo plazo para la aplicación. No se entregan datos a terceros.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">Datos del sistema</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">Datos de compresión</translation>
     </message>
 </context>
 <context>
@@ -1063,47 +968,9 @@ Ahorrado: %4 (%5%)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">Calidad</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Tamaño</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">MB</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">Vista previa</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">Cargando...</translation>
     </message>
 </context>
 <context>
@@ -1132,21 +999,6 @@ Ahorrado: %4 (%5%)</translation>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>Datos de compresión</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>

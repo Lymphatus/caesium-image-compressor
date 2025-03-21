@@ -25,12 +25,6 @@ All rights reserved.</source>
         <translation>Telif Hakkı © 2023 Matteo Paonessa.
 Tüm hakları saklıdır.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Telif Hakkı © 2022 Matteo Paonessa.
-Tüm hakları saklıdır.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -100,18 +94,6 @@ Tüm hakları saklıdır.</translation>
         <translation>Boyut şu ise içe aktarma</translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation>Dosyaları ekle...</translation>
@@ -168,13 +150,6 @@ Tüm hakları saklıdır.</translation>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>Bilgi</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">Bu veriler, uygulama için uzun vadeli desteği sağlamak adına toplanır. Üçüncü taraflara hiçbir veri gönderilmez.</translation>
     </message>
 </context>
 <context>
@@ -814,10 +789,6 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Genel</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">Dil</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="84"/>
         <source>Send anonymous usage reports</source>
         <translation>Anonim kullanım raporlarını gönder</translation>
@@ -826,14 +797,6 @@ Kaydedildi: %4 (%5%)</translation>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>İçe aktar</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="255"/>
@@ -881,26 +844,6 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>Sıkıştırma sırasında mesaj ve uyarı iletişim kutularını atla</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">Boyut şu ise içe aktarma</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">&apos;den daha büyük</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">eşittir</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">&apos;den daha az</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">bytes</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="205"/>
         <source>Import files in subfolders when opening a directory</source>
         <translation>Bir dizini açarken dosyaları alt klasörlere aktar</translation>
@@ -929,22 +872,6 @@ Kaydedildi: %4 (%5%)</translation>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>Kullanım verisini göster</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">Kullanım verisi</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">Bu veriler, uygulama için uzun vadeli desteği sağlamak adına toplanır. Üçüncü taraflara hiçbir veri gönderilmez.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">Sistem verisi</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">Sıkıştırma verisi</translation>
     </message>
 </context>
 <context>
@@ -1041,40 +968,9 @@ Kaydedildi: %4 (%5%)</translation>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">Kalite</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Boyut</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">MB</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>Otomatik</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">Önizle</translation>
     </message>
 </context>
 <context>
@@ -1103,21 +999,6 @@ Kaydedildi: %4 (%5%)</translation>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>Sıkıştırma verisi</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>
