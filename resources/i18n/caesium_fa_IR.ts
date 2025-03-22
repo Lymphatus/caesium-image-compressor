@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>حق چاپ © 2023 Matteo Paonesa.
 تمامی حقوق محفوظ است.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">حق چاپ © 2022 Matteo Paonesa.
-تمامی حقوق محفوظ است.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">حق چاپ © 2021 Matteo Paonesa.
-تمامی حقوق محفوظ است.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -106,18 +94,6 @@ All rights reserved.</source>
         <translation>وارد نمی شود اگر سایز هست</translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation>افزودن فایل ها...</translation>
@@ -174,13 +150,6 @@ All rights reserved.</source>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>اطلاعات</translation>
-    </message>
-</context>
-<context>
-    <name>گفتگو</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">این داده ها برای ارائه بهترین پشتیبانی طولانی مدت برای برنامه جمع آوری شده است. هیچ داده ای به اشخاص ثالث ارسال نمی شود.</translation>
     </message>
 </context>
 <context>
@@ -333,10 +302,6 @@ Saved: %4 (%5%)</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">سطح</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="628"/>
         <source>WebP</source>
         <translation>WebP</translation>
@@ -479,10 +444,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1423"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>اگر اندازه خروجی بزرگتر از اندازه اصلی است، از آن بگذرید</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">فایل اصلی را به سطل زباله منتقل کنید</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1481"/>
@@ -815,34 +776,6 @@ Saved: %4 (%5%)</source>
         <translation>درخواست قبل از خروج</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">اگر اندازه است وارد نکنید</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">بزرگتر از</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">مساوی با</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">کمتر از</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">bytes</translation>
-    </message>
-    <message>
-        <source>Kb</source>
-        <translation type="vanished">Kb</translation>
-    </message>
-    <message>
-        <source>Mb</source>
-        <translation type="vanished">Mb</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="443"/>
         <source>Changes will apply after restart</source>
         <translation>تغییرات پس از راه اندازی مجدد اعمال خواهد شد</translation>
@@ -856,10 +789,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="224"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>این گزینه هنگام استفاده از خط فرمان یا با انداختن فایل ها به نماد برنامه اعمال می شود</translation>
-    </message>
-    <message>
-        <source>Native</source>
-        <translation type="vanished">Native</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="78"/>
@@ -887,10 +816,6 @@ Saved: %4 (%5%)</source>
         <translation>چند رشته ای</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">زبان</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="148"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>در حین فشرده سازی، از گفتگوهای پیام و هشدار رد شوید</translation>
@@ -899,14 +824,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="172"/>
         <source>Import</source>
         <translation>وارد كردن</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">MB</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="258"/>
@@ -929,29 +846,9 @@ Saved: %4 (%5%)</source>
         <translation>زبان ترجیحی</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ تغییرات پس از راه اندازی مجدد اعمال خواهد شد&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">داده های استفاده شده</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="24"/>
         <source>Show usage data</source>
         <translation>نمایش داده های استفاده شده</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">این داده ها برای ارائه بهترین پشتیبانی طولانی مدت برای برنامه جمع آوری شده است. هیچ داده ای به اشخاص ثالث ارسال نمی شود.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">داده سیستم</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">داده های فشرده سازی</translation>
     </message>
 </context>
 <context>
@@ -1048,47 +945,9 @@ Saved: %4 (%5%)</source>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">کیفیت</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">سایز</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">bytes</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">KB</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">MB</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="235"/>
         <source>Auto</source>
         <translation>Auto</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">پیش نمایش</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">بارگذاری...</translation>
     </message>
 </context>
 <context>
@@ -1117,21 +976,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>داده های فشرده سازی</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>

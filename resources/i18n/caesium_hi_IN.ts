@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>कॉपीराइट © २०२३ मात्तेओ पाओनेसा।
 सर्वाधिकार सुरक्षित।</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">कॉपीराइट © २०२२ मात्तेओ पाओनेसा।
-सर्वाधिकार सुरक्षित।</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">कॉपीराइट © २०२१ मात्तेओ पाओनेसा।
-सर्वाधिकार सुरक्षित।</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -106,18 +94,6 @@ All rights reserved.</source>
         <translation>आयात न करें यदि आकार</translation>
     </message>
     <message>
-        <source>PNG</source>
-        <translation type="obsolete">पी एन जी</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">जे पी ई जी</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">वेब पी</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
         <translation>फ़ाइलें जोड़ें...</translation>
@@ -174,13 +150,6 @@ All rights reserved.</source>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>जानकारी</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।.</translation>
     </message>
 </context>
 <context>
@@ -338,10 +307,6 @@ Saved: %4 (%5%)</source>
         <translation>पी एन जी</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">स्तर</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
         <source>WebP</source>
         <translation>वेब पी</translation>
@@ -484,10 +449,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1413"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>यदि उत्पादन का आकार मूल आकार से बड़ा हो तो छोड़ दें</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">मूल फाइल को ट्रैश में स्थानांतरित करें</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1471"/>
@@ -779,10 +740,6 @@ Saved: %4 (%5%)</source>
         <translation>अँधेरा</translation>
     </message>
     <message>
-        <source>threads</source>
-        <translation type="vanished">धागे</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="363"/>
         <source>No action</source>
         <translation>कोई कार्रवाई नहीं</translation>
@@ -843,34 +800,6 @@ Saved: %4 (%5%)</source>
         <translation>बंद करने से पहले पूछें</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">आयात न करें यदि आकार</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">इससे बड़ा है</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">इसके बराबर है</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">इससे छोटा है</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">बाइट</translation>
-    </message>
-    <message>
-        <source>Kb</source>
-        <translation type="vanished">किलोबाइट</translation>
-    </message>
-    <message>
-        <source>Mb</source>
-        <translation type="vanished">मेगाबाइट</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="496"/>
         <source>Changes will apply after restart</source>
         <translation>पुनरारंभ के बाद परिवर्तन लागू होंगे</translation>
@@ -884,10 +813,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="255"/>
         <source>This option applies when using command line or by dropping files to the application icon</source>
         <translation>यह विकल्प कमांड लाइन का उपयोग करते समय या एप्लिकेशन प्रतीक पर फ़ाइलें छोड़ते समय लागू होता है</translation>
-    </message>
-    <message>
-        <source>Native</source>
-        <translation type="vanished">मूल</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
@@ -915,10 +840,6 @@ Saved: %4 (%5%)</source>
         <translation>बहुसूत्रण</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">भाषा</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>संकुचित करते समय संदेश और चेतावनी संवाद छोड़ दें</translation>
@@ -927,14 +848,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>आयात करें</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">किलोबाइट</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">मेगाबाइट</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="290"/>
@@ -957,29 +870,9 @@ Saved: %4 (%5%)</source>
         <translation>अधिमानित भाषा</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ पुनरारंभ के बाद परिवर्तन लागू होंगे&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">उपयोग की जानकारी</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>उपयोग की जानकारी दिखाऐं</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">सिस्टम की जानकारी</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">संकुचन की जानकारी</translation>
     </message>
 </context>
 <context>
@@ -1076,47 +969,9 @@ Saved: %4 (%5%)</source>
         <translation>टिफ़</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="vanished">गुणवत्ता</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">आकार</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">बाइट</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">किलोबाइट</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">मेगाबाइट</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="vanished">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>स्वत:</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">पूर्वावलोकन</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">कार्य प्रगति पर है...</translation>
     </message>
 </context>
 <context>
@@ -1145,21 +1000,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>संकुचन की जानकारी</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">पी एन जी</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">जे पी ई जी</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">वेब पी</translation>
     </message>
 </context>
 </TS>

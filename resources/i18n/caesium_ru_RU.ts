@@ -25,18 +25,6 @@ All rights reserved.</source>
         <translation>Авторское право © 2023 Matteo Paonessa.
 Все права защищены.</translation>
     </message>
-    <message>
-        <source>Copyright © 2022 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Авторское право © 2022 Matteo Paonessa.
-Все права защищены.</translation>
-    </message>
-    <message>
-        <source>Copyright © 2021 Matteo Paonessa.
-All rights reserved.</source>
-        <translation type="vanished">Авторское право © 2021 Matteo Paonessa.
-Все права защищены.</translation>
-    </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
@@ -162,13 +150,6 @@ All rights reserved.</source>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Info</source>
         <translation>Информация</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="obsolete">Эти данные собираются для улучшения качества программы. Никакие данные не передаются третьим лицам.</translation>
     </message>
 </context>
 <context>
@@ -326,10 +307,6 @@ Saved: %4 (%5%)</source>
         <translation>PNG</translation>
     </message>
     <message>
-        <source>Level</source>
-        <translation type="vanished">Уровень</translation>
-    </message>
-    <message>
         <location filename="../../views/MainWindow.ui" line="626"/>
         <source>WebP</source>
         <translation>WebP</translation>
@@ -472,10 +449,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/MainWindow.ui" line="1413"/>
         <source>Skip if output size is bigger than the original</source>
         <translation>Пропускать, если сжатое изображение больше оригинала</translation>
-    </message>
-    <message>
-        <source>Move the original file to trash</source>
-        <translation type="vanished">Перемещать исходный файл в корзину</translation>
     </message>
     <message>
         <location filename="../../views/MainWindow.ui" line="1471"/>
@@ -792,26 +765,6 @@ Saved: %4 (%5%)</source>
         <translation>Спрашивать перед закрытием</translation>
     </message>
     <message>
-        <source>Do not import if size is</source>
-        <translation type="vanished">Не импортировать, если размер</translation>
-    </message>
-    <message>
-        <source>greater than</source>
-        <translation type="vanished">больше, чем</translation>
-    </message>
-    <message>
-        <source>equal to</source>
-        <translation type="vanished">равен</translation>
-    </message>
-    <message>
-        <source>less than</source>
-        <translation type="vanished">меньше, чем</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="vanished">байтов</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="320"/>
         <source> threads</source>
         <translation> потока(ов)</translation>
@@ -862,10 +815,6 @@ Saved: %4 (%5%)</source>
         <translation>Эта настройка применяется при вызове программы из командной строки или при перетаскивании файлов на ярлык программы</translation>
     </message>
     <message>
-        <source>Native</source>
-        <translation type="vanished">Native</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="99"/>
         <source>Check updates at startup</source>
         <translation>Проверять наличие обновлений при запуске</translation>
@@ -891,10 +840,6 @@ Saved: %4 (%5%)</source>
         <translation>Многопоточность</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="vanished">Язык</translation>
-    </message>
-    <message>
         <location filename="../../views/PreferencesDialog.ui" line="51"/>
         <source>Skip message and warning dialogs during compression</source>
         <translation>Пропускать диалоговые окна сообщений и предупреждений во время сжатия</translation>
@@ -903,14 +848,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../views/PreferencesDialog.ui" line="191"/>
         <source>Import</source>
         <translation>Импорт</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="vanished">КБ</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="vanished">МБ</translation>
     </message>
     <message>
         <location filename="../../views/PreferencesDialog.ui" line="290"/>
@@ -933,29 +870,9 @@ Saved: %4 (%5%)</source>
         <translation>Выбранный язык</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Changes will apply after restart&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;⚠️ Изменения вступят в силу после перезапуска&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Usage data</source>
-        <translation type="vanished">Данные об использовании</translation>
-    </message>
-    <message>
         <location filename="../../src/dialogs/PreferencesDialog.cpp" line="23"/>
         <source>Show usage data</source>
         <translation>Показать данные об использовании</translation>
-    </message>
-    <message>
-        <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation type="vanished">Эти данные собираются для улучшения качества программы. Никакие данные не передаются третьим лицам.</translation>
-    </message>
-    <message>
-        <source>System data</source>
-        <translation type="vanished">Системные данные</translation>
-    </message>
-    <message>
-        <source>Compression data</source>
-        <translation type="vanished">Данные сжатия</translation>
     </message>
 </context>
 <context>
@@ -1052,47 +969,9 @@ Saved: %4 (%5%)</source>
         <translation>TIFF</translation>
     </message>
     <message>
-        <source>Quality</source>
-        <translation type="obsolete">Качество</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Размер</translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation type="obsolete">байтов</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation type="obsolete">КБ</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="obsolete">МБ</translation>
-    </message>
-    <message>
-        <source>%</source>
-        <translation type="obsolete">%</translation>
-    </message>
-    <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
         <translation>Авто</translation>
-    </message>
-</context>
-<context>
-    <name>QUnifiedPreview</name>
-    <message>
-        <source>Preview</source>
-        <translation type="obsolete">Предварительный просмотр</translation>
-    </message>
-</context>
-<context>
-    <name>QZoomGraphicsView</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="vanished">Загрузка...</translation>
     </message>
 </context>
 <context>
@@ -1121,21 +1000,6 @@ Saved: %4 (%5%)</source>
         <location filename="../../src/dialogs/UsageStatsDialog.cpp" line="44"/>
         <source>Compression data</source>
         <translation>Данные сжатия</translation>
-    </message>
-</context>
-<context>
-    <name>advancedImport_Dialog</name>
-    <message>
-        <source>PNG</source>
-        <translation type="obsolete">PNG</translation>
-    </message>
-    <message>
-        <source>JPEG</source>
-        <translation type="obsolete">JPEG</translation>
-    </message>
-    <message>
-        <source>WebP</source>
-        <translation type="obsolete">WebP</translation>
     </message>
 </context>
 </TS>
