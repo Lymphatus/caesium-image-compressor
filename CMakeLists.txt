@@ -155,16 +155,20 @@ SET(TS_FILES
         resources/i18n/caesium_fi_FI.ts
 )
 
+set(QT_LINGUIST_OPTIONS "--no-obsolete")
+    
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
     qt6_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
+            ${QT_LINGUIST_OPTIONS}
             )
 else ()
     qt5_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
+            ${QT_LINGUIST_OPTIONS}
             )
 endif ()
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
