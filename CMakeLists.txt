@@ -155,7 +155,7 @@ SET(TS_FILES
         resources/i18n/caesium_fi_FI.ts
 )
 
-set(QT_LINGUIST_OPTIONS "--no-obsolete")
+set(QT_LINGUIST_OPTIONS "-no-obsolete")
     
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
