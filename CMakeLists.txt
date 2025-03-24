@@ -160,15 +160,15 @@ set(LUPDATE_OPTIONS "-no-obsolete")
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
     qt6_create_translation(QM_FILES
-            ${LUPDATE_OPTIONS}
             ${CMAKE_SOURCE_DIR}
-            -ts ${TS_FILES}
+            ${TS_FILES}
+            OPTIONS -no-obsolete
             )
 else ()
     qt5_create_translation(QM_FILES
-            ${LUPDATE_OPTIONS}
             ${CMAKE_SOURCE_DIR}
-            -ts ${TS_FILES}
+            ${TS_FILES}
+            OPTIONS -no-obsolete
             )
 endif ()
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
