@@ -155,20 +155,20 @@ SET(TS_FILES
         resources/i18n/caesium_fi_FI.ts
 )
 
-set(LUPDATE_OPTIONS "-no-obsolete")
+set(LUPDATE_OPTIONS "-no-obsolete -no-ui-lines")
     
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
 if (QT_VERSION_MAJOR EQUAL "6")
     qt6_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
-            OPTIONS -no-obsolete
+            OPTIONS ${LUPDATE_OPTIONS}
             )
 else ()
     qt5_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
-            OPTIONS -no-obsolete
+            OPTIONS ${LUPDATE_OPTIONS}
             )
 endif ()
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
