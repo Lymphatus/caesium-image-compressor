@@ -162,13 +162,15 @@ if (QT_VERSION_MAJOR EQUAL "6")
     qt6_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
-            OPTIONS "-no-ui-lines -no-oboslete"
+            OPTIONS "-no-obsolete"
+            OPTIONS "-no-ui-lines"
             )
 else ()
     qt5_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
-            OPTIONS "-no-ui-lines -no-oboslete"
+            OPTIONS "-no-obsolete"
+            OPTIONS "-no-ui-lines"
             )
 endif ()
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
