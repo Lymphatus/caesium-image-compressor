@@ -629,6 +629,16 @@ void MainWindow::startCompression(bool onlyFailed)
 
     this->compressionWatcher = new QFutureWatcher<void>();
     connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
+    
+    connect(this->compressionWatcher, &QFutureWatcherBase::finished, [this] {
+        
+        size_t rowCount = this->cImageModel->rowCount();
+    
+        for(size_t i = 0; i < rowCount; ++i) {
+            this->cImageModel->emitDataChanged(i);
+        }
+    });
+
     connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this->cImageModel, &CImageTreeModel::emitDataChanged);
     connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this, &MainWindow::updateCompressionProgressLabel);
 
