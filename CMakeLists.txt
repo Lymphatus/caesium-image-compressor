@@ -82,7 +82,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} LIBCAESIUM_BUILD_TYPE)
 if (NOT WIN32)
     link_directories(${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE})
 endif ()
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network  LinguistTools REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Core Gui Concurrent Svg Network LinguistTools REQUIRED)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -162,14 +162,14 @@ if (QT_VERSION_MAJOR EQUAL "6")
             ${TS_FILES}
             OPTIONS "-no-obsolete"
             OPTIONS "-no-ui-lines"
-            )
+    )
 else ()
     qt5_create_translation(QM_FILES
             ${CMAKE_SOURCE_DIR}
             ${TS_FILES}
             OPTIONS "-no-obsolete"
             OPTIONS "-no-ui-lines"
-            )
+    )
 endif ()
 configure_file(resources/languages.qrc ${CMAKE_BINARY_DIR} COPYONLY)
 
@@ -219,7 +219,7 @@ ExternalProject_Add(
         GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
         GIT_TAG ${LIBCAESIUM_VERSION}
         CONFIGURE_COMMAND ""
-        BUILD_COMMAND ""
+        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
         INSTALL_COMMAND ""
         BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
         LOG_OUTPUT_ON_FAILURE ON
