@@ -1,0 +1,30 @@
+{
+  "app_name": "Caesium Image Compressor",
+  "maxOutputSize": "Maximum output size",
+  "unit": "Unit",
+  "file_list": {
+    "status": "Status",
+    "filename": "Filename",
+    "size": "Size",
+    "resolution": "Resolution",
+    "saved": "Saved",
+    "additional_info": "Info",
+    "actions": "Actions"
+  },
+  "formatting": {
+    "thousands_separator": ".",
+    "decimal_separator": ","
+  },
+  "size_units": {
+    "byte": "byte | bytes",
+    "kb": "Kb",
+    "mb": "Mb",
+    "gb": "Gb"
+  },
+  "chroma_subsampling_auto": "Auto",
+  "actions": {
+    "compress": "Compress",
+    "add": "Add",
+    "remove": "Remove"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Caesium Image Compressor",
+  "version": "3.0.0-alpha.0",
+  "identifier": "com.saerasoft.caesium",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Caesium Image Compressor",
+        "width": 1200,
+        "height": 900
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "*/**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "createUpdaterArtifacts": true
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE0RUZEOTkxNkE5OTE5NDAKUldSQUdabHFrZG52cENUSFNKQks0T3NIZlNqdUZmUlhFVnFjamtub1B0RFBqdW9qWUM1SjFpTncK",
+      "endpoints": [
+        "https://saerasoft.com/repository/com.saerasoft.caesium/v3/latest.json",
+        "https://github.com/Lymphatus/caesium-image-compressor/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

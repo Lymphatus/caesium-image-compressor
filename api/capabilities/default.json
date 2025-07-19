@@ -1,0 +1,24 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "dialog:allow-open",
+    "window-state:default",
+    "store:default",
+    "dialog:default",
+    "dialog:default",
+    "core:menu:default",
+    "core:app:allow-set-app-theme",
+    "core:window:allow-close",
+    "core:window:allow-destroy",
+    "os:default",
+    "updater:default",
+    "log:default"
+  ]
+}

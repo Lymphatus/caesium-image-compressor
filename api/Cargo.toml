@@ -1,0 +1,47 @@
+[package]
+name = "caesium-image-compressor"
+version = "3.0.0-alpha.0"
+description = "Caesium Image compressor"
+authors = ["Matteo Paonessa"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "caesium_image_compressor_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2.5", features = ["protocol-asset"] }
+tauri-plugin-opener = "2.2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+walkdir = "2.5"
+tauri-plugin-dialog = "2.2"
+tauri-plugin-window-state = "2.2"
+sha2 = "0.10"
+base16ct = { version = "0.2", features = ["alloc"] }
+kamadak-exif = "0.6"
+imagesize = "0.14"
+file-format = "0.27.0"
+indexmap = "2.7"
+tauri-plugin-store = "2"
+libcaesium = "0.17"
+serde_repr = "0.1"
+rayon = "1.10"
+tauri-plugin-os = "2"
+system_shutdown = "4.0.0"
+open = "5.3.0"
+tauri-plugin-process = "2"
+trash = "5.2"
+tauri-plugin-log = "2"
+log = "0.4"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-updater = "2"
