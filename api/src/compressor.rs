@@ -95,6 +95,17 @@ pub struct CompressionResult {
 }
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug)]
+pub struct CompressionSummary {
+    pub total_images: usize,
+    pub total_success: usize,
+    pub total_skipped: usize,
+    pub total_errors: usize,
+    pub original_size: usize,
+    pub compressed_size: usize,
+    pub total_time: u64
+}
+
+#[derive(serde::Serialize, serde::Deserialize, Clone, Debug)]
 pub enum CompressionStatus {
     Success,
     Warning,
@@ -128,6 +139,9 @@ pub fn compress_cimage(
             cimage: CImage {
                 status: ImageStatus::Error,
                 info: format!("File exceeds max size of {MAX_FILE_SIZE}").to_string(),
+                compressed_width: cimage.width,
+                compressed_height: cimage.height,
+                compressed_size: cimage.size,
                 ..cimage.clone()
             },
         };
@@ -141,6 +155,9 @@ pub fn compress_cimage(
                 cimage: CImage {
                     status: ImageStatus::Error,
                     info: "Error computing output path".to_string(),
+                    compressed_width: cimage.width,
+                    compressed_height: cimage.height,
+                    compressed_size: cimage.size,
                     ..cimage.clone()
                 },
             }
@@ -161,7 +178,6 @@ pub fn compress_cimage(
                     compressed_width: cimage.width,
                     compressed_height: cimage.height,
                     compressed_size: cimage.size,
-                    compressed_file_path: output_full_path.display().to_string(),
                     ..cimage.clone()
                 },
             };
@@ -177,6 +193,9 @@ pub fn compress_cimage(
                     cimage: CImage {
                         status: ImageStatus::Error,
                         info: "Error while compressing".to_string(),
+                        compressed_width: cimage.width,
+                        compressed_height: cimage.height,
+                        compressed_size: cimage.size,
                         ..cimage.clone()
                     },
                 }
@@ -258,6 +277,9 @@ pub fn preview_cimage(
                 cimage: CImage {
                     status: ImageStatus::Warning,
                     info: "Cannot resize over original dimensions, skipping".to_string(),
+                    compressed_width: cimage.width,
+                    compressed_height: cimage.height,
+                    compressed_size: cimage.size,
                     ..cimage.clone()
                 },
             };

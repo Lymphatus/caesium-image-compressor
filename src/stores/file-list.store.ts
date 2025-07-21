@@ -9,6 +9,7 @@ import useResizeOptionsStore from '@/stores/resize-options.store.ts';
 import useOutputOptionsStore from '@/stores/output-options.store.ts';
 import { error } from '@tauri-apps/plugin-log';
 import { SortDescriptor } from '@heroui/react';
+import { execPostCompressionAction } from '@/utils/post-compression-actions.ts';
 
 interface FileListStore {
   fileList: CImage[];
@@ -95,9 +96,9 @@ const useFileListStore = create<FileListStore>()(
             //   useFileListStore.getState().updateFile(id, { status: IMAGE_STATUS.ERROR, info: e.toString() }); //TODO maybe we don't need to set all of them as errors
             // }
           })
-          .finally(() => {
+          .finally(async () => {
             set({ isCompressing: false, compressionProgress: 0 });
-            // execPostCompressionAction(useSettingsStore.getState().postCompressionAction);
+            await execPostCompressionAction(useSettingsStore.getState().postCompressionAction);
           });
       },
       updateFile: (id: string, updatedData: Partial<CImage>) =>

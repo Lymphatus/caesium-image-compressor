@@ -5,7 +5,7 @@ import ImportDialog from '@/components/dialogs/ImportDialog.tsx';
 import CenterContainer from '@/components/CenterContainer.tsx';
 import useFileListStore from '@/stores/file-list.store.ts';
 import { listen, TauriEvent } from '@tauri-apps/api/event';
-import { CImage } from '@/types.ts';
+import { CImage, CompressionFinished } from '@/types.ts';
 import { addToast, Button } from '@heroui/react';
 import SettingsDialog from '@/components/dialogs/SettingsDialog.tsx';
 import usePreviewStore from '@/stores/preview.store.ts';
@@ -17,6 +17,7 @@ import useUIStore from '@/stores/ui.store.ts';
 import AskDialog from '@/components/dialogs/AskDialog.tsx';
 import { useTranslation } from 'react-i18next';
 import CheckForUpdatesDialog from '@/components/dialogs/CheckForUpdatesDialog.tsx';
+import prettyBytes from 'pretty-bytes';
 
 function App() {
   const {
@@ -84,6 +85,28 @@ function App() {
       setCompressionProgress(event.payload);
     });
 
+    const compressionFinishedListener = listen<CompressionFinished>('fileList:compressionFinished', (event) => {
+      //TODO translations
+      addToast({
+        title: 'Compression finished',
+        description: (
+          <div className="flex flex-col gap-2">
+            <span>Total files: {event.payload.total_images}</span>
+            <span>Compressed: {event.payload.total_success}</span>
+            <span>Skipped: {event.payload.total_skipped}</span>
+            <span>Errors: {event.payload.total_errors}</span>
+            <span>
+              {prettyBytes(event.payload.original_size)} to {prettyBytes(event.payload.compressed_size)} - Saved&nbsp;
+              {prettyBytes(event.payload.original_size - event.payload.compressed_size)}
+            </span>
+            <span>Elapsed time: {event.payload.total_time} ms</span>
+          </div>
+        ),
+        // timeout: 3000,
+        color: 'success',
+      });
+    });
+
     const closeRequestedListener = getCurrentWindow().listen(TauriEvent.WINDOW_CLOSE_REQUESTED, async () => {
       if (useSettingsStore.getState().promptBeforeExit && !useSettingsStore.getState().skipMessagesAndDialogs) {
         setPromptExitDialogOpen(true);
@@ -104,6 +127,7 @@ function App() {
         updateCImageListener,
         closeRequestedListener,
         updateCompressionProgressListener,
+        compressionFinishedListener,
       ]).then((cleanupFns) => {
         cleanupFns.forEach((cleanupFn) => cleanupFn());
       });

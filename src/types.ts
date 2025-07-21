@@ -136,3 +136,13 @@ export type UsageStats = {
     outputOptions: Omit<OutputOptions, 'output_folder'>;
   };
 };
+
+export type CompressionFinished = {
+  total_images: number;
+  total_success: number;
+  total_skipped: number;
+  total_errors: number;
+  original_size: number;
+  compressed_size: number;
+  total_time: number;
+};
