@@ -31,7 +31,7 @@ You can quickly reduce the file size (and resolution, if you want) by preserving
 
 - **Windows**: 10 (build 1809 or later) (use old version v1.x for Windows 7 or
   8 - [link](https://www.fosshub.com/Caesium-Image-Compressor-old.html))
-- **MacOS**: 10.15+
+- **MacOS**: 12+
 - **Linux**: tested on Ubuntu 22.04 and Manjaro
 
 Note: only 64bit versions are supported
