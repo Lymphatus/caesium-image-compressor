@@ -29,7 +29,7 @@ sha2 = "0.10"
 base16ct = { version = "0.2", features = ["alloc"] }
 kamadak-exif = "0.6"
 imagesize = "0.14"
-file-format = "0.27.0"
+file-format = "0.28.0"
 indexmap = "2.7"
 tauri-plugin-store = "2"
 libcaesium = "0.17"

@@ -37,21 +37,21 @@ function App() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const importFinishedListener = listen('fileImporter:importFinished', () => {
-      setIsImporting(false);
-      //TODO correct text and translation
-      addToast({
-        title: 'Import finished',
-        description: 'Imported a few files',
-        // timeout: 3000,
-        color: 'success',
-      });
-    });
+    const importFinishedListener = listen<{ original_list_length: number; new_list_length: number }>(
+      'fileImporter:importFinished',
+      (event) => {
+        setIsImporting(false);
+        addToast({
+          title: 'Import finished',
+          description: `Imported ${event.payload.new_list_length - event.payload.original_list_length} files`,
+          color: 'success',
+        });
+      },
+    );
 
     const getListListener = listen<{ files: CImage[]; base_folder: string; total_files: number }>(
       'fileList:getList',
       (event) => {
-        console.log(event);
         const { files, base_folder, total_files } = event.payload;
         setFileList(files);
         setBaseFolder(base_folder);

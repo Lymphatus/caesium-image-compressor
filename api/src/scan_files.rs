@@ -25,6 +25,12 @@ pub struct FileList {
     pub(crate) total_files: usize,
 }
 
+#[derive(Serialize, Clone)]
+pub struct ImportFinishedResult {
+    original_list_length: usize,
+    new_list_length: usize,
+}
+
 fn is_filetype_supported(path: &Path) -> bool {
     let fmt = get_file_mime_type(path);
     let mime_type = fmt.media_type();
@@ -54,6 +60,7 @@ pub fn process_files(app: &tauri::AppHandle, file_paths: Vec<FilePath>, recursiv
     app.emit("fileImporter:importStarted", ()).unwrap(); //TODO
     let state = app.state::<Mutex<AppData>>();
     let mut state = state.lock().unwrap();
+    let original_list_length = state.file_list.len();
     let (base_folder, imported_files) = scan_files(&file_paths, &state.base_path, recursive);
 
     state.base_path = base_folder;
@@ -100,7 +107,14 @@ pub fn process_files(app: &tauri::AppHandle, file_paths: Vec<FilePath>, recursiv
             .collect();
     }
 
-    app.emit("fileImporter:importFinished", ()).unwrap(); //TODO
+    app.emit(
+        "fileImporter:importFinished",
+        ImportFinishedResult {
+            original_list_length,
+            new_list_length: state.file_list.len(),
+        },
+    )
+    .unwrap(); //TODO
     app.emit(
         "fileList:getList",
         FileList {
