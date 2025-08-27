@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About Caesium - Image Compressor</source>
-        <translation>A propos de Caesium - Image Compressor</translation>
+        <translation>À propos de Caesium - Image Compressor</translation>
     </message>
     <message>
         <source>Caesium Image Compressor</source>
@@ -19,92 +19,92 @@
         <source>Copyright © 2023 Matteo Paonessa.
 All rights reserved.</source>
         <translation>Copyright © 2023 Matteo Paonessa.
-All rights reserved.</translation>
+Tous droits réservés.</translation>
     </message>
 </context>
 <context>
     <name>AdvancedImportDialog</name>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Enlever</translation>
+        <translation>Enlever</translation>
     </message>
     <message>
         <source>Import files in subfolders when opening a directory</source>
-        <translation type="unfinished">Importer les fichiers dans les sous-répertoires lorsque vous ouvrez un dossier</translation>
+        <translation>Importer les fichiers dans les sous-répertoires lorsque vous ouvrez un dossier</translation>
     </message>
     <message>
         <source>Add...</source>
-        <translation type="unfinished">Ajouter...</translation>
+        <translation>Ajouter...</translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">octets</translation>
+        <translation>octets</translation>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished">KO</translation>
+        <translation>Ko</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">MO</translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <source>greater than</source>
-        <translation type="unfinished">plus grand que</translation>
+        <translation>plus grand que</translation>
     </message>
     <message>
         <source>equal to</source>
-        <translation type="unfinished">égal à </translation>
+        <translation>égal à </translation>
     </message>
     <message>
         <source>less than</source>
-        <translation type="unfinished">inférieur à</translation>
+        <translation>inférieur à</translation>
     </message>
     <message>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer une liste</translation>
     </message>
     <message>
         <source>File name pattern (regex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de fichier (expression régulière)</translation>
     </message>
     <message>
         <source>Advanced Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importation avancée</translation>
     </message>
     <message>
         <source>Do not import if size is</source>
-        <translation type="unfinished">Ne pas importer si la taille est supérieur à</translation>
+        <translation>Ne pas importer si la taille est supérieur à</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="21"/>
         <source>Add files...</source>
-        <translation type="unfinished">Ajouter les fichiers...</translation>
+        <translation>Ajouter les fichiers...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="22"/>
         <source>Add folder...</source>
-        <translation type="unfinished">Ajouter le répertoire...</translation>
+        <translation>Ajouter le répertoire...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="23"/>
         <source>Import from list...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer depuis une liste...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="129"/>
         <source>Import files...</source>
-        <translation type="unfinished">Importer les fichiers...</translation>
+        <translation>Importer les fichiers...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="143"/>
         <source>Import folder...</source>
-        <translation type="unfinished">Importer le répertoire...</translation>
+        <translation>Importer le répertoire...</translation>
     </message>
     <message>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="157"/>
         <source>Import file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer un fichier...</translation>
     </message>
 </context>
 <context>
@@ -150,7 +150,7 @@ All rights reserved.</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="520"/>
         <source>Importing files...</source>
-        <translation>Importation des fichiers...</translation>
+        <translation>Importer des fichiers...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="520"/>
@@ -192,7 +192,7 @@ Voulez vous vraiment continuer?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="736"/>
         <source>Do you really want to quit?</source>
-        <translation>Voulez vous vraiment quitter?</translation>
+        <translation>Voulez vous vraiment quitter ?</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="607"/>
@@ -203,23 +203,23 @@ Voulez vous vraiment continuer?</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="592"/>
         <source>Please select an output folder first</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez d'abord le répertoire de destination</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="593"/>
         <location filename="../../src/MainWindow.cpp" line="851"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="760"/>
         <source>Select output folder...</source>
-        <translation>Selection le répertoire de destination...</translation>
+        <translation>Sélectionnez le répertoire de destination...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="826"/>
         <source>Compression finished!</source>
-        <translation>Compression fini!</translation>
+        <translation>Compression terminée!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="841"/>
@@ -240,7 +240,7 @@ Econominé: %4 (%5%)</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1512"/>
         <source>Recompress failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Echec de la recompression</translation>
     </message>
     <message>
         <source>Caesium Image Compressor</source>
@@ -284,7 +284,11 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Maximum output size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille maximale</translation>
+    </message>
+    <message>
+        <source>bytes</source>
+        <translation>octets</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -292,8 +296,16 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Keep Metadata</source>
-        <translation>Conserver Metadata</translation>
+        <translation>Conserver les métadonnées</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation>KO</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MO</translation>
+    </message>    
     <message>
         <source>Resize</source>
         <translation>Redimensionner</translation>
@@ -386,7 +398,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Last modified</source>
-        <translation>Dernier modifié</translation>
+        <translation>Dernière modification</translation>
     </message>
     <message>
         <source>Last access</source>
@@ -401,6 +413,14 @@ Econominé: %4 (%5%)</translation>
         <translation>Suffixe</translation>
     </message>
     <message>
+        <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
+        <translation>La conversion vers un nouveau format ou le redimensionnement peut dégrader la qualité même si l&apos;option &quot;sans perte&quot; est séléctionnée</translation>
+    </message>
+    <message>
+        <source>Original</source>
+        <translation>Original</translation>
+    </message>
+    <message>
         <location filename="../../src/MainWindow.cpp" line="1247"/>
         <source>Preview</source>
         <translation>Aperçu</translation>
@@ -411,75 +431,56 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Optimization level</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveau d'optimisation</translation>
     </message>
     <message>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>Méthode</translation>
     </message>
     <message>
         <source>Deflate level</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveau de deflate</translation>
     </message>
     <message>
         <source>Best</source>
-        <translation type="unfinished"></translation>
+        <translation>Meilleur</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Équilibré</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Rapide</translation>
     </message>
     <message>
         <source>Chroma subsampling</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Refers to: https://en.wikipedia.org/wiki/Chroma_subsampling</translatorcomment>        
+        <translation>Sous-échantillonage chroma</translation>
     </message>
     <message>
         <source>Progressive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>bytes</source>
-        <translation>octets</translation>
-    </message>
-    <message>
-        <source>KB</source>
-        <translation>KO</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation>MO</translation>
+        <translation>Progressif</translation>
     </message>
     <message>
         <source>Move the original file</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer le fichier d'origine</translation>
     </message>
     <message>
         <source>To Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer vers la corbeille</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Converting to a new format or resizing can degrade quality even if &quot;lossless&quot; option is selected</source>
-        <translation>La conversion vers un nouveau format ou le redimensionnement peu dégradé la qualité même si l&apos;option &quot;sans perte&quot; est séléctionnée</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer définitivement</translation>
     </message>
     <message>
         <source>Help</source>
@@ -503,7 +504,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>About Caesium Image Compressor</source>
-        <translation>A propos de Caesium Image Compressor</translation>
+        <translation>À propos de Caesium Image Compressor</translation>
     </message>
     <message>
         <source>Add files...</source>
@@ -564,11 +565,11 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Icons</source>
-        <translation>Icones</translation>
+        <translation>Icônes</translation>
     </message>
     <message>
         <source>Icons and Text</source>
-        <translation>Icones et Texte</translation>
+        <translation>Icônes et Texte</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -588,7 +589,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Advanced import...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importation avancée...</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="899"/>
@@ -599,7 +600,7 @@ Econominé: %4 (%5%)</translation>
     <message>
         <location filename="../../src/MainWindow.cpp" line="1064"/>
         <source>images in list</source>
-        <translation>images in list</translation>
+        <translation>images dans une liste</translation>
     </message>
 </context>
 <context>
@@ -610,23 +611,51 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Clair</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Sombre</translation>
+    </message>
+    <message>
+        <source> threads</source>
+        <translation> threads</translation>
+    </message>
+    <message>
+        <source>No action</source>
+        <translation>Pas d'action</translation>
+    </message>
+    <message>
+        <source>Close the application</source>
+        <translation>Fermer l'application</translation>
+    </message>
+    <message>
+        <source>Sleep</source>
+        <translation>Sommeil</translation>
+    </message>
+    <message>
+        <source>Shutdown</source>
+        <translation>Éteindre</translation>
+    </message>
+    <message>
+        <source>Open output folder</source>
+        <translation>Ouvrir le répertoire de destination</translation>
+    </message>
+    <message>
+        <source>Perform an action after successful compression</source>
+        <translation>Réaliser une action après une compression réussie</translation>
     </message>
     <message>
         <source>Threads priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Priorité des threads</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Redémarrer</translation>
     </message>
     <message>
         <source>Close</source>
@@ -639,35 +668,7 @@ Econominé: %4 (%5%)</translation>
     <message>
         <source>Prompt before exit</source>
         <translation>Demander avant de quitter</translation>
-    </message>
-    <message>
-        <source> threads</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No action</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Close the application</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sleep</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open output folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Perform an action after successful compression</source>
-        <translation type="unfinished"></translation>
-    </message>
+    </message>    
     <message>
         <source>Changes will apply after restart</source>
         <translation>Les changement seront appliqués après le redémarrage</translation>
@@ -678,7 +679,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>This option applies when using command line or by dropping files to the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette option s'applique lors d'une utilisation en ligne de commande ou en glissant des fichiers sur l'icône de l'application</translation>
     </message>
     <message>
         <source>Check updates at startup</source>
@@ -702,7 +703,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Skip message and warning dialogs during compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas afficher les dialogues (message et avertissements) pendant la compression</translation>
     </message>
     <message>
         <source>Import</source>
@@ -710,7 +711,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>Import only</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer uniquement</translation>
     </message>
     <message>
         <source>Import and compress</source>
@@ -718,7 +719,7 @@ Econominé: %4 (%5%)</translation>
     </message>
     <message>
         <source>When importing files directly</source>
-        <translation type="unfinished"></translation>
+        <translation>Pendant l'importation directe de fichiers</translation>
     </message>
     <message>
         <source>Preferred language</source>
@@ -736,7 +737,7 @@ Econominé: %4 (%5%)</translation>
         <location filename="../../src/dialogs/AdvancedImportDialog.cpp" line="131"/>
         <location filename="../../src/MainWindow.cpp" line="281"/>
         <source>Image Files</source>
-        <translation>Image Files</translation>
+        <translation>Fichiers d'images</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="152"/>
@@ -756,7 +757,7 @@ Econominé: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="204"/>
         <source>File conversion failed</source>
-        <translation type="unfinished"></translation>
+        <translation>La conversion a échoué</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="256"/>
@@ -771,12 +772,12 @@ Econominé: %4 (%5%)</translation>
     <message>
         <location filename="../../src/models/CImage.cpp" line="272"/>
         <source>Cannot move original file to trash, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de déplacer le fichier d'origine dans la corbeille, vérifiez vos permissions</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="275"/>
         <source>Cannot delete original file, check your permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de supprimer le fichier original, vérifiez vos permissions</translation>
     </message>
     <message>
         <location filename="../../src/models/CImage.cpp" line="401"/>
@@ -796,12 +797,12 @@ Econominé: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="121"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="198"/>
         <source>Same as input</source>
-        <translation type="unfinished"></translation>
+        <translation>Identique à la source</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="199"/>
@@ -821,12 +822,12 @@ Econominé: %4 (%5%)</translation>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="202"/>
         <source>TIFF</source>
-        <translation type="unfinished"></translation>
+        <translation>TIFF</translation>
     </message>
     <message>
         <location filename="../../src/utils/Utils.cpp" line="231"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
 </context>
 <context>
