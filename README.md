@@ -17,7 +17,8 @@ Try it directly on browser at [caesium.app](https://caesium.app)
 <a href="https://github.com/ClearRabbit"><img src="https://github.com/ClearRabbit.png" width="30px" alt="ClearRabbit" style="border-radius: 100%;" /></a>
 <a href="https://github.com/LushawnDev"><img src="https://github.com/LushawnDev.png" width="30px" alt="LushawnDev" style="border-radius: 100%;" /></a>
 <a href="https://github.com/yannkost"><img src="https://github.com/yannkost.png" width="30px" alt="yannkost" style="border-radius: 100%;" /></a>
-<a href="https://github.com/yannkost"><img src="https://github.com/stamminator.png" width="30px" alt="yannkost" style="border-radius: 100%;" /></a>
+<a href="https://github.com/yannkost"><img src="https://github.com/stamminator.png" width="30px" alt="stamminator" style="border-radius: 100%;" /></a>
+<a href="https://github.com/justBernhard"><img src="https://github.com/justBernhard.png" width="30px" alt="justBernhard" style="border-radius: 100%;" /></a>
 
 ----------
 
