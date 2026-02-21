@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QUrl>
 
 NetworkOperations::NetworkOperations()
 {
@@ -25,7 +26,14 @@ QString NetworkOperations::getBaseEndpoint()
 {
     QFile endpointFile(QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation) + "/api_endpoint");
     if (endpointFile.exists() && endpointFile.open(QFile::ReadOnly)) {
-        return endpointFile.readLine();
+        QString endpoint = endpointFile.readLine().trimmed();
+        QUrl url(endpoint);
+        if (!url.isValid() || url.scheme() != "https") {
+            qWarning() << "Custom API endpoint rejected: must be a valid HTTPS URL. Using default.";
+            return "https://caesium.app/api/v1";
+        }
+        qInfo() << "Using custom API endpoint:" << url.host();
+        return endpoint;
     }
     return "https://caesium.app/api/v1";
 }
