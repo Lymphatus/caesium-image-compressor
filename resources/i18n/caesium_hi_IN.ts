@@ -122,12 +122,12 @@ All rights reserved.</source>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Resolution</source>
-        <translation>आकार</translation>
+        <translation>रिज़ॉल्यूशन</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
         <source>Saved</source>
-        <translation>सहेजें</translation>
+        <translation>सहेजा गया</translation>
     </message>
     <message>
         <location filename="../../src/models/CImageTreeModel.cpp" line="11"/>
@@ -224,7 +224,7 @@ Do you really want to continue?</source>
     <message>
         <location filename="../../src/MainWindow.cpp" line="841"/>
         <source>You just saved %1!</source>
-        <translation>आपने अभी बचाया %1!</translation>
+        <translation>आपने अभी %1 बचाया!</translation>
     </message>
     <message>
         <location filename="../../src/MainWindow.cpp" line="845"/>
@@ -244,7 +244,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Caesium Image Compressor</source>
-        <translation>सेजियम - चित्र संकुचक</translation>
+        <translation>सीजियम - चित्र संकुचक</translation>
     </message>
     <message>
         <source>Add...</source>
@@ -320,7 +320,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>लम्बाई चौड़ाई</translation>
+        <translation>आयाम</translation>
     </message>
     <message>
         <source>Percentage</source>
@@ -354,7 +354,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Height</source>
-        <translation>लम्बाई</translation>
+        <translation>ऊँचाई</translation>
     </message>
     <message>
         <source>Do not enlarge</source>
@@ -362,7 +362,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Keep aspect ratio</source>
-        <translation>अभिमुक्ता अनुपात बनाए रखें</translation>
+        <translation>अनुपात बनाए रखें</translation>
     </message>
     <message>
         <source>Output</source>
@@ -443,7 +443,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Deflate level</source>
-        <translation>अपस्फीति स्तर</translation>
+        <translation>डिफ्लेट स्तर</translation>
     </message>
     <message>
         <source>Best</source>
@@ -467,15 +467,15 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Progressive</source>
-        <translation>प्रोग्रेसिव</translation>
+        <translation>प्रगतिशील</translation>
     </message>
     <message>
         <source>Move the original file</source>
-        <translation>मूल फ़ाइल खिसकाएँ</translation>
+        <translation>मूल फ़ाइल स्थानांतरित करें</translation>
     </message>
     <message>
         <source>To Trash</source>
-        <translation>कचरा में</translation>
+        <translation>कचरे में</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
@@ -615,11 +615,11 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Light</source>
-        <translation>रोशनी</translation>
+        <translation>हल्का</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation>अँधेरा</translation>
+        <translation>गहरा</translation>
     </message>
     <message>
         <source>No action</source>
@@ -631,11 +631,11 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Sleep</source>
-        <translation>सोना</translation>
+        <translation>निद्रा</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation>बंद करना</translation>
+        <translation>बंद करें</translation>
     </message>
     <message>
         <source>Open output folder</source>
@@ -643,15 +643,15 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Perform an action after successful compression</source>
-        <translation>Perform an action after successful compression</translation>
+        <translation>सफल संकुचन के बाद कोई कार्रवाई करें</translation>
     </message>
     <message>
         <source> threads</source>
-        <translation type="unfinished"></translation>
+        <translation> थ्रेड</translation>
     </message>
     <message>
         <source>Threads priority</source>
-        <translation>धागे प्राथमिकता</translation>
+        <translation>थ्रेड प्राथमिकता</translation>
     </message>
     <message>
         <source>Restart</source>
@@ -695,7 +695,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>उच्च स्तर</translation>
+        <translation>उन्नत</translation>
     </message>
     <message>
         <source>Multithreading</source>
@@ -838,7 +838,7 @@ Saved: %4 (%5%)</source>
     </message>
     <message>
         <source>This data is collected to provide the best long term support for the application. No data is sent to third parties.</source>
-        <translation>यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।.</translation>
+        <translation>यह जानकारी एप्लिकेशन के लिए सर्वोत्तम दीर्घकालिक सहायता प्रदान करने के लिए एकत्र की गयी है। तीसरे पक्ष को कोई जानकारी नहीं भेजी जाती है।</translation>
     </message>
     <message>
         <source>Close</source>
