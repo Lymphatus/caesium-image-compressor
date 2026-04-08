@@ -1,4 +1,5 @@
 #include "PostCompressionActions.h"
+#include <QProcess>
 
 void PostCompressionActions::runAction(PostCompressionAction action)
 {
@@ -38,26 +39,26 @@ void PostCompressionActions::closeApplication()
 void PostCompressionActions::shutdownMachine()
 {
 #ifdef Q_OS_WIN
-    system("shutdown /s");
+    QProcess::startDetached("shutdown", QStringList() << "/s");
 #endif
 
 #if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
-    system("shutdown -h now");
+    QProcess::startDetached("shutdown", QStringList() << "-h" << "now");
 #endif
 }
 
 void PostCompressionActions::putMachineToSleep()
 {
 #ifdef Q_OS_WIN
-    system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0");
+    QProcess::startDetached("rundll32.exe", QStringList() << "powrprof.dll,SetSuspendState" << "0,1,0");
 #endif
 
 #ifdef Q_OS_MAC
-    system("pmset sleepnow");
+    QProcess::startDetached("pmset", QStringList() << "sleepnow");
 #endif
 
 #ifdef Q_OS_LINUX
-    system("systemctl suspend");
+    QProcess::startDetached("systemctl", QStringList() << "suspend");
 #endif
 }
 
