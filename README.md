@@ -134,6 +134,7 @@ Caesium 2.0 is currently available in:
 | <img src="https://flagcdn.com/48x36/tr.png" width="24" height="18" alt="TR"> tr_TR | 97%      |
 | <img src="https://flagcdn.com/48x36/cn.png" width="24" height="18" alt="CN"> zh_CN | 100%     |
 | <img src="https://flagcdn.com/48x36/tw.png" width="24" height="18" alt="TW"> zh_TW | 100%     |
+| <img src="https://flagcdn.com/48x36/ro.png" width="24" height="18" alt="TW"> ro_RO | 98%      |
 
 #### How to contribute with your translation
 
