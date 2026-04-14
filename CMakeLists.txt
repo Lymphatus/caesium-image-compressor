@@ -154,6 +154,7 @@ SET(TS_FILES
         resources/i18n/caesium_pl_PL.ts
         resources/i18n/caesium_fi_FI.ts
         resources/i18n/caesium_ko_KR.ts
+        resources/i18n/caesium_ro_RO.ts
 )
 
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_BINARY_DIR}/i18n)
