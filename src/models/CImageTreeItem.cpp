@@ -13,7 +13,8 @@ CImageTreeItem::CImageTreeItem(CImage* cImage, CImageTreeItem* parent)
     };
 
     this->setData(columnStrings);
-    this->cImage = cImage;
+    this->cImage.reset(cImage);
+    refreshFromImage();
 }
 
 CImageTreeItem::CImageTreeItem(const QVector<QVariant>& data, CImageTreeItem* parent)
@@ -25,7 +26,6 @@ CImageTreeItem::CImageTreeItem(const QVector<QVariant>& data, CImageTreeItem* pa
 
 CImageTreeItem::~CImageTreeItem()
 {
-    delete cImage;
     qDeleteAll(m_childItems);
 }
 
@@ -93,7 +93,7 @@ QVector<CImageTreeItem*> CImageTreeItem::children()
 
 CImage* CImageTreeItem::getCImage() const
 {
-    return cImage;
+    return cImage.get();
 }
 
 QFuture<void> CImageTreeItem::compress(const CompressionOptions& compressionOptions)
@@ -138,4 +138,89 @@ void CImageTreeItem::setData(QStringList data)
 void CImageTreeItem::setCompressionCanceled(bool canceled)
 {
     this->compressionCanceled = canceled;
+}
+
+std::shared_ptr<CImage> CImageTreeItem::sharedImage() const
+{
+    return cImage;
+}
+
+void CImageTreeItem::refreshFromImage()
+{
+    cachedStatus = cImage->getStatus();
+    richSize = cImage->getRichFormattedSize();
+    richResolution = cImage->getRichResolution();
+    ratioText = cImage->getRichFormattedSavedRatio();
+    infoText = cImage->getFormattedStatus();
+    cachedCompressedFullPath = cImage->getCompressedFullPath();
+    compressedSizeSnapshot = cImage->getCompressedSize();
+    ratioSnapshot = cImage->getRatio();
+}
+
+void CImageTreeItem::setDisplayedStatus(CImageStatus status)
+{
+    cachedStatus = status;
+    if (status == CImageStatus::COMPRESSING) {
+        infoText = QIODevice::tr("Compressing...");
+    }
+}
+
+CImageStatus CImageTreeItem::displayedStatus() const
+{
+    return cachedStatus;
+}
+
+void CImageTreeItem::setRelativeFolder(const QString& folder)
+{
+    cachedRelativeFolder = folder;
+}
+
+const QString& CImageTreeItem::relativeFolder() const
+{
+    return cachedRelativeFolder;
+}
+
+void CImageTreeItem::setDisplayName(const QString& name)
+{
+    cachedDisplayName = name;
+}
+
+const QString& CImageTreeItem::displayName() const
+{
+    return cachedDisplayName;
+}
+
+const QString& CImageTreeItem::cachedRichSize() const
+{
+    return richSize;
+}
+
+const QString& CImageTreeItem::cachedRichResolution() const
+{
+    return richResolution;
+}
+
+const QString& CImageTreeItem::cachedRatioText() const
+{
+    return ratioText;
+}
+
+const QString& CImageTreeItem::cachedInfoText() const
+{
+    return infoText;
+}
+
+const QString& CImageTreeItem::compressedFullPath() const
+{
+    return cachedCompressedFullPath;
+}
+
+size_t CImageTreeItem::cachedCompressedSize() const
+{
+    return compressedSizeSnapshot;
+}
+
+double CImageTreeItem::cachedRatio() const
+{
+    return ratioSnapshot;
 }

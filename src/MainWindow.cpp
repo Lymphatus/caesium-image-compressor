@@ -229,6 +229,7 @@ void MainWindow::initListWidget() const
     this->proxyModel->setSourceModel(this->cImageModel);
     ui->imageList_TreeView->setModel(this->proxyModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
+    ui->imageList_TreeView->setUniformRowHeights(true);
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::NAME_COLUMN, QSettings().value("mainwindow/list_view/header_column_size/name", 250).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::SIZE_COLUMN, QSettings().value("mainwindow/list_view/header_column_size/size", defaultSectionSize).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::RESOLUTION_COLUMN, QSettings().value("mainwindow/list_view/header_column_size/resolution", defaultSectionSize).toInt());

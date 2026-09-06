@@ -93,17 +93,30 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
 
 void CImageTreeModel::appendItems(QList<CImage*> imageList, QString folder)
 {
-    this->baseFolder = folder;
+    updatePalette();
+    if (this->baseFolder != folder) {
+        this->baseFolder = folder;
+        for (CImageTreeItem* item : rootItem->children()) {
+            updateRelativeFolder(item);
+        }
+        if (rowCount() > 0) {
+            emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
+        }
+    }
     this->setupModelData(imageList, rootItem);
 }
 
 void CImageTreeModel::setupModelData(const QList<CImage*> imageList, CImageTreeItem* parent)
 {
+    if (imageList.isEmpty()) {
+        return;
+    }
     QListIterator<CImage*> iterator(imageList);
     this->beginInsertRows(QModelIndex(), this->rowCount(), this->rowCount() + imageList.count() - 1);
     while (iterator.hasNext()) {
         CImage* nextImage = iterator.next();
         auto* cImageTreeItem = new CImageTreeItem(nextImage, parent);
+        updateRelativeFolder(cImageTreeItem);
         parent->appendChild(cImageTreeItem);
     }
     endInsertRows();
@@ -146,47 +159,34 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     CImageTreeItem* item = static_cast<CImageTreeItem*>(index.internalPointer());
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME_COLUMN) {
-        // Little hack to get the default application text color to apply transparency to the base folder text
-        QColor defaultColor = QApplication::palette().text().color();
-        if (role & QStyle::State_Selected) {
-            defaultColor = QApplication::palette().highlightedText().color();
-        }
-        QString fullPath = item->getCImage()->getFullPath();
-        QString computedBaseFolder = fullPath.remove(baseFolder + "/");
-        QString baseFolderWithoutName = computedBaseFolder.remove(item->getCImage()->getFileName());
-        QString rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
-        return "<span style=\"color:" + rgbaString + ";\">" + baseFolderWithoutName + "</span>" + item->getCImage()->getFileName();
+        updatePalette();
+        return item->displayName();
     }
 
     if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME_COLUMN) {
-        CImageStatus status = item->getCImage()->getStatus();
-        if (status == CImageStatus::COMPRESSED) {
-            return QIcon(":/icons/compression_statuses/compressed.svg").pixmap(16, 16);
-        } else if (status == CImageStatus::ERROR) {
-            return QIcon(":/icons/compression_statuses/error.svg").pixmap(16, 16);
-        } else if (status == CImageStatus::WARNING) {
-            return QIcon(":/icons/compression_statuses/warning.svg").pixmap(16, 16);
-        } else if (status == CImageStatus::COMPRESSING) {
-            return QIcon(":/icons/compression_statuses/compressing.svg").pixmap(16, 16);
-        } else {
-            return QIcon(":/icons/compression_statuses/uncompressed.svg").pixmap(16, 16);
+        if (statusPixmaps.isEmpty()) {
+            const QStringList names = { "uncompressed", "compressing", "compressed", "error", "warning" };
+            for (const QString& name : names) {
+                statusPixmaps.append(QIcon(":/icons/compression_statuses/" + name + ".svg").pixmap(16, 16));
+            }
         }
+        return statusPixmaps.at(static_cast<int>(item->displayedStatus()));
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::SIZE_COLUMN) {
-        return item->getCImage()->getRichFormattedSize();
+        return item->cachedRichSize();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RESOLUTION_COLUMN) {
-        return item->getCImage()->getRichResolution();
+        return item->cachedRichResolution();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RATIO_COLUMN) {
-        return item->getCImage()->getRichFormattedSavedRatio();
+        return item->cachedRatioText();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::INFO_COLUMN) {
-        return item->getCImage()->getFormattedStatus();
+        return item->cachedInfoText();
     }
 
     return item->data(index.column());
@@ -232,4 +232,31 @@ double CImageTreeModel::originalItemsSize() const
         totalSize += size;
     }
     return totalSize;
+}
+
+void CImageTreeModel::updateRelativeFolder(CImageTreeItem* item)
+{
+    QString fullPath = item->getCImage()->getFullPath();
+    QString computedBaseFolder = fullPath.remove(baseFolder + "/");
+    item->setRelativeFolder(computedBaseFolder.remove(item->getCImage()->getFileName()));
+    updateDisplayName(item);
+}
+
+void CImageTreeModel::updateDisplayName(CImageTreeItem* item) const
+{
+    item->setDisplayName("<span style=\"color:" + rgbaString + ";\">" + item->relativeFolder() + "</span>" + item->getCImage()->getFileName());
+}
+
+void CImageTreeModel::updatePalette() const
+{
+    const QPalette palette = QApplication::palette();
+    if (paletteKey == palette.cacheKey()) {
+        return;
+    }
+    paletteKey = palette.cacheKey();
+    const QColor defaultColor = palette.text().color();
+    rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
+    for (CImageTreeItem* item : rootItem->children()) {
+        updateDisplayName(item);
+    }
 }

@@ -33,9 +33,15 @@ public:
 
 private:
     void setupModelData(const QList<CImage*> imageList, CImageTreeItem* parent);
+    void updateRelativeFolder(CImageTreeItem* item);
+    void updateDisplayName(CImageTreeItem* item) const;
+    void updatePalette() const;
 
     CImageTreeItem* rootItem;
     QString baseFolder;
+    mutable qint64 paletteKey = 0;
+    mutable QString rgbaString;
+    mutable QVector<QPixmap> statusPixmaps;
 
 signals:
     void itemsChanged();
