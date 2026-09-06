@@ -242,6 +242,10 @@ if (WIN32)
             DOWNLOAD_EXTRACT_TIMESTAMP ON
     )
     add_dependencies(caesium_image_compressor libwinsparkle)
+    # Put the runtime DLLs next to the executable so a local build starts without PATH tweaks.
+    add_custom_command(TARGET ${TARGET} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIBCAESIUM_EXTERNAL_PATH} $<TARGET_FILE_DIR:${TARGET}>
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WINSPARKLE_LIB_DIR}/WinSparkle.dll $<TARGET_FILE_DIR:${TARGET}>)
 endif ()
 # --- WinSparkle ---
 
