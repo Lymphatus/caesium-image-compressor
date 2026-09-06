@@ -1,6 +1,9 @@
 #include "Importer.h"
 
 #include <QDirIterator>
+#include <QDebug>
+#include <exceptions/ImageNotSupportedException.h>
+#include <exceptions/ImageTooBigException.h>
 #include <models/CImage.h>
 
 QString Importer::getRootFolder(QList<QString> folderMap)
@@ -61,14 +64,22 @@ bool Importer::passesFilters(const QFileInfo& fileInfo, const ImportFilters& imp
 
 QStringList Importer::scanList(const QStringList& filesAndFolders, bool subfolders)
 {
+    return scanList(filesAndFolders, subfolders, nullptr);
+}
+
+QStringList Importer::scanList(const QStringList& filesAndFolders, bool subfolders, const std::atomic_bool* cancelFlag)
+{
     QStringList filesList;
     QStringListIterator it(filesAndFolders);
 
     while (it.hasNext()) {
+        if (cancelFlag && cancelFlag->load()) {
+            break;
+        }
         QString path = it.next();
         QFileInfo info = QFileInfo(path);
         if (info.isDir()) {
-            filesList.append(scanDirectory(path, subfolders));
+            filesList.append(scanDirectory(false, path, subfolders, ImportFilters(), cancelFlag));
         } else if (info.isFile()) {
             filesList.append(path);
         }
@@ -89,12 +100,22 @@ QStringList Importer::scanDirectory(const QString& directory, bool subfolders, c
 
 QStringList Importer::scanDirectory(bool hasFilters, const QString& directory, bool subfolders, const ImportFilters& importFilters = ImportFilters())
 {
+    return scanDirectory(hasFilters, directory, subfolders, importFilters, nullptr);
+}
+
+QStringList Importer::scanDirectory(bool hasFilters, const QString& directory, bool subfolders, const ImportFilters& importFilters, const std::atomic_bool* cancelFlag)
+{
     QStringList fileList;
     QDirIterator::IteratorFlags flags = subfolders ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
-    QDirIterator it(directory, {"*.jpg", "*.jpeg", "*.png", "*.webp", "*.tif", "*.tiff"}, QDir::AllEntries, flags);
+    const QStringList nameFilters = { "*.jpg", "*.jpeg", "*.png", "*.webp", "*.tif", "*.tiff" };
+    // Visit even nonmatching entries so cancellation also works in folders without images.
+    QDirIterator it(directory, cancelFlag ? QStringList() : nameFilters, QDir::AllEntries, flags);
 
-    while (it.hasNext()) {
+    while (!(cancelFlag && cancelFlag->load()) && it.hasNext()) {
         QString filePath = it.next();
+        if (cancelFlag && !QDir::match(nameFilters, it.fileName())) {
+            continue;
+        }
         if (hasFilters && !passesFilters(QFileInfo(filePath), importFilters)) {
             continue;
         }
@@ -102,4 +123,28 @@ QStringList Importer::scanDirectory(bool hasFilters, const QString& directory, b
     }
 
     return fileList;
+}
+
+ImportResult Importer::buildImages(const QStringList& files, const std::atomic_bool* cancelFlag, const std::function<void(int)>& progress)
+{
+    ImportResult result;
+    for (int i = 0; i < files.size(); ++i) {
+        if (cancelFlag && cancelFlag->load()) {
+            result.canceled = true;
+            break;
+        }
+        try {
+            result.images.append(new CImage(files.at(i)));
+        } catch (ImageNotSupportedException& e) {
+            ++result.skippedCount;
+            qWarning() << files.at(i) << "is not supported. Error:" << e.what();
+        } catch (ImageTooBigException& e) {
+            ++result.skippedCount;
+            qWarning() << files.at(i) << "is too big. Error:" << e.what();
+        }
+        if (progress) {
+            progress(i + 1);
+        }
+    }
+    return result;
 }

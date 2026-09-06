@@ -30,11 +30,12 @@ CImage::CImage(const QString& path)
     this->size = fileInfo.size();
 
     if (this->size > 500 * 1024 * 1024) {
+        delete imageReader;
         throw ImageTooBigException();
     }
 
     this->fullPath = fileInfo.canonicalFilePath();
-    this->directory = fileInfo.canonicalPath();
+    this->directory = QFileInfo(this->fullPath).path();
     this->fileName = fileInfo.fileName();
     this->compressedSize = this->size;
 
