@@ -107,9 +107,13 @@ QString CImage::getFullPath() const
 
 bool CImage::preview(const CompressionOptions& compressionOptions) const
 {
+    return this->preview(compressionOptions, this->getTemporaryPreviewFullPath());
+}
+
+bool CImage::preview(const CompressionOptions& compressionOptions, const QString& outputFullPath) const
+{
     QString inputFullPath = this->fullPath;
     QFileInfo inputFileInfo(inputFullPath);
-    QString outputFullPath = this->getTemporaryPreviewFullPath();
     if (outputFullPath.isEmpty()) {
         return false;
     }

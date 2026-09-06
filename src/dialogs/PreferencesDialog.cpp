@@ -75,7 +75,7 @@ void PreferencesDialog::loadPreferences() const
     ui->importSubfolders_CheckBox->setChecked(settings.value("preferences/general/import_subfolders", true).toBool());
     ui->sendUsageReport_CheckBox->setChecked(settings.value("preferences/general/send_usage_reports", true).toBool());
     ui->multithreading_CheckBox->setChecked(settings.value("preferences/general/multithreading", true).toBool());
-    ui->multithreadingMaxThreads_SpinBox->setValue(settings.value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt());
+    ui->multithreadingMaxThreads_SpinBox->setValue(settings.value("preferences/general/multithreading_max_threads", defaultMaxThreads()).toInt());
     ui->skipCompressionDialogs_CheckBox->setChecked(settings.value("preferences/general/skip_compression_dialogs", false).toBool());
     ui->theme_ComboBox->setCurrentIndex(settings.value("preferences/general/theme", 0).toInt());
     ui->themeVariant_ComboBox->setCurrentIndex(settings.value("preferences/general/theme_variant", 0).toInt());

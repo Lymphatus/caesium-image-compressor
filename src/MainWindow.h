@@ -113,6 +113,10 @@ private:
     CImageTreeModel* cImageModel;
     QFutureWatcher<void>* compressionWatcher;
     QFutureWatcher<ImagePreview>* previewWatcher;
+    QThreadPool* compressionPool;
+    QThreadPool* previewPool;
+    bool closePending = false;
+    bool poolsFinished = false;
     QMap<QString, int> folderMap;
     AboutDialog* aboutDialog = nullptr;
     QString lastOpenedDirectory;

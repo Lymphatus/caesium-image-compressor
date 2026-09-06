@@ -156,6 +156,7 @@ const CsTheme THEMES[THEMES_COUNT] = {
 };
 
 // Utilities
+int defaultMaxThreads();
 QString toHumanSize(double size);
 std::tuple<unsigned int, unsigned int> cResize(const QImageReader* reader, const CompressionOptions& compressionOptions);
 QSize getSizeWithMetadata(const QImageReader* reader);
