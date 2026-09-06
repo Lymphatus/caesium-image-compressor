@@ -49,6 +49,10 @@ MainWindow::MainWindow(QWidget* parent)
     this->cImageModel = new CImageTreeModel();
     this->aboutDialog = new AboutDialog(this);
     this->compressionWatcher = new QFutureWatcher<void>();
+    connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
+    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this, &MainWindow::updateCompressionProgressLabel);
+    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, ui->compression_ProgressBar, &QProgressBar::setValue);
+    connect(ui->cancelCompression_Button, &QPushButton::clicked, this, &MainWindow::compressionCanceled);
     this->previewWatcher = new QFutureWatcher<ImagePreview>();
     this->listContextMenu = new QMenu();
     this->trayIconContextMenu = new QMenu();
@@ -588,6 +592,9 @@ void MainWindow::on_compress_Button_clicked()
 
 void MainWindow::startCompression(bool onlyFailed)
 {
+    if (cImageModel->isCompressing()) {
+        return;
+    }
 
     if (ui->outputFolder_LineEdit->text().isEmpty() && !ui->sameOutputFolderAsInput_CheckBox->isChecked()) {
         QCaesiumMessageBox msgBox;
@@ -629,21 +636,6 @@ void MainWindow::startCompression(bool onlyFailed)
     }
     QThreadPool::globalInstance()->setThreadPriority(QSettings().value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>());
 
-    this->compressionWatcher = new QFutureWatcher<void>();
-    connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
-    
-    connect(this->compressionWatcher, &QFutureWatcherBase::finished, [this] {
-        
-        size_t rowCount = this->cImageModel->rowCount();
-    
-        for(size_t i = 0; i < rowCount; ++i) {
-            this->cImageModel->emitDataChanged(i);
-        }
-    });
-
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this->cImageModel, &CImageTreeModel::emitDataChanged);
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this, &MainWindow::updateCompressionProgressLabel);
-
     ui->cancelCompression_Button->show();
     ui->compression_ProgressBar->show();
     ui->compressionProgress_Label->show();
@@ -652,16 +644,11 @@ void MainWindow::startCompression(bool onlyFailed)
     ui->compressionProgress_Label->setText(tr("Compressing...") + QString(" (%1/%2)").arg("0", QString::number(totalImages)));
     ui->compression_ProgressBar->setMinimum(0);
     ui->compression_ProgressBar->setMaximum(totalImages);
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, ui->compression_ProgressBar, &QProgressBar::setValue);
-    connect(ui->cancelCompression_Button, &QPushButton::clicked, this, &MainWindow::compressionCanceled);
 
     CompressionOptions compressionOptions = this->getCompressionOptions(rootFolder);
 
-    if (onlyFailed) {
-        this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compressOnlyFailed(compressionOptions));
-    } else {
-        this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compress(compressionOptions));
-    }
+    proxyModel->setDynamicSortFilter(false);
+    this->compressionWatcher->setFuture(cImageModel->compress(QThreadPool::globalInstance(), compressionOptions, onlyFailed));
 
     compressionSummary.totalImages = this->cImageModel->rowCount();
     compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
@@ -808,7 +795,8 @@ void MainWindow::imageList_selectionChanged()
 
 void MainWindow::compressionFinished()
 {
-    this->cImageModel->getRootItem()->setCompressionCanceled(false);
+    cImageModel->flushPendingUpdates();
+    proxyModel->setDynamicSortFilter(true);
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(this->proxyModel->mapToSource(ui->imageList_TreeView->selectionModel()->selectedRows().at(0)));
     }
@@ -1265,8 +1253,7 @@ void MainWindow::compressionCanceled() const
     ui->compression_ProgressBar->setMinimum(0);
     ui->compression_ProgressBar->setMaximum(0);
     ui->compression_ProgressBar->setValue(0);
-    this->cImageModel->getRootItem()->setCompressionCanceled(true);
-    this->compressionWatcher->cancel();
+    this->cImageModel->cancelCompression();
 }
 
 void MainWindow::listSortChanged(int logicalIndex, Qt::SortOrder order)

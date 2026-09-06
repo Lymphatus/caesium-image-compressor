@@ -1,7 +1,6 @@
 #ifndef CIMAGETREEITEM_H
 #define CIMAGETREEITEM_H
 
-#include <QFuture>
 #include <QVariant>
 #include <QVector>
 #include <memory>
@@ -44,9 +43,6 @@ public:
     const QString& compressedFullPath() const;
     size_t cachedCompressedSize() const;
     double cachedRatio() const;
-    QFuture<void> compress(const CompressionOptions& compressionOptions);
-    QFuture<void> compressOnlyFailed(const CompressionOptions& compressionOptions);
-    void setCompressionCanceled(bool canceled);
 
     void setData(QStringList data);
 
@@ -65,9 +61,6 @@ private:
     size_t compressedSizeSnapshot = 0;
     double ratioSnapshot = 0;
     CImageTreeItem* m_parentItem;
-    bool compressionCanceled = false;
-
-    QFuture<void> performCompression(const CompressionOptions& compressionOptions, bool onlyFailed = false);
 };
 
 #endif // CIMAGETREEITEM_H

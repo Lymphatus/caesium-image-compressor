@@ -1,7 +1,5 @@
 #include "CImageTreeItem.h"
 
-#include <QtConcurrent>
-
 CImageTreeItem::CImageTreeItem(CImage* cImage, CImageTreeItem* parent)
     : m_parentItem(parent)
 {
@@ -96,35 +94,6 @@ CImage* CImageTreeItem::getCImage() const
     return cImage.get();
 }
 
-QFuture<void> CImageTreeItem::compress(const CompressionOptions& compressionOptions)
-{
-    return this->performCompression(compressionOptions, false);
-}
-
-QFuture<void> CImageTreeItem::compressOnlyFailed(const CompressionOptions& compressionOptions)
-{
-    return this->performCompression(compressionOptions, true);
-}
-
-QFuture<void> CImageTreeItem::performCompression(const CompressionOptions& compressionOptions, bool onlyFailed)
-{
-    return QtConcurrent::map(m_childItems, [compressionOptions, onlyFailed, this](const CImageTreeItem* item) {
-        if (item->compressionCanceled || this->compressionCanceled) {
-            return;
-        }
-        CImage* image = item->getCImage();
-        if (!onlyFailed || (onlyFailed && image->getStatus() == CImageStatus::ERROR)) {
-            image->setStatus(CImageStatus::COMPRESSING);
-            bool compressionResult = image->compress(compressionOptions);
-            if (!compressionResult) {
-                image->setStatus(CImageStatus::ERROR);
-            } else if (image->getStatus() == CImageStatus::COMPRESSING) {
-                image->setStatus(CImageStatus::COMPRESSED);
-            }
-        }
-    });
-}
-
 void CImageTreeItem::setData(QStringList data)
 {
     QVector<QVariant> columnData;
@@ -133,11 +102,6 @@ void CImageTreeItem::setData(QStringList data)
         columnData << columnString;
     }
     this->m_itemData = columnData;
-}
-
-void CImageTreeItem::setCompressionCanceled(bool canceled)
-{
-    this->compressionCanceled = canceled;
 }
 
 std::shared_ptr<CImage> CImageTreeItem::sharedImage() const

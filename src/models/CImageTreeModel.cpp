@@ -6,10 +6,15 @@
 #include <QPropertyAnimation>
 #include <QStyle>
 #include <algorithm>
+#include <QSet>
+#include <QtConcurrent>
 
 CImageTreeModel::CImageTreeModel()
 {
     rootItem = new CImageTreeItem({ tr("Name"), tr("Size"), tr("Resolution"), tr("Saved"), tr("Info") });
+    updateTimer.setParent(this);
+    updateTimer.setSingleShot(true);
+    connect(&updateTimer, &QTimer::timeout, this, &CImageTreeModel::flushPendingUpdates);
 }
 
 CImageTreeModel::~CImageTreeModel()
@@ -85,6 +90,7 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     if (isCompressing() || parent.isValid() || row < 0 || count <= 0 || row > rowCount() - count) {
         return false;
     }
+    flushPendingUpdates();
     beginRemoveRows(parent, row, row + count - 1);
 
     for (int i = 0; i < count; i++) {
@@ -112,6 +118,7 @@ bool CImageTreeModel::removeItems(QList<int> rows)
     if (isCompressing()) {
         return false;
     }
+    flushPendingUpdates();
     std::sort(rows.begin(), rows.end(), std::greater<int>());
     rows.erase(std::unique(rows.begin(), rows.end()), rows.end());
     rows.erase(std::remove_if(rows.begin(), rows.end(), [this](int row) {
@@ -262,7 +269,7 @@ double CImageTreeModel::compressedItemsSize() const
     double totalSize = 0;
     while (itemsIterator.hasNext()) {
         auto item = itemsIterator.next();
-        auto size = (double)item->getCImage()->getCompressedSize();
+        auto size = (double)item->cachedCompressedSize();
         totalSize += size;
     }
     return totalSize;
@@ -304,5 +311,103 @@ void CImageTreeModel::updatePalette() const
     rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
     for (CImageTreeItem* item : rootItem->children()) {
         updateDisplayName(item);
+    }
+}
+
+QFuture<void> CImageTreeModel::compress(QThreadPool* pool, const CompressionOptions& options, bool onlyFailed)
+{
+    if (isCompressing()) {
+        return compressionFuture;
+    }
+    // Drain the previous batch before any image can be written again.
+    flushPendingUpdates();
+    compressionCanceled.store(false);
+    batchItems = rootItem->children();
+    batchRows.clear();
+    batchRows.reserve(batchItems.size());
+    for (int row = 0; row < batchItems.size(); ++row) {
+        batchRows.append(row);
+    }
+    if (batchRows.isEmpty()) {
+        compressionFuture = QtFuture::makeReadyVoidFuture();
+        return compressionFuture;
+    }
+    compressionFuture = QtConcurrent::map(pool, batchRows.begin(), batchRows.end(), [this, options, onlyFailed](int row) {
+        if (compressionCanceled.load()) {
+            return;
+        }
+        CImage* image = batchItems.at(row)->getCImage();
+        if (onlyFailed && image->getStatus() != CImageStatus::ERROR) {
+            return;
+        }
+        image->setStatus(CImageStatus::COMPRESSING);
+        {
+            QMutexLocker locker(&pendingMutex);
+            pendingStarted.append(row);
+        }
+        emit itemCompressionStarted(row);
+        QMetaObject::invokeMethod(this, &CImageTreeModel::scheduleFlush, Qt::QueuedConnection);
+
+        bool ok = image->compress(options);
+        if (!ok) {
+            image->setStatus(CImageStatus::ERROR);
+        } else if (image->getStatus() == CImageStatus::COMPRESSING) {
+            image->setStatus(CImageStatus::COMPRESSED);
+        }
+        {
+            QMutexLocker locker(&pendingMutex);
+            pendingFinished.append(row);
+        }
+        emit itemCompressionFinished(row);
+        QMetaObject::invokeMethod(this, &CImageTreeModel::scheduleFlush, Qt::QueuedConnection);
+    });
+    return compressionFuture;
+}
+
+void CImageTreeModel::cancelCompression()
+{
+    compressionCanceled.store(true);
+    compressionFuture.cancel();
+}
+
+void CImageTreeModel::scheduleFlush()
+{
+    if (!updateTimer.isActive()) {
+        updateTimer.start(150);
+    }
+}
+
+void CImageTreeModel::flushPendingUpdates()
+{
+    updateTimer.stop();
+    QList<int> started;
+    QList<int> finished;
+    {
+        QMutexLocker locker(&pendingMutex);
+        started.swap(pendingStarted);
+        finished.swap(pendingFinished);
+    }
+    QSet<int> dirtyRows;
+    for (int row : started) {
+        if (row >= 0 && row < rowCount()) {
+            rootItem->child(row)->setDisplayedStatus(CImageStatus::COMPRESSING);
+            dirtyRows.insert(row);
+        }
+    }
+    for (int row : finished) {
+        if (row >= 0 && row < rowCount()) {
+            rootItem->child(row)->refreshFromImage();
+            dirtyRows.insert(row);
+        }
+    }
+    QList<int> rows = dirtyRows.values();
+    std::sort(rows.begin(), rows.end());
+    for (qsizetype i = 0; i < rows.size();) {
+        int first = rows.at(i++);
+        int last = first;
+        while (i < rows.size() && rows.at(i) == last + 1) {
+            last = rows.at(i++);
+        }
+        emit dataChanged(index(first, 0), index(last, columnCount() - 1));
     }
 }
