@@ -213,10 +213,12 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
         inputFullPath = tempFileFullPath;
     }
 
-    QString previewPath = this->getTemporaryPreviewFullPath();
-    if (QFile::exists(previewPath)) {
-        if (QFile::remove(tempFileFullPath)) {
-            QFile::copy(previewPath, tempFileFullPath);
+    if (convert) {
+        QString previewPath = this->getTemporaryPreviewFullPath();
+        if (QFile::exists(previewPath)) {
+            if (QFile::remove(tempFileFullPath)) {
+                QFile::copy(previewPath, tempFileFullPath);
+            }
         }
     }
 
@@ -265,8 +267,17 @@ bool CImage::compress(const CompressionOptions& compressionOptions)
                 return true;
             }
         }
-        bool copyResult = QFile::copy(inputCopyFile, outputFullPath);
-        if (!copyResult) {
+        bool moved;
+        if (inputCopyFile == tempFileFullPath) {
+            // QTemporaryFile keeps its handle open on Windows, so the rename must go through the object itself.
+            moved = tempFile.rename(outputFullPath);
+            if (moved) {
+                tempFile.setAutoRemove(false);
+            }
+        } else {
+            moved = QFile::copy(inputCopyFile, outputFullPath);
+        }
+        if (!moved) {
             qCritical() << "Failed to copy from" << inputCopyFile << "to" << outputFullPath;
             this->additionalInfo = QIODevice::tr("Cannot copy output file, check your permissions");
             return false;
@@ -329,11 +340,12 @@ CCSParameters CImage::getCSParameters(const CompressionOptions& compressionOptio
 
 void CImage::setCompressedInfo(const QFileInfo& fileInfo)
 {
-    QImageReader imageReader(fileInfo.canonicalFilePath());
+    QString canonical = fileInfo.canonicalFilePath();
+    QImageReader imageReader(canonical);
     QSize imageSize = getSizeWithMetadata(&imageReader);
-    this->compressedDirectory = fileInfo.canonicalPath();
+    this->compressedDirectory = QFileInfo(canonical).path();
     this->compressedSize = fileInfo.size();
-    this->compressedFullPath = fileInfo.canonicalFilePath();
+    this->compressedFullPath = canonical;
     this->compressedWidth = imageSize.width();
     this->compressedHeight = imageSize.height();
 }
