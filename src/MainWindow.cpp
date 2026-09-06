@@ -446,7 +446,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
 
     ui->actionPreview->setEnabled(false);
 
-    CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
+    std::shared_ptr<CImage> cImage = this->cImageModel->getRootItem()->child(imageIndex.row())->sharedImage();
     QString imageToBePreviewed = forceRuntimePreview ? cImage->getTemporaryPreviewFullPath() : cImage->getCompressedFullPath();
     QList<std::pair<QString, bool>> images;
     images.append(std::pair<QString, bool>(cImage->getFullPath(), false));
@@ -554,24 +554,25 @@ void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
 
 void MainWindow::removeFiles(bool all)
 {
+    if (compressionWatcher->isRunning()) {
+        return;
+    }
     this->isItemRemovalRunning = true;
+    QList<int> rows;
     if (all) {
-        ui->imageList_TreeView->selectAll();
+        rows.reserve(cImageModel->rowCount());
+        for (int row = 0; row < cImageModel->rowCount(); ++row) {
+            rows.append(row);
+        }
+    } else {
+        for (const QModelIndex& proxyIndex : ui->imageList_TreeView->selectionModel()->selectedRows()) {
+            rows.append(proxyModel->mapToSource(proxyIndex).row());
+        }
     }
-    QModelIndexList indexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
-    std::sort(indexes.begin(), indexes.end(), [](const QModelIndex& a, const QModelIndex& b) {
-        return a.row() < b.row();
-    });
-
-    int columnCount = this->cImageModel->columnCount();
-
-    for (long long i = indexes.count() / columnCount; i > 0; i--) {
-        auto currentIndex = this->proxyModel->mapToSource(indexes.at(i));
-        auto indexRow = currentIndex.row();
-        auto indexParent = currentIndex.parent();
-        this->updateFolderMap(this->cImageModel->getRootItem()->children().at(indexRow)->getCImage()->getFullPath(), -1);
-        this->cImageModel->removeRows(indexRow, 1, indexParent);
+    for (int row : rows) {
+        this->updateFolderMap(cImageModel->getRootItem()->child(row)->getCImage()->getFullPath(), -1);
     }
+    cImageModel->removeItems(rows);
     this->previewWatcher->cancel();
     ui->preview_GraphicsView->removePixmap();
     ui->previewCompressed_GraphicsView->removePixmap();

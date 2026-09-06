@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPropertyAnimation>
 #include <QStyle>
+#include <algorithm>
 
 CImageTreeModel::CImageTreeModel()
 {
@@ -80,6 +81,10 @@ int CImageTreeModel::columnCount(const QModelIndex& parent) const
 
 bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
 {
+    Q_ASSERT(!isCompressing());
+    if (isCompressing() || parent.isValid() || row < 0 || count <= 0 || row > rowCount() - count) {
+        return false;
+    }
     beginRemoveRows(parent, row, row + count - 1);
 
     for (int i = 0; i < count; i++) {
@@ -87,6 +92,7 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
         if (--fullPathRefCount[path] == 0) {
             fullPathRefCount.remove(path);
         }
+        delete rootItem->child(row);
         this->rootItem->removeChildAt(row);
     }
 
@@ -95,6 +101,47 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     return true;
 }
 
+bool CImageTreeModel::isCompressing() const
+{
+    return compressionFuture.isRunning();
+}
+
+bool CImageTreeModel::removeItems(QList<int> rows)
+{
+    Q_ASSERT(!isCompressing());
+    if (isCompressing()) {
+        return false;
+    }
+    std::sort(rows.begin(), rows.end(), std::greater<int>());
+    rows.erase(std::unique(rows.begin(), rows.end()), rows.end());
+    rows.erase(std::remove_if(rows.begin(), rows.end(), [this](int row) {
+        return row < 0 || row >= rowCount();
+    }), rows.end());
+    if (rows.isEmpty()) {
+        return false;
+    }
+
+    for (qsizetype i = 0; i < rows.size();) {
+        int last = rows.at(i++);
+        int first = last;
+        while (i < rows.size() && rows.at(i) == first - 1) {
+            first = rows.at(i++);
+        }
+        beginRemoveRows(QModelIndex(), first, last);
+        for (int row = last; row >= first; --row) {
+            CImageTreeItem* item = rootItem->child(row);
+            const QString path = item->getCImage()->getFullPath();
+            if (--fullPathRefCount[path] == 0) {
+                fullPathRefCount.remove(path);
+            }
+            rootItem->removeChildAt(row);
+            delete item;
+        }
+        endRemoveRows();
+    }
+    emit itemsChanged();
+    return true;
+}
 void CImageTreeModel::appendItems(QList<CImage*> imageList, QString folder)
 {
     updatePalette();

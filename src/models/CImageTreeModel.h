@@ -23,6 +23,8 @@ public:
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
     int columnCount(const QModelIndex& parent = QModelIndex()) const override;
     bool removeRows(int row, int count, const QModelIndex& parent = QModelIndex()) override;
+    bool removeItems(QList<int> rows);
+    bool isCompressing() const;
 
     void appendItems(QList<CImage*> imageList, QString folder = "");
 
@@ -41,6 +43,7 @@ private:
     CImageTreeItem* rootItem;
     QString baseFolder;
     QHash<QString, int> fullPathRefCount;
+    QFuture<void> compressionFuture;
     mutable qint64 paletteKey = 0;
     mutable QString rgbaString;
     mutable QVector<QPixmap> statusPixmaps;
