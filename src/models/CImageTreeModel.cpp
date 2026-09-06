@@ -83,6 +83,10 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     beginRemoveRows(parent, row, row + count - 1);
 
     for (int i = 0; i < count; i++) {
+        const QString path = rootItem->child(row)->getCImage()->getFullPath();
+        if (--fullPathRefCount[path] == 0) {
+            fullPathRefCount.remove(path);
+        }
         this->rootItem->removeChildAt(row);
     }
 
@@ -118,6 +122,7 @@ void CImageTreeModel::setupModelData(const QList<CImage*> imageList, CImageTreeI
         auto* cImageTreeItem = new CImageTreeItem(nextImage, parent);
         updateRelativeFolder(cImageTreeItem);
         parent->appendChild(cImageTreeItem);
+        ++fullPathRefCount[nextImage->getFullPath()];
     }
     endInsertRows();
     emit itemsChanged();
@@ -137,13 +142,7 @@ CImageTreeItem* CImageTreeModel::getRootItem() const
 
 bool CImageTreeModel::contains(CImage* cImage)
 {
-    QVectorIterator<CImageTreeItem*> it(this->rootItem->children());
-    while (it.hasNext()) {
-        if (*it.next()->getCImage() == *cImage) {
-            return true;
-        }
-    }
-    return false;
+    return fullPathRefCount.value(cImage->getFullPath(), 0) > 0;
 }
 
 QVariant CImageTreeModel::data(const QModelIndex& index, int role) const

@@ -6,6 +6,7 @@
 
 #include <QAbstractItemModel>
 #include <QDir>
+#include <QHash>
 
 class CImageTreeModel : public QAbstractItemModel {
     Q_OBJECT
@@ -39,6 +40,7 @@ private:
 
     CImageTreeItem* rootItem;
     QString baseFolder;
+    QHash<QString, int> fullPathRefCount;
     mutable qint64 paletteKey = 0;
     mutable QString rgbaString;
     mutable QVector<QPixmap> statusPixmaps;

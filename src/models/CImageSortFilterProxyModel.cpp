@@ -10,33 +10,35 @@ CImageSortFilterProxyModel::CImageSortFilterProxyModel(QObject* parent)
 
 bool CImageSortFilterProxyModel::lessThan(const QModelIndex& left, const QModelIndex& right) const
 {
-    QVariant leftData = sourceModel()->data(left);
-    QVariant rightData = sourceModel()->data(right);
+    auto* leftItem = static_cast<CImageTreeItem*>(left.internalPointer());
+    auto* rightItem = static_cast<CImageTreeItem*>(right.internalPointer());
 
-    CImage* leftCImage = static_cast<CImageTreeItem*>(left.internalPointer())->getCImage();
-    CImage* rightCImage = static_cast<CImageTreeItem*>(right.internalPointer())->getCImage();
+    CImage* leftCImage = leftItem->getCImage();
+    CImage* rightCImage = rightItem->getCImage();
 
     if (left.column() == CImageColumns::NAME_COLUMN && right.column() == CImageColumns::NAME_COLUMN) {
-        // TODO Needs a regex for the HTML field?
-        return naturalLessThan(leftData.toString(), rightData.toString());
+        return naturalCompare(leftItem->displayName(), rightItem->displayName()) < 0;
     } else if (left.column() == CImageColumns::SIZE_COLUMN && right.column() == CImageColumns::SIZE_COLUMN) {
         return leftCImage->getOriginalSize() < rightCImage->getOriginalSize();
     } else if (left.column() == CImageColumns::RESOLUTION_COLUMN && right.column() == CImageColumns::RESOLUTION_COLUMN) {
         return leftCImage->getTotalPixels() < rightCImage->getTotalPixels();
     } else if (left.column() == CImageColumns::RATIO_COLUMN && right.column() == CImageColumns::RATIO_COLUMN) {
-        if (leftCImage->getCompressedSize() == 0 && rightCImage->getCompressedSize() == 0) {
-            return naturalLessThan(leftData.toString(), rightData.toString());
+        if (leftItem->cachedCompressedSize() == 0 && rightItem->cachedCompressedSize() == 0) {
+            return naturalCompare(leftItem->cachedRatioText(), rightItem->cachedRatioText()) < 0;
         }
 
-        return leftCImage->getRatio() < rightCImage->getRatio();
+        return leftItem->cachedRatio() < rightItem->cachedRatio();
     }
-    return naturalLessThan(leftData.toString(), rightData.toString());
+    return naturalCompare(leftItem->cachedInfoText(), rightItem->cachedInfoText()) < 0;
 }
 
-bool CImageSortFilterProxyModel::naturalLessThan(QString left, QString right)
+int CImageSortFilterProxyModel::naturalCompare(const QString& left, const QString& right)
 {
-    QCollator collator;
-    collator.setCaseSensitivity(Qt::CaseSensitive);
-    collator.setNumericMode(true);
-    return collator.compare(left, right) < 0;
+    static thread_local QCollator collator = [] {
+        QCollator result;
+        result.setCaseSensitivity(Qt::CaseSensitive);
+        result.setNumericMode(true);
+        return result;
+    }();
+    return collator.compare(left, right);
 }
