@@ -1,22 +1,24 @@
 #include "Logger.h"
 #include <QDateTime>
 #include <QDir>
+#include <QFile>
+#include <QMutex>
+#include <QMutexLocker>
 #include <QStandardPaths>
+#include <QTextStream>
+
+namespace {
+QMutex logMutex;
+QFile logFile;
+QString logFileDate;
+}
 
 void Logger::messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
     QDateTime currentTime = QDateTime::currentDateTime();
     QString formattedTime = currentTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
-    QString logPath = Logger::getLogFilePath();
-    QString logDirPath = Logger::getLogDir();
 
     QByteArray localMsg = msg.toLocal8Bit();
-    QDir logDir(logDirPath);
-    bool logToFile = true;
-    if (!logDir.exists()) {
-        logToFile = logDir.mkpath(logDirPath);
-    }
-    QFile logFile(logPath);
     QString message;
     switch (type) {
     case QtDebugMsg:
@@ -36,13 +38,24 @@ void Logger::messageHandler(QtMsgType type, const QMessageLogContext& context, c
         break;
     }
 
-    logToFile = logFile.open(QIODevice::WriteOnly | QIODevice::Append) && logToFile;
-    if (logToFile) {
-        QTextStream log(&logFile);
-        log << message;
-        logFile.close();
-    } else {
-        fprintf(stdout, "%s", message.toLocal8Bit().constData());
+    {
+        QMutexLocker locker(&logMutex);
+        QString today = QDateTime::currentDateTime().toString("yyyy-MM-dd");
+        if (!logFile.isOpen() || logFileDate != today) {
+            logFile.close();
+            QString logDirPath = Logger::getLogDir();
+            logFile.setFileName(logDirPath + "/caesium-" + today + ".log");
+            if (QDir().mkpath(logDirPath) && logFile.open(QIODevice::WriteOnly | QIODevice::Append)) {
+                logFileDate = today;
+            }
+        }
+        if (logFile.isOpen()) {
+            QTextStream log(&logFile);
+            log << message;
+            log.flush();
+        } else {
+            fprintf(stdout, "%s", message.toLocal8Bit().constData());
+        }
     }
 
     if (type == QtFatalMsg) {
@@ -78,8 +91,6 @@ QString Logger::getLogDir()
 
 void Logger::closeLogFile()
 {
-    QFile logFile = QFile(Logger::getLogFilePath());
-    if (logFile.isOpen()) {
-        logFile.close();
-    }
+    QMutexLocker locker(&logMutex);
+    logFile.close();
 }
