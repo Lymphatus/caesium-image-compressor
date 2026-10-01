@@ -48,10 +48,6 @@ elseif (WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
 
-if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
-    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt dir.")
-endif ()
-
 if (WIN32)
     set(WINSPARKLE_LIB_DIR ${CMAKE_BINARY_DIR}/libwinsparkle-prefix/src/libwinsparkle/x64/Release)
     link_directories(${WINSPARKLE_LIB_DIR})
