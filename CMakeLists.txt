@@ -211,19 +211,21 @@ else ()
     set(LIBCAESIUM_EXTERNAL_PATH ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so)
 endif ()
 
-ExternalProject_Add(
-        libcaesium
-        GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG ${LIBCAESIUM_VERSION}
-        CONFIGURE_COMMAND ""
-        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
-        INSTALL_COMMAND ""
-        BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
-        LOG_OUTPUT_ON_FAILURE ON
-        LOG_BUILD ON
-        BUILD_BYPRODUCTS ${LIBCAESIUM_EXTERNAL_PATH}
-)
-add_dependencies(${TARGET} libcaesium)
+if (NOT LIBCAESIUM)
+    ExternalProject_Add(
+            libcaesium
+            GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
+            GIT_TAG ${LIBCAESIUM_VERSION}
+            CONFIGURE_COMMAND ""
+            BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
+            INSTALL_COMMAND ""
+            BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
+            LOG_OUTPUT_ON_FAILURE ON
+            LOG_BUILD ON
+            BUILD_BYPRODUCTS ${LIBCAESIUM_EXTERNAL_PATH}
+    )
+    add_dependencies(${TARGET} libcaesium)
+endif ()
 
 # --- WinSparkle ---
 if (WIN32)
