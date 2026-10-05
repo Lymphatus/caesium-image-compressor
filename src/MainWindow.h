@@ -6,6 +6,7 @@
 #include <QFutureWatcher>
 #include <QItemSelection>
 #include <QMainWindow>
+#include <QPointer>
 #include <QShowEvent>
 #include <QSystemTrayIcon>
 #include <climits>
@@ -20,6 +21,9 @@ namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
+
+struct ImportJobResult;
+class QProgressDialog;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -56,6 +60,7 @@ private slots:
     static void on_keepStructure_CheckBox_toggled(bool checked);
     void imageList_selectionChanged();
     void compressionFinished();
+    void importFinished();
     void dropFinished(const QStringList& filePaths);
     void on_fitTo_ComboBox_currentIndexChanged(int index) const;
     void on_lossless_CheckBox_toggled(bool checked) const;
@@ -114,6 +119,21 @@ private:
     CImageTreeModel* cImageModel;
     QFutureWatcher<void>* compressionWatcher;
     QFutureWatcher<ImagePreview>* previewWatcher;
+    QFutureWatcher<ImportJobResult>* importWatcher;
+    QPointer<QProgressDialog> importProgressDialog;
+    std::shared_ptr<std::atomic_bool> importCancelFlag;
+    struct PendingImport {
+        QStringList paths;
+        QString baseFolder;
+        bool compressAfter = false;
+        bool inheritedCompression = false;
+    };
+    QList<PendingImport> pendingImports;
+    bool importActive = false;
+    QThreadPool* compressionPool;
+    QThreadPool* previewPool;
+    bool closePending = false;
+    bool poolsFinished = false;
     QMap<QString, int> folderMap;
     AboutDialog* aboutDialog = nullptr;
     QString lastOpenedDirectory;
@@ -139,7 +159,8 @@ private:
     void initTrayIcon();
 
     void toggleUIEnabled(bool enabled) const;
-    void importFiles(const QStringList& fileList, QString baseFolder);
+    void importFiles(const QStringList& filesAndFolders, QString baseFolder, bool compressAfter = false);
+    void startNextImport();
     void removeFiles(bool all = false);
     void triggerImportFiles();
     void triggerImportFolder();

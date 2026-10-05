@@ -5,10 +5,16 @@
 #include <QLabel>
 #include <QPropertyAnimation>
 #include <QStyle>
+#include <algorithm>
+#include <QSet>
+#include <QtConcurrent>
 
 CImageTreeModel::CImageTreeModel()
 {
     rootItem = new CImageTreeItem({ tr("Name"), tr("Size"), tr("Resolution"), tr("Saved"), tr("Info") });
+    updateTimer.setParent(this);
+    updateTimer.setSingleShot(true);
+    connect(&updateTimer, &QTimer::timeout, this, &CImageTreeModel::flushPendingUpdates);
 }
 
 CImageTreeModel::~CImageTreeModel()
@@ -80,9 +86,19 @@ int CImageTreeModel::columnCount(const QModelIndex& parent) const
 
 bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
 {
+    Q_ASSERT(!isCompressing());
+    if (isCompressing() || parent.isValid() || row < 0 || count <= 0 || row > rowCount() - count) {
+        return false;
+    }
+    flushPendingUpdates();
     beginRemoveRows(parent, row, row + count - 1);
 
     for (int i = 0; i < count; i++) {
+        const QString path = rootItem->child(row)->getCImage()->getFullPath();
+        if (--fullPathRefCount[path] == 0) {
+            fullPathRefCount.remove(path);
+        }
+        delete rootItem->child(row);
         this->rootItem->removeChildAt(row);
     }
 
@@ -91,20 +107,76 @@ bool CImageTreeModel::removeRows(int row, int count, const QModelIndex& parent)
     return true;
 }
 
+bool CImageTreeModel::isCompressing() const
+{
+    return compressionFuture.isRunning();
+}
+
+bool CImageTreeModel::removeItems(QList<int> rows)
+{
+    Q_ASSERT(!isCompressing());
+    if (isCompressing()) {
+        return false;
+    }
+    flushPendingUpdates();
+    std::sort(rows.begin(), rows.end(), std::greater<int>());
+    rows.erase(std::unique(rows.begin(), rows.end()), rows.end());
+    rows.erase(std::remove_if(rows.begin(), rows.end(), [this](int row) {
+        return row < 0 || row >= rowCount();
+    }), rows.end());
+    if (rows.isEmpty()) {
+        return false;
+    }
+
+    for (qsizetype i = 0; i < rows.size();) {
+        int last = rows.at(i++);
+        int first = last;
+        while (i < rows.size() && rows.at(i) == first - 1) {
+            first = rows.at(i++);
+        }
+        beginRemoveRows(QModelIndex(), first, last);
+        for (int row = last; row >= first; --row) {
+            CImageTreeItem* item = rootItem->child(row);
+            const QString path = item->getCImage()->getFullPath();
+            if (--fullPathRefCount[path] == 0) {
+                fullPathRefCount.remove(path);
+            }
+            rootItem->removeChildAt(row);
+            delete item;
+        }
+        endRemoveRows();
+    }
+    emit itemsChanged();
+    return true;
+}
 void CImageTreeModel::appendItems(QList<CImage*> imageList, QString folder)
 {
-    this->baseFolder = folder;
+    updatePalette();
+    if (this->baseFolder != folder) {
+        this->baseFolder = folder;
+        for (CImageTreeItem* item : rootItem->children()) {
+            updateRelativeFolder(item);
+        }
+        if (rowCount() > 0) {
+            emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
+        }
+    }
     this->setupModelData(imageList, rootItem);
 }
 
 void CImageTreeModel::setupModelData(const QList<CImage*> imageList, CImageTreeItem* parent)
 {
+    if (imageList.isEmpty()) {
+        return;
+    }
     QListIterator<CImage*> iterator(imageList);
     this->beginInsertRows(QModelIndex(), this->rowCount(), this->rowCount() + imageList.count() - 1);
     while (iterator.hasNext()) {
         CImage* nextImage = iterator.next();
         auto* cImageTreeItem = new CImageTreeItem(nextImage, parent);
+        updateRelativeFolder(cImageTreeItem);
         parent->appendChild(cImageTreeItem);
+        ++fullPathRefCount[nextImage->getFullPath()];
     }
     endInsertRows();
     emit itemsChanged();
@@ -124,13 +196,7 @@ CImageTreeItem* CImageTreeModel::getRootItem() const
 
 bool CImageTreeModel::contains(CImage* cImage)
 {
-    QVectorIterator<CImageTreeItem*> it(this->rootItem->children());
-    while (it.hasNext()) {
-        if (*it.next()->getCImage() == *cImage) {
-            return true;
-        }
-    }
-    return false;
+    return fullPathRefCount.value(cImage->getFullPath(), 0) > 0;
 }
 
 QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
@@ -146,47 +212,34 @@ QVariant CImageTreeModel::data(const QModelIndex& index, int role) const
     CImageTreeItem* item = static_cast<CImageTreeItem*>(index.internalPointer());
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::NAME_COLUMN) {
-        // Little hack to get the default application text color to apply transparency to the base folder text
-        QColor defaultColor = QApplication::palette().text().color();
-        if (role & QStyle::State_Selected) {
-            defaultColor = QApplication::palette().highlightedText().color();
-        }
-        QString fullPath = item->getCImage()->getFullPath();
-        QString computedBaseFolder = fullPath.remove(baseFolder + "/");
-        QString baseFolderWithoutName = computedBaseFolder.remove(item->getCImage()->getFileName());
-        QString rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
-        return "<span style=\"color:" + rgbaString + ";\">" + baseFolderWithoutName + "</span>" + item->getCImage()->getFileName();
+        updatePalette();
+        return item->displayName();
     }
 
     if (role == Qt::DecorationRole && index.column() == CImageColumns::NAME_COLUMN) {
-        CImageStatus status = item->getCImage()->getStatus();
-        if (status == CImageStatus::COMPRESSED) {
-            return QIcon(":/icons/compression_statuses/compressed.svg").pixmap(16, 16);
-        } else if (status == CImageStatus::ERROR) {
-            return QIcon(":/icons/compression_statuses/error.svg").pixmap(16, 16);
-        } else if (status == CImageStatus::WARNING) {
-            return QIcon(":/icons/compression_statuses/warning.svg").pixmap(16, 16);
-        } else if (status == CImageStatus::COMPRESSING) {
-            return QIcon(":/icons/compression_statuses/compressing.svg").pixmap(16, 16);
-        } else {
-            return QIcon(":/icons/compression_statuses/uncompressed.svg").pixmap(16, 16);
+        if (statusPixmaps.isEmpty()) {
+            const QStringList names = { "uncompressed", "compressing", "compressed", "error", "warning" };
+            for (const QString& name : names) {
+                statusPixmaps.append(QIcon(":/icons/compression_statuses/" + name + ".svg").pixmap(16, 16));
+            }
         }
+        return statusPixmaps.at(static_cast<int>(item->displayedStatus()));
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::SIZE_COLUMN) {
-        return item->getCImage()->getRichFormattedSize();
+        return item->cachedRichSize();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RESOLUTION_COLUMN) {
-        return item->getCImage()->getRichResolution();
+        return item->cachedRichResolution();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::RATIO_COLUMN) {
-        return item->getCImage()->getRichFormattedSavedRatio();
+        return item->cachedRatioText();
     }
 
     if (role == Qt::DisplayRole && index.column() == CImageColumns::INFO_COLUMN) {
-        return item->getCImage()->getFormattedStatus();
+        return item->cachedInfoText();
     }
 
     return item->data(index.column());
@@ -216,7 +269,7 @@ double CImageTreeModel::compressedItemsSize() const
     double totalSize = 0;
     while (itemsIterator.hasNext()) {
         auto item = itemsIterator.next();
-        auto size = (double)item->getCImage()->getCompressedSize();
+        auto size = (double)item->cachedCompressedSize();
         totalSize += size;
     }
     return totalSize;
@@ -232,4 +285,129 @@ double CImageTreeModel::originalItemsSize() const
         totalSize += size;
     }
     return totalSize;
+}
+
+void CImageTreeModel::updateRelativeFolder(CImageTreeItem* item)
+{
+    QString fullPath = item->getCImage()->getFullPath();
+    QString computedBaseFolder = fullPath.remove(baseFolder + "/");
+    item->setRelativeFolder(computedBaseFolder.remove(item->getCImage()->getFileName()));
+    updateDisplayName(item);
+}
+
+void CImageTreeModel::updateDisplayName(CImageTreeItem* item) const
+{
+    item->setDisplayName("<span style=\"color:" + rgbaString + ";\">" + item->relativeFolder() + "</span>" + item->getCImage()->getFileName());
+}
+
+void CImageTreeModel::updatePalette() const
+{
+    const QPalette palette = QApplication::palette();
+    if (paletteKey == palette.cacheKey()) {
+        return;
+    }
+    paletteKey = palette.cacheKey();
+    const QColor defaultColor = palette.text().color();
+    rgbaString = "rgba(" + QString::number(defaultColor.red()) + "," + QString::number(defaultColor.green()) + "," + QString::number(defaultColor.blue()) + ",.6);";
+    for (CImageTreeItem* item : rootItem->children()) {
+        updateDisplayName(item);
+    }
+}
+
+QFuture<void> CImageTreeModel::compress(QThreadPool* pool, const CompressionOptions& options, bool onlyFailed)
+{
+    if (isCompressing()) {
+        return compressionFuture;
+    }
+    // Drain the previous batch before any image can be written again.
+    flushPendingUpdates();
+    compressionCanceled.store(false);
+    batchItems = rootItem->children();
+    batchRows.clear();
+    batchRows.reserve(batchItems.size());
+    for (int row = 0; row < batchItems.size(); ++row) {
+        batchRows.append(row);
+    }
+    if (batchRows.isEmpty()) {
+        compressionFuture = QtFuture::makeReadyVoidFuture();
+        return compressionFuture;
+    }
+    compressionFuture = QtConcurrent::map(pool, batchRows.begin(), batchRows.end(), [this, options, onlyFailed](int row) {
+        if (compressionCanceled.load()) {
+            return;
+        }
+        CImage* image = batchItems.at(row)->getCImage();
+        if (onlyFailed && image->getStatus() != CImageStatus::ERROR) {
+            return;
+        }
+        image->setStatus(CImageStatus::COMPRESSING);
+        {
+            QMutexLocker locker(&pendingMutex);
+            pendingStarted.append(row);
+        }
+        emit itemCompressionStarted(row);
+        QMetaObject::invokeMethod(this, &CImageTreeModel::scheduleFlush, Qt::QueuedConnection);
+
+        bool ok = image->compress(options);
+        if (!ok) {
+            image->setStatus(CImageStatus::ERROR);
+        } else if (image->getStatus() == CImageStatus::COMPRESSING) {
+            image->setStatus(CImageStatus::COMPRESSED);
+        }
+        {
+            QMutexLocker locker(&pendingMutex);
+            pendingFinished.append(row);
+        }
+        emit itemCompressionFinished(row);
+        QMetaObject::invokeMethod(this, &CImageTreeModel::scheduleFlush, Qt::QueuedConnection);
+    });
+    return compressionFuture;
+}
+
+void CImageTreeModel::cancelCompression()
+{
+    compressionCanceled.store(true);
+    compressionFuture.cancel();
+}
+
+void CImageTreeModel::scheduleFlush()
+{
+    if (!updateTimer.isActive()) {
+        updateTimer.start(150);
+    }
+}
+
+void CImageTreeModel::flushPendingUpdates()
+{
+    updateTimer.stop();
+    QList<int> started;
+    QList<int> finished;
+    {
+        QMutexLocker locker(&pendingMutex);
+        started.swap(pendingStarted);
+        finished.swap(pendingFinished);
+    }
+    QSet<int> dirtyRows;
+    for (int row : started) {
+        if (row >= 0 && row < rowCount()) {
+            rootItem->child(row)->setDisplayedStatus(CImageStatus::COMPRESSING);
+            dirtyRows.insert(row);
+        }
+    }
+    for (int row : finished) {
+        if (row >= 0 && row < rowCount()) {
+            rootItem->child(row)->refreshFromImage();
+            dirtyRows.insert(row);
+        }
+    }
+    QList<int> rows = dirtyRows.values();
+    std::sort(rows.begin(), rows.end());
+    for (qsizetype i = 0; i < rows.size();) {
+        int first = rows.at(i++);
+        int last = first;
+        while (i < rows.size() && rows.at(i) == last + 1) {
+            last = rows.at(i++);
+        }
+        emit dataChanged(index(first, 0), index(last, columnCount() - 1));
+    }
 }

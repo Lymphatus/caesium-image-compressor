@@ -8,7 +8,13 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QSettings>
+#include <QThread>
 #include <cmath>
+
+int defaultMaxThreads()
+{
+    return qBound(1, QThread::idealThreadCount(), 8);
+}
 
 QString toHumanSize(double size)
 {

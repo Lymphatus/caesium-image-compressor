@@ -1,7 +1,5 @@
 #include "MainWindow.h"
 #include "delegates/HtmlDelegate.h"
-#include "exceptions/ImageNotSupportedException.h"
-#include "exceptions/ImageTooBigException.h"
 #include "filters/QSliderScrollFilter.h"
 #include "ui_MainWindow.h"
 #include "utils/LanguageManager.h"
@@ -31,6 +29,14 @@
 #include "./updater/win/winsparkle.h"
 #endif
 
+struct ImportJobResult {
+    ImportResult result;
+    QString baseFolder;
+    bool compressAfter = false;
+    // QFuture copies results; shared ownership also cleans up an unconsumed job.
+    std::shared_ptr<QList<CImage*>> ownedImages;
+};
+
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -49,7 +55,26 @@ MainWindow::MainWindow(QWidget* parent)
     this->cImageModel = new CImageTreeModel();
     this->aboutDialog = new AboutDialog(this);
     this->compressionWatcher = new QFutureWatcher<void>();
+    connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
+    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this, &MainWindow::updateCompressionProgressLabel);
+    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, ui->compression_ProgressBar, &QProgressBar::setValue);
+    connect(ui->cancelCompression_Button, &QPushButton::clicked, this, &MainWindow::compressionCanceled);
     this->previewWatcher = new QFutureWatcher<ImagePreview>();
+    importWatcher = new QFutureWatcher<ImportJobResult>(this);
+    connect(importWatcher, &QFutureWatcherBase::finished, this, &MainWindow::importFinished);
+    connect(importWatcher, &QFutureWatcherBase::progressRangeChanged, this, [this](int minimum, int maximum) {
+        if (importProgressDialog) {
+            importProgressDialog->setRange(minimum, maximum);
+        }
+    });
+    connect(importWatcher, &QFutureWatcherBase::progressValueChanged, this, [this](int value) {
+        if (importProgressDialog) {
+            importProgressDialog->setValue(value);
+        }
+    });
+    compressionPool = new QThreadPool(this);
+    previewPool = new QThreadPool(this);
+    previewPool->setMaxThreadCount(1);
     this->listContextMenu = new QMenu();
     this->trayIconContextMenu = new QMenu();
     this->networkOperations = new NetworkOperations();
@@ -154,17 +179,20 @@ MainWindow::MainWindow(QWidget* parent)
         }
     }
 
+    QImageReader::setAllocationLimit(1024);
+
     QCommandLineParser commandLineParser;
     commandLineParser.process(QApplication::arguments());
     if (const QStringList args = commandLineParser.positionalArguments(); !args.isEmpty()) {
         this->importFromArgs(args);
     }
-
-    QImageReader::setAllocationLimit(1024);
 }
 
 MainWindow::~MainWindow()
 {
+    if (importCancelFlag) {
+        importCancelFlag->store(true);
+    }
 #ifdef Q_OS_WIN
     win_sparkle_cleanup();
 #endif
@@ -229,6 +257,7 @@ void MainWindow::initListWidget() const
     this->proxyModel->setSourceModel(this->cImageModel);
     ui->imageList_TreeView->setModel(this->proxyModel);
     ui->imageList_TreeView->setIconSize(QSize(10, 10));
+    ui->imageList_TreeView->setUniformRowHeights(true);
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::NAME_COLUMN, QSettings().value("mainwindow/list_view/header_column_size/name", 250).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::SIZE_COLUMN, QSettings().value("mainwindow/list_view/header_column_size/size", defaultSectionSize).toInt());
     ui->imageList_TreeView->header()->resizeSection(CImageColumns::RESOLUTION_COLUMN, QSettings().value("mainwindow/list_view/header_column_size/resolution", defaultSectionSize).toInt());
@@ -300,15 +329,8 @@ void MainWindow::triggerImportFolder()
         return;
     }
 
-    bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
-    QStringList fileList = Importer::scanDirectory(directoryPath, scanSubfolders);
-
-    if (fileList.isEmpty()) {
-        return;
-    }
-
     this->lastOpenedDirectory = directoryPath;
-    return this->importFiles(fileList, directoryPath);
+    return this->importFiles({ directoryPath }, directoryPath);
 }
 
 void MainWindow::writeSettings() const
@@ -428,11 +450,11 @@ void MainWindow::readSettings()
 
 void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePreview) const
 {
-    if (this->previewWatcher->isRunning()) {
-        this->previewWatcher->cancel();
-        this->previewWatcher->waitForFinished();
+    if (closePending) {
+        return;
     }
-    if (!QSettings().value("mainwindow/previews_visible", false).toBool()) {
+    this->previewWatcher->cancel();
+    if (!imageIndex.isValid() || !QSettings().value("mainwindow/previews_visible", false).toBool()) {
         return;
     }
     ui->preview_GraphicsView->removePixmap();
@@ -445,21 +467,25 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
 
     ui->actionPreview->setEnabled(false);
 
-    CImage* cImage = this->cImageModel->getRootItem()->children().at(imageIndex.row())->getCImage();
-    QString imageToBePreviewed = forceRuntimePreview ? cImage->getTemporaryPreviewFullPath() : cImage->getCompressedFullPath();
+    CImageTreeItem* item = this->cImageModel->getRootItem()->child(imageIndex.row());
+    std::shared_ptr<CImage> cImage = item->sharedImage();
+    const QString compressedFullPath = item->compressedFullPath();
+    const CompressionOptions options = getCompressionOptions(importedFilesRootFolder);
+    // Options and the cache key derived from the same settings snapshot, both taken on the GUI thread.
+    const QString temporaryPreviewFullPath = forceRuntimePreview ? cImage->getTemporaryPreviewFullPath() : QString();
     QList<std::pair<QString, bool>> images;
     images.append(std::pair<QString, bool>(cImage->getFullPath(), false));
 
     // TODO Manage failure better
-    std::function<ImagePreview(std::pair<QString, bool>)> loadPixmap = [this, forceRuntimePreview, cImage](const std::pair<QString, bool>& pair) {
-        QString previewFullPath = pair.first;
+    std::function<ImagePreview(std::pair<QString, bool>)> loadPixmap = [forceRuntimePreview, cImage, compressedFullPath, options, temporaryPreviewFullPath](const std::pair<QString, bool>& pair) {
+        QString previewFullPath = pair.second && forceRuntimePreview ? temporaryPreviewFullPath : pair.first;
         ImagePreview imagePreview;
         bool isOnFlyPreview = false;
         if (pair.second && forceRuntimePreview && !QFileInfo::exists(previewFullPath)) {
             isOnFlyPreview = true;
-            bool result = cImage->preview(this->getCompressionOptions(this->importedFilesRootFolder));
+            bool result = cImage->preview(options, temporaryPreviewFullPath);
             if (!result) {
-                previewFullPath = cImage->getCompressedFullPath();
+                previewFullPath = compressedFullPath;
             }
         }
         auto* imageReader = new QImageReader(previewFullPath);
@@ -474,8 +500,8 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
         return imagePreview;
     };
 
-    if (!cImage->getCompressedFullPath().isEmpty() || forceRuntimePreview) {
-        images.append(std::pair<QString, bool>(imageToBePreviewed, true));
+    if (!compressedFullPath.isEmpty() || forceRuntimePreview) {
+        images.append(std::pair<QString, bool>(compressedFullPath, true));
         ui->previewCompressed_GraphicsView->setLoading(true);
         ui->compressedImageSize_Label->setLoading(true);
     } else {
@@ -488,7 +514,7 @@ void MainWindow::previewImage(const QModelIndex& imageIndex, bool forceRuntimePr
     ui->preview_GraphicsView->setZoomEnabled(false);
     ui->previewCompressed_GraphicsView->setZoomEnabled(false);
 
-    this->previewWatcher->setFuture(QtConcurrent::mapped(images, loadPixmap));
+    this->previewWatcher->setFuture(QtConcurrent::mapped(previewPool, images, loadPixmap));
 }
 
 void MainWindow::updateFolderMap(QString baseFolder, int count)
@@ -514,63 +540,129 @@ void MainWindow::updateFolderMap(QString baseFolder, int count)
     }
 }
 
-void MainWindow::importFiles(const QStringList& fileList, QString baseFolder)
+void MainWindow::importFiles(const QStringList& filesAndFolders, QString baseFolder, bool compressAfter)
 {
-    int listLength = static_cast<int>(fileList.count());
-    QProgressDialog progressDialog(tr("Importing files..."), tr("Cancel"), 0, listLength, this);
-    progressDialog.setWindowModality(Qt::WindowModal);
+    if (closePending || filesAndFolders.isEmpty()) {
+        return;
+    }
+    pendingImports.append({ filesAndFolders, std::move(baseFolder), compressAfter });
+    startNextImport();
+}
 
-    QList<CImage*> list;
-    for (int i = 0; i < listLength; i++) {
-        if (progressDialog.wasCanceled()) {
-            break;
-        }
-
-        try {
-            auto* cImage = new CImage(fileList.at(i));
-            if (this->cImageModel->contains(cImage)) {
-                continue;
+void MainWindow::startNextImport()
+{
+    if (closePending || importActive || cImageModel->isCompressing() || compressionWatcher->isRunning() || pendingImports.isEmpty()) {
+        return;
+    }
+    PendingImport next = pendingImports.takeFirst();
+    importActive = true;
+    importCancelFlag = std::make_shared<std::atomic_bool>(false);
+    // Busy (0..0) while scanning; the worker sets the real range once the file list is known.
+    importProgressDialog = new QProgressDialog(tr("Importing files..."), tr("Cancel"), 0, 0, this);
+    importProgressDialog->setWindowModality(Qt::WindowModal);
+    importProgressDialog->setMinimumDuration(0);
+    importProgressDialog->setAutoClose(false);
+    importProgressDialog->setAutoReset(false);
+    connect(importProgressDialog, &QProgressDialog::canceled, this, [flag = importCancelFlag] {
+        flag->store(true);
+    });
+    importProgressDialog->show();
+    bool subfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
+    importWatcher->setFuture(QtConcurrent::run(QThreadPool::globalInstance(),
+        [next, subfolders, flag = importCancelFlag](QPromise<ImportJobResult>& promise) {
+            QStringList files = Importer::scanList(next.paths, subfolders, flag.get());
+            ImportJobResult job;
+            job.baseFolder = next.baseFolder.isEmpty() ? Importer::getRootFolder(files) : next.baseFolder;
+            job.compressAfter = next.inheritedCompression || (next.compressAfter && !files.isEmpty());
+            if (!files.isEmpty()) {
+                promise.setProgressRange(0, static_cast<int>(files.size()));
+                job.result = Importer::buildImages(files, flag.get(), [&promise](int done) {
+                    promise.setProgressValue(done);
+                });
             }
-            list.append(cImage);
-        } catch (ImageNotSupportedException& e) {
-            qWarning() << fileList.at(i) << "is not supported. Error:" << e.what();
-        } catch (ImageTooBigException& e) {
-            qWarning() << fileList.at(i) << "is too big. Error:" << e.what();
+            job.result.canceled = job.result.canceled || flag->load();
+            job.ownedImages = std::shared_ptr<QList<CImage*>>(new QList<CImage*>(job.result.images), [](QList<CImage*>* images) {
+                qDeleteAll(*images);
+                delete images;
+            });
+            promise.addResult(std::move(job));
+        }));
+}
+
+void MainWindow::importFinished()
+{
+    if (!importActive || !importWatcher->isFinished()) {
+        return;
+    }
+    // Keep the result in the watcher if a batch was started externally.
+    if (cImageModel->isCompressing() && !closePending) {
+        return;
+    }
+    ImportJobResult job = importWatcher->result();
+    if (importProgressDialog) {
+        disconnect(importWatcher, nullptr, importProgressDialog, nullptr);
+        importProgressDialog->hide();
+        importProgressDialog->deleteLater();
+        importProgressDialog = nullptr;
+    }
+    if (!closePending) {
+        QList<CImage*> list;
+        for (CImage* image : job.result.images) {
+            if (cImageModel->contains(image)) {
+                delete image;
+            } else {
+                list.append(image);
+            }
         }
-
-        progressDialog.setValue(i);
+        job.ownedImages->clear();
+        if (!list.isEmpty()) {
+            updateFolderMap(std::move(job.baseFolder), static_cast<int>(list.size()));
+            QString rootFolder = Importer::getRootFolder(folderMap.keys());
+            cImageModel->appendItems(list, rootFolder);
+            importedFilesRootFolder = rootFolder;
+        }
+    } else {
+        qDeleteAll(*job.ownedImages);
+        job.ownedImages->clear();
     }
-
-    if (!list.isEmpty() && listLength > 0) {
-        this->updateFolderMap(std::move(baseFolder), static_cast<int>(list.count()));
-        QString rootFolder = Importer::getRootFolder(this->folderMap.keys());
-        this->cImageModel->appendItems(list, rootFolder);
-        this->importedFilesRootFolder = rootFolder;
+    importActive = false;
+    if (closePending) {
+        if (poolsFinished) {
+            close();
+        }
+        return;
     }
-
-    progressDialog.setValue(listLength);
+    if (!pendingImports.isEmpty()) {
+        if (job.compressAfter) {
+            pendingImports.last().inheritedCompression = true;
+        }
+        startNextImport();
+    } else if (job.compressAfter) {
+        startCompression();
+    }
 }
 
 void MainWindow::removeFiles(bool all)
 {
+    if (closePending || compressionWatcher->isRunning()) {
+        return;
+    }
     this->isItemRemovalRunning = true;
+    QList<int> rows;
     if (all) {
-        ui->imageList_TreeView->selectAll();
+        rows.reserve(cImageModel->rowCount());
+        for (int row = 0; row < cImageModel->rowCount(); ++row) {
+            rows.append(row);
+        }
+    } else {
+        for (const QModelIndex& proxyIndex : ui->imageList_TreeView->selectionModel()->selectedRows()) {
+            rows.append(proxyModel->mapToSource(proxyIndex).row());
+        }
     }
-    QModelIndexList indexes = ui->imageList_TreeView->selectionModel()->selectedIndexes();
-    std::sort(indexes.begin(), indexes.end(), [](const QModelIndex& a, const QModelIndex& b) {
-        return a.row() < b.row();
-    });
-
-    int columnCount = this->cImageModel->columnCount();
-
-    for (long long i = indexes.count() / columnCount; i > 0; i--) {
-        auto currentIndex = this->proxyModel->mapToSource(indexes.at(i));
-        auto indexRow = currentIndex.row();
-        auto indexParent = currentIndex.parent();
-        this->updateFolderMap(this->cImageModel->getRootItem()->children().at(indexRow)->getCImage()->getFullPath(), -1);
-        this->cImageModel->removeRows(indexRow, 1, indexParent);
+    for (int row : rows) {
+        this->updateFolderMap(cImageModel->getRootItem()->child(row)->getCImage()->getFullPath(), -1);
     }
+    cImageModel->removeItems(rows);
     this->previewWatcher->cancel();
     ui->preview_GraphicsView->removePixmap();
     ui->previewCompressed_GraphicsView->removePixmap();
@@ -586,6 +678,9 @@ void MainWindow::on_compress_Button_clicked()
 
 void MainWindow::startCompression(bool onlyFailed)
 {
+    if (closePending || importActive || !pendingImports.isEmpty() || cImageModel->isCompressing()) {
+        return;
+    }
 
     if (ui->outputFolder_LineEdit->text().isEmpty() && !ui->sameOutputFolderAsInput_CheckBox->isChecked()) {
         QCaesiumMessageBox msgBox;
@@ -613,6 +708,9 @@ void MainWindow::startCompression(bool onlyFailed)
             return;
         }
     }
+    if (closePending || importActive || !pendingImports.isEmpty() || cImageModel->isCompressing()) {
+        return;
+    }
     int totalImages = this->cImageModel->getRootItem()->childCount();
 
     if (totalImages == 0) {
@@ -620,27 +718,12 @@ void MainWindow::startCompression(bool onlyFailed)
     }
 
     if (!QSettings().value("preferences/general/multithreading", true).toBool()) {
-        QThreadPool::globalInstance()->setMaxThreadCount(1);
+        compressionPool->setMaxThreadCount(1);
     } else {
-        int maxThreads = QSettings().value("preferences/general/multithreading_max_threads", QThread::idealThreadCount()).toInt();
-        QThreadPool::globalInstance()->setMaxThreadCount(maxThreads);
+        int maxThreads = QSettings().value("preferences/general/multithreading_max_threads", defaultMaxThreads()).toInt();
+        compressionPool->setMaxThreadCount(maxThreads);
     }
-    QThreadPool::globalInstance()->setThreadPriority(QSettings().value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>());
-
-    this->compressionWatcher = new QFutureWatcher<void>();
-    connect(this->compressionWatcher, &QFutureWatcherBase::finished, this, &MainWindow::compressionFinished);
-    
-    connect(this->compressionWatcher, &QFutureWatcherBase::finished, [this] {
-        
-        size_t rowCount = this->cImageModel->rowCount();
-    
-        for(size_t i = 0; i < rowCount; ++i) {
-            this->cImageModel->emitDataChanged(i);
-        }
-    });
-
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this->cImageModel, &CImageTreeModel::emitDataChanged);
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, this, &MainWindow::updateCompressionProgressLabel);
+    compressionPool->setThreadPriority(QSettings().value("preferences/general/threads_priority", QThread::NormalPriority).value<QThread::Priority>());
 
     ui->cancelCompression_Button->show();
     ui->compression_ProgressBar->show();
@@ -650,16 +733,11 @@ void MainWindow::startCompression(bool onlyFailed)
     ui->compressionProgress_Label->setText(tr("Compressing...") + QString(" (%1/%2)").arg("0", QString::number(totalImages)));
     ui->compression_ProgressBar->setMinimum(0);
     ui->compression_ProgressBar->setMaximum(totalImages);
-    connect(this->compressionWatcher, &QFutureWatcherBase::progressValueChanged, ui->compression_ProgressBar, &QProgressBar::setValue);
-    connect(ui->cancelCompression_Button, &QPushButton::clicked, this, &MainWindow::compressionCanceled);
 
     CompressionOptions compressionOptions = this->getCompressionOptions(rootFolder);
 
-    if (onlyFailed) {
-        this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compressOnlyFailed(compressionOptions));
-    } else {
-        this->compressionWatcher->setFuture(this->cImageModel->getRootItem()->compress(compressionOptions));
-    }
+    proxyModel->setDynamicSortFilter(false);
+    this->compressionWatcher->setFuture(cImageModel->compress(compressionPool, compressionOptions, onlyFailed));
 
     compressionSummary.totalImages = this->cImageModel->rowCount();
     compressionSummary.totalUncompressedSize = this->cImageModel->originalItemsSize();
@@ -731,7 +809,7 @@ void MainWindow::on_removeFiles_Button_clicked()
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    if (QSettings().value("preferences/general/prompt_before_exit", false).toBool()) {
+    if (!closePending && QSettings().value("preferences/general/prompt_before_exit", false).toBool()) {
         QCaesiumMessageBox exitPrompt;
         exitPrompt.setText(tr("Do you really want to quit?"));
 
@@ -746,9 +824,40 @@ void MainWindow::closeEvent(QCloseEvent* event)
         }
     }
 
+    if (!poolsFinished) {
+        event->ignore();
+        if (closePending) {
+            return;
+        }
+        closePending = true;
+        pendingImports.clear();
+        if (importCancelFlag) {
+            importCancelFlag->store(true);
+        }
+        toggleUIEnabled(false);
+        if (cImageModel->isCompressing()) {
+            cImageModel->cancelCompression();
+        }
+        previewWatcher->cancel();
+        auto* shutdownWatcher = new QFutureWatcher<void>(this);
+        connect(shutdownWatcher, &QFutureWatcher<void>::finished, this, [this, shutdownWatcher] {
+            poolsFinished = true;
+            shutdownWatcher->deleteLater();
+            close();
+        });
+        // Join every abandoned preview before deleting its cache, without blocking the GUI.
+        shutdownWatcher->setFuture(QtConcurrent::run([compressionPool = compressionPool, previewPool = previewPool] {
+            compressionPool->waitForDone();
+            previewPool->waitForDone();
+        }));
+        return;
+    }
+    if (importActive) {
+        event->ignore();
+        return;
+    }
     this->writeSettings();
     MainWindow::clearCache();
-    this->previewWatcher->waitForFinished();
     qInfo() << "---- Closing application ----";
     Logger::closeLogFile();
     Logger::cleanOldLogs();
@@ -789,6 +898,7 @@ void MainWindow::imageList_selectionChanged()
     ui->actionShow_compressed_in_file_manager->setEnabled(this->selectedCount == 1);
 
     if (this->selectedCount == 0) {
+        this->previewWatcher->cancel();
         ui->preview_GraphicsView->removePixmap();
         ui->previewCompressed_GraphicsView->removePixmap();
         return;
@@ -806,7 +916,11 @@ void MainWindow::imageList_selectionChanged()
 
 void MainWindow::compressionFinished()
 {
-    this->cImageModel->getRootItem()->setCompressionCanceled(false);
+    cImageModel->flushPendingUpdates();
+    proxyModel->setDynamicSortFilter(true);
+    if (closePending) {
+        return;
+    }
     if (ui->imageList_TreeView->selectionModel()->selectedRows().count() > 0) {
         this->previewImage(this->proxyModel->mapToSource(ui->imageList_TreeView->selectionModel()->selectedRows().at(0)));
     }
@@ -835,6 +949,10 @@ void MainWindow::compressionFinished()
     PostCompressionAction postCompressionAction = static_cast<PostCompressionAction>(QSettings().value("preferences/general/post_compression_action", 0).toInt());
     if (postCompressionAction != PostCompressionAction::NO_ACTION) {
         PostCompressionActions::runAction(postCompressionAction, ui->outputFolder_LineEdit->text());
+        if (importActive && importWatcher->isFinished()) {
+            importFinished();
+        }
+        startNextImport();
         return;
     }
 
@@ -851,6 +969,10 @@ void MainWindow::compressionFinished()
         compressionSummaryDialog.addButton(tr("Ok"), QMessageBox::AcceptRole);
         compressionSummaryDialog.exec();
     }
+    if (importActive && importWatcher->isFinished()) {
+        importFinished();
+    }
+    startNextImport();
 }
 
 void MainWindow::on_actionRemove_triggered()
@@ -865,8 +987,7 @@ void MainWindow::on_actionClear_triggered()
 
 void MainWindow::dropFinished(const QStringList& filePaths)
 {
-    QString baseFolder = Importer::getRootFolder(filePaths);
-    this->importFiles(filePaths, baseFolder);
+    this->importFiles(filePaths, {});
 }
 
 void MainWindow::on_fitTo_ComboBox_currentIndexChanged(int index) const
@@ -1263,8 +1384,7 @@ void MainWindow::compressionCanceled() const
     ui->compression_ProgressBar->setMinimum(0);
     ui->compression_ProgressBar->setMaximum(0);
     ui->compression_ProgressBar->setValue(0);
-    this->cImageModel->getRootItem()->setCompressionCanceled(true);
-    this->compressionWatcher->cancel();
+    this->cImageModel->cancelCompression();
 }
 
 void MainWindow::listSortChanged(int logicalIndex, Qt::SortOrder order)
@@ -1317,6 +1437,7 @@ void MainWindow::on_actionToolbarHide_triggered() const
 
 void MainWindow::toggleUIEnabled(bool enabled) const
 {
+    ui->imageList_TreeView->setAcceptDrops(enabled);
     ui->toolBar->setEnabled(enabled);
     ui->parameters_TabWidget->setEnabled(enabled);
     ui->listActions_Frame->setEnabled(enabled);
@@ -1389,18 +1510,8 @@ void MainWindow::outputFormatIndexChanged(int index) const
 
 void MainWindow::importFromArgs(const QStringList& args)
 {
-    bool scanSubfolders = QSettings().value("preferences/general/import_subfolders", true).toBool();
-    QStringList filesList = Importer::scanList(args, scanSubfolders);
-    if (filesList.isEmpty()) {
-        return;
-    }
-
     ImportFromArgsMethod argsBehaviour = static_cast<ImportFromArgsMethod>(QSettings().value("preferences/general/args_behaviour", 0).toInt());
-    QString baseFolder = Importer::getRootFolder(args);
-    this->importFiles(filesList, baseFolder);
-    if (argsBehaviour == IMPORT_AND_COMPRESS) {
-        this->startCompression();
-    }
+    this->importFiles(args, Importer::getRootFolder(args), argsBehaviour == IMPORT_AND_COMPRESS);
 }
 
 void MainWindow::moveOriginalFileToggled(bool checked) const

@@ -28,6 +28,7 @@ public:
     QString getRichFormattedSavedRatio() const;
     bool compress(const CompressionOptions& compressionOptions);
     bool preview(const CompressionOptions& compressionOptions) const;
+    bool preview(const CompressionOptions& compressionOptions, const QString& outputFullPath) const;
     QString getCompressedFullPath() const;
     QString getTemporaryPreviewFullPath() const;
     QString getPreviewFullPath() const;

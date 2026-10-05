@@ -2,11 +2,6 @@
 
 #include <QDragEnterEvent>
 #include <QMimeData>
-#include <QSettings>
-
-#include <QFileInfo>
-#include <services/Importer.h>
-#include <utils/Utils.h>
 
 QDropTreeView::QDropTreeView(QWidget* parent)
     : QTreeView(parent)
@@ -30,13 +25,8 @@ void QDropTreeView::dropEvent(QDropEvent* event)
     QStringList fileList;
     if (mimeData->hasFormat("text/uri-list")) {
         foreach (QUrl url, urlList) {
-            QString absolutePath = url.toLocalFile();
-            if (QFileInfo(absolutePath).isFile()) {
+            if (url.isLocalFile()) {
                 fileList << url.toLocalFile();
-            } else if (QFileInfo(absolutePath).isDir()) {
-                QSettings settings;
-                bool scanSubfolders = settings.value("preferences/general/import_subfolders", true).toBool();
-                fileList.append(Importer::scanDirectory(absolutePath, scanSubfolders));
             }
         }
     }
