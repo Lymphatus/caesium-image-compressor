@@ -48,10 +48,6 @@ elseif (WIN32)
     set(CAESIUM_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icons.rc)
 endif ()
 
-if (NOT (DEFINED ENV{CMAKE_PREFIX_PATH} OR DEFINED CMAKE_PREFIX_PATH))
-    message(FATAL_ERROR "CMAKE_PREFIX_PATH is not defined. Cannot find Qt dir.")
-endif ()
-
 if (WIN32)
     set(WINSPARKLE_LIB_DIR ${CMAKE_BINARY_DIR}/libwinsparkle-prefix/src/libwinsparkle/x64/Release)
     link_directories(${WINSPARKLE_LIB_DIR})
@@ -215,19 +211,21 @@ else ()
     set(LIBCAESIUM_EXTERNAL_PATH ${LIBCAESIUM_SOURCE_DIR}/target/${LIBCAESIUM_BUILD_TYPE}/libcaesium.so)
 endif ()
 
-ExternalProject_Add(
-        libcaesium
-        GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
-        GIT_TAG ${LIBCAESIUM_VERSION}
-        CONFIGURE_COMMAND ""
-        BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
-        INSTALL_COMMAND ""
-        BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
-        LOG_OUTPUT_ON_FAILURE ON
-        LOG_BUILD ON
-        BUILD_BYPRODUCTS ${LIBCAESIUM_EXTERNAL_PATH}
-)
-add_dependencies(${TARGET} libcaesium)
+if (NOT LIBCAESIUM)
+    ExternalProject_Add(
+            libcaesium
+            GIT_REPOSITORY https://github.com/Lymphatus/libcaesium
+            GIT_TAG ${LIBCAESIUM_VERSION}
+            CONFIGURE_COMMAND ""
+            BUILD_COMMAND ${CARGO} build ${CARGO_BUILD_FLAGS} ${CARGO_TARGET}
+            INSTALL_COMMAND ""
+            BINARY_DIR ${LIBCAESIUM_SOURCE_DIR}
+            LOG_OUTPUT_ON_FAILURE ON
+            LOG_BUILD ON
+            BUILD_BYPRODUCTS ${LIBCAESIUM_EXTERNAL_PATH}
+    )
+    add_dependencies(${TARGET} libcaesium)
+endif ()
 
 # --- WinSparkle ---
 if (WIN32)
@@ -258,7 +256,9 @@ elseif (WIN32)
 else ()
     set_target_properties(${TARGET} PROPERTIES OUTPUT_NAME "caesium-image-compressor")
     target_link_libraries(${TARGET} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Concurrent Qt${QT_VERSION_MAJOR}::Svg Qt${QT_VERSION_MAJOR}::Network)
-    if (NOT LIBCAESIUM)
+    if (LIBCAESIUM)
+        target_link_libraries(${TARGET} PRIVATE ${LIBCAESIUM})
+    else ()
         target_link_libraries(${TARGET} PRIVATE caesium)
     endif ()
 endif ()

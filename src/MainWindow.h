@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QButtonGroup>
+#include <QElapsedTimer>
 #include <QFutureWatcher>
 #include <QItemSelection>
 #include <QMainWindow>
