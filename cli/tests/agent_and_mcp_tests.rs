@@ -153,7 +153,10 @@ fn mcp_server_implements_initialize_tools_resources_and_prompts() {
         }))
         .unwrap();
     assert_eq!(inspect_resp["result"]["isError"], false);
-    assert_eq!(inspect_resp["result"]["structuredContent"]["items"][0]["width"], 120);
+    assert_eq!(
+        inspect_resp["result"]["structuredContent"]["items"][0]["width"],
+        120
+    );
 
     // Call caesium_compress with format conversion to webp
     let comp_resp = server
@@ -185,7 +188,10 @@ fn mcp_server_implements_initialize_tools_resources_and_prompts() {
             "params": {}
         }))
         .unwrap();
-    assert!(!res_list["result"]["resources"].as_array().unwrap().is_empty());
+    assert!(!res_list["result"]["resources"]
+        .as_array()
+        .unwrap()
+        .is_empty());
 
     let res_read = server
         .handle_message(json!({

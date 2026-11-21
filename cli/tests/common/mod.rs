@@ -30,7 +30,13 @@ pub fn create_gradient_rgba(width: u32, height: u32) -> DynamicImage {
     DynamicImage::ImageRgba8(img)
 }
 
-pub fn save_fixture(dir: &Path, name: &str, width: u32, height: u32, format: ImageFormat) -> PathBuf {
+pub fn save_fixture(
+    dir: &Path,
+    name: &str,
+    width: u32,
+    height: u32,
+    format: ImageFormat,
+) -> PathBuf {
     let path = dir.join(name);
     if let Some(parent) = path.parent() {
         std::fs::create_dir_all(parent).expect("create fixture parent dir");
