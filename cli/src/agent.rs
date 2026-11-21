@@ -54,12 +54,19 @@ impl AgentSession {
             "schema_version": SCHEMA_VERSION,
             "capabilities": capabilities_payload()
         });
-        writeln!(
+        if let Err(e) = writeln!(
             stdout,
             "{}",
             serde_json::to_string(&ready).unwrap_or_default()
-        )?;
-        stdout.flush()?;
+        )
+        .and_then(|_| stdout.flush())
+        {
+            return if e.kind() == io::ErrorKind::BrokenPipe {
+                Ok(())
+            } else {
+                Err(e)
+            };
+        }
 
         for line in stdin.lock().lines() {
             let line = line?;
@@ -68,12 +75,19 @@ impl AgentSession {
                 continue;
             }
             let response = self.handle_line(trimmed);
-            writeln!(
+            if let Err(e) = writeln!(
                 stdout,
                 "{}",
                 serde_json::to_string(&response).unwrap_or_default()
-            )?;
-            stdout.flush()?;
+            )
+            .and_then(|_| stdout.flush())
+            {
+                return if e.kind() == io::ErrorKind::BrokenPipe {
+                    Ok(())
+                } else {
+                    Err(e)
+                };
+            }
             if self.should_quit {
                 break;
             }

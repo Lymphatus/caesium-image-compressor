@@ -89,17 +89,23 @@ impl McpServer {
 
             if let Some(resp) = response {
                 let encoded = serde_json::to_string(&resp).unwrap_or_default();
-                if use_content_length {
+                let write_res = if use_content_length {
                     write!(
                         stdout,
                         "Content-Length: {}\r\n\r\n{}",
                         encoded.len(),
                         encoded
-                    )?;
+                    )
+                    .and_then(|_| stdout.flush())
                 } else {
-                    writeln!(stdout, "{encoded}")?;
+                    writeln!(stdout, "{encoded}").and_then(|_| stdout.flush())
+                };
+                if let Err(e) = write_res {
+                    if e.kind() == io::ErrorKind::BrokenPipe {
+                        break;
+                    }
+                    return Err(e);
                 }
-                stdout.flush()?;
             }
         }
 

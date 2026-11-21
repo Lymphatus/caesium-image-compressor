@@ -619,7 +619,13 @@ fn dispatch(cli: Cli, style: OutputStyle) -> CliResult<i32> {
         Some(Commands::Doctor) => handle_doctor(style, &config_store),
         Some(Commands::Completions { shell }) => {
             let mut cmd = Cli::command();
-            generate(shell, &mut cmd, APP_NAME, &mut io::stdout());
+            let mut buf = Vec::new();
+            generate(shell, &mut cmd, APP_NAME, &mut buf);
+            if let Err(e) = io::stdout().write_all(&buf) {
+                if e.kind() != io::ErrorKind::BrokenPipe {
+                    return Err(e.into());
+                }
+            }
             Ok(exit_codes::SUCCESS)
         }
     }
