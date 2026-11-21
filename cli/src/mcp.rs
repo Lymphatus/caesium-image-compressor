@@ -53,25 +53,26 @@ impl McpServer {
                 continue;
             }
 
-            let (msg_str, use_content_length) = if trimmed.to_ascii_lowercase().starts_with("content-length:") {
-                let len: usize = trimmed
-                    .split_once(':')
-                    .and_then(|(_, v)| v.trim().parse().ok())
-                    .unwrap_or(0);
-                // Consume remaining headers until empty line
-                loop {
-                    let mut hdr = String::new();
-                    let r = reader.read_line(&mut hdr)?;
-                    if r == 0 || hdr.trim().is_empty() {
-                        break;
+            let (msg_str, use_content_length) =
+                if trimmed.to_ascii_lowercase().starts_with("content-length:") {
+                    let len: usize = trimmed
+                        .split_once(':')
+                        .and_then(|(_, v)| v.trim().parse().ok())
+                        .unwrap_or(0);
+                    // Consume remaining headers until empty line
+                    loop {
+                        let mut hdr = String::new();
+                        let r = reader.read_line(&mut hdr)?;
+                        if r == 0 || hdr.trim().is_empty() {
+                            break;
+                        }
                     }
-                }
-                let mut body = vec![0u8; len];
-                reader.read_exact(&mut body)?;
-                (String::from_utf8_lossy(&body).to_string(), true)
-            } else {
-                (trimmed.to_string(), false)
-            };
+                    let mut body = vec![0u8; len];
+                    reader.read_exact(&mut body)?;
+                    (String::from_utf8_lossy(&body).to_string(), true)
+                } else {
+                    (trimmed.to_string(), false)
+                };
 
             let parsed: Result<Value, _> = serde_json::from_str(&msg_str);
             let response = match parsed {
@@ -89,7 +90,12 @@ impl McpServer {
             if let Some(resp) = response {
                 let encoded = serde_json::to_string(&resp).unwrap_or_default();
                 if use_content_length {
-                    write!(stdout, "Content-Length: {}\r\n\r\n{}", encoded.len(), encoded)?;
+                    write!(
+                        stdout,
+                        "Content-Length: {}\r\n\r\n{}",
+                        encoded.len(),
+                        encoded
+                    )?;
                 } else {
                     writeln!(stdout, "{encoded}")?;
                 }
@@ -143,7 +149,10 @@ impl McpServer {
             })),
             "tools/call" => {
                 let tool_name = params.get("name").and_then(Value::as_str).unwrap_or("");
-                let args = params.get("arguments").cloned().unwrap_or_else(|| json!({}));
+                let args = params
+                    .get("arguments")
+                    .cloned()
+                    .unwrap_or_else(|| json!({}));
                 let call_result = self.call_tool(tool_name, &args);
                 Some(match call_result {
                     Ok(payload) => json!({
@@ -264,7 +273,10 @@ impl McpServer {
             })),
             "prompts/get" => {
                 let name = params.get("name").and_then(Value::as_str).unwrap_or("");
-                let args = params.get("arguments").cloned().unwrap_or_else(|| json!({}));
+                let args = params
+                    .get("arguments")
+                    .cloned()
+                    .unwrap_or_else(|| json!({}));
                 match self.get_prompt(name, &args) {
                     Ok(prompt) => Some(json!({
                         "jsonrpc": "2.0",
@@ -418,7 +430,10 @@ impl McpServer {
         match name {
             "caesium_inspect" => {
                 let paths = extract_paths(args, "paths")?;
-                let recursive = args.get("recursive").and_then(Value::as_bool).unwrap_or(true);
+                let recursive = args
+                    .get("recursive")
+                    .and_then(Value::as_bool)
+                    .unwrap_or(true);
                 let scan = scan_inputs(
                     &paths,
                     &ScanOptions {
@@ -466,10 +481,7 @@ impl McpServer {
                 execute_batch_spec(&spec, &self.presets)
             }
             "caesium_presets" => {
-                let action = args
-                    .get("action")
-                    .and_then(Value::as_str)
-                    .unwrap_or("list");
+                let action = args.get("action").and_then(Value::as_str).unwrap_or("list");
                 match action {
                     "list" => Ok(json!({ "presets": self.presets.list()? })),
                     "get" => {
@@ -532,7 +544,10 @@ impl McpServer {
             }
         }
 
-        let recursive = args.get("recursive").and_then(Value::as_bool).unwrap_or(true);
+        let recursive = args
+            .get("recursive")
+            .and_then(Value::as_bool)
+            .unwrap_or(true);
         let filters: ImportFilters = args
             .get("filters")
             .cloned()
@@ -573,7 +588,11 @@ impl McpServer {
             ));
         };
 
-        if args.get("dry_run").and_then(Value::as_bool).unwrap_or(false) {
+        if args
+            .get("dry_run")
+            .and_then(Value::as_bool)
+            .unwrap_or(false)
+        {
             let plan = dry_run_batch(&scan.files, target, &opts, Some(scan.root_folder))?;
             return Ok(serde_json::to_value(plan)?);
         }
@@ -739,15 +758,12 @@ impl McpServer {
 }
 
 fn extract_paths(args: &Value, field: &str) -> CliResult<Vec<PathBuf>> {
-    let arr = args
-        .get(field)
-        .and_then(Value::as_array)
-        .ok_or_else(|| {
-            CaesiumCliError::new(
-                ErrorCode::InvalidInput,
-                format!("Missing required string array field '{field}'"),
-            )
-        })?;
+    let arr = args.get(field).and_then(Value::as_array).ok_or_else(|| {
+        CaesiumCliError::new(
+            ErrorCode::InvalidInput,
+            format!("Missing required string array field '{field}'"),
+        )
+    })?;
     Ok(arr
         .iter()
         .filter_map(Value::as_str)
@@ -820,7 +836,9 @@ pub fn execute_batch_spec(spec: &BatchJobSpec, presets: &PresetStore) -> CliResu
         } else {
             return Err(CaesiumCliError::new(
                 ErrorCode::InvalidOption,
-                format!("Task '{task_name}' requires 'output' or 'options.same_folder_as_input: true'"),
+                format!(
+                    "Task '{task_name}' requires 'output' or 'options.same_folder_as_input: true'"
+                ),
             ));
         };
 

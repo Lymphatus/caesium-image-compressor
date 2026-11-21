@@ -149,7 +149,8 @@ impl PresetStore {
             },
             PresetEntry {
                 name: "web".into(),
-                description: "Web-optimized WebP (Q75), stripped metadata, progressive JPEG fallback".into(),
+                description:
+                    "Web-optimized WebP (Q75), stripped metadata, progressive JPEG fallback".into(),
                 builtin: true,
                 options: web,
             },
@@ -167,19 +168,23 @@ impl PresetStore {
             },
             PresetEntry {
                 name: "social".into(),
-                description: "2048px long-edge progressive JPEG (Q82) ready for social sharing".into(),
+                description: "2048px long-edge progressive JPEG (Q82) ready for social sharing"
+                    .into(),
                 builtin: true,
                 options: social,
             },
             PresetEntry {
                 name: "email".into(),
-                description: "Target max 300 KB and <=1600px long edge for email attachments".into(),
+                description: "Target max 300 KB and <=1600px long edge for email attachments"
+                    .into(),
                 builtin: true,
                 options: email,
             },
             PresetEntry {
                 name: "archive".into(),
-                description: "Maximum lossless PNG/TIFF compression preserving metadata and file dates".into(),
+                description:
+                    "Maximum lossless PNG/TIFF compression preserving metadata and file dates"
+                        .into(),
                 builtin: true,
                 options: archive,
             },

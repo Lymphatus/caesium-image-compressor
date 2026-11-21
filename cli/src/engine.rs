@@ -282,7 +282,9 @@ pub fn compute_resize_target(
                 return (0, 0);
             }
             let out_w = ((eff_w as f64) * (r.width as f64) / 100.0).round().max(1.0) as u32;
-            let out_h = ((eff_h as f64) * (r.height as f64) / 100.0).round().max(1.0) as u32;
+            let out_h = ((eff_h as f64) * (r.height as f64) / 100.0)
+                .round()
+                .max(1.0) as u32;
             (out_w, out_h)
         }
         ResizeMode::FixedWidth => {
@@ -373,7 +375,9 @@ pub fn resolve_output_path(
         OutputTarget::Directory(base_out) => {
             if options.keep_structure {
                 let input_parent = input.parent().unwrap_or_else(|| Path::new(""));
-                let rel = input_parent.strip_prefix(root_folder).unwrap_or(Path::new(""));
+                let rel = input_parent
+                    .strip_prefix(root_folder)
+                    .unwrap_or(Path::new(""));
                 base_out.join(rel)
             } else {
                 base_out.clone()
@@ -423,8 +427,7 @@ pub fn compress_bytes(input_bytes: &[u8], options: &CompressionOptions) -> CliRe
         .and_then(|r| r.into_dimensions().ok())
         .unwrap_or((0, 0));
     let orientation = read_exif_orientation(input_bytes);
-    let (target_w, target_h) =
-        compute_resize_target(raw_dims.0, raw_dims.1, orientation, options);
+    let (target_w, target_h) = compute_resize_target(raw_dims.0, raw_dims.1, orientation, options);
 
     let mut cs_params = options.to_cs_parameters(target_w, target_h);
 
@@ -1037,7 +1040,9 @@ fn atomic_write(dest: &Path, bytes: &[u8]) -> std::io::Result<()> {
         .parent()
         .filter(|p| !p.as_os_str().is_empty())
         .unwrap_or_else(|| Path::new("."));
-    let mut tmp = TempBuilder::new().prefix(".caesium-tmp-").tempfile_in(parent)?;
+    let mut tmp = TempBuilder::new()
+        .prefix(".caesium-tmp-")
+        .tempfile_in(parent)?;
     use std::io::Write;
     tmp.write_all(bytes)?;
     tmp.flush()?;

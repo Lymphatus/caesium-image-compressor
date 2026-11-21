@@ -54,7 +54,11 @@ impl AgentSession {
             "schema_version": SCHEMA_VERSION,
             "capabilities": capabilities_payload()
         });
-        writeln!(stdout, "{}", serde_json::to_string(&ready).unwrap_or_default())?;
+        writeln!(
+            stdout,
+            "{}",
+            serde_json::to_string(&ready).unwrap_or_default()
+        )?;
         stdout.flush()?;
 
         for line in stdin.lock().lines() {

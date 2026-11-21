@@ -54,9 +54,13 @@ pub fn common_root_folder(paths: &[PathBuf]) -> PathBuf {
         .iter()
         .map(|p| {
             if p.is_file() {
-                p.parent().map(Path::to_path_buf).unwrap_or_else(|| p.clone())
+                p.parent()
+                    .map(Path::to_path_buf)
+                    .unwrap_or_else(|| p.clone())
             } else if !p.exists() && p.extension().is_some() {
-                p.parent().map(Path::to_path_buf).unwrap_or_else(|| p.clone())
+                p.parent()
+                    .map(Path::to_path_buf)
+                    .unwrap_or_else(|| p.clone())
             } else {
                 p.clone()
             }

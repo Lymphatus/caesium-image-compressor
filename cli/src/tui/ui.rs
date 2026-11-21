@@ -51,10 +51,15 @@ fn render_header(frame: &mut Frame, app: &TuiApp, area: Rect) {
         app.queue.len(),
         format_human_size(app.total_original_bytes() as i64)
     );
-    let p = Paragraph::new(Line::from(vec![
-        Span::styled(title, Style::default().fg(ACCENT).add_modifier(Modifier::BOLD)),
-    ]))
-    .block(Block::default().borders(Borders::ALL).border_style(Style::default().fg(ACCENT)));
+    let p = Paragraph::new(Line::from(vec![Span::styled(
+        title,
+        Style::default().fg(ACCENT).add_modifier(Modifier::BOLD),
+    )]))
+    .block(
+        Block::default()
+            .borders(Borders::ALL)
+            .border_style(Style::default().fg(ACCENT)),
+    );
     frame.render_widget(p, area);
 }
 
@@ -98,7 +103,10 @@ fn render_queue(frame: &mut Frame, app: &TuiApp, area: Rect) {
             };
             let res_cell = match (&item.result, &item.info) {
                 (Some(r), _) if r.compressed_dimensions.0 > 0 => {
-                    format!("{}x{}", r.compressed_dimensions.0, r.compressed_dimensions.1)
+                    format!(
+                        "{}x{}",
+                        r.compressed_dimensions.0, r.compressed_dimensions.1
+                    )
                 }
                 (_, Some(i)) => format!("{}x{}", i.effective_width, i.effective_height),
                 _ => "-".to_string(),
@@ -196,15 +204,25 @@ fn render_settings(frame: &mut Frame, app: &TuiApp, area: Rect) {
                 match o.mode {
                     CompressionMode::Quality => "Quality".into(),
                     CompressionMode::Size => {
-                        format!("Size ({}{})", o.max_output_size.value, o.max_output_size.unit.label())
+                        format!(
+                            "Size ({}{})",
+                            o.max_output_size.value,
+                            o.max_output_size.unit.label()
+                        )
                     }
                 },
             ),
             ("JPEG Quality".into(), format!("{}%", o.jpeg_quality)),
-            ("JPEG Chroma".into(), o.jpeg_chroma_subsampling.label().into()),
+            (
+                "JPEG Chroma".into(),
+                o.jpeg_chroma_subsampling.label().into(),
+            ),
             ("JPEG Progressive".into(), yn(o.jpeg_progressive)),
             ("PNG Quality".into(), format!("{}%", o.png_quality)),
-            ("PNG Opt Level".into(), format!("{} (0-6)", o.png_optimization_level)),
+            (
+                "PNG Opt Level".into(),
+                format!("{} (0-6)", o.png_optimization_level),
+            ),
             ("PNG Zopfli".into(), yn(o.png_force_zopfli)),
             ("WebP Quality".into(), format!("{}%", o.webp_quality)),
             ("GIF Quality".into(), format!("{}%", o.gif_quality)),
@@ -222,7 +240,10 @@ fn render_settings(frame: &mut Frame, app: &TuiApp, area: Rect) {
             ("Keep Aspect Ratio".into(), yn(o.resize.keep_aspect_ratio)),
         ],
         ActiveTab::Output => vec![
-            ("Output Folder [Enter]".into(), app.output_folder.to_string_lossy().to_string()),
+            (
+                "Output Folder [Enter]".into(),
+                app.output_folder.to_string_lossy().to_string(),
+            ),
             ("Same Folder as Input".into(), yn(o.same_folder_as_input)),
             ("Keep Structure".into(), yn(o.keep_structure)),
             ("Skip if Bigger".into(), yn(o.skip_if_bigger)),
@@ -230,8 +251,18 @@ fn render_settings(frame: &mut Frame, app: &TuiApp, area: Rect) {
             ("Format".into(), o.format.canonical_name().to_uppercase()),
             ("Keep Modified Date".into(), yn(o.keep_dates.modified)),
             ("Keep Accessed Date".into(), yn(o.keep_dates.accessed)),
-            ("Suffix [Enter]".into(), if o.suffix.is_empty() { "(none)".into() } else { o.suffix.clone() }),
-            ("Max Size Unit".into(), o.max_output_size.unit.label().into()),
+            (
+                "Suffix [Enter]".into(),
+                if o.suffix.is_empty() {
+                    "(none)".into()
+                } else {
+                    o.suffix.clone()
+                },
+            ),
+            (
+                "Max Size Unit".into(),
+                o.max_output_size.unit.label().into(),
+            ),
         ],
     };
 
@@ -251,7 +282,10 @@ fn render_settings(frame: &mut Frame, app: &TuiApp, area: Rect) {
             };
             ListItem::new(Line::from(vec![
                 Span::styled(format!("{prefix}{k:<22}"), style),
-                Span::styled(v, style.fg(if selected { Color::White } else { Color::Cyan })),
+                Span::styled(
+                    v,
+                    style.fg(if selected { Color::White } else { Color::Cyan }),
+                ),
             ]))
         })
         .collect();
@@ -346,7 +380,11 @@ fn render_inspector(frame: &mut Frame, app: &TuiApp, area: Rect) {
     frame.render_widget(
         Paragraph::new(preview_text)
             .wrap(Wrap { trim: true })
-            .block(Block::default().title(" Preview / Result ").borders(Borders::ALL)),
+            .block(
+                Block::default()
+                    .title(" Preview / Result ")
+                    .borders(Borders::ALL),
+            ),
         cols[1],
     );
 }
@@ -408,26 +446,22 @@ Queue & Actions
   R               Retry only failed images
   ?               Toggle this help screen
   q / Ctrl+C      Quit";
-            let p = Paragraph::new(text)
-                .wrap(Wrap { trim: false })
-                .block(
-                    Block::default()
-                        .title(" Help (Esc/Enter to close) ")
-                        .borders(Borders::ALL)
-                        .border_style(Style::default().fg(ACCENT)),
-                );
+            let p = Paragraph::new(text).wrap(Wrap { trim: false }).block(
+                Block::default()
+                    .title(" Help (Esc/Enter to close) ")
+                    .borders(Borders::ALL)
+                    .border_style(Style::default().fg(ACCENT)),
+            );
             frame.render_widget(p, area);
         }
         ModalKind::ConfirmOverwrite { .. } => {
             let text = "You are about to overwrite your original images in-place.\nThis action cannot be undone.\n\nPress [y] or [Enter] to overwrite, or [n] / [Esc] to cancel.";
-            let p = Paragraph::new(text)
-                .wrap(Wrap { trim: true })
-                .block(
-                    Block::default()
-                        .title(" ⚠ Confirm Overwrite ")
-                        .borders(Borders::ALL)
-                        .border_style(Style::default().fg(WARN)),
-                );
+            let p = Paragraph::new(text).wrap(Wrap { trim: true }).block(
+                Block::default()
+                    .title(" ⚠ Confirm Overwrite ")
+                    .borders(Borders::ALL)
+                    .border_style(Style::default().fg(WARN)),
+            );
             frame.render_widget(p, area);
         }
         ModalKind::Summary(s) => {
@@ -527,5 +561,9 @@ fn centered_rect(percent_x: u16, percent_y: u16, r: Rect) -> Rect {
 }
 
 fn yn(v: bool) -> String {
-    if v { "Yes".into() } else { "No".into() }
+    if v {
+        "Yes".into()
+    } else {
+        "No".into()
+    }
 }

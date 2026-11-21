@@ -159,7 +159,9 @@ impl TuiApp {
             active_preset_name: None,
             threads,
             selected_preview: None,
-            status_message: "Ready — press 'a' to add images, 'p' to preview, 'c' to compress, '?' for help".into(),
+            status_message:
+                "Ready — press 'a' to add images, 'p' to preview, 'c' to compress, '?' for help"
+                    .into(),
             modal: None,
             should_quit: false,
             compressing: false,
@@ -401,7 +403,10 @@ impl TuiApp {
                     self.modal = Some(ModalKind::ConfirmOverwrite { only_failed });
                 }
             },
-            ModalKind::PresetPicker { presets, mut selected } => match key.code {
+            ModalKind::PresetPicker {
+                presets,
+                mut selected,
+            } => match key.code {
                 KeyCode::Esc => {}
                 KeyCode::Up | KeyCode::Char('k') => {
                     selected = selected.saturating_sub(1);
@@ -628,7 +633,8 @@ impl TuiApp {
                         .iter()
                         .position(|c| *c == self.options.tiff_method)
                         .unwrap_or(1) as i32;
-                    self.options.tiff_method = all[(idx + delta).rem_euclid(all.len() as i32) as usize];
+                    self.options.tiff_method =
+                        all[(idx + delta).rem_euclid(all.len() as i32) as usize];
                 }
                 10 => {
                     let all = [
@@ -923,31 +929,51 @@ impl TuiApp {
         match self.sort_column {
             SortColumn::Name => self.queue.sort_by(|a, b| {
                 let ord = a.path.file_name().cmp(&b.path.file_name());
-                if asc { ord } else { ord.reverse() }
+                if asc {
+                    ord
+                } else {
+                    ord.reverse()
+                }
             }),
             SortColumn::Size => self.queue.sort_by(|a, b| {
                 let sa = a.info.as_ref().map(|i| i.size_bytes).unwrap_or(0);
                 let sb = b.info.as_ref().map(|i| i.size_bytes).unwrap_or(0);
                 let ord = sa.cmp(&sb);
-                if asc { ord } else { ord.reverse() }
+                if asc {
+                    ord
+                } else {
+                    ord.reverse()
+                }
             }),
             SortColumn::Resolution => self.queue.sort_by(|a, b| {
                 let pa = a.info.as_ref().map(|i| i.total_pixels).unwrap_or(0);
                 let pb = b.info.as_ref().map(|i| i.total_pixels).unwrap_or(0);
                 let ord = pa.cmp(&pb);
-                if asc { ord } else { ord.reverse() }
+                if asc {
+                    ord
+                } else {
+                    ord.reverse()
+                }
             }),
             SortColumn::Ratio => self.queue.sort_by(|a, b| {
                 let ra = a.result.as_ref().map(|r| r.saved_percent).unwrap_or(0.0);
                 let rb = b.result.as_ref().map(|r| r.saved_percent).unwrap_or(0.0);
                 let ord = ra.total_cmp(&rb);
-                if asc { ord } else { ord.reverse() }
+                if asc {
+                    ord
+                } else {
+                    ord.reverse()
+                }
             }),
             SortColumn::Status => self.queue.sort_by(|a, b| {
                 let sa = format!("{:?}", a.result.as_ref().map(|r| r.status));
                 let sb = format!("{:?}", b.result.as_ref().map(|r| r.status));
                 let ord = sa.cmp(&sb);
-                if asc { ord } else { ord.reverse() }
+                if asc {
+                    ord
+                } else {
+                    ord.reverse()
+                }
             }),
         }
     }

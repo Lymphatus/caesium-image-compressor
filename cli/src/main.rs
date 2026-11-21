@@ -1,3 +1,6 @@
-fn main() {
-    println!("{} {}", caesium_cli::APP_NAME, caesium_cli::APP_VERSION);
+use std::process::ExitCode;
+
+fn main() -> ExitCode {
+    let code = caesium_cli::cli::run_cli();
+    ExitCode::from(code as u8)
 }

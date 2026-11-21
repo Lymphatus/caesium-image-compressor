@@ -194,7 +194,6 @@ dependencies = [
  "clap_complete",
  "crossterm",
  "dirs",
- "filetime",
  "image",
  "img-parts",
  "infer",

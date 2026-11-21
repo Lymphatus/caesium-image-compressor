@@ -26,11 +26,13 @@ fn compresses_jpeg_png_webp_tiff_and_gif_to_output_dir() {
     let tiff = common::save_fixture(&in_dir, "scan.tiff", 100, 100, ImageFormat::Tiff);
     let gif = common::save_fixture(&in_dir, "anim.gif", 80, 80, ImageFormat::Gif);
 
-    let mut opts = CompressionOptions::default();
-    opts.jpeg_quality = 60;
-    opts.png_quality = 65;
-    opts.webp_quality = 55;
-    opts.skip_if_bigger = false;
+    let opts = CompressionOptions {
+        jpeg_quality: 60,
+        png_quality: 65,
+        webp_quality: 55,
+        skip_if_bigger: false,
+        ..Default::default()
+    };
 
     let report = run_batch(
         &[jpg, png, webp, tiff, gif],
@@ -58,13 +60,15 @@ fn compresses_to_target_max_size() {
     let target_bytes = (orig_size / 3).max(4096) as usize;
     let out_file = dir.path().join("small.jpg");
 
-    let mut opts = CompressionOptions::default();
-    opts.mode = CompressionMode::Size;
-    opts.max_output_size = MaxOutputSize {
-        value: target_bytes as u64,
-        unit: MaxOutputSizeUnit::Bytes,
+    let opts = CompressionOptions {
+        mode: CompressionMode::Size,
+        max_output_size: MaxOutputSize {
+            value: target_bytes as u64,
+            unit: MaxOutputSizeUnit::Bytes,
+        },
+        skip_if_bigger: false,
+        ..Default::default()
     };
-    opts.skip_if_bigger = false;
 
     let report = run_batch(
         &[in_file],
@@ -92,12 +96,14 @@ fn resizes_with_all_modes_and_respects_do_not_enlarge() {
 
     // Long edge 200 -> 200x100
     let out_long = dir.path().join("long.jpg");
-    let mut opts = CompressionOptions::default();
-    opts.skip_if_bigger = false;
-    opts.resize = ResizeOptions {
-        mode: ResizeMode::LongEdge,
-        edge: 200,
-        do_not_enlarge: true,
+    let mut opts = CompressionOptions {
+        skip_if_bigger: false,
+        resize: ResizeOptions {
+            mode: ResizeMode::LongEdge,
+            edge: 200,
+            do_not_enlarge: true,
+            ..Default::default()
+        },
         ..Default::default()
     };
     run_batch(
@@ -146,7 +152,10 @@ fn resizes_with_all_modes_and_respects_do_not_enlarge() {
         None,
     )
     .unwrap();
-    assert_eq!(image::image_dimensions(&out_no_enlarge).unwrap(), (400, 200));
+    assert_eq!(
+        image::image_dimensions(&out_no_enlarge).unwrap(),
+        (400, 200)
+    );
 }
 
 #[test]
@@ -162,15 +171,17 @@ fn converts_format_and_preserves_directory_structure_and_file_dates() {
     f.set_times(FileTimes::new().set_modified(pinned).set_accessed(pinned))
         .unwrap();
 
-    let mut opts = CompressionOptions::default();
-    opts.format = OutputFormat::WebP;
-    opts.webp_quality = 75;
-    opts.keep_structure = true;
-    opts.skip_if_bigger = false;
-    opts.keep_dates = KeepDatesOptions {
-        creation: false,
-        modified: true,
-        accessed: true,
+    let opts = CompressionOptions {
+        format: OutputFormat::WebP,
+        webp_quality: 75,
+        keep_structure: true,
+        skip_if_bigger: false,
+        keep_dates: KeepDatesOptions {
+            creation: false,
+            modified: true,
+            accessed: true,
+        },
+        ..Default::default()
     };
 
     let report = run_batch(
@@ -200,9 +211,11 @@ fn refuses_in_place_overwrite_unless_explicitly_enabled() {
     let dir = TempDir::new().unwrap();
     let input = common::save_fixture(dir.path(), "orig.jpg", 100, 100, ImageFormat::Jpeg);
 
-    let mut opts = CompressionOptions::default();
-    opts.same_folder_as_input = true;
-    opts.overwrite = false;
+    let mut opts = CompressionOptions {
+        same_folder_as_input: true,
+        overwrite: false,
+        ..Default::default()
+    };
 
     let err = run_batch(
         std::slice::from_ref(&input),
@@ -235,11 +248,16 @@ fn preview_and_dry_run_do_not_mutate_output_directory() {
     let input = common::save_fixture(dir.path(), "sample.jpg", 200, 150, ImageFormat::Jpeg);
     let out_dir = dir.path().join("never_created");
 
-    let mut opts = CompressionOptions::default();
-    opts.jpeg_quality = 50;
+    let opts = CompressionOptions {
+        jpeg_quality: 50,
+        ..Default::default()
+    };
 
     let preview = preview_file(&input, &opts).unwrap();
-    assert_eq!(preview.original_size, std::fs::metadata(&input).unwrap().len());
+    assert_eq!(
+        preview.original_size,
+        std::fs::metadata(&input).unwrap().len()
+    );
     assert!(preview.compressed_size > 0);
     assert!(!out_dir.exists());
 
@@ -260,9 +278,11 @@ fn compresses_and_converts_in_memory_for_stdin_stdout_streaming() {
     let input = common::save_fixture(dir.path(), "stream.png", 120, 120, ImageFormat::Png);
     let raw = std::fs::read(&input).unwrap();
 
-    let mut opts = CompressionOptions::default();
-    opts.format = OutputFormat::WebP;
-    opts.webp_quality = 70;
+    let opts = CompressionOptions {
+        format: OutputFormat::WebP,
+        webp_quality: 70,
+        ..Default::default()
+    };
 
     let out = compress_bytes(&raw, &opts).unwrap();
     assert!(!out.bytes.is_empty());
@@ -279,9 +299,11 @@ fn move_original_delete_and_receipt_retry_failed_work() {
     let broken = dir.path().join("broken.jpg");
     std::fs::write(&broken, b"not a valid jpeg").unwrap();
 
-    let mut opts = CompressionOptions::default();
-    opts.skip_if_bigger = false;
-    opts.move_original = MoveOriginalAction::Delete;
+    let opts = CompressionOptions {
+        skip_if_bigger: false,
+        move_original: MoveOriginalAction::Delete,
+        ..Default::default()
+    };
 
     let report = run_batch(
         &[valid.clone(), broken.clone()],

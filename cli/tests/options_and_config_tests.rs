@@ -1,8 +1,7 @@
 use caesium_cli::config::{ConfigStore, PresetStore};
 use caesium_cli::options::{
-    ChromaSubsamplingOption, CompressionMode, CompressionOptions, MaxOutputSize,
-    MaxOutputSizeUnit, OutputFormat, ResizeMode, ResizeOptions, TiffCompressionOption,
-    TiffDeflateLevelOption,
+    ChromaSubsamplingOption, CompressionMode, CompressionOptions, MaxOutputSize, MaxOutputSizeUnit,
+    OutputFormat, ResizeMode, ResizeOptions, TiffCompressionOption, TiffDeflateLevelOption,
 };
 use tempfile::TempDir;
 
@@ -74,7 +73,9 @@ fn validates_quality_ranges_and_emits_lossless_warnings() {
     opts.format = OutputFormat::WebP;
     let warnings = opts.warnings();
     assert!(
-        warnings.iter().any(|w| w.to_lowercase().contains("lossless")),
+        warnings
+            .iter()
+            .any(|w| w.to_lowercase().contains("lossless")),
         "expected lossless warning, got {:?}",
         warnings
     );
@@ -124,10 +125,12 @@ fn preset_store_has_builtins_and_persists_custom_presets() {
     assert!(builtins.iter().any(|p| p.name == "lossless"));
     assert!(builtins.iter().any(|p| p.name == "thumbnail"));
 
-    let mut custom = CompressionOptions::default();
-    custom.jpeg_quality = 72;
-    custom.format = OutputFormat::WebP;
-    custom.webp_quality = 75;
+    let custom = CompressionOptions {
+        jpeg_quality: 72,
+        format: OutputFormat::WebP,
+        webp_quality: 75,
+        ..Default::default()
+    };
     store
         .save("blog-hero", Some("Hero banner preset".into()), &custom)
         .unwrap();
@@ -184,7 +187,10 @@ output\format=3
     assert!(!imported.keep_metadata);
     assert!(imported.keep_structure);
     assert_eq!(imported.jpeg_quality, 65);
-    assert_eq!(imported.jpeg_chroma_subsampling, ChromaSubsamplingOption::Cs420);
+    assert_eq!(
+        imported.jpeg_chroma_subsampling,
+        ChromaSubsamplingOption::Cs420
+    );
     assert!(!imported.jpeg_progressive);
     assert_eq!(imported.png_quality, 70);
     assert_eq!(imported.png_optimization_level, 5);
