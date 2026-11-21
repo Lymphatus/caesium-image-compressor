@@ -1,10 +1,13 @@
 //! Caesium CLI, interactive TUI, and agent/MCP core library.
 
+pub mod agent;
 pub mod config;
 pub mod engine;
 pub mod error;
 pub mod inspect;
+pub mod mcp;
 pub mod options;
+pub mod output;
 pub mod post_action;
 pub mod scanner;
 

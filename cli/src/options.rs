@@ -28,12 +28,20 @@ pub enum CompressionMode {
 pub enum OutputFormat {
     #[default]
     Same,
-    #[value(alias = "jpeg")]
+    #[value(name = "jpg", alias = "jpeg")]
+    #[serde(rename = "jpg", alias = "jpeg")]
     Jpg,
+    #[value(name = "png")]
+    #[serde(rename = "png")]
     Png,
+    #[value(name = "webp")]
+    #[serde(rename = "webp")]
     WebP,
-    #[value(alias = "tif")]
+    #[value(name = "tiff", alias = "tif")]
+    #[serde(rename = "tiff", alias = "tif")]
     Tiff,
+    #[value(name = "gif")]
+    #[serde(rename = "gif")]
     Gif,
 }
 
