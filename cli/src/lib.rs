@@ -2,7 +2,9 @@
 
 pub mod config;
 pub mod error;
+pub mod inspect;
 pub mod options;
+pub mod scanner;
 
 pub const APP_NAME: &str = "caesium-cli";
 pub const APP_VERSION: &str = env!("CARGO_PKG_VERSION");
