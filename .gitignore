@@ -165,3 +165,6 @@ deploy.py
 manifests
 build
 ts.py
+
+# Rust CLI
+cli/target/

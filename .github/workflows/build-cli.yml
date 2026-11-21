@@ -1,0 +1,50 @@
+name: Build CLI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'cli/**'
+      - 'skills/**'
+      - '.github/workflows/build-cli.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'cli/**'
+      - 'skills/**'
+      - '.github/workflows/build-cli.yml'
+
+jobs:
+  check-and-test:
+    name: Test & Lint (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache Cargo registry & build
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cli -> target
+
+      - name: Check formatting
+        run: cargo fmt --manifest-path cli/Cargo.toml -- --check
+
+      - name: Clippy lints
+        run: cargo clippy --manifest-path cli/Cargo.toml --all-targets -- -D warnings
+
+      - name: Run tests
+        run: cargo test --manifest-path cli/Cargo.toml
+
+      - name: Build release binary
+        run: cargo build --manifest-path cli/Cargo.toml --release
