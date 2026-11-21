@@ -1,9 +1,11 @@
 //! Caesium CLI, interactive TUI, and agent/MCP core library.
 
 pub mod config;
+pub mod engine;
 pub mod error;
 pub mod inspect;
 pub mod options;
+pub mod post_action;
 pub mod scanner;
 
 pub const APP_NAME: &str = "caesium-cli";
