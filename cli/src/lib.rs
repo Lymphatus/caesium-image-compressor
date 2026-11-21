@@ -10,6 +10,7 @@ pub mod options;
 pub mod output;
 pub mod post_action;
 pub mod scanner;
+pub mod tui;
 
 pub const APP_NAME: &str = "caesium-cli";
 pub const APP_VERSION: &str = env!("CARGO_PKG_VERSION");
