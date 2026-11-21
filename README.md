@@ -55,7 +55,21 @@ Please open an [issue](https://github.com/Lymphatus/caesium-image-compressor/iss
 
 ### Build from source
 
-##### Requirements
+##### CLI, Interactive TUI, Agent / MCP Server & AI Skill
+
+Caesium also ships a standalone Rust CLI (`caesium-cli`) in [`cli/`](cli/README.md) built directly on `libcaesium` (zero Qt/display dependency), bringing full desktop GUI parity to the terminal and AI agents:
+
+- **One-shot CLI & Pipes:** `caesium-cli compress`, `convert`, `inspect`, `preview`, `batch`, `retry`, `preset`, `config import-gui`, `schema`, `capabilities`, `doctor`, `completions`, plus `compress - -o -` stdin/stdout streaming
+- **Interactive TUI:** `caesium-cli tui [PATHS...]` (or bare `caesium-cli` in a TTY) with file queue, Compression/Resize/Output tabs, live preview, presets, progress bar, and cancel/retry
+- **Agentic & MCP Native:** Universal `--json` / `--ndjson` output, Draft 2020-12 JSON Schema introspection, stateful NDJSON protocol (`caesium-cli agent`), and native stdio MCP server (`caesium-cli mcp`)
+- **AI Agent Skill:** [`skills/caesium-cli/SKILL.md`](skills/caesium-cli/SKILL.md)
+
+```bash
+cargo build --manifest-path cli/Cargo.toml --release
+cargo test --manifest-path cli/Cargo.toml
+```
+
+##### Requirements (Desktop GUI)
 
 - [Rust](https://www.rust-lang.org/tools/install): required to
   compile [libcaesium](https://github.com/Lymphatus/libcaesium). Make sure you have `cargo` executable on you `$PATH`
